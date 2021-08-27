@@ -1,6 +1,3 @@
-import game.MyActor
-from game.MyActor import *
-
 #Minden időzítőt a staehez vagy actorhoz lehet hozzáadni. A lényeg, hogy oda lehet beilleszteni, ahol megjelent az .add_timer(...) metódus.
 # pl.: text2.add_timer(MyTickTimer(self.tikk))
 #  ahol a text2 egy Button típus.

@@ -1,7 +1,7 @@
 import pygame
-from game.MyLifeCycles import *
-from game.MyTimer import *
-from game.MyBaseListeners import *
+from game.scene2d.MyLifeCycles import *
+from game.scene2d.MyTimer import *
+from game.scene2d.MyBaseListeners import *
 
 
 class MyBaseActor(MyLifeCycles):
@@ -128,20 +128,6 @@ class MyActor(MyBaseActor, MyBaseListeners):
         self._w = width
         self._h = height
         self.transform()
-        # if width == -1 and height == -1:
-        #     if self._w == -1 and self._h == -1:
-        #         self._surf = pygame.transform.scale(self._surf, (self.width, self.height))
-        #     else:
-        #         self._surf = pygame.transform.scale(self._surf, (self._w, self._h))
-        # else:
-        #     self._surf = pygame.transform.scale(self._surf, (width, height))
-        #     self._w = width
-        #     self._h = height
-        # self._update_pos()
-
-    def set_rotation(self, degree: int):
-        self.angle = degree
-        self.set_size(-1, -1)
 
     def rotate_with(self, degree: int):
         self.set_rotation(self.angle + degree)
