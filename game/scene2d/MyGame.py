@@ -1,8 +1,6 @@
 import time
 import pygame
-import abc
-from game.MyScreen import MyScreen
-from game.MyLifeCycles import *
+from game.scene2d.MyLifeCycles import *
 
 
 class MyGame(MyLifeCycles):

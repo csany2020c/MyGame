@@ -1,8 +1,6 @@
-import abc
-
-import game.MyGame
-import game.MyStage
-from game.MyLifeCycles import *
+import game.scene2d.MyGame
+import game.scene2d.MyStage
+from game.scene2d.MyLifeCycles import *
 
 
 class MyScreen(MyLifeCycles):

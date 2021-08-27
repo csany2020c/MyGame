@@ -1,10 +1,11 @@
 import abc
-
 from pygame.math import Vector2
+import math
+
 
 class MyShape(metaclass=abc.ABCMeta):
 
-    def __init__(self, x: float, y: float, width: float, height: float, rotation: float, offsetRotation: float, originX: float, originY: float, offsetX: float, offsetY: float, alignToLeftBottom: bool):
+    def __init__(self, x:float, y: float, width: float, height: float, rotation: float, offsetRotation: float, originX: float, originY: float, offsetX: float, offsetY: float, alignToLeftBottom: bool):
      #
      # @param x Az alakzat helye
      # @param y Az alakzat helye
@@ -119,209 +120,185 @@ class MyShape(metaclass=abc.ABCMeta):
     def overlaps(self, other: 'MyShape')->bool:
         pass
 
+    def setSizeByCenter(self, width: float, height: float):
+        olx = self.getLeftBottomX()
+        oly = self.getLeftBottomY()
+        oldW = self.width
+        oldH = self.height
+        oldOriginX = self.originX
+        oldOriginY = self.originY
+        orcx = self.realCenterX
+        orcy = self.self.realCenterY
 
-    public void setSizeByCenter(float width, float height) {
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
-        float oldW = self.width
-        float oldH = self.height
-        float oldOriginX = originX
-        float oldOriginY = originY
-        float orcx = realCenterX
-        float orcy = realCenterY
-
-        originX = originX / self.width * width
-        originY = originY / self.height * height
+        self.originX = self.originX / self.width * width
+        self.originY = self.originY / self.height * height
         self.width = width
         self.height = height
-        calculateCenterXY()
-        self.centerX += orcx - realCenterX
-        self.centerY += orcy - realCenterY
-        calculateCenterXY()
+        self.calculateCenterXY()
+        self.centerX += orcx - self.realCenterX
+        self.centerY += orcy - self.realCenterY
+        self.calculateCenterXY()
 
-        sizeChanged(width, height, oldW, oldH)
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-        //originChanged(originX, originY, oldOriginX, oldOriginY)
-    }
+        self.sizeChanged(width, height, oldW, oldH)
+        self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
 
-    public void setSize(float width, float height) {
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
-        float oldOriginX = originX
-        float oldOriginY = originY
-        float oldW = self.width
-        float oldH = self.height
+    def setSize(self, width: float, height: float):
+        olx = self.getLeftBottomX()
+        oly = self.getLeftBottomY()
+        oldOriginX = self.originX
+        oldOriginY = self.originY
+        oldW = self.width
+        oldH = self.height
 
-        originX = originX / self.width * width
-        originY = originY / self.height * height
+        self.originX = originX / self.width * width
+        self.originY = originY / self.height * height
         self.centerX -= (self.width - width) / 2f
         self.centerY -= (self.height - height) / 2f
         self.width = width
         self.height = height
-        calculateCenterXY()
+        self.calculateCenterXY()
 
-        sizeChanged(width, height, oldW, oldH)
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-        //originChanged(originX, originY, oldOriginX, oldOriginY)
-    }
+        self.sizeChanged(width, height, oldW, oldH)
+        self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
 
+    def setSizeByOrigin(self, width: float, height: float):
+        olx = self.getLeftBottomX()
+        oly = self.getLeftBottomY()
+        oldOriginX = self.originX
+        oldOriginY = self.originY
+        oldW = self.width
+        oldH = self.height
 
-    public void setSizeByOrigin(float width, float height) {
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
-        float oldOriginX = originX
-        float oldOriginY = originY
-        float oldW = self.width
-        float oldH = self.height
-
-        originX = originX / self.width * width
-        originY = originY / self.height * height
+        self.originX = self.originX / self.width * width
+        self.originY = self.originY / self.height * height
         self.centerX -= originX - oldOriginX
         self.centerY -= originY - oldOriginY
         self.width = width
         self.height = height
-        calculateCenterXY()
+        self.calculateCenterXY()
 
-        sizeChanged(width, height, oldW, oldH)
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-        //originChanged(originX, originY, oldOriginX, oldOriginY)
+        self.sizeChanged(width, height, oldW, oldH)
+        self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
 
-    }
-
-
-    protected void calculateCenterXY(){
-        realRotation = rotation + offsetRotation
-        Vector2 origCenter = new Vector2(centerX + offsetX, centerY + offsetY)
-        Vector2 origin =  new Vector2(originX + centerX + offsetX,originY + centerY + offsetY)
-        Vector2 v = origCenter.sub(origin)
-        v.rotate(rotation)
-        Vector2 s = v.add(origin)
+    def calculateCenterXY(self):
+        self.realRotation = self.rotation + self.offsetRotation
+        origCenter = Vector2(self.centerX + self.offsetX, self.centerY + self.offsetY)
+        origin =  Vector2(self.originX + self.centerX + self.offsetX,self.originY + self.centerY + self.offsetY)
+        v = origCenter.__sub__(origin)
+        v.rotate(self.rotation)
+        s = v.__add__(origin)
         self.realCenterX = s.x
         self.realCenterY = s.y
-        self.realRadius = (float)Math.sqrt(width * width + height * height) / 2f
-    }
+        self.realRadius = math.sqrt(self.width * self.width + self.height * self.height) / 2.0
 
-    public void setPosition(float X, float Y) {
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
-        self.centerX = X + width/2
-        self.centerY = Y + height/2
-        calculateCenterXY()
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-    }
+    def setPosition(self, X: float, Y: float):
+        olx = self.getLeftBottomX()
+        oly = self.getLeftBottomY()
+        self.centerX = X + self.width/2
+        self.centerY = Y + self.height/2
+        self.calculateCenterXY()
+        self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
 
-    public void setX(float x) {
-        setPosition(x,getLeftBottomY())
-    }
+    def setX(self, x: float):
+        self.setPosition(x,self.getLeftBottomY())
 
-    public void setY(float y) {
-        setPosition(getLeftBottomX(),y)
-    }
+    def setY(self, y: float):
+        self.setPosition(self.getLeftBottomX(),y)
 
-
-    public void setPositionFromCenter(float centerX, float centerY) {
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
+    def setPositionFromCenter(self, centerX: float, centerY: float)
+        olx = self.getLeftBottomX()
+        oly = self.getLeftBottomY()
         self.centerX = centerX
         self.centerY = centerY
-        calculateCenterXY()
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-    }
+        self.calculateCenterXY()
+        self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
 
-    public void setOffset(float offsetX, float offsetY){
-        float olx = getLeftBottomX()
-        float oly = getLeftBottomY()
-        self.offsetX = offsetX
-        self.offsetY = offsetY
-        calculateCenterXY()
-        positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
-    }
+    # public void setOffset(float offsetX, float offsetY){
+    #     float olx = getLeftBottomX()
+    #     float oly = getLeftBottomY()
+    #     self.offsetX = offsetX
+    #     self.offsetY = offsetY
+    #     calculateCenterXY()
+    #     positionChanged(getLeftBottomX(), getLeftBottomY(), olx, oly)
+    # }
 
-    public void rotateBy(float degree) {
-        setRotation(rotation + degree)
-    }
+    # public void rotateBy(float degree) {
+    #     setRotation(rotation + degree)
+    # }
+    #
+    # public void setRotation(float degree) {
+    #     float or = rotation
+    #     rotation = degree
+    #     calculateCenterXY()
+    #     rotationChanged(rotation, or)
+    # }
+    #
+    # public float getRealCenterX() {
+    #     return realCenterX
+    # }
+    #
+    # public float getRealCenterY() {
+    #     return realCenterY
+    # }
+    #
+    # public float getWidth() {
+    #     return width
+    # }
+    #
+    # public float getHeight() {
+    #     return height
+    # }
+    #
+    # public float getRotation() {
+    #     return rotation
+    # }
+    #
+    # public float getOffsetX() {
+    #     return offsetX
+    # }
+    #
+    # public float getOffsetY() {
+    #     return offsetY
+    # }
+    #
+    # public float getCenterX() {
+    #     return centerX
+    # }
+    #
+    # public float getCenterY() {
+    #     return centerY
+    # }
+    #
+    # public float getX() {
+    #     return realCenterX - width/2
+    # }
+    #
+    # public float getY() {
+    #     return realCenterY - height/2
+    # }
 
-    public void setRotation(float degree) {
-        float or = rotation
-        rotation = degree
-        calculateCenterXY()
-        rotationChanged(rotation, or)
-    }
 
-    public float getRealCenterX() {
-        return realCenterX
-    }
+    def setOriginToCenter(self):
+        ox: float = self.originX
+        oy: float = self.originY
+        self.originX = 0
+        self.originY = 0
+        self.calculateCenterXY()
+        self.originChanged(self.originX, self.originY, ox, oy)
 
-    public float getRealCenterY() {
-        return realCenterY
-    }
 
-    public float getWidth() {
-        return width
-    }
-
-    public float getHeight() {
-        return height
-    }
-
-    public float getRotation() {
-        return rotation
-    }
-
-    public float getOffsetX() {
-        return offsetX
-    }
-
-    public float getOffsetY() {
-        return offsetY
-    }
-
-    public float getCenterX() {
-        return centerX
-    }
-
-    public float getCenterY() {
-        return centerY
-    }
-
-     # 
-     # A bal alsó sarok abszolút pozíciója a játéktérben, eltolással (offsetXY), forgatással együtt
-     # @return
      #
-    public float getX() {
-        return realCenterX - width/2
-    }
-
-     # 
-     # A bal alsó sarok abszolút pozíciója a játéktérben, eltolással (offsetXY), forgatással együtt
-     # @return
-     #
-    public float getY() {
-        return realCenterY - height/2
-    }
-
-
-    public void setOriginToCenter(){
-        float ox = originX
-        float oy = originY
-        originX = 0
-        originY = 0
-        calculateCenterXY()
-        originChanged(originX, originY, ox, oy)
-    }
-
-     # 
      # Forgatási középpont beállítása a középponttól számítva
      # @param x
      # @param y
      #
-    public void setOriginFromCenter(float x, float y){
-        float ox = originX
-        float oy = originY
-        originX = x - offsetX
-        originY = y - offsetY
-        calculateCenterXY()
-        originChanged(originX, originY, ox, oy)
+    def setOriginFromCenter(self, x: float, y: float):
+        ox = self.originX
+        oy = self.originY
+        self.originX = x - self.offsetX
+        self.originY = y - self.offsetY
+        self.calculateCenterXY()
+        self.originChanged(self.originX, self.originY, ox, oy)
     }
 
      # 
@@ -329,18 +306,16 @@ class MyShape(metaclass=abc.ABCMeta):
      # @param x
      # @param y
      #
-    public void setOrigin(float x, float y){
-        float ox = originX
-        float oy = originY
-        originX = x - width / 2 - offsetX
-        originY = y - height / 2 - offsetY
-        calculateCenterXY()
-        originChanged(originX, originY, ox, oy)
-    }
+    def setOrigin(self, x: float, y: float):
+        ox = self.originX
+        oy = self.originY
+        self.originX = x - self.width / 2 - self.offsetX
+        self.originY = y - self.height / 2 - self.offsetY
+        self.calculateCenterXY()
+        self.originChanged(self.originX, self.originY, ox, oy)
 
-    public void setOriginFixedPositionAbsolute(float x, float y){
-        setOriginFixedPosition(x - getLeftBottomX(),y - getLeftBottomY())
-    }
+    def setOriginFixedPositionAbsolute(self, x: float, y: float)
+        self.setOriginFixedPosition(x - self.getLeftBottomX(),y - self.getLeftBottomY())
 
     public void setOriginFixedPosition(float x, float y){
         float ox = originX

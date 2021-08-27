@@ -1,6 +1,5 @@
-from game.MyBaseListeners import *
-from game.MyActor import *
-from game.MyLifeCycles import *
+from game.scene2d.MyActor import *
+from game.scene2d.MyLifeCycles import *
 
 
 class MyStage(MyBaseListeners, MyLifeCycles):
