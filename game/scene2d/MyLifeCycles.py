@@ -1,7 +1,7 @@
 import abc
 
 
-class MyLifeCycles:
+class MyLifeCycles(metaclass=abc.ABCMeta):
 
     def create(self):
         print(str(self) + " Create")

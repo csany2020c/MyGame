@@ -1,10 +1,11 @@
 import pygame
+import abc
 from game.scene2d.MyLifeCycles import *
 from game.scene2d.MyTimer import *
 from game.scene2d.MyBaseListeners import *
 
 
-class MyBaseActor(MyLifeCycles):
+class MyBaseActor(MyLifeCycles, metaclass=abc.ABCMeta):
 
     def __init__(self) -> None:
         self.elapsed_time: float = 0

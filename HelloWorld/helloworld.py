@@ -1,4 +1,5 @@
 import game
+from game.simpleworld.MyCircle import *
 
 
 class HelloActor(game.MyActor):
@@ -13,11 +14,8 @@ class HelloActor(game.MyActor):
 
 class HelloStage(game.MyStage):
 
-
-
     def __init__(self):
         super().__init__()
-
 
     def create(self):
         super(HelloStage, self).create()
@@ -51,4 +49,8 @@ class HelloWorld(game.MyGame):
         self.set_screen(HelloScreen())
 
 
-HelloWorld()
+# HelloWorld()
+
+sh = MyCircle()
+print(sh)
+

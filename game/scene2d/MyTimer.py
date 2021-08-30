@@ -1,3 +1,5 @@
+import abc
+
 #Minden időzítőt a staehez vagy actorhoz lehet hozzáadni. A lényeg, hogy oda lehet beilleszteni, ahol megjelent az .add_timer(...) metódus.
 # pl.: text2.add_timer(MyTickTimer(self.tikk))
 #  ahol a text2 egy Button típus.
@@ -23,7 +25,9 @@
 # TIKK 3
 #
 # Ez az osztály minden időzítő őse. Ezeket a funkciókat, amik benne vannak, minden időzítő tudja.
-class MyBaseTimer:
+
+
+class MyBaseTimer(metaclass=abc.ABCMeta):
 
     _listener = 0
     _enabled: bool = True
