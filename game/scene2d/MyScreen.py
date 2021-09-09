@@ -1,5 +1,3 @@
-import game.scene2d.MyGame
-import game.scene2d.MyStage
 from game.scene2d.MyLifeCycles import *
 
 

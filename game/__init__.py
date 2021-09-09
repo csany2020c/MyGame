@@ -1,4 +1,1 @@
-from game.scene2d.MyGame import *
-from game.scene2d.MyScreen import *
-from game.scene2d.MyStage import *
-from game.scene2d.MyActor import *
+import game.scene2d

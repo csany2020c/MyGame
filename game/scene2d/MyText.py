@@ -1,4 +1,3 @@
-
 class MyText(MyBaseActor):
     text: str = "The quick brown fox jumps over the lazy dog."
     color = (255, 255, 255)

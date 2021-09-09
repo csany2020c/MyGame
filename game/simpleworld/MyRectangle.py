@@ -76,9 +76,9 @@ class MyRectangle(MyShape):
 
         //Ha a téglalap bármely sarka a körön beül van
         for (int i = 0; i < 4; i++) {
-            if ((xRect[i] - circleRotCenter.x) * (xRect[i] - circleRotCenter.x) +
-                    (yRect[i] - circleRotCenter.y) * (yRect[i] - circleRotCenter.y) <=
-                    (circle.radius) * (circle.radius)){
+            if ((xRect[i] - circleRotCenter._x) * (xRect[i] - circleRotCenter._x) +
+                (yRect[i] - circleRotCenter._y) * (yRect[i] - circleRotCenter._y) <=
+                (circle.radius) * (circle.radius)){
                 return true;
             }
         }
@@ -88,20 +88,20 @@ class MyRectangle(MyShape):
         float yCirc[] = new float[4];
 
         // A kör legfelső pontja
-        xCirc[0] = circleRotCenter.x + circle.radius;
-        yCirc[0] = circleRotCenter.y;
+        xCirc[0] = circleRotCenter._x + circle.radius;
+        yCirc[0] = circleRotCenter._y;
 
         // legalsó pontja
-        xCirc[1] = circleRotCenter.x - circle.radius;
-        yCirc[1] = circleRotCenter.y;
+        xCirc[1] = circleRotCenter._x - circle.radius;
+        yCirc[1] = circleRotCenter._y;
 
         // bal pontja
-        xCirc[2] = circleRotCenter.x;
-        yCirc[2] = circleRotCenter.y - circle.radius;
+        xCirc[2] = circleRotCenter._x;
+        yCirc[2] = circleRotCenter._y - circle.radius;
 
         // jobb pontja
-        xCirc[3] = circleRotCenter.x;
-        yCirc[3] = circleRotCenter.y + circle.radius;
+        xCirc[3] = circleRotCenter._x;
+        yCirc[3] = circleRotCenter._y + circle.radius;
 
 
         //Ha a kör bármelyik (bal, jobb, felső, alsó) pontja a téglalapon belül van
