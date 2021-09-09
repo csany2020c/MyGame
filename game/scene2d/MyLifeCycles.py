@@ -1,7 +1,4 @@
-import abc
-
-
-class MyLifeCycles(metaclass=abc.ABCMeta):
+class MyLifeCycles:
 
     def create(self):
         print(str(self) + " Create")

@@ -35,14 +35,14 @@ class MyScreen(MyLifeCycles):
         #ITimer.super.act(delta);
         for s in self._stages:
             # g = game.MyStage.MyStage(s)
-            if s.visible and not s.pause:
+            if s._visible and not s._pause:
                 s.act()
 
     def draw(self):
         self._game.pgScreen.fill((self.r, self.g, self.b))
         for s in self._stages:
             # g = game.MyStage.MyStage(s)
-            if s.visible and not s.pause:
+            if s._visible and not s._pause:
                 s.draw()
 
     game = property(get_game, set_game)

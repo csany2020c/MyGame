@@ -1,28 +1,29 @@
 import pygame
 from game.scene2d.MyLifeCycles import *
 from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyElapsedTime import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyLifeCycles, metaclass=abc.ABCMeta):
+class MyBaseActor(MyElapsedTime):
 
     def __init__(self) -> None:
-        self._elapsed_time: float = 0
-        self._stage: 'MyStage' = 0
+        MyElapsedTime.__init__(self)
+        self._stage: 'MyStage' = None
         self._timers = list()
         self.create()
 
     def add_timer(self, timer: 'MyBaseTimer'):
-        if isinstance(timer, MyBaseTimer):
-            self._timers.append(timer)
-            if timer.base_actor != 0:
-                timer.remove()
-            timer.base_actor = self
-        else:
-            print("ERROR: Az objektum példány nem adható hozzá a staghez, mert nem a MyBaseTimer leszármazottja.")
+        #if isinstance(timer, MyBaseTimer):
+        self._timers.append(timer)
+        if timer.base_actor != 0:
+            timer.remove()
+        timer.base_actor = self
+        #else:
+        #    print("ERROR: Az objektum példány nem adható hozzá a staghez, mert nem a MyBaseTimer leszármazottja.")
 
     def remove_timer(self, timer: 'MyBaseTimer'):
         try:
@@ -32,13 +33,13 @@ class MyBaseActor(MyLifeCycles, metaclass=abc.ABCMeta):
             print("A következő objektum már el lett távolítva korábban: " + str(id(self)))
 
     def get_delta_time(self) -> float:
-        return self._stage.screen.game.get_delta_time()
-
-    def get_elapsed_time(self) -> float:
-        return self._elapsed_time
+        if self._stage is not None and self._stage.screen is not None and self._stage.screen.game is not None:
+            return self._stage.screen.game.get_delta_time()
+        else:
+            return 0
 
     def act(self):
-        self._elapsed_time += self.get_delta_time()
+        MyElapsedTime.act(self, self.get_delta_time())
         for obj in self._timers:
             obj.act()
 
@@ -62,7 +63,6 @@ class MyBaseActor(MyLifeCycles, metaclass=abc.ABCMeta):
         return self._stage != 0
 
     stage: 'MyStage' = property(get_stage, set_stage)
-    elapsed_time: float = property(get_elapsed_time)
 
 
 class MyActor(MyBaseActor, MyBaseListeners):
