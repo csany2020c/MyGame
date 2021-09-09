@@ -422,7 +422,7 @@ class MyShape(metaclass=abc.ABCMeta):
             x = 1
             for v in vector2s:
                 corners += "\n(X" + x + "=" + round(v.x*100.0) / 100.0 + " Y" + x + "=" + round(v.y*100.0) / 100.0 + ")"
-        return "MyShape{" + "realCenterX=" + self.realCenterX + ", realCenterY=" + self.realCenterY + ", realRotation=" + self.realRotation + ", width=" + self.width + ", height=" + self.height + ", rotation=" + self.rotation + ", offsetRotation=" + self.offsetRotation +               ", offsetX=" + self.offsetX +                ", offsetY=" + self.offsetY +                ", centerX=" + self.centerX +                ", centerY=" + self.centerY +                ", originX=" + self.originX +                ", originY=" + self.originY
+        return "MyShape{" + "realCenterX=" + str(self.realCenterX) + ", realCenterY=" + str(self.realCenterY) + ", realRotation=" + str(self.realRotation) + ", width=" + str(self.width) + ", height=" + str(self.height) + ", rotation=" + str(self.rotation) + ", offsetRotation=" + str(self.offsetRotation) + ", offsetX=" + str(self.offsetX) + ", offsetY=" + str(self.offsetY) +                ", centerX=" + str(self.centerX) +                ", centerY=" + str(self.centerY) +                ", originX=" + str(self.originX) +                ", originY=" + str(self.originY)
 
     def getUserData(self)->object:
         return self.userData
