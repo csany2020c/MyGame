@@ -51,6 +51,6 @@ class HelloWorld(game.MyGame):
 
 # HelloWorld()
 
-sh = MyCircle()
+sh = MyCircle(x=20, y=16, radius=2)
 print(sh)
 
