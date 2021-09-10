@@ -1,13 +1,14 @@
 import game
 from game.simpleworld.MyCircle import *
 
-class EnemyActor(game.MyActor):
+class EnemyActor(game.scene2d.MyActor):
 
-    def __init__(self):
+    def __init__(self) -> 'EnemyActor':
         super().__init__()
+        return self
 
 
-class HelloActor(game.MyActor):
+class HelloActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("HelloWorld/fox.png")
@@ -17,29 +18,26 @@ class HelloActor(game.MyActor):
         self.r += 360 * self.get_delta_time()
 
 
-class HelloStage(game.MyStage):
+class HelloStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-
-    def create(self):
-        super(HelloStage, self).create()
         self.h1 = HelloActor()
         self.h2 = HelloActor()
         self.add_actor(self.h1)
         self.add_actor(self.h2)
-        self.h2.x = 280
-        self.h2.y = 180
+        self.h2.x = 10
+        self.h2.y = 10
         self.h2.w = 10
         self.h2.w = 200
-        #self.h2.r = 45
+        self.h2.r = 45
 
     def act(self):
         super().act()
         #self.h2.r = self.elapsed_time * 100
 
 
-class HelloScreen(game.MyScreen):
+class HelloScreen(game.scene2d.MyScreen):
 
     def create(self):
         super(HelloScreen, self).create()
@@ -47,7 +45,7 @@ class HelloScreen(game.MyScreen):
         self.addStage(HelloStage())
 
 
-class HelloWorld(game.MyGame):
+class HelloWorld(game.scene2d.MyGame):
 
     def create(self):
         super(HelloWorld, self).create()

@@ -1,3 +1,4 @@
+from typing import List
 from game.scene2d.MyTimers import *
 from game.scene2d.MyElapsedTime import *
 
@@ -15,8 +16,7 @@ class MyScreen(MyTimers, MyElapsedTime):
         self.g: float = 0
         self.b: float = 0
         self._game: 'MyGame' = None
-        self._stages = list()
-        self._timers = list()
+        self._stages: List['MyStage'] = list()
         self.create()
 
     def dispose(self):
@@ -25,39 +25,45 @@ class MyScreen(MyTimers, MyElapsedTime):
         for s in self._stages:
             s.dispose()
 
-    def get_game(self):
+    def get_game(self) -> 'MyGame':
         return self._game
 
-    def set_game(self, game):
-        if game == None:
+    def set_game(self, game: 'MyGame'):
+        if game is None:
             self.hide()
         else:
             self.show()
         self._game = game
 
-    def set_BackGroundColor(self, r: int, g: int, b: int):
+    def set_background_color(self, r: int, g: int, b: int) -> 'MyScreen':
         self.r = r
         self.g = g
         self.b = b
+        return self
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, delta_time)
         MyTimers.act(self, delta_time)
         for s in self._stages:
-            if s._visible and not s._pause:
+            if s.visible and not s.pause:
                 s.act(delta_time)
 
     def draw(self):
-        self._game.pgScreen.fill((self.r, self.g, self.b))
+        self._game.surface.fill((self.r, self.g, self.b))
         for s in self._stages:
             # g = game.MyStage.MyStage(s)
-            if s._visible and not s._pause:
+            if s.visible:
                 s.draw()
 
-    def addStage(self, stage, zIndex: int = 0):
+    def add_stage(self, stage: 'MyStage') -> 'MyScreen':
         self._stages.append(stage)
         stage.set_screen(self)
-        pass
+        return self
+
+    def remove_stage(self, stage: 'MyStage') -> 'MyScreen':
+        self._stages.remove(stage)
+        stage.set_screen(None)
+        return self
 
     def get_screen_width(self) -> int:
         return self.stage.game.screen_width
@@ -65,79 +71,10 @@ class MyScreen(MyTimers, MyElapsedTime):
     def get_screen_height(self) -> int:
         return self.stage.game.screen_height
 
+    def get_stages(self) -> List['MyStage']:
+        return self._stages
+
     game = property(get_game, set_game)
     screen_width: int = property(get_screen_width)
     screen_height: int = property(get_screen_height)
-
-# @ Override
-# public
-# void
-# change(boolean
-# visible, MyStage
-# sender) {
-#     updateInputMultiplexer();
-# }
-# });
-#
-# stage.addPauseChangeListener(new
-# MyStage.PauseChangeListener()
-# {
-# @ Override
-# public
-# void
-# change(boolean
-# pause, MyStage
-# sender) {
-#     updateInputMultiplexer();
-# }
-# });
-#
-#
-# stage.addProcessInputChangeListener(new
-# MyStage.ProcessInputChangeListener()
-# {
-# @ Override
-# public
-# void
-# change(boolean
-# pause, MyStage
-# sender) {
-#     updateInputMultiplexer();
-# }
-# });
-#
-# }
-# }
-#
-# public
-# void
-# removeStage(MyStage
-# stage){
-#     stages.removeValue(stage, true);
-# inputMultiplexer.removeProcessor(stage);
-# }
-#
-#
-# public
-# void
-# sortStagesByZindex()
-# {
-#
-#     stages.sort(new
-# Comparator < MyStage > ()
-# {
-# @ Override
-# public
-# int
-# compare(MyStage
-# actor, MyStage
-# t1) {
-# return actor.zIndex - t1.zIndex;
-# }
-# });
-# updateInputMultiplexer();
-# }
-#
-#
-#
-#
+    stages: List["MyStage"] = property(get_stages)

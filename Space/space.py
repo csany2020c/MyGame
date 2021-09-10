@@ -23,10 +23,11 @@ class GameStage(game.scene2d.MyStage):
         self.h2 = Enemy1Actor()
         self.add_actor(self.h1)
         self.add_actor(self.h2)
-        self.h2.x = 280
-        self.h2.y = 180
+        self.h2.x = 20
+        self.h2.y = 20
         self.h2.w = 10
         self.h2.w = 200
+        self.h2.z = -1100
         #self.h2.r = 45
 
 
@@ -34,8 +35,8 @@ class GameScreen(game.scene2d.MyScreen):
 
     def create(self):
         super().create()
-        self.set_BackGroundColor(200, 100, 22)
-        self.addStage(GameStage())
+        self.set_background_color(200, 100, 22)
+        self.add_stage(GameStage())
 
 
 class Space(game.scene2d.MyGame):

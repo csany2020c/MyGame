@@ -56,7 +56,7 @@ class Marioskep(game.scene2d.MyScreen):
         self.r = 255
         self.g = 111
         self.b = 0
-        self.addStage(MarioStage())
+        self.add_stage(MarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -70,7 +70,7 @@ class Masikkep(game.scene2d.MyScreen):
         self.r = 50
         self.g = 168
         self.b = 166
-        self.addStage(MarioStage())
+        self.add_stage(MarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)

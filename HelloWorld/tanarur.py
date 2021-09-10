@@ -33,7 +33,7 @@ class MasikScr(game.scene2d.MyScreen):
         self.r = 10
         self.g = 250
         self.b = 88
-        self.addStage(MarioStage())
+        self.add_stage(MarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -48,7 +48,7 @@ class MarioScr(game.scene2d.MyScreen):
         self.r = 100
         self.g = 50
         self.b = 8
-        self.addStage(MarioStage())
+        self.add_stage(MarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)

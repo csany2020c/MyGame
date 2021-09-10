@@ -56,7 +56,7 @@ class Wario2Scr(game.scene2d.MyScreen):
         self.r = 71
         self.g = 245
         self.b = 233
-        self.addStage(WarioStage())
+        self.add_stage(WarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -70,7 +70,7 @@ class WarioScr(game.scene2d.MyScreen):
         self.r = 245
         self.g = 71
         self.b = 146
-        self.addStage(WarioStage())
+        self.add_stage(WarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
