@@ -37,12 +37,14 @@ class MyGame(MyTimers):
             if event.type == pygame.KEYUP:
                 pass
         self._elapsed_time += self.get_delta_time()
-        self._screen.act(delta_time)
+        if self._screen is not None:
+            self._screen.act(delta_time)
 
     def draw(self):
         MyLifeCycles.draw(self)
         self._frame_count += 1
-        self._screen.draw()
+        if self._screen is not None:
+            self._screen.draw()
         if int(self._elapsed_time) != int(self._p_et):
             print("FPS: " + str(self._frame_count))
             self._frame_count = 0
@@ -86,7 +88,8 @@ class MyGame(MyTimers):
 
     def dispose(self):
         MyTimers.dispose(self)
-        self._screen.dispose()
+        if self._screen is not None:
+            self._screen.dispose()
         pass
 
     def get_screen_width(self):
