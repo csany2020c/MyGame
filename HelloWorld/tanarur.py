@@ -16,7 +16,14 @@ class MarioStage(game.scene2d.MyStage):
 
     def create(self):
         super().create()
-        self.add_actor(MarioActor())
+
+        a = MarioActor()
+        a.y = 80
+        self.add_actor(a)
+
+        b = MarioActor()
+        b.r = 45
+        self.add_actor(b)
 
 
 class MasikScr(game.scene2d.MyScreen):
