@@ -1,36 +1,20 @@
 import pygame
-from game.scene2d.MyLifeCycles import *
 from game.scene2d.MyBaseListeners import *
 from game.scene2d.MyElapsedTime import *
+from game.scene2d.MyTimers import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyElapsedTime):
+class MyBaseActor(MyElapsedTime, MyTimers):
 
     def __init__(self) -> None:
         MyElapsedTime.__init__(self)
+        MyTimers.__init__(self)
         self._stage: 'MyStage' = None
-        self._timers = list()
         self.create()
-
-    def add_timer(self, timer: 'MyBaseTimer'):
-        #if isinstance(timer, MyBaseTimer):
-        self._timers.append(timer)
-        if timer.base_actor != 0:
-            timer.remove()
-        timer.base_actor = self
-        #else:
-        #    print("ERROR: Az objektum példány nem adható hozzá a staghez, mert nem a MyBaseTimer leszármazottja.")
-
-    def remove_timer(self, timer: 'MyBaseTimer'):
-        try:
-            self._timers.remove(timer)
-            timer.base_actor = 0
-        except ValueError:
-            print("A következő objektum már el lett távolítva korábban: " + str(id(self)))
 
     def get_delta_time(self) -> float:
         if self._stage is not None and self._stage.screen is not None and self._stage.screen.game is not None:
@@ -38,10 +22,9 @@ class MyBaseActor(MyElapsedTime):
         else:
             return 0
 
-    def act(self):
+    def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
-        for obj in self._timers:
-            obj.act()
+        MyTimers.act(self, delta_time)
 
     def remove_from_stage(self):
         try:
@@ -196,10 +179,20 @@ class MyActor(MyBaseActor, MyBaseListeners):
     def get_rotation(self) -> int:
         return self._r
 
+    def get_screen_width(self) -> int:
+        return self.stage.screen.game.screen_width
+
+    def get_screen_height(self) -> int:
+        return self.stage.screen.game.screen_height
+
     x: int = property(get_x, set_x)
     y: int = property(get_y, set_y)
     w: int = property(get_width, set_width)
+    width: int = property(get_width, set_width)
     h: int = property(get_height, set_height)
+    height: int = property(get_height, set_height)
     r: int = property(get_rotation, set_rotation)
+    rotation: int = property(get_rotation, set_rotation)
     image_url: str = property(get_image_url, set_image_url)
-
+    screen_width: int = property(get_screen_width)
+    screen_height: int = property(get_screen_height)

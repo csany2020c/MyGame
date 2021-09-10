@@ -6,9 +6,10 @@ class Enemy1Actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Space/resources/images/enemy1.png")
 
-    def act(self):
-        super().act()
-        self.x += self.get_delta_time() * 60
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.x + self.width < self.screen_width:
+            self.x += self.get_delta_time() * 60
 
 
 class GameStage(game.scene2d.MyStage):
@@ -28,15 +29,11 @@ class GameStage(game.scene2d.MyStage):
         self.h2.w = 200
         #self.h2.r = 45
 
-    def act(self):
-        super().act()
-        #self.h2.r = self.elapsed_time * 100
-
 
 class GameScreen(game.scene2d.MyScreen):
 
     def create(self):
-        super(GameScreen, self).create()
+        super().create()
         self.set_BackGroundColor(200, 100, 22)
         self.addStage(GameStage())
 
@@ -44,7 +41,7 @@ class GameScreen(game.scene2d.MyScreen):
 class Space(game.scene2d.MyGame):
 
     def create(self):
-        super(Space, self).create()
+        super().create()
         self.set_screen(GameScreen())
 
 

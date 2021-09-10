@@ -1,15 +1,17 @@
 import pygame
 import time
 from game.scene2d.MyLifeCycles import *
+from game.scene2d.MyTimers import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyGame(MyLifeCycles):
+class MyGame(MyTimers):
 
     def __init__(self, width: int = 1280, height: int = 720):
+        MyTimers.__init__(self)
         pygame.init()
         self._screenWidth: int = width
         self._screenHeight: int = height
@@ -25,7 +27,8 @@ class MyGame(MyLifeCycles):
         self._running = True
         self.loop()
 
-    def act(self):
+    def act(self, delta_time: float):
+        MyLifeCycles.act(self, delta_time)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit()
@@ -34,11 +37,10 @@ class MyGame(MyLifeCycles):
             if event.type == pygame.KEYUP:
                 pass
         self._elapsed_time += self.get_delta_time()
-        self._screen.act()
-
-
+        self._screen.act(delta_time)
 
     def draw(self):
+        MyLifeCycles.draw(self)
         self._frame_count += 1
         self._screen.draw()
         if int(self._elapsed_time) != int(self._p_et):
@@ -53,7 +55,7 @@ class MyGame(MyLifeCycles):
     def loop(self):
         while self._running:
             t = pygame.time.get_ticks()
-            self.act()
+            self.act(self._deltaTime)
             self.draw()
             pygame.display.update()
             sleep: float = 1.0 / self._frameLimiter - (pygame.time.get_ticks() - t) / 1000.0
@@ -83,7 +85,7 @@ class MyGame(MyLifeCycles):
         return self._elapsed_time
 
     def dispose(self):
-        super(MyGame, self).dispose()
+        MyTimers.dispose(self)
         self._screen.dispose()
         pass
 

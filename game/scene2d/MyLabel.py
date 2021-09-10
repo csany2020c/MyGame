@@ -1,6 +1,11 @@
+from game.scene2d.MyText import *
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from __type_checking__ import *
 
 
-class MyLabel(MyText, MyBaseActor):
+class MyLabel(MyText):
 
     def __init__(self, pos=(0, 0), angle=0):
         MyText.__init__(self)

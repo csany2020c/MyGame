@@ -17,10 +17,10 @@ class MyStage(MyBaseListeners, MyElapsedTime):
         self._actors = []
         self.create()
 
-    def act(self):
+    def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
         for obj in self._actors:
-            obj.act()
+            obj.act(delta_time)
 
     def draw(self):
         for obj in self._actors:
@@ -44,40 +44,40 @@ class MyStage(MyBaseListeners, MyElapsedTime):
         self._actors.remove(actor)
         actor.set_stage(0)
 
-    def on_mouse_down(self, pos, button):
-        if self._on_mouse_down_listener != 0:
-            self._on_mouse_down_listener(pos, button)
-        for obj in self._actors:
-            if isinstance(obj, MyActor):
-                obj.on_mouse_down(pos, button)
-
-    def on_mouse_up(self, pos, button):
-        if self._on_mouse_up_listener != 0:
-            self._on_mouse_up_listener(pos, button)
-        for obj in self._actors:
-            if isinstance(obj, MyActor):
-                obj.on_mouse_up(pos, button)
-
-    def on_mouse_move(self, pos):
-        if self._on_mouse_move_listener != 0:
-            self._on_mouse_move_listener(pos)
-        for obj in self._actors:
-            if isinstance(obj, MyActor):
-                obj.on_mouse_move(pos)
-
-    def on_key_down(self, key, mod, unicode):
-        if self._on_key_down_listener != 0:
-            self._on_key_down_listener(key, mod, unicode)
-        for obj in self._actors:
-            if isinstance(obj, MyActor):
-                obj.on_key_down(key, mod, unicode)
-
-    def on_key_up(self, key, mod):
-        if self._on_key_up_listener != 0:
-            self._on_key_up_listener(key, mod)
-        for obj in self._actors:
-            if isinstance(obj, MyActor):
-                obj.on_key_up(key, mod)
+    # def on_mouse_down(self, pos, button):
+    #     if self._on_mouse_down_listener != 0:
+    #         self._on_mouse_down_listener(pos, button)
+    #     for obj in self._actors:
+    #         if isinstance(obj, MyActor):
+    #             obj.on_mouse_down(pos, button)
+    #
+    # def on_mouse_up(self, pos, button):
+    #     if self._on_mouse_up_listener != 0:
+    #         self._on_mouse_up_listener(pos, button)
+    #     for obj in self._actors:
+    #         if isinstance(obj, MyActor):
+    #             obj.on_mouse_up(pos, button)
+    #
+    # def on_mouse_move(self, pos):
+    #     if self._on_mouse_move_listener != 0:
+    #         self._on_mouse_move_listener(pos)
+    #     for obj in self._actors:
+    #         if isinstance(obj, MyActor):
+    #             obj.on_mouse_move(pos)
+    #
+    # def on_key_down(self, key, mod, unicode):
+    #     if self._on_key_down_listener != 0:
+    #         self._on_key_down_listener(key, mod, unicode)
+    #     for obj in self._actors:
+    #         if isinstance(obj, MyActor):
+    #             obj.on_key_down(key, mod, unicode)
+    #
+    # def on_key_up(self, key, mod):
+    #     if self._on_key_up_listener != 0:
+    #         self._on_key_up_listener(key, mod)
+    #     for obj in self._actors:
+    #         if isinstance(obj, MyActor):
+    #             obj.on_key_up(key, mod)
 
     def set_screen(self, screen):
         self._screen = screen
@@ -95,4 +95,16 @@ class MyStage(MyBaseListeners, MyElapsedTime):
     def get_screen(self):
         return self._screen
 
+    def get_actors(self):
+        return self._actors
+
+    def get_screen_width(self) -> int:
+        return self.screen.game.screen_width
+
+    def get_screen_height(self) -> int:
+        return self.screen.game.screen_height
+
     screen: 'MyScreen' = property(get_screen, set_screen)
+    actors: list = property(get_actors)
+    screen_width: int = property(get_screen_width)
+    screen_height: int = property(get_screen_height)

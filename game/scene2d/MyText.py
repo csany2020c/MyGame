@@ -1,4 +1,11 @@
-class MyText(MyBaseActor):
+from game.scene2d.MyActor import *
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from __type_checking__ import *
+
+
+class MyText(MyActor):
     text: str = "The quick brown fox jumps over the lazy dog."
     color = (255, 255, 255)
     alpha: float = 1

@@ -1,18 +1,22 @@
 class MyLifeCycles:
 
     def create(self):
-        print(str(self) + " Create")
+        if __debug__:
+            print(str(self) + " Create")
 
     def show(self):
-        print(str(self) + " Show")
+        if __debug__:
+            print(str(self) + " Show")
 
     def hide(self):
-        print(str(self) + " Hide")
+        if __debug__:
+            print(str(self) + " Hide")
 
     def dispose(self):
-        print(str(self) + " Dispose")
+        if __debug__:
+            print(str(self) + " Dispose")
 
-    def act(self):
+    def act(self, delta_time: float):
         pass
 
     def draw(self):

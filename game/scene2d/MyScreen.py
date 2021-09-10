@@ -1,18 +1,27 @@
-from game.scene2d.MyLifeCycles import *
+from game.scene2d.MyTimers import *
+from game.scene2d.MyElapsedTime import *
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from __type_checking__ import *
 
 
-class MyScreen(MyLifeCycles):
+class MyScreen(MyTimers, MyElapsedTime):
 
     def __init__(self):
+        MyElapsedTime.__init__(self)
+        MyTimers.__init__(self)
         self.r: float = 0
         self.g: float = 0
         self.b: float = 0
-        self._game : game.MyGame.MyGame = None
+        self._game: 'MyGame' = None
         self._stages = list()
         self._timers = list()
         self.create()
 
     def dispose(self):
+        MyElapsedTime.dispose(self)
+        MyTimers.dispose(self)
         for s in self._stages:
             s.dispose()
 
@@ -31,12 +40,12 @@ class MyScreen(MyLifeCycles):
         self.g = g
         self.b = b
 
-    def act(self):
-        #ITimer.super.act(delta);
+    def act(self, delta_time: float):
+        MyElapsedTime.act(self, delta_time)
+        MyTimers.act(self, delta_time)
         for s in self._stages:
-            # g = game.MyStage.MyStage(s)
             if s._visible and not s._pause:
-                s.act()
+                s.act(delta_time)
 
     def draw(self):
         self._game.pgScreen.fill((self.r, self.g, self.b))
@@ -45,12 +54,20 @@ class MyScreen(MyLifeCycles):
             if s._visible and not s._pause:
                 s.draw()
 
-    game = property(get_game, set_game)
-
     def addStage(self, stage, zIndex: int = 0):
         self._stages.append(stage)
         stage.set_screen(self)
         pass
+
+    def get_screen_width(self) -> int:
+        return self.stage.game.screen_width
+
+    def get_screen_height(self) -> int:
+        return self.stage.game.screen_height
+
+    game = property(get_game, set_game)
+    screen_width: int = property(get_screen_width)
+    screen_height: int = property(get_screen_height)
 
 # @ Override
 # public
