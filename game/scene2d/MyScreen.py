@@ -78,3 +78,4 @@ class MyScreen(MyTimers, MyElapsedTime):
     screen_width: int = property(get_screen_width)
     screen_height: int = property(get_screen_height)
     stages: List["MyStage"] = property(get_stages)
+
