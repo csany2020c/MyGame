@@ -33,11 +33,11 @@ class MyActor(MyBaseActor, MyBaseListeners):
 
     def _transform(self):
         if self._r != 0:
-            self._image = pygame.transform.smoothscale(self._original_image, (self._w, self._h))
+            self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
             self._calc_box()
             self._image = pygame.transform.rotate(self._image, self._r)
         else:
-            self._image = pygame.transform.smoothscale(self._original_image, (self._w, self._h))
+            self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
             self._calc_box()
 
     def set_size(self, width: int, height: int) -> 'MyActor':

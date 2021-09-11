@@ -6,7 +6,6 @@ class MyZIndex:
     auto_z_index: int = 0
 
     def __init__(self) -> None:
-        super().__init__()
         MyZIndex.auto_z_index += 100
         self._z_index = MyZIndex.auto_z_index
         print(self.__str__() + str(self._z_index) + " Z index")

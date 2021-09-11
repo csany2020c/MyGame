@@ -19,11 +19,13 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
         MyTimers.__init__(self)
         MyZIndex.__init__(self)
         self._stage: 'MyStage' = None
-        self._x = 0
-        self._y = 0
-        self._r = 0
-        self._w = 0
-        self._h = 0
+        self._x: float = 0
+        self._y: float = 0
+        self._r: float = 0
+        self._w: float = 0
+        self._h: float = 0
+        self._center_origin_x: float = 0
+        self._center_origin_y: float = 0
         self._box = [[0, 0], [0, 0], [0, 0], [0, 0]]
 
     def get_delta_time(self) -> float:
@@ -63,58 +65,58 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
             self._box[i][0] += self._x
             self._box[i][1] += self._y
 
-    def set_size(self, width: int, height: int) -> 'MyBaseActor':
+    def set_size(self, width: float, height: float) -> 'MyBaseActor':
         self._w = width
         self._h = height
         self._calc_box()
         return self
 
-    def rotate_with(self, degree: int) -> 'MyBaseActor':
+    def rotate_with(self, degree: float) -> 'MyBaseActor':
         self.set_rotation(self.angle + degree)
         self._calc_box()
         return self
 
-    def set_x(self, x: int) -> 'MyBaseActor':
+    def set_x(self, x: float) -> 'MyBaseActor':
         self._x = x
         self._calc_box()
         return self
 
-    def set_y(self, y: int) -> 'MyBaseActor':
+    def set_y(self, y: float) -> 'MyBaseActor':
         self._y = y
         self._calc_box()
         return self
 
-    def get_x(self) -> int:
+    def get_x(self) -> float:
         return self._x
 
-    def get_y(self) -> int:
+    def get_y(self) -> float:
         return self._y
 
-    def set_width(self, width: int, aspect_ratio: bool = True) -> 'MyBaseActor':
+    def set_width(self, width: float, aspect_ratio: bool = True) -> 'MyBaseActor':
         if aspect_ratio:
-            self.set_size(width, int(float(self.h) * (float(width) / float(self.w))))
+            self.set_size(width, float(float(self.h) * (float(width) / float(self.w))))
         else:
             self.set_size(width, self.h)
         return self
 
-    def set_height(self, height: int, aspect_ratio: bool = True) -> 'MyBaseActor':
+    def set_height(self, height: float, aspect_ratio: bool = True) -> 'MyBaseActor':
         if aspect_ratio:
-            self.set_size(int(float(self.w) * (float(height) / float(self.h))), height)
+            self.set_size(float(float(self.w) * (float(height) / float(self.h))), height)
         else:
             self.set_size(self.w, height)
         return self
 
-    def get_width(self) -> int:
+    def get_width(self) -> float:
         return self._w
 
-    def get_height(self) -> int:
+    def get_height(self) -> float:
         return self._h
 
-    def set_rotation(self, angle: int) -> 'MyBaseActor':
+    def set_rotation(self, angle: float) -> 'MyBaseActor':
         self._r = angle
         return self
 
-    def get_rotation(self) -> int:
+    def get_rotation(self) -> float:
         return self._r
 
     def get_screen_width(self) -> int:

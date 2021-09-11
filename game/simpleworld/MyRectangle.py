@@ -1,8 +1,11 @@
 from game.simpleworld.MyShape import *
 
-"""
- * Created by tanulo on 2017. 12. 13..
- """
+from typing import TYPE_CHECKING
+from typing import List
+
+if TYPE_CHECKING:
+    from __type_checking__ import *
+
 
 class MyRectangle(MyShape):
 
