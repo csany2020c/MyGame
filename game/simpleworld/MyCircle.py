@@ -1,4 +1,5 @@
 from game.simpleworld.MyShape import *
+from pygame.math import Vector2
 
 from typing import TYPE_CHECKING
 from typing import List
@@ -14,7 +15,7 @@ class MyCircle(MyShape):
                  offsetRotation: float = 0, originX: float = 0.5, originY: float = 0.5, offsetX: float = 0,
                  offsetY: float = 0, alignToLeftBottom: bool = True):
         super().__init__(x, y, radius / 2, radius / 2, rotation, offsetRotation, originX, originY, offsetX, offsetY,
-                         alignToLeftBottom)
+                         alignToLeftBottom, shapeType="circle")
         self.radius = radius
 
     def getCorners(self) -> []:
@@ -25,22 +26,12 @@ class MyCircle(MyShape):
             v.rotate(360.0 / self.debugLineNumbers * i + self.rotation)
         return vector2s
 
-    @staticmethod
-    def overlaps(objA: 'MyCircle', objB: 'MyCircle') -> bool:
-        return (objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) + (
-                    objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) <= (
-                           objA.radius + objB.radius) * (objA.radius + objB.radius);
-
-    @staticmethod
-    def overlaps(objA: 'MyCircle', objB: 'MyRectangle') -> bool:
-        return 'MyRectangle'.overlaps(objB, objA)
-
-    # def overlaps(self, other:MyShape):
-    #     if isinstance (other, MyCircle):
-    #         return overlaps(self, MyCircle(other))
-    #     if isinstance (other, MyRectangle):
-    #         return MyRectangle.overlaps(MyRectangle(other), self)
-    #     return false
+    def overlaps(self, other: 'MyShape') -> bool:
+        if other.shapeType == "circle":
+            return Overlaps.circle_vs_circle(self, other)
+        if other.shapeType == "rectangle":
+            return Overlaps.rect_vs_circle(other, self)
+        return False
 
     def setSize(self, width: float, height: float):
         if width < height:
