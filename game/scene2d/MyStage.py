@@ -1,20 +1,24 @@
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyZIndex import *
 
 from typing import TYPE_CHECKING
+from typing import List
+
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyStage(MyBaseListeners, MyElapsedTime):
+class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
 
     def __init__(self):
         MyBaseListeners.__init__(self)
         MyElapsedTime.__init__(self)
+        MyZIndex.__init__(self)
         self._visible: bool = True
         self._pause: bool = False
         self._screen: 'MyScreen' = None
-        self._actors = []
+        self._actors: List['MyBaseActor'] = list()
         self.create()
 
     def act(self, delta_time: float):
@@ -26,7 +30,7 @@ class MyStage(MyBaseListeners, MyElapsedTime):
         for obj in self._actors:
             obj.draw()
 
-    def add_actor(self, actor: 'MyActor'):
+    def add_actor(self, actor: 'MyBaseActor') -> 'MyStage':
         # https://stackoverflow.com/questions/2461907/python-circular-imports-needed-for-type-checking
         # The best solution is to not check types.
         # XD
@@ -37,51 +41,22 @@ class MyStage(MyBaseListeners, MyElapsedTime):
             print("A következő actor át lett helyezve a " + str(id(actor._stage)) + " stageből a " + str(id(self)) + " stagebe.")
             actor.remove_from_stage()
         actor.set_stage(self)
+        self._actors.sort()
+        return self
         #else:
         #    print("ERROR: Az objektum példány nem adható hozzá a staghez, mert nem a MyBaseActor leszármazottja.")
 
-    def remove_actor(self, actor: 'MyBaseActor'):
+    def remove_actor(self, actor: 'MyBaseActor') -> 'MyStage':
         self._actors.remove(actor)
         actor.set_stage(0)
+        return self
 
-    # def on_mouse_down(self, pos, button):
-    #     if self._on_mouse_down_listener != 0:
-    #         self._on_mouse_down_listener(pos, button)
-    #     for obj in self._actors:
-    #         if isinstance(obj, MyActor):
-    #             obj.on_mouse_down(pos, button)
-    #
-    # def on_mouse_up(self, pos, button):
-    #     if self._on_mouse_up_listener != 0:
-    #         self._on_mouse_up_listener(pos, button)
-    #     for obj in self._actors:
-    #         if isinstance(obj, MyActor):
-    #             obj.on_mouse_up(pos, button)
-    #
-    # def on_mouse_move(self, pos):
-    #     if self._on_mouse_move_listener != 0:
-    #         self._on_mouse_move_listener(pos)
-    #     for obj in self._actors:
-    #         if isinstance(obj, MyActor):
-    #             obj.on_mouse_move(pos)
-    #
-    # def on_key_down(self, key, mod, unicode):
-    #     if self._on_key_down_listener != 0:
-    #         self._on_key_down_listener(key, mod, unicode)
-    #     for obj in self._actors:
-    #         if isinstance(obj, MyActor):
-    #             obj.on_key_down(key, mod, unicode)
-    #
-    # def on_key_up(self, key, mod):
-    #     if self._on_key_up_listener != 0:
-    #         self._on_key_up_listener(key, mod)
-    #     for obj in self._actors:
-    #         if isinstance(obj, MyActor):
-    #             obj.on_key_up(key, mod)
+    def remove_stage_from_screen(self):
+        self._screen.remove_stage(self)
 
-    def set_screen(self, screen):
+    def set_screen(self, screen: 'MyScreen'):
         self._screen = screen
-        if screen == None:
+        if screen is None:
             self.hide()
         else:
             self.show()
@@ -92,10 +67,10 @@ class MyStage(MyBaseListeners, MyElapsedTime):
         else:
             return 0
 
-    def get_screen(self):
+    def get_screen(self) -> 'MyScreen':
         return self._screen
 
-    def get_actors(self):
+    def get_actors(self) -> List['MyBaseActor']:
         return self._actors
 
     def get_screen_width(self) -> int:
@@ -104,7 +79,31 @@ class MyStage(MyBaseListeners, MyElapsedTime):
     def get_screen_height(self) -> int:
         return self.screen.game.screen_height
 
+    def is_pause(self) -> bool:
+        return self._pause
+
+    def set_pause(self, pause: bool):
+        self._pause = pause
+
+    def is_visible(self) -> bool:
+        return self._visible
+
+    def set_visible(self, visible: bool):
+        self._visible = visible
+
+    def get_z_index(self) -> int:
+        return super().get_z_index()
+
+    def set_z_index(self, z_index: int):
+        super().set_z_index(z_index)
+        if self._screen is not None:
+            self._screen.stages.sort()
+
+    z: int = property(get_z_index, set_z_index)
+    set_z_index: int = property(get_z_index, set_z_index)
     screen: 'MyScreen' = property(get_screen, set_screen)
-    actors: list = property(get_actors)
+    actors: List['MyBaseActor'] = property(get_actors)
     screen_width: int = property(get_screen_width)
     screen_height: int = property(get_screen_height)
+    pause: bool = property(is_pause, set_pause)
+    visible: bool = property(is_visible, set_visible)
