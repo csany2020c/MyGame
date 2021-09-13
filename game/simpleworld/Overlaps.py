@@ -15,112 +15,105 @@ class Overlaps:
     def circle_vs_circle(objA: 'MyCircle', objB: 'MyCircle') -> bool:
         return (objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) + (
                 objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) <= (
-                       objA.radius + objB.radius) * (objA.radius + objB.radius);
+                       objA.radius + objB.radius) * (objA.radius + objB.radius)
 
     @staticmethod
     def rect_vs_circle(rectangle:'MyRectangle', circle:'MyCircle')->bool:
-        if ((rectangle.realCenterX - objB.realCenterX) * (rectangle.realCenterX - objB.realCenterX) +
-                (rectangle.realCenterY - objB.realCenterY) * (rectangle.realCenterY - objB.realCenterY) >
-                (rectangle.realRadius + objB.realRadius) * (rectangle.realRadius + objB.realRadius)):
+        if ((rectangle.realCenterX - circle.realCenterX) * (rectangle.realCenterX - circle.realCenterX) +
+                (rectangle.realCenterY - circle.realCenterY) * (rectangle.realCenterY - circle.realCenterY) >
+                (rectangle.realRadius + circle.realRadius) * (rectangle.realRadius + circle.realRadius)):
             return False
 
         #Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX-rectangle.realCenterX, circle.realCenterY-rectangle.realCenterY).rotate(-rectangle.rotation - rectangle.offsetRotation).add(rectangle.realCenterX,rectangle.realCenterY)
 
-        //A négyzet sarkai
-        float xRect[] = new float[4];
-        float yRect[] = new float[4];
+        #A négyzet sarkai
+        xRect:List['float'] = {0,0,0,0}
+        yRect:List['float'] = {0,0,0,0}
 
-        //A méret fele (gyorsítás)
-        float height1 = rectangle.height / 2;
-        float width1 = rectangle.width / 2;
+        #A méret fele (gyorsítás)
+        height1: float = rectangle.height / 2
+        width1: float = rectangle.width / 2
 
-        //Forgatás nélküli sarkok
-        //Bal alsó
-        xRect[0] = rectangle.realCenterX - width1;
-        yRect[0] = rectangle.realCenterY - height1;
+        #Forgatás nélküli sarkok
+        #Bal alsó
+        xRect[0] = rectangle.realCenterX - width1
+        yRect[0] = rectangle.realCenterY - height1
 
-        //Bal felső
-        xRect[1] = rectangle.realCenterX - width1;
-        yRect[1] = rectangle.realCenterY + height1;
-
-
-        //Jobb felső
-        xRect[2] = rectangle.realCenterX + width1;
-        yRect[2] = rectangle.realCenterY + height1;
+        #Bal felső
+        xRect[1] = rectangle.realCenterX - width1
+        yRect[1] = rectangle.realCenterY + height1
 
 
-        //Jobb alső
-        xRect[3] = rectangle.realCenterX + width1;
-        yRect[3] = rectangle.realCenterY - height1;
+        #Jobb felső
+        xRect[2] = rectangle.realCenterX + width1
+        yRect[2] = rectangle.realCenterY + height1
 
-        //Ha a téglalap bármely sarka a körön beül van
-        for (int i = 0; i < 4; i++) {
+
+        #Jobb alső
+        xRect[3] = rectangle.realCenterX + width1
+        yRect[3] = rectangle.realCenterY - height1
+
+        #Ha a téglalap bármely sarka a körön beül van
+        for i in range(0, 3):
             if ((xRect[i] - circleRotCenter._x) * (xRect[i] - circleRotCenter._x) +
                 (yRect[i] - circleRotCenter._y) * (yRect[i] - circleRotCenter._y) <=
-                (circle.radius) * (circle.radius)){
-                return true;
-            }
-        }
+                (circle.radius) * (circle.radius)):
+                return True
 
-        //Elforgatott kör koordinátái
-        float xCirc[] = new float[4];
-        float yCirc[] = new float[4];
+        #Elforgatott kör koordinátái
+        xCirc:List['float'] = {0,0,0,0}
+        yCirc:List['float'] = {0,0,0,0}
 
-        // A kör legfelső pontja
-        xCirc[0] = circleRotCenter._x + circle.radius;
-        yCirc[0] = circleRotCenter._y;
+        # A kör legfelső pontja
+        xCirc[0] = circleRotCenter._x + circle.radius
+        yCirc[0] = circleRotCenter._y
 
-        // legalsó pontja
-        xCirc[1] = circleRotCenter._x - circle.radius;
-        yCirc[1] = circleRotCenter._y;
+        # legalsó pontja
+        xCirc[1] = circleRotCenter._x - circle.radius
+        yCirc[1] = circleRotCenter._y
 
-        // bal pontja
-        xCirc[2] = circleRotCenter._x;
-        yCirc[2] = circleRotCenter._y - circle.radius;
+        # bal pontja
+        xCirc[2] = circleRotCenter._x
+        yCirc[2] = circleRotCenter._y - circle.radius
 
-        // jobb pontja
-        xCirc[3] = circleRotCenter._x;
-        yCirc[3] = circleRotCenter._y + circle.radius;
+        # jobb pontja
+        xCirc[3] = circleRotCenter._x
+        yCirc[3] = circleRotCenter._y + circle.radius
+
+        #Ha a kör bármelyik (bal, jobb, felső, alsó) pontja a téglalapon belül van
+        for i in range(0, 3):
+            if xRect[0] <= xCirc[i] && xRect[2] >= xCirc[i] && yRect[0] <= yCirc[i] && yRect[2] >= yCirc[i]:
+                return True
+
+        return False
 
 
-        //Ha a kör bármelyik (bal, jobb, felső, alsó) pontja a téglalapon belül van
-        for (int i = 0; i < 4; i++) {
-            if (xRect[0] <= xCirc[i] && xRect[2] >= xCirc[i] && yRect[0] <= yCirc[i] && yRect[2] >= yCirc[i]) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    # https://forums.coronalabs.com/topic/39094-code-for-rotated-rectangle-collision-detection/
+    # https:#forums.coronalabs.com/topic/39094-code-for-rotated-rectangle-collision-detection/
     @staticmethod
-    def rect_vs_rect overlaps(MyRectangle objA, MyRectangle objB) {
+    def rect_vs_rect(objA: 'MyRectangle', objB: 'MyRectangle'):
 
         if ((objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) +
                 (objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) >
-                (objA.realRadius + objB.realRadius) * (objA.realRadius + objB.realRadius)){
-            return false;
-        }
+                (objA.realRadius + objB.realRadius) * (objA.realRadius + objB.realRadius)):
+            return False
 
+        #x10, y10 is centre point of rect1. x20, y20 is centre point of rect2
+        #height1, width1 are half heights/widths of rect1, radrot is rotation of rect in radians
+        height1: float = objA.height / 2
+        height2: float = objB.height / 2
 
-        //x10, y10 is centre point of rect1. x20, y20 is centre point of rect2
-        //height1, width1 are half heights/widths of rect1, radrot is rotation of rect in radians
+        width1: float = objA.width / 2
+        width2: float = objB.width / 2
 
-        float height1 = objA.height / 2;
-        float height2 = objB.height / 2;
+        radrot1: float = math.radians(objA.realRotation)
+        radrot2: float = math.radians(objB.realRotation)
 
-        float width1 = objA.width / 2;
-        float width2 = objB.width / 2;
+        radius1: float = math.sqrt(height1 * height1 + width1 * width1)
+        radius2: float = math.sqrt(height2 * height2 + width2 * width2)
 
-        float radrot1 = (float) Math.toRadians(objA.realRotation);
-        float radrot2 = (float) Math.toRadians(objB.realRotation);
-
-        float radius1 = (float) Math.sqrt(height1 * height1 + width1 * width1);
-        float radius2 = (float) Math.sqrt(height2 * height2 + width2 * width2);
-
-        float angle1 = (float) Math.asin(height1 / radius1);
-        float angle2 = (float) Math.asin(height2 / radius2);
+        angle1: float = math.asin(height1 / radius1)
+        angle2: float = math.asin(height2 / radius2)
 
         float x1[] = new float[5];
         float y1[] = new float[5];
