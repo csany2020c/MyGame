@@ -15,7 +15,7 @@ class Overlaps:
     def circle_vs_circle(objA: 'MyCircle', objB: 'MyCircle') -> bool:
         return (objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) + (
                 objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) <= (
-                       objA.radius + objB.radius) * (objA.radius + objB.radius)
+                objA._radius + objB._radius) * (objA._radius + objB._radius)
 
     @staticmethod
     def rect_vs_circle(rectangle: 'MyRectangle', circle: 'MyCircle') -> bool:
@@ -58,7 +58,7 @@ class Overlaps:
         for i in range(0, 3):
             if ((xRect[i] - circleRotCenter._x) * (xRect[i] - circleRotCenter._x) +
                     (yRect[i] - circleRotCenter._y) * (yRect[i] - circleRotCenter._y) <=
-                    (circle.radius) * (circle.radius)):
+                    (circle._radius) * (circle._radius)):
                 return True
 
         # Elforgatott kör koordinátái
@@ -66,20 +66,20 @@ class Overlaps:
         yCirc: List['float'] = [0, 0, 0, 0]
 
         # A kör legfelső pontja
-        xCirc[0] = circleRotCenter._x + circle.radius
+        xCirc[0] = circleRotCenter._x + circle._radius
         yCirc[0] = circleRotCenter._y
 
         # legalsó pontja
-        xCirc[1] = circleRotCenter._x - circle.radius
+        xCirc[1] = circleRotCenter._x - circle._radius
         yCirc[1] = circleRotCenter._y
 
         # bal pontja
         xCirc[2] = circleRotCenter._x
-        yCirc[2] = circleRotCenter._y - circle.radius
+        yCirc[2] = circleRotCenter._y - circle._radius
 
         # jobb pontja
         xCirc[3] = circleRotCenter._x
-        yCirc[3] = circleRotCenter._y + circle.radius
+        yCirc[3] = circleRotCenter._y + circle._radius
 
         # Ha a kör bármelyik (bal, jobb, felső, alsó) pontja a téglalapon belül van
         for i in range(0, 3):

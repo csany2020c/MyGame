@@ -432,13 +432,13 @@ class MyShape(metaclass=abc.ABCMeta):
         return self
 
     def __str__(self) -> str:
-        vector2s = self.getCorners()
+        # vector2s = self.getCorners()
         corners = ""
-        if vector2s != None:
-            x = 1
-            for v in vector2s:
-                corners += "\n(X" + x + "=" + round(v._x * 100.0) / 100.0 + " Y" + x + "=" + round(
-                    v._y * 100.0) / 100.0 + ")"
+        # if vector2s != None:
+        #     x = 1
+        #     for v in vector2s:
+        #         corners += "\n(X" + x + "=" + round(v._x * 100.0) / 100.0 + " Y" + x + "=" + round(
+        #             v._y * 100.0) / 100.0 + ")"
         return "MyShape{" + "realCenterX=" + str(self._realCenterX) + ", realCenterY=" + str(
             self._realCenterY) + ", realRotation=" + str(self._realRotation) + ", width=" + str(
             self._width) + ", height=" + str(self._height) + ", rotation=" + str(

@@ -11,7 +11,7 @@ class EnemyActor(game.scene2d.MyActor):
 class HelloActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("HelloWorld/fox.png")
+        super().__init__("fox.png")
 
     def act(self):
         super().act()
@@ -41,8 +41,8 @@ class HelloScreen(game.scene2d.MyScreen):
 
     def create(self):
         super(HelloScreen, self).create()
-        self.set_BackGroundColor(200, 100, 22)
-        self.addStage(HelloStage())
+        self.set_background_color(200, 100, 22)
+        self.add_stage(HelloStage())
 
 
 class HelloWorld(game.scene2d.MyGame):

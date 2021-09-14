@@ -17,12 +17,12 @@ class MyCircle(MyShape):
                  offsetY: float = 0, alignToLeftBottom: bool = True):
         super().__init__(x, y, radius / 2, radius / 2, rotation, offsetRotation, originX, originY, offsetX, offsetY,
                          alignToLeftBottom, shapeType="circle")
-        self.radius = radius
+        self._radius = radius
 
     def getCorners(self) -> []:
         vector2s = []
         for i in range(self.debugLineNumbers):
-            v = Vector2(self.radius, 0).rotate(360.0 / self.debugLineNumbers * i + self._rotation).__add__(
+            v = Vector2(self._radius, 0).rotate(360.0 / self.debugLineNumbers * i + self._rotation).__add__(
                 Vector2(self._realCenterX, self._realCenterY))
             v.rotate(360.0 / self.debugLineNumbers * i + self._rotation)
             vector2s.append(v)
@@ -37,15 +37,17 @@ class MyCircle(MyShape):
 
     def setSize(self, width: float, height: float):
         if width < height:
-            self.radius = width / 2.0
+            self._radius = width / 2.0
         else:
             height / 2.0
         super.setSize(width, height)
 
     def getRadius(self) -> float:
-        return self.radius
+        return self._radius
 
     def setRadius(self, radius: float):
-        self.radius = radius
+        self._radius = radius
         super.setSize(radius * 2.0, radius * 2.0)
+
+    radius: float = property(getRadius, setRadius)
 
