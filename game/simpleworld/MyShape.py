@@ -15,7 +15,7 @@ class MyShape(metaclass=abc.ABCMeta):
                  offsetRotation: float = 0, originX: float = 0.5, originY: float = 0.5, offsetX: float = 0,
                  offsetY: float = 0, alignToLeftBottom: bool = True, shapeType = "shape"):
 
-        self.shapeType = shapeType
+        self._shapeType = shapeType
 
         #
         # @param x Az alakzat helye
@@ -33,86 +33,84 @@ class MyShape(metaclass=abc.ABCMeta):
         #
         # Tényleges középpont. Ez alapján számolja a pozícióját. center=cx+offsetx forgatva origin körül
         #
-        self.realCenterX: float = 0
+        self._realCenterX: float = 0
 
         #
         # Tényleges középpont. Ez alapján számolja a pozícióját. center=cx+offsetx forgatva origin körül
         #
-        self.realCenterY: float = 0
+        self._realCenterY: float = 0
 
         #
         # A szélességből és magasságból számított, körülvevő kür sugara
         #
-        self.realRadius: float = 0
+        self._realRadius: float = 0
 
         #
         # Tényleges forgatás. A offsetRotation forgatás és az elforgatás összege.
         #
-        self.realRotation: float = 0
+        self._realRotation: float = 0
 
         #
         # Szélesség. Forgatásnál nem változik.
         #
-        self.width: float = 0
+        self._width: float = 0
 
         #
         # Magasság. Forgatásnál nem változik.
         #
-        self.height: float = 0
+        self._height: float = 0
 
         #
         # Forgatás fokban megadva.
         #
-        self.rotation: float = 0
+        self._rotation: float = 0
 
         #
         # Relatív elforgatás. realRotation=offsetRotation+rotation
         #
-        self.offsetRotation: float = 0
+        self._offsetRotation: float = 0
 
         #
         # Relatív eltolás cx-től számítva. center=cx+offsetx
         #
-        self.offsetX: float = 0
+        self._offsetX: float = 0
 
         #
         # Relatív eltolás cy-tól számítva. center=cy+offsety
         #
-        self.offsetY = 0
+        self._offsetY: float = 0
 
         #
         # A középpont abszolút pozíciója a játéktérben.
         #
-        self.centerX: float = 0
+        self._centerX: float = 0
 
         #
         # A középpont abszolút pozíciója a játéktérben.
         #
-        self.centerY: float = 0
+        self._centerY: float = 0
 
         #
         # A forgatás középpontja. Relatív a valódi helyétől (offsetxy+cxy) az alakzatnak.
         #
-        self.originX: float = 0
+        self._originX: float = 0
 
         #
         # A forgatás középpontja. Relatív a valódi helyétől (offsetxy+cxy) az alakzatnak.
         #
-        self.originY: float = 0
+        self._originY: float = 0
 
-        self.PI: float = 3.141592653589793238462643383279502884197169399375105820974944592307816406286
-
-        self.active: bool = True
+        self._active: bool = True
 
         # Az alakzathoz hozzácsatolható objektum, például egy Actor
-        self.userData = None
+        self._userData = None
 
-        self.offsetX = offsetX
-        self.offsetY = offsetY
-        self.width = width
-        self.height = height
-        self.offsetRotation = offsetRotation
-        self.rotation = rotation
+        self._offsetX = offsetX
+        self._offsetY = offsetY
+        self._width = width
+        self._height = height
+        self._offsetRotation = offsetRotation
+        self._rotation = rotation
         if alignToLeftBottom:
             self.setPosition(x, y)
             self.setOrigin(originX, originY)
@@ -131,20 +129,20 @@ class MyShape(metaclass=abc.ABCMeta):
     def setSizeByCenter(self, width: float, height: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        oldW = self.width
-        oldH = self.height
-        oldOriginX = self.originX
-        oldOriginY = self.originY
-        orcx = self.realCenterX
-        orcy = self.self.realCenterY
+        oldW = self._width
+        oldH = self._height
+        oldOriginX = self._originX
+        oldOriginY = self._originY
+        orcx = self._realCenterX
+        orcy = self.self._realCenterY
 
-        self.originX = self.originX / self.width * width
-        self.originY = self.originY / self.height * height
-        self.width = width
-        self.height = height
+        self._originX = self._originX / self._width * width
+        self._originY = self._originY / self._height * height
+        self._width = width
+        self._height = height
         self.calculateCenterXY()
-        self.centerX += orcx - self.realCenterX
-        self.centerY += orcy - self.realCenterY
+        self._centerX += orcx - self._realCenterX
+        self._centerY += orcy - self._realCenterY
         self.calculateCenterXY()
 
         self.sizeChanged(width, height, oldW, oldH)
@@ -154,17 +152,17 @@ class MyShape(metaclass=abc.ABCMeta):
     def setSize(self, width: float, height: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        oldOriginX = self.originX
-        oldOriginY = self.originY
-        oldW = self.width
-        oldH = self.height
+        oldOriginX = self._originX
+        oldOriginY = self._originY
+        oldW = self._width
+        oldH = self._height
 
-        self.originX = self.originX / self.width * width
-        self.originY = self.originY / self.height * height
-        self.centerX -= (self.width - width) / 2
-        self.centerY -= (self.height - height) / 2
-        self.width = width
-        self.height = height
+        self._originX = self._originX / self._width * width
+        self._originY = self._originY / self._height * height
+        self._centerX -= (self._width - width) / 2
+        self._centerY -= (self._height - height) / 2
+        self._width = width
+        self._height = height
         self.calculateCenterXY()
 
         self.sizeChanged(width, height, oldW, oldH)
@@ -174,17 +172,17 @@ class MyShape(metaclass=abc.ABCMeta):
     def setSizeByOrigin(self, width: float, height: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        oldOriginX = self.originX
-        oldOriginY = self.originY
-        oldW = self.width
-        oldH = self.height
+        oldOriginX = self._originX
+        oldOriginY = self._originY
+        oldW = self._width
+        oldH = self._height
 
-        self.originX = self.originX / self.width * width
-        self.originY = self.originY / self.height * height
-        self.centerX -= self.originX - oldOriginX
-        self.centerY -= self.originY - oldOriginY
-        self.width = width
-        self.height = height
+        self._originX = self._originX / self._width * width
+        self._originY = self._originY / self._height * height
+        self._centerX -= self._originX - oldOriginX
+        self._centerY -= self._originY - oldOriginY
+        self._width = width
+        self._height = height
         self.calculateCenterXY()
 
         self.sizeChanged(width, height, oldW, oldH)
@@ -192,22 +190,22 @@ class MyShape(metaclass=abc.ABCMeta):
         return self
 
     def calculateCenterXY(self)->'MyShape':
-        self.realRotation = self.rotation + self.offsetRotation
-        origCenter = Vector2(self.centerX + self.offsetX, self.centerY + self.offsetY)
-        origin = Vector2(self.originX + self.centerX + self.offsetX, self.originY + self.centerY + self.offsetY)
+        self._realRotation = self._rotation + self._offsetRotation
+        origCenter = Vector2(self._centerX + self._offsetX, self._centerY + self._offsetY)
+        origin = Vector2(self._originX + self._centerX + self._offsetX, self._originY + self._centerY + self._offsetY)
         v = origCenter.__sub__(origin)
-        v.rotate(self.rotation)
+        v.rotate(self._rotation)
         s = v.__add__(origin)
-        self.realCenterX = s.x
-        self.realCenterY = s.y
-        self.realRadius = math.sqrt(self.width * self.width + self.height * self.height) / 2.0
+        self._realCenterX = s.x
+        self._realCenterY = s.y
+        self._realRadius = math.sqrt(self._width * self._width + self._height * self._height) / 2.0
         return self
 
     def setPosition(self, X: float, Y: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        self.centerX = X + self.width / 2.0
-        self.centerY = Y + self.height / 2.0
+        self._centerX = X + self._width / 2.0
+        self._centerY = Y + self._height / 2.0
         self.calculateCenterXY()
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
         return self
@@ -223,8 +221,8 @@ class MyShape(metaclass=abc.ABCMeta):
     def setPositionFromCenter(self, centerX: float, centerY: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        self.centerX = centerX
-        self.centerY = centerY
+        self._centerX = centerX
+        self._centerY = centerY
         self.calculateCenterXY()
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
         return self
@@ -232,63 +230,63 @@ class MyShape(metaclass=abc.ABCMeta):
     def setOffset(self, offsetX: float, offsetY: float)->'MyShape':
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        self.offsetX = offsetX
-        self.offsetY = offsetY
+        self._offsetX = offsetX
+        self._offsetY = offsetY
         self.calculateCenterXY()
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
         return self
 
     def rotateBy(self, degree: float)->'MyShape':
-        self.setRotation(self.rotation + degree)
+        self.setRotation(self._rotation + degree)
         return self
 
     def setRotation(self, degree: float)->'MyShape':
-        oro = self.rotation
-        self.rotation = degree
+        oro = self._rotation
+        self._rotation = degree
         self.calculateCenterXY()
-        self.rotationChanged(self.rotation, oro)
+        self.rotationChanged(self._rotation, oro)
         return self
 
     def getRealCenterX(self) -> float:
-        return self.realCenterX
+        return self._realCenterX
 
     def getRealCenterY(self) -> float:
-        return self.realCenterY
+        return self._realCenterY
 
     def getWidth(self) -> float:
-        return self.width
+        return self._width
 
     def getHeight(self) -> float:
-        return self.height
+        return self._height
 
     def getRotation(self) -> float:
-        return self.rotation
+        return self._rotation
 
     def getOffsetX(self) -> float:
-        return self.offsetX
+        return self._offsetX
 
     def getOffsetY(self) -> float:
-        return self.offsetY
+        return self._offsetY
 
     def getCenterX(self) -> float:
-        return self.centerX
+        return self._centerX
 
     def getCenterY(self) -> float:
-        return self.centerY
+        return self._centerY
 
     def getX(self) -> float:
-        return self.realCenterX - self.width / 2
+        return self._realCenterX - self._width / 2
 
     def getY(self) -> float:
-        return self.realCenterY - self.height / 2
+        return self._realCenterY - self._height / 2
 
     def setOriginToCenter(self)->'MyShape':
-        ox: float = self.originX
-        oy: float = self.originY
-        self.originX = 0
-        self.originY = 0
+        ox: float = self._originX
+        oy: float = self._originY
+        self._originX = 0
+        self._originY = 0
         self.calculateCenterXY()
-        self.originChanged(self.originX, self.originY, ox, oy)
+        self.originChanged(self._originX, self._originY, ox, oy)
         return self
 
     #
@@ -297,12 +295,12 @@ class MyShape(metaclass=abc.ABCMeta):
     # @param y
     #
     def setOriginFromCenter(self, x: float, y: float)->'MyShape':
-        ox = self.originX
-        oy = self.originY
-        self.originX = x - self.offsetX
-        self.originY = y - self.offsetY
+        ox = self._originX
+        oy = self._originY
+        self._originX = x - self._offsetX
+        self._originY = y - self._offsetY
         self.calculateCenterXY()
-        self.originChanged(self.originX, self.originY, ox, oy)
+        self.originChanged(self._originX, self._originY, ox, oy)
         return self
 
     #
@@ -311,12 +309,12 @@ class MyShape(metaclass=abc.ABCMeta):
     # @param y
     #
     def setOrigin(self, x: float, y: float)->'MyShape':
-        ox = self.originX
-        oy = self.originY
-        self.originX = x - self.width / 2 - self.offsetX
-        self.originY = y - self.height / 2 - self.offsetY
+        ox = self._originX
+        oy = self._originY
+        self._originX = x - self._width / 2 - self._offsetX
+        self._originY = y - self._height / 2 - self._offsetY
         self.calculateCenterXY()
-        self.originChanged(self.originX, self.originY, ox, oy)
+        self.originChanged(self._originX, self._originY, ox, oy)
         return self
 
     def setOriginFixedPositionAbsolute(self, x: float, y: float)->'MyShape':
@@ -324,25 +322,25 @@ class MyShape(metaclass=abc.ABCMeta):
         return self
 
     def setOriginFixedPosition(self, x: float, y: float)->'MyShape':
-        ox = self.originX
-        oy = self.originY
+        ox = self._originX
+        oy = self._originY
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
-        v0 = Vector2(self.realCenterX, self.realCenterY)
+        v0 = Vector2(self._realCenterX, self._realCenterY)
         self.setOrigin(x, y)
         self.calculateCenterXY()
-        v1 = Vector2(self.realCenterX, self.realCenterY)
+        v1 = Vector2(self._realCenterX, self._realCenterY)
         v0 = v0.__sub__(v1)
-        self.centerX += v0.x
-        self.centerY += v0.y
+        self._centerX += v0.x
+        self._centerY += v0.y
         self.calculateCenterXY()
-        self.originChanged(self.originX, self.originY, ox, oy)
+        self.originChanged(self._originX, self._originY, ox, oy)
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
         return self
 
     def setOriginFixedOrigin(self, x: float, y: float)->'MyShape':
-        ox = self.originX
-        oy = self.originY
+        ox = self._originX
+        oy = self._originY
         olx = self.getLeftBottomX()
         oly = self.getLeftBottomY()
         v0 = Vector2(self.getLeftBottomOriginX() + self.getLeftBottomX(),
@@ -352,85 +350,85 @@ class MyShape(metaclass=abc.ABCMeta):
         v1 = Vector2(self.getLeftBottomOriginX() + self.getLeftBottomX(),
                      self.getLeftBottomOriginY() + self.getLeftBottomY())
         v0 = v0.__sub__(v1)
-        self.centerX += v0.x
-        self.centerY += v0.y
+        self._centerX += v0.x
+        self._centerY += v0.y
         self.calculateCenterXY()
-        self.originChanged(self.originX, self.originY, ox, oy)
+        self.originChanged(self._originX, self._originY, ox, oy)
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), olx, oly)
         return self
 
     def getOffsetRotation(self) -> float:
-        return self.offsetRotation
+        return self._offsetRotation
 
     def setOffsetRotation(self, offsetRotation: float)->'MyShape':
-        self.offsetRotation = offsetRotation
+        self._offsetRotation = offsetRotation
         self.calculateCenterXY()
         return self
 
     def offsetRotateBy(self, degree: float):
-        self.offsetRotation += degree
+        self._offsetRotation += degree
         self.calculateCenterXY()
 
     def getRealRotation(self) -> float:
-        return self.realRotation
+        return self._realRotation
 
     def getOriginX(self) -> float:
-        return self.originX
+        return self._originX
 
     def setOriginX(self, originX: float)->'MyShape':
-        self.setOrigin(originX, self.originY)
+        self.setOrigin(originX, self._originY)
         return self
 
     def getOriginY(self) -> float:
-        return self.originY
+        return self._originY
 
     def setOriginY(self, originY: float)->'MyShape':
-        self.setOrigin(self.originX, originY)
+        self.setOrigin(self._originX, originY)
         return self
 
     def getLeftBottomOriginY(self) -> float:
-        return self.originY + self.offsetY + self.height / 2.0
+        return self._originY + self._offsetY + self._height / 2.0
 
     def getLeftBottomOriginX(self) -> float:
-        return self.originX + self.offsetX + self.width / 2.0
+        return self._originX + self._offsetX + self._width / 2.0
 
     def getLeftBottomY(self) -> float:
-        return self.originY + self.offsetY + self.centerY - (self.height + self.originY * 2.0) / 2.0
+        return self._originY + self._offsetY + self._centerY - (self._height + self._originY * 2.0) / 2.0
 
     def getLeftBottomX(self) -> float:
-        return self.originX + self.offsetX + self.centerX - (self.width + self.originX * 2.0) / 2.0
+        return self._originX + self._offsetX + self._centerX - (self._width + self._originX * 2.0) / 2.0
 
     def setWidth(self, width: float)->'MyShape':
-        self.setSize(width, self.height)
+        self.setSize(width, self._height)
         return self
 
     def setHeight(self, height: float)->'MyShape':
-        self.setSize(self.width, height)
+        self.setSize(self._width, height)
         return self
 
     def setOffsetX(self, offsetX: float)->'MyShape':
-        self.setOffset(offsetX, self.offsetY)
+        self.setOffset(offsetX, self._offsetY)
         return self
 
     def setOffsetY(self, offsetY: float)->'MyShape':
-        self.setOffset(self.offsetX, offsetY)
+        self.setOffset(self._offsetX, offsetY)
         return self
 
     def setCenter(self, cx: float, cy: float)->'MyShape':
         x = self.getLeftBottomX()
         y = self.getLeftBottomY()
-        self.centerX = cx
-        self.centerY = cy
+        self._centerX = cx
+        self._centerY = cy
         self.calculateCenterXY()
         self.positionChanged(self.getLeftBottomX(), self.getLeftBottomY(), x, y)
         return self
 
     def setCenterX(self, centerX: float)->'MyShape':
-        self.setCenter(centerX, self.centerY)
+        self.setCenter(centerX, self._centerY)
         return self
 
     def setCenterY(self, centerY: float)->'MyShape':
-        self.setCenter(self.centerX, centerY)
+        self.setCenter(self._centerX, centerY)
         return self
 
     def __str__(self) -> str:
@@ -441,25 +439,25 @@ class MyShape(metaclass=abc.ABCMeta):
             for v in vector2s:
                 corners += "\n(X" + x + "=" + round(v._x * 100.0) / 100.0 + " Y" + x + "=" + round(
                     v._y * 100.0) / 100.0 + ")"
-        return "MyShape{" + "realCenterX=" + str(self.realCenterX) + ", realCenterY=" + str(
-            self.realCenterY) + ", realRotation=" + str(self.realRotation) + ", width=" + str(
-            self.width) + ", height=" + str(self.height) + ", rotation=" + str(
-            self.rotation) + ", offsetRotation=" + str(self.offsetRotation) + ", offsetX=" + str(
-            self.offsetX) + ", offsetY=" + str(self.offsetY) + ", centerX=" + str(self.centerX) + ", centerY=" + str(
-            self.centerY) + ", originX=" + str(self.originX) + ", originY=" + str(self.originY)
+        return "MyShape{" + "realCenterX=" + str(self._realCenterX) + ", realCenterY=" + str(
+            self._realCenterY) + ", realRotation=" + str(self._realRotation) + ", width=" + str(
+            self._width) + ", height=" + str(self._height) + ", rotation=" + str(
+            self._rotation) + ", offsetRotation=" + str(self._offsetRotation) + ", offsetX=" + str(
+            self._offsetX) + ", offsetY=" + str(self._offsetY) + ", centerX=" + str(self._centerX) + ", centerY=" + str(
+            self._centerY) + ", originX=" + str(self._originX) + ", originY=" + str(self._originY)
 
     def getUserData(self) -> object:
-        return self.userData
+        return self._userData
 
     def setUserData(self, extraData: object)->'MyShape':
-        self.userData = extraData
+        self._userData = extraData
         return self
 
     def isActive(self) -> bool:
-        return self.active
+        return self._active
 
     def setActive(self, active: bool)->'MyShape':
-        self.active = active
+        self._active = active
         return self
 
     def originChanged(self, newX: float, newY: float, oldX: float, oldY: float):
@@ -473,3 +471,30 @@ class MyShape(metaclass=abc.ABCMeta):
 
     def rotationChanged(self, newR: float, oldR: float):
         pass
+
+    def getRealRadius(self):
+        return self.realRadius
+
+    def getActive(self):
+        return self._active
+
+    def getShapeType(self):
+        return self._shapeType
+
+    shapeType = property(getShapeType)
+    realCenterX: float = property(getRealCenterX)
+    realCenterY: float = property(getRealCenterY)
+    realRadius: float = property(getRealRadius)
+    realRotation: float = property(getRealRotation)
+    width: float = property(getWidth, setWidth)
+    height: float = property(getHeight, setHeight)
+    rotation: float = property(getRotation, setRotation)
+    offsetRotation: float = property(getOffsetRotation, setOffsetRotation)
+    offsetX: float = property(getOffsetX, setOffsetX)
+    offsetY: float = property(getOffsetY, setOffsetY)
+    centerX: float = property(getCenterX, setCenterX)
+    centerY: float = property(getCenterY, setCenterY)
+    originX: float = property(getOriginX, setOriginX)
+    originY: float = property(getOriginY, setOriginY)
+    active: bool = property(getActive, setActive)
+    userData = property(getUserData, setUserData)

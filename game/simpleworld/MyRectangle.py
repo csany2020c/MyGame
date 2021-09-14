@@ -1,3 +1,5 @@
+import math
+
 from pygame.math import Vector2
 from game.simpleworld.MyShape import *
 from game.simpleworld.Overlaps import *
@@ -32,24 +34,25 @@ class MyRectangle(MyShape):
 
     def getCorners(self) -> List['Vector2']:
         vector2: List['Vector2'] = list()
-        w2 = self.width / 2.0
-        h2 = self.height / 2.0
+        w2 = self._width / 2.0
+        h2 = self._height / 2.0
         radius = math.sqrt(h2 * h2 + w2 * w2)
-        radrot = math.radians(self.realRotation)
+        radrot = math.radians(self._realRotation)
         angle = math.asin(h2 / radius)
-        vector2.append(Vector2(self.realCenterX + radius * math.cos(radrot - angle),
-                               self.realCenterY + radius * math.sin(radrot - angle)))
-        vector2.append(Vector2(self.realCenterX + radius * math.cos(radrot + angle),
-                               self.realCenterY + radius * math.sin(radrot + angle)))
-        vector2.append(Vector2(self.realCenterX + radius * math.cos(radrot + self.PI - angle),
-                               self.realCenterY + radius * math.sin(radrot + self.PI - angle)))
-        vector2.append(Vector2(self.realCenterX + radius * math.cos(radrot + self.PI + angle),
-                               self.realCenterY + radius * math.sin(radrot + self.PI + angle)))
+        vector2.append(Vector2(self._realCenterX + radius * math.cos(radrot - angle),
+                               self._realCenterY + radius * math.sin(radrot - angle)))
+        vector2.append(Vector2(self._realCenterX + radius * math.cos(radrot + angle),
+                               self._realCenterY + radius * math.sin(radrot + angle)))
+        vector2.append(Vector2(self._realCenterX + radius * math.cos(radrot + math.pi - angle),
+                               self._realCenterY + radius * math.sin(radrot + math.pi - angle)))
+        vector2.append(Vector2(self._realCenterX + radius * math.cos(radrot + math.pi + angle),
+                               self._realCenterY + radius * math.sin(radrot + math.pi + angle)))
         return vector2
 
     def overlaps(self, other: 'MyShape') -> bool:
-        if other.shapeType == "circle":
+        if other._shapeType == "circle":
             return Overlaps.rect_vs_circle(self, other)
-        if other.shapeType == "rectangle":
+        if other._shapeType == "rectangle":
             return Overlaps.rect_vs_rect(self, other)
         return False
+

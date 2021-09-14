@@ -21,21 +21,21 @@ class Overlaps:
     def rect_vs_circle(rectangle: 'MyRectangle', circle: 'MyCircle') -> bool:
         if ((rectangle.realCenterX - circle.realCenterX) * (rectangle.realCenterX - circle.realCenterX) +
                 (rectangle.realCenterY - circle.realCenterY) * (rectangle.realCenterY - circle.realCenterY) >
-                (rectangle.realRadius + circle.realRadius) * (rectangle.realRadius + circle.realRadius)):
+                (rectangle._realRadius + circle._realRadius) * (rectangle._realRadius + circle._realRadius)):
             return False
 
         # Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX - rectangle.realCenterX,
                                   circle.realCenterY - rectangle.realCenterY).rotate(
-            -rectangle.rotation - rectangle.offsetRotation).add(rectangle.realCenterX, rectangle.realCenterY)
+            -rectangle._rotation - rectangle.offsetRotation).add(rectangle.realCenterX, rectangle.realCenterY)
 
         # A négyzet sarkai
         xRect: List['float'] = [0, 0, 0, 0]
         yRect: List['float'] = [0, 0, 0, 0]
 
         # A méret fele (gyorsítás)
-        height1: float = rectangle.height / 2
-        width1: float = rectangle.width / 2
+        height1: float = rectangle._height / 2
+        width1: float = rectangle._width / 2
 
         # Forgatás nélküli sarkok
         # Bal alsó
@@ -94,16 +94,16 @@ class Overlaps:
 
         if ((objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) +
                 (objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) >
-                (objA.realRadius + objB.realRadius) * (objA.realRadius + objB.realRadius)):
+                (objA._realRadius + objB._realRadius) * (objA._realRadius + objB._realRadius)):
             return False
 
         # x10, y10 is centre point of rect1. x20, y20 is centre point of rect2
         # height1, width1 are half heights/widths of rect1, radrot is rotation of rect in radians
-        height1: float = objA.height / 2
-        height2: float = objB.height / 2
+        height1: float = objA._height / 2
+        height2: float = objB._height / 2
 
-        width1: float = objA.width / 2
-        width2: float = objB.width / 2
+        width1: float = objA._width / 2
+        width2: float = objB._width / 2
 
         radrot1: float = math.radians(objA.realRotation)
         radrot2: float = math.radians(objB.realRotation)

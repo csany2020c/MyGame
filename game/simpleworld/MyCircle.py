@@ -22,16 +22,16 @@ class MyCircle(MyShape):
     def getCorners(self) -> []:
         vector2s = []
         for i in range(self.debugLineNumbers):
-            v = Vector2(self.radius, 0).rotate(360.0 / self.debugLineNumbers * i + self.rotation).__add__(
-                Vector2(self.realCenterX, self.realCenterY))
-            v.rotate(360.0 / self.debugLineNumbers * i + self.rotation)
+            v = Vector2(self.radius, 0).rotate(360.0 / self.debugLineNumbers * i + self._rotation).__add__(
+                Vector2(self._realCenterX, self._realCenterY))
+            v.rotate(360.0 / self.debugLineNumbers * i + self._rotation)
             vector2s.append(v)
         return vector2s
 
     def overlaps(self, other: 'MyShape') -> bool:
-        if other.shapeType == "circle":
+        if other._shapeType == "circle":
             return Overlaps.circle_vs_circle(self, other)
-        if other.shapeType == "rectangle":
+        if other._shapeType == "rectangle":
             return Overlaps.rect_vs_circle(other, self)
         return False
 
@@ -48,3 +48,4 @@ class MyCircle(MyShape):
     def setRadius(self, radius: float):
         self.radius = radius
         super.setSize(radius * 2.0, radius * 2.0)
+
