@@ -1,4 +1,5 @@
 from game.simpleworld.MyShape import *
+from game.simpleworld.Overlaps import *
 from pygame.math import Vector2
 
 from typing import TYPE_CHECKING
@@ -24,6 +25,7 @@ class MyCircle(MyShape):
             v = Vector2(self.radius, 0).rotate(360.0 / self.debugLineNumbers * i + self.rotation).__add__(
                 Vector2(self.realCenterX, self.realCenterY))
             v.rotate(360.0 / self.debugLineNumbers * i + self.rotation)
+            vector2s.append(v)
         return vector2s
 
     def overlaps(self, other: 'MyShape') -> bool:

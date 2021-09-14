@@ -52,7 +52,9 @@ class HelloWorld(game.scene2d.MyGame):
         self.set_screen(HelloScreen())
 
 
-HelloWorld()
+if __name__ == "__main__":
+    HelloWorld()
+
 
 #sh = MyCircle(x=20, y=16, radius=2)
 #print(sh)

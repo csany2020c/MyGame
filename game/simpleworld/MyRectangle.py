@@ -45,6 +45,7 @@ class MyRectangle(MyShape):
                                self.realCenterY + radius * math.sin(radrot + self.PI - angle)))
         vector2.append(Vector2(self.realCenterX + radius * math.cos(radrot + self.PI + angle),
                                self.realCenterY + radius * math.sin(radrot + self.PI + angle)))
+        return vector2
 
     def overlaps(self, other: 'MyShape') -> bool:
         if other.shapeType == "circle":
