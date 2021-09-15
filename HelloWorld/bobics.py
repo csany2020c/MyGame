@@ -1,6 +1,7 @@
 import game
 
-class Marioactor(game.scene2d.MyActor):
+
+class MarioActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("fox.png")
@@ -9,11 +10,21 @@ class Marioactor(game.scene2d.MyActor):
         super().act(delta_time)
         self.x += delta_time * 100
 
+class MarioActor2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("fox.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time -10
+
 class Mariostage(game.scene2d.MyStage):
 
     def create(self):
         super().create()
-        self.add_actor(Marioactor)
+
+        self.add_actor(MarioActor)
+        self.add_actor(MarioActor2)
 
 
 class marioscr(game.scene2d.MyScreen):
@@ -23,10 +34,7 @@ class marioscr(game.scene2d.MyScreen):
         self.r = 150
         self.g = 40
         self.b = 10
-
-    def create(self):
-        super().create()
-        self.add_actor(Marioactor)
+        self.add_stage(Mariostage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -37,13 +45,10 @@ class marioscr2(game.scene2d.MyScreen):
 
     def create(self):
         super().create()
-        self.r = 40
-        self.g = 70
-        self.b = 100
-
-    def create(self):
-        super().create()
-        self.add_actor(Marioactor)
+        self.r = 100
+        self.g = 0
+        self.b = 150
+        self.add_stage(Mariostage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
