@@ -4,7 +4,7 @@ import game
 class Enemy1Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/laci.png")
+        super().__init__("image/quitb.jpg")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -13,10 +13,11 @@ class Enemy1Actor(game.scene2d.MyActor):
 class Enemy2Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/sun.jpg")
+        super().__init__("image/startb.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
+
 
 class GameStage(game.scene2d.MyStage):
 
@@ -29,6 +30,9 @@ class GameStage(game.scene2d.MyStage):
         self.h2 = Enemy2Actor()
         self.add_actor(self.h1)
         self.add_actor(self.h2)
+        self.h1.x = 960
+        self.h1.y = 0
+        self.h1.w = 200
         self.h2.x = 20
         self.h2.y = 20
         self.h2.w = 200
