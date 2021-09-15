@@ -4,7 +4,7 @@ import game
 class WarioActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("fox.png")
+        super().__init__("Wario.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -13,7 +13,7 @@ class WarioActor(game.scene2d.MyActor):
 class Wario2Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("fox.png")
+        super().__init__("Wario.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -22,7 +22,7 @@ class Wario2Actor(game.scene2d.MyActor):
 class Wario3Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("fox.png")
+        super().__init__("Wario.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -32,7 +32,7 @@ class Wario3Actor(game.scene2d.MyActor):
 class Wario4Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("fox.png")
+        super().__init__("Wario.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
