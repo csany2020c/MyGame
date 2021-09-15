@@ -1,6 +1,8 @@
 import abc
 
 import pygame
+from game.simpleworld.MyRectangle import *
+from game.simpleworld.MyCircle import *
 from game.scene2d.MyBaseListeners import *
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
@@ -24,6 +26,9 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
         self._r: float = 0
         self._w: float = 0
         self._h: float = 0
+        self._hitbox_shape: str = "rectangle"
+        self._hitbox_scale_w: float = 1
+        self._hitbox_scale_h: float = 1
         self._center_origin_x: float = 0
         self._center_origin_y: float = 0
         self._box = [[0, 0], [0, 0], [0, 0], [0, 0]]
@@ -37,6 +42,23 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
         MyTimers.act(self, delta_time)
+
+    def draw(self):
+        super().draw()
+        m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
+        # print(m.__str__())
+        i = m.getCorners()
+        for k in range(0, len(i) - 1):
+            pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k+1])
+        pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k+1])
+
+        m = MyRectangle(x=self._x + (self._w - self._w * self._hitbox_scale_w) / 2, y=self._y + (self._h - self._h * self._hitbox_scale_h) / 2, width=self._w * self.hitbox_scale_w, height=self._h * self.hitbox_scale_h, rotation=self._r)
+        # print(m.__str__())
+        i = m.getCorners()
+        for k in range(0, len(i) - 1):
+            pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
+        pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
+
 
     def remove_from_stage(self):
         try:
@@ -133,6 +155,24 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
         if self._stage is not None:
             self._stage.actors.sort()
 
+    def set_hitbox_shape(self, type: str):
+        self._hitbox_shape = type
+
+    def set_hitbox_scale_w(self, w: float):
+        self._hitbox_scale_w = w
+
+    def set_hitbox_scale_h(self, h: float):
+        self._hitbox_scale_h = h
+
+    def get_hitbox_shape(self)-> str:
+        return self._hitbox_shape
+
+    def get_hitbox_scale_w(self) -> float:
+        return self._hitbox_scale_w
+
+    def get_hitbox_scale_h(self) -> float:
+        return self._hitbox_scale_h
+
     x: int = property(get_x, set_x)
     y: int = property(get_y, set_y)
     w: int = property(get_width, set_width)
@@ -146,3 +186,6 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
     stage: 'MyStage' = property(get_stage, set_stage)
     z: int = property(get_z_index, set_z_index)
     z_index: int = property(get_z_index, set_z_index)
+    hitbox_shape: str = property(get_hitbox_shape, set_hitbox_shape)
+    hitbox_scale_w: float = property(get_hitbox_scale_w, set_hitbox_scale_w)
+    hitbox_scale_h: float = property(get_hitbox_scale_h, set_hitbox_scale_h)
