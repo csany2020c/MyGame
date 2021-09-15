@@ -53,7 +53,7 @@ class MarioScr(game.scene2d.MyScreen):
         self.r = 3
         self.g = 252
         self.b = 232
-        self.addStage(MarioStage())
+        self.add_stage(MarioStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -61,8 +61,6 @@ class MarioScr(game.scene2d.MyScreen):
             self.game.screen = MarioScr()
 
 class Mario(game.scene2d.MyGame):
-
-
 
     def create(self):
         super().create()
