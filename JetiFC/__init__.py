@@ -1,0 +1,1 @@
+ha a neved az h kele lorand akkor gay vagy
