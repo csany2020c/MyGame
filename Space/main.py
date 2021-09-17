@@ -1,0 +1,3 @@
+from SpaceGame import *
+
+Space()
