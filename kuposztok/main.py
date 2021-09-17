@@ -4,13 +4,11 @@ import game
 class Enemy1Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("resources/images/enemy1.png")
+        super().__init__("image/my-caracter.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.x + self.width < self.screen_width:
-            self.x += self.get_delta_time() * 60
-            self.set_rotation(self.get_rotation()+1)
+
 
 
 class GameStage(game.scene2d.MyStage):
@@ -28,8 +26,6 @@ class GameStage(game.scene2d.MyStage):
         self.h2.y = 20
         self.h2.w = 200
         self.h2.hitbox_scale_w = 0.75
-        # self.h2.z = -1100
-        #self.h2.r = 45
 
 
 class GameScreen(game.scene2d.MyScreen):
@@ -48,7 +44,4 @@ class Space(game.scene2d.MyGame):
 
 
 Space()
-
-#sh = MyCircle(x=20, y=16, radius=2)
-#print(sh)
 

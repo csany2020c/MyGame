@@ -1,8 +1,7 @@
 import pygame
 from game.scene2d.MyBaseActor import *
 from game.simpleworld.Overlaps import *
-from game.simpleworld.MyRectangle import *
-from game.simpleworld.MyCircle import *
+
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
@@ -38,7 +37,7 @@ class MyActor(MyBaseActor, MyBaseListeners):
         if self._r != 0:
             self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
             self._calc_box()
-            self._image = pygame.transform.rotate(self._image, self._r)
+            self._image = pygame.transform.rotate(self._image, -self._r)
         else:
             self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
             self._calc_box()
@@ -49,18 +48,12 @@ class MyActor(MyBaseActor, MyBaseListeners):
         return self
 
     def draw(self):
-        super().draw()
         self._stage.screen.game.surface.blit(self._image, (
             self._x - self._image.get_width() / 2 + self._w / 2, self._y - self._image.get_height() / 2 + self._h / 2))
-        # m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
-        # print(m.__str__())
-        # for i in m.getCorners():
+        super().draw()
 
-        # for i in range(3):
-        #     pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=self._box[i],
-        #                      end_pos=self._box[i + 1])
-        # pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=self._box[0],
-        #                  end_pos=self._box[3])
+    def get_rotation(self) -> float:
+        return self._r
 
     def set_rotation(self, angle: int) -> 'MyActor':
         super().set_rotation(angle)
@@ -68,4 +61,4 @@ class MyActor(MyBaseActor, MyBaseListeners):
         return self
 
     image_url: str = property(get_image_url, set_image_url)
-
+    r: int = property(get_rotation, set_rotation)
