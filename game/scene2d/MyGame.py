@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 class MyGame(MyTimers):
 
-    def __init__(self, width: int = 1280, height: int = 720):
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         MyTimers.__init__(self)
         pygame.init()
         self._screen_width: int = width
@@ -24,6 +24,10 @@ class MyGame(MyTimers):
         self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height))
         self.create()
         self._running = True
+        if autorun:
+            self.loop()
+
+    def run(self):
         self.loop()
 
     def act(self, delta_time: float):
