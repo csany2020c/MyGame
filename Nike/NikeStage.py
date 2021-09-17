@@ -1,5 +1,5 @@
 import game
-from NikeEnemyActor import *
+from Nike.NikeEnemyActor import *
 
 
 class NikeStage(game.scene2d.MyStage):

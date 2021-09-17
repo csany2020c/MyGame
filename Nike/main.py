@@ -1,3 +1,3 @@
-from NikeGame import *
+from Nike.NikeGame import *
 
 Nike()

@@ -1,5 +1,5 @@
 import game
-from NikeScreen import *
+from Nike.NikeScreen import *
 
 
 class Nike(game.scene2d.MyGame):
