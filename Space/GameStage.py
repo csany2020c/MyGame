@@ -13,8 +13,8 @@ class GameStage(game.scene2d.MyStage):
                 e = Enemy1Actor()
                 e.y = i * 40
                 e.x = j * 40
-                e.width = 10
-                e.height = 10
+                # e.width = 10
+                # e.height = 10
                 self.add_actor(e)
 
     def act(self, delta_time: float):
