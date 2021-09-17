@@ -1,4 +1,5 @@
 import abc
+from game.scene2d.MyLifeCycles import *
 
 #Minden időzítőt a staehez vagy actorhoz lehet hozzáadni. A lényeg, hogy oda lehet beilleszteni, ahol megjelent az .add_timer(...) metódus.
 # pl.: text2.add_timer(MyTickTimer(self.tikk))
@@ -27,16 +28,17 @@ import abc
 # Ez az osztály minden időzítő őse. Ezeket a funkciókat, amik benne vannak, minden időzítő tudja.
 
 
-class MyBaseTimer(metaclass=abc.ABCMeta):
+class MyBaseTimer(MyLifeCycles, metaclass=abc.ABCMeta):
 
     _listener = 0
     _enabled: bool = True
     correction: float = 0
     # base_actor: game.MyActor.MyBaseActor = 0
     base_actor = 0
-    elapsed_time:float = 0
+    elapsed_time: float = 0
 
-    def __init__(self, func = 0):
+    def __init__(self, func=0):
+        MyLifeCycles.__init__(self)
         self._listener = func
 
     def set_timer_listener(self, func):
@@ -51,9 +53,9 @@ class MyBaseTimer(metaclass=abc.ABCMeta):
     def stop(self):
         self._enabled = False
 
-    def update(self, deltaTime: float = 0.0166666666666666666666):
+    def act(self, delta_time: float):
         if self._enabled:
-            self.elapsed_time += deltaTime
+            self.elapsed_time += delta_time
             self._do_timer()
 
     def _do_timer(self):

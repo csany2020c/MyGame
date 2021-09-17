@@ -14,12 +14,13 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
+class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
 
     def __init__(self) -> None:
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
         MyZIndex.__init__(self)
+        MyBaseListeners.__init__(self)
         self._stage: 'MyStage' = None
         self._x: float = 0
         self._y: float = 0
@@ -42,9 +43,9 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
         MyTimers.act(self, delta_time)
+        MyBaseListeners.act(self, delta_time)
 
     def draw(self):
-        super().draw()
         m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
         # print(m.__str__())
         i = m.getCorners()
@@ -58,7 +59,6 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
         for k in range(0, len(i) - 1):
             pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
         pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
-
 
     def remove_from_stage(self):
         try:

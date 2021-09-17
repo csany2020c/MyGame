@@ -13,9 +13,10 @@ class GameStage(game.scene2d.MyStage):
                 e = Enemy1Actor()
                 e.y = i * 40
                 e.x = j * 40
-                # e.width = 10
-                # e.height = 10
+                e.width = 20
+                e.height = 20
                 self.add_actor(e)
+        self.b.z = 3000
 
     def act(self, delta_time: float):
         super().act(delta_time)
