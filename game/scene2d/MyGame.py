@@ -1,4 +1,5 @@
 import pygame
+from pygame.locals import *
 import time
 from game.scene2d.MyTimers import *
 
@@ -21,7 +22,9 @@ class MyGame(MyTimers):
         self._delta_time: float = 1.0 / self._frame_limiter
         self._ticks_from_last_frame: int = 0
         self._screen: 'MyScreen' = None
-        self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height))
+        # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
+        flags = DOUBLEBUF | HWACCEL | HWSURFACE
+        self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
         self.create()
         self._running = True
         if autorun:

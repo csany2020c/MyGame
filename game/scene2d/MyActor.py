@@ -21,7 +21,8 @@ class MyActor(MyBaseActor, MyBaseListeners):
         self.create()
 
     def set_image_url(self, image_url: str) -> 'MyActor':
-        self._original_image = pygame.image.load(image_url)
+        # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
+        self._original_image = pygame.image.load(image_url).convert_alpha()
         self._image = self._original_image
         self._image_url = image_url
         self._w = self._image.get_width()
