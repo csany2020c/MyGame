@@ -6,9 +6,6 @@ class GameStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-
-    def create(self):
-        super(GameStage, self).create()
         self.b = Enemy1Actor()
         self.add_actor(self.b)
         for j in range(0, 10):
