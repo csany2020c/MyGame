@@ -94,7 +94,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex):
         return self
 
     def rotate_with(self, degree: float) -> 'MyBaseActor':
-        self.set_rotation(self.angle + degree)
+        self.set_rotation(self._r + degree)
         self._calc_box()
         return self
 
