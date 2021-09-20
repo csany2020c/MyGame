@@ -61,6 +61,4 @@ class Mario(game.scene2d.MyGame):
     def create(self):
         super().create()
         self.screen = MarioScr()
-
-
 Mario()
