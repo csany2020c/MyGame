@@ -4,7 +4,7 @@ import game
 class Enemy1Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("images/enemy1.png")
+        super().__init__("images/fatjordan.png")
         self.life = 5
 
     def act(self, delta_time: float):

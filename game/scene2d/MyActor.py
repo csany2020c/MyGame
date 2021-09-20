@@ -8,11 +8,10 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyActor(MyBaseActor, MyBaseListeners):
+class MyActor(MyBaseActor):
 
     def __init__(self, image_url: str = ""):
         MyBaseActor.__init__(self)
-        MyBaseListeners.__init__(self)
         self._original_image: pygame.Surface = None
         self._image: pygame.Surface = None
         self._image_url = image_url
