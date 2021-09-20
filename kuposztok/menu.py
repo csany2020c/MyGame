@@ -23,12 +23,11 @@ class MenuStage(game.scene2d.MyStage):
 
 class MenuScreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
-        self.r = 1
-        self.g = 1
-        self.b = 60
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(r=1,g=1, b=200)
         self.add_stage(MenuStage())
+
 
 
 class Menu(game.scene2d.MyGame):
