@@ -29,7 +29,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         self._r: float = 0
         self._w: float = 0
         self._h: float = 0
-        self._hitbox_shape: ShapeType = ShapeType.Rectangle
+        self._hitbox_shapetype: ShapeType = ShapeType.Rectangle
         self._hitbox_scale_w: float = 1
         self._hitbox_scale_h: float = 1
         self._center_origin_x: float = 0
@@ -59,22 +59,22 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         MyTimers.act(self, delta_time)
         MyBaseListeners.act(self, delta_time)
 
-    def draw(self):
+    def get_border_box(self)-> 'MyRectangle':
+        return MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
 
+    def draw(self):
         self._stage.screen.game.surface.blit(self._image, (
             self._x - self._image.get_width() / 2 + self._w / 2,
             self._y - self._image.get_height() / 2 + self._h / 2))
 
         if self._debug:
-            m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
-            # print(m.__str__())
+            m = self.get_border_box()
             i = m.getCorners()
             for k in range(0, len(i) - 1):
                 pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k+1])
             pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k+1])
 
-            m = MyRectangle(x=self._x + (self._w - self._w * self._hitbox_scale_w) / 2, y=self._y + (self._h - self._h * self._hitbox_scale_h) / 2, width=self._w * self.hitbox_scale_w, height=self._h * self.hitbox_scale_h, rotation=self._r)
-            # print(m.__str__())
+            m = self.get_hitbox()
             i = m.getCorners()
             for k in range(0, len(i) - 1):
                 pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
@@ -174,7 +174,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
             self._stage.actors.sort()
 
     def set_hitbox_shape(self, type: 'ShapeType'):
-        self._hitbox_shape = type
+        self._hitbox_shapetype = type
 
     def set_hitbox_scale_w(self, w: float):
         self._hitbox_scale_w = w
@@ -183,7 +183,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         self._hitbox_scale_h = h
 
     def get_hitbox_shape(self) -> 'ShapeType':
-        return self._hitbox_shape
+        return self._hitbox_shapetype
 
     def get_hitbox_scale_w(self) -> float:
         return self._hitbox_scale_w
@@ -211,6 +211,45 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
 
     def get_alpha(self) -> int:
         return self._alpha
+
+    def get_hitbox(self) -> 'MyShape':
+        if self._hitbox_shapetype == ShapeType.Rectangle:
+            return MyRectangle(x=self._x + (self._w - self._w * self._hitbox_scale_w) / 2, y=self._y + (self._h - self._h * self._hitbox_scale_h) / 2, width=self._w * self.hitbox_scale_w, height=self._h * self.hitbox_scale_h, rotation=self._r)
+        if self._hitbox_shapetype == ShapeType.Circle:
+            return MyCircle(x=self._x + self._w / 2,
+                            y=self._y + self._h / 2,
+                            radius=self._h / 2 * min(self.hitbox_scale_w, self.hitbox_scale_h),
+                            alignToLeftBottom=False,
+                            rotation=self._r)
+        if self._hitbox_shapetype == ShapeType.Point:
+            return MyCircle(x=self._x + self._w / 2,
+                            y=self._y + self._h / 2,
+                            radius=1,
+                            alignToLeftBottom=False,
+                            rotation=self._r)
+        if self._hitbox_shapetype == ShapeType.Null:
+            return None
+
+    def overlaps(self, other: 'MyBaseActor'):
+        if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Rectangle:
+            return Overlaps.rect_vs_rect(self.get_hitbox(), other.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Circle:
+            return Overlaps.rect_vs_circle(self.get_hitbox(), other.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Point:
+            return Overlaps.circle_vs_rect(other.get_hitbox(), self.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Circle and other._hitbox_shapetype == ShapeType.Rectangle:
+            return Overlaps.rect_vs_circle(other.get_hitbox(), self.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Circle and other._hitbox_shapetype == ShapeType.Circle:
+            return Overlaps.circle_vs_circle(other.get_hitbox(), self.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Circle and other._hitbox_shapetype == ShapeType.Point:
+            return Overlaps.circle_vs_circle(other.get_hitbox(), self.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Point and other._hitbox_shapetype == ShapeType.Rectangle:
+            return Overlaps.rect_vs_circle(other.get_hitbox(), self.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Point and other._hitbox_shapetype == ShapeType.Point:
+            return Overlaps.circle_vs_circle(self.get_hitbox(), other.get_hitbox())
+        if self._hitbox_shapetype == ShapeType.Point and other._hitbox_shapetype == ShapeType.Circle:
+            return Overlaps.circle_vs_circle(self.get_hitbox(), other.get_hitbox())
+        return False
 
     x: int = property(get_x, set_x)
     y: int = property(get_y, set_y)

@@ -106,4 +106,4 @@ class MyText:
         pass
 
 
-#TODO: Getter, property
+#TODO: Getter, property fejlesztése, hasonlóan, mint a többi osztályban. 5-öst kap a helyesen megoldó.

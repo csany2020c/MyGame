@@ -18,18 +18,28 @@ class GameStage(game.scene2d.MyStage):
                 e.height = 20
                 self.add_actor(e)
         self.b.z = 3000
-        a = Arial32()
-        self.add_actor(a)
-        a.set_text("asd")
-        a.set_bg_red(0)
-        a.set_font_underline(True)
-        a.set_alpha(128)
+        self.a = Arial32()
+        self.a.hitbox_shape = ShapeType.Circle
+        self.add_actor(self.a)
+        self.a.set_text("asd")
+        self.a.set_bg_red(0)
+        self.a.set_font_underline(True)
+        self.a.set_alpha(128)
         self.add_actor(MyLabel("Attila"))
+        self.asd = MyActor("resources/images/enemy1.png")
+        self.asd.x = 200
+        self.asd.w = 200
+        self.asd.hitbox_scale_w = 0.4
+        self.asd.hitbox_scale_h = 0.4
+        self.asd.hitbox_shape = ShapeType.Circle
+        self.add_actor(self.asd)
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.actors[20].width = 200
         self.b.r -= 2
+        print(self.asd.overlaps(self.a))
+
 
 
 

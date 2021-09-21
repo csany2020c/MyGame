@@ -8,5 +8,5 @@ class Arial32(MyLabel):
     def act(self, delta_time: float):
         MyLabel.act(self, delta_time)
         if self.x + self.width < self.screen_width:
-            self.x += delta_time * 60
+            self.x += delta_time * 20
             self.rotate_with(delta_time * 20)

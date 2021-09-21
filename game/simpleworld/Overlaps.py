@@ -34,7 +34,7 @@ class Overlaps:
                 (rectangle.realCenterY - circle.realCenterY) * (rectangle.realCenterY - circle.realCenterY) >
                 (rectangle._realRadius + circle._realRadius) * (rectangle._realRadius + circle._realRadius)):
             return False
-
+# TODO: Javítani kell!!!! 5-öst kap, aki javít és tesztel.
         # Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX - rectangle.realCenterX,
                                   circle.realCenterY - rectangle.realCenterY).rotate(
@@ -115,9 +115,9 @@ class Overlaps:
 
         width1: float = objA._width / 2
         width2: float = objB._width / 2
-
-        radrot1: float = math.radians(objA.realRotation)
-        radrot2: float = math.radians(objB.realRotation)
+# ??????????????????????????????????????????????????
+        radrot1: float = math.radians(-objA.realRotation)
+        radrot2: float = math.radians(-objB.realRotation)
 
         radius1: float = math.sqrt(height1 * height1 + width1 * width1)
         radius2: float = math.sqrt(height2 * height2 + width2 * width2)
