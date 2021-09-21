@@ -7,6 +7,8 @@ from game.scene2d.MyBaseListeners import *
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyZIndex import *
+from game.simpleworld.Overlaps import *
+from game.simpleworld.ShapeType import *
 
 from typing import TYPE_CHECKING
 
@@ -27,7 +29,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         self._r: float = 0
         self._w: float = 0
         self._h: float = 0
-        self._hitbox_shape: str = "rectangle"
+        self._hitbox_shape: ShapeType = ShapeType.Rectangle
         self._hitbox_scale_w: float = 1
         self._hitbox_scale_h: float = 1
         self._center_origin_x: float = 0
@@ -171,7 +173,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         if self._stage is not None:
             self._stage.actors.sort()
 
-    def set_hitbox_shape(self, type: str):
+    def set_hitbox_shape(self, type: 'ShapeType'):
         self._hitbox_shape = type
 
     def set_hitbox_scale_w(self, w: float):
@@ -180,7 +182,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
     def set_hitbox_scale_h(self, h: float):
         self._hitbox_scale_h = h
 
-    def get_hitbox_shape(self)-> str:
+    def get_hitbox_shape(self) -> 'ShapeType':
         return self._hitbox_shape
 
     def get_hitbox_scale_w(self) -> float:
@@ -188,10 +190,6 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
 
     def get_hitbox_scale_h(self) -> float:
         return self._hitbox_scale_h
-
-    @abc.abstractmethod
-    def get_image_surface(self) -> pygame.Surface:
-        pass
 
     def set_original_image(self, surface: pygame.Surface) -> 'MyBaseActor':
         if surface == None:

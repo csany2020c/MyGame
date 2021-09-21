@@ -8,6 +8,15 @@ if TYPE_CHECKING:
 
 class MyLabel(MyText, MyBaseActor):
 
-    def __init__(self, font_name="arial.ttf", font_size: int = 32, string: str = "MyText"):
-        MyText.__init__(self, font_name, font_size, string)
+    def __init__(self, string: str = "MyText", font_name: str = "system", font_size: int = 64):
+        MyText.__init__(self, string, font_name, font_size)
         MyBaseActor.__init__(self, self.get_text_surface())
+
+    def on_font_style_changed(self):
+        super().on_font_style_changed()
+        self.original_image = self.get_text_surface()
+
+    def on_text_changed(self):
+        super().on_text_changed()
+        self.original_image = self.get_text_surface()
+

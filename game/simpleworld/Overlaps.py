@@ -12,6 +12,17 @@ if TYPE_CHECKING:
 class Overlaps:
 
     @staticmethod
+    def circle_vs_point(objA: 'MyCircle', point: 'Vector2') -> bool:
+        return (objA.realCenterX - point.x) * (objA.realCenterX - point.x) + (
+                objA.realCenterY - point.y) * (objA.realCenterY - point.y) <= (
+                objA._radius) * (objA._radius)
+
+    @staticmethod
+    def rect_vs_point(rectangle: 'MyRectangle', point: 'Vector2') -> bool:
+        p = MyCircle(point.x, point.y)
+        return Overlaps.rect_vs_circle(rectangle, p)
+
+    @staticmethod
     def circle_vs_circle(objA: 'MyCircle', objB: 'MyCircle') -> bool:
         return (objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) + (
                 objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) <= (

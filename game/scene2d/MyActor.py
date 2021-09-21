@@ -1,6 +1,5 @@
 import pygame
 from game.scene2d.MyBaseActor import *
-from game.simpleworld.Overlaps import *
 
 
 from typing import TYPE_CHECKING
