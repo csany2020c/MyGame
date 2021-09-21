@@ -1,5 +1,5 @@
-import game
 from Kancsalmate27megilyenek.MenuStage import *
+import game
 
 
 class MenuScreen3(game.scene2d.MyScreen):

@@ -4,11 +4,11 @@ import game
 class MenuActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("randomkep")
+        super().__init__('image/my-caracter.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.x += delta_time * 100
+        self.x += delta_time
 
 
 class MenuStage(game.scene2d.MyStage):
@@ -17,18 +17,17 @@ class MenuStage(game.scene2d.MyStage):
         super().create()
 
         a = MenuActor()
-        a.y = 80
+        a.y = 20
         self.add_actor(a)
 
 
 class MenuScreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
-        self.r = 100
-        self.g = 50
-        self.b = 8
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(r=1,g=1, b=200)
         self.add_stage(MenuStage())
+
 
 
 class Menu(game.scene2d.MyGame):
@@ -38,4 +37,4 @@ class Menu(game.scene2d.MyGame):
         self.screen = MenuScreen()
 
 
-Menu()
+Menu().run()
