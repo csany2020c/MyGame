@@ -1,5 +1,6 @@
 import game
 from EnemyActor import *
+from Text import *
 
 
 class GameStage(game.scene2d.MyStage):
@@ -17,6 +18,7 @@ class GameStage(game.scene2d.MyStage):
                 e.height = 20
                 self.add_actor(e)
         self.b.z = 3000
+        self.add_actor(Arial32())
 
     def act(self, delta_time: float):
         super().act(delta_time)

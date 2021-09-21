@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 
 class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
 
-    def __init__(self) -> None:
+    def __init__(self, surface: pygame.Surface) -> None:
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
         MyZIndex.__init__(self)
@@ -32,7 +32,19 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         self._hitbox_scale_h: float = 1
         self._center_origin_x: float = 0
         self._center_origin_y: float = 0
-        self._box = [[0, 0], [0, 0], [0, 0], [0, 0]]
+        self._original_image: pygame.Surface = None
+        self._image: pygame.Surface = None
+        self._debug: bool = True
+        self._alpha: int = 255
+        self.set_original_image(surface)
+        #self._box = [[0, 0], [0, 0], [0, 0], [0, 0]]
+
+    def _transform(self):
+        if self._r != 0:
+            self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
+            self._image = pygame.transform.rotate(self._image, -self._r)
+        else:
+            self._image = pygame.transform.smoothscale(self._original_image, (int(self._w), int(self._h)))
 
     def get_delta_time(self) -> float:
         if self._stage is not None and self._stage.screen is not None and self._stage.screen.game is not None:
@@ -46,19 +58,25 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
         MyBaseListeners.act(self, delta_time)
 
     def draw(self):
-        m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
-        # print(m.__str__())
-        i = m.getCorners()
-        for k in range(0, len(i) - 1):
-            pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k+1])
-        pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k+1])
 
-        m = MyRectangle(x=self._x + (self._w - self._w * self._hitbox_scale_w) / 2, y=self._y + (self._h - self._h * self._hitbox_scale_h) / 2, width=self._w * self.hitbox_scale_w, height=self._h * self.hitbox_scale_h, rotation=self._r)
-        # print(m.__str__())
-        i = m.getCorners()
-        for k in range(0, len(i) - 1):
-            pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
-        pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
+        self._stage.screen.game.surface.blit(self._image, (
+            self._x - self._image.get_width() / 2 + self._w / 2,
+            self._y - self._image.get_height() / 2 + self._h / 2))
+
+        if self._debug:
+            m = MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
+            # print(m.__str__())
+            i = m.getCorners()
+            for k in range(0, len(i) - 1):
+                pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k+1])
+            pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k+1])
+
+            m = MyRectangle(x=self._x + (self._w - self._w * self._hitbox_scale_w) / 2, y=self._y + (self._h - self._h * self._hitbox_scale_h) / 2, width=self._w * self.hitbox_scale_w, height=self._h * self.hitbox_scale_h, rotation=self._r)
+            # print(m.__str__())
+            i = m.getCorners()
+            for k in range(0, len(i) - 1):
+                pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
+            pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
 
     def remove_from_stage(self):
         try:
@@ -80,32 +98,29 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
     def is_on_stage(self) -> bool:
         return self._stage != 0
 
-    def _calc_box(self):
-        self._box = [list(self._image.get_rect().bottomleft), list(self._image.get_rect().bottomright),
-                     list(self._image.get_rect().topright), list(self._image.get_rect().topleft)]
-        for i in range(4):
-            self._box[i][0] += self._x
-            self._box[i][1] += self._y
+#    def _calc_box(self):
+#        self._box = [list(self._image.get_rect().bottomleft), list(self._image.get_rect().bottomright),
+#                     list(self._image.get_rect().topright), list(self._image.get_rect().topleft)]
+        #        for i in range(4):
+        #    self._box[i][0] += self._x
+    #    self._box[i][1] += self._y
 
     def set_size(self, width: float, height: float) -> 'MyBaseActor':
         self._w = width
         self._h = height
-        self._calc_box()
+        self._transform()
         return self
 
     def rotate_with(self, degree: float) -> 'MyBaseActor':
         self.set_rotation(self._r + degree)
-        self._calc_box()
         return self
 
     def set_x(self, x: float) -> 'MyBaseActor':
         self._x = x
-        self._calc_box()
         return self
 
     def set_y(self, y: float) -> 'MyBaseActor':
         self._y = y
-        self._calc_box()
         return self
 
     def get_x(self) -> float:
@@ -136,6 +151,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
 
     def set_rotation(self, angle: float) -> 'MyBaseActor':
         self._r = angle
+        self._transform()
         return self
 
     def get_rotation(self) -> float:
@@ -173,6 +189,31 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
     def get_hitbox_scale_h(self) -> float:
         return self._hitbox_scale_h
 
+    @abc.abstractmethod
+    def get_image_surface(self) -> pygame.Surface:
+        pass
+
+    def set_original_image(self, surface: pygame.Surface) -> 'MyBaseActor':
+        if surface == None:
+            self._original_image = None
+            return
+        self._original_image = surface  # pygame.image.load(image_url).convert_alpha()
+        self._image = self._original_image
+        self._image.set_alpha(self._alpha)
+        self._w = self._image.get_width()
+        self._h = self._image.get_height()
+        print(str(self) + " Create Surface image: " + str(self._image.get_width()) + " x " + str(self._image.get_height()))
+
+    def get_original_image(self) -> pygame.Surface:
+        return self._original_image
+
+    def set_alpha(self, alpha: int) -> 'MyBaseActor':
+        self._alpha = alpha
+        self._image.set_alpha(alpha)
+
+    def get_alpha(self) -> int:
+        return self._alpha
+
     x: int = property(get_x, set_x)
     y: int = property(get_y, set_y)
     w: int = property(get_width, set_width)
@@ -189,3 +230,5 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
     hitbox_shape: str = property(get_hitbox_shape, set_hitbox_shape)
     hitbox_scale_w: float = property(get_hitbox_scale_w, set_hitbox_scale_w)
     hitbox_scale_h: float = property(get_hitbox_scale_h, set_hitbox_scale_h)
+    original_image: pygame.Surface = property(get_original_image, set_original_image)
+    alpha: int = property(get_alpha, set_alpha)
