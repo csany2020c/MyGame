@@ -85,5 +85,4 @@ class Wario(game.scene2d.MyGame):
 
     pass
 
-
 Wario().run()
