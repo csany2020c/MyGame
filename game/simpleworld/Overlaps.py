@@ -12,6 +12,17 @@ if TYPE_CHECKING:
 class Overlaps:
 
     @staticmethod
+    def circle_vs_point(objA: 'MyCircle', point: 'Vector2') -> bool:
+        return (objA.realCenterX - point.x) * (objA.realCenterX - point.x) + (
+                objA.realCenterY - point.y) * (objA.realCenterY - point.y) <= (
+                objA._radius) * (objA._radius)
+
+    @staticmethod
+    def rect_vs_point(rectangle: 'MyRectangle', point: 'Vector2') -> bool:
+        p = MyCircle(point.x, point.y)
+        return Overlaps.rect_vs_circle(rectangle, p)
+
+    @staticmethod
     def circle_vs_circle(objA: 'MyCircle', objB: 'MyCircle') -> bool:
         return (objA.realCenterX - objB.realCenterX) * (objA.realCenterX - objB.realCenterX) + (
                 objA.realCenterY - objB.realCenterY) * (objA.realCenterY - objB.realCenterY) <= (
@@ -23,7 +34,7 @@ class Overlaps:
                 (rectangle.realCenterY - circle.realCenterY) * (rectangle.realCenterY - circle.realCenterY) >
                 (rectangle._realRadius + circle._realRadius) * (rectangle._realRadius + circle._realRadius)):
             return False
-
+# TODO: Javítani kell!!!! 5-öst kap, aki javít és tesztel.
         # Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX - rectangle.realCenterX,
                                   circle.realCenterY - rectangle.realCenterY).rotate(
@@ -104,9 +115,9 @@ class Overlaps:
 
         width1: float = objA._width / 2
         width2: float = objB._width / 2
-
-        radrot1: float = math.radians(objA.realRotation)
-        radrot2: float = math.radians(objB.realRotation)
+# ??????????????????????????????????????????????????
+        radrot1: float = math.radians(-objA.realRotation)
+        radrot2: float = math.radians(-objB.realRotation)
 
         radius1: float = math.sqrt(height1 * height1 + width1 * width1)
         radius2: float = math.sqrt(height2 * height2 + width2 * width2)

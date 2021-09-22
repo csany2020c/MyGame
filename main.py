@@ -1,4 +1,4 @@
 # from HelloWorld import helloworld
-from Space.space import *
+from Space.SpaceGame import *
 
 Space()

@@ -1,3 +1,4 @@
 from SpaceGame import *
 
-Space()
+Space().run()
+

@@ -1,17 +1,19 @@
 import pygame
-from pygame.locals import *
 import time
+from pygame.locals import *
 from game.scene2d.MyTimers import *
+from game.scene2d.MyMouseListeners import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyGame(MyTimers):
+class MyGame(MyTimers, MyMouseListeners):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         MyTimers.__init__(self)
+        MyMouseListeners.__init__(self)
         pygame.init()
         self._screen_width: int = width
         self._screen_height: int = height
@@ -34,7 +36,8 @@ class MyGame(MyTimers):
         self.loop()
 
     def act(self, delta_time: float):
-        MyLifeCycles.act(self, delta_time)
+        MyTimers.act(self, delta_time)
+        MyMouseListeners.act(self, delta_time)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit()
@@ -47,7 +50,6 @@ class MyGame(MyTimers):
             self._screen.act(delta_time)
 
     def draw(self):
-        MyLifeCycles.draw(self)
         self._frame_count += 1
         if self._screen is not None:
             self._screen.draw()
@@ -96,7 +98,6 @@ class MyGame(MyTimers):
         return self._elapsed_time
 
     def dispose(self):
-        MyTimers.dispose(self)
         if self._screen is not None:
             self._screen.dispose()
         pass
