@@ -21,18 +21,6 @@ class ActorB(game.scene2d.MyActor):
         self.r+=-delta_time*20
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 class Stage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -43,8 +31,6 @@ class Stage(game.scene2d.MyStage):
         self.b.set_x(390).set_y(190)
         self.add_actor(self.a)
         self.add_actor(self.b)
-        for j in range(2, 5):
-            print(j)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -52,10 +38,6 @@ class Stage(game.scene2d.MyStage):
             self.screen.b = 80
         else:
             self.screen.b = 0
-
-
-
-
 
 
 class Screen(game.scene2d.MyScreen):
@@ -70,4 +52,6 @@ class Start(game.scene2d.MyGame):
         super().__init__(width, height, autorun)
         self.screen = Screen()
 
-Start().run()
+
+g = Start()
+g.run()
