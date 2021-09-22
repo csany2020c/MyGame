@@ -13,7 +13,7 @@ class Enemy1Actor(game.scene2d.MyActor):
 class Enemy2Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/quit.png")
+        super().__init__("image/quitb.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -33,7 +33,6 @@ class GameStage(game.scene2d.MyStage):
         self.h2.x = 525
         self.h2.y = 400
         self.h2.w = 200
-        self.h2.hitbox_scale_w = 0.75
 
 
 class GameScreen(game.scene2d.MyScreen):
