@@ -39,7 +39,7 @@ class Stage(game.scene2d.MyStage):
         super().__init__()
         self.a = ActorA()
         self.b = ActorB()
-        self.a.set_x(90).set_y(190)
+        self.a.set_x(80).set_y(190)
         self.b.set_x(390).set_y(190)
         self.add_actor(self.a)
         self.add_actor(self.b)

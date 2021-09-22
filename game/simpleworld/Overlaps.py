@@ -108,45 +108,57 @@ class Overlaps:
                 (objA._realRadius + objB._realRadius) * (objA._realRadius + objB._realRadius)):
             return False
 
-        # x10, y10 is centre point of rect1. x20, y20 is centre point of rect2
-        # height1, width1 are half heights/widths of rect1, radrot is rotation of rect in radians
-        height1: float = objA._height / 2
-        height2: float = objB._height / 2
+#         height1: float = objA._height / 2
+#         height2: float = objB._height / 2
+#
+#         width1: float = objA._width / 2
+#         width2: float = objB._width / 2
+# # ??????????????????????????????????????????????????
+#         radrot1: float = math.radians(-objA.realRotation)
+#         radrot2: float = math.radians(-objB.realRotation)
+#
+#         radius1: float = math.sqrt(height1 * height1 + width1 * width1)
+#         radius2: float = math.sqrt(height2 * height2 + width2 * width2)
+#
+#         angle1: float = math.asin(height1 / radius1)
+#         angle2: float = math.asin(height2 / radius2)
+#
+#         x1: List['float'] = [0, 0, 0, 0, 0]
+#         y1: List['float'] = [0, 0, 0, 0, 0]
+#         x2: List['float'] = [0, 0, 0, 0, 0]
+#         y2: List['float'] = [0, 0, 0, 0, 0]
+#
+#         x1[1] = objA.realCenterX + radius1 * math.cos(radrot1 - angle1)
+#         y1[1] = objA.realCenterY + radius1 * math.sin(radrot1 - angle1)
+#         x1[2] = objA.realCenterX + radius1 * math.cos(radrot1 + angle1)
+#         y1[2] = objA.realCenterY + radius1 * math.sin(radrot1 + angle1)
+#         x1[3] = objA.realCenterX + radius1 * math.cos(radrot1 + math.pi - angle1)
+#         y1[3] = objA.realCenterY + radius1 * math.sin(radrot1 + math.pi - angle1)
+#         x1[4] = objA.realCenterX + radius1 * math.cos(radrot1 + math.pi + angle1)
+#         y1[4] = objA.realCenterY + radius1 * math.sin(radrot1 + math.pi + angle1)
+#
+#         x2[1] = objB.realCenterX + radius2 * math.cos(radrot2 - angle2)
+#         y2[1] = objB.realCenterY + radius2 * math.sin(radrot2 - angle2)
+#         x2[2] = objB.realCenterX + radius2 * math.cos(radrot2 + angle2)
+#         y2[2] = objB.realCenterY + radius2 * math.sin(radrot2 + angle2)
+#         x2[3] = objB.realCenterX + radius2 * math.cos(radrot2 + math.pi - angle2)
+#         y2[3] = objB.realCenterY + radius2 * math.sin(radrot2 + math.pi - angle2)
+#         x2[4] = objB.realCenterX + radius2 * math.cos(radrot2 + math.pi + angle2)
+#         y2[4] = objB.realCenterY + radius2 * math.sin(radrot2 + math.pi + angle2)
 
-        width1: float = objA._width / 2
-        width2: float = objB._width / 2
-# ??????????????????????????????????????????????????
-        radrot1: float = math.radians(-objA.realRotation)
-        radrot2: float = math.radians(-objB.realRotation)
+        ac = objA.getCorners()
+        bc = objB.getCorners()
 
-        radius1: float = math.sqrt(height1 * height1 + width1 * width1)
-        radius2: float = math.sqrt(height2 * height2 + width2 * width2)
+        # x1: List['float'] = [0, 0, 0, 0, 0]
+        # y1: List['float'] = [0, 0, 0, 0, 0]
+        # x2: List['float'] = [0, 0, 0, 0, 0]
+        # y2: List['float'] = [0, 0, 0, 0, 0]
 
-        angle1: float = math.asin(height1 / radius1)
-        angle2: float = math.asin(height2 / radius2)
+        x1: List['float'] = [0, ac[0].x, ac[1].x, ac[2].x, ac[3].x]
+        y1: List['float'] = [0, ac[0].y, ac[1].y, ac[2].y, ac[3].y]
+        x2: List['float'] = [0, bc[0].x, bc[1].x, bc[2].x, bc[3].x]
+        y2: List['float'] = [0, bc[0].y, bc[1].y, bc[2].y, bc[3].y]
 
-        x1: List['float'] = [0, 0, 0, 0, 0]
-        y1: List['float'] = [0, 0, 0, 0, 0]
-        x2: List['float'] = [0, 0, 0, 0, 0]
-        y2: List['float'] = [0, 0, 0, 0, 0]
-
-        x1[1] = objA.realCenterX + radius1 * math.cos(radrot1 - angle1)
-        y1[1] = objA.realCenterY + radius1 * math.sin(radrot1 - angle1)
-        x1[2] = objA.realCenterX + radius1 * math.cos(radrot1 + angle1)
-        y1[2] = objA.realCenterY + radius1 * math.sin(radrot1 + angle1)
-        x1[3] = objA.realCenterX + radius1 * math.cos(radrot1 + math.pi - angle1)
-        y1[3] = objA.realCenterY + radius1 * math.sin(radrot1 + math.pi - angle1)
-        x1[4] = objA.realCenterX + radius1 * math.cos(radrot1 + math.pi + angle1)
-        y1[4] = objA.realCenterY + radius1 * math.sin(radrot1 + math.pi + angle1)
-
-        x2[1] = objB.realCenterX + radius2 * math.cos(radrot2 - angle2)
-        y2[1] = objB.realCenterY + radius2 * math.sin(radrot2 - angle2)
-        x2[2] = objB.realCenterX + radius2 * math.cos(radrot2 + angle2)
-        y2[2] = objB.realCenterY + radius2 * math.sin(radrot2 + angle2)
-        x2[3] = objB.realCenterX + radius2 * math.cos(radrot2 + math.pi - angle2)
-        y2[3] = objB.realCenterY + radius2 * math.sin(radrot2 + math.pi - angle2)
-        x2[4] = objB.realCenterX + radius2 * math.cos(radrot2 + math.pi + angle2)
-        y2[4] = objB.realCenterY + radius2 * math.sin(radrot2 + math.pi + angle2)
 
         axisx: List['float'] = [0, 0, 0, 0, 0]
         axisy: List['float'] = [0, 0, 0, 0, 0]
