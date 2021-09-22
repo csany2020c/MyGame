@@ -19,19 +19,19 @@ class GameStage(game.scene2d.MyStage):
                 self.add_actor(e)
         self.b.z = 3000
         self.a = Arial32()
-        self.a.hitbox_shape = ShapeType.Circle
+        # self.a.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.add_actor(self.a)
         self.a.set_text("asd")
         self.a.set_bg_red(0)
         self.a.set_font_underline(True)
         self.a.set_alpha(128)
-        self.add_actor(MyLabel("Attila"))
-        self.asd = MyActor("resources/images/enemy1.png")
+        self.add_actor(game.scene2d.MyLabel("Attila"))
+        self.asd = game.scene2d.MyActor("resources/images/enemy1.png")
         self.asd.x = 200
         self.asd.w = 200
         self.asd.hitbox_scale_w = 0.4
         self.asd.hitbox_scale_h = 0.4
-        self.asd.hitbox_shape = ShapeType.Circle
+        # self.asd.hitbox_shape = ShapeType.Circle
         self.add_actor(self.asd)
 
     def act(self, delta_time: float):
