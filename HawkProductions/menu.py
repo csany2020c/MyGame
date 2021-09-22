@@ -33,7 +33,6 @@ class GameStage(game.scene2d.MyStage):
         self.h2.x = 525
         self.h2.y = 400
         self.h2.w = 200
-        self.h2.hitbox_scale_w = 0.75
 
 
 class GameScreen(game.scene2d.MyScreen):
