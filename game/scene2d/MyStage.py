@@ -1,6 +1,6 @@
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
-from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyZIndex import *
 
 from typing import TYPE_CHECKING
@@ -10,10 +10,10 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex, MyTimers):
+class MyStage(MyMouseListeners, MyElapsedTime, MyZIndex, MyTimers):
 
     def __init__(self):
-        MyBaseListeners.__init__(self)
+        MyMouseListeners.__init__(self)
         MyElapsedTime.__init__(self)
         MyZIndex.__init__(self)
         MyTimers.__init__(self)
@@ -25,7 +25,7 @@ class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex, MyTimers):
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
-        MyBaseListeners.act(self, self.get_delta_time())
+        MyMouseListeners.act(self, self.get_delta_time())
         MyTimers.act(self, self.get_delta_time())
         for obj in self._actors:
             obj.act(delta_time)

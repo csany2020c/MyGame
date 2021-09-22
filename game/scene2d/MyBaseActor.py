@@ -3,7 +3,7 @@ import abc
 import pygame
 from game.simpleworld.MyRectangle import *
 from game.simpleworld.MyCircle import *
-from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyZIndex import *
@@ -16,13 +16,13 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
+class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
 
     def __init__(self, surface: pygame.Surface) -> None:
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
         MyZIndex.__init__(self)
-        MyBaseListeners.__init__(self)
+        MyMouseListeners.__init__(self)
         self._stage: 'MyStage' = None
         self._x: float = 0
         self._y: float = 0
@@ -57,7 +57,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyBaseListeners):
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
         MyTimers.act(self, delta_time)
-        MyBaseListeners.act(self, delta_time)
+        MyMouseListeners.act(self, delta_time)
 
     def get_border_box(self)-> 'MyRectangle':
         return MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)

@@ -1,6 +1,6 @@
 from typing import List
 from game.scene2d.MyTimers import *
-from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyElapsedTime import *
 
 from typing import TYPE_CHECKING
@@ -8,12 +8,12 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyScreen(MyTimers, MyElapsedTime, MyBaseListeners):
+class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners):
 
     def __init__(self):
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
-        MyBaseListeners.__init__(self)
+        MyMouseListeners.__init__(self)
         self.r: float = 0
         self.g: float = 0
         self.b: float = 0
@@ -44,7 +44,7 @@ class MyScreen(MyTimers, MyElapsedTime, MyBaseListeners):
     def act(self, delta_time: float):
         MyElapsedTime.act(self, delta_time)
         MyTimers.act(self, delta_time)
-        MyBaseListeners.act(self, delta_time)
+        MyMouseListeners.act(self, delta_time)
         for s in self._stages:
             if s.visible and not s.pause:
                 s.act(delta_time)

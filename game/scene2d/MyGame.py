@@ -2,18 +2,18 @@ import pygame
 import time
 from pygame.locals import *
 from game.scene2d.MyTimers import *
-from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyMouseListeners import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyGame(MyTimers, MyBaseListeners):
+class MyGame(MyTimers, MyMouseListeners):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         MyTimers.__init__(self)
-        MyBaseListeners.__init__(self)
+        MyMouseListeners.__init__(self)
         pygame.init()
         self._screen_width: int = width
         self._screen_height: int = height
@@ -37,7 +37,7 @@ class MyGame(MyTimers, MyBaseListeners):
 
     def act(self, delta_time: float):
         MyTimers.act(self, delta_time)
-        MyBaseListeners.act(self, delta_time)
+        MyMouseListeners.act(self, delta_time)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 self.exit()
