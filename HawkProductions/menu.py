@@ -13,7 +13,7 @@ class Enemy1Actor(game.scene2d.MyActor):
 class Enemy2Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/quit.png")
+        super().__init__("image/quitb.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
