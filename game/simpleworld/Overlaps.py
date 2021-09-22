@@ -161,14 +161,13 @@ class Overlaps:
         axisx[4] = x2[3] - x2[2]
         axisy[4] = y2[3] - y2[2]
 
-        for k in range(1, 4):
-
+        for k in range(1, 5):
             proj = x1[1] * axisx[k] + y1[1] * axisy[k]
 
             minProj1 = proj
             maxProj1 = proj
 
-            for i in range(2, 4):
+            for i in range(2, 5):
                 proj = x1[i] * axisx[k] + y1[i] * axisy[k]
 
                 if proj < minProj1:
@@ -182,7 +181,7 @@ class Overlaps:
             minProj2 = proj
             maxProj2 = proj
 
-            for j in range(2, 4):
+            for j in range(2, 5):
                 proj = x2[j] * axisx[k] + y2[j] * axisy[k]
                 if proj < minProj2:
                     minProj2 = proj
@@ -190,7 +189,7 @@ class Overlaps:
                     if proj > maxProj2:
                         maxProj2 = proj
 
-            if maxProj2 < minProj1 or maxProj1 < minProj2:
+            if (maxProj2 < minProj1) or (maxProj1 < minProj2):
                 return False
 
         return True
