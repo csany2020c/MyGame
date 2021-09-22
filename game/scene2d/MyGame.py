@@ -11,12 +11,15 @@ if TYPE_CHECKING:
 
 class MyGame(MyTimers, MyMouseListeners):
 
+    _screen_width: int
+    _screen_height: int
+
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         MyTimers.__init__(self)
         MyMouseListeners.__init__(self)
         pygame.init()
-        self._screen_width: int = width
-        self._screen_height: int = height
+        MyGame._screen_width = width
+        MyGame._screen_height = height
         self._p_et: float = 0
         self._elapsed_time: float = 0
         self._frame_limiter: float = 60
@@ -102,11 +105,13 @@ class MyGame(MyTimers, MyMouseListeners):
             self._screen.dispose()
         pass
 
-    def get_screen_width(self):
-        return self._screen_width
+    @staticmethod
+    def get_screen_width() -> int:
+        return MyGame._screen_width
 
-    def get_screen_height(self):
-        return self._screen_height
+    @staticmethod
+    def get_screen_height() -> int:
+        return MyGame._screen_height
 
     def get_surface(self) -> pygame.Surface:
         return self._surface
@@ -114,6 +119,6 @@ class MyGame(MyTimers, MyMouseListeners):
     delta_time: float = property(get_delta_time)
     elapsed_time: float = property(get_elapsed_time)
     screen: 'MyScreen' = property(get_screen, set_screen)
-    screen_width: int = property(get_screen_width)
-    screen_height: int = property(get_screen_height)
+    # screen_width: int = property(get_screen_width)
+    # screen_height: int = property(get_screen_height)
     surface: pygame.Surface = property(get_surface)

@@ -77,12 +77,6 @@ class MyStage(MyMouseListeners, MyElapsedTime, MyZIndex, MyTimers):
     def get_actors(self) -> List['MyBaseActor']:
         return self._actors
 
-    def get_screen_width(self) -> int:
-        return self.screen.game.screen_width
-
-    def get_screen_height(self) -> int:
-        return self.screen.game.screen_height
-
     def is_pause(self) -> bool:
         return self._pause
 
@@ -107,7 +101,7 @@ class MyStage(MyMouseListeners, MyElapsedTime, MyZIndex, MyTimers):
     set_z_index: int = property(get_z_index, set_z_index)
     screen: 'MyScreen' = property(get_screen, set_screen)
     actors: List['MyBaseActor'] = property(get_actors)
-    screen_width: int = property(get_screen_width)
-    screen_height: int = property(get_screen_height)
+    # screen_width: int = property(get_screen_width)
+    # screen_height: int = property(get_screen_height)
     pause: bool = property(is_pause, set_pause)
     visible: bool = property(is_visible, set_visible)

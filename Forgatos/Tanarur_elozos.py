@@ -2,6 +2,14 @@ import game
 from game.simpleworld.ShapeType import ShapeType
 
 
+class MenuLabel(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "MyText", x: int = 0, y: int = 0):
+        super().__init__(string, "Pinzelan-Regular.ttf", 48)
+        self.x = x
+        self.y = y
+
+
 class ActorA(game.scene2d.MyActor):
 
     def __init__(self):
@@ -28,6 +36,18 @@ class Stage(game.scene2d.MyStage):
         self.b.set_x(390).set_y(190)
         self.add_actor(self.a)
         self.add_actor(self.b)
+        self.l = game.scene2d.MyLabel("The quick brown fox jumps over the lazy dog.", "Arial", 64)
+
+        self.l.hitbox_scale_h = 0.8
+        self.l.set_font_italic(True)
+        self.add_actor(self.l)
+        self.add_actor(MenuLabel("Start", 30, 100))
+        self.add_actor(MenuLabel("Quit", 30, 200))
+        self.l.x = game.scene2d.MyGame.get_screen_width() / 2 - self.l.width / 2
+        self.l.y = game.scene2d.MyGame.get_screen_height() / 2 - self.l.height / 2
+
+    def show(self):
+        super().show()
 
     def act(self, delta_time: float):
         super().act(delta_time)

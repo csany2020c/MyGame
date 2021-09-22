@@ -66,17 +66,11 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners):
         stage.set_screen(None)
         return self
 
-    def get_screen_width(self) -> int:
-        return self.stage.game.screen_width
-
-    def get_screen_height(self) -> int:
-        return self.stage.game.screen_height
-
     def get_stages(self) -> List['MyStage']:
         return self._stages
 
     game = property(get_game, set_game)
-    screen_width: int = property(get_screen_width)
-    screen_height: int = property(get_screen_height)
+    # screen_width: int = property(get_screen_width)
+    # screen_height: int = property(get_screen_height)
     stages: List["MyStage"] = property(get_stages)
 

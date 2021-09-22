@@ -159,12 +159,6 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
     def get_rotation(self) -> float:
         return self._r
 
-    def get_screen_width(self) -> int:
-        return self.stage.screen.game.screen_width
-
-    def get_screen_height(self) -> int:
-        return self.stage.screen.game.screen_height
-
     def get_z_index(self) -> int:
         return super().get_z_index()
 
@@ -259,8 +253,8 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
     height: int = property(get_height, set_height)
     r: int = property(get_rotation, set_rotation)
     rotation: int = property(get_rotation, set_rotation)
-    screen_width: int = property(get_screen_width)
-    screen_height: int = property(get_screen_height)
+    # screen_width: int = property(get_screen_width)
+    # screen_height: int = property(get_screen_height)
     stage: 'MyStage' = property(get_stage, set_stage)
     z: int = property(get_z_index, set_z_index)
     z_index: int = property(get_z_index, set_z_index)
