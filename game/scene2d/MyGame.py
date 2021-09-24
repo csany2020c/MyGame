@@ -14,7 +14,7 @@ class MyGame(MyTimers, MyMouseListeners):
     _screen_width: int
     _screen_height: int
 
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         MyTimers.__init__(self)
         MyMouseListeners.__init__(self)
         pygame.init()
@@ -27,9 +27,17 @@ class MyGame(MyTimers, MyMouseListeners):
         self._delta_time: float = 1.0 / self._frame_limiter
         self._ticks_from_last_frame: int = 0
         self._screen: 'MyScreen' = None
+        self.info = pygame.display.Info()
+        self.width = self.info.current_w
+        self.height = self.info.current_h
+        print(self.width)
+        print(self.height)
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
         flags = DOUBLEBUF | HWACCEL | HWSURFACE
-        self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
+        if autosize:
+            self._surface: pygame.Surface = pygame.display.set_mode(size=(self.width, self.height), flags=flags)
+        else:
+            self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
         self.create()
         self._running = True
         if autorun:
