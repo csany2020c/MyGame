@@ -16,8 +16,8 @@ class masikforgoactor(game.scene2d.MyActor):
 
 class forgostage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
 
         a = forgoactor()
         a.y = 200
@@ -31,8 +31,8 @@ class forgostage(game.scene2d.MyStage):
 
 class forgoscreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 0
         self.g = 0
         self.b = 0
@@ -40,8 +40,8 @@ class forgoscreen(game.scene2d.MyScreen):
 
 class forgogame(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = forgoscreen()
 
 forgogame().run()

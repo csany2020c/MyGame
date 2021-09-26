@@ -25,8 +25,8 @@ class MasikActor(game.scene2d.MyActor):
 
 class JatekStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.a = ElsoActor()
         self.a.set_y(200)
         self.a.set_x(550)
@@ -49,8 +49,8 @@ class JatekStage(game.scene2d.MyStage):
 
 class JatekScr(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 71
         self.g = 245
         self.b = 233
@@ -64,8 +64,8 @@ class JatekScr(game.scene2d.MyScreen):
 
 class Jatek(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = JatekScr()
 
     pass

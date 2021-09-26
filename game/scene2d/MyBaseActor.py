@@ -4,6 +4,7 @@ import pygame
 from game.simpleworld.MyRectangle import *
 from game.simpleworld.MyCircle import *
 from game.scene2d.MyMouseListeners import *
+from game.scene2d.MyKeyboardListeners import *
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyZIndex import *
@@ -16,13 +17,14 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
+class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboardListeners):
 
     def __init__(self, surface: pygame.Surface) -> None:
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
         MyZIndex.__init__(self)
         MyMouseListeners.__init__(self)
+        MyKeyboardListeners.__init__(self)
         self._stage: 'MyStage' = None
         self._x: float = 0
         self._y: float = 0
@@ -55,9 +57,9 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
             return 0
 
     def act(self, delta_time: float):
-        MyElapsedTime.act(self, self.get_delta_time())
-        MyTimers.act(self, delta_time)
-        MyMouseListeners.act(self, delta_time)
+        MyElapsedTime.act(self, delta_time)
+        # MyTimers.act(self, delta_time)
+#        MyMouseListeners.act(self, delta_time)
 
     def get_border_box(self)-> 'MyRectangle':
         return MyRectangle(x=self._x, y=self._y, width=self._w, height=self._h, rotation=self._r)
@@ -81,10 +83,11 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
             pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
 
     def remove_from_stage(self):
-        try:
-            self._stage.remove_actor(actor=self)
-        except ValueError:
-            print("A következő objektum már el lett távolítva korábban: " + str(id(self)))
+        if self._stage is not None:
+            try:
+                self._stage.remove_actor(actor=self)
+            except ValueError:
+                print("A következő objektum már el lett távolítva korábban: " + str(id(self)))
 
     def set_stage(self, stage: 'MyStage') -> 'MyBaseActor':
         self._stage = stage
@@ -98,7 +101,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
         return self._stage
 
     def is_on_stage(self) -> bool:
-        return self._stage != 0
+        return self._stage is not None
 
 #    def _calc_box(self):
 #        self._box = [list(self._image.get_rect().bottomleft), list(self._image.get_rect().bottomright),
@@ -224,13 +227,23 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners):
         if self._hitbox_shapetype == ShapeType.Null:
             return None
 
+    def overlaps_xy(self, x: int, y: int):
+        #other = MyCircle(x=x, y=y, radius=1, alignToLeftBottom=False, rotation=0)
+        other = Vector2(x,y)
+        if self._hitbox_shapetype == ShapeType.Rectangle:
+            return Overlaps.rect_vs_point(self.get_hitbox(), other)
+        if self._hitbox_shapetype == ShapeType.Circle:
+            return Overlaps.circle_vs_point(self.get_hitbox(), other)
+        if self._hitbox_shapetype == ShapeType.Point:
+            return Overlaps.circle_vs_point(self.get_hitbox(), other)
+
     def overlaps(self, other: 'MyBaseActor'):
         if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Rectangle:
             return Overlaps.rect_vs_rect(self.get_hitbox(), other.get_hitbox())
         if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Circle:
             return Overlaps.rect_vs_circle(self.get_hitbox(), other.get_hitbox())
         if self._hitbox_shapetype == ShapeType.Rectangle and other._hitbox_shapetype == ShapeType.Point:
-            return Overlaps.circle_vs_rect(other.get_hitbox(), self.get_hitbox())
+            return Overlaps.rect_vs_circle(self.get_hitbox(), other.get_hitbox())
         if self._hitbox_shapetype == ShapeType.Circle and other._hitbox_shapetype == ShapeType.Rectangle:
             return Overlaps.rect_vs_circle(other.get_hitbox(), self.get_hitbox())
         if self._hitbox_shapetype == ShapeType.Circle and other._hitbox_shapetype == ShapeType.Circle:

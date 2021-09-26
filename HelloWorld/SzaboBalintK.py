@@ -41,8 +41,8 @@ class Wario4Actor(game.scene2d.MyActor):
 
 class WarioStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.add_actor(WarioActor())
         self.add_actor(Wario2Actor())
         self.add_actor(Wario3Actor())
@@ -51,8 +51,8 @@ class WarioStage(game.scene2d.MyStage):
 
 class Wario2Scr(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 71
         self.g = 245
         self.b = 233
@@ -65,8 +65,8 @@ class Wario2Scr(game.scene2d.MyScreen):
 
 class WarioScr(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 245
         self.g = 71
         self.b = 146
@@ -79,8 +79,8 @@ class WarioScr(game.scene2d.MyScreen):
 
 class Wario(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = WarioScr()
 
     pass

@@ -1,5 +1,6 @@
 import abc
 from pygame.math import Vector2
+from game.simpleworld.MyCircle import *
 import math
 
 from typing import TYPE_CHECKING
@@ -19,7 +20,7 @@ class Overlaps:
 
     @staticmethod
     def rect_vs_point(rectangle: 'MyRectangle', point: 'Vector2') -> bool:
-        p = MyCircle(point.x, point.y)
+        p = MyCircle(x=point.x, y=point.y)
         return Overlaps.rect_vs_circle(rectangle, p)
 
     @staticmethod
@@ -38,7 +39,7 @@ class Overlaps:
         # Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX - rectangle.realCenterX,
                                   circle.realCenterY - rectangle.realCenterY).rotate(
-            -rectangle._rotation - rectangle.offsetRotation).add(rectangle.realCenterX, rectangle.realCenterY)
+            -rectangle._rotation - rectangle.offsetRotation).__add__(Vector2(rectangle.realCenterX, rectangle.realCenterY))
 
         # A négyzet sarkai
         xRect: List['float'] = [0, 0, 0, 0]
@@ -66,9 +67,9 @@ class Overlaps:
         yRect[3] = rectangle.realCenterY - height1
 
         # Ha a téglalap bármely sarka a körön beül van
-        for i in range(0, 3):
-            if ((xRect[i] - circleRotCenter._x) * (xRect[i] - circleRotCenter._x) +
-                    (yRect[i] - circleRotCenter._y) * (yRect[i] - circleRotCenter._y) <=
+        for i in range(0, 4):
+            if ((xRect[i] - circleRotCenter.x) * (xRect[i] - circleRotCenter.x) +
+                    (yRect[i] - circleRotCenter.y) * (yRect[i] - circleRotCenter.y) <=
                     (circle._radius) * (circle._radius)):
                 return True
 
@@ -77,23 +78,23 @@ class Overlaps:
         yCirc: List['float'] = [0, 0, 0, 0]
 
         # A kör legfelső pontja
-        xCirc[0] = circleRotCenter._x + circle._radius
-        yCirc[0] = circleRotCenter._y
+        xCirc[0] = circleRotCenter.x + circle._radius
+        yCirc[0] = circleRotCenter.y
 
         # legalsó pontja
-        xCirc[1] = circleRotCenter._x - circle._radius
-        yCirc[1] = circleRotCenter._y
+        xCirc[1] = circleRotCenter.x - circle._radius
+        yCirc[1] = circleRotCenter.y
 
         # bal pontja
-        xCirc[2] = circleRotCenter._x
-        yCirc[2] = circleRotCenter._y - circle._radius
+        xCirc[2] = circleRotCenter.x
+        yCirc[2] = circleRotCenter.y - circle._radius
 
         # jobb pontja
-        xCirc[3] = circleRotCenter._x
-        yCirc[3] = circleRotCenter._y + circle._radius
+        xCirc[3] = circleRotCenter.x
+        yCirc[3] = circleRotCenter.y + circle._radius
 
         # Ha a kör bármelyik (bal, jobb, felső, alsó) pontja a téglalapon belül van
-        for i in range(0, 3):
+        for i in range(0, 4):
             if (xRect[0] <= xCirc[i]) and (xRect[2] >= xCirc[i]) and (yRect[0] <= yCirc[i]) and (yRect[2] >= yCirc[i]):
                 return True
 

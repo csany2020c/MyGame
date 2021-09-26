@@ -21,10 +21,6 @@ class Enemy2Actor(game.scene2d.MyActor):
 class GameStage(game.scene2d.MyStage):
 
     def __init__(self):
-        super().__init__()
-
-    def create(self):
-        super(GameStage, self).create()
         self.h1 = Enemy1Actor()
         self.h2 = Enemy2Actor()
         self.add_actor(self.h1)
@@ -37,16 +33,14 @@ class GameStage(game.scene2d.MyStage):
 
 class GameScreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
         self.set_background_color(0, 128, 0)
         self.add_stage(GameStage())
 
 
 class Space(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         self.set_screen(GameScreen())
 
 

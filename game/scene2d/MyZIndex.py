@@ -16,11 +16,11 @@ class MyZIndex:
     def get_z_index(self) -> int:
         return self._z_index
 
-    def __eq__(self, other: 'MyZIndex') -> bool:
-        return self._z_index == other._z_index
+#    def __eq__(self, other: 'MyZIndex') -> bool:
+#        return self._z_index == other._z_index
 
-    def __ne__(self, other: 'MyZIndex') -> bool:
-        return self._z_index != other._z_index
+#    def __ne__(self, other: 'MyZIndex') -> bool:
+#        return self._z_index != other._z_index
 
     def __lt__(self, other: 'MyZIndex') -> bool:
         return self._z_index < other._z_index

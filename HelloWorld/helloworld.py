@@ -39,16 +39,16 @@ class HelloStage(game.scene2d.MyStage):
 
 class HelloScreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super(HelloScreen, self).create()
+    def __init__(self):
+        super().__init__()
         self.set_background_color(200, 100, 22)
         self.add_stage(HelloStage())
 
 
 class HelloWorld(game.scene2d.MyGame):
 
-    def create(self):
-        super(HelloWorld, self).create()
+    def __init__(self):
+        super().__init__()
         self.set_screen(HelloScreen())
 
 

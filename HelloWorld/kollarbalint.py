@@ -41,8 +41,8 @@ class MarioActor4(game.scene2d.MyActor):
 
 class MarioStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.add_actor(MarioActor())
         self.add_actor(MarioActor2())
         self.add_actor(MarioActor3())
@@ -51,8 +51,8 @@ class MarioStage(game.scene2d.MyStage):
 
 class Marioskep(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 255
         self.g = 111
         self.b = 0
@@ -65,8 +65,8 @@ class Marioskep(game.scene2d.MyScreen):
 
 class Masikkep(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 50
         self.g = 168
         self.b = 166
@@ -79,8 +79,8 @@ class Masikkep(game.scene2d.MyScreen):
 
 class Mario(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = Marioskep()
 
 Mario()

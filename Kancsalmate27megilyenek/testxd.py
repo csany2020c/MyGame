@@ -14,8 +14,8 @@ class MarioActor(game.scene2d.MyActor):
 
 class MarioStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
 
         a = MarioActor()
         a.y = 80
@@ -28,8 +28,8 @@ class MarioStage(game.scene2d.MyStage):
 
 class MasikScr(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 10
         self.g = 250
         self.b = 88
@@ -43,8 +43,8 @@ class MasikScr(game.scene2d.MyScreen):
 
 class MarioScr(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 100
         self.g = 50
         self.b = 8
@@ -58,8 +58,8 @@ class MarioScr(game.scene2d.MyScreen):
 
 class Mario(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
+        super().__init__(width, height, autorun, autosize)
         self.screen = MarioScr()
 
 
