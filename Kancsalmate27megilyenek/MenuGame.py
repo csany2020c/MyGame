@@ -1,5 +1,3 @@
-import pygame.display
-
 from Kancsalmate27megilyenek.MenuScreen import *
 import game
 
