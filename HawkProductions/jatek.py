@@ -4,15 +4,15 @@ import game
 class Deagle(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/bid.jpg")
+        super().__init__("image/bid2.png")
 
 class Pile1(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/vegre.png")
+        super().__init__("image/oszlop.png")
 
 class Pile2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/vegre.png")
+        super().__init__("image/oszlop.png")
 
 class Stage(game.scene2d.MyStage):
 
