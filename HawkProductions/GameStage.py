@@ -1,7 +1,6 @@
 import game
-#from HawkProductions.Enemy1Actor import *
-#from HawkProductions.Enemy2Actor import *
-from HawkProductions.menu import *
+from HawkProductions.Enemy1Actor import *
+from HawkProductions.Enemy2Actor import *
 
 class GameStage(game.scene2d.MyStage):
 
