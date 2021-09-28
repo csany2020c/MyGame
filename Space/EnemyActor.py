@@ -1,4 +1,5 @@
 import game
+from game.scene2d import MyOneTickTimer
 
 
 class Enemy1Actor(game.scene2d.MyActor):

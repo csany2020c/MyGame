@@ -1,8 +1,9 @@
-from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyTimers import *
+from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyKeyboardListeners import *
 from game.scene2d.MyZIndex import *
+from game.scene2d.MyDebug import *
 
 from typing import TYPE_CHECKING
 from typing import List
@@ -11,14 +12,16 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, MyTimers):
+class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, MyTimers, MyDebug):
 
     def __init__(self):
+        #MyLifeCycles.__init__(self)
         MyMouseListeners.__init__(self)
         MyKeyboardListeners.__init__(self)
         MyElapsedTime.__init__(self)
         MyZIndex.__init__(self)
         MyTimers.__init__(self)
+        MyDebug.__init__(self)
         self._visible: bool = True
         self._pause: bool = False
         self._screen: 'MyScreen' = None
@@ -27,7 +30,8 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
-#        MyTimers.act(self, self.get_delta_time())
+        MyTimers.act(self, self.get_delta_time())
+        # print(self.elapsed_time)
         for obj in self._actors:
             obj.act(delta_time)
 
@@ -46,6 +50,7 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
             print("A következő actor át lett helyezve a " + str(id(actor._stage)) + " stageből a " + str(id(self)) + " stagebe.")
             actor.remove_from_stage()
         actor.set_stage(self)
+        actor.debug = self._debug
         self._actors.sort()
         self._actors_reverse = list(reversed(self._actors))
         return self
@@ -103,6 +108,14 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
         if self._screen is not None:
             self._screen.stages.sort()
 
+    def set_debug(self, debug: bool):
+        super().set_debug(debug)
+        for obj in self._actors:
+            obj.debug = debug
+
+    def get_debug(self) -> bool:
+        return self._debug
+
     z: int = property(get_z_index, set_z_index)
     set_z_index: int = property(get_z_index, set_z_index)
     screen: 'MyScreen' = property(get_screen, set_screen)
@@ -112,3 +125,4 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
     # screen_height: int = property(get_screen_height)
     pause: bool = property(is_pause, set_pause)
     visible: bool = property(is_visible, set_visible)
+    debug: bool = property(get_debug, set_debug)

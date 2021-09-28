@@ -33,9 +33,9 @@ class Overlaps:
     def rect_vs_circle(rectangle: 'MyRectangle', circle: 'MyCircle') -> bool:
         if ((rectangle.realCenterX - circle.realCenterX) * (rectangle.realCenterX - circle.realCenterX) +
                 (rectangle.realCenterY - circle.realCenterY) * (rectangle.realCenterY - circle.realCenterY) >
-                (rectangle._realRadius + circle._realRadius) * (rectangle._realRadius + circle._realRadius)):
+                (rectangle._realRadius + circle._radius) * (rectangle._realRadius + circle._radius)):
             return False
-# TODO: Javítani kell!!!! 5-öst kap, aki javít és tesztel.
+
         # Téglalap és kör forgatása a téglalap originje körül úgy, hogy az oldalai párhuzamosak legyenek a koordináta rendszerrel. A kör középpontja megváltozik, a téglalap forgatása 0 lesz.
         circleRotCenter = Vector2(circle.realCenterX - rectangle.realCenterX,
                                   circle.realCenterY - rectangle.realCenterY).rotate(

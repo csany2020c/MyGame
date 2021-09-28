@@ -1,4 +1,5 @@
 from typing import List
+from game.scene2d.MyDebug import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyElapsedTime import *
@@ -9,13 +10,14 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners):
+class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners, MyDebug):
 
     def __init__(self):
         MyElapsedTime.__init__(self)
         MyTimers.__init__(self)
         MyMouseListeners.__init__(self)
         MyKeyboardListeners.__init__(self)
+        MyDebug.__init__(self)
         self.r: float = 0
         self.g: float = 0
         self.b: float = 0
@@ -56,10 +58,9 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners):
 
     def add_stage(self, stage: 'MyStage') -> 'MyScreen':
         self._stages.append(stage)
+        stage.debug = self.debug
         stage.set_screen(self)
         self._stages_reverse = list(reversed(self._stages))
-        #print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-        #print(len(self._stages_reverse))
         return self
 
     def remove_stage(self, stage: 'MyStage') -> 'MyScreen':
@@ -74,9 +75,17 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners):
     def get_stages_reverse(self) -> List['MyStage']:
         return self._stages_reverse
 
+    def set_debug(self, debug: bool):
+        super().set_debug(debug)
+        for obj in self._stages:
+            obj.debug = debug
+
+    def get_debug(self) -> bool:
+        return self._debug
+
     game = property(get_game, set_game)
     # screen_width: int = property(get_screen_width)
     # screen_height: int = property(get_screen_height)
     stages: List["MyStage"] = property(get_stages)
     stages_reverse: List["MyStage"] = property(get_stages_reverse)
-
+    debug: bool = property(get_debug, set_debug)

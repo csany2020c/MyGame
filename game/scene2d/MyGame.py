@@ -1,6 +1,7 @@
 import pygame
 import time
 from pygame.locals import *
+from game.scene2d.MyDebug import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyKeyboardListeners import *
 from game.scene2d.MyMouseListeners import *
@@ -10,15 +11,16 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners):
+class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
 
     _screen_width: int
     _screen_height: int
 
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False, debug: bool = False):
         MyTimers.__init__(self)
         MyMouseListeners.__init__(self)
         MyKeyboardListeners.__init__(self)
+        MyDebug.__init__(self)
         pygame.init()
         MyGame._screen_width = width
         MyGame._screen_height = height
@@ -32,6 +34,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners):
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
+        self._debug = debug
         print(self.width)
         print(self.height)
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
@@ -80,9 +83,18 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners):
                     if self.is_keyboard_event_present():
                         if self.do_key_event(sender=st, event=event):
                             break
+            self.debug_key_handle(event)
         self._elapsed_time += self.get_delta_time()
         if self._screen is not None:
             self._screen.act(delta_time)
+
+    def debug_key_handle(self, event):
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_F12:
+                self.debug = not self.debug
+        if event.type == pygame.KEYUP:
+            if event.key == pygame.K_F12:
+                self.debug = not self.debug
 
     def draw(self):
         self._frame_count += 1
@@ -115,6 +127,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners):
         if self._screen is not None:
             self._screen.set_game(None)
         self._screen = screen
+        self._screen.debug = self._debug
         self._screen.set_game(self)
         return self
 
@@ -142,9 +155,17 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners):
     def get_surface(self) -> pygame.Surface:
         return self._surface
 
+    def set_debug(self, debug: bool):
+        super(MyGame, self).set_debug(debug)
+        self.screen.debug = debug
+
+    def get_debug(self) -> bool:
+        return self._debug
+
     delta_time: float = property(get_delta_time)
     elapsed_time: float = property(get_elapsed_time)
     screen: 'MyScreen' = property(get_screen, set_screen)
     # screen_width: int = property(get_screen_width)
     # screen_height: int = property(get_screen_height)
     surface: pygame.Surface = property(get_surface)
+    debug: bool = property(get_debug, set_debug)

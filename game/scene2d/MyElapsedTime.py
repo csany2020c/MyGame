@@ -7,7 +7,7 @@ class MyElapsedTime(MyLifeCycles):
         self._elapsed_time: float = 0
 
     def act(self, delta_time: float):
-        super().act(delta_time)
+        MyLifeCycles.act(self, delta_time)
         self._elapsed_time += delta_time
 
     def get_elapsed_time(self) -> float:

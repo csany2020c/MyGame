@@ -51,7 +51,7 @@ class MyBaseTimer(MyElapsedTime, metaclass=abc.ABCMeta):
 
     def act(self, delta_time: float):
         if self._enabled:
-            print(delta_time)
+            # print(delta_time)
             MyElapsedTime.act(self, delta_time)
             self._do_timer()
 

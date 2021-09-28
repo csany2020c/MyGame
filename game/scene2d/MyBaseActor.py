@@ -10,6 +10,7 @@ from game.scene2d.MyTimers import *
 from game.scene2d.MyZIndex import *
 from game.simpleworld.Overlaps import *
 from game.simpleworld.ShapeType import *
+from game.scene2d.MyDebug import *
 
 from typing import TYPE_CHECKING
 
@@ -17,7 +18,7 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboardListeners):
+class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboardListeners, MyDebug):
 
     def __init__(self, surface: pygame.Surface) -> None:
         MyElapsedTime.__init__(self)
@@ -25,6 +26,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         MyZIndex.__init__(self)
         MyMouseListeners.__init__(self)
         MyKeyboardListeners.__init__(self)
+        MyDebug.__init__(self)
         self._stage: 'MyStage' = None
         self._x: float = 0
         self._y: float = 0
@@ -38,7 +40,6 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         self._center_origin_y: float = 0
         self._original_image: pygame.Surface = None
         self._image: pygame.Surface = None
-        self._debug: bool = True
         self._alpha: int = 255
         self.set_original_image(surface)
         #self._box = [[0, 0], [0, 0], [0, 0], [0, 0]]
@@ -58,7 +59,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, delta_time)
-        # MyTimers.act(self, delta_time)
+        MyTimers.act(self, delta_time)
 #        MyMouseListeners.act(self, delta_time)
 
     def get_border_box(self)-> 'MyRectangle':
@@ -68,19 +69,21 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         self._stage.screen.game.surface.blit(self._image, (
             self._x - self._image.get_width() / 2 + self._w / 2,
             self._y - self._image.get_height() / 2 + self._h / 2))
-
         if self._debug:
-            m = self.get_border_box()
-            i = m.getCorners()
-            for k in range(0, len(i) - 1):
-                pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k+1])
-            pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k+1])
+            self.draw_debug()
 
-            m = self.get_hitbox()
-            i = m.getCorners()
-            for k in range(0, len(i) - 1):
-                pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k+1])
-            pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k+1])
+    def draw_debug(self):
+        m = self.get_border_box()
+        i = m.getCorners()
+        for k in range(0, len(i) - 1):
+            pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k + 1])
+        pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k + 1])
+
+        m = self.get_hitbox()
+        i = m.getCorners()
+        for k in range(0, len(i) - 1):
+            pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k + 1])
+        pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k + 1])
 
     def remove_from_stage(self):
         if self._stage is not None:
