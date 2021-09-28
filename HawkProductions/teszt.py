@@ -1,6 +1,6 @@
 from game import *
-from HawkProductions.menu import *
+from HawkProductions.Menuminden import *
 
-s = Space()
+s = Menuminden()
 s.run()
 
