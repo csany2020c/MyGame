@@ -15,3 +15,7 @@ class MenuActor2(game.scene2d.MyActor):
         self.y = 10
         self.hitbox_scale_h = 0.45
         self.hitbox_scale_w = 1
+        self.set_on_mouse_down_listener(self.kilepes)
+
+    def kilepes(self, sender, event):
+        exit()

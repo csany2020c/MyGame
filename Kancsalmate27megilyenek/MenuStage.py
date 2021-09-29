@@ -16,7 +16,20 @@ class Stage3(game.scene2d.MyStage):
         self.a.x = self.width - self.width / 2 - self.a.width / 2
         self.a.y = (self.height - self.height * 0.2) - self.a.height/2
         self.add_actor(self.a)
-        self.a.set_on_mouse_down_listener(game.scene2d.MyGame.exit(game))
+        self.a.set_on_mouse_down_listener(self.click)
+
+    def click(self, sender, event):
+        print(event)
+        if event.button == 1:
+            pygame.quit()
+
+
+
+
+
+
+
+
 
         self.b = MenuActor2()
         self.b.set_size(self.width * 0.313, self.height * 0.1)
