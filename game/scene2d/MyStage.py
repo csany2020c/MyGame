@@ -1,6 +1,9 @@
+from game.scene2d.MyTimers import *
 from game.scene2d.MyElapsedTime import *
-from game.scene2d.MyBaseListeners import *
+from game.scene2d.MyMouseListeners import *
+from game.scene2d.MyKeyboardListeners import *
 from game.scene2d.MyZIndex import *
+from game.scene2d.MyDebug import *
 
 from typing import TYPE_CHECKING
 from typing import List
@@ -9,20 +12,26 @@ if TYPE_CHECKING:
     from __type_checking__ import *
 
 
-class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
+class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, MyTimers, MyDebug):
 
     def __init__(self):
-        MyBaseListeners.__init__(self)
+        #MyLifeCycles.__init__(self)
+        MyMouseListeners.__init__(self)
+        MyKeyboardListeners.__init__(self)
         MyElapsedTime.__init__(self)
         MyZIndex.__init__(self)
+        MyTimers.__init__(self)
+        MyDebug.__init__(self)
         self._visible: bool = True
         self._pause: bool = False
         self._screen: 'MyScreen' = None
         self._actors: List['MyBaseActor'] = list()
-        self.create()
+        self._actors_reverse: List['MyBaseActor'] = list()
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
+        MyTimers.act(self, self.get_delta_time())
+        # print(self.elapsed_time)
         for obj in self._actors:
             obj.act(delta_time)
 
@@ -37,11 +46,13 @@ class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
         # XD
         #if isinstance(actor, 'MyBaseActor'):
         self._actors.append(actor)
-        if actor._stage != None:
+        if actor.stage is not None:
             print("A következő actor át lett helyezve a " + str(id(actor._stage)) + " stageből a " + str(id(self)) + " stagebe.")
             actor.remove_from_stage()
         actor.set_stage(self)
+        actor.debug = self._debug
         self._actors.sort()
+        self._actors_reverse = list(reversed(self._actors))
         return self
         #else:
         #    print("ERROR: Az objektum példány nem adható hozzá a staghez, mert nem a MyBaseActor leszármazottja.")
@@ -49,6 +60,7 @@ class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
     def remove_actor(self, actor: 'MyBaseActor') -> 'MyStage':
         self._actors.remove(actor)
         actor.set_stage(0)
+        self._actors_reverse = list(reversed(self._actors))
         return self
 
     def remove_stage_from_screen(self):
@@ -73,11 +85,8 @@ class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
     def get_actors(self) -> List['MyBaseActor']:
         return self._actors
 
-    def get_screen_width(self) -> int:
-        return self.screen.game.screen_width
-
-    def get_screen_height(self) -> int:
-        return self.screen.game.screen_height
+    def get_actors_reverse(self) -> List['MyBaseActor']:
+        return self._actors_reverse
 
     def is_pause(self) -> bool:
         return self._pause
@@ -99,11 +108,21 @@ class MyStage(MyBaseListeners, MyElapsedTime, MyZIndex):
         if self._screen is not None:
             self._screen.stages.sort()
 
+    def set_debug(self, debug: bool):
+        super().set_debug(debug)
+        for obj in self._actors:
+            obj.debug = debug
+
+    def get_debug(self) -> bool:
+        return self._debug
+
     z: int = property(get_z_index, set_z_index)
     set_z_index: int = property(get_z_index, set_z_index)
     screen: 'MyScreen' = property(get_screen, set_screen)
     actors: List['MyBaseActor'] = property(get_actors)
-    screen_width: int = property(get_screen_width)
-    screen_height: int = property(get_screen_height)
+    actors_reverse: List['MyBaseActor'] = property(get_actors_reverse)
+    # screen_width: int = property(get_screen_width)
+    # screen_height: int = property(get_screen_height)
     pause: bool = property(is_pause, set_pause)
     visible: bool = property(is_visible, set_visible)
+    debug: bool = property(get_debug, set_debug)
