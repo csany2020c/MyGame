@@ -1,4 +1,4 @@
-from yetifc.YetiScreen import *
+from yetifc.Screen import *
 import game
 
 class GameRunner(game.scene2d.MyGame):
@@ -7,5 +7,7 @@ class GameRunner(game.scene2d.MyGame):
         super().__init__(width, height, autorun)
         self.screen = MenuScreen3()
         self.run()
+
+
 
 GameRunner()

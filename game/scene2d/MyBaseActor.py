@@ -15,7 +15,7 @@ from game.scene2d.MyDebug import *
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from __type_checking__ import *
+    from game.scene2d.__type_checking__ import *
 
 
 class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboardListeners, MyDebug):
