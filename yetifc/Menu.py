@@ -1,4 +1,4 @@
-from yetifc.YetiActor import *
+from yetifc.Actor import *
 import game
 
 class Stage3(game.scene2d.MyStage):
@@ -10,3 +10,6 @@ class Stage3(game.scene2d.MyStage):
         b = MenuActor2()
         b.y = 400
         self.add_actor(b)
+
+    def kepvaltas(self):
+        self.set_screen()

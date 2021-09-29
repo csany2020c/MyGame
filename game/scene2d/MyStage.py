@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 from typing import List
 
 if TYPE_CHECKING:
-    from __type_checking__ import *
+    from game.scene2d.__type_checking__ import *
 
 
 class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, MyTimers, MyDebug):

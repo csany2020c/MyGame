@@ -1,4 +1,4 @@
-from yetifc.YetiMenu import *
+from yetifc.Menu import *
 import game
 
 
@@ -7,3 +7,5 @@ class MenuScreen3(game.scene2d.MyScreen):
         super().__init__()
         self.set_background_color(0, 102, 102)
         self.add_stage(Stage3())
+
+
