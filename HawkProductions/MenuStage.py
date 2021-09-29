@@ -34,7 +34,8 @@ class MenuStage(game.scene2d.MyStage):
             pygame.quit()
 
 
-        #majd meg kell csinálni csak kicsit több idő
+        #majd meg kell csinálni következő órán
         #if event.key == pygame.K_c:
             #print("Start")
             #pygame.display()
+
