@@ -9,4 +9,3 @@ class GameScreen(game.scene2d.MyScreen):
         self.set_background_color(150, 70, 35)
         self.add_stage(GameStage())
 
-
