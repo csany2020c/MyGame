@@ -1,47 +1,44 @@
 import game
 
 
-class Enemy1Actor(game.scene2d.MyActor):
+class BgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/my-caracter.png")
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
+        super().__init__('image/menu.png')
 
 
-class Enemy2Actor(game.scene2d.MyActor):
+class MenuActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/my-caracter.png")
+        super().__init__('image/icon.png')
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
 
-class GameStage(game.scene2d.MyStage):
+class MenuStage(game.scene2d.MyStage):
+
 
     def __init__(self):
-        self.h1 = Enemy1Actor()
-        self.h2 = Enemy2Actor()
-        self.add_actor(self.h1)
-        self.add_actor(self.h2)
-        self.h2.x = 20
-        self.h2.y = 20
-        self.h2.w = 200
-        self.h2.hitbox_scale_w = 0.75
+        super().__init__()
+        bg = BgActor()
+        a = MenuActor()
+        a.y = 0
+        self.add_actor(bg)
+        self.add_actor(a)
+        print(a)
 
-
-class GameScreen(game.scene2d.MyScreen):
+class MenuScreen(game.scene2d.MyScreen):
 
     def __init__(self):
-        self.set_background_color(0, 128, 0)
-        self.add_stage(GameStage())
+        super().__init__()
+        self.set_background_color(r=0,g=0, b=255)
+        self.add_stage(MenuStage())
 
 
-class Space(game.scene2d.MyGame):
 
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
-        self.set_screen(GameScreen())
+class Menu(game.scene2d.MyGame):
+
+    def __init__(self, width: int = 1920, height: int = 1080, autorun: bool = False, autosize: bool = True):
+        super().__init__(width, height, autorun, autosize)
+        self.screen = MenuScreen()
 
 
-Space()
+Menu().run()
