@@ -11,3 +11,11 @@ class bruhActor(game.scene2d.MyActor):
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/Normal.png")
+
+class horthy (game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/horthy.jpg")
+
+class enemy2 (game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/Sneaky.png")
