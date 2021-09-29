@@ -13,7 +13,6 @@ for i in range(0, 8):
     c1.rotateBy(45)
     print(c1.getCorners())
 
-
 r2 = game.simpleworld.MyRectangle(x = 0, y = 0)
 r3 = game.simpleworld.MyRectangle(x = 10, y = 0)
 for i in range(0, 20):
