@@ -11,7 +11,6 @@ class MarioActor(game.scene2d.MyActor):
         self.x += delta_time * 100
 
 
-
 class MarioStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -60,4 +59,4 @@ class Mario(game.scene2d.MyGame):
     def __init__(self):
         super().__init__()
         self.screen = MarioScr()
-Mario()
+Mario().run()
