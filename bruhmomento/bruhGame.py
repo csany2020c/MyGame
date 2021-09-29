@@ -5,8 +5,8 @@ import game
 
 class bruh(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = bruhScreen()
 
 

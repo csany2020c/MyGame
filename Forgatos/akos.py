@@ -8,16 +8,18 @@ class Actor(game.scene2d.MyActor):
         self.x += delta_time * 100
 
 class Scr(game.scene2d.MyScreen):
-    def create(self):
-        super().create()
+
+    def __init__(self):
+        super().__init__()
         self.r = 100
         self.g = 0
         self.b = 100
         self.add_stage(Stage())
 
 class Stage(game.scene2d.MyStage):
-    def create(self):
-        super().create()
+
+    def __init__(self):
+        super().__init__()
 
         a = Actor
         a.y = 80
@@ -28,8 +30,9 @@ class Stage(game.scene2d.MyStage):
         self.add_actor(b)
 
 class Car(game.scene2d.MyGame):
-    def create(self):
-        super().create()
+
+    def __init__(self):
+        super().__init__()
         self.screen = Scr()
 
 Car()

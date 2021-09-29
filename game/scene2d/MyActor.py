@@ -13,7 +13,6 @@ class MyActor(MyBaseActor):
         MyBaseActor.__init__(self, None)
         self._image_url: str = ""
         self.set_image_url(image_url)
-        self.create()
 
     def set_image_url(self, image_url: str) -> 'MyActor':
         self._image_url = image_url

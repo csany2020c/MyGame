@@ -18,8 +18,8 @@ class porgonc2(game.scene2d.MyActor):
 
 class porgoncstage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
 
 
         a = porgonc()
@@ -35,8 +35,8 @@ class porgoncstage(game.scene2d.MyStage):
 
 class porgoncScreen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 0
         self.g = 1
         self.b = 0
@@ -48,8 +48,8 @@ class porgoncScreen(game.scene2d.MyScreen):
 
     class porgoncScreen(game.scene2d.MyScreen):
 
-        def create(self):
-            super().create()
+        def __init__(self):
+            super().__init__()
             self.r = 50
             self.g = 41
             self.b = 40

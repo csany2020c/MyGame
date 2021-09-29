@@ -14,8 +14,8 @@ class Car(game.scene2d.MyActor):
 
 class Stage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.A = Car()
         self.A2 = Car()
         self.add_actor(self.A)
@@ -37,8 +37,8 @@ class Stage(game.scene2d.MyStage):
 
 class Screen(game.scene2d.MyScreen):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.r = 220
         self.g = 10
         self.b = 25
@@ -46,8 +46,8 @@ class Screen(game.scene2d.MyScreen):
 
 class game(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = Screen()
 
     pass

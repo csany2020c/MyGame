@@ -19,9 +19,9 @@ class MenuActor(game.scene2d.MyActor):
 
 class MenuStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
 
+    def __init__(self):
+        super().__init__()
         bg = BgActor()
         a = MenuActor()
         a.y = 0
@@ -40,8 +40,9 @@ class MenuScreen(game.scene2d.MyScreen):
 
 class Menu(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
+        super().__init__(width, height, autorun, autosize)
         self.screen = MenuScreen()
 
 

@@ -198,7 +198,8 @@ class MyShape(metaclass=abc.ABCMeta):
         s = v.__add__(origin)
         self._realCenterX = s.x
         self._realCenterY = s.y
-        self._realRadius = math.sqrt(self._width * self._width + self._height * self._height) / 2.0
+        #self._realRadius = math.sqrt(self._width * self._width + self._height * self._height) / 2.0
+        self._realRadius = max(self._width, self._height)
         return self
 
     def setPosition(self, X: float, Y: float)->'MyShape':

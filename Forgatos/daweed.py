@@ -22,8 +22,8 @@ class KocsiActor2(game.scene2d.MyActor):
 
 class TestStage(game.scene2d.MyStage):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
 
         kocsi1 = KocsiActor()
         kocsi2 = KocsiActor2()
@@ -41,8 +41,8 @@ class TestScreen(game.scene2d.MyScreen):
 
 class Test(game.scene2d.MyGame):
 
-    def create(self):
-        super().create()
+    def __init__(self):
+        super().__init__()
         self.screen = TestScreen()
 
 

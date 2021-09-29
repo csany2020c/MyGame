@@ -10,7 +10,6 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.b)
         self.b.y = 150
 
-
     def act(self, delta_time: float):
         super().act(delta_time)
 
