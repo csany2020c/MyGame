@@ -38,3 +38,4 @@ class MenuStage(game.scene2d.MyStage):
         #if event.key == pygame.K_c:
             #print("Start")
             #pygame.display()
+
