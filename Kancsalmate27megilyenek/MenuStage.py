@@ -31,6 +31,9 @@ class Stage3(game.scene2d.MyStage):
 
 
 
-
-
+        self.b = MenuActor2()
+        self.b.set_size(self.width * 0.313, self.height * 0.1)
+        self.b.x = self.width - self.width / 2 - self.b.width / 2
+        self.b.y = (self.height - self.height * 0.75) - self.b.height / 2
+        self.add_actor(self.b)
 
