@@ -1,3 +1,7 @@
+import random
+
+import pygame
+
 import game
 from EnemyActor import *
 from Arial32 import *
@@ -37,9 +41,21 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.asd)
         self.asd.set_on_mouse_down_listener(self.click)
         self.asd.debug = True
+        self.set_on_key_down_listener(self.key_down)
+        self.asd.set_on_mouse_move_listener(self.click)
+
+    def key_down(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_f:
+            print("FFFFFFFFFFFFFFFFFFFFFFFFFFF")
+            self.asd.x += 4
 
     def click(self, sender, event):
         print(event)
+        #if event.button == 1:
+        self.asd.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.asd.w)
+        self.asd.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.asd.h)
 
     def act(self, delta_time: float):
         super().act(delta_time)
