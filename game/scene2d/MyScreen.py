@@ -7,7 +7,7 @@ from game.scene2d.MyKeyboardListeners import *
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from __type_checking__ import *
+    from game.scene2d.__type_checking__ import *
 
 
 class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners, MyDebug):
