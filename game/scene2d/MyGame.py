@@ -157,7 +157,8 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
 
     def set_debug(self, debug: bool):
         super(MyGame, self).set_debug(debug)
-        self.screen.debug = debug
+        if self.screen is not None:
+            self.screen.debug = debug
 
     def get_debug(self) -> bool:
         return self._debug

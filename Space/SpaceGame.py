@@ -4,8 +4,9 @@ from GameScreen import *
 
 class Space(game.scene2d.MyGame):
 
-    def __init__(self, debug: bool = True):
-        super().__init__(1280, 720, debug=debug)
+    def __init__(self):
+        super().__init__(1280, 720)
+        self.debug = True
         self.set_screen(GameScreen())
         #self.add_timer(game.scene2d.MyOneTickTimer(self.click, 10))
         self.add_timer(MyOneTickTimer(self.tikk, interval=5))
