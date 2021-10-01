@@ -1,3 +1,4 @@
+import pygame
 import game
 
 class bruhActor(game.scene2d.MyActor):
@@ -11,6 +12,19 @@ class bruhActor(game.scene2d.MyActor):
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/Normal.png")
+
+        def key_down(sender, event):
+            print(sender)
+            print(event)
+            if event.key == pygame.K_d:
+                self.x += 40
+            if event.key == pygame.K_w:
+                self.y -= 40
+            if event.key == pygame.K_a:
+                self.x -= 40
+            if event.key == pygame.K_s:
+                self.y += 40
+        self.set_on_key_down_listener(key_down)
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):

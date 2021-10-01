@@ -1,3 +1,4 @@
+import pygame
 import game
 from bruhmomento.bruhActor import *
 
