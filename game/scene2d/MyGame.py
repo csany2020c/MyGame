@@ -85,6 +85,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                             break
             self.debug_key_handle(event)
         self._elapsed_time += self.get_delta_time()
+        MyKeyboardListeners.do_keypress_event(self)
         if self._screen is not None:
             self._screen.act(delta_time)
 

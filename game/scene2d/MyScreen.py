@@ -48,6 +48,7 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners, M
         for s in self._stages:
             if s.visible and not s.pause:
                 s.act(delta_time)
+        MyKeyboardListeners.do_keypress_event(self)
 
     def draw(self):
         self._game.surface.fill((self.r, self.g, self.b))
