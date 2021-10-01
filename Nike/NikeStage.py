@@ -16,6 +16,3 @@ class NikeStage(game.scene2d.MyStage):
                 # e.width = 10
                 # e.height = 10
                 self.add_actor(e)
-
-
-

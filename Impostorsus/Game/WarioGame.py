@@ -51,22 +51,22 @@ class WarioStage(game.scene2d.MyStage):
         self.lastkeydown = 0
         self.wario = Wario4Actor()
         self.add_actor(self.wario)
-        self.wario.set_on_key_down_listener(self.key_down)
+        self.wario.set_on_key_press_listener(self.press)
 
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        self.lastkeydown = event.key
-        if event.key == pygame.K_f:
-            print("FFFFFFFFFFFFFFFFFFFFFFFFFFF")
-            # self.wario.x += 100
+    def press(self, sender, event):
+        # print(event.key)
+        if event.key == pygame.K_d:
+            sender.x += 10
+        if event.key == pygame.K_a:
+            sender.x -= 10
+        if event.key == pygame.K_w:
+            sender.y -= 10
+        if event.key == pygame.K_s:
+            sender.y += 10
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        if self.lastkeydown == pygame.K_d:
-            self.wario.x += 100 * delta_time
-
-
+    def interval(self, sender):
+        self.wario.x += 100 * self.get_delta_time()
+        pass
 
 
 class Wario2Scr(game.scene2d.MyScreen):
@@ -92,14 +92,10 @@ class WarioScr(game.scene2d.MyScreen):
         self.b = 146
         self.add_stage(WarioStage())
 
-
 class Wario(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
         self.screen = WarioScr()
-
-
-
 
 Wario().run()

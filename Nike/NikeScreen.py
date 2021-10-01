@@ -7,5 +7,3 @@ class NikeScreen(game.scene2d.MyScreen):
         super().__init__()
         self.set_background_color(0, 0, 150)
         self.add_stage(NikeStage())
-
-
