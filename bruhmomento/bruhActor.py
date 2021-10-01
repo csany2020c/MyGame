@@ -4,11 +4,25 @@ import pygame
 
 class bruhActor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/test.png")
+        super().__init__("Images/legokatona.jpg")
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.x += delta_time * 100
+        def key_down(sender, event):
+            print(sender)
+            print(event)
+            if event.key == pygame.K_RIGHT:
+                self.x += 40
+            if event.key == pygame.K_UP:
+                self.y -= 40
+            if event.key == pygame.K_LEFT:
+                self.x -= 40
+            if event.key == pygame.K_DOWN:
+                self.y += 40
+
+        self.set_on_key_down_listener(key_down)
+
+    #def act(self, delta_time: float):
+        #super().act(delta_time)
+        #self.x += delta_time * 100
 
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
