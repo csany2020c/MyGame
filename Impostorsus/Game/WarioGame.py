@@ -92,10 +92,6 @@ class WarioScr(game.scene2d.MyScreen):
         self.b = 146
         self.add_stage(WarioStage())
 
-    #def act(self, delta_time: float):
-        #super().act(delta_time)
-        #if self.elapsed_time > 5:
-            #self.game.screen = Wario2Scr()
 
 class Wario(game.scene2d.MyGame):
 
