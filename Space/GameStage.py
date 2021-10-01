@@ -51,6 +51,19 @@ class GameStage(game.scene2d.MyStage):
         self.t2 = MyIntervalTimer(func=self.interval, start_time=3, stop_time=5)
         self.asd.add_timer(self.t2)
 
+        self.asd.set_on_key_press_listener(self.press)
+
+    def press(self, sender, event):
+        # print(event.key)
+        if event.key == pygame.K_RIGHT:
+            sender.x += 1
+        if event.key == pygame.K_LEFT:
+            sender.x -= 1
+        if event.key == pygame.K_UP:
+            sender.y -= 1
+        if event.key == pygame.K_DOWN:
+            sender.y += 1
+
     def interval(self, sender):
         self.asd.x += 100*self.get_delta_time()
         pass

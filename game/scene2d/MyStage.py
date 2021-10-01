@@ -34,6 +34,7 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
         # print(self.elapsed_time)
         for obj in self._actors:
             obj.act(delta_time)
+        MyKeyboardListeners.do_keypress_event(self)
 
     def draw(self):
         for obj in self._actors:
