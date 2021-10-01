@@ -1,7 +1,7 @@
 import game
 import pygame
 import random
-from WarioActor import *
+
 
 
 class WarioActor(game.scene2d.MyActor):
