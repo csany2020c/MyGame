@@ -40,7 +40,7 @@ class Enemy1Actor(game.scene2d.MyActor):
         self.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.h)
 
     def interval(self, sender):
-        selff.x += 100 * self.get_delta_time()
+        self.x += 100 * self.get_delta_time()
         pass
 
    
