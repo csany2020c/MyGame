@@ -10,10 +10,10 @@ class bruhScreen(game.scene2d.MyScreen):
         self.g = 1
         self.b = 0
         self.add_stage(bruhstage())
-    def act(self, delta_time: float):
-            super().act(delta_time)
-            if self.elapsed_time > 1:
-                self.game.screen =brruhScreen()
+    #def act(self, delta_time: float):
+    #        super().act(delta_time)
+    #        if self.elapsed_time > 1:
+    #            self.game.screen =brruhScreen()
 
 class brruhScreen(game.scene2d.MyScreen):
 
