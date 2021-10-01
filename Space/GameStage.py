@@ -5,7 +5,7 @@ import pygame
 import game
 from EnemyActor import *
 from Arial32 import *
-from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor
+from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
 class GameStage(game.scene2d.MyStage):
@@ -45,11 +45,27 @@ class GameStage(game.scene2d.MyStage):
         self.asd.set_on_mouse_down_listener(self.click)
         self.asd.set_on_key_down_listener(self.key_down)
 
+        self.t = MyTickTimer(interval=1.5, func=self.tikk)
+        self.asd.add_timer(self.t)
+
+        self.t2 = MyIntervalTimer(func=self.interval, start_time=3, stop_time=5)
+        self.asd.add_timer(self.t2)
+
+    def interval(self, sender):
+        self.asd.x += 100*self.get_delta_time()
+        pass
+
+    def tikk(self, sender):
+        self.asd.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.asd.w)
+        self.asd.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.asd.h)
+
+
     def key_down(self, sender, event):
         # if isinstance(sender, MyBaseActor):
         #     sender.
         print(sender)
         print(event)
+        self.t.remove()
         if event.key == pygame.K_BACKSPACE:
             print("FFFFFFFFFFFFFFFFFFFFFFFFFFF")
             self.asd.x += 40
