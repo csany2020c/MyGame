@@ -11,7 +11,7 @@ class bruhActor(game.scene2d.MyActor):
 
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/Normal.png")
+        super().__init__("Images/katona.jpg")
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):
