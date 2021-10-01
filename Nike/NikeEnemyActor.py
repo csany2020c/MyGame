@@ -5,8 +5,6 @@ import random
 from game.scene2d import MyTimers
 
 
-
-
 class Enemy1Actor(game.scene2d.MyActor):
 
     def __init__(self):
@@ -42,5 +40,3 @@ class Enemy1Actor(game.scene2d.MyActor):
     def interval(self, sender):
         self.x += 100 * self.get_delta_time()
         pass
-
-   
