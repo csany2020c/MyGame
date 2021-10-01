@@ -57,7 +57,7 @@ class Stage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.D.overlaps(self.P1):
+        if self.P1.overlaps(self.D):
             self.screen.b = 80
         else:
             self.screen.b = 0
