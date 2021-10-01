@@ -7,6 +7,7 @@ class MenuActor1(game.scene2d.MyActor):
         self.x = 500
         self.y = 50
 
+
 class MenuActor2(game.scene2d.MyActor):
     def __init__(self, image_url: str = ""):
         super().__init__("../yetifc/Images/exit.png")
@@ -19,3 +20,6 @@ class MenuActor2(game.scene2d.MyActor):
 
     def kilepes(self, sender, event):
         exit()
+
+    def screenvaltas(self):
+        self.stage.screen.game.set_screen()
