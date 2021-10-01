@@ -100,4 +100,6 @@ class Wario(game.scene2d.MyGame):
         self.screen = WarioScr()
 
 
+
+
 Wario().run()
