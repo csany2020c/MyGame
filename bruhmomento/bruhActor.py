@@ -31,4 +31,4 @@ class horthy (game.scene2d.MyActor):
 
 class enemy2 (game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/Sneaky.png")
+        super().__init__("Images/bumsteve.png")
