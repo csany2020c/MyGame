@@ -33,7 +33,7 @@ class Enemy1Actor(game.scene2d.MyActor):
         print(event)
         if event.key == pygame.K_f:
             print("FFFFFFFFFFFFFFFFFFFFFFFFFFF")
-            self.asd.x += 4
+            self.x += 4
 
     def tikk(self, sender):
         self.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.w)
