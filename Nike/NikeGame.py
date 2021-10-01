@@ -8,4 +8,3 @@ class Nike(game.scene2d.MyGame):
         super().__init__(1280, 720)
         self.set_screen(NikeScreen())
         self.run()
-
