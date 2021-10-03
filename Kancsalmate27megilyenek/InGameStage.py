@@ -2,16 +2,21 @@ import game
 import pygame
 
 from Kancsalmate27megilyenek.MapActor import *
+from Kancsalmate27megilyenek.BackgroundActor import *
 
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.map = Map()
+        self.bg = BackgroundActor()
         self.isWPressed : bool = False
         self.isAPressed : bool = False
         self.isSPressed : bool = False
         self.isDPressed : bool = False
+        self.add_actor(self.bg)
         self.add_actor(self.map)
+        self.bg.set_z_index(0)
+        self.map.set_z_index(1)
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
 
@@ -50,6 +55,7 @@ class InStage(game.scene2d.MyStage):
             self.map.y += 4
         if self.isDPressed:
             self.map.x += 4
+        print(self.bg.x, self.bg.y)
 
 
 

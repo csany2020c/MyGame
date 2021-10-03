@@ -1,6 +1,7 @@
 import pygame
 
 from Kancsalmate27megilyenek.MenuActor import *
+from Kancsalmate27megilyenek.InGameScreen import *
 import game
 
 
@@ -16,13 +17,14 @@ class Stage3(game.scene2d.MyStage):
         self.a.x = self.width - self.width / 2 - self.a.width / 2
         self.a.y = (self.height - self.height * 0.2) - self.a.height/2
         self.add_actor(self.a)
-        self.a.set_on_mouse_down_listener(self.click)
+        self.a.set_on_mouse_down_listener(self.exit)
 
         self.b = MenuActor2()
         self.b.set_size(self.width * 0.313, self.height * 0.1)
         self.b.x = self.width - self.width / 2 - self.b.width / 2
         self.b.y = (self.height - self.height * 0.75) - self.b.height / 2
         self.add_actor(self.b)
+        self.b.set_on_mouse_down_listener(self.start)
 
         self.c = MenuActor3()
         self.c.set_size(self.width * 0.313, self.height * 0.1)
@@ -38,10 +40,14 @@ class Stage3(game.scene2d.MyStage):
 
 
 
-    def click(self, sender, event):
+    def exit(self, sender, event):
         print(event)
         if event.button == 1:
-            pygame.quit()
+            quit()
+
+    def start(self,sender,event):
+        if event.button == 1:
+            self.screen.game.set_screen(InScreen())
 
 
 
