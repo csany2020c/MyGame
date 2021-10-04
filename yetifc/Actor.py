@@ -1,4 +1,5 @@
 import game
+from yetifc.Screen import *
 
 class MenuActor1(game.scene2d.MyActor):
     def __init__(self, image_url: str = ""):
@@ -6,6 +7,7 @@ class MenuActor1(game.scene2d.MyActor):
         self.set_width(300)
         self.x = 500
         self.y = 50
+        self.set_on_mouse_down_listener(self.stage.set_screen(MenuScreen3))
 
 
 class MenuActor2(game.scene2d.MyActor):
@@ -18,8 +20,7 @@ class MenuActor2(game.scene2d.MyActor):
         self.hitbox_scale_w = 1
         self.set_on_mouse_down_listener(self.kilepes)
 
+
     def kilepes(self, sender, event):
         exit()
 
-    def screenvaltas(self):
-        self.stage.screen.game.set_screen()
