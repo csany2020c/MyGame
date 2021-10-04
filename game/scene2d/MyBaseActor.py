@@ -15,7 +15,7 @@ from game.scene2d.MyDebug import *
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from __type_checking__ import *
+    from game.scene2d.__type_checking__ import *
 
 
 class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboardListeners, MyDebug):
@@ -60,6 +60,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
     def act(self, delta_time: float):
         MyElapsedTime.act(self, delta_time)
         MyTimers.act(self, delta_time)
+        MyKeyboardListeners.do_keypress_event(self)
 #        MyMouseListeners.act(self, delta_time)
 
     def get_border_box(self)-> 'MyRectangle':

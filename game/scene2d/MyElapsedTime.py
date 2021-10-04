@@ -13,5 +13,8 @@ class MyElapsedTime(MyLifeCycles):
     def get_elapsed_time(self) -> float:
         return self._elapsed_time
 
-    elapsed_time: float = property(get_elapsed_time)
+    def set_elapsed_time(self, et: float):
+        self._elapsed_time = et
+
+    elapsed_time: float = property(get_elapsed_time, set_elapsed_time)
 

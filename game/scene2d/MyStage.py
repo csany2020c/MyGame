@@ -9,7 +9,7 @@ from typing import TYPE_CHECKING
 from typing import List
 
 if TYPE_CHECKING:
-    from __type_checking__ import *
+    from game.scene2d.__type_checking__ import *
 
 
 class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, MyTimers, MyDebug):
@@ -34,6 +34,7 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
         # print(self.elapsed_time)
         for obj in self._actors:
             obj.act(delta_time)
+        MyKeyboardListeners.do_keypress_event(self)
 
     def draw(self):
         for obj in self._actors:
