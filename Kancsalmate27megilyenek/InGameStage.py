@@ -3,7 +3,8 @@ import pygame
 
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
-
+from Kancsalmate27megilyenek.MenuScreen import *
+from Kancsalmate27megilyenek.MapActor import *
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -13,13 +14,13 @@ class InStage(game.scene2d.MyStage):
         self.isAPressed : bool = False
         self.isSPressed : bool = False
         self.isDPressed : bool = False
+        self.isEscPressed : bool = False
         self.add_actor(self.bg)
         self.add_actor(self.map)
         self.bg.set_z_index(0)
         self.map.set_z_index(1)
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
-
 
     def moveKeys(self, sender, event):
         if event.key == pygame.K_w:
@@ -34,6 +35,10 @@ class InStage(game.scene2d.MyStage):
         if event.key == pygame.K_d:
             if self.isWPressed == False and self.isSPressed == False and self.isAPressed == False:
                         self.isDPressed = True
+        if event.key == pygame.K_ESCAPE:
+            self.isEscPressed = True
+
+
 
     def moveKeysOff(self,sender,event):
         if event.key == pygame.K_w:
@@ -44,6 +49,8 @@ class InStage(game.scene2d.MyStage):
             self.isSPressed = False
         if event.key == pygame.K_d:
             self.isDPressed = False
+        if event.key == pygame.K_m:
+            self.isMPressed = False
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -55,6 +62,10 @@ class InStage(game.scene2d.MyStage):
             self.map.y += 4
         if self.isDPressed:
             self.map.x += 4
+        if self.isEscPressed:
+            quit()
+
+
         print(self.bg.x, self.bg.y)
 
 
