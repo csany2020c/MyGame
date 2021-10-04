@@ -13,6 +13,23 @@ class Sun(game.scene2d.MyActor):
     def __init__(self, image_url: str = "../../!_resources/images/sun.png"):
         super().__init__(image_url)
 
+class Rain(game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "../../!_resources/images/rain.png"):
+        super().__init__(image_url)
+        self.set_size(25,25)
+
+class Rainy(game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "../../!_resources/images/cloudy.png"):
+        super().__init__(image_url)
+
+class Snow(game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "../../!_resources/images/snow.png"):
+        super().__init__(image_url)
+
+
 class MainMenu(game.scene2d.MyActor):
     def __init__(self, image_url: str = "mainmenu.png"):
         super().__init__(image_url)

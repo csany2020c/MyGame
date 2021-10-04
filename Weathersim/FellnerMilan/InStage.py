@@ -1,6 +1,6 @@
-from Weathersim.FellnerMilan.Screen import *
 from Weathersim.FellnerMilan.InActors import *
 from Weathersim.FellnerMilan.RainyScreen import *
+from Weathersim.FellnerMilan.Screen import *
 import game
 import pygame
 
@@ -37,5 +37,6 @@ class InStage(game.scene2d.MyStage):
 
     def onClick(self, sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(GameScreen())
+            #self.screen.game.set_screen(GameScreen())
+            quit()
 
