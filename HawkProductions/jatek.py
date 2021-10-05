@@ -4,7 +4,7 @@ import game
 class Deagle(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("image/bid2.png")
+        super().__init__("imgae/bid2.png")
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
@@ -12,7 +12,7 @@ class Deagle(game.scene2d.MyActor):
 
 class Pile1(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/oszlop-f.png")
+        super().__init__("imgae/oszlop-f.png")
 
     def act(self, delta_time: float):
         self.x -= 75 * delta_time
@@ -20,16 +20,25 @@ class Pile1(game.scene2d.MyActor):
 
 class Pile2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/oszlop-a.png")
+        super().__init__("imgae/oszlop-a.png")
 
     def act(self, delta_time: float):
         self.x -= 75*delta_time
+
+
+class Bg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/hat_kep_j.png")
 
 
 class Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.Bg = Bg()
+        self.add_actor(self.Bg)
+        self.Bg.set_size(width=1280, height=720)
+
         self.D = Deagle()
         self.add_actor(self.D)
         self.D.y = 250
@@ -67,9 +76,6 @@ class Screen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.r = 200
-        self.g = 10
-        self.b = 25
         self.add_stage(Stage())
 
 
