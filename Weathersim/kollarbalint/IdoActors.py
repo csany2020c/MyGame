@@ -4,7 +4,7 @@ import game
 class SunnyImg(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("!_resources/images/sunny.png")
+        super().__init__("images/sunny.png")
 
 class SunImg(game.scene2d.MyActor):
 

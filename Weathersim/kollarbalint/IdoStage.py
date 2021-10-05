@@ -174,6 +174,30 @@ class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
+        self.infoa = MenuSzoveg()
+        self.add_actor(self.infoa)
+        self.infoa.set_text("BACKSPACE = Menübe való visszatérés")
+        self.infoa.set_alpha(500)
+        self.infoa.set_width(40)
+        self.infoa.set_height(40)
+        self.infoa.x += 510
+        self.infoa.y += 60
+        self.infob = MenuSzoveg()
+        self.add_actor(self.infob)
+        self.infob.set_text("ESC = Játékból való kilépés")
+        self.infob.set_alpha(500)
+        self.infob.set_width(40)
+        self.infob.set_height(40)
+        self.infob.x += 510
+        self.infob.y += 120
+        self.infoc = MenuSzoveg()
+        self.add_actor(self.infoc)
+        self.infoc.set_text("I = Információ bezárása")
+        self.infoc.set_alpha(500)
+        self.infoc.set_width(40)
+        self.infoc.set_height(40)
+        self.infoc.x += 510
+        self.infoc.y += 180
         self.Kilep = MenuSzoveg()
         self.add_actor(self.Kilep)
         self.Kilep.set_text("Kilépés")
@@ -181,7 +205,7 @@ class MenuStage(game.scene2d.MyStage):
         self.Kilep.set_width(65)
         self.Kilep.set_height(65)
         self.Kilep.x += 530
-        self.Kilep.y += 450
+        self.Kilep.y += 380
         self.Kilep.set_on_key_down_listener(self.key_down)
         self.Kilep.set_on_mouse_down_listener(self.click)
         self.szoveg = MenuSzoveg()
@@ -199,8 +223,8 @@ class MenuStage(game.scene2d.MyStage):
         self.Jatek.set_width(65)
         self.Jatek.set_height(65)
         self.Jatek.x += 550
-        self.Jatek.y += 250
-        self.Jatek.set_on_mouse_down_listener(self.click2)
+        self.Jatek.y += 280
+        self.infoa.set_on_key_press_listener(self.info)
 
     def key_down(self, sender, event):
         print(sender)
@@ -208,6 +232,14 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             print("'QUIT'")
             quit()
+
+    def info(self, sender, event):
+        # print(event.key)
+        if event.key == pygame.K_i:
+            self.remove_actor(self.infoa)
+            self.remove_actor(self.infob)
+            self.remove_actor(self.infoc)
+
 
     def click(self, sender, event):
         print(sender)
@@ -217,11 +249,6 @@ class MenuStage(game.scene2d.MyStage):
                 print("'QUIT'")
                 quit()
 
-    def click2(self, sender, event):
-        print(sender)
-        print(event)
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                self.screen.game.set_screen(NapsutesScr())
-                print("'PLAY'")
+
+
 
