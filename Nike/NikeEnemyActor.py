@@ -1,7 +1,7 @@
-import random
 import game
 import pygame
 from game.scene2d import  MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
+import random
 from game.scene2d import MyTimers
 
 
