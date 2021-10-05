@@ -23,6 +23,7 @@ class RainStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         if self.rain.y == self.rain.y + 5:
+            pass
 
     def timerhandler(self,sender):
         self.rain2 = Rain()
