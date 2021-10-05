@@ -37,6 +37,6 @@ class InStage(game.scene2d.MyStage):
 
     def onClick(self, sender,event):
         if event.button == 1:
-            #self.screen.game.set_screen(GameScreen())
-            quit()
+            self.screen.game.set_screen(GameScreen())
+            #quit()
 
