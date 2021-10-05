@@ -5,9 +5,7 @@ class SunnyActor(game.scene2d.MyActor):
         super().__init__("sun.png")
 
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.x += delta_time * 100
+
 
 
 class backgroundActor(game.scene2d.MyActor):
