@@ -1,4 +1,7 @@
 from typing import List
+
+import pygame
+
 from game.scene2d.MyDebug import *
 from game.scene2d.MyTimers import *
 from game.scene2d.MyMouseListeners import *
@@ -51,11 +54,11 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners, M
         MyKeyboardListeners.do_keypress_event(self)
 
     def draw(self):
-        self._game.surface.fill((self.r, self.g, self.b))
-        for s in self._stages:
-            # g = game.MyStage.MyStage(s)
-            if s.visible:
-                s.draw()
+        if pygame.display.get_active():
+            self._game.surface.fill((self.r, self.g, self.b))
+            for s in self._stages:
+                if s.visible:
+                    s.draw()
 
     def add_stage(self, stage: 'MyStage') -> 'MyScreen':
         self._stages.append(stage)
