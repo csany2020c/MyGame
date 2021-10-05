@@ -17,11 +17,26 @@ class ActorB(game.scene2d.MyActor):
 class ActorC(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
+        self.set_width(70)
+        self.set_height(70)
+
+    def act(self, delta_time: float):
+        game.scene2d.MyLabel.act(self, delta_time)
+        if self.x + self.width < game.scene2d.MyGame.get_screen_width():
+            self.x += delta_time * 20
+            self.rotate_with(delta_time * 20)
 
 
 class ActorD(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
+        self.set_width(50)
+        self.set_height(50)
+
+    def act(self, delta_time: float):
+        game.scene2d.MyLabel.act(self, delta_time)
+        if self.x + self.width < game.scene2d.MyGame.get_screen_width():
+            self.x += delta_time * 40
 
 
 class Stage(game.scene2d.MyStage):
