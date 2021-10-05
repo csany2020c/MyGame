@@ -38,7 +38,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         print(self.width)
         print(self.height)
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
-        flags = DOUBLEBUF | HWACCEL | HWSURFACE
+        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA
         if autosize:
             self._surface: pygame.Surface = pygame.display.set_mode(size=(self.width, self.height), flags=flags)
         else:
@@ -52,42 +52,44 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
 
     def act(self, delta_time: float):
         MyTimers.act(self, delta_time)
-#        MyMouseListeners.act(self, delta_time)
-        for event in pygame.event.get():
-            # print(event)
-            if event.type == pygame.QUIT:
-                self.exit()
-            if self._screen is not None:
-                if event.type == pygame.MOUSEBUTTONUP or event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEMOTION or event.type == pygame.MOUSEWHEEL:
-                    for st in self.screen.stages_reverse:
-                        for ac in st.actors_reverse:
-                            if ac.is_mouse_event_present():
-                                if ac.overlaps_xy(event.pos[0], event.pos[1]):
-                                    if ac.do_mouse_event(sender=ac, event=event):
-                                        break
-                        if st.is_mouse_event_present():
-                            if st.do_mouse_event(sender=st, event=event):
-                                break
-                    if self.is_mouse_event_present():
-                        if self.do_mouse_event(sender=st, event=event):
-                            break
-                if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
-                    for st in self.screen.stages_reverse:
-                        for ac in st.actors_reverse:
-                            if ac.is_keyboard_event_present():
-                                if ac.do_key_event(sender=ac, event=event):
+        if pygame.display.get_active():
+            for event in pygame.event.get():
+                # print(event)
+                if event.type == pygame.QUIT:
+                    self.exit()
+                if self._screen is not None:
+                    if event.type == pygame.MOUSEBUTTONUP or event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEMOTION or event.type == pygame.MOUSEWHEEL:
+                        for st in self.screen.stages_reverse:
+                            for ac in st.actors_reverse:
+                                if ac.is_mouse_event_present():
+                                    if ac.overlaps_xy(event.pos[0], event.pos[1]):
+                                        if ac.do_mouse_event(sender=ac, event=event):
+                                            break
+                            if st.is_mouse_event_present():
+                                if st.do_mouse_event(sender=st, event=event):
                                     break
-                        if st.is_keyboard_event_present():
-                            if st.do_key_event(sender=st, event=event):
+                        if self.is_mouse_event_present():
+                            if self.do_mouse_event(sender=st, event=event):
                                 break
-                    if self.is_keyboard_event_present():
-                        if self.do_key_event(sender=st, event=event):
-                            break
-            self.debug_key_handle(event)
-        self._elapsed_time += self.get_delta_time()
-        MyKeyboardListeners.do_keypress_event(self)
-        if self._screen is not None:
-            self._screen.act(delta_time)
+                    if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
+                        for st in self.screen.stages_reverse:
+                            for ac in st.actors_reverse:
+                                if ac.is_keyboard_event_present():
+                                    if ac.do_key_event(sender=ac, event=event):
+                                        break
+                            if st.is_keyboard_event_present():
+                                if st.do_key_event(sender=st, event=event):
+                                    break
+                        if self.is_keyboard_event_present():
+                            if self.do_key_event(sender=st, event=event):
+                                break
+                self.debug_key_handle(event)
+            self._elapsed_time += self.get_delta_time()
+            MyKeyboardListeners.do_keypress_event(self)
+            if self._screen is not None:
+                self._screen.act(delta_time)
+        else:
+            self.exit()
 
     def debug_key_handle(self, event):
         if event.type == pygame.KEYDOWN:
@@ -116,7 +118,8 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
             t = pygame.time.get_ticks()
             self.act(self._delta_time)
             self.draw()
-            pygame.display.update()
+            if (pygame.display.get_active()):
+                pygame.display.update()
             sleep: float = 1.0 / self._frame_limiter - (pygame.time.get_ticks() - t) / 1000.0
             if sleep > 0:
                 time.sleep(sleep)

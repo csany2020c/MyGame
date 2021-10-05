@@ -1,6 +1,8 @@
-from Weathersim.FellnerMilan.Screen import *
 from Weathersim.FellnerMilan.InActors import *
+from Weathersim.FellnerMilan.RainyScreen import *
+from Weathersim.FellnerMilan.Screen import *
 import game
+import pygame
 
 class InStage(game.scene2d.MyStage):
     def __init__(self):
@@ -23,13 +25,18 @@ class InStage(game.scene2d.MyStage):
         self.backbutton = MainMenu()
         self.add_actor(self.backbutton)
         self.backbutton.set_on_mouse_down_listener(self.onClick)
+        self.set_on_key_down_listener(self.keys)
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.sun.rotation = self.sun.rotation + 0.1
 
+    def keys(self, sender,event):
+        if event.key == pygame.K_LEFT:
+            self.screen.game.set_screen(RainScreen())
 
-    def onClick(self,sender,event):
+    def onClick(self, sender,event):
         if event.button == 1:
-            quit()
+            self.screen.game.set_screen(GameScreen())
+            #quit()
 
