@@ -180,24 +180,27 @@ class MenuStage(game.scene2d.MyStage):
         self.infoa.set_alpha(500)
         self.infoa.set_width(40)
         self.infoa.set_height(40)
-        self.infoa.x += 510
-        self.infoa.y += 60
+        self.infoa.x += 320
+        self.infoa.y += 50
+        self.infoa.set_color(50, 50 ,50)
         self.infob = MenuSzoveg()
         self.add_actor(self.infob)
         self.infob.set_text("ESC = Játékból való kilépés")
         self.infob.set_alpha(500)
         self.infob.set_width(40)
         self.infob.set_height(40)
-        self.infob.x += 510
-        self.infob.y += 120
+        self.infob.x += 320
+        self.infob.y += 110
+        self.infob.set_color(50, 50, 50)
         self.infoc = MenuSzoveg()
         self.add_actor(self.infoc)
         self.infoc.set_text("I = Információ bezárása")
         self.infoc.set_alpha(500)
         self.infoc.set_width(40)
         self.infoc.set_height(40)
-        self.infoc.x += 510
+        self.infoc.x += 320
         self.infoc.y += 180
+        self.infoc.set_color(50, 50, 50)
         self.Kilep = MenuSzoveg()
         self.add_actor(self.Kilep)
         self.Kilep.set_text("Kilépés")
