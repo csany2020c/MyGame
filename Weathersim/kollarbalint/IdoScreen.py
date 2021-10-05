@@ -10,7 +10,7 @@ class NapsutesScr(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
+        if self.elapsed_time > 13:
             self.game.screen = EsoScr()
 
 class EsoScr(game.scene2d.MyScreen):
@@ -21,7 +21,7 @@ class EsoScr(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
+        if self.elapsed_time > 13:
             self.game.screen = HavazasScr()
 
 class HavazasScr(game.scene2d.MyScreen):
@@ -32,7 +32,7 @@ class HavazasScr(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
+        if self.elapsed_time > 13:
             self.game.screen = HavasesoScr()
 
 class HavasesoScr(game.scene2d.MyScreen):
