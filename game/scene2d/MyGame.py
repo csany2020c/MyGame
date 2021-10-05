@@ -1,4 +1,3 @@
-import psyco
 import pygame
 import time
 from pygame.locals import *
