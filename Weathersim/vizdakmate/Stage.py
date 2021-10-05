@@ -4,9 +4,8 @@ from Weathersim.vizdakmate.actor import *
 class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.add_actor(Rain)
-        self.rain = Rain()
-        self.add_actor(self.rain)
+        self.add_actor(Sunny)
+
     def key_down(self, sender, event):
         print(sender)
         print(event)
