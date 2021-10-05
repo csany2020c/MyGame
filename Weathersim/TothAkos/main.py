@@ -1,4 +1,4 @@
-from Weathersim.vizdakmate.Screen import *
+from Weathersim.TothAkos.screen import *
 import game
 import pygame
 
@@ -6,7 +6,7 @@ class Main(game.scene2d.MyGame):
 
     def __init__(self):
         super().__init__()
-        self.screen = SunnyScreen()
+        self.screen = Sunnyscr()
 
     def key_down(sender, event):
         print(sender)

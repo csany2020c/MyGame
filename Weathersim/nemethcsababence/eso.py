@@ -47,6 +47,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.eso)
 
 
+
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
             quit()
