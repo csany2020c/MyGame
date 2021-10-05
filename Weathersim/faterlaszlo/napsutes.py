@@ -45,7 +45,7 @@ class f_stage(game.scene2d.MyStage):
 class f_screen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(120, 100, 90)
+        #self.set_background_color(120, 100, 90)
         self.add_stage(f_stage())
 
 
