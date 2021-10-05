@@ -10,6 +10,10 @@ class ActorB(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("sun.png")
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.r += -delta_time*10
+
 
 class ActorC(game.scene2d.MyActor):
     def __init__(self):
