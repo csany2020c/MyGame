@@ -8,6 +8,7 @@ class cloudy (game.scene2d.MyActor):
 class sunny (game.scene2d.MyActor):
     def __init__(self):
         super().__init__("../!_resources/images/sunny.png")
+        self.set_on_key_down_listener(2)
 
 
 
@@ -52,6 +53,10 @@ class DaniScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(DaniStage())
+        self.set_on_key_down_listener()
+
+
+
 
 
 class DaniGame(game.scene2d.MyGame):
