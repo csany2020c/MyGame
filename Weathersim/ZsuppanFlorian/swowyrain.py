@@ -6,19 +6,19 @@ from game.scene2d.MyScreen import *
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/landscape.png')
+        self.map = super().__init__('resource/images/landscape.png')
 
 
 class kekeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/cloudy.png')
+        self.map = super().__init__('resource/images/cloudy.png')
 
 
 class ho(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/snow.png')
+        self.map = super().__init__('resource/images/snow.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -28,7 +28,7 @@ class ho(game.scene2d.MyActor):
 class eso(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/rain.png')
+        self.map = super().__init__('resource/images/rain.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)

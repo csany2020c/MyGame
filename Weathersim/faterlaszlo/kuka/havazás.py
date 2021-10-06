@@ -3,7 +3,7 @@ import pygame
 
 class hatter_actor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("!_resources/images/landscape.png")
+        super().__init__("resource/images/landscape.png")
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -11,7 +11,7 @@ class hatter_actor(game.scene2d.MyActor):
 
 class havazas(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("!_resources/images/snow.png")
+        super().__init__("resource/images/snow.png")
 
 
     def act(self, delta_time: float):
