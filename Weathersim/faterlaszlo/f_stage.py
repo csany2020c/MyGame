@@ -22,12 +22,24 @@ class f_stage_m(game.scene2d.MyStage):
         self.start1.w = 80
         self.start1.h = 80
 
-    def key_down(self, event, sender):
+    def key_down(self, sender, event):
         print(sender)
         print(event)
         if event.key == pygame.K_ESCAPE:
             print("Sikeresen be lett zárva")
             quit()
+        if event.key == pygame.K_1:
+            print("Nspsütés")
+            self.screen.add_stage(f_stage1())
+        if event.key == pygame.K_2:
+            print("felhős az ég")
+            self.screen.add_stage(f_stage2())
+        if event.key == pygame.K_3:
+            print("Havas eső")
+            self.screen.add_stage(f_stage3())
+        if event.key == pygame.K_4:
+            print("Eső")
+            self.screen.add_stage(f_stage4())
 
 
 class f_stage1(game.scene2d.MyStage):
@@ -40,16 +52,16 @@ class f_stage1(game.scene2d.MyStage):
         self.add_actor(self.sun)
         self.add_actor(self.eg)
         #ezt nem szabad igy hagyni
-        self.set_on_key_down_listener(self.key_down)
+        #self.set_on_key_down_listener(self.key_down)
         self.sun.x = 50
         self.sun.y = 80
         self.sun.w = 350
         self.eg.z_index = 0
-        self.sun.z_index = 3
+        self.sun.z_index = 2
 
 
 
-    def key_down(self, event, sender):
+    def key_down(self, sender, event):
         print(sender)
         print(event)
         if event.key == pygame.K_ESCAPE:
