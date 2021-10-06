@@ -12,5 +12,5 @@ class f_screen_m(game.scene2d.MyScreen):
         #print(sender)
         #print(event)
         #if event.key == pygame.K_s:
-            #print("Majd jó lesz")
+            #print("Jelenleg nem jó még")
             #self.add_stage(f_stage1())

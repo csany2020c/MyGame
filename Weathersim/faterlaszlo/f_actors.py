@@ -41,3 +41,7 @@ class eso(game.scene2d.MyActor):
 class felhos_actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/cloudy.png")
+
+class start_actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/startb.png")

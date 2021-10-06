@@ -3,15 +3,23 @@ import pygame
 from Weathersim.faterlaszlo.f_actors import *
 import random
 
+
 class f_stage_m(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.felho = felhos_actor()
-        self.add_actor(self.felho)
-        self.felho.y = 120
-        self.felho.x = 340
-        self.felho.w = 80
-        self.felho.h = 80
+        self.start = start_actor()
+        self.add_actor(self.start)
+        self.start.y = 240
+        self.start.x = 500
+        self.start.w = 80
+        self.start.h = 80
+
+        self.start1 = start_actor()
+        self.add_actor(self.start1)
+        self.start1.y = 340
+        self.start1.x = 500
+        self.start1.w = 80
+        self.start1.h = 80
 
 
 class f_stage1(game.scene2d.MyStage):
@@ -24,7 +32,7 @@ class f_stage1(game.scene2d.MyStage):
         self.add_actor(self.sun)
         self.add_actor(self.eg)
         #ezt nem szabad igy hagyni
-        self.sun.set_on_key_down_listener(self.key_down)
+        self.set_on_key_down_listener(self.key_down)
         self.sun.x = 50
         self.sun.y = 80
         self.sun.w = 350
@@ -38,7 +46,7 @@ class f_stage1(game.scene2d.MyStage):
         print(event)
         if event.key == pygame.K_ESCAPE:
             print("Sikeresen be lett zárva")
-            pygame.quit()
+            quit()
 
 class f_stage2(game.scene2d.MyStage):
     def __init__(self):
