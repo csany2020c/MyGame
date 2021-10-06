@@ -22,6 +22,8 @@ class ho(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 200
+        if self.y > 720:
+            self.y = -50
 
 
 class eso(game.scene2d.MyActor):
@@ -32,3 +34,11 @@ class eso(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 200
+        if self.y > 720:
+            self.y = -50
+
+
+class button3(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/havaseso.png')
