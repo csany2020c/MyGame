@@ -71,6 +71,9 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                             if st.is_mouse_event_present():
                                 if st.do_mouse_event(sender=st, event=event):
                                     break
+                        if self.screen.is_mouse_event_present():
+                            if self.screen.do_mouse_event(sender=st, event=event):
+                                break
                         if self.is_mouse_event_present():
                             if self.do_mouse_event(sender=st, event=event):
                                 break
