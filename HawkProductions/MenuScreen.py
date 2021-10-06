@@ -1,6 +1,7 @@
 import game
 from HawkProductions.MenuStage import*
 
+
 class MenuScreen(game.scene2d.MyScreen):
 
     def __init__(self):
