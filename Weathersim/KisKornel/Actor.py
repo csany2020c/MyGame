@@ -7,7 +7,6 @@ class SunnyActor(game.scene2d.MyActor):
 
 
 
-
 class backgroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("landscape.png")

@@ -38,12 +38,15 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         print(self.width)
         print(self.height)
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
-        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA
+        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA | ANYFORMAT | HWPALETTE
         if autosize:
             self._surface: pygame.Surface = pygame.display.set_mode(size=(self.width, self.height), flags=flags)
         else:
             self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
         self._running = True
+        self.surface.set_alpha(None)
+        info = pygame.display.Info()
+        print(info)
         if autorun:
             self.loop()
 
@@ -68,6 +71,9 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                             if st.is_mouse_event_present():
                                 if st.do_mouse_event(sender=st, event=event):
                                     break
+                        if self.screen.is_mouse_event_present():
+                            if self.screen.do_mouse_event(sender=st, event=event):
+                                break
                         if self.is_mouse_event_present():
                             if self.do_mouse_event(sender=st, event=event):
                                 break
@@ -80,6 +86,9 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                             if st.is_keyboard_event_present():
                                 if st.do_key_event(sender=st, event=event):
                                     break
+                        if self.screen.is_keyboard_event_present():
+                            if self.screen.do_key_event(sender=st, event=event):
+                                break
                         if self.is_keyboard_event_present():
                             if self.do_key_event(sender=st, event=event):
                                 break
