@@ -18,6 +18,11 @@ class vilagoseg(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/sunny.png')
 
+class napnap(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('images/sun.png')
+
 class ho(game.scene2d.MyActor):
 
     def __init__(self):
@@ -28,8 +33,8 @@ class ho(game.scene2d.MyActor):
         super().act(delta_time)
 
         self.y = self.y + delta_time * self.speed
-        if self.y > 820:
-            self.y = -100
+        if self.y > 760:
+            self.y = 50
             self.x = random.randint(a=0, b=1280)
             self.speed = random.randint(a=20, b=70)
 
