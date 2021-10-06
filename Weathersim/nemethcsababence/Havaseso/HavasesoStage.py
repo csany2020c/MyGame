@@ -1,4 +1,5 @@
 import game
+import random
 from Weathersim.nemethcsababence.Havaseso.HavasesoActors import *
 
 class HavasesoStage(game.scene2d.MyStage):
@@ -13,17 +14,20 @@ class HavasesoStage(game.scene2d.MyStage):
         self.eg.width = 1920
         self.eg.height = 1300
         self.eg.z_index = 1
-        self.ho = ho()
-        self.ho.width = 200
-        self.ho.height = 200
-        self.ho.z_index = 3
-        self.eso = eso()
-        self.eso.width = 200
-        self.eso.height = 100
-        self.eso.x = 500
-        self.eso.y = 300
-        self.eso.z_index = 3
         self.add_actor(self.taj)
         self.add_actor(self.eg)
-        self.add_actor(self.ho)
-        self.add_actor(self.eso)
+        for i in range(40):
+            self.eso = eso()
+            self.add_actor(self.eso)
+            self.eso.y = random.Random().randint(-50, 800)
+            self.eso.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso.w)
+            self.eso.width = 50
+            self.eso.height = 50
+            self.eso.z_index = 3
+            self.ho = ho()
+            self.add_actor(self.ho)
+            self.ho.y = random.Random().randint(-50, 800)
+            self.ho.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso.w)
+            self.ho.width = 50
+            self.ho.height = 50
+            self.ho.z_index = 3
