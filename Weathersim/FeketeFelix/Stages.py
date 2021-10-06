@@ -27,7 +27,24 @@ class SnowStage(game.scene2d.MyStage):
         super().__init__()
         self.add_actor(Cloudy())
         self.add_actor(Land())
-        self.add_actor(Snow())
+        for i in range(40):
+            self.Snow = Snow()
+            self.add_actor(self.Snow)
+            self.Snow.y = random.Random().randint(-40, 700)
+            self.Snow.x = random.Random().randint(0, 720)
+
+        self.t = MyTickTimer(interval=1, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self,  sender):
+        for i in range(10):
+            self.Snow = Snow()
+            self.add_actor(self.Snow)
+            self.Snow.y = random.Random().randint(-40, 700)
+            self.Snow.x = random.Random().randint(0, 720)
+        if self.Snow.y > 500:
+            self.remove_actor(self.Snow)
+
 
 class SnowRainStage(game.scene2d.MyStage):
     def __init__(self):
