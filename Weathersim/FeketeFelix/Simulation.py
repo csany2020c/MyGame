@@ -13,6 +13,20 @@ class Sim(game.scene2d.MyGame):
             if event.key == pygame.K_ESCAPE:
                 self.exit()
 
+            if event.key == pygame.K_q:
+                self.screen = RainScreen()
+
+            if event.key == pygame.K_w:
+                self.screen = SnowScreen()
+
+            if event.key == pygame.K_e:
+                self.screen = SnowRainScreen()
+
+            if event.key == pygame.K_r:
+                self.screen = SunnyScreen()
+
+
+
 
         self.set_on_key_press_listener(key_down)
 
