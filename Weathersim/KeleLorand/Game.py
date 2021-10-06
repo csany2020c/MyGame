@@ -1,6 +1,6 @@
 import game
 from game.scene2d import *
-
+from game.scene2d.MyScreen import *
 
 class HatterAct(game.scene2d.MyActor):
     def __init__(self):
@@ -13,6 +13,13 @@ class NaposAct(game.scene2d.MyActor):
 class NapAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/sun.png")
+        self.set_on_mouse_down_listener(self.teszt)
+
+
+    def teszt(self, sender, event):
+        exit()
+
+
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
@@ -46,6 +53,8 @@ class GameSelf(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         super().__init__(width, height, autorun)
         self.screen = GameScreen()
+
+
 
 
 GameSelf().run()
