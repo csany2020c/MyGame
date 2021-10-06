@@ -6,19 +6,19 @@ from game.scene2d.MyScreen import *
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/landscape.png')
+        self.map = super().__init__('resource/images/landscape.png')
 
 
 class kekeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/sunny.png')
+        self.map = super().__init__('resource/images/sunny.png')
 
 
 class nap(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/sun.png')
+        self.map = super().__init__('resource/images/sun.png')
 
 
 class GameStage(game.scene2d.MyStage):

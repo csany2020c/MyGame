@@ -1,5 +1,4 @@
 import game
-import game
 from game.scene2d.MyScreen import *
 
 class Stage(game.scene2d.MyGame):
@@ -10,17 +9,17 @@ class Stage(game.scene2d.MyGame):
 
 class taj(game.scene2d.MyActor):
     def __init__(self):
-        self.map = super().__init__('Weathersim/ZsuppanFlorian/images/rain.png')
+        self.map = super().__init__('resource/images/landscape.png')
 
 
 class szurkeeg(game.scene2d.MyActor):
     def __init__(self):
-        self.map = super().__init__('Weathersim/ZsuppanFlorian/images/rain.png')
+        self.map = super().__init__('resource/images/cloudy.png')
 
 
 class rain(game.scene2d.MyActor):
     def __init__(self):
-        self.map = super().__init__('Weathersim/ZsuppanFlorian/images/rain.png')
+        self.map = super().__init__('resource/images/rain.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -45,7 +44,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.taj)
         self.add_actor(self.szeg)
         self.add_actor(self.rain)
-
+        self.taj.set_on_key_down_listener(self.key_down)
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -57,5 +56,6 @@ class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(GameStage())
+
 
 Stage().run()

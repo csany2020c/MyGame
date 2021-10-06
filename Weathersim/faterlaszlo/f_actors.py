@@ -1,6 +1,6 @@
 import game
 
-class hatter_actor(game.scene2d.MyActor):
+class bg_actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/landscape.png")
 
@@ -33,7 +33,15 @@ class havazas(game.scene2d.MyActor):
 class eso(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/rain.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += 0.33 + delta_time
         
-class felhos(game.scene2d.MyActor):
+class felhos_actor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("!_resources_images/cloudy.png")
+        super().__init__("!_resources/images/cloudy.png")
+
+class start_actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/startb.png")

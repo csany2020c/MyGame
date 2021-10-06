@@ -1,7 +1,7 @@
-from Weathersim.nemethcsababence.Napsutes.GameActors import *
+from Weathersim.nemethcsababence.Napsutes.NapsutesActors import *
 
 
-class GameStage(game.scene2d.MyStage):
+class NapsutesStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -16,7 +16,7 @@ class GameStage(game.scene2d.MyStage):
         self.nap = nap()
         self.nap.width = 400
         self.nap.height = 400
-        self.nap.y = -130
+        self.nap.y = -100
         self.nap.x = 500
         self.nap.z_index = 2
         self.add_actor(self.taj)
