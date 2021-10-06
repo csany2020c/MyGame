@@ -21,11 +21,6 @@ class f_game(game.scene2d.MyGame):
 
     def set_screen_game4(self):
         self.set_screen(f_stage4)
-        self.set_on_key_down_listener(self.key_down)
 
-    def key_down(self, event, sender):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_1:
-            print("Sikeresen be lett zárva")
-            quit()
+
+
