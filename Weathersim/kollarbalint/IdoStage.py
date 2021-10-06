@@ -16,6 +16,39 @@ class NapsutesStage(game.scene2d.MyStage):
         self.add_actor(self.NapActor3)
         self.NapActor2.x += 850
         self.NapActor2.y += -110
+        self.infoa = MenuSzoveg()
+        self.add_actor(self.infoa)
+        self.infoa.set_text("BACKSPACE = Menübe való visszatérés")
+        self.infoa.set_alpha(500)
+        self.infoa.set_width(45)
+        self.infoa.set_height(45)
+        self.infoa.x += 320
+        self.infoa.y += 330
+        self.infob = MenuSzoveg()
+        self.add_actor(self.infob)
+        self.infob.set_text("ESC = Játékból való kilépés")
+        self.infob.set_alpha(500)
+        self.infob.set_width(45)
+        self.infob.set_height(45)
+        self.infob.x += 320
+        self.infob.y += 390
+        self.infoc = MenuSzoveg()
+        self.add_actor(self.infoc)
+        self.infoc.set_text("I = Információ bezárása")
+        self.infoc.set_alpha(500)
+        self.infoc.set_width(45)
+        self.infoc.set_height(45)
+        self.infoc.x += 320
+        self.infoc.y += 450
+        self.infod = MenuSzoveg()
+        self.add_actor(self.infod)
+        self.infod.set_text("13 másodpercenként változik az időjárás")
+        self.infod.set_alpha(500)
+        self.infod.set_width(45)
+        self.infod.set_height(45)
+        self.infod.x += 320
+        self.infod.y += 270
+        self.infoa.set_on_key_down_listener(self.info)
         self.set_on_key_down_listener(self.key_down)
 
     def act(self, delta_time: float):
@@ -39,6 +72,13 @@ class NapsutesStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             print("'QUIT'")
             quit()
+
+    def info(self, sender, event):
+        if event.key == pygame.K_i:
+            self.remove_actor(self.infoa)
+            self.remove_actor(self.infob)
+            self.remove_actor(self.infoc)
+            self.remove_actor(self.infod)
 
 class EsoStage(game.scene2d.MyStage):
 
@@ -160,6 +200,14 @@ class HavasesoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.Hatter = CloudyImg()
+        self.add_actor(self.Hatter)
+        self.Hatter2 = LandscapeImg()
+        self.add_actor(self.Hatter2)
+        self.Ho = SnowImg()
+        self.add_actor(self.Ho)
+        self.Eso = RainImg()
+        self.add_actor(self.Eso)
         self.set_on_key_down_listener(self.key_down)
 
     def key_down(self, sender, event):
@@ -173,31 +221,6 @@ class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-
-        self.infoa = MenuSzoveg()
-        self.add_actor(self.infoa)
-        self.infoa.set_text("BACKSPACE = Menübe való visszatérés")
-        self.infoa.set_alpha(500)
-        self.infoa.set_width(40)
-        self.infoa.set_height(40)
-        self.infoa.x += 510
-        self.infoa.y += 60
-        self.infob = MenuSzoveg()
-        self.add_actor(self.infob)
-        self.infob.set_text("ESC = Játékból való kilépés")
-        self.infob.set_alpha(500)
-        self.infob.set_width(40)
-        self.infob.set_height(40)
-        self.infob.x += 510
-        self.infob.y += 120
-        self.infoc = MenuSzoveg()
-        self.add_actor(self.infoc)
-        self.infoc.set_text("I = Információ bezárása")
-        self.infoc.set_alpha(500)
-        self.infoc.set_width(40)
-        self.infoc.set_height(40)
-        self.infoc.x += 510
-        self.infoc.y += 180
         self.Kilep = MenuSzoveg()
         self.add_actor(self.Kilep)
         self.Kilep.set_text("Kilépés")
@@ -224,7 +247,6 @@ class MenuStage(game.scene2d.MyStage):
         self.Jatek.set_height(65)
         self.Jatek.x += 550
         self.Jatek.y += 280
-        self.infoa.set_on_key_press_listener(self.info)
 
     def key_down(self, sender, event):
         print(sender)
@@ -233,14 +255,6 @@ class MenuStage(game.scene2d.MyStage):
             print("'QUIT'")
             quit()
 
-    def info(self, sender, event):
-        # print(event.key)
-        if event.key == pygame.K_i:
-            self.remove_actor(self.infoa)
-            self.remove_actor(self.infob)
-            self.remove_actor(self.infoc)
-
-
     def click(self, sender, event):
         print(sender)
         print(event)
@@ -248,7 +262,3 @@ class MenuStage(game.scene2d.MyStage):
             if event.button == 1:
                 print("'QUIT'")
                 quit()
-
-
-
-

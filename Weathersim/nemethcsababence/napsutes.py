@@ -1,5 +1,6 @@
+import pygame
+
 import game
-from game.scene2d.MyScreen import *
 
 
 class taj(game.scene2d.MyActor):
@@ -23,7 +24,7 @@ class nap(game.scene2d.MyActor):
         super().act(delta_time)
         if self.x + self.width < game.scene2d.MyGame.get_screen_width():
             self.x += delta_time * 60
-            self.rotate_with(delta_time * 50)
+            self.rotate_with(delta_time * 20)
 
 
 class GameStage(game.scene2d.MyStage):
@@ -39,19 +40,14 @@ class GameStage(game.scene2d.MyStage):
         self.eg.height = 1300
         self.eg.z_index = 1
         self.nap = nap()
-        self.nap.width = 500
-        self.nap.height = 500
-        self.nap.y = -130
-        self.nap.x = 0
+        self.nap.width = 600
+        self.nap.height = 600
+        self.nap.y = -150
+        self.nap.x = 500
         self.nap.z_index = 2
         self.add_actor(self.taj)
         self.add_actor(self.eg)
         self.add_actor(self.nap)
-        self.taj.set_on_key_down_listener(self.key_down)
-
-    def key_down(self, sender, event):
-        if event.key == pygame.K_ESCAPE:
-            quit()
 
 
 class GameScreen(game.scene2d.MyScreen):
@@ -61,11 +57,11 @@ class GameScreen(game.scene2d.MyScreen):
         self.add_stage(GameStage())
 
 
-class napsutes(game.scene2d.MyGame):
+class Program(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
         self.screen = GameScreen()
 
 
-napsutes().run()
+Program().run()

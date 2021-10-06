@@ -7,10 +7,13 @@ class MainStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.add_actor(actor=Background())
-        self.set_on_key_down_listener(self.OnKeys)
+        bg = Background()
+        bg.height = 720
+        bg.width = 1280
+        self.add_actor(actor=bg)
 
-    def OnKeys(self, sender, event):
+
+    """def OnKeys(self, sender, event):
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_t:
@@ -32,7 +35,7 @@ class MainStage(game.scene2d.MyStage):
         if event.key == pygame.K_KP3:
             print('NUM3')
         if event.key == pygame.K_KP4:
-            print('NUM4')
+            print('NUM4')"""
 
 
 
