@@ -60,6 +60,12 @@ class Rain(game.scene2d.MyActor):
             self.speed = random.randint(a=200, b=300)
 
 
+class Sunny(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('../!_resources/images/sunny.png')
+
+
 
 
 
