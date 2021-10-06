@@ -43,7 +43,7 @@ class InStage(game.scene2d.MyStage):
                         self.isDPressed = True
         if event.key == pygame.K_ESCAPE:
             self.isEscPressed = True
-        if event.key == pygame.KMOD_SHIFT:
+        if event.key == pygame.K_x:
             self.isShiftPressed = True
 
 
