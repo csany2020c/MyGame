@@ -8,6 +8,4 @@ class Main(game.scene2d.MyGame):
         self.screen = MainScreen()
 
 
-
-
 Main().run()

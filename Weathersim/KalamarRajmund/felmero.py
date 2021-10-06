@@ -9,7 +9,7 @@ class Esozik (game.scene2d.MyActor):
 
 class Szürkehatter(game.scene2d.MyActor):
     def __init__(self):
-    self.map = super ().__init__('!resources/images/landscape.png')
+        self.map = super ().__init__('!resources/images/cloudy.png')
 
 
 

@@ -21,9 +21,8 @@ class HavazasStage(game.scene2d.MyStage):
         self.ho.z_index = 3
         self.add_actor(self.taj)
         self.add_actor(self.szeg)
-        for j in range(30):
-            for i in range(30):
-                self.ho = ho()
-                self.add_actor(self.ho)
-                self.ho.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.ho.w)
-                self.ho.y = random.Random().randint(0, 720)
+        for i in range(30):
+            self.ho = ho()
+            self.add_actor(self.ho)
+            self.ho.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.ho.w)
+            self.ho.y = random.Random().randint(0, 720)
