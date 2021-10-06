@@ -7,6 +7,7 @@ import random
 class f_stage_m(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.set_on_key_down_listener(self.key_down)
         self.start = start_actor()
         self.add_actor(self.start)
         self.start.y = 240
@@ -20,6 +21,13 @@ class f_stage_m(game.scene2d.MyStage):
         self.start1.x = 500
         self.start1.w = 80
         self.start1.h = 80
+
+    def key_down(self, event, sender):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_ESCAPE:
+            print("Sikeresen be lett zárva")
+            quit()
 
 
 class f_stage1(game.scene2d.MyStage):

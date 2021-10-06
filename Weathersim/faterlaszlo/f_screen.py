@@ -7,10 +7,13 @@ class f_screen_m(game.scene2d.MyScreen):
         self.set_background_color(20, 120, 100)
         self.add_stage(f_stage_m())
 
+#class f_screen_1(game.scene2d.MyScreen):
+        #  def __init__(self):
+        # super().__init__()
+        #self.add_stage(f_stage1())
 
-    #def key_down(self, event, sender):
-        #print(sender)
-        #print(event)
-        #if event.key == pygame.K_s:
-            #print("Jelenleg nem jó még")
-            #self.add_stage(f_stage1())
+    #class f_screen_m(game.scene2d.MyScreen):
+        # def __init__(self):
+        # super().__init__()
+        #self.set_background_color(20, 120, 100)
+        #self.add_stage(f_stage_m())
