@@ -1,4 +1,5 @@
 import Weathersim.FellnerMilan.Screen
+from Weathersim.FellnerMilan.SnowyScreen import *
 from Weathersim.FellnerMilan.InActors import *
 from Weathersim.FellnerMilan.RainyScreen import *
 from Weathersim.FellnerMilan.Screen import *
@@ -35,6 +36,8 @@ class InStage(game.scene2d.MyStage):
     def keys(self, sender,event):
         if event.key == pygame.K_LEFT:
             self.screen.game.set_screen(RainScreen())
+        if event.key == pygame.K_RIGHT:
+            self.screen.game.set_screen(SnowScreen())
 
     def onClick(self, sender,event):
         if event.button == 1:
