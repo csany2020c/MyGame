@@ -3,6 +3,17 @@ import pygame
 from Weathersim.faterlaszlo.f_actors import *
 import random
 
+class f_stage_m(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.felho = felhos_actor()
+        self.add_actor(self.felho)
+        self.felho.y = 120
+        self.felho.x = 340
+        self.felho.w = 80
+        self.felho.h = 80
+
+
 class f_stage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
