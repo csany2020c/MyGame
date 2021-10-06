@@ -1,7 +1,7 @@
 import game
 
 
-class Menu()
+class Menu():
 
     def set_screen_game(self):
         self.set_screen_game(GameScreen)
