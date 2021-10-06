@@ -22,9 +22,6 @@ class SzurkeAct(game.scene2d.MyActor):
         super().__init__("!_resources/images/cloudy.png")
 
 
-
-
-
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -51,16 +48,13 @@ class GameStage(game.scene2d.MyStage):
         self.teliIdo: bool = False
         self.tavasziIdo: bool = False
 
-        print(self.currentSeason)
+
 
         if self.currentSeason == 1:
             self.add_actor(self.napos_bg)
             self.add_actor(self.nap_bg)
-            self.naposIdo = True
+            self.nyariIdo = True
             print(self.nyariIdo)
-
-        if self.currentSeason == 2:
-            self.osziIdo = True
 
 
 
