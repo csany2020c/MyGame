@@ -7,13 +7,14 @@ class Sim(game.scene2d.MyGame):
         super().__init__(width, height)
         self.screen = SunnyScreen()
 
-    def key_down(sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_ESCAPE:
+        def key_down(sender, event):
+            print(sender)
+            print(event)
+            if event.key == pygame.K_ESCAPE:
+                self.exit()
 
 
-    self.set_on_key_press_listener(key_down)
+        self.set_on_key_press_listener(key_down)
 
 
 

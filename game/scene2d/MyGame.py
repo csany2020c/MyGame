@@ -37,13 +37,17 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         self._debug = debug
         print(self.width)
         print(self.height)
+        SDL_VIDEODRIVER = pygame
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
-        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA
+        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA | ANYFORMAT | HWPALETTE
         if autosize:
             self._surface: pygame.Surface = pygame.display.set_mode(size=(self.width, self.height), flags=flags)
         else:
             self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
         self._running = True
+        self.surface.set_alpha(None)
+        info = pygame.display.Info()
+        print(info)
         if autorun:
             self.loop()
 
