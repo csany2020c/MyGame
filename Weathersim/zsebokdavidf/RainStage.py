@@ -6,6 +6,11 @@ class RainStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
+        bg = Background()
+        bg.height = 720
+        bg.width = 1280
+        self.add_actor(actor=bg)
+
         for k in range(40):
             self.rain = Rain()
             size = random.randint(a=20, b=50)
