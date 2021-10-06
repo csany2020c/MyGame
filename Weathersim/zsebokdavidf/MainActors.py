@@ -1,5 +1,7 @@
 import game
 import random
+import pygame
+
 
 
 class Background(game.scene2d.MyActor):
@@ -47,6 +49,7 @@ class Rain(game.scene2d.MyActor):
         super().__init__('../!_resources/images/rain.png')
         self.speed = random.randint(a=200, b=300)
 
+
     def act(self, delta_time: float):
         super().act(delta_time)
 
@@ -55,6 +58,10 @@ class Rain(game.scene2d.MyActor):
             self.y = -100
             self.x = random.randint(a=0, b=1280)
             self.speed = random.randint(a=200, b=300)
+
+
+
+
 
 
 
