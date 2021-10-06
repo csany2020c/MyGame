@@ -1,4 +1,5 @@
 from Weathersim.zsebokdavidf.MainActors import *
+import pygame
 
 
 class SnowStage(game.scene2d.MyStage):
@@ -6,7 +7,12 @@ class SnowStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
-        for i in range(4):
+        bg = Background()
+        bg.height = 720
+        bg.width = 1280
+        self.add_actor(actor=bg)
+
+        for i in range(3):
             sg = SnowyGround()
             sg.height = 720
             sg.width = 1280
@@ -25,6 +31,9 @@ class SnowStage(game.scene2d.MyStage):
             self.sn.x = random.randint(a=0, b=1280)
             self.sn.y = random.randint(a=-0, b=720)
             self.add_actor(self.sn)
+
+
+
 
 
 
