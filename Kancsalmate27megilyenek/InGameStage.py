@@ -2,19 +2,31 @@ import game
 import pygame
 
 from Kancsalmate27megilyenek.MapActor import *
-
+from Kancsalmate27megilyenek.BackgroundActor import *
+from Kancsalmate27megilyenek.MenuScreen import *
+from Kancsalmate27megilyenek.MapActor import *
+from Kancsalmate27megilyenek.PlayerActor import *
+from game.simpleworld.ShapeType import ShapeType
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.map = Map()
+        self.player = PlayerActor()
+        self.bg = BackgroundActor()
         self.isWPressed : bool = False
         self.isAPressed : bool = False
         self.isSPressed : bool = False
         self.isDPressed : bool = False
-        self.add_actor(self.map)
+        self.isEscPressed : bool = False
+        self.isShiftPressed: bool = False
+        self.add_actor(self.bg)
+        self.add_actor(self.player)
+        self.bg.set_z_index(0)
+        self.player.set_z_index(1)
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
 
+    def show(self):
+       super().show()
 
     def moveKeys(self, sender, event):
         if event.key == pygame.K_w:
@@ -29,6 +41,11 @@ class InStage(game.scene2d.MyStage):
         if event.key == pygame.K_d:
             if self.isWPressed == False and self.isSPressed == False and self.isAPressed == False:
                         self.isDPressed = True
+        if event.key == pygame.K_ESCAPE:
+            self.isEscPressed = True
+        if event.key == pygame.K_x:
+            self.isShiftPressed = True
+
 
     def moveKeysOff(self,sender,event):
         if event.key == pygame.K_w:
@@ -39,17 +56,29 @@ class InStage(game.scene2d.MyStage):
             self.isSPressed = False
         if event.key == pygame.K_d:
             self.isDPressed = False
+        if event.key == pygame.K_m:
+            self.isMPressed = False
+        if event.key == pygame.KMOD_SHIFT:
+            self.isShiftPressed = False
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        x = 5
+        if self.isShiftPressed:
+           x = x * 2
         if self.isWPressed:
-            self.map.y -= 4
+            self.player.y -= x
         if self.isAPressed:
-            self.map.x -= 4
+            self.player.x -= x
         if self.isSPressed:
-            self.map.y += 4
+            self.player.y += x
         if self.isDPressed:
-            self.map.x += 4
+            self.player.x += x
+        if self.isEscPressed:
+            quit()
+
+
+        print(self.bg.x, self.bg.y)
 
 
 

@@ -19,3 +19,9 @@ class Space(game.scene2d.MyGame):
         print("KLIKK")
         print(event)
         # sender.remove_from_stage()
+
+    def set_screen_game(self):
+        self.set_screen(GameScreen())
+
+    def set_screen_menu(self):
+        self.set_screen(MenuScreen())

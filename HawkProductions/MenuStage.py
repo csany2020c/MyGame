@@ -1,8 +1,8 @@
 import game
 import pygame
-from HawkProductions.Enemy1Actor import *
-from HawkProductions.Enemy2Actor import *
+from HawkProductions.Actors import *
 from HawkProductions.Anything import *
+
 
 class MenuStage(game.scene2d.MyStage):
 
@@ -38,4 +38,3 @@ class MenuStage(game.scene2d.MyStage):
         #if event.key == pygame.K_c:
             #print("Start")
             #pygame.display()
-
