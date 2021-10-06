@@ -1,11 +1,15 @@
 from Weathersim.olahgergo.actors import *
-import pygame
 
 
 class HoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+
+        feg = felhoeg()
+        feg.height = 720
+        feg.width = 1280
+        self.add_actor(actor=feg)
 
         hk = hatterkep()
         hk.height = 720
@@ -21,11 +25,6 @@ class HoStage(game.scene2d.MyStage):
             self.ho.x = random.randint(a=0, b=1280)
             self.ho.y = random.randint(a=-0, b=720)
             self.add_actor(self.ho)
-            self.ho.set_on_key_down_listener(self.key_down)
-
-        def key_down(self, sender, event):
-            if event.key == pygame.K_ESCAPE:
-                quit()
 
 
 
