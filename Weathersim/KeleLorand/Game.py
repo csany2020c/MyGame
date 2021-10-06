@@ -24,7 +24,6 @@ class SzurkeAct(game.scene2d.MyActor):
 
 
 
-
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -43,36 +42,6 @@ class GameStage(game.scene2d.MyStage):
 
         self.add_actor(self.hatter_bg)
 
-        self.set_on_key_down_listener(self.evszakvaltas)
-
-        self.currentSeason: int = 1
-        self.nyariIdo: bool = False
-        self.osziIdo: bool = False
-        self.teliIdo: bool = False
-        self.tavasziIdo: bool = False
-
-        print(self.currentSeason)
-
-        if self.currentSeason == 1:
-            self.add_actor(self.napos_bg)
-            self.add_actor(self.nap_bg)
-            self.naposIdo = True
-            print(self.nyariIdo)
-
-        if self.currentSeason == 2:
-            self.osziIdo = True
-
-
-
-    def evszakvaltas(self, sender, event):
-        if event.key == pygame.K_RIGHT:
-            self.currentSeason = self.currentSeason + 1
-
-        if self.currentSeason >= 4:
-            self.currentSeason = 4
-
-        if event.key == pygame.K_LEFT:
-            self.currentSeason = self.currentSeason - 1
 
 
 class GameScreen(game.scene2d.MyScreen):

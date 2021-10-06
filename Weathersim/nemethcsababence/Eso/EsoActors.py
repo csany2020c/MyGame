@@ -24,7 +24,14 @@ class eso(game.scene2d.MyActor):
         if self.y > 720:
             self.y = -50
 
+
 class button1(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('!_resources/images/eso.png')
+
+
+class button5(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/Vissza.png')
