@@ -1,5 +1,6 @@
+import pygame
+
 import game
-from game.scene2d.MyScreen import *
 
 
 class taj(game.scene2d.MyActor):
@@ -18,6 +19,12 @@ class nap(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('!_resources/images/sun.png')
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.x + self.width < game.scene2d.MyGame.get_screen_width():
+            self.x += delta_time * 60
+            self.rotate_with(delta_time * 20)
 
 
 class GameStage(game.scene2d.MyStage):
@@ -41,11 +48,6 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.taj)
         self.add_actor(self.eg)
         self.add_actor(self.nap)
-        self.taj.set_on_key_down_listener(self.key_down)
-
-    def key_down(self, sender, event):
-        if event.key == pygame.K_ESCAPE:
-            quit()
 
 
 class GameScreen(game.scene2d.MyScreen):
