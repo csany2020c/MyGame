@@ -8,6 +8,12 @@ class Sunny(game.scene2d.MyActor):
 class Sun(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("resc/sun.png")
+        self.x += 800
+        self.y += 5
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(1)
 
 class Rain(game.scene2d.MyActor):
     def __init__(self):
@@ -20,6 +26,12 @@ class Land(game.scene2d.MyActor):
 class Snow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("resc/snow.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(5)
+        self.y += delta_time * 55
+        self.x += delta_time * 55
 
 class Cloudy(game.scene2d.MyActor):
     def __init__(self):
