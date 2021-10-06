@@ -1,4 +1,5 @@
 import game
+import random
 from game.scene2d.MyScreen import *
 
 
@@ -21,7 +22,10 @@ class ho(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 200
+        self.y += delta_time * 100
+
+    def random(self):
+        self.x = random.Random().randint(3, game.scene2d.MyGame.get_screen_width())
 
 
 class GameStage(game.scene2d.MyStage):
@@ -59,11 +63,11 @@ class GameScreen(game.scene2d.MyScreen):
         self.add_stage(GameStage())
 
 
-class Program(game.scene2d.MyGame):
+class havazas(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
         self.screen = GameScreen()
 
 
-Program().run()
+havazas().run()

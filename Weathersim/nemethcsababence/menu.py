@@ -1,7 +1,7 @@
-import game
-from game.scene2d.MyScreen import *
-
-
+from Weathersim.nemethcsababence.havazas import *
+from Weathersim.nemethcsababence.eso import *
+from Weathersim.nemethcsababence.napsutes import *
+from Weathersim.nemethcsababence.havaseso import *
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
@@ -11,27 +11,13 @@ class taj(game.scene2d.MyActor):
 class kekeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/cloudy.png')
+        self.map = super().__init__('!_resources/images/sunny.png')
 
 
-class ho(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.map = super().__init__('!_resources/images/snow.png')
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * 200
-
-
-class eso(game.scene2d.MyActor):
+class nap(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/rain.png')
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * 200
+        self.map = super().__init__('!_resources/images/sun.png')
 
 
 class GameStage(game.scene2d.MyStage):
@@ -41,30 +27,35 @@ class GameStage(game.scene2d.MyStage):
         self.taj = taj()
         self.taj.width = 1280
         self.taj.height = 720
-        self.taj.z_index = 2
+        self.taj.z_index = 3
         self.eg = kekeg()
         self.eg.width = 1920
         self.eg.height = 1300
         self.eg.z_index = 1
-        self.ho = ho()
-        self.ho.width = 200
-        self.ho.height = 200
-        self.ho.z_index = 3
-        self.eso = eso()
-        self.eso.width = 200
-        self.eso.height = 100
-        self.eso.x = 500
-        self.eso.y = 300
-        self.eso.z_index = 3
+        self.nap = nap()
+        self.nap.width = 600
+        self.nap.height = 600
+        self.nap.y = -150
+        self.nap.x = 500
+        self.nap.z_index = 2
         self.add_actor(self.taj)
         self.add_actor(self.eg)
-        self.add_actor(self.ho)
-        self.add_actor(self.eso)
+        self.add_actor(self.nap)
         self.taj.set_on_key_down_listener(self.key_down)
 
-    def key_down(self, event):
+
+    def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
             quit()
+        if event.key == pygame.K_a:
+            self.screen.game.get_screen(havazas())
+        if event.key == pygame.K_s:
+            self.screen.game.get_screen(zapor())
+        if event.key == pygame.K_d:
+            self.screen.game.get_screen(havaseso())
+        if event.key == pygame.K_f:
+            self.screen.game.get_screen(napsutes())
+
 
 
 class GameScreen(game.scene2d.MyScreen):
@@ -74,11 +65,11 @@ class GameScreen(game.scene2d.MyScreen):
         self.add_stage(GameStage())
 
 
-class havaseso(game.scene2d.MyGame):
+class menu(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
         self.screen = GameScreen()
 
 
-havaseso().run()
+menu().run()
