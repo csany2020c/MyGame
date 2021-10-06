@@ -40,6 +40,9 @@ class f_stage_m(game.scene2d.MyStage):
         if event.key == pygame.K_4:
             print("Eső")
             self.screen.add_stage(f_stage4())
+        if event.key == pygame.K_SPACE:
+            print("Vissza a főképernyőre(menu)")
+            self.screen.add_stage(f_stage_m())
 
 
 class f_stage1(game.scene2d.MyStage):
