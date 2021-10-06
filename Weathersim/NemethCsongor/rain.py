@@ -36,8 +36,8 @@ class Stage3(game.scene2d.MyStage):
             self.R = Rain3()
             self.add_actor(self.R)
             self.R.set_size(width=50, height=50)
-            self.R.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.R.w)
-            self.R.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.R.h)
+            self.R.x = random.randint(0, 1280)
+            self.R.y = random.randint(0, 720)
 
         self.set_on_key_down_listener(self.key_down)
 
@@ -60,3 +60,6 @@ class Game3(game.scene2d.MyGame):
     def __init__(self):
         super().__init__()
         self.screen = Screen3()
+
+
+Game3().run()
