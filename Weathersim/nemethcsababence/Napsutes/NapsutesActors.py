@@ -35,3 +35,8 @@ class MenuImage(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('!_resources/images/MenuScreen.png')
+
+class button5(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/Vissza.png')
