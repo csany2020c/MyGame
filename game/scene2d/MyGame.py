@@ -37,7 +37,6 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         self._debug = debug
         print(self.width)
         print(self.height)
-        SDL_VIDEODRIVER = pygame
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
         flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA | ANYFORMAT | HWPALETTE
         if autosize:
@@ -84,6 +83,9 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                             if st.is_keyboard_event_present():
                                 if st.do_key_event(sender=st, event=event):
                                     break
+                        if self.screen.is_keyboard_event_present():
+                            if self.screen.do_key_event(sender=st, event=event):
+                                break
                         if self.is_keyboard_event_present():
                             if self.do_key_event(sender=st, event=event):
                                 break
