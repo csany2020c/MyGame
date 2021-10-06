@@ -1,4 +1,6 @@
-from Weathersim.zsebokdavidf.MainScreen import *
+import pygame
+
+from Weathersim.olahgergo.mainscreen import *
 
 
 class Main(game.scene2d.MyGame):
