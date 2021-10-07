@@ -18,7 +18,6 @@ class MenuStage(game.scene2d.MyStage):
         self.button1.height = 75
         self.button1.y = 800
         self.button1.x = 200
-        self.add_actor(creditact())
 
         self.button2 = exitact()
         self.add_actor(self.button2)
@@ -26,7 +25,6 @@ class MenuStage(game.scene2d.MyStage):
         self.button2.height = 75
         self.button2.y = 800
         self.button2.x = 1600
-        self.add_actor(exitact())
 
         self.button3 = playact()
         self.add_actor(self.button3)
@@ -34,7 +32,6 @@ class MenuStage(game.scene2d.MyStage):
         self.button3.height = 75
         self.button3.y = 500
         self.button3.x = 900
-        self.add_actor(playact())
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.button2.set_on_mouse_down_listener(self.Klikk2)
