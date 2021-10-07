@@ -3,6 +3,7 @@ from random import Random
 import pygame
 from Weathersim.FellnerMilan.InActors import *
 import Weathersim.FellnerMilan.InScreen
+import Weathersim.FellnerMilan.SnowyRainScreen
 from game.scene2d import MyTickTimer, MyOneTickTimer, MyIntervalTimer
 from random import Random
 class RainStage(game.scene2d.MyStage):
@@ -27,6 +28,18 @@ class RainStage(game.scene2d.MyStage):
 
         self.r = Random()
 
+        self.backbutton = MainMenu()
+        self.add_actor(self.backbutton)
+        self.backbutton.z_index = 15
+
+        self.arrowleft = ArrowLeft()
+        self.add_actor(self.arrowleft)
+        self.arrowleft.set_on_mouse_down_listener(self.leftarrowListener)
+
+        self.arrowright = ArrowRight()
+        self.add_actor(self.arrowright)
+        self.arrowright.set_on_mouse_down_listener(self.rightArrowListener)
+
         self.set_on_key_down_listener(self.keylistener)
 
     def act(self, delta_time: float):
@@ -43,4 +56,14 @@ class RainStage(game.scene2d.MyStage):
             self.remove_timer(self.t)
     def keylistener(self,sender,event):
         if event.key == pygame.K_RIGHT:
+            self.screen.game.set_screen(Weathersim.FellnerMilan.InScreen.InScreen())
+        if event.key == pygame.K_LEFT:
+            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyRainScreen.SnowyRainScreen())
+
+    def leftarrowListener(self,sender,event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyRainScreen.SnowyRainScreen())
+
+    def rightArrowListener(self,sender,event):
+        if event.button == 1:
             self.screen.game.set_screen(Weathersim.FellnerMilan.InScreen.InScreen())

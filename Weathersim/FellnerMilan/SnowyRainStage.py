@@ -1,32 +1,29 @@
-import  game
-from random import Random
-import pygame
+import game
+import Weathersim.FellnerMilan.SnowyScreen
+import Weathersim.FellnerMilan.RainyScreen
 from Weathersim.FellnerMilan.InActors import *
-import Weathersim.FellnerMilan.InScreen
-import Weathersim.FellnerMilan.SnowyRainScreen
-from game.scene2d import MyTickTimer, MyOneTickTimer, MyIntervalTimer
-from random import Random
-class SnowStage(game.scene2d.MyStage):
+from game.scene2d import MyOneTickTimer, MyTickTimer
+import pygame
+
+class SnowyRainStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.l = SnowyLandScape()
-        self.add_actor(self.l)
-        self.l.z_index = 2
 
+        self.ls = SnowyLandScape()
+        self.add_actor(self.ls)
+        self.ls.z_index = 1
 
-        self.sunny = Sunny()
-        self.add_actor(self.sunny)
-        self.sunny.z_index = 0
+        self.sky = Sunny()
+        self.add_actor(self.sky)
+        self.sky.z_index = -1
 
-        self.snow = Snow()
-        self.add_actor(self.snow)
-        self.snow.z_index = 3
+        self.snowyrain = SnowyRain()
+        self.add_actor(self.snowyrain)
+        self.snowyrain.z_index = 2
 
-        self.cloudreal = Cloud()
-        self.add_actor(self.cloudreal)
-        self.cloudreal.z_index = 1
-
-        self.r = Random()
+        self.cloud = Cloud()
+        self.add_actor(self.cloud)
+        self.cloud.z_index = 0
 
         self.backbutton = MainMenu()
         self.add_actor(self.backbutton)
@@ -42,7 +39,6 @@ class SnowStage(game.scene2d.MyStage):
         self.arrowright.set_on_mouse_down_listener(self.rightArrowListener)
 
         self.set_on_key_down_listener(self.keylistener)
-
     def act(self, delta_time: float):
         super().act(delta_time)
         self.t = MyTickTimer(interval=1,func=self.timerhandler)
@@ -50,19 +46,20 @@ class SnowStage(game.scene2d.MyStage):
 
 
     def timerhandler(self,sender):
-            self.snow2 = Snow()
-            self.add_actor(self.snow2)
+            self.snowyrain2 = SnowyRain()
+            self.add_actor(self.snowyrain2)
             self.remove_timer(self.t)
+
     def keylistener(self,sender,event):
         if event.key == pygame.K_LEFT:
-            self.screen.game.set_screen(Weathersim.FellnerMilan.InScreen.InScreen())
+            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyScreen.SnowScreen())
         if event.key == pygame.K_RIGHT:
-            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyRainScreen.SnowyRainScreen())
+            self.screen.game.set_screen(Weathersim.FellnerMilan.RainyScreen.RainScreen())
 
     def leftarrowListener(self,sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.FellnerMilan.InScreen.InScreen())
+            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyScreen.SnowScreen())
 
     def rightArrowListener(self,sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.FellnerMilan.SnowyRainScreen.SnowyRainScreen())
+            self.screen.game.set_screen(Weathersim.FellnerMilan.RainyScreen.RainScreen())

@@ -26,7 +26,18 @@ class InStage(game.scene2d.MyStage):
 
         self.backbutton = MainMenu()
         self.add_actor(self.backbutton)
-        self.backbutton.set_on_mouse_down_listener(self.onClick)
+        self.backbutton.z_index = 15
+        #self.backbutton.set_on_mouse_down_listener(self.onClick)
+
+        self.arrowleft = ArrowLeft()
+        self.add_actor(self.arrowleft)
+        self.arrowleft.set_on_mouse_down_listener(self.leftarrowListener)
+
+        self.arrowright = ArrowRight()
+        self.add_actor(self.arrowright)
+        self.arrowright.set_on_mouse_down_listener(self.rightArrowListener)
+
+
         self.set_on_key_down_listener(self.keys)
 
     def act(self, delta_time: float):
@@ -39,8 +50,16 @@ class InStage(game.scene2d.MyStage):
         if event.key == pygame.K_RIGHT:
             self.screen.game.set_screen(SnowScreen())
 
-    def onClick(self, sender,event):
+    def leftarrowListener(self,sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.FellnerMilan.Screen.GameScreen())
+            self.screen.game.set_screen(RainScreen())
+
+    def rightArrowListener(self,sender,event):
+        if event.button == 1:
+            self.screen.game.set_screen(SnowScreen())
+
+    #def onClick(self, sender,event):
+        #if event.button == 1:
+            #self.screen.game.set_screen(Weathersim.FellnerMilan.Screen.GameScreen())
             #quit()
 
