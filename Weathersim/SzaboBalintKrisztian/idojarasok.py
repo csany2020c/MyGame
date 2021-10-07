@@ -16,20 +16,24 @@ class NapocskaActor(game.scene2d.MyActor):
         super().act(delta_time)
         self.rotate_with(0.2)
 
+
 class HatterActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("sunny.png")
+
 
 class Hatter2Actor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("cloudy.png")
 
+
 class LandscapeActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("landscape.png")
+
 
 class HavzikActor(game.scene2d.MyActor):
 
@@ -42,6 +46,7 @@ class HavzikActor(game.scene2d.MyActor):
         self.rotate_with(3)
         self.y += delta_time * 100
         self.x += delta_time * 100
+
 
 class Havzik2Actor(game.scene2d.MyActor):
 
@@ -56,6 +61,7 @@ class Havzik2Actor(game.scene2d.MyActor):
         self.y += delta_time * 100
         self.x += delta_time * 100
 
+
 class Havzik3Actor(game.scene2d.MyActor):
 
     def __init__(self):
@@ -68,6 +74,7 @@ class Havzik3Actor(game.scene2d.MyActor):
         self.rotate_with(3)
         self.y += delta_time * 100
         self.x += delta_time * 100
+
 
 class Havzik4Actor(game.scene2d.MyActor):
 
@@ -82,6 +89,7 @@ class Havzik4Actor(game.scene2d.MyActor):
         self.y += delta_time * 100
         self.x += delta_time * 100
 
+
 class Havzik5Actor(game.scene2d.MyActor):
 
     def __init__(self):
@@ -95,9 +103,11 @@ class Havzik5Actor(game.scene2d.MyActor):
         self.y += delta_time * 100
         self.x += delta_time * 100
 
+
 class CseppActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
+
 
 class NaposStage(game.scene2d.MyStage):
 
@@ -112,6 +122,8 @@ class HavasStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.add_actor(VillamlasActor())
+        self.villam = VillamlasActor()
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(HavzikActor())
@@ -129,6 +141,7 @@ class HavasStage(game.scene2d.MyStage):
         self.add_actor(Havzik3Actor())
         self.add_actor(Havzik4Actor())
         self.add_actor(Havzik5Actor())
+
 
 class EsosStage(game.scene2d.MyStage):
 
@@ -168,6 +181,10 @@ class IdoSim(game.scene2d.MyGame):
 
     def key_down(self, sender, event):
         print(sender)
+        if event.key == pygame.K_ESCAPE:
+            print("veged")
+            pygame.quit()
+
         if event.key == pygame.K_2:
             print("22222222222222222222222222222")
             self.screen = Esikaho()
