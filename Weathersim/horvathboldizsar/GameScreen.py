@@ -5,7 +5,7 @@ class GameScreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.add_stage(HavasStage())
+        self.add_stage(EsosStage())
 
 # class GameScreen2(game.scene2d.MyScreen):
 #
