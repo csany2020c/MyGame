@@ -12,10 +12,10 @@ class Enemy1Actor(game.scene2d.MyActor):
         super().act(delta_time)
 
 
-    """def klikk(self, sender, event):
+    '''def klikk(self, event, sender):
         print(event)
         print(sender)
-        self.game.screen.set_screen(GameScreen())"""
+        self.set_screen(GameScreen())'''
 
 
 class Enemy2Actor(game.scene2d.MyActor):

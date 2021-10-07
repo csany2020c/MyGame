@@ -1,12 +1,11 @@
 import time
-
+import game
 from HawkProductions.Actors import *
 import random
 from time import sleep
 
 
 class GameStage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         self.Bg = Bg()

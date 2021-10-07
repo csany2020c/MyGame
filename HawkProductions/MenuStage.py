@@ -23,7 +23,7 @@ class MenuStage(game.scene2d.MyStage):
         self.b.set_text("Flappy D")
         self.b.set_x(500)
         self.b.set_y(100)
-        self.h2.set_on_key_down_listener(self.key_down)
+        self.set_on_key_down_listener(self.key_down)
 
     def key_down(self, sender, event):
         # if isinstance(sender, MyBaseActor):
