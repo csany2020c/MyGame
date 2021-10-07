@@ -1,3 +1,5 @@
+import pygame
+
 import Weathersim.nemethcsababence.Eso.EsoScreen
 import game
 from Weathersim.nemethcsababence.Eso.EsoScreen import *
@@ -47,6 +49,7 @@ class MenuStage(game.scene2d.MyStage):
         self.button2.set_on_mouse_down_listener(self.Klikk2)
         self.button3.set_on_mouse_down_listener(self.Klikk3)
         self.button4.set_on_mouse_down_listener(self.Klikk4)
+        self.set_on_key_down_listener(self.key_down)
 
     def Klikk1(self, sender,event):
         if event.button == 1:
@@ -63,6 +66,10 @@ class MenuStage(game.scene2d.MyStage):
     def Klikk4(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.nemethcsababence.Napsutes.NapsutesScreen.NapsutesScreen())
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
 
 class MenuScreen(game.scene2d.MyScreen):

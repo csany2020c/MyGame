@@ -1,13 +1,12 @@
-import game
-from kuposztok.actors import *
+from kuposztok.Game.GameActor import *
 
-class MenuStage(game.scene2d.MyStage):
 
+class GameStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
         bg = BgActor()
-        a = MenuActor()
+        a = MyyActor()
         a.y = 0
         self.add_actor(bg)
         self.add_actor(a)
