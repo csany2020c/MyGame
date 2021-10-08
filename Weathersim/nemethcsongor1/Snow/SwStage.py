@@ -1,8 +1,5 @@
-import Weathersim
-import game
-import random
-import pygame
-from Weathersim.NemethCsongor.Actorok import *
+from Weathersim.nemethcsongor1.Actorok import *
+from Weathersim.nemethcsongor1.start.SaScreen import *
 
 
 class SwStage(game.scene2d.MyStage):
@@ -22,13 +19,12 @@ class SwStage(game.scene2d.MyStage):
             self.S.x = random.randint(a=0, b=1280)
             self.S.y = random.randint(a=-0, b=720)
 
-        self.set_on_key_down_listener(self.key_down)
-        self.set_on_key_down_listener(self.key_down2)
+        self.Ba = Back()
+        self.add_actor(self.Ba)
+        self.Ba.set_size(width=250, height=250)
+        self.Ba.set_on_mouse_down_listener(self.klikk)
 
-    def key_down(self, sender, event):
-        if event.key == pygame.K_KP1:
-            self.screen.game.set_r()
-
-    def key_down2(self, sender, event):
-        if event.key == pygame.K_KP2:
-            self.screen.game.set_su()
+    def klikk(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(SaScreen())

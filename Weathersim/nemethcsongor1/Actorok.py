@@ -1,6 +1,5 @@
 import game
 import random
-import pygame
 
 
 class Bg(game.scene2d.MyActor):
@@ -22,6 +21,15 @@ class Sun (game.scene2d.MyActor):
         self.rotate_with(delta_time * 30)
 
 
+class FSun (game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/sun.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(delta_time * 15)
+
+
 class Rain(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/rain.png")
@@ -31,6 +39,15 @@ class Rain(game.scene2d.MyActor):
         if self.y > 720:
             self.y = -100
             self.x = random.randint(a=0, b=1280)
+
+
+class FRain(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/rain.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(delta_time * 15)
 
 
 class Snow(game.scene2d.MyActor):
@@ -46,6 +63,29 @@ class Snow(game.scene2d.MyActor):
             self.x = random.randint(a=0, b=1280)
 
 
-class Cloudy (game.scene2d.MyActor):
+class FSnow(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/snow.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(delta_time * 15)
+
+
+class Cloudy(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/cloudy.png")
+
+
+class Cloud(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/cloudy.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(delta_time * 15)
+
+
+class Back(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/back.png")

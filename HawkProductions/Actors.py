@@ -6,7 +6,6 @@ class Startb(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/startb.png")
 
-
     def act(self, delta_time: float):
         super().act(delta_time)
 
@@ -53,9 +52,11 @@ class Bg(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/hat_kep_j.png")
 
+
 class Main(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/main.png")
+
 
 class Arrow(game.scene2d.MyActor):
     def __init__(self):

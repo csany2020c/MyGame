@@ -39,7 +39,6 @@ class MenuStage(game.scene2d.MyStage):
             print("Elindul a játék")
             self.screen.game.set_screen(GameScreen())
 
-
     def click(self, sender, event):
         if event.button == 1:
             quit()
