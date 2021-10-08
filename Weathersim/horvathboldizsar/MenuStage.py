@@ -12,9 +12,9 @@ class MenuStage(game.scene2d.MyStage):
         self.menubackground.z_index = 2
         self.add_actor(self.menubackground)
 
-        self.nap = nap()
-        self.nap.z_index = 3
-        self.add_actor(self.nap)
+        self.menunap = menunap()
+        self.menunap.z_index = 3
+        self.add_actor(self.menunap)
 
         self.esocsepp = esocsepp()
         self.esocsepp.z_index = 3

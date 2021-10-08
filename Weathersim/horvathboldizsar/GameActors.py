@@ -38,13 +38,16 @@ class hopehely(game.scene2d.MyActor):
 class nap(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/sun.png')
-        self.x += 1000
-        self.y += -200
+        self.x = -200
+        self.y = 400
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.rotate_with(0.2)
+        self.rotate_with(0.8)
+        self.y -= delta_time * 50
+        self.x += delta_time * 80
+        if self.x > 1280:
+            self.x = -200
+            self.y = 400
+            print("A nap felkel újra!")
 
-class menubutton(game.scene2d.MyActor):
-    def __init__(self):
-        self.map = super().__init__('!_resources/images/menubutton.png')

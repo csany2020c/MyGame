@@ -34,3 +34,12 @@ class havasesocseppmenube(game.scene2d.MyActor):
         self.y += delta_time * random.randint(200, 400)
         if self.y > 720:
             self.y = random.randint(360, 500)
+
+class menunap(game.scene2d.MyActor):
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/sun.png')
+        self.y = -220
+        self.x = 1000
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(0.2)
