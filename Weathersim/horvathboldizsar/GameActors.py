@@ -20,6 +20,8 @@ class esocsepp(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * random.randint(200, 400)
+        if self.y > 720:
+            self.y = random.randint(-500, 0)
 
 class hopehely(game.scene2d.MyActor):
     def __init__(self):
@@ -29,6 +31,9 @@ class hopehely(game.scene2d.MyActor):
         super().act(delta_time)
         self.rotate_with(2)
         self.y += delta_time * random.randint(90, 250)
+        if self.y > 720:
+            self.y = random.randint(-500, 0)
+
 
 class nap(game.scene2d.MyActor):
     def __init__(self):
