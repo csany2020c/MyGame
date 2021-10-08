@@ -34,9 +34,9 @@ class Wario4Actor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("Kepek/actorsusus.png")
-
     def act(self, delta_time: float):
         super().act(delta_time)
+
 
 
 class WarioStage(game.scene2d.MyStage):
@@ -46,10 +46,10 @@ class WarioStage(game.scene2d.MyStage):
         self.add_actor(WarioActor())
         self.add_actor(Wario2Actor())
         self.add_actor(Wario3Actor())
-        self.lastkeydown = 0
         self.wario = Wario4Actor()
         self.add_actor(self.wario)
         self.wario.set_on_key_press_listener(self.press)
+        self.set_on_key_down_listener(self.key_down)
 
     def press(self, sender, event):
         # print(event.key)
@@ -62,10 +62,18 @@ class WarioStage(game.scene2d.MyStage):
         if event.key == pygame.K_s:
             sender.y += 10
 
+
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
         pass
 
+
+    def key_down(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_ESCAPE:
+            print("'QUIT'")
+            quit()
 
 class Wario2Scr(game.scene2d.MyScreen):
 
