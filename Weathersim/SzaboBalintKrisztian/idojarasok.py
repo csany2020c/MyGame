@@ -111,7 +111,7 @@ class CseppActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 100
+        self.y += delta_time * 1000
 
 
 class NaposStage(game.scene2d.MyStage):
@@ -153,7 +153,7 @@ class EsosStage(game.scene2d.MyStage):
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(CseppActor())
-        self.t = MyTickTimer(interval=0.1, func=self.tikk)
+        self.t = MyTickTimer(interval=0.001, func=self.tikk)
         self.add_timer(self.t)
 
     def tikk(self, sender):
