@@ -1,5 +1,4 @@
 import game
-from HawkProductions.GameScreen import *
 
 
 class Startb(game.scene2d.MyActor):
@@ -10,12 +9,6 @@ class Startb(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-
-
-    #'''def klikk(self, event, sender):
-        #print(event)
-        #print(sender)
-        #self.set_screen(GameScreen())'''
 
 
 class Exit(game.scene2d.MyActor):

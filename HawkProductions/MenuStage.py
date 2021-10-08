@@ -1,10 +1,8 @@
 import game
 import pygame
-import HawkProductions
 from HawkProductions.Actors import *
 from HawkProductions.Anything import *
 from HawkProductions.GameScreen import *
-
 
 
 class MenuStage(game.scene2d.MyStage):
@@ -27,6 +25,7 @@ class MenuStage(game.scene2d.MyStage):
         self.b.set_x(500)
         self.b.set_y(100)
         self.set_on_key_down_listener(self.key_down)
+        self.h1.set_on_mouse_down_listener(self.klikk1)
         self.h2.set_on_mouse_down_listener(self.klikk)
 
     def key_down(self, sender, event):
@@ -36,14 +35,18 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             print("kilépés")
             quit()
-        #if event.key == pygame.K_s:
-            #print("ASd")
-            #self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
-            #self.screen.set_screen(HawkProductions.MenuScreen.MenuScreen())
+        if event.key == pygame.K_SPACE:
+            print("ASd")
+            self.screen.game.set_screen(GameScreen())
+
 
     def klikk(self, sender, event):
         if event.button == 1:
             quit()
+
+    def klikk1(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(GameScreen())
 
 
 
