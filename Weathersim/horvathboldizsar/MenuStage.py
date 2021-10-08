@@ -1,5 +1,4 @@
 import pygame
-
 import Weathersim.horvathboldizsar.GameScreen
 from Weathersim.horvathboldizsar.MenuActors import *
 from Weathersim.horvathboldizsar.GameActors import *
@@ -19,22 +18,32 @@ class MenuStage(game.scene2d.MyStage):
 
         self.esocsepp = esocsepp()
         self.esocsepp.z_index = 3
-        for x in range(0, random.randint(25, 50)):
+        for x in range(0, random.randint(75, 120)):
             e = esocsepp()
             e.width = 30
-            e.y = random.randint(0, 300)
+            e.y = random.randint(-500, 300)
             e.x = random.randint(0, 420 - e.width)
             self.add_actor(e)
 
         self.hopehely = hopehely()
         self.hopehely.z_index = 3
-        for j in range(0, random.randint(30, 70)):
+        for j in range(0, random.randint(100, 170)):
             h = hopehely()
             h.width = 30
             h.height = 30
-            h.y = 0
+            h.y = random.randint(-500, 500)
             h.x = random.randint(430, 845 - h.width)
             self.add_actor(h)
+
+        self.havaseso = havasesocseppmenube()
+        self.havaseso.z_index = 3
+        for x in range(0, random.randint(20, 30)):
+            he = havasesocseppmenube()
+            he.width = 30
+            he.z_index = 3
+            he.y = random.randint(360, 500)
+            he.x = random.randint(430, 845 - he.width)
+            self.add_actor(he)
 
         self.naposbutton = naposbutton()
         self.naposbutton.width = 300
@@ -52,10 +61,17 @@ class MenuStage(game.scene2d.MyStage):
 
         self.havasbutton = havasbutton()
         self.havasbutton.width = 300
-        self.havasbutton.y = 300
+        self.havasbutton.y = 100
         self.havasbutton.x = 490
         self.add_actor(self.havasbutton)
         self.havasbutton.set_on_mouse_down_listener(self.HavasButtonClick)
+
+        self.havasesobutton = havasesobutton()
+        self.havasesobutton.width = 300
+        self.havasesobutton.y = 500
+        self.havasesobutton.x = 490
+        self.add_actor(self.havasesobutton)
+        self.havasesobutton.set_on_mouse_down_listener(self.HavasesoButtonClick)
 
         self.exitbutton = exitbutton()
         self.exitbutton.width = 150
@@ -80,6 +96,11 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasScreen())
             print("Havas Screen")
+
+    def HavasesoButtonClick(self, sender,event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
+            print("Havaseső Screen")
 
     def ExitButtonClick(self, sender,event):
         if event.button == 1:
