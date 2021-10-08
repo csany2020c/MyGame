@@ -4,23 +4,23 @@ import game
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/landscape.png')
+        self.map = super().__init__('images/landscape.png')
 
 
 class szurkeeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/cloudy.png')
+        self.map = super().__init__('images/cloudy.png')
 
 
 class eso(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/rain.png')
+        self.map = super().__init__('images/rain.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 400
+        self.y += delta_time * 200
         if self.y > 720:
             self.y = -50
 
@@ -28,10 +28,28 @@ class eso(game.scene2d.MyActor):
 class button1(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/eso.png')
+        self.map = super().__init__('images/eso.png')
+
+
+class windbag(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.windbag = super().__init__('images/windbag.png')
+
+
+class felho(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.cloud = super().__init__('images/felho.png')
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time * 200
+        if self.x > 1300:
+            self.x = 50
 
 
 class button5(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('!_resources/images/Vissza.png')
+        self.map = super().__init__('images/Vissza.png')
