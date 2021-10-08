@@ -1,13 +1,14 @@
 import Weathersim.horvathboldizsar.MenuScreen
 from Weathersim.horvathboldizsar.GameActors import *
-from Weathersim.horvathboldizsar.MenuScreen import *
+from Weathersim.horvathboldizsar.MiniMenuButtonStage import *
+
 
 class NaposStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
         self.erdo = erdo()
-        self.erdo.z_index = 2
+        self.erdo.z_index = 3
         self.add_actor(self.erdo)
 
         self.naposeg = naposeg()
@@ -15,20 +16,9 @@ class NaposStage(game.scene2d.MyStage):
         self.add_actor(self.naposeg)
 
         self.nap = nap()
-        self.nap.z_index = 3
+        self.nap.z_index = 2
         self.add_actor(self.nap)
 
-        self.menubutton = menubutton()
-        self.menubutton.width = 150
-        self.menubutton.y = 650
-        self.menubutton.x = 1125
-        self.add_actor(self.menubutton)
-        self.menubutton.set_on_mouse_down_listener(self.MenuButtonClick)
-
-    def MenuButtonClick(self, sender,event):
-        if event.button == 1:
-            self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
-            print("Menü Screen")
 
 class HavasesosStage(game.scene2d.MyStage):
     def __init__(self):
@@ -60,17 +50,6 @@ class HavasesosStage(game.scene2d.MyStage):
             h.x = random.randint(0, 1280 - h.width)
             self.add_actor(h)
 
-        self.menubutton = menubutton()
-        self.menubutton.width = 150
-        self.menubutton.y = 650
-        self.menubutton.x = 1125
-        self.add_actor(self.menubutton)
-        self.menubutton.set_on_mouse_down_listener(self.MenuButtonClick)
-
-    def MenuButtonClick(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
-            print("Menü Screen")
 
 class EsosStage(game.scene2d.MyStage, ):
     def __init__(self):
@@ -92,19 +71,6 @@ class EsosStage(game.scene2d.MyStage, ):
             e.x = random.randint(0, 1280 - e.width)
             self.add_actor(e)
 
-        self.menubutton = menubutton()
-        self.menubutton.width = 150
-        self.menubutton.y = 650
-        self.menubutton.x = 1125
-        self.add_actor(self.menubutton)
-        self.menubutton.set_on_mouse_down_listener(self.MenuButtonClick)
-
-    def MenuButtonClick(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
-            print("Menü Screen")
-
-
 class HavasStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -125,18 +91,6 @@ class HavasStage(game.scene2d.MyStage):
             h.y = random.randint(-500, 300)
             h.x = random.randint(0, 1280 - h.width)
             self.add_actor(h)
-
-        self.menubutton = menubutton()
-        self.menubutton.width = 150
-        self.menubutton.y = 650
-        self.menubutton.x = 1125
-        self.add_actor(self.menubutton)
-        self.menubutton.set_on_mouse_down_listener(self.MenuButtonClick)
-
-    def MenuButtonClick(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
-            print("Menü Screen")
 
 
 
