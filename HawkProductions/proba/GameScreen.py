@@ -1,5 +1,5 @@
 import game
-from HawkProductions.GameStage import *
+from HawkProductions.proba.GameStage import *
 
 
 class GameScreen(game.scene2d.MyScreen):
