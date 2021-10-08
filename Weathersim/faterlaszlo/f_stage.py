@@ -2,25 +2,48 @@ import game
 import pygame
 from Weathersim.faterlaszlo.f_actors import *
 import random
+from Weathersim.faterlaszlo.Anything import *
 
 
 class f_stage_m(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.set_on_key_down_listener(self.key_down)
-        self.start = start_actor()
-        self.add_actor(self.start)
-        self.start.y = 240
-        self.start.x = 500
-        self.start.w = 80
-        self.start.h = 80
 
-        self.start1 = start_actor()
-        self.add_actor(self.start1)
-        self.start1.y = 340
-        self.start1.x = 500
-        self.start1.w = 80
-        self.start1.h = 80
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Napsütés")
+        self.t.x = 500
+        self.t.y = 50
+        self.t.set_on_mouse_down_listener(self.click)
+
+        self.t1 = Anything()
+        self.add_actor(self.t1)
+        self.t1.set_text("Eső")
+        self.t1.x = 550
+        self.t1.y = 100
+        self.t1.set_on_mouse_down_listener(self.click1)
+
+        self.t2 = Anything()
+        self.add_actor(self.t2)
+        self.t2.set_text("Eső")
+        self.t2.x = 550
+        self.t2.y = 200
+        self.t2.set_on_mouse_down_listener(self.click2)
+
+        self.t3 = Anything()
+        self.add_actor(self.t3)
+        self.t3.set_text("Havazás")
+        self.t3.x = 550
+        self.t3.y = 250
+        self.t3.set_on_mouse_down_listener(self.click3)
+
+        self.t4 = Anything()
+        self.add_actor(self.t4)
+        self.t4.set_text("Kilépés")
+        self.t4.x = 550
+        self.t4.y = 400
+        self.t4.set_on_mouse_down_listener(self.click4)
 
     def key_down(self, sender, event):
         print(sender)
@@ -44,6 +67,25 @@ class f_stage_m(game.scene2d.MyStage):
             print("Vissza a főképernyőre(menu)")
             self.screen.add_stage(f_stage_m())
 
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage1())
+
+    def click1(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage2())
+
+    def click2(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage3())
+
+    def click3(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage4())
+
+    def click4(self, sender, event):
+        if event.button == 1:
+            quit()
 
 class f_stage1(game.scene2d.MyStage):
     def __init__(self):
