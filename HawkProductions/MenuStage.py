@@ -1,8 +1,8 @@
 import game
 import pygame
-from HawkProductions.Enemy1Actor import *
-from HawkProductions.Enemy2Actor import *
+from HawkProductions.Actors import *
 from HawkProductions.Anything import *
+
 
 class MenuStage(game.scene2d.MyStage):
 
@@ -23,7 +23,7 @@ class MenuStage(game.scene2d.MyStage):
         self.b.set_text("Flappy D")
         self.b.set_x(500)
         self.b.set_y(100)
-        self.h2.set_on_key_down_listener(self.key_down)
+        self.set_on_key_down_listener(self.key_down)
 
     def key_down(self, sender, event):
         # if isinstance(sender, MyBaseActor):
@@ -38,4 +38,3 @@ class MenuStage(game.scene2d.MyStage):
         #if event.key == pygame.K_c:
             #print("Start")
             #pygame.display()
-

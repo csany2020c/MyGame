@@ -1,4 +1,3 @@
-import game
 from Weathersim.horvathboldizsar.GameScreen import *
 
 

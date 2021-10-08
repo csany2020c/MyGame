@@ -1,18 +1,21 @@
 import game
 import random
+import pygame
+from Weathersim.NemethCsongor.blizzard import *
+from Weathersim.NemethCsongor.snow import *
 
 
-class Bg(game.scene2d.MyActor):
+class Bg3(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/landscape.png")
 
 
-class Cloudy(game.scene2d.MyActor):
+class Cloudy3(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/cloudy.png")
 
 
-class Rain(game.scene2d.MyActor):
+class Rain3(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/rain.png")
 
@@ -20,45 +23,43 @@ class Rain(game.scene2d.MyActor):
         self.y += 75 * delta_time
 
 
-class Line(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("imgae/line.png")
-
-
-class Stage(game.scene2d.MyStage):
+class Stage3(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.C = Cloudy()
+        self.C = Cloudy3()
         self.add_actor(self.C)
 
-        self.Bg = Bg()
+        self.Bg = Bg3()
         self.add_actor(self.Bg)
         for i in range(23):
-            self.R = Rain()
+            self.R = Rain3()
             self.add_actor(self.R)
             self.R.set_size(width=50, height=50)
-            self.R.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.R.w)
-            self.R.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.R.h)
+            self.R.x = random.randint(0, 1280)
+            self.R.y = random.randint(0, 720)
 
-        self.L = Line()
-        self.add_actor(self.L)
-        #self.L.set_size(width=720, height=10)
-        self.L.y = 613
+        self.set_on_key_down_listener(self.key_down)
 
-
-class Screen(game.scene2d.MyScreen):
-
-    def __init__(self):
-        super().__init__()
-        self.add_stage(Stage())
+    def key_down(self, sender, event):
+        if event.key == pygame.K_KP2:
+            self.screen.game.set_screen(Screen2())
+        if event.key == pygame.K_KP4:
+            self.screen.game.set_screen(Screen4())
 
 
-class Game(game.scene2d.MyGame):
+class Screen3(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.screen = Screen()
+        self.add_stage(Stage3())
 
 
-Game().run()
+class Game3(game.scene2d.MyGame):
+
+    def __init__(self):
+        super().__init__()
+        self.screen = Screen3()
+
+
+Game3().run()
