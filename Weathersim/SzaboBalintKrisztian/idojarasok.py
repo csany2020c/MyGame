@@ -107,6 +107,11 @@ class Havzik5Actor(game.scene2d.MyActor):
 class CseppActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
+        self.set_width(50)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 1000
 
 
 class NaposStage(game.scene2d.MyStage):
@@ -122,8 +127,6 @@ class HavasStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.add_actor(VillamlasActor())
-        self.villam = VillamlasActor()
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(HavzikActor())
@@ -150,6 +153,41 @@ class EsosStage(game.scene2d.MyStage):
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(CseppActor())
+        self.t = MyTickTimer(interval=0.001, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        self.csepp = (CseppActor())
+        self.add_actor(self.csepp)
+        self.csepp.x = random.Random().randint(-500, 1500)
+
+class KettosStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.add_actor(Hatter2Actor())
+        self.add_actor(LandscapeActor())
+        self.t = MyTickTimer(interval=0.001, func=self.tikk)
+        self.add_timer(self.t)
+        self.add_actor(HavzikActor())
+        self.add_actor(Havzik3Actor())
+        self.add_actor(Havzik4Actor())
+        self.add_actor(Havzik5Actor())
+        self.add_actor(Havzik2Actor())
+        self.ho = HavzikActor()
+        self.t2 = MyTickTimer(interval=1.5, func=self.tikk2)
+        self.add_timer(self.t2)
+
+    def tikk(self, sender):
+        self.csepp = (CseppActor())
+        self.add_actor(self.csepp)
+        self.csepp.x = random.Random().randint(-500, 1500)
+
+    def tikk2(self, sender):
+        self.add_actor(HavzikActor())
+        self.add_actor(Havzik2Actor())
+        self.add_actor(Havzik3Actor())
+        self.add_actor(Havzik4Actor())
+        self.add_actor(Havzik5Actor())
 
 
 class Esikaeso(game.scene2d.MyScreen):
@@ -157,6 +195,7 @@ class Esikaeso(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(EsosStage())
+
 
 class Sutanap(game.scene2d.MyScreen):
 
@@ -170,6 +209,12 @@ class Esikaho(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(HavasStage())
+
+class Esikmindketo(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.add_stage(KettosStage())
 
 
 class IdoSim(game.scene2d.MyGame):
@@ -196,6 +241,10 @@ class IdoSim(game.scene2d.MyGame):
         if event.key == pygame.K_1:
             print("11111111111111111111111111111")
             self.screen = Sutanap()
+
+        if event.key == pygame.K_4:
+            print("11111111111111111111111111111")
+            self.screen = Esikmindketo()
 
 
 IdoSim().run()
