@@ -16,6 +16,7 @@ class Ido(game.scene2d.MyGame):
         print(event)
         if event.key == pygame.K_BACKSPACE:
             self.screen = MenuScr()
+            print("'VISSZA'")
         if event.key == pygame.K_1:
             self.screen = NapsutesScr()
         if event.key == pygame.K_2:
@@ -24,6 +25,12 @@ class Ido(game.scene2d.MyGame):
             self.screen = HavazasScr()
         if event.key == pygame.K_4:
             self.screen = HavasesoScr()
+        if event.key == pygame.K_5:
+            self.screen = EndScr()
+            print("'VÉGE'")
+        if event.key == pygame.K_ESCAPE:
+            quit()
+            print("'QUIT'")
 
 
 Ido().run()

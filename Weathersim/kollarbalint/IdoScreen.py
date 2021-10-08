@@ -42,6 +42,11 @@ class HavasesoScr(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(HavasesoStage())
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 13:
+            self.game.screen = EndScr()
+
 class MenuScr(game.scene2d.MyScreen):
 
     def __init__(self):
@@ -55,3 +60,10 @@ class InfoScr(game.scene2d.MyScreen):
         super().__init__()
         self.set_background_color(252, 98, 3)
         self.add_stage(InfoStage())
+
+class EndScr(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(252, 98, 3)
+        self.add_stage(EndStage())

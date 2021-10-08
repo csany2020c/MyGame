@@ -6,6 +6,8 @@ from Weathersim.kollarbalint.IdoScreen import *
 import Weathersim.kollarbalint.IdoScreen
 import Weathersim.kollarbalint.IdoActors
 import Weathersim.kollarbalint.IdoSzoveg
+import random
+from game.scene2d import MyTickTimer
 
 
 class NapsutesStage(game.scene2d.MyStage):
@@ -20,7 +22,6 @@ class NapsutesStage(game.scene2d.MyStage):
         self.add_actor(self.NapActor3)
         self.NapActor2.x += 850
         self.NapActor2.y += -110
-        self.set_on_key_down_listener(self.key_down)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -37,12 +38,6 @@ class NapsutesStage(game.scene2d.MyStage):
             self.NapActor2.x -= delta_time * 75
 
 
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
-            quit()
 
 
 class EsoStage(game.scene2d.MyStage):
@@ -73,7 +68,6 @@ class EsoStage(game.scene2d.MyStage):
         self.EsoCS4.y += 270
         self.EsoCS5.x += 1100
         self.EsoCS5.y += 120
-        self.set_on_key_down_listener(self.key_down)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -84,12 +78,6 @@ class EsoStage(game.scene2d.MyStage):
             self.EsoCS4.y += delta_time * 16
             self.EsoCS5.y += delta_time * 13
 
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
-            quit()
 
 class HavazasStage(game.scene2d.MyStage):
 
@@ -99,59 +87,13 @@ class HavazasStage(game.scene2d.MyStage):
         self.add_actor(self.HavA)
         self.HavA2 = LandscapeImg()
         self.add_actor(self.HavA2)
-        self.Ho = SnowImg()
-        self.add_actor(self.Ho)
-        self.Ho2 = SnowImg()
-        self.add_actor(self.Ho2)
-        self.Ho3 = SnowImg()
-        self.add_actor(self.Ho3)
-        self.Ho4 = SnowImg()
-        self.add_actor(self.Ho4)
-        self.Ho5 = SnowImg()
-        self.add_actor(self.Ho5)
-        self.Ho6 = SnowImg()
-        self.add_actor(self.Ho6)
-        self.Ho7 = SnowImg()
-        self.add_actor(self.Ho7)
-        self.Ho.x += 50
-        self.Ho.y +=450
-        self.Ho2.x += 175
-        self.Ho2.y += 150
-        self.Ho2.set_width(90)
-        self.Ho2.set_height(90)
-        self.Ho3.x += 350
-        self.Ho3.y += 300
-        self.Ho4.x += 620
-        self.Ho4.y += 100
-        self.Ho5.x += 700
-        self.Ho5.y += 470
-        self.Ho5.set_width(90)
-        self.Ho5.set_height(90)
-        self.Ho6.x += 890
-        self.Ho6.y += 300
-        self.Ho7.x += 1090
-        self.Ho7.y += 150
-        self.Ho7.set_width(80)
-        self.Ho7.set_height(80)
-        self.set_on_key_down_listener(self.key_down)
+        self.t = MyTickTimer(interval=0.25, func=self.tikk)
+        self.add_timer(self.t)
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.Ho.rotate_with(delta_time * 25)
-        self.Ho2.rotate_with(delta_time * 20)
-        self.Ho3.rotate_with(delta_time * 25)
-        self.Ho4.rotate_with(delta_time * 25)
-        self.Ho5.rotate_with(delta_time * 20)
-        self.Ho6.rotate_with(delta_time * 25)
-        self.Ho7.rotate_with(delta_time * 20)
-        if self.elapsed_time > 1:
-            self.Ho.y += delta_time * 5
-            self.Ho2.y += delta_time * 5
-            self.Ho3.y += delta_time * 5
-            self.Ho4.y += delta_time * 5
-            self.Ho5.y += delta_time * 5
-            self.Ho6.y += delta_time * 5
-            self.Ho7.y += delta_time * 5
+    def tikk(self, sender):
+        self.Ho = (SnowImg())
+        self.add_actor(self.Ho)
+        self.Ho.x = random.Random().randint(-250, 1250)
 
 
     def key_down(self, sender, event):
@@ -173,7 +115,6 @@ class HavasesoStage(game.scene2d.MyStage):
         self.add_actor(self.Ho)
         self.Eso = RainImg()
         self.add_actor(self.Eso)
-        self.set_on_key_down_listener(self.key_down)
         self.EsoA = CloudyImg()
         self.add_actor(self.EsoA)
         self.EsoA2 = LandscapeImg()
@@ -188,6 +129,12 @@ class HavasesoStage(game.scene2d.MyStage):
         self.add_actor(self.EsoCS4)
         self.EsoCS5 = RainImg()
         self.add_actor(self.EsoCS5)
+        self.EsoCS6 = RainImg()
+        self.add_actor(self.EsoCS6)
+        self.EsoCS7 = RainImg()
+        self.add_actor(self.EsoCS7)
+        self.EsoCS8 = RainImg()
+        self.add_actor(self.EsoCS8)
         self.EsoCS.x += 620
         self.EsoCS.y += 100
         self.EsoCS2.x += 700
@@ -197,8 +144,21 @@ class HavasesoStage(game.scene2d.MyStage):
         self.EsoCS4.x += 900
         self.EsoCS4.y += 270
         self.EsoCS5.x += 1100
-        self.EsoCS5.y += 120
-        self.set_on_key_down_listener(self.key_down)
+        self.EsoCS5.y += 280
+        self.EsoCS6.x += 110
+        self.EsoCS6.y += 240
+        self.EsoCS7.x += 250
+        self.EsoCS7.y += 230
+        self.EsoCS8.x += 500
+        self.EsoCS8.y += 200
+        self.t = MyTickTimer(interval=0.5, func=self.tikk)
+        self.add_timer(self.t)
+
+
+    def tikk(self, sender):
+        self.Ho = (SnowImg())
+        self.add_actor(self.Ho)
+        self.Ho.x = random.Random().randint(-250, 1250)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -208,13 +168,9 @@ class HavasesoStage(game.scene2d.MyStage):
             self.EsoCS3.y += delta_time * 15
             self.EsoCS4.y += delta_time * 16
             self.EsoCS5.y += delta_time * 13
-
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
-            quit()
+            self.EsoCS6.y += delta_time * 15
+            self.EsoCS7.y += delta_time * 14
+            self.EsoCS8.y += delta_time * 15
 
 class MenuStage(game.scene2d.MyStage):
 
@@ -240,7 +196,6 @@ class MenuStage(game.scene2d.MyStage):
         self.Kilep.set_height(65)
         self.Kilep.x += 530
         self.Kilep.y += 515
-        self.Kilep.set_on_key_down_listener(self.key_down)
         self.Kilep.set_on_mouse_down_listener(self.click)
         self.szoveg = MenuSzoveg()
         self.add_actor(self.szoveg)
@@ -278,12 +233,7 @@ class MenuStage(game.scene2d.MyStage):
         self.fullscreen.y += 420
         self.fullscreen.set_on_mouse_down_listener(self.fullscreengomb)
 
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
-            quit()
+
 
     def click(self, sender, event):
         print(sender)
@@ -323,7 +273,6 @@ class InfoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.set_on_key_down_listener(self.key_down)
         self.infoa = MenuSzoveg()
         self.add_actor(self.infoa)
         self.infoa.set_text("BACKSPACE = Menübe való visszatérés")
@@ -364,10 +313,44 @@ class InfoStage(game.scene2d.MyStage):
         self.infoe.set_height(45)
         self.infoe.x += 320
         self.infoe.y += 450
+        self.infof = MenuSzoveg()
+        self.add_actor(self.infof)
+        self.infof.set_text("5 = Szimuláció vége")
+        self.infof.set_alpha(500)
+        self.infof.set_width(45)
+        self.infof.set_height(45)
+        self.infof.x += 320
+        self.infof.y += 515
 
-    def key_down(self, sender, event):
+
+
+class EndStage(game.scene2d.MyStage):
+
+    def __init__(self):
+        super().__init__()
+        self.szoveg = MenuSzoveg()
+        self.add_actor(self.szoveg)
+        self.szoveg.set_text("A szimuláció vége")
+        self.szoveg.set_alpha(500)
+        self.szoveg.set_width(75)
+        self.szoveg.set_height(75)
+        self.szoveg.x += 365
+        self.szoveg.y += 75
+        self.menu = MenuSzoveg()
+        self.add_actor(self.menu)
+        self.menu.set_text("Menü")
+        self.menu.set_alpha(500)
+        self.menu.set_width(65)
+        self.menu.set_height(65)
+        self.menu.x += 560
+        self.menu.y += 350
+        self.menu.set_on_mouse_down_listener(self.menugomb)
+
+    def menugomb(self, sender, event):
         print(sender)
         print(event)
-        if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
-            quit()
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Weathersim.kollarbalint.IdoScreen.MenuScr())
+                print("'MENÜ'")
+
