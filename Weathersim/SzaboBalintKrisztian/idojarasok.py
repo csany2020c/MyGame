@@ -107,6 +107,11 @@ class Havzik5Actor(game.scene2d.MyActor):
 class CseppActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
+        self.set_width(50)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 100
 
 
 class NaposStage(game.scene2d.MyStage):
@@ -122,8 +127,6 @@ class HavasStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.add_actor(VillamlasActor())
-        self.villam = VillamlasActor()
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(HavzikActor())
@@ -150,6 +153,13 @@ class EsosStage(game.scene2d.MyStage):
         self.add_actor(Hatter2Actor())
         self.add_actor(LandscapeActor())
         self.add_actor(CseppActor())
+        self.t = MyTickTimer(interval=0.1, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        self.csepp = (CseppActor())
+        self.add_actor(self.csepp)
+        self.csepp.x = random.Random().randint(-500, 1500)
 
 
 class Esikaeso(game.scene2d.MyScreen):
@@ -157,6 +167,7 @@ class Esikaeso(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(EsosStage())
+
 
 class Sutanap(game.scene2d.MyScreen):
 
