@@ -2,6 +2,7 @@ import game
 import pygame
 from Weathersim.kollarbalint.IdoStage import *
 
+
 class NapsutesScr(game.scene2d.MyScreen):
 
     def __init__(self):
@@ -47,3 +48,10 @@ class MenuScr(game.scene2d.MyScreen):
         super().__init__()
         self.set_background_color(252, 98, 3)
         self.add_stage(MenuStage())
+
+class InfoScr(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(252, 98, 3)
+        self.add_stage(InfoStage())
