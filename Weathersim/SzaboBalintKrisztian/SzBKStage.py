@@ -9,6 +9,10 @@ class NaposStage(game.scene2d.MyStage):
         self.add_actor(HatterActor())
         self.add_actor(NapocskaActor())
         self.add_actor(LandscapeActor())
+        self.add_actor(Icon1Actor())
+        self.add_actor(Icon2Actor())
+        self.add_actor(Icon3Actor())
+        self.add_actor(Icon4Actor())
 
 
 class HavasStage(game.scene2d.MyStage):
@@ -25,6 +29,10 @@ class HavasStage(game.scene2d.MyStage):
         self.ho = HavzikActor()
         self.t = MyTickTimer(interval=1.5, func=self.tikk)
         self.add_timer(self.t)
+        self.add_actor(Icon1Actor())
+        self.add_actor(Icon2Actor())
+        self.add_actor(Icon3Actor())
+        self.add_actor(Icon4Actor())
 
     def tikk(self, sender):
         self.add_actor(HavzikActor())
@@ -43,6 +51,10 @@ class EsosStage(game.scene2d.MyStage):
         self.add_actor(CseppActor())
         self.t = MyTickTimer(interval=0.001, func=self.tikk)
         self.add_timer(self.t)
+        self.add_actor(Icon1Actor())
+        self.add_actor(Icon2Actor())
+        self.add_actor(Icon3Actor())
+        self.add_actor(Icon4Actor())
 
     def tikk(self, sender):
         self.csepp = (CseppActor())
@@ -64,6 +76,10 @@ class KettosStage(game.scene2d.MyStage):
         self.ho = HavzikActor()
         self.t2 = MyTickTimer(interval=1.5, func=self.tikk2)
         self.add_timer(self.t2)
+        self.add_actor(Icon1Actor())
+        self.add_actor(Icon2Actor())
+        self.add_actor(Icon3Actor())
+        self.add_actor(Icon4Actor())
 
     def tikk(self, sender):
         self.csepp = (CseppActor())

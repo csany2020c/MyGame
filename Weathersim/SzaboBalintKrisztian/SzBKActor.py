@@ -109,3 +109,28 @@ class CseppActor(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 1000
+
+
+class Icon1Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/icon1.png")
+        self.set_width(50)
+
+class Icon2Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/icon2.png")
+        self.set_width(60)
+        self.x += 50
+
+class Icon3Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/icon3.png")
+        self.set_width(45)
+        self.x += 110
+
+class Icon4Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/icon4.png")
+        self.set_width(50)
+        self.x += 160
+
