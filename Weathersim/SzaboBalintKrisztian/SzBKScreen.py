@@ -20,6 +20,7 @@ class Esikaho(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(HavasStage())
 
+
 class Esikmindketo(game.scene2d.MyScreen):
 
     def __init__(self):

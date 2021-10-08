@@ -32,3 +32,7 @@ class SnowImg(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("images/snow.png")
+
+class FelhoImg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/felhok.png")
