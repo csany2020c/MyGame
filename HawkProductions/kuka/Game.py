@@ -1,3 +1,4 @@
+import game
 from HawkProductions.GameScreen import *
 
 
