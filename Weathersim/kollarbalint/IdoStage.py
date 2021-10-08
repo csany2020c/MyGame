@@ -87,13 +87,13 @@ class HavazasStage(game.scene2d.MyStage):
         self.add_actor(self.HavA)
         self.HavA2 = LandscapeImg()
         self.add_actor(self.HavA2)
-        self.t = MyTickTimer(interval=0.25, func=self.tikk)
-        self.add_timer(self.t)
+        self.timer = MyTickTimer(interval=0.25, func=self.idocucc)
+        self.add_timer(self.timer)
 
-    def tikk(self, sender):
+    def idocucc(self, sender):
         self.Ho = (SnowImg())
         self.add_actor(self.Ho)
-        self.Ho.x = random.Random().randint(-250, 1250)
+        self.Ho.x = random.Random().randint(-150, 1150)
 
 
     def key_down(self, sender, event):
@@ -151,14 +151,14 @@ class HavasesoStage(game.scene2d.MyStage):
         self.EsoCS7.y += 230
         self.EsoCS8.x += 500
         self.EsoCS8.y += 200
-        self.t = MyTickTimer(interval=0.5, func=self.tikk)
-        self.add_timer(self.t)
+        self.timer = MyTickTimer(interval=0.5, func=self.idocucc)
+        self.add_timer(self.timer)
 
 
-    def tikk(self, sender):
+    def idocucc(self, sender):
         self.Ho = (SnowImg())
         self.add_actor(self.Ho)
-        self.Ho.x = random.Random().randint(-250, 1250)
+        self.Ho.x = random.Random().randint(-150, 1150)
 
     def act(self, delta_time: float):
         super().act(delta_time)
