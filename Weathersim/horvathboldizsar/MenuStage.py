@@ -100,7 +100,7 @@ class MenuStage(game.scene2d.MyStage):
     def HavasesoButtonClick(self, sender,event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
-            print("Havas Screen")
+            print("Havaseső Screen")
 
     def ExitButtonClick(self, sender,event):
         if event.button == 1:
