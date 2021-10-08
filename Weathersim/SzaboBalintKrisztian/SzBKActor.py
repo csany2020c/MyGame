@@ -111,6 +111,14 @@ class CseppActor(game.scene2d.MyActor):
         self.y += delta_time * 1000
 
 
+class EscActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/escape.gif")
+        self.set_width(50)
+        self.x += 10
+        self.y += 10
+
+
 class Icon1Actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("jarasok/icon1.png")

@@ -13,6 +13,7 @@ class NaposStage(game.scene2d.MyStage):
         self.add_actor(Icon2Actor())
         self.add_actor(Icon3Actor())
         self.add_actor(Icon4Actor())
+        self.add_actor(EscActor())
 
 
 class HavasStage(game.scene2d.MyStage):
@@ -33,6 +34,7 @@ class HavasStage(game.scene2d.MyStage):
         self.add_actor(Icon2Actor())
         self.add_actor(Icon3Actor())
         self.add_actor(Icon4Actor())
+        self.add_actor(EscActor())
 
     def tikk(self, sender):
         self.add_actor(HavzikActor())
@@ -55,6 +57,7 @@ class EsosStage(game.scene2d.MyStage):
         self.add_actor(Icon2Actor())
         self.add_actor(Icon3Actor())
         self.add_actor(Icon4Actor())
+        self.add_actor(EscActor())
 
     def tikk(self, sender):
         self.csepp = (CseppActor())
@@ -80,6 +83,7 @@ class KettosStage(game.scene2d.MyStage):
         self.add_actor(Icon2Actor())
         self.add_actor(Icon3Actor())
         self.add_actor(Icon4Actor())
+        self.add_actor(EscActor())
 
     def tikk(self, sender):
         self.csepp = (CseppActor())
