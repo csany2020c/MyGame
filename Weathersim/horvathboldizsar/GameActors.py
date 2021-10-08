@@ -1,5 +1,6 @@
 import game
-from random import Random
+import random
+
 
 class erdo(game.scene2d.MyActor):
     def __init__(self):
@@ -19,8 +20,7 @@ class esocsepp(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 120
-
+        self.y += delta_time * random.randint(200, 400)
 
 class hopehely(game.scene2d.MyActor):
     def __init__(self):
@@ -29,7 +29,7 @@ class hopehely(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.rotate_with(2)
-        self.y += delta_time * 60
+        self.y += delta_time * random.randint(90, 250)
 
 class nap(game.scene2d.MyActor):
     def __init__(self):
