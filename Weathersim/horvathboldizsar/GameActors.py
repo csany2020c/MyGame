@@ -1,7 +1,6 @@
 import game
 import random
 
-
 class erdo(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/landscape.png')
@@ -41,3 +40,6 @@ class nap(game.scene2d.MyActor):
         super().act(delta_time)
         self.rotate_with(0.2)
 
+class menubutton(game.scene2d.MyActor):
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/menubutton.png')
