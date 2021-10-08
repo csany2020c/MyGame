@@ -25,8 +25,8 @@ class MenuStage(game.scene2d.MyStage):
         self.b.set_x(500)
         self.b.set_y(100)
         self.set_on_key_down_listener(self.key_down)
-        self.h1.set_on_mouse_down_listener(self.klikk1)
-        self.h2.set_on_mouse_down_listener(self.klikk)
+        self.h1.set_on_mouse_down_listener(self.click1)
+        self.h2.set_on_mouse_down_listener(self.click)
 
     def key_down(self, sender, event):
         # if isinstance(sender, MyBaseActor):
@@ -36,27 +36,14 @@ class MenuStage(game.scene2d.MyStage):
             print("kilépés")
             quit()
         if event.key == pygame.K_SPACE:
-            print("ASd")
+            print("Elindul a játék")
             self.screen.game.set_screen(GameScreen())
 
 
-    def klikk(self, sender, event):
+    def click(self, sender, event):
         if event.button == 1:
             quit()
 
-    def klikk1(self, sender, event):
+    def click1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(GameScreen())
-
-
-
-
-        #if event.key == pygame.K_1:
-         #   print("Végre jó")
-          #  self.screen.game.set_screen(HawkProductions.GameScreen())
-
-
-        #majd meg kell csinálni következő órán
-        #if event.key == pygame.K_c:
-            #print("Start")
-            #pygame.display()

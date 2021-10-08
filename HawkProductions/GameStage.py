@@ -1,8 +1,11 @@
-import time
 import game
-from HawkProductions.Actors import *
+import pygame
+import time
 import random
-from time import sleep
+#from time import sleep
+from HawkProductions.Actors import *
+from Anything import *
+from HawkProductions.MenuScreen import *
 
 
 class GameStage(game.scene2d.MyStage):
@@ -18,6 +21,14 @@ class GameStage(game.scene2d.MyStage):
         self.D.x = 50
         self.D.width = 100
         self.set_on_mouse_down_listener(self.click)
+
+        self.arrow = Arrow()
+        self.add_actor(self.arrow)
+        self.arrow.x = 0
+        self.arrow.y = 5
+        self.arrow.w = 125
+        #self.arrow.set_on_mouse_down_listener(self.click2)
+        #self.set_on_key_down_listener(self.key_down)
 
         for i in range(2):
             self.P1 = Pile1()
@@ -36,5 +47,18 @@ class GameStage(game.scene2d.MyStage):
             self.P2.y = random.randint(0, 720)
             time.sleep(1)
 
+    #def key_down(self, sender, event):
+     #   print(sender)
+      #  print(event)
+       # if event.key == pygame.K_BACKSPACE:
+        #    print("Elindul a játék")
+         #   self.screen.game.set_screen(MenuScreen())
+
+
+
     def click(self, sender, event):
         self.D.y -= 50
+
+    #def click2(self, sender, event):
+     #if event.button == 1:
+      #self.screen.game.set_screen(MenuScreen())
