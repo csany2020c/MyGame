@@ -1,5 +1,5 @@
 from Weathersim.nemethcsongor1.Actorok import *
-from Weathersim.nemethcsongor1.start.SaScreen import *
+import Weathersim.nemethcsongor1.start.SaScreen
 import game
 
 
@@ -27,4 +27,4 @@ class RaStage(game.scene2d.MyStage):
     def klikk(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.nemethcsongor1.start.SaScreen())
+            self.screen.game.set_screen(Weathersim.nemethcsongor1.start.SaScreen.SaScreen())

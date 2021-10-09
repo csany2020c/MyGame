@@ -8,6 +8,9 @@ from Weathersim.nemethcsongor1.Font import *
 class SaStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.Bg = Bgg()
+        self.add_actor(self.Bg)
+
         self.Ff = Font()
         self.add_actor(self.Ff)
         self.Ff.set_text("WeatherSim")
