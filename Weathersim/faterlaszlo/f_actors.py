@@ -45,3 +45,7 @@ class felhos_actor(game.scene2d.MyActor):
 class start_actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/startb.png")
+
+class Bg1(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/bg1.jpg")

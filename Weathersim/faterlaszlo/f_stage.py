@@ -9,6 +9,10 @@ class f_stage_m(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.set_on_key_down_listener(self.key_down)
+        self.bg = Bg1()
+        self.add_actor(self.bg)
+        self.bg.w = 1280
+        self.bg.h = 720
 
         self.t = Anything()
         self.add_actor(self.t)
@@ -44,6 +48,12 @@ class f_stage_m(game.scene2d.MyStage):
         self.t4.x = 550
         self.t4.y = 400
         self.t4.set_on_mouse_down_listener(self.click4)
+
+        self.t5 = Anything()
+        self.add_actor(self.t5)
+        self.t5.set_text("Weathersim")
+        self.t5.x = 550
+        self.t5.y = 500
 
     def key_down(self, sender, event):
         print(sender)
@@ -104,7 +114,16 @@ class f_stage1(game.scene2d.MyStage):
         self.eg.z_index = 0
         self.sun.z_index = 2
 
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Vissza")
+        self.t.x = 0
+        self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
 
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage_m())
 
     def key_down(self, sender, event):
         print(sender)
@@ -122,6 +141,17 @@ class f_stage2(game.scene2d.MyStage):
         self.add_actor(self.felho)
         self.felho.z_index = 0
 
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Vissza")
+        self.t.x = 0
+        self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
+
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage_m())
+
 class f_stage3(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -137,6 +167,17 @@ class f_stage3(game.scene2d.MyStage):
             self.eso.w = 50
             self.eso.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso.w)
             self.eso.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.eso.h)
+
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Vissza")
+        self.t.x = 0
+        self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
+
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage_m())
 
 class f_stage3(game.scene2d.MyStage):
     def __init__(self):
@@ -161,6 +202,17 @@ class f_stage3(game.scene2d.MyStage):
             self.havazik.w = 45
             self.havazik.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.havazik.w)
             self.havazik.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.havazik.h)
+
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Vissza")
+        self.t.x = 0
+        self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
+
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage_m())
 
 class f_stage4(game.scene2d.MyStage):
     def __init__(self):
@@ -178,4 +230,13 @@ class f_stage4(game.scene2d.MyStage):
             self.havazik.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.havazik.w)
             self.havazik.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.havazik.h)
 
+        self.t = Anything()
+        self.add_actor(self.t)
+        self.t.set_text("Vissza")
+        self.t.x = 0
+        self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
 
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.add_stage(f_stage_m())
