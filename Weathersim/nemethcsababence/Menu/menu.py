@@ -1,5 +1,6 @@
 import pygame
 import Weathersim.nemethcsababence.Eso.EsoScreen
+from Weathersim.nemethcsababence.Menu.MenuActors import *
 import game
 from Weathersim.nemethcsababence.Eso.EsoScreen import *
 from Weathersim.nemethcsababence.Havazas.HavazasScreen import *
@@ -16,33 +17,80 @@ class MenuStage(game.scene2d.MyStage):
         self.menu.width = 1280
         self.menu.height = 720
 
+        self.tajkep = tajkep()
+        self.add_actor(self.tajkep)
+        self.tajkep.width = 1280
+        self.tajkep.height = 720
+        self.tajkep.z_index = 1
+        self.tajkep.x = 0
+        self.tajkep.y = 0
+
         self.button1 = button1()
         self.add_actor(self.button1)
-        self.button1.width = 125
-        self.button1.height = 75
-        self.button1.y = 500
-        self.button1.x = 100
+        self.button1.height = 97
+        self.button1.width = 299
+        self.button1.y = 408
+        self.button1.x = 6
 
         self.button2 = button2()
         self.add_actor(self.button2)
-        self.button2.width = 125
-        self.button2.height = 75
-        self.button2.y = 500
-        self.button2.x = 400
+        self.button2.height = 77
+        self.button2.width = 297
+        self.button2.y = 408
+        self.button2.x = 330
 
         self.button3 = button3()
         self.add_actor(self.button3)
-        self.button3.width = 125
-        self.button3.height = 75
-        self.button3.y = 500
-        self.button3.x = 700
+        self.button3.height = 97
+        self.button3.width = 299
+        self.button3.y = 408
+        self.button3.x = 650
 
         self.button4 = button4()
         self.add_actor(self.button4)
-        self.button4.width = 125
-        self.button4.height = 75
-        self.button4.y = 500
-        self.button4.x = 1000
+        self.button4.height = 97
+        self.button4.width = 297
+        self.button4.y = 408
+        self.button4.x = 973
+
+        self.nap = menunap()
+        self.add_actor(self.nap)
+        self.nap.x = 875
+        self.nap.y = -10
+        self.nap.rotate_with(20)
+
+        for i in range(25):
+            self.eso = menueso()
+            self.add_actor(self.eso)
+            self.eso.y = random.Random().randint(100, 375)
+            self.eso.x = random.Random().randint(10, 280)
+            self.eso.width = 10
+            self.eso.height = 20
+
+        for i in range(25):
+            self.eso2 = menueso()
+            self.add_actor(self.eso2)
+            self.eso2.y = random.Random().randint(100, 375)
+            self.eso2.x = random.Random().randint(650, 925)
+            self.eso2.width = 10
+            self.eso2.height = 20
+
+        for i in range(25):
+            self.ho = menuho()
+            self.add_actor(self.ho)
+            self.ho.y = random.Random().randint(100, 375)
+            self.ho.x = random.Random().randint(650, 925)
+            self.ho.width = 10
+            self.ho.height = 20
+
+        for i in range(25):
+            self.ho2 = menuho()
+            self.add_actor(self.ho2)
+            self.ho2.y = random.Random().randint(100, 375)
+            self.ho2.x = random.Random().randint(325, 600)
+            self.ho2.width = 10
+            self.ho2.height = 20
+
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.button2.set_on_mouse_down_listener(self.Klikk2)

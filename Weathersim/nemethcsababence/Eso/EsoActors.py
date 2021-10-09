@@ -28,7 +28,7 @@ class eso(game.scene2d.MyActor):
 class button1(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/eso.png')
+        self.map = super().__init__('images/eso2.png')
 
 
 class windbag(game.scene2d.MyActor):

@@ -28,13 +28,13 @@ class nap(game.scene2d.MyActor):
 class button4(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/napsutes.png')
+        self.map = super().__init__('images/napsutes2.png')
 
 
 class MenuImage(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/MenuScreen.png')
+        self.map = super().__init__('images/menuimage.png')
 
 class button5(game.scene2d.MyActor):
 
