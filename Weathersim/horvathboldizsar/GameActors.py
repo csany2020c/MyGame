@@ -4,18 +4,23 @@ import random
 class erdo(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/landscape.png')
+        self.z_index = 3
 
 class naposeg(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/sunny.png')
+        self.z_index = 1
 
 class felhoseg(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/cloudy.png')
+        self.z_index = 1
 
 class esocsepp(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/rain.png')
+        self.width = 30
+        self.z_index = 4
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -26,6 +31,9 @@ class esocsepp(game.scene2d.MyActor):
 class hopehely(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/snow.png')
+        self.width = 30
+        self.height = 30
+        self.z_index = 5
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -40,6 +48,7 @@ class nap(game.scene2d.MyActor):
         self.map = super().__init__('!_resources/images/sun.png')
         self.x = -200
         self.y = 400
+        self.z_index = 2
 
     def act(self, delta_time: float):
         super().act(delta_time)
