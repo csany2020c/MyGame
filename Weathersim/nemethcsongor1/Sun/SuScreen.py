@@ -1,7 +1,4 @@
-import game
-import random
-import pygame
-from Weathersim.NemethCsongor.SuStage import *
+from Weathersim.nemethcsongor1.Sun.SuStage import *
 
 
 class SuScreen(game.scene2d.MyScreen):

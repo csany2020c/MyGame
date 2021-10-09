@@ -1,7 +1,4 @@
-import game
-import random
-import pygame
-from Weathersim.NemethCsongor.SwStage import *
+from Weathersim.nemethcsongor1.Snow.SwStage import *
 
 
 class SwScreen(game.scene2d.MyScreen):

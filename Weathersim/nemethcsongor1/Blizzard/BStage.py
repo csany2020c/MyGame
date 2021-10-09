@@ -1,7 +1,5 @@
-import game
-import random
-import pygame
-from Weathersim.NemethCsongor.Actorok import *
+from Weathersim.nemethcsongor1.Actorok import *
+from Weathersim.nemethcsongor1.start.SaScreen import *
 
 
 class BStage(game.scene2d.MyStage):
@@ -28,3 +26,12 @@ class BStage(game.scene2d.MyStage):
             self.S.x = random.randint(a=0, b=1280)
             self.S.y = random.randint(a=-0, b=720)
 
+        self.Ba = Back()
+        self.add_actor(self.Ba)
+        self.Ba.set_size(width=250, height=250)
+        self.Ba.set_on_mouse_down_listener(self.klikk)
+
+    def klikk(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(SaScreen())
