@@ -3,7 +3,6 @@ from Weathersim.nemethcsongor1.Rain.RScreen import *
 from Weathersim.nemethcsongor1.Snow.SwScreen import *
 from Weathersim.nemethcsongor1.Blizzard.BScreen import *
 from Weathersim.nemethcsongor1.Font import *
-from Weathersim.nemethcsongor1.Font2 import *
 
 
 class SaStage(game.scene2d.MyStage):
