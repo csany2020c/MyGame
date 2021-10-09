@@ -1,5 +1,5 @@
 import game
-from Weathersim.nemethcsababence.menu import MenuScreen
+from Weathersim.nemethcsababence.Menu.menu import MenuScreen
 
 
 class Program(game.scene2d.MyGame):

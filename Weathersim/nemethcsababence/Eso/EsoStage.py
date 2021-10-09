@@ -1,5 +1,6 @@
 import Weathersim
 from Weathersim.nemethcsababence.Eso.EsoActors import *
+import Weathersim.nemethcsababence.Menu.menu
 import random
 
 
@@ -52,5 +53,5 @@ class EsoStage(game.scene2d.MyStage):
 
     def Klikk1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.nemethcsababence.menu.MenuScreen())
+            self.screen.game.set_screen(Weathersim.nemethcsababence.Menu.menu.MenuScreen())
 

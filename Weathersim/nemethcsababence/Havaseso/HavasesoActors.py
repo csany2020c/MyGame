@@ -41,7 +41,7 @@ class eso(game.scene2d.MyActor):
 class button3(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/havaseso.png')
+        self.map = super().__init__('images/havaseso2.png')
 
 
 class button5(game.scene2d.MyActor):

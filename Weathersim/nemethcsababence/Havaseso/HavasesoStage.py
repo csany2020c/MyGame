@@ -1,10 +1,9 @@
-import Weathersim.nemethcsababence.menu
-import game
+import Weathersim.nemethcsababence.Menu.menu
 import random
 
 from Weathersim.nemethcsababence.Eso.EsoActors import windbag, felho
 from Weathersim.nemethcsababence.Havaseso.HavasesoActors import *
-from Weathersim.nemethcsababence.images import *
+
 
 class HavasesoStage(game.scene2d.MyStage):
 
@@ -63,4 +62,4 @@ class HavasesoStage(game.scene2d.MyStage):
 
     def Klikk1(self, sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.nemethcsababence.menu.MenuScreen())
+            self.screen.game.set_screen(Weathersim.nemethcsababence.Menu.menu.MenuScreen())
