@@ -1,4 +1,4 @@
-import Weathersim.nemethcsababence.menu
+import Weathersim.nemethcsababence.Menu.menu
 from Weathersim.nemethcsababence.Havazas.HavazasActors import *
 import game
 import random
@@ -39,4 +39,4 @@ class HavazasStage(game.scene2d.MyStage):
 
     def Klikk1(self, sender,event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.nemethcsababence.menu.MenuScreen())
+            self.screen.game.set_screen(Weathersim.nemethcsababence.Menu.menu.MenuScreen())

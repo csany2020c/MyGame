@@ -30,7 +30,7 @@ class ho(game.scene2d.MyActor):
 class button2(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/havazas.png')
+        self.map = super().__init__('images/havazas2.png')
 
 
 class button5(game.scene2d.MyActor):

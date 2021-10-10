@@ -92,3 +92,23 @@ class Cloud(game.scene2d.MyActor):
 class Back(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("imgae/back.png")
+
+
+class Bgg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/bg.jpg")
+
+
+class Snoww(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/snowylandscape.png")
+
+
+class Bobi(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/bobi.jpg")
+
+
+class Zongi(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("imgae/zongi.jpg")

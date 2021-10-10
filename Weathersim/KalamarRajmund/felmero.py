@@ -39,6 +39,10 @@ class Hav(game.scene2d.MyActor):
     def __init__(self):
         self.map = super ().__init__('!_resources/images/snow.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 300
+
 class Hatter(game.scene2d.MyActor):
     def __init__(self):
         self.map = super ().__init__('!_resources/images/landscape.png')
@@ -53,11 +57,18 @@ class NaposStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.napos_bg = Napos()
+        self.hatter_bg = Hatter()
         self.add_actor(self.napos_bg)
+        self.add_actor(self.hatter_bg)
 
 class EsoStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.szurke_bg = Szurke()
+        self.hatter_bg = Hatter()
+        self.add_actor(self.szurke_bg)
+        self.add_actor(self.hatter_bg)
+
         for i in range(50):
             self.eso_bg = Eso()
             self.add_actor(self.eso_bg)
@@ -76,6 +87,12 @@ class HavStage(game.scene2d.MyStage):
         self.add_actor(self.szurke_bg)
         self.add_actor(self.hatter_bg)
 
+        for i in range(50):
+            self.hav_bg = Eso()
+            self.add_actor(self.hav_bg)
+            self.hav_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.hav_bg.w)
+            self.hav_bg.y = random.Random().randint(0, 720)
+
 class HavEsoStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -88,6 +105,17 @@ class HavEsoStage(game.scene2d.MyStage):
         self.add_actor(self.szurke_bg)
         self.add_actor(self.hatter_bg)
 
+        for i in range(50):
+            self.hav_bg = Eso()
+            self.add_actor(self.hav_bg)
+            self.hav_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.hav_bg.w)
+            self.hav_bg.y = random.Random().randint(0, 720)
+
+        for i in range(50):
+            self.eso_bg = Eso()
+            self.add_actor(self.eso_bg)
+            self.eso_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso_bg.w)
+            self.eso_bg.y = random.Random().randint(0, 720)
 class NaposScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()

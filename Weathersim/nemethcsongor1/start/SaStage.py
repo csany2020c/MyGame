@@ -3,15 +3,23 @@ from Weathersim.nemethcsongor1.Rain.RScreen import *
 from Weathersim.nemethcsongor1.Snow.SwScreen import *
 from Weathersim.nemethcsongor1.Blizzard.BScreen import *
 from Weathersim.nemethcsongor1.Font import *
+from Weathersim.nemethcsongor1.Credits import *
+import pygame
 
 
 class SaStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.Bg = Bgg()
+        self.add_actor(self.Bg)
+        self.Bg.height = 720
+        self.Bg.width = 1280
+
         self.Ff = Font()
         self.add_actor(self.Ff)
         self.Ff.set_text("WeatherSim")
         self.Ff.x = 450
+        self.Ff.set_on_mouse_down_listener(self.katt5)
 
         self.Ff2 = Font2()
         self.add_actor(self.Ff2)
@@ -67,3 +75,7 @@ class SaStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(SwScreen())
 
+    def katt5(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(CScreen())

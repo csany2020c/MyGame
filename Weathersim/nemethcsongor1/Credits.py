@@ -1,30 +1,30 @@
-import pygame
+import game
+from Font import *
 from Weathersim.nemethcsongor1.Actorok import *
 import Weathersim.nemethcsongor1.start.SaScreen
-from Weathersim.nemethcsongor1.Font import *
+import pygame
 
 
-class SuStage(game.scene2d.MyStage):
-
+class CStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.S = Sunny()
-        self.add_actor(self.S)
+        self.F = Font()
+        self.add_actor(self.F)
+        self.F.set_text("Készítette Németh Csongor, külön köszönet: Csibész Csabinak.")
+        self.F.height = 61.5
+        self.F.y = 309
 
-        self.Ff2 = Font()
-        self.add_actor(self.Ff2)
-        self.Ff2.set_text("25°C")
-        self.Ff2.x = 1100
-        self.Ff2.y = 10
+        self.Bb = Bobi()
+        self.add_actor(self.Bb)
+        self.Bb.width = 150
+        self.Bb.x = 575
+        self.Bb.y = 20
 
-        self.Su = Sun()
-        self.add_actor(self.Su)
-        self.Su.x = 550
-        self.Su.y = 5
-        self.Su.set_size(width=350, height=350)
-
-        self.Bg = Bg()
-        self.add_actor(self.Bg)
+        self.Zi = Zongi()
+        self.add_actor(self.Zi)
+        self.Zi.width = 150
+        self.Zi.x = 570
+        self.Zi.y = 450
 
         self.Ba = Back()
         self.add_actor(self.Ba)
@@ -42,3 +42,10 @@ class SuStage(game.scene2d.MyStage):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Weathersim.nemethcsongor1.start.SaScreen.SaScreen())
+
+
+class CScreen(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.add_stage(CStage())
+        self.set_background_color(69, 190, 179)
