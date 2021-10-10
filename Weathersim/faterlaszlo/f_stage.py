@@ -2,7 +2,7 @@ import game
 import pygame
 from Weathersim.faterlaszlo.f_actors import *
 import random
-from Weathersim.faterlaszlo.Anything import *
+from Weathersim.faterlaszlo.Arial import *
 
 
 class f_stage_m(game.scene2d.MyStage):
@@ -14,42 +14,42 @@ class f_stage_m(game.scene2d.MyStage):
         self.bg.w = 1280
         self.bg.h = 720
 
-        self.t = Anything()
+        self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("Napsütés")
         self.t.x = 500
         self.t.y = 50
         self.t.set_on_mouse_down_listener(self.click)
 
-        self.t1 = Anything()
+        self.t1 = Arial()
         self.add_actor(self.t1)
         self.t1.set_text("Eső")
         self.t1.x = 550
         self.t1.y = 100
         self.t1.set_on_mouse_down_listener(self.click1)
 
-        self.t2 = Anything()
+        self.t2 = Arial()
         self.add_actor(self.t2)
         self.t2.set_text("Eső")
         self.t2.x = 550
         self.t2.y = 200
         self.t2.set_on_mouse_down_listener(self.click2)
 
-        self.t3 = Anything()
+        self.t3 = Arial()
         self.add_actor(self.t3)
         self.t3.set_text("Havazás")
         self.t3.x = 550
         self.t3.y = 250
         self.t3.set_on_mouse_down_listener(self.click3)
 
-        self.t4 = Anything()
+        self.t4 = Arial()
         self.add_actor(self.t4)
         self.t4.set_text("Kilépés")
         self.t4.x = 550
         self.t4.y = 400
         self.t4.set_on_mouse_down_listener(self.click4)
 
-        self.t5 = Anything()
+        self.t5 = Arial()
         self.add_actor(self.t5)
         self.t5.set_text("Weathersim")
         self.t5.x = 550
