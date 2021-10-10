@@ -1,4 +1,5 @@
 import game
+import pygame
 
 
 class ActorA(game.scene2d.MyActor):
@@ -30,9 +31,14 @@ class Stage(game.scene2d.MyStage):
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
+        self.set_on_key_down_listener(self.key_down)
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
 
-class Screen(game.scene2d.MyScreen):
+class NapsutesesScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(Stage())
@@ -41,7 +47,7 @@ class Screen(game.scene2d.MyScreen):
 class Start(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         super().__init__(width, height, autorun)
-        self.screen = Screen()
+        self.screen = NapsutesesScreen()
 
 
 Start().run()

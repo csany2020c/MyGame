@@ -1,6 +1,8 @@
 import game
+from pygame import mixer
 from random import Random
-from Weathersim.FellnerMilan.Screen import *
+import Weathersim.FellnerMilan.Screen
+from game.scene2d import MyOneTickTimer
 
 class LandScape(game.scene2d.MyActor):
     def __init__(self, image_url: str = "../../!_resources/images/landscape.png"):
@@ -71,3 +73,48 @@ class MainMenu(game.scene2d.MyActor):
         self.y = 600
         self.hitbox_scale_h = 0.4
         self.hitbox_scale_w = 0.6
+        self.set_on_mouse_down_listener(self.clickHandler)
+
+    def clickHandler(self,sender,event):
+        if event.button == 1:
+            self.image_url = "mainmenuOnClick.png"
+            self.t = MyOneTickTimer(interval=0.2, func=self.csereldle)
+            self.add_timer(self.t)
+
+    def csereldle(self,sender):
+        self.stage.screen.game.set_screen(Weathersim.FellnerMilan.Screen.GameScreen())
+        self.remove_timer(self.t)
+
+class SnowyLandScape(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "snowylandscape.png"):
+        super().__init__(image_url)
+
+class SnowyRain(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "snowyrain.png"):
+        super().__init__(image_url)
+        self.random = Random()
+        self.set_size(25, 25)
+        self.x = self.random.randint(0, 1280)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y = self.y + 5
+class ArrowLeft(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "leftarrow.png"):
+        super().__init__(image_url)
+        self.set_size(250,125)
+        self.x = 1280 - 640 - 125 - 300
+        self.y = 525
+        self.z_index = 100
+        self.hitbox_scale_w = 0.7
+        self.hitbox_scale_h = 0.8
+
+class ArrowRight(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "arrowright.png"):
+        super().__init__(image_url)
+        self.set_size(250,125)
+        self.x = 1280 - 640 - 125 + 300
+        self.y = 525
+        self.z_index = 100
+        self.hitbox_scale_w = 0.7
+        self.hitbox_scale_h = 0.8

@@ -1,24 +1,16 @@
 import game
-from HawkProductions.GameScreen import *
 
 
-class Enemy1Actor(game.scene2d.MyActor):
+class Startb(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("image/startb.png")
-        #self.set_on_mouse_down_listener(self.klikk)
 
     def act(self, delta_time: float):
         super().act(delta_time)
 
 
-    """def klikk(self, sender, event):
-        print(event)
-        print(sender)
-        self.game.screen.set_screen(GameScreen())"""
-
-
-class Enemy2Actor(game.scene2d.MyActor):
+class Exit(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("image/quitb.png")
@@ -59,3 +51,13 @@ class Pile2(game.scene2d.MyActor):
 class Bg(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/hat_kep_j.png")
+
+
+class Main(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/main.png")
+
+
+class Arrow(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/nyil_main.png")

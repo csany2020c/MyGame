@@ -41,7 +41,7 @@ class Stage(game.scene2d.MyStage):
         self.l.hitbox_scale_h = 0.8
         self.l.set_font_italic(True)
         self.add_actor(self.l)
-        self.add_actor(MenuLabel("Start", 30, 100))
+        self.add_actor(MenuLabel("start", 30, 100))
         self.add_actor(MenuLabel("Quit", 30, 200))
         self.l.x = game.scene2d.MyGame.get_screen_width() / 2 - self.l.width / 2
         self.l.y = game.scene2d.MyGame.get_screen_height() / 2 - self.l.height / 2

@@ -1,7 +1,6 @@
 import game
-from random import Random
-
-r = Random()
+import pygame
+import random
 
 
 class ActorA(game.scene2d.MyActor):
@@ -17,13 +16,13 @@ class ActorB(game.scene2d.MyActor):
 class ActorC(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
-        self.set_width(70)
-        self.set_height(70)
+        self.set_width(50)
+        self.set_height(50)
 
     def act(self, delta_time: float):
         game.scene2d.MyLabel.act(self, delta_time)
         if self.x + self.width < game.scene2d.MyGame.get_screen_width():
-            self.x += delta_time * 20
+            self.y += delta_time * 20
             self.rotate_with(delta_time * 20)
 
 
@@ -36,9 +35,20 @@ class Stage(game.scene2d.MyStage):
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
+        self.set_on_key_down_listener(self.key_down)
+
+        for i in range(500):
+            self.snow = ActorC()
+            self.add_actor(self.snow)
+            self.snow.x = random.Random().randint(-1000, 1300)
+            self.snow.y = random.Random().randint(-3000, 750)
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
 
-class Screen(game.scene2d.MyScreen):
+class HavazosScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(Stage())
@@ -47,7 +57,7 @@ class Screen(game.scene2d.MyScreen):
 class Start(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         super().__init__(width, height, autorun)
-        self.screen = Screen()
+        self.screen = HavazosScreen()
 
 
 Start().run()
