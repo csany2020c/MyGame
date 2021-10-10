@@ -54,6 +54,24 @@ class Rain(game.scene2d.MyActor):
             self.x = random.randint(a=0, b=1280)
             self.speed = random.randint(a=200, b=300)
 
+class esoke(game.scene2d.MyActor):
 
+    def __init__(self):
+        self.map = super().__init__('images/esos.png')
+
+class napos(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/napos.png')
+
+class havazas(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/havazas.png')
+
+class havasesos(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/havaseso.png')
 
 

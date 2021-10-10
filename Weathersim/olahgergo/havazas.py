@@ -1,3 +1,4 @@
+import Weathersim.olahgergo.napsutes
 from Weathersim.olahgergo.actors import *
 
 
@@ -26,6 +27,16 @@ class HoStage(game.scene2d.MyStage):
             self.ho.y = random.randint(a=-0, b=720)
             self.add_actor(self.ho)
 
+        self.naposbutton = esoke()
+        self.add_actor(self.naposbutton)
+        self.naposbutton.width = 125
+        self.naposbutton.height = 75
+        self.naposbutton.y = 0
+        self.naposbutton.x = 0
+        self.naposbutton.set_on_mouse_down_listener(self.naposkatt)
 
+    def naposkatt(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.napsutes.NapStage)
 
 
