@@ -1,4 +1,5 @@
 import game
+import random
 from Weathersim.faterlaszlo.Arial import *
 from Weathersim.faterlaszlo.f_menu_m.f_screen_m import *
 from Weathersim.faterlaszlo.f_actors import *
@@ -6,7 +7,7 @@ from Weathersim.faterlaszlo.f_actors import *
 class f_stage2(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.bg = bg_actor()
+        self.bg = bg_actor_s()
         self.felho = felhos_actor()
         self.add_actor(self.bg)
         self.add_actor(self.felho)
@@ -17,6 +18,7 @@ class f_stage2(game.scene2d.MyStage):
         self.t.set_text("Vissza")
         self.t.x = 0
         self.t.y = 0
+        self.t.set_color(1, 1, 1)
         self.t.set_on_mouse_down_listener(self.click)
 
         for i in range(12):
