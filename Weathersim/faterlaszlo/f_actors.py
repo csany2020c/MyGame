@@ -7,6 +7,10 @@ class bg_actor(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
 
+class bg_actor_s(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/landscape_s.png")
+
 class eg_actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/sunny.png")
@@ -28,7 +32,7 @@ class havazas(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.r += 0.15 * delta_time
-        self.y += 100 * delta_time
+        self.y += 75 * delta_time
 
 class eso(game.scene2d.MyActor):
     def __init__(self):
@@ -36,16 +40,24 @@ class eso(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += 0.33 + delta_time
+        self.y += 75 * delta_time
         
 class felhos_actor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/cloudy.png")
 
-class start_actor(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/startb.png")
-
 class Bg1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/bg1.jpg")
+
+class apple(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/apple.png")
+
+class cloud(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/cloud.png")
+
+class snowman(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/snowman.png")
