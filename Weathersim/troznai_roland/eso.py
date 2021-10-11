@@ -58,12 +58,3 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
 
-
-class Esos(game.scene2d.MyGame):
-
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
-        super().__init__(width, height, autorun, autosize)
-        self.screen = Screen()
-
-
-Esos().run()
