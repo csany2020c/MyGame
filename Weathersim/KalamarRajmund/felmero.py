@@ -25,6 +25,8 @@ class Eso (game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 300
+        if self.y > game.scene2d.MyGame.get_screen_height():
+            self.y = -128
 
 
 class Nap(game.scene2d.MyActor):
