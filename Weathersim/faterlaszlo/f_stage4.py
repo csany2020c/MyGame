@@ -1,5 +1,6 @@
 import game
 import random
+import pygame
 from Weathersim.faterlaszlo.Arial import *
 from Weathersim.faterlaszlo.f_actors import *
 import Weathersim.faterlaszlo.f_screen_m
@@ -12,6 +13,7 @@ class f_stage4(game.scene2d.MyStage):
         self.add_actor(self.bg)
         self.add_actor(self.felho)
         self.felho.z_index = 0
+        self.set_on_key_down_listener(self.key_down)
 
         self.t = Arial()
         self.add_actor(self.t)
@@ -39,3 +41,8 @@ class f_stage4(game.scene2d.MyStage):
     def click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_BACKSPACE:
+            self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
+
