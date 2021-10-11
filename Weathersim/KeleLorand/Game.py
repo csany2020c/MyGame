@@ -21,12 +21,20 @@ class SzurkeAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/cloudy.png")
 
+class OszLab(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Ősz")
 
 
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+
+
+
+
+        self.oszlab_lb = OszLab()
         self.szurke_bg = SzurkeAct()
         self.hatter_bg = HatterAct()
         self.napos_bg = NaposAct()
@@ -41,13 +49,33 @@ class GameStage(game.scene2d.MyStage):
         self.nap_bg.y = -100
 
         self.add_actor(self.hatter_bg)
+        self.add_actor(self.napos_bg)
+        self.add_actor(self.napos_bg)
+        self.add_actor(self.nap_bg)
 
+        self.currentSeason: int = 1
+
+        self.set_on_key_down_listener(self.key_down)
+
+    def key_down(self, sender, event):
+
+        if event.key == pygame.K_RIGHT:
+            self.currentSeason = self.currentSeason + 1
+            print(self.currentSeason)
+        if event.key == pygame.K_LEFT:
+            self.currentSeason = self.currentSeason - 1
+            print(self.currentSeason)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        print(self.currentSeason)
 
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(GameStage())
+
 
 
 class GameSelf(game.scene2d.MyGame):

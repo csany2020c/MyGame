@@ -25,8 +25,6 @@ class InStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
 
-    def show(self):
-       super().show()
 
     def moveKeys(self, sender, event):
         if event.key == pygame.K_w:
@@ -43,7 +41,7 @@ class InStage(game.scene2d.MyStage):
                         self.isDPressed = True
         if event.key == pygame.K_ESCAPE:
             self.isEscPressed = True
-        if event.key == pygame.K_x:
+        if event.key == pygame.K_LSHIFT:
             self.isShiftPressed = True
 
 
@@ -58,7 +56,7 @@ class InStage(game.scene2d.MyStage):
             self.isDPressed = False
         if event.key == pygame.K_m:
             self.isMPressed = False
-        if event.key == pygame.KMOD_SHIFT:
+        if event.key == pygame.K_LSHIFT:
             self.isShiftPressed = False
 
     def act(self, delta_time: float):
