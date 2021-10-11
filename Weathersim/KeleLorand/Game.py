@@ -3,7 +3,6 @@ from game.scene2d import *
 from game.scene2d.MyScreen import *
 
 
-
 class HatterAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/landscape.png")
@@ -253,10 +252,17 @@ class GameScreen(game.scene2d.MyScreen):
 
         self.set_on_mouse_down_listener(self.on_mouse_down)
 
+        self.buttonpressed : bool = False
+        self.stageadded : bool = False
 
     def on_mouse_down(self, sender, event):
-        self.buttonpressed = True
-        self.add_stage(GameStage())
+        if self.stageadded == False:
+            self.add_stage(GameStage())
+            self.stageadded = True
+
+
+
+
 
 
 
