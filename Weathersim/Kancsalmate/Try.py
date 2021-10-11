@@ -50,6 +50,7 @@ class Stage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+
         if self.isAPressed:
             self.add_actor(self.d)
             self.add_actor(self.b)
@@ -58,12 +59,13 @@ class Stage(game.scene2d.MyStage):
 
         if self.isSPressed:
             self.add_actor(self.c)
-            self.x = self.x - 1
-
+            self.d.remove_from_stage()
+            self.b.remove_from_stage()
 
 
         if self.isEPressed:
-            self.b.remove_from_stage()
+            self.c.remove_from_stage()
+
 
         if self.isDPressed:
             self.add_actor(self.e)

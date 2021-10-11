@@ -1,9 +1,7 @@
 import pygame
 from Weathersim.ZsuppanFlorian.mainactors import *
 
-
 class MainStage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         self.bg = taj()
