@@ -1,5 +1,4 @@
-import game
-from Weathersim.faterlaszlo.f_screen import *
+from Weathersim.faterlaszlo.kuka2.f_screen import *
 
 class f_game(game.scene2d.MyGame):
     def __init__(self, width=1280, height=720):

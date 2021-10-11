@@ -1,11 +1,7 @@
-import game
-import pygame
-from Weathersim.faterlaszlo.Arial import *
-from Weathersim.faterlaszlo.f_actors import *
-from Weathersim.faterlaszlo.f_snowyrain2.f_screen2 import *
-from Weathersim.faterlaszlo.f_snow4.f_screen4 import *
-from Weathersim.faterlaszlo.f_sun1.f_screen1 import *
-from Weathersim.faterlaszlo.f_rain3.f_screen3 import *
+from Weathersim.faterlaszlo.f_screen2 import *
+from Weathersim.faterlaszlo.f_screen4 import *
+from Weathersim.faterlaszlo.f_screen1 import *
+from Weathersim.faterlaszlo.f_screen3 import *
 
 
 class f_stage_m(game.scene2d.MyStage):

@@ -2,6 +2,7 @@ import game
 import random
 from Weathersim.faterlaszlo.Arial import *
 from Weathersim.faterlaszlo.f_actors import *
+import Weathersim.faterlaszlo.f_screen_m
 
 class f_stage4(game.scene2d.MyStage):
     def __init__(self):
@@ -14,10 +15,11 @@ class f_stage4(game.scene2d.MyStage):
 
         self.t = Arial()
         self.add_actor(self.t)
-        self.t.set_text("Vissza_n")
+        self.t.set_text("Vissza")
         self.t.set_color(1, 1, 1)
         self.t.x = 0
         self.t.y = 0
+        self.t.set_on_mouse_down_listener(self.click)
 
         self.snowman = snowman()
         self.add_actor(self.snowman)
@@ -32,3 +34,8 @@ class f_stage4(game.scene2d.MyStage):
             self.havazik.w = 45
             self.havazik.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.havazik.w)
             self.havazik.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.havazik.h)
+
+
+    def click(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
