@@ -1,5 +1,5 @@
 from Weathersim.olahgergo.actors import *
-import pygame
+from Weathersim.olahgergo.napscreen import *
 
 
 class NapStage(game.scene2d.MyStage):
