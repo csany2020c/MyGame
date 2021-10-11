@@ -37,13 +37,39 @@ class NyarLab(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Nyár")
 
+class Start(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Start")
 
+
+class MenuStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+
+        self.start = Start()
+
+        self.hatter = HatterAct()
+        self.napos = NaposAct()
+        self.nap = NapAct()
+
+        self.hatter.z_index = 6
+        self.napos.z_index = 4
+        self.nap.z_index = 5
+
+        self.nap.x = 900
+        self.nap.y = -100
+
+        self.start.x = 1100
+        self.start.y = 300
+
+        self.add_actor(self.start)
+        self.add_actor(self.hatter)
+        self.add_actor(self.napos)
+        self.add_actor(self.nap)
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-
-
 
 
         self.oszlab_lb = OszLab()
@@ -59,6 +85,7 @@ class GameStage(game.scene2d.MyStage):
         self.hatter_bg.z_index = 6
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
+        self.szurke_bg.z_index = 1
 
         self.nyar_lb.x = 640
         self.oszlab_lb.x = 640
@@ -68,7 +95,11 @@ class GameStage(game.scene2d.MyStage):
         self.nap_bg.x = 900
         self.nap_bg.y = -100
 
+
+        #alap
         self.add_actor(self.hatter_bg)
+
+
 
 
         self.currentSeason: int = 1
@@ -77,6 +108,17 @@ class GameStage(game.scene2d.MyStage):
         self.fall : bool = False
         self.winter : bool = False
         self.spring : bool = False
+
+        self.napos_bg.onstage : bool = False
+        self.nap_bg.onstage : bool = False
+        self.tav_lb.onstage : bool = False
+        self.nyar_lb.onstage : bool = False
+        self.szurke_bg.onstage : bool = False
+        self.oszlab_lb.onstage : bool = False
+        self.tel_lb.onstage : bool = False
+
+
+
 
         self.set_on_key_down_listener(self.key_down)
 
@@ -93,44 +135,127 @@ class GameStage(game.scene2d.MyStage):
         super().act(delta_time)
         print(self.currentSeason)
 
+        if self.currentSeason == 5:
+            self.currentSeason = 1
+
+        if self.currentSeason == 0:
+            self.currentSeason = 4
+
+
+        #nyar
         if self.currentSeason == 1:
             self.summer = True
-        else:
-            self.summer = False
-
-        if self.currentSeason == 2:
-            self.fall = True
-        else:
             self.fall = False
-
-        if self.currentSeason == 3:
-            self.winter = True
-        else:
             self.winter = False
-        if self.currentSeason == 4:
-            self.spring = True
-        else:
             self.spring = False
+
+
+        #osz
+        if self.currentSeason == 2:
+            self.summer = False
+            self.fall = True
+            self.winter = False
+            self.spring = False
+
+
+        #tel
+        if self.currentSeason == 3:
+            self.summer = False
+            self.fall = False
+            self.winter = True
+            self.spring = False
+
+
+        #tavasz
+        if self.currentSeason == 4:
+            self.summer = False
+            self.fall = False
+            self.winter = False
+            self.spring = True
 
         if self.summer == True:
             self.add_actor(self.napos_bg)
             self.add_actor(self.nap_bg)
             self.add_actor(self.nyar_lb)
+            self.napos_bg.onstage = True
+            self.nap_bg.onstage = True
+            self.nyar_lb.onstage = True
+            if self.szurke_bg.onstage == True:
+                self.remove_actor(self.szurke_bg)
+                self.szurke_bg.onstage = False
+            if self.oszlab_lb.onstage == True:
+                self.remove_actor(self.oszlab_lb)
+                self.oszlab_lb.onstage = False
+            if self.tav_lb.onstage == True:
+                self.remove_actor(self.tav_lb)
+                self.tav_lb.onstage = False
 
 
 
         if self.fall == True:
+            if self.nyar_lb.onstage == True:
+                self.remove_actor(self.nyar_lb)
+                self.nyar_lb.onstage = False
+            if self.nap_bg.onstage == True:
+                self.remove_actor(self.nap_bg)
+                self.nap_bg.onstage = False
+            if self.napos_bg.onstage == True:
+                self.remove_actor(self.napos_bg)
+                self.napos_bg.onstage = False
             self.add_actor(self.szurke_bg)
+            self.szurke_bg.onstage = True
+            self.add_actor(self.oszlab_lb)
+            self.oszlab_lb.onstage = True
+            if self.tel_lb.onstage == True:
+                self.remove_actor(self.tel_lb)
+                self.tel_lb.onstage = False
 
+        if self.winter == True:
+            if self.oszlab_lb.onstage == True:
+                self.remove_actor(self.oszlab_lb)
+                self.oszlab_lb.onstage = False
+            self.add_actor(self.tel_lb)
+            self.tel_lb.onstage = True
+            if self.tav_lb.onstage == True:
+                self.remove_actor(self.tav_lb)
+                self.tav_lb.onstage = False
+            if self.nap_bg.onstage == True:
+                self.remove_actor(self.nap_bg)
+                self.nap_bg.onstage = False
+            if self.napos_bg.onstage == True:
+                self.remove_actor(self.napos_bg)
+                self.napos_bg.onstage = False
+            self.add_actor(self.szurke_bg)
+            self.szurke_bg.onstage = True
 
-
-
-
+        if self.spring == True:
+            if self.tel_lb.onstage == True:
+                self.remove_actor(self.tel_lb)
+                self.tel_lb.onstage = False
+            self.add_actor(self.tav_lb)
+            self.tav_lb.onstage = True
+            if self.szurke_bg.onstage == True:
+                self.remove_actor(self.szurke_bg)
+                self.szurke_bg.onstage = False
+            self.add_actor(self.napos_bg)
+            self.napos_bg.onstage = True
+            self.add_actor(self.nap_bg)
+            self.nap_bg.onstage = True
+            if self.nyar_lb.onstage == True:
+                self.remove_actor(self.nyar_lb)
+                self.nyar_lb.onstage = False
 
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
+        self.add_stage(MenuStage())
+
+        self.set_on_mouse_down_listener(self.on_mouse_down)
+
+
+    def on_mouse_down(self, sender, event):
+        self.buttonpressed = True
         self.add_stage(GameStage())
 
 
