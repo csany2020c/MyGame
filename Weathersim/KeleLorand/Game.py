@@ -40,31 +40,42 @@ class Start(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Start")
 
+class Leiras1(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("A Játékot a nyilakkal lehet vezérelni.")
+
+class Leiras2(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Az időjárás a kiválasztott évszak alapján változik.")
+
+class Leiras3(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Klikkelj bárhová a képernyőn, hogy elindítsd a játékot!")
+
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
-        self.start = Start()
 
         self.hatter = HatterAct()
         self.napos = NaposAct()
-        self.nap = NapAct()
+
+        self.leiras1 = Leiras1()
+        self.leiras2 = Leiras2()
+        self.leiras3 = Leiras3()
 
         self.hatter.z_index = 6
         self.napos.z_index = 4
-        self.nap.z_index = 5
 
-        self.nap.x = 900
-        self.nap.y = -100
+        self.leiras2.y = 100
+        self.leiras3.y = 200
 
-        self.start.x = 1100
-        self.start.y = 300
-
-        self.add_actor(self.start)
         self.add_actor(self.hatter)
         self.add_actor(self.napos)
-        self.add_actor(self.nap)
+        self.add_actor(self.leiras1)
+        self.add_actor(self.leiras2)
+        self.add_actor(self.leiras3)
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
