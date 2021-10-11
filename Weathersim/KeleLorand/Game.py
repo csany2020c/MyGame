@@ -92,15 +92,36 @@ class GameStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         print(self.currentSeason)
+
         if self.currentSeason == 1:
+            self.summer = True
+        else:
+            self.summer = False
+
+        if self.currentSeason == 2:
+            self.fall = True
+        else:
+            self.fall = False
+
+        if self.currentSeason == 3:
+            self.winter = True
+        else:
+            self.winter = False
+        if self.currentSeason == 4:
+            self.spring = True
+        else:
+            self.spring = False
+
+        if self.summer == True:
             self.add_actor(self.napos_bg)
             self.add_actor(self.nap_bg)
             self.add_actor(self.nyar_lb)
-            self.summer = True
 
-        if self.currentSeason == 2:
-            if self.summer == True:
-                self.remove_actor(self.napos_bg)
+
+
+        if self.fall == True:
+            self.add_actor(self.szurke_bg)
+
 
 
 
