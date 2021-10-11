@@ -2,13 +2,11 @@ from Weathersim.ZsuppanFlorian.mainstage import *
 
 
 class rainStage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
-
         for k in range(100):
             self.rain = eso()
-            tag = random.randint(a=30, b=60)
+            tag = random.randint(a=40, b=65)
             self.rain.height = tag
             self.rain.width = tag
             self.rain.x = random.randint(a=0, b=1280)
