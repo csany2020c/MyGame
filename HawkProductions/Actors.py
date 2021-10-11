@@ -61,3 +61,8 @@ class Main(game.scene2d.MyActor):
 class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
+
+
+class Info(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/info.png")
