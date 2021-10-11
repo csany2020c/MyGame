@@ -60,7 +60,7 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
 
     def remove_actor(self, actor: 'MyBaseActor') -> 'MyStage':
         self._actors.remove(actor)
-        actor.set_stage(0)
+        actor.set_stage(None)
         self._actors_reverse = list(reversed(self._actors))
         return self
 
