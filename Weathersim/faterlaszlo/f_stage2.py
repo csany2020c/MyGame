@@ -1,7 +1,4 @@
-import game
-import random
-from Weathersim.faterlaszlo.Arial import *
-from Weathersim.faterlaszlo.f_menu_m.f_screen_m import *
+from Weathersim.faterlaszlo.kuka.f_menu_m.f_screen_m import *
 from Weathersim.faterlaszlo.f_actors import *
 
 class f_stage2(game.scene2d.MyStage):

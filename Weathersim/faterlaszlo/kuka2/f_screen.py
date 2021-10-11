@@ -1,5 +1,4 @@
-import game
-from Weathersim.faterlaszlo.f_stage import *
+from Weathersim.faterlaszlo.kuka2.f_stage import *
 
 class f_screen_m(game.scene2d.MyScreen):
     def __init__(self):

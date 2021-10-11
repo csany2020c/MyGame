@@ -1,7 +1,10 @@
 import Weathersim
 import game
 from Weathersim import troznai_roland
-from Weathersim.troznai_roland.napos import *
+import Weathersim.troznai_roland.napos
+import Weathersim.troznai_roland.eso
+import Weathersim.troznai_roland.havas
+import Weathersim.troznai_roland.havas_eso
 from game.scene2d.MyScreen import *
 
 class Screen(game.scene2d.MyScreen):
@@ -91,6 +94,10 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.button5)
 
         self.button1.set_on_mouse_down_listener(self.Kattintas_napos)
+        self.button2.set_on_mouse_down_listener(self.Kattintas_havas)
+        self.button3.set_on_mouse_down_listener(self.Kattintas_esos)
+        self.button4.set_on_mouse_down_listener(self.Kattintas_havas_eso)
+        self.button5.set_on_mouse_down_listener(self.Kattintas_exit)
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -98,7 +105,23 @@ class GameStage(game.scene2d.MyStage):
 
     def Kattintas_napos(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.troznai_roland.napos.Napos())
+            self.screen.game.set_screen(Weathersim.troznai_roland.napos.Screen())
+
+    def Kattintas_havas(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.troznai_roland.havas.Screen())
+
+    def Kattintas_esos(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.troznai_roland.eso.Screen())
+
+    def Kattintas_havas_eso(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.troznai_roland.havas_eso.Screen())
+
+    def Kattintas_exit(self, sender, event):
+        if event.button == 1:
+            quit()
 
 
 class Menu(game.scene2d.MyGame):
