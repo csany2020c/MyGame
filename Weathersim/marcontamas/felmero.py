@@ -25,7 +25,5 @@ class HoActor():
     def __init__(self):
         self.map = super(HoActor, self).__init__('!_resources/images/now.png')
 
-class HoEsoActor():
-    def __init__(self):
-        self.map = super(HoEsoActor, self).__init__('!_resources/images/rain.png/snow.png')
+
 
