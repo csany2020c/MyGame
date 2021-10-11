@@ -1,28 +1,34 @@
 import game
+import pygame
+from kuposztok.Menu.MenuScreen import *
 
 
 class BgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/menu.png')
+        height = pygame.display.Info().current_h
+        width = pygame.display.Info().current_h
+        self.set_height = height
+        self.set_width = width
+        super().__init__('../image/menu.png')
 
 
 class Button1(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/play_button.png')
+        super().__init__('../image/play_button.png')
 
 
 class Button2(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/exit_button.png')
+        super().__init__('../image/exit_button.png')
 
 
 class Button3(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/credit_button.png')
+        super().__init__('../image/credit_button.png')
 
 
 class MenuStage(game.scene2d.MyStage):
@@ -46,12 +52,6 @@ class MenuStage(game.scene2d.MyStage):
         print(a)
 
 
-class MenuScreen(game.scene2d.MyScreen):
-
-    def __init__(self):
-        super().__init__()
-        self.set_background_color(r=0, g=0, b=255)
-        self.add_stage(MenuStage())
 
 
 class Menu(game.scene2d.MyGame):

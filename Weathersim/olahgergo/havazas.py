@@ -1,4 +1,6 @@
-import Weathersim.olahgergo.napsutes
+import Weathersim
+import game
+import random
 from Weathersim.olahgergo.actors import *
 
 
@@ -37,6 +39,6 @@ class HoStage(game.scene2d.MyStage):
 
     def naposkatt(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.olahgergo.napsutes.NapStage)
+            self.screen.game.set_screen(Weathersim.olahgergo.napscreen)
 
 
