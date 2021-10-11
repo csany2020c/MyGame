@@ -63,7 +63,7 @@ class Stage(game.scene2d.MyStage):
 
 
         if self.isEPressed:
-            self.b.remove_from_stage(self.d)
+            self.b.remove_from_stage()
 
         if self.isDPressed:
             self.add_actor(self.e)
