@@ -21,12 +21,36 @@ class SzurkeAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/cloudy.png")
 
+class OszLab(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Ősz")
+
+class TelLab(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Tél")
+
+class TavLab(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Tavasz")
+
+class NyarLab(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Nyár")
 
 
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+
+
+
+
+        self.oszlab_lb = OszLab()
+        self.tel_lb = TelLab()
+        self.tav_lb = TavLab()
+        self.nyar_lb = NyarLab()
+
         self.szurke_bg = SzurkeAct()
         self.hatter_bg = HatterAct()
         self.napos_bg = NaposAct()
@@ -36,6 +60,10 @@ class GameStage(game.scene2d.MyStage):
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
 
+        self.nyar_lb.x = 640
+        self.oszlab_lb.x = 640
+        self.tav_lb.x = 640
+        self.tel_lb.x = 640
 
         self.nap_bg.x = 900
         self.nap_bg.y = -100
@@ -43,11 +71,47 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.hatter_bg)
 
 
+        self.currentSeason: int = 1
+
+        self.summer : bool = False
+        self.fall : bool = False
+        self.winter : bool = False
+        self.spring : bool = False
+
+        self.set_on_key_down_listener(self.key_down)
+
+    def key_down(self, sender, event):
+
+        if event.key == pygame.K_RIGHT:
+            self.currentSeason = self.currentSeason + 1
+            print(self.currentSeason)
+        if event.key == pygame.K_LEFT:
+            self.currentSeason = self.currentSeason - 1
+            print(self.currentSeason)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        print(self.currentSeason)
+        if self.currentSeason == 1:
+            self.add_actor(self.napos_bg)
+            self.add_actor(self.nap_bg)
+            self.add_actor(self.nyar_lb)
+            self.summer = True
+
+        if self.currentSeason == 2:
+            if self.summer == True:
+                self.remove_actor(self.napos_bg)
+
+
+
+
+
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(GameStage())
+
 
 
 class GameSelf(game.scene2d.MyGame):

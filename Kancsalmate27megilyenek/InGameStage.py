@@ -7,17 +7,25 @@ from Kancsalmate27megilyenek.MenuScreen import *
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.PlayerActor import *
 from game.simpleworld.ShapeType import ShapeType
+from Kancsalmate27megilyenek.Labels import *
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.player = PlayerActor()
         self.bg = BackgroundActor()
+        self.eletero : int = 100
+        self.hp = Label()
+        self.add_actor(self.hp)
+        self.hp.set_text("HP:" + self.eletero.__str__())
+        self.hp.x = 500
+        self.hp.y = 500
         self.isWPressed : bool = False
         self.isAPressed : bool = False
         self.isSPressed : bool = False
         self.isDPressed : bool = False
         self.isEscPressed : bool = False
         self.isShiftPressed: bool = False
+        self.hp : int = 100
         self.add_actor(self.bg)
         self.add_actor(self.player)
         self.bg.set_z_index(0)
@@ -25,8 +33,6 @@ class InStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
 
-    def show(self):
-       super().show()
 
     def moveKeys(self, sender, event):
         if event.key == pygame.K_w:
@@ -43,7 +49,7 @@ class InStage(game.scene2d.MyStage):
                         self.isDPressed = True
         if event.key == pygame.K_ESCAPE:
             self.isEscPressed = True
-        if event.key == pygame.K_x:
+        if event.key == pygame.K_LSHIFT:
             self.isShiftPressed = True
 
 
@@ -58,7 +64,7 @@ class InStage(game.scene2d.MyStage):
             self.isDPressed = False
         if event.key == pygame.K_m:
             self.isMPressed = False
-        if event.key == pygame.KMOD_SHIFT:
+        if event.key == pygame.K_LSHIFT:
             self.isShiftPressed = False
 
     def act(self, delta_time: float):
@@ -76,9 +82,6 @@ class InStage(game.scene2d.MyStage):
             self.player.x += x
         if self.isEscPressed:
             quit()
-
-
-        print(self.bg.x, self.bg.y)
 
 
 
