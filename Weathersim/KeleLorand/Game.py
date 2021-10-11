@@ -66,17 +66,16 @@ class GameStage(game.scene2d.MyStage):
             self.currentSeason = self.currentSeason - 1
             print(self.currentSeason)
 
-
-
-
-
-
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        print(self.currentSeason)
 
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(GameStage())
+
 
 
 class GameSelf(game.scene2d.MyGame):
