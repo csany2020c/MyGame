@@ -24,7 +24,7 @@ class Mariostage(game.scene2d.MyStage):
         super().__init__()
 
         self.add_actor(MarioActor())
-        self.add_actor(aMarioActor2())
+        self.add_actor(MarioActor2())
 
 
 class marioscr(game.scene2d.MyScreen):

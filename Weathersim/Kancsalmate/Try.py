@@ -1,52 +1,16 @@
 import random
-
+from Weathersim.Kancsalmate.Actors import *
 import game
 import pygame
-
-class ActorA(game.scene2d.MyActor):
-
-    def __init__(self):
-        super().__init__("landscape.png")
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-
-
-class ActorB(game.scene2d.MyActor):
-
-    def __init__(self):
-        super().__init__("sunny.png")
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-
-class ActorC(game.scene2d.MyActor):
-
-    def __init__(self):
-        super().__init__("cloudy.png")
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-
-class ActorD(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("sun.png")
-
-class ActorSnow(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("snow.png")
-        self.speed = 0
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * self.speed
 
 
 class Stage(game.scene2d.MyStage):
 
     def Keys(self, sender, event):
         if event.key == pygame.K_a:
-            self.isAPressed = True
+            if self.isWPressed == False and self.isSPressed == False and self.isDPressed == False:
+                self.isAPressed = True
+
         if event.key == pygame.K_s:
             self.isSPressed = True
         if event.key == pygame.K_m:
@@ -74,39 +38,36 @@ class Stage(game.scene2d.MyStage):
         self.e = ActorSnow()
         self.e.speed = 100
         self.x = 1
-        self.e.set_z_index(0)
+        self.e.set_z_index(6)
         self.c.set_z_index(1)
         self.b.set_z_index(1)
-        self.d.set_z_index(2)
-        self.c.set_x(0).set_y(0)
-        self.a.set_x(0).set_y(0)
-
+        self.d.set_z_index(3)
+        self.a.set_z_index(5)
+        self.b.set_x = 0
+        self.a.set_x = 0
         self.add_actor(self.a)
-        self.b.set_x(0).set_y(0)
-        for j in range(2, 5):
-            print(j)
+
 
     def act(self, delta_time: float):
         super().act(delta_time)
         if self.isAPressed:
+            self.add_actor(self.d)
             self.add_actor(self.b)
-            self.x = self.x - 1
+
+
 
         if self.isSPressed:
             self.add_actor(self.c)
             self.x = self.x - 1
 
-        if self.isMPressed:
-            self.add_actor(self.d)
-            self.d.set_x(600)
-            self.x = self.x - 1
+
 
         if self.isEPressed:
-            self.b.remove_from_stage()
+            self.b.remove_from_stage(self.d)
 
         if self.isDPressed:
             self.add_actor(self.e)
-            self.e.set_x(random.randrange(100, 500))
+            self.e.set_x(700)
 
 
 
