@@ -12,7 +12,7 @@ class Sunnystage(game.scene2d.MyStage):
         self.add_actor(self.bg)
         self.sun.x = 800
         self.sun.y = 200
-        self.sun.w = 600
+        self.sun.w = 650
 
 class Snowystage(game.scene2d.MyStage):
     def __init__(self):
