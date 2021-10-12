@@ -118,6 +118,21 @@ class EscActor(game.scene2d.MyActor):
         self.x += 10
         self.y += 10
 
+class FCActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/f11.png")
+        self.set_width(50)
+        self.x += 1220
+        self.y += 10
+
+
+class FC2Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("jarasok/fc.png")
+        self.set_width(50)
+        self.x += 1220
+        self.y += 10
+
 
 class Icon1Actor(game.scene2d.MyActor):
     def __init__(self):
@@ -144,4 +159,3 @@ class Icon4Actor(game.scene2d.MyActor):
         self.set_width(50)
         self.x += 160
         self.y += 660
-

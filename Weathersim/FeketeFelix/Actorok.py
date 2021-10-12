@@ -50,3 +50,27 @@ class Madar(game.scene2d.MyActor):
     def act(self, delta_time: float):
             super().act(delta_time)
             self.x += 10
+
+class Sunbuttoninfo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("resc/sunbuttoninfo.png")
+        self.x += 300
+        self.y += 550
+
+class Rainbuttoninfo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("resc/rainbuttoninfo.png")
+        self.x += 1
+        self.y += 600
+
+class Snowbuttoninfo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("resc/snowbuttoninfo.png")
+        self.x += 100
+        self.y += 600
+
+class Snowrainbuttoninfo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("resc/snowrainbuttoninfo.png")
+        self.x += 225
+        self.y += 600
