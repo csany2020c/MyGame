@@ -43,9 +43,18 @@ class GameStage(game.scene2d.MyStage):
         self.P2.x = 1280
         self.P2.y = random.randint(0, 720)
 
+        self.set_on_key_down_listener(self.katt1)
+
     def click(self, sender, event):
         self.D.y -= 50
 
     def click2(self, sender, event):
          if event.button == 1:
             self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+
+    def katt1(self, sender, event):
+        print(sender)
+        if event.key == pygame.K_BACKSPACE:
+            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+        if event.key == pygame.K_ESCAPE:
+            quit()

@@ -21,16 +21,18 @@ class MenuStage(game.scene2d.MyStage):
         self.h1.w = 200
 
         self.h2.x = 525
-        self.h2.y = 400
+        self.h2.y = 550
         self.h2.w = 200
 
         self.b.set_text("Flappy D")
-        self.b.set_x(500)
-        self.b.set_y(100)
+        self.b.x = 500
+        self.b.y = 100
 
         self.i = Info()
         self.add_actor(self.i)
         self.i.width = 250
+        self.i.y = 400
+        self.i.x = 500
 
         self.set_on_key_down_listener(self.key_down)
         self.h1.set_on_mouse_down_listener(self.click1)
@@ -38,7 +40,6 @@ class MenuStage(game.scene2d.MyStage):
         self.i.set_on_mouse_down_listener(self.click2)
 
     def key_down(self, sender, event):
-        # if isinstance(sender, MyBaseActor):
         print(sender)
         print(event)
         if event.key == pygame.K_ESCAPE:
@@ -47,6 +48,8 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_SPACE:
             print("Elindul a játék")
             self.screen.game.set_screen(GameScreen())
+        if event.key == pygame.K_i:
+            self.screen.game.set_screen(IScreen())
 
     def click(self, sender, event):
         if event.button == 1:
