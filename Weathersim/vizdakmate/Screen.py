@@ -36,8 +36,19 @@ class SnowScreen(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(SnowStage())
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.game.screen = SrScreen()
+
 class CloudyScreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
         self.add_stage(CloudyStage())
+
+class SrScreen(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.add_stage(SrStage())
