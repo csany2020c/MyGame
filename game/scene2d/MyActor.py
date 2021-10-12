@@ -17,7 +17,10 @@ class MyActor(MyBaseActor):
     def set_image_url(self, image_url: str) -> 'MyActor':
         self._image_url = image_url
         # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
-        self.original_image = pygame.image.load(self._image_url).convert_alpha()
+        try:
+            self.original_image = pygame.image.load(self._image_url).convert_alpha()
+        except:
+            print("A képernyő nincs inicializálva.")
         return self
 
     def get_image_url(self) -> str:
