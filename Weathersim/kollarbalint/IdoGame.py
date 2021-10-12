@@ -14,6 +14,9 @@ class Ido(game.scene2d.MyGame):
     def key_down(self, sender, event):
         print(sender)
         print(event)
+        if event.key == pygame.K_F11:
+            pygame.display.toggle_fullscreen()
+            print("'FULLSCREEN'")
         if event.key == pygame.K_BACKSPACE:
             self.screen = MenuScr()
             print("'VISSZA'")
@@ -31,6 +34,5 @@ class Ido(game.scene2d.MyGame):
         if event.key == pygame.K_ESCAPE:
             quit()
             print("'QUIT'")
-
 
 Ido().run()
