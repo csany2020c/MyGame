@@ -1,5 +1,6 @@
 import pygame
 from SzBKScreen import *
+import random
 
 
 class IdoSim(game.scene2d.MyGame):
@@ -8,6 +9,7 @@ class IdoSim(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = Sutanap()
         self.set_on_key_down_listener(self.key_down)
+        pygame.mouse.set_visible(0)
 
     def key_down(self, sender, event):
         print(sender)
@@ -30,6 +32,11 @@ class IdoSim(game.scene2d.MyGame):
         if event.key == pygame.K_4:
             print("444444444444444444444444444444")
             self.screen = Esikmindketo()
+
+        if event.key == pygame.K_F11:
+            print("555555555555555555555555555555")
+            pygame.display.toggle_fullscreen()
+
 
 
 IdoSim().run()

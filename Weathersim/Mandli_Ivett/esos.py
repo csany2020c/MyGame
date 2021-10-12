@@ -25,21 +25,47 @@ class ActorC(game.scene2d.MyActor):
             self.y += delta_time * 180
 
 
+class ActorD(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("villam.png")
+
+
+class ActorE(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("villamketo.png")
+        self.set_width(200)
+
+
+class ActorF(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("felho2.png")
+        self.set_width(800)
+
+
 class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.a = ActorA()
         self.b = ActorB()
         self.c = ActorC()
+        self.d = ActorD()
+        self.d.set_x(700).set_y(100)
+        self.e = ActorE()
+        self.e.set_x(900).set_y(100)
+        self.f = ActorF()
+        self.f.set_x(525).set_y(-150)
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
+        self.add_actor(self.d)
+        self.add_actor(self.e)
+        self.add_actor(self.f)
         self.set_on_key_down_listener(self.key_down)
 
-        for i in range(1000):
+        for i in range(1500):
             self.rain = ActorC()
             self.add_actor(self.rain)
-            self.rain.x = random.Random().randint(-1000, 1300)
+            self.rain.x = random.Random().randint(0, 1240)
             self.rain.y = random.Random().randint(-3000, 750)
 
     def key_down(self, sender, event):

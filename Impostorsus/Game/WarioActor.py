@@ -1,6 +1,6 @@
 import game
 
-class WarioActor(game.scene2d.MyActor):
+class Wario4Actor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("Kepek/Wario.png")
+        super().__init__("Kepek/actorsusus.png")

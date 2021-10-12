@@ -6,9 +6,9 @@ Készítők:
 Specifikáció:
 - A játék neve Flappy D lesz
 - Egy flappy bird-re hasonlító játék elkészítése, amely tartalmazni fog egy pontszámlálot.
-- A pontszámláló kiírja, hogy hány pontot értünk el a játékban ütközés nélkül.
-- Tesztpálya, ami nagyon könnyített játék lesz, de ez még bizonytalan.
-- Flappy bird helyett egy másik karakter lesz behelyetesítve
+- A pontszámláló kiírja, hogy hány pontot értünk el a programban ütközés nélkül.
+- Flappy bird helyett egy másik karakter lesz behelyetesítve.
 - Valamint egy igényes menű is fog készülni.
-- A menűben lehetőség lesz majd megnézni az irányítást, ahol szépen le lesz majd írva melyik billentyűt lett beépítve a játékba
+- A menűben lehetőség lesz majd megnézni az irányítás.
+- Zene és egyéb hangok is lesznek a szoftwere-ben.
 - Ez a lista eltérhet a végleges változattól!

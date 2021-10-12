@@ -63,7 +63,7 @@ class f_stage_m(game.scene2d.MyStage):
         self.add_actor(self.t6)
         self.t6.set_text("Help")
         self.t6.x = 1160
-        self.t6.y = 640
+        self.t6.y = 630
         self.t6.set_on_mouse_down_listener(self.click5)
 
     def key_down(self, sender, event):
@@ -80,31 +80,37 @@ class f_stage_m(game.scene2d.MyStage):
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen2.f_screen2())
         if event.key == pygame.K_3:
             print("Eső")
-            self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen3.f_screen3.f_screen3())
+            self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen3.f_screen3())
         if event.key == pygame.K_4:
             print("Havazás")
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen4.f_screen4())
 
     def click(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen1.f_screen1())
 
     def click1(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen2.f_screen2())
 
     def click2(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen3.f_screen3())
 
     def click3(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen4.f_screen4())
 
     def click4(self, sender, event):
+        print(sender)
         if event.button == 1:
             quit()
 
     def click5(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_h.f_screen_h())

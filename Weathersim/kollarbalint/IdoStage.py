@@ -233,8 +233,6 @@ class MenuStage(game.scene2d.MyStage):
         self.fullscreen.y += 420
         self.fullscreen.set_on_mouse_down_listener(self.fullscreengomb)
 
-
-
     def click(self, sender, event):
         print(sender)
         print(event)
@@ -321,6 +319,14 @@ class InfoStage(game.scene2d.MyStage):
         self.infof.set_height(45)
         self.infof.x += 320
         self.infof.y += 515
+        self.infok = MenuSzoveg()
+        self.add_actor(self.infok)
+        self.infok.set_text("F11 = FULLSCREEN")
+        self.infok.set_alpha(500)
+        self.infok.set_width(45)
+        self.infok.set_height(45)
+        self.infok.x += 320
+        self.infok.y += 580
 
 
 

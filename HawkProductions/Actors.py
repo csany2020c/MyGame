@@ -26,24 +26,15 @@ class Deagle(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
+        #self.r += 5*delta_time
 
 
-class Pile1(game.scene2d.MyActor):
+class Pile(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/oszlop-f.png")
+        super().__init__("image/oszlop.png")
 
     def act(self, delta_time: float):
         self.x -= 75 * delta_time
-        if self.x < 0:
-            self.x = 1280
-
-
-class Pile2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/oszlop-a.png")
-
-    def act(self, delta_time: float):
-        self.x -= 75*delta_time
         if self.x < 0:
             self.x = 1280
 
@@ -61,3 +52,8 @@ class Main(game.scene2d.MyActor):
 class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
+
+
+class Info(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/info.png")

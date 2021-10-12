@@ -1,3 +1,0 @@
-from Game import *
-
-Wario()
