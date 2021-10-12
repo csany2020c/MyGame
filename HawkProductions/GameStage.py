@@ -1,11 +1,8 @@
 import game
 import pygame
-import time
 import random
-#from time import sleep
 from HawkProductions.Actors import *
-from Anything import *
-from HawkProductions.MenuScreen import *
+import HawkProductions.MenuScreen
 
 
 class GameStage(game.scene2d.MyStage):
@@ -27,38 +24,28 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.x = 0
         self.arrow.y = 5
         self.arrow.w = 125
-        #self.arrow.set_on_mouse_down_listener(self.click2)
-        #self.set_on_key_down_listener(self.key_down)
+        self.arrow.set_on_mouse_down_listener(self.click2)
 
-        for i in range(2):
-            self.P1 = Pile1()
-            self.P1.set_hitbox_scale_h = 0.35
-            self.P1.set_hitbox_scale_w = 0.2
-            self.add_actor(self.P1)
-            self.P1.set_size(width=250, height=250)
-            self.P1.x = 1280
-            self.P1.y = random.randint(0, 720)
-            self.P2 = Pile2()
-            self.P2.set_hitbox_scale_h = 0.35
-            self.P2.set_hitbox_scale_w = 0.2
-            self.add_actor(self.P2)
-            self.P2.set_size(width=250, height=250)
-            self.P2.x = 1280
-            self.P2.y = random.randint(0, 720)
-            time.sleep(1)
+        #for i in range(2):
+        self.P1 = Pile1()
+        self.P1.set_hitbox_scale_h = 0.35
+        self.P1.set_hitbox_scale_w = 0.2
+        self.add_actor(self.P1)
+        self.P1.set_size(width=250, height=250)
+        self.P1.x = 1280
+        self.P1.y = random.randint(0, 720)
 
-    #def key_down(self, sender, event):
-     #   print(sender)
-      #  print(event)
-       # if event.key == pygame.K_BACKSPACE:
-        #    print("Elindul a játék")
-         #   self.screen.game.set_screen(MenuScreen())
-
-
+        self.P2 = Pile2()
+        self.P2.set_hitbox_scale_h = 0.35
+        self.P2.set_hitbox_scale_w = 0.2
+        self.add_actor(self.P2)
+        self.P2.set_size(width=250, height=250)
+        self.P2.x = 1280
+        self.P2.y = random.randint(0, 720)
 
     def click(self, sender, event):
         self.D.y -= 50
 
-    #def click2(self, sender, event):
-     #if event.button == 1:
-      #self.screen.game.set_screen(MenuScreen())
+    def click2(self, sender, event):
+         if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
