@@ -3,6 +3,7 @@ import pygame
 from kuposztok.Game.GameActor import *
 from kuposztok.Game.GameActor import *
 import kuposztok
+from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
 class GameStage(game.scene2d.MyStage):
@@ -30,14 +31,21 @@ class GameStage(game.scene2d.MyStage):
         self.joseph.x = 200
         self.joseph.y = 500
 
+        self.t = MyIntervalTimer(func=self.interval, start_time=3, stop_time=5)
+        self.joseph.add_timer(self.t)
+
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_down_listener(self.iranyitas)
 
-    def iranyitas(self, sender, event, a=10):
+    def iranyitas(self, sender, event, a=50):
         if event.key == pygame.K_w:
             self.joseph.y -= a
         if event.key == pygame.K_s:
             self.joseph.y += a
+        if event.key == pygame.K_SPACE:
+            self.joseph.y -=a
+            self.joseph.add_timer(self.t)
+            self.joseph.y +=a
         if event.key == pygame.K_d:
             self.joseph.x += a
         if event.key == pygame.K_a:
@@ -48,6 +56,10 @@ class GameStage(game.scene2d.MyStage):
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def interval(self, sender):
+        self.joseph.x += 100*self.get_delta_time()
+        pass
 
 
 
