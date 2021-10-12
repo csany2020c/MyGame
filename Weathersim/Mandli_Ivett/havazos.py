@@ -26,22 +26,31 @@ class ActorC(game.scene2d.MyActor):
             self.rotate_with(delta_time * 20)
 
 
+class ActorD(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("felho2.png")
+        self.set_width(800)
+
+
 class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.a = ActorA()
         self.b = ActorB()
         self.c = ActorC()
+        self.d = ActorD()
+        self.d.set_x(525).set_y(-150)
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
+        self.add_actor(self.d)
         self.set_on_key_down_listener(self.key_down)
 
         for i in range(500):
             self.snow = ActorC()
             self.add_actor(self.snow)
-            self.snow.x = random.Random().randint(-1000, 1300)
-            self.snow.y = random.Random().randint(-3000, 750)
+            self.snow.x = random.Random().randint(0, 1240)
+            self.snow.y = random.Random().randint(-5000, 750)
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:

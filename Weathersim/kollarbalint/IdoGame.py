@@ -2,6 +2,9 @@ import game
 import pygame
 from Weathersim.kollarbalint.IdoScreen import *
 from Weathersim.kollarbalint.IdoStage import *
+from Weathersim.kollarbalint.IdoScreen import *
+from Weathersim.kollarbalint.IdoActors import *
+from Weathersim.kollarbalint.IdoSzoveg import *
 
 class Ido(game.scene2d.MyGame):
 
@@ -9,7 +12,6 @@ class Ido(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = MenuScr()
         self.set_on_key_down_listener(self.key_down)
-
 
     def key_down(self, sender, event):
         print(sender)
