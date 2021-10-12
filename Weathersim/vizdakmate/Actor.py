@@ -35,3 +35,8 @@ class Snow(game.scene2d.MyActor):
 class Cloudy(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("cloudy.png")
+
+class Sr(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("snow.png")
+        super().__init__("rain.png")
