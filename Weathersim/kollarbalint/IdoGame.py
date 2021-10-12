@@ -37,5 +37,4 @@ class Ido(game.scene2d.MyGame):
             quit()
             print("'QUIT'")
 
-
 Ido().run()
