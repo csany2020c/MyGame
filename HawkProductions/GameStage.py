@@ -33,7 +33,7 @@ class GameStage(game.scene2d.MyStage):
             self.P1.set_hitbox_scale_w = 0.2
             self.P1.set_size(width=250, height=250)
             self.P1.x = random.randint(1280, 5000)
-            self.P1.y = random.randint(0, 720)
+            self.P1.y = random.randint(-250, 720)
 
         self.set_on_key_down_listener(self.katt)
         self.P2 = Pile()
@@ -44,8 +44,6 @@ class GameStage(game.scene2d.MyStage):
         self.P2.x = 1280
         self.P2.y = random.randint(0, 720)
 
-
-        self.set_on_key_down_listener(self.katt)
 
     def click(self, sender, event):
         self.D.y -= 50
@@ -62,6 +60,8 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_w:
-            self.D -= 50
+            self.D.y -= 50
+            self.D.r -= 3.5
+
         if event.key == pygame.K_s:
-            self.D += 50
+            self.D.y += 50
