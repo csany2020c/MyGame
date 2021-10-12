@@ -1,6 +1,4 @@
-from Weathersim.olahgergo.napsutes import *
-import game
-
+from Weathersim.olahgergo.Nap.napstage import *
 
 class NapScreen(game.scene2d.MyScreen):
 

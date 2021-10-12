@@ -75,3 +75,12 @@ class havasesos(game.scene2d.MyActor):
         self.map = super().__init__('images/havaseso.png')
 
 
+class menukep(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/alap.png')
+
+class semmi(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/semmi.png')

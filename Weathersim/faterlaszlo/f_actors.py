@@ -25,6 +25,9 @@ class napocska(game.scene2d.MyActor):
         self.r += 10 * delta_time
         self.x += 1.5 + delta_time
 
+        if self.elapsed_time > 8:
+            self.x = 750
+
 class havazas(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/snow.png")
@@ -57,6 +60,12 @@ class apple(game.scene2d.MyActor):
 class cloud(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/cloud.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += 90 * delta_time
+        if self.elapsed_time > 10:
+            self.x = 1000
 
 class snowman(game.scene2d.MyActor):
     def __init__(self):
