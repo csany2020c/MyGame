@@ -1,5 +1,5 @@
 import game
-import pygame
+
 from Impostorsus.Game.WarioActor import *
 from Impostorsus.Game.WarioStage import *
 from Impostorsus.Game.WarioScreen import *
