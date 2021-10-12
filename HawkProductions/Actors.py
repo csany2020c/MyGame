@@ -26,6 +26,7 @@ class Deagle(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
+        self.r += 5*delta_time
 
 
 class Pile(game.scene2d.MyActor):
