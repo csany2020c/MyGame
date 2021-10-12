@@ -14,16 +14,16 @@ class MenuStage(game.scene2d.MyStage):
 
         self.semmi = semmi()
         self.add_actor(self.semmi)
-        self.semmi.height = 97
-        self.semmi.width = 299
-        self.semmi.y = 408
-        self.semmi.x = 6
+        self.semmi.height = 46
+        self.semmi.width = 466
+        self.semmi.y = 294
+        self.semmi.x = 405
 
         self.semmi.set_on_mouse_down_listener(self.asd1)
 
     def asd1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.olahgergo.Nap.napscreen.NapScreen)
+            self.screen.game.set_screen(Weathersim.olahgergo.Nap.napscreen.NapScreen())
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:

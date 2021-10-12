@@ -84,3 +84,8 @@ class semmi(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('images/semmi.png')
+
+class vissza(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/vissza.png')
