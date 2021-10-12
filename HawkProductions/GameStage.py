@@ -1,3 +1,4 @@
+import time
 import game
 import pygame
 import random
@@ -26,24 +27,24 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
 
-        for i in range(20):
-            self.P1 = Pile()
-            self.add_actor(self.P1)
-            self.P1.set_hitbox_scale_h = 0.35
-            self.P1.set_hitbox_scale_w = 0.2
-            self.P1.set_size(width=250, height=250)
-            self.P1.x = random.randint(1280, 5000)
-            self.P1.y = random.randint(0, 720)
+        if self.elapsed_time > 8:
+            for i in range(20):
+                self.P1 = Pile()
+                self.add_actor(self.P1)
+                self.P1.set_hitbox_scale_h = 0.35
+                self.P1.set_hitbox_scale_w = 0.2
+                self.P1.set_size(width=250, height=250)
+                self.P1.x = random.randint(1280, 3000)
+                self.P1.y = random.randint(20, 700)
 
-        self.set_on_key_down_listener(self.katt)
+        """self.set_on_key_down_listener(self.katt)
         self.P2 = Pile()
         self.P2.set_hitbox_scale_h = 0.35
         self.P2.set_hitbox_scale_w = 0.2
         self.add_actor(self.P2)
         self.P2.set_size(width=250, height=250)
         self.P2.x = 1280
-        self.P2.y = random.randint(0, 720)
-
+        self.P2.y = random.randint(0, 720)"""
 
         self.set_on_key_down_listener(self.katt)
 
@@ -62,6 +63,8 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_w:
-            self.D -= 50
+            self.D.y -= 50
+            self.D.r -= 5
         if event.key == pygame.K_s:
-            self.D += 50
+            self.D.y += 50
+            self.D.r += 5
