@@ -18,19 +18,19 @@ class MenuStage(game.scene2d.MyStage):
         for x in range(0, random.randint(75, 120)):
             e = Esocsepp()
             e.y = random.randint(-500, 300)
-            e.x = random.randint(0, 420) - e.width
+            e.x = random.randint(30, 420) - e.width
             self.add_actor(e)
 
         for j in range(0, random.randint(100, 170)):
             h = Hopehely()
             h.y = random.randint(-500, 500)
-            h.x = random.randint(430, 845) - h.width
+            h.x = random.randint(460, 845) - h.width
             self.add_actor(h)
 
         for x in range(0, random.randint(20, 30)):
             he = HavasesoCseppMenube()
             he.y = random.randint(360, 500)
-            he.x = random.randint(430, 845) - he.width
+            he.x = random.randint(460, 845) - he.width
             self.add_actor(he)
 
         self.naposbutton = NaposButton()
