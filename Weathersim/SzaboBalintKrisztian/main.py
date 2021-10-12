@@ -1,5 +1,6 @@
 import pygame
 from SzBKScreen import *
+import random
 
 
 class IdoSim(game.scene2d.MyGame):
@@ -30,6 +31,11 @@ class IdoSim(game.scene2d.MyGame):
         if event.key == pygame.K_4:
             print("444444444444444444444444444444")
             self.screen = Esikmindketo()
+
+        if event.key == pygame.K_F11:
+            print("555555555555555555555555555555")
+            pygame.display.toggle_fullscreen()
+
 
 
 IdoSim().run()
