@@ -1,4 +1,5 @@
 import game
+import pygame
 
 class SunnySky(game.scene2d.MyActor):
     def __init__(self):
@@ -28,4 +29,21 @@ class RainDrop(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y +=delta_time * 300
+        self.y +=delta_time * 100
+
+class SnowDrop(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("pictures/snow.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y +=delta_time * 100
+
+class MenuBg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("pictures/menu.png")
+
+class MenuText(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "Text") -> None:
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
