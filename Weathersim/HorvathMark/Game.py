@@ -13,11 +13,17 @@ class Game(game.scene2d.MyGame):
             if event.key == pygame.K_ESCAPE:
                 exit()
 
-            if event.key == pygame.K_d:
+            if event.key == pygame.K_s:
                 self.screen = Snowyscreen()
 
-            if event.key == pygame.K_f:
+            if event.key == pygame.K_n:
                 self.screen = Sunnyscreen()
+
+            if event.key == pygame.K_r:
+                self.screen = Rainyscreen()
+
+            if event.key == pygame.K_h:
+                self.screen = SnowyRainscreen()
 
         self.set_on_key_press_listener(key_down)
 

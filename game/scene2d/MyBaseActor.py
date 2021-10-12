@@ -90,7 +90,7 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         if self._stage is not None:
             try:
                 self._stage.remove_actor(actor=self)
-            except ValueError:
+            except:
                 print("A következő objektum már el lett távolítva korábban: " + str(id(self)))
 
     def set_stage(self, stage: 'MyStage') -> 'MyBaseActor':
@@ -139,6 +139,8 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         return self._y
 
     def set_width(self, width: float, aspect_ratio: bool = True) -> 'MyBaseActor':
+        if self.w == 0:
+            return self
         if aspect_ratio:
             self.set_size(width, float(float(self.h) * (float(width) / float(self.w))))
         else:
@@ -146,6 +148,8 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         return self
 
     def set_height(self, height: float, aspect_ratio: bool = True) -> 'MyBaseActor':
+        if self.h == 0:
+            return self
         if aspect_ratio:
             self.set_size(float(float(self.w) * (float(height) / float(self.h))), height)
         else:
