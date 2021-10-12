@@ -10,7 +10,7 @@ class SunnyStage(game.scene2d.MyStage):
         super().__init__()
         self.set_on_key_down_listener(self.key_down)
         self.add_actor(Sunny())
-        self.Rain = Rain()
+        #self.Rain = Rain()
         self.add_actor(Background())
         self.Sun = Sun()
         self.add_actor(self.Sun)
@@ -86,7 +86,7 @@ class SrStage(game.scene2d.MyStage):
             self.Rain.width = 60
             self.Rain.height = 60
             self.Rain.x = random.Random().randint(-1000, 1270)
-            self.Rain.y = random.Random().randint(-3000, 770)
+            self.Rain.y = random.Random().randint(-5000, 770)
         for i in range(200):
             self.Snow = Snow()
             self.add_actor(self.Snow)

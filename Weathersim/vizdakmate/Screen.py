@@ -9,7 +9,7 @@ class SunnyScreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 7:
             self.game.screen = SnowScreen()
 
 
@@ -38,7 +38,7 @@ class SnowScreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.game.screen = SrScreen()
 
 class CloudyScreen(game.scene2d.MyScreen):
