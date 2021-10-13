@@ -48,6 +48,12 @@ class felhocske(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/felhocske.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time * 50
+        if self.x > 1300:
+            self.x = 50
+
 class menustage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -148,8 +154,38 @@ class rainstage(game.scene2d.MyStage):
         self.felhocske.y =70
         self.felhocske.z_index = 2
         self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =190
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = -10
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 410
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 190
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = -10
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 1070
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
 
-        for i in range(80):
+        for i in range(35):
             self.rain = rain()
             self.rain.width = 70
             self.rain.height = 70
@@ -226,6 +262,66 @@ class havasesostage(game.scene2d.MyStage):
         self.add_actor(self.cloudy)
         self.landscape=landscape()
         self.add_actor(self.landscape)
+        self.felhocske = felhocske()
+        self.felhocske.x = 850
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 630
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 410
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 1070
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 850
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 610
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 190
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = -10
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 410
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 190
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = -10
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 1070
+        self.felhocske.y = 70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
         for i in range(50):
             self.snow=snow()
             self.snow.width=70
@@ -284,7 +380,7 @@ class Program(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
-        self.screen = snowscreen()
+        self.screen = havasesoscreen()
 
 
 Program().run()
