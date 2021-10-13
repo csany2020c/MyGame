@@ -1,11 +1,11 @@
-import Weathersim
-import game
-import random
+import Weathersim.olahgergo.menu.menuu
+from Weathersim.olahgergo.havazas.hoscreen import *
 from Weathersim.olahgergo.actors import *
+import pygame
+import game
 
 
-class HoStage(game.scene2d.MyStage):
-
+class HavStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
@@ -28,12 +28,5 @@ class HoStage(game.scene2d.MyStage):
             self.ho.x = random.randint(a=0, b=1280)
             self.ho.y = random.randint(a=-0, b=720)
             self.add_actor(self.ho)
-
-        self.naposbutton = esoke()
-        self.add_actor(self.naposbutton)
-        self.naposbutton.width = 125
-        self.naposbutton.height = 75
-        self.naposbutton.y = 0
-        self.naposbutton.x = 0
 
 

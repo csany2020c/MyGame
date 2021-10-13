@@ -68,27 +68,27 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(self.exitbutton)
         self.exitbutton.set_on_mouse_down_listener(self.exit_button_click)
 
-    def napos_button_click(self, event):
+    def napos_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.NaposScreen())
             print("Napos Screen")
 
-    def esos_button_click(self, event):
+    def esos_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.EsosScreen())
             print("Esős Screen")
 
-    def havas_button_click(self, event):
+    def havas_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasScreen())
             print("Havas Screen")
 
-    def havaseso_button_click(self, event):
+    def havaseso_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
             print("Havaseső Screen")
 
-    def exit_button_click(self, event):
+    def exit_button_click(self, sender, event):
         if event.button == 1:
             print("Exit! Viszlát :(")
             quit()
