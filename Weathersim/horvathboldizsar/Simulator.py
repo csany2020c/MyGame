@@ -8,7 +8,7 @@ class Simulator(game.scene2d.MyGame):
         super().__init__(width, height)
         self.screen = MenuScreen()
 
-        def key_down(event):
+        def key_down(sender, event):
 
             if event.key == pygame.K_ESCAPE:
                 print("Exit! Viszlát :(")
