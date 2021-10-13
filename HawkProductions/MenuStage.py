@@ -35,11 +35,6 @@ class MenuStage(game.scene2d.MyStage):
         self.i.y = 400
         self.i.x = 500
 
-        self.s = Selectimage()
-        self.add_actor(self.s)
-        self.s.w = 100
-        self.s.x = 1155
-        self.s.y = 10
         #self.s.set_on_mouse_down_listener(self.click3)
 
         self.set_on_key_down_listener(self.key_down)
