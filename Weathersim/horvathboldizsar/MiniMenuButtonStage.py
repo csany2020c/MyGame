@@ -43,22 +43,22 @@ class MiniStage(game.scene2d.MyStage):
         self.add_actor(self.minihobutton)
         self.minihobutton.set_on_mouse_down_listener(self.mini_ho_button_click)
 
-    def menu_button_click(self, event):
+    def menu_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
 
-    def mini_nap_button_click(self, event):
+    def mini_nap_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.NaposScreen())
 
-    def mini_eso_button_click(self, event):
+    def mini_eso_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.EsosScreen())
 
-    def mini_havaseso_button_click(self, event):
+    def mini_havaseso_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
 
-    def mini_ho_button_click(self, event):
+    def mini_ho_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasScreen())
