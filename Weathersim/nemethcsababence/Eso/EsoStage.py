@@ -1,4 +1,5 @@
 import Weathersim
+import pygame
 from Weathersim.nemethcsababence.Eso.EsoActors import *
 import Weathersim.nemethcsababence.Menu.menu
 import random
@@ -49,9 +50,13 @@ class EsoStage(game.scene2d.MyStage):
         self.button1.height = 75
         self.button1.y = 0
         self.button1.x = 0
+        self.set_on_key_down_listener(self.nyom1)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.nemethcsababence.Menu.menu.MenuScreen())
 
+    def nyom1(self,sender, event):
+        if event.key == pygame.K_ESCAPE:
+            self.screen.game.set_screen(Weathersim.nemethcsababence.Menu.menu.MenuScreen())

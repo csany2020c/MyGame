@@ -4,7 +4,8 @@ from Weathersim.nemethcsababence.Menu.MenuActors import *
 import game
 from Weathersim.nemethcsababence.Eso.EsoScreen import *
 from Weathersim.nemethcsababence.Havazas.HavazasScreen import *
-from Weathersim.nemethcsababence.Havaseso.HavasesoScreen import *
+from Weathersim.nemethcsababence.Havaseso.HavasesoScreen import HavasesoScreen
+from Weathersim.nemethcsababence.Havaseso.HavasesoActors import *
 from Weathersim.nemethcsababence.Napsutes.NapsutesScreen import *
 from game.scene2d.MyScreen import *
 

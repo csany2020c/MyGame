@@ -16,9 +16,8 @@ class GameStage(game.scene2d.MyStage):
         self.D = Deagle()
         self.add_actor(self.D)
         self.D.y = 250
-        self.D.x = 50
-        self.D.width = 100
-        self.set_on_mouse_down_listener(self.click)
+        self.D.x = 300
+        self.D.width = 60
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
@@ -27,30 +26,27 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
 
-        if self.elapsed_time > 8:
-            for i in range(20):
-                self.P1 = Pile()
-                self.add_actor(self.P1)
-                self.P1.set_hitbox_scale_h = 0.35
-                self.P1.set_hitbox_scale_w = 0.2
-                self.P1.set_size(width=250, height=250)
-                self.P1.x = random.randint(1280, 3000)
-                self.P1.y = random.randint(20, 700)
-
-        """self.set_on_key_down_listener(self.katt)
-        self.P2 = Pile()
-        self.P2.set_hitbox_scale_h = 0.35
-        self.P2.set_hitbox_scale_w = 0.2
-        self.add_actor(self.P2)
-        self.P2.set_size(width=250, height=250)
-        self.P2.x = 1280
-        self.P2.y = random.randint(0, 720)"""
+        self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
+        self.add_timer(game.scene2d.MyTickTimer(self.add_asd2, 5))
 
         self.set_on_key_down_listener(self.katt)
 
-    def click(self, sender, event):
-        self.D.y -= 50
-        self.D.r -= 3.5
+    def add_asd(self, sender):
+        self.P1 = Pile()
+        self.add_actor(self.P1)
+        self.P1.set_hitbox_scale_h = 0.35
+        self.P1.set_hitbox_scale_w = 0.2
+        self.P1.set_size(width=250, height=250)
+        self.P1.x = 1280
+        self.P1.y = random.randint(10, 500)
+        self.P1.width = 600
+
+    def add_asd2(self, sender):
+        self.C = Coin()
+        self.add_actor(self.C)
+        self.C.x = 1280
+        self.C.y = random.randint(10, 500)
+        self.C.width = 300
 
     def click2(self, sender, event):
          if event.button == 1:
@@ -64,7 +60,7 @@ class GameStage(game.scene2d.MyStage):
             quit()
         if event.key == pygame.K_w:
             self.D.y -= 50
-            self.D.r -= 5
+            self.D.r -= 15
         if event.key == pygame.K_s:
             self.D.y += 50
-            self.D.r += 5
+            self.D.r += 15
