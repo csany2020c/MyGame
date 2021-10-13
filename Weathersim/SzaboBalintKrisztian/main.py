@@ -8,7 +8,6 @@ class IdoSim(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
         self.screen = Sutanap()
-        self.i1 = Icon1Actor()
         self.set_on_key_down_listener(self.key_down)
         pygame.mouse.set_visible(0)
 
@@ -37,7 +36,6 @@ class IdoSim(game.scene2d.MyGame):
         if event.key == pygame.K_F11:
             print("555555555555555555555555555555")
             pygame.display.toggle_fullscreen()
-
 
 
 IdoSim().run()

@@ -31,9 +31,6 @@ class GameStage(game.scene2d.MyStage):
         self.joseph.x = 200
         self.joseph.y = 500
 
-        self.t = MyIntervalTimer(func=self.interval, start_time=3, stop_time=5)
-        self.joseph.add_timer(self.t)
-
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_down_listener(self.iranyitas)
 
@@ -57,9 +54,6 @@ class GameStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
-    def interval(self, sender):
-        self.joseph.x += 100*self.get_delta_time()
-        pass
 
 
 
