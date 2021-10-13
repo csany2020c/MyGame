@@ -51,6 +51,11 @@ class MyMouseListeners:
             self._on_mouse_move_listener(sender, event)
             return True
 
+    def on_mouse_wheel(self, sender: object, event: pygame.event.Event) -> bool:
+        if self._on_mouse_wheel_listener is not None:
+            self._on_mouse_wheel_listener(sender, event)
+            return True
+
     def do_mouse_event(self, sender: object, event: pygame.event.Event) -> bool:
         ret: bool = False
         if event.type == pygame.MOUSEMOTION:
