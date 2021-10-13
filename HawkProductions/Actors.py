@@ -28,6 +28,16 @@ class Deagle(game.scene2d.MyActor):
         self.y += 75*delta_time
         #self.r += 5*delta_time
 
+class Deagle_s(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__("image/bid2.png")
+
+class Deagle2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/Select.png")
+
+
 
 class Pile(game.scene2d.MyActor):
     def __init__(self):
@@ -57,3 +67,7 @@ class Arrow(game.scene2d.MyActor):
 class Info(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/info.png")
+
+class Selectimage(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/Select.png")

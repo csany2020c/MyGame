@@ -1,7 +1,8 @@
+import Weathersim.olahgergo.menu.idojarasm
 import Weathersim.olahgergo.menu.menuu
 from Weathersim.olahgergo.actors import *
 
-class NapStage(game.scene2d.MyStage):
+class HavStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -9,19 +10,12 @@ class NapStage(game.scene2d.MyStage):
         self.hatter.width = 1280
         self.hatter.height = 720
         self.hatter.z_index = 3
-        self.eg = vilagoseg()
-        self.eg.width = 1920
-        self.eg.height = 1300
-        self.eg.z_index = 1
-        self.nap = napnap()
-        self.nap.width = 500
-        self.nap.height = 500
-        self.nap.y = 50
-        self.nap.x = 500
-        self.nap.z_index = 2
+        self.feg = felhoeg()
+        self.feg.width = 1920
+        self.feg.height = 1300
+        self.feg.z_index = 1
         self.add_actor(self.hatter)
-        self.add_actor(self.eg)
-        self.add_actor(self.nap)
+        self.add_actor(self.feg)
 
         self.zsa = vissza()
         self.add_actor(self.zsa)
@@ -35,3 +29,4 @@ class NapStage(game.scene2d.MyStage):
     def asd2(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.olahgergo.menu.menuu.MenuScreen())
+
