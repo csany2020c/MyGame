@@ -99,10 +99,6 @@ class GameStage(game.scene2d.MyStage):
         self.button4.set_on_mouse_down_listener(self.Kattintas_havas_eso)
         self.button5.set_on_mouse_down_listener(self.Kattintas_exit)
 
-    def key_down(self, sender, event):
-        if event.key == pygame.K_ESCAPE:
-            quit()
-
     def Kattintas_napos(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.troznai_roland.napos.Screen())
