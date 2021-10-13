@@ -165,10 +165,40 @@ class snowstage(game.scene2d.MyStage):
         self.snow.y=-130
         self.add_actor(self.snow)
         self.landscape=landscape()
+        self.landscape.z_index = 2
         self.add_actor(self.landscape)
         self.cloudy=cloudy()
+        self.cloudy.z_index = 1
         self.add_actor(self.cloudy)
-        self.snow.z_index = 5
+        self.snow.z_index = 3
+        for i in range(50):
+            self.snow=snow()
+            self.snow.width=70
+            self.snow.height=70
+            self.add_actor(self.snow)
+            self.snow.x=random.Random().randint(0,1280)
+            self.snow.y=random.Random().randint(0,720)
+        self.felhocske = felhocske()
+        self.felhocske.x = 850
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 630
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 410
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 1070
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+
 
 class sunnystage(game.scene2d.MyStage):
     def __init__(self):
@@ -254,7 +284,7 @@ class Program(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
-        self.screen = sunnyscreen()
+        self.screen = snowscreen()
 
 
 Program().run()
