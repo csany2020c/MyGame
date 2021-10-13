@@ -41,3 +41,14 @@ class ActorSnow(game.scene2d.MyActor):
         super().act(delta_time)
         self.y += delta_time * self.speed
 
+class ActorRain(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("rain.png")
+        self.speed = 0
+        self.x = random.randint(0, 720)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * self.speed
+
+

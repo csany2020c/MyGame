@@ -2,17 +2,20 @@ import random
 from Weathersim.Kancsalmate.Actors import *
 import game
 import pygame
-
+from game.scene2d import MyTickTimer
 
 class Stage(game.scene2d.MyStage):
 
     def Keys(self, sender, event):
         if event.key == pygame.K_a:
-            if self.isWPressed == False and self.isSPressed == False and self.isDPressed == False:
-                self.isAPressed = True
+            self.isAPressed = True
+            if self.isAPressed == True:
+                self.napos()
 
         if event.key == pygame.K_s:
             self.isSPressed = True
+            if self.isSPressed == True:
+                self.esos()
         if event.key == pygame.K_m:
             self.isMPressed = True
         if event.key == pygame.K_e:
@@ -31,11 +34,14 @@ class Stage(game.scene2d.MyStage):
         self.isMPressed: bool = False
         self.isEPressed: bool = False
         self.set_on_key_down_listener(self.Keys)
+        self.timer = MyTickTimer(func=self.tik, interval=3)
+        self.timer1 = MyTickTimer(func=self.tikk, interval=3)
         self.a = ActorA()
         self.b = ActorB()
         self.c = ActorC()
         self.d = ActorD()
         self.e = ActorSnow()
+        self.f = ActorRain()
         self.e.speed = 100
         self.x = 1
         self.e.set_z_index(6)
@@ -46,30 +52,36 @@ class Stage(game.scene2d.MyStage):
         self.b.set_x = 0
         self.a.set_x = 0
         self.add_actor(self.a)
+        self.napos()
+
+    def tik(self, sender):
+        print("TIKKK")
+        self.b.remove_from_stage()
+        self.d.remove_from_stage()
+
+    def tikk(self, sender):
+        print("TIKKK")
+        self.c.remove_from_stage()
+        self.f.remove_from_stage()
+
+
+    def napos(self):
+        if self.isAPressed:
+            self.add_actor(self.d)
+            self.add_actor(self.b)
+            self.add_timer(self.timer)
+
+    def esos(self):
+        if self.isSPressed:
+            self.add_actor(self.c)
+
+            self.add_timer(self.timer1)
+
 
 
     def act(self, delta_time: float):
         super().act(delta_time)
 
-        if self.isAPressed:
-            self.add_actor(self.d)
-            self.add_actor(self.b)
-
-
-
-        if self.isSPressed:
-            self.add_actor(self.c)
-            self.d.remove_from_stage()
-            self.b.remove_from_stage()
-
-
-        if self.isEPressed:
-            self.c.remove_from_stage()
-
-
-        if self.isDPressed:
-            self.add_actor(self.e)
-            self.e.set_x(700)
 
 
 
