@@ -1,4 +1,5 @@
-from Weathersim.olahgergo.havazas.hostage_pre import *
+from Weathersim.olahgergo.havazas.hostage import *
+
 
 class HoScreen(game.scene2d.MyScreen):
 
