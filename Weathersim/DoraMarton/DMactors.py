@@ -75,4 +75,10 @@ class exit(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("exit.png")
         self.x = 1060
-        self.y = 490
+        self.y = 500
+        def mouse_down(sender, event):
+            print(event)
+            print(sender)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.exit()
+        self.set_on_mouse_down_listener(mouse_down)
