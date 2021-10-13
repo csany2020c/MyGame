@@ -16,7 +16,7 @@ class rain(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 200
+        self.y += delta_time * 100
         if self.y > 720:
             self.y = -50
 
@@ -26,7 +26,7 @@ class snow(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 200
+        self.y += delta_time * 100
         if self.y > 720:
             self.y = -50
 
@@ -48,21 +48,39 @@ class felhocske(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/felhocske.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time * 40
+        if self.x > 1200:
+            self.x = 200
+
+class rainicon(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('images/rainicon.png')
+
+class havasesoicon(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('images/havasesoicon.png')
+
 class menustage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.nap=nap()
-        self.nap.x=850
-        self.nap.y=-130
-        self.add_actor(self.nap)
-        self.button1=nap()
+        self.rainicon = rainicon()
+        self.rainicon.x = 850
+        self.rainicon.y = 400
+        self.add_actor(self.rainicon)
+        self.button1 = rainstage()
         self.add_actor(self.button1)
         self.button1.x = 850
         self.button1.y = 200
-        self.button1.z_index=4
+        self.button1.z_index = 4
         self.button1.set_on_mouse_down_listener(self.katt1)
         self.set_on_key_down_listener(self.nyom1)
-        self.button2=nap()
+        self.havassesoicon = havasesoicon()
+        self.havasesoicon.x = 950
+        self.havasesoicon.y = 400
+        self.add_actor(self.havasesoicon)
+        self.button2 = havasesostage()
         self.add_actor(self.button2)
         self.button2.x = -200
         self.button2.y = -110
@@ -134,19 +152,13 @@ class rainstage(game.scene2d.MyStage):
         self.felhocske.z_index = 2
         self.add_actor(self.felhocske)
         self.felhocske = felhocske()
-        self.felhocske.x =1070
+        self.felhocske.x =190
         self.felhocske.y =-20
         self.felhocske.z_index = 2
         self.add_actor(self.felhocske)
-        self.felhocske = felhocske()
-        self.felhocske.x =850
-        self.felhocske.y =70
-        self.felhocske.z_index = 2
-        self.add_actor(self.felhocske)
-        self.felhocske = felhocske()
-        self.felhocske.x =610
-        self.felhocske.y =70
-        self.felhocske.z_index = 2
+        self.felhocske.x = 1070
+        self.felhocske.y = -20
+        self.felhocske.z_index = 1
         self.add_actor(self.felhocske)
 
         for i in range(80):
@@ -181,22 +193,26 @@ class snowstage(game.scene2d.MyStage):
         self.felhocske = felhocske()
         self.felhocske.x = 850
         self.felhocske.y = -20
-        self.felhocske.z_index = 2
+        self.felhocske.z_index = 1
         self.add_actor(self.felhocske)
         self.felhocske = felhocske()
         self.felhocske.x = 630
         self.felhocske.y = -20
-        self.felhocske.z_index = 2
+        self.felhocske.z_index = 1
         self.add_actor(self.felhocske)
         self.felhocske = felhocske()
         self.felhocske.x = 410
         self.felhocske.y = -20
-        self.felhocske.z_index = 2
+        self.felhocske.z_index = 1
+        self.add_actor(self.felhocske)
+        self.felhocske.x = 190
+        self.felhocske.y = -20
+        self.felhocske.z_index = 1
         self.add_actor(self.felhocske)
         self.felhocske = felhocske()
         self.felhocske.x = 1070
         self.felhocske.y = -20
-        self.felhocske.z_index = 2
+        self.felhocske.z_index = 1
         self.add_actor(self.felhocske)
 
 
@@ -284,7 +300,7 @@ class Program(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
-        self.screen = snowscreen()
+        self.screen = menuscreen()
 
 
 Program().run()
