@@ -11,12 +11,17 @@ class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.t = Title()
         self.h1 = Startb()
         self.h2 = Exit()
         self.b = Anything()
+        self.add_actor(self.t)
         self.add_actor(self.h1)
         self.add_actor(self.h2)
         self.add_actor(self.b)
+
+        self.t.width = 1300
+
         self.h1.x = 525
         self.h1.y = 250
         self.h1.w = 200
@@ -31,9 +36,8 @@ class MenuStage(game.scene2d.MyStage):
 
         self.i = Info()
         self.add_actor(self.i)
-        self.i.width = 250
         self.i.y = 400
-        self.i.x = 500
+        self.i.x = 523
 
         #self.s.set_on_mouse_down_listener(self.click3)
 
