@@ -62,4 +62,4 @@ class vissza(game.scene2d.MyActor):
 
 class negyesgomb(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("4esgomb")
+        super().__init__("4esgomb.PNG")

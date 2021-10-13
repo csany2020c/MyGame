@@ -21,3 +21,7 @@ class MenuScreen(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(MenuStage())
 
+class havasesoScreen(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.add_stage(havasesostage())
