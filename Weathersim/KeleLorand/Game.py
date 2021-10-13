@@ -578,8 +578,6 @@ class GameStage(game.scene2d.MyStage):
             self.snow5Set = False
 
 
-
-
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
