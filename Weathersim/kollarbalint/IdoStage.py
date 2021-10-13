@@ -233,8 +233,6 @@ class MenuStage(game.scene2d.MyStage):
         self.fullscreen.y += 420
         self.fullscreen.set_on_mouse_down_listener(self.fullscreengomb)
 
-
-
     def click(self, sender, event):
         print(sender)
         print(event)

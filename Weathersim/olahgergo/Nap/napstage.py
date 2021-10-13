@@ -22,3 +22,16 @@ class NapStage(game.scene2d.MyStage):
         self.add_actor(self.hatter)
         self.add_actor(self.eg)
         self.add_actor(self.nap)
+
+        self.zsa = vissza()
+        self.add_actor(self.zsa)
+        self.zsa.width = 125
+        self.zsa.height = 75
+        self.zsa.y = 0
+        self.zsa.x = 0
+
+        self.zsa.set_on_mouse_down_listener(self.asd2)
+
+    def asd2(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.menu.menuu.MenuScreen())

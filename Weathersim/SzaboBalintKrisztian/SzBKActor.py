@@ -159,4 +159,3 @@ class Icon4Actor(game.scene2d.MyActor):
         self.set_width(50)
         self.x += 160
         self.y += 660
-

@@ -2,6 +2,7 @@ from SzBKActor import *
 import random
 from game.scene2d import MyTickTimer
 
+
 class NaposStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -69,6 +70,7 @@ class EsosStage(game.scene2d.MyStage):
         self.csepp = (CseppActor())
         self.add_actor(self.csepp)
         self.csepp.x = random.Random().randint(-500, 1500)
+
 
 class KettosStage(game.scene2d.MyStage):
     def __init__(self):

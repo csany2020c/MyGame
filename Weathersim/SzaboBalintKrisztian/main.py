@@ -10,6 +10,7 @@ class IdoSim(game.scene2d.MyGame):
         self.screen = Sutanap()
         self.i1 = Icon1Actor()
         self.set_on_key_down_listener(self.key_down)
+        pygame.mouse.set_visible(0)
 
     def key_down(self, sender, event):
         print(sender)

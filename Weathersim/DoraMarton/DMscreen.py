@@ -11,8 +11,6 @@ class Sunnyscreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
-            self.game.screen = Snowyscreen()
 
 class Snowyscreen(game.scene2d.MyScreen):
 
@@ -22,8 +20,6 @@ class Snowyscreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
-            self.game.screen = Rainyscreen()
 
 class Rainyscreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -32,8 +28,6 @@ class Rainyscreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
-            self.game.screen = snowyrainyscreen()
 
 class snowyrainyscreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -42,5 +36,9 @@ class snowyrainyscreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
-            self.game.screen = Sunnyscreen()
+
+class Menuscreen(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.add_stage(menustage())
