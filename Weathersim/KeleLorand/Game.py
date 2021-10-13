@@ -7,6 +7,14 @@ class HatterAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/landscape.png")
 
+class FallHatterAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/falllandscape.png")
+
+class SnowHatterAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/snowlandscape.png")
+
 class NaposAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/sunny.png")
@@ -14,7 +22,6 @@ class NaposAct(game.scene2d.MyActor):
 class NapAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/sun.png")
-
 
 class SzurkeAct(game.scene2d.MyActor):
     def __init__(self):
@@ -136,12 +143,17 @@ class GameStage(game.scene2d.MyStage):
         self.raindrop4 = Esocsepp4()
         self.raindrop5 = Esocsepp5()
 
+        self.hattersnow = SnowHatterAct()
+        self.hatterfall = FallHatterAct()
+
         self.snow = Hopehely()
         self.snow2 = Hopehely2()
         self.snow3 = Hopehely3()
         self.snow4 = Hopehely4()
         self.snow5 = Hopehely5()
 
+        self.hatterfall.z_index = 6
+        self.hattersnow.z_index = 6
         self.hatter_bg.z_index = 6
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
@@ -189,8 +201,8 @@ class GameStage(game.scene2d.MyStage):
         self.nap_bg.y = -100
 
 
-        #alap
-        self.add_actor(self.hatter_bg)
+
+
 
         self.currentTime: int = 1
         self.waitTime = 5
@@ -229,6 +241,10 @@ class GameStage(game.scene2d.MyStage):
         self.snow4Set: bool = False
         self.snow5Set: bool = False
 
+        self.havastaj : bool = False
+        self.napostaj : bool = False
+        self.oszitaj : bool = False
+
         self.randomSet : bool = False
 
         self.set_on_key_down_listener(self.key_down)
@@ -255,6 +271,11 @@ class GameStage(game.scene2d.MyStage):
 
         #nyar
         if self.currentSeason == 1:
+            if self.oszitaj == True:
+                self.remove_actor(self.hatterfall)
+                self.oszitaj = False
+            self.add_actor(self.hatter_bg)
+            self.napostaj = True
             self.summer = True
             self.fall = False
             self.winter = False
@@ -264,6 +285,11 @@ class GameStage(game.scene2d.MyStage):
 
         #osz
         if self.currentSeason == 2:
+            if self.napostaj == True:
+                self.remove_actor(self.hatter_bg)
+                self.napostaj = False
+            self.add_actor(self.hatterfall)
+            self.napostaj = False
             self.summer = False
             self.fall = True
             self.winter = False
@@ -273,6 +299,11 @@ class GameStage(game.scene2d.MyStage):
 
         #tel
         if self.currentSeason == 3:
+            if self.oszitaj == True:
+                self.remove_actor(self.hatterfall)
+                self.oszitaj = False
+            self.add_actor(self.hattersnow)
+            self.napostaj = False
             self.summer = False
             self.fall = False
             self.winter = True
@@ -282,6 +313,11 @@ class GameStage(game.scene2d.MyStage):
 
         #tavasz
         if self.currentSeason == 4:
+            if self.havastaj == True:
+                self.remove_actor(self.hattersnow)
+                self.havastaj = False
+            self.add_actor(self.hatter_bg)
+            self.napostaj = True
             self.summer = False
             self.fall = False
             self.winter = False
