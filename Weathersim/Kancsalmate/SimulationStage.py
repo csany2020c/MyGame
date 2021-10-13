@@ -12,10 +12,12 @@ class Stage(game.scene2d.MyStage):
             if self.isAPressed == True:
                 self.napos()
 
+
         if event.key == pygame.K_s:
             self.isSPressed = True
             if self.isSPressed == True:
                 self.esos()
+
         if event.key == pygame.K_m:
             self.isMPressed = True
         if event.key == pygame.K_e:
@@ -34,14 +36,14 @@ class Stage(game.scene2d.MyStage):
         self.isMPressed: bool = False
         self.isEPressed: bool = False
         self.set_on_key_down_listener(self.Keys)
-        self.timer = MyTickTimer(func=self.tik, interval=3)
-        self.timer1 = MyTickTimer(func=self.tikk, interval=3)
+        self.timer = MyTickTimer(func=self.tik, interval=10)
+        self.timer1 = MyTickTimer(func=self.tikk, interval=10)
         self.a = ActorA()
         self.b = ActorB()
         self.c = ActorC()
         self.d = ActorD()
         self.e = ActorSnow()
-        self.f = ActorRain()
+        self.raindrops()
         self.e.speed = 100
         self.x = 1
         self.e.set_z_index(6)
@@ -64,6 +66,9 @@ class Stage(game.scene2d.MyStage):
         self.c.remove_from_stage()
         self.f.remove_from_stage()
 
+    def raindrops(self):
+        self.g = ActorRain()
+        self.f = ActorRain()
 
     def napos(self):
         if self.isAPressed:
@@ -74,7 +79,8 @@ class Stage(game.scene2d.MyStage):
     def esos(self):
         if self.isSPressed:
             self.add_actor(self.c)
-
+            self.add_actor(self.f)
+            self.add_actor(self.g)
             self.add_timer(self.timer1)
 
 
