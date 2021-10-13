@@ -17,8 +17,11 @@ class main(game.scene2d.MyGame):
                 self.screen = Snowyscreen()
             if event.key == pygame.K_4:
                 self.screen = snowyrainyscreen()
-            if event.key == pygame.K_ESCAPE:
+            if event.key == pygame.K_0:
                 self.screen = Menuscreen()
+            if event.key == pygame.K_ESCAPE:
+                self.exit()
+
         self.set_on_key_down_listener(key_down)
         self.screen = Menuscreen()
         self.run()
