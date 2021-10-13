@@ -1,6 +1,7 @@
 from Weathersim.horvathboldizsar.GameScreen import *
 from Weathersim.horvathboldizsar.MenuScreen import *
 
+
 class Simulator(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720):
@@ -34,5 +35,6 @@ class Simulator(game.scene2d.MyGame):
                 print("Havas Screen")
 
         self.set_on_key_press_listener(key_down)
+
 
 Simulator().run()

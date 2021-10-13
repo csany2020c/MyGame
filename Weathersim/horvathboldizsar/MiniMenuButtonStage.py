@@ -1,63 +1,64 @@
 import Weathersim.horvathboldizsar.GameScreen
 from Weathersim.horvathboldizsar.MiniMenuActors import *
 
+
 class MiniStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
 
-        self.menubutton = menubutton()
+        self.menubutton = MenuButton()
         self.menubutton.width = 150
         self.menubutton.y = 650
         self.menubutton.x = 1125
         self.add_actor(self.menubutton)
-        self.menubutton.set_on_mouse_down_listener(self.MenuButtonClick)
+        self.menubutton.set_on_mouse_down_listener(self.menu_button_click)
 
-        self.minimenubutton = minimenubutton()
+        self.minimenubutton = MiniMenuButton()
         self.minimenubutton.height = 50
         self.add_actor(self.minimenubutton)
-        self.minimenubutton.set_on_mouse_down_listener(self.MenuButtonClick)
+        self.minimenubutton.set_on_mouse_down_listener(self.menu_button_click)
 
-        self.mininapbutton = mininapbutton()
+        self.mininapbutton = MiniNapButton()
         self.mininapbutton.height = 50
         self.mininapbutton.x = 50
         self.add_actor(self.mininapbutton)
-        self.mininapbutton.set_on_mouse_down_listener(self.MiniNapButtonClick)
+        self.mininapbutton.set_on_mouse_down_listener(self.mini_nap_button_click)
 
-        self.miniesobutton = miniesobutton()
+        self.miniesobutton = MiniEsoButton()
         self.miniesobutton.height = 50
         self.miniesobutton.x = 100
         self.add_actor(self.miniesobutton)
-        self.miniesobutton.set_on_mouse_down_listener(self.MiniEsoButtonClick)
+        self.miniesobutton.set_on_mouse_down_listener(self.mini_eso_button_click)
 
-        self.minihavasesobutton = minihavasesobutton()
+        self.minihavasesobutton = MiniHavasesoButton()
         self.minihavasesobutton.height = 50
         self.minihavasesobutton.x = 150
         self.add_actor(self.minihavasesobutton)
-        self.minihavasesobutton.set_on_mouse_down_listener(self.MiniHavasesoButtonClick)
+        self.minihavasesobutton.set_on_mouse_down_listener(self.mini_havaseso_button_click)
 
-        self.minihobutton = minihobutton()
+        self.minihobutton = MiniHoButton()
         self.minihobutton.height = 50
         self.minihobutton.x = 200
         self.add_actor(self.minihobutton)
-        self.minihobutton.set_on_mouse_down_listener(self.MiniHoButtonClick)
+        self.minihobutton.set_on_mouse_down_listener(self.mini_ho_button_click)
 
-    def MenuButtonClick(self, sender, event):
+    def menu_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.MenuScreen.MenuScreen())
-    #
-    def MiniNapButtonClick(self, sender, event):
+
+    def mini_nap_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.NaposScreen())
 
-    def MiniEsoButtonClick(self, sender, event):
+    def mini_eso_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.EsosScreen())
 
-    def MiniHavasesoButtonClick(self, sender, event):
+    def mini_havaseso_button_click(self, sender, event):
         if event.button == 1:
-                self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
+            self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasesoScreen())
 
-    def MiniHoButtonClick(self, sender, event):
+    def mini_ho_button_click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.horvathboldizsar.GameScreen.HavasScreen())

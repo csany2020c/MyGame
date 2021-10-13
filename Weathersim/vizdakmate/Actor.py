@@ -7,6 +7,9 @@ class Sun(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.rotate_with(delta_time * 20)
+        if self.x + self.width < game.scene2d.MyGame.get_screen_width():
+            self.x += delta_time * 120
+            self.rotate_with(delta_time * 20)
 
 
 class Background(game.scene2d.MyActor):

@@ -1,9 +1,9 @@
 import game
+import pygame
 import random
 from Weathersim.DoraMarton.DMactors import *
 
 class sunnystage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         self.add_actor(sunny())
@@ -11,7 +11,6 @@ class sunnystage(game.scene2d.MyStage):
         self.add_actor(landscape())
 
 class snowystage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         a = 10
@@ -58,3 +57,14 @@ class snowyrainy(game.scene2d.MyStage):
             self.add_actor(self.rain)
             self.rain.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.rain.w)
             self.rain.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.rain.w)
+
+class menustage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.add_actor(sunny())
+        self.add_actor(egyikiras())
+        self.add_actor(megegyiras())
+        self.add_actor(ismetiras())
+        self.add_actor(elsefogy())
+        self.add_actor(demegis())
+        self.add_actor(exit())

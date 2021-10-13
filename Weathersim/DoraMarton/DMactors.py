@@ -1,4 +1,6 @@
 import game
+import pygame
+from Weathersim.DoraMarton.DMscreen import *
 
 class rain(game.scene2d.MyActor):
     def __init__(self):
@@ -42,3 +44,35 @@ class cloudy(game.scene2d.MyActor):
 class landscape(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("landscape.png")
+
+class egyikiras(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("egyiras.PNG")
+        self.x = 500
+        self.y = 100
+class megegyiras(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("megegyiras.PNG")
+        self.x = 500
+        self.y = 200
+class ismetiras(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("vanmeg.PNG")
+        self.x = 500
+        self.y = 300
+class elsefogy(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("eskuutso.PNG")
+        self.x = 500
+        self.y = 400
+class demegis(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("kamuztam.PNG")
+        self.x = 500
+        self.y = 500
+
+class exit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("exit.png")
+        self.x = 1060
+        self.y = 490

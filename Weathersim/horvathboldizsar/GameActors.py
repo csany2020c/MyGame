@@ -1,22 +1,26 @@
 import game
 import random
 
-class erdo(game.scene2d.MyActor):
+
+class Erdo(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/landscape.png')
         self.z_index = 3
 
-class naposeg(game.scene2d.MyActor):
+
+class Naposeg(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/sunny.png')
         self.z_index = 1
 
-class felhoseg(game.scene2d.MyActor):
+
+class Felhoseg(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/cloudy.png')
         self.z_index = 1
 
-class esocsepp(game.scene2d.MyActor):
+
+class Esocsepp(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/rain.png')
         self.width = 30
@@ -28,7 +32,8 @@ class esocsepp(game.scene2d.MyActor):
         if self.y > 720:
             self.y = random.randint(-500, 0)
 
-class hopehely(game.scene2d.MyActor):
+
+class Hopehely(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/snow.png')
         self.width = 30
@@ -43,7 +48,7 @@ class hopehely(game.scene2d.MyActor):
             self.y = random.randint(-500, 0)
 
 
-class nap(game.scene2d.MyActor):
+class Nap(game.scene2d.MyActor):
     def __init__(self):
         self.map = super().__init__('!_resources/images/sun.png')
         self.x = -200
@@ -59,4 +64,3 @@ class nap(game.scene2d.MyActor):
             self.x = -200
             self.y = 400
             print("A nap felkel újra!")
-

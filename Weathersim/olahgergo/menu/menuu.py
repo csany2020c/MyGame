@@ -1,7 +1,8 @@
 import pygame
 import Weathersim.olahgergo.Nap.napscreen
-from Weathersim.olahgergo.Nap.napscreen import *
 from Weathersim.olahgergo.actors import *
+import Weathersim.olahgergo.menu.idojarasm
+from Weathersim.olahgergo.menu.idojarasm import *
 
 class MenuStage(game.scene2d.MyStage):
 
@@ -14,16 +15,42 @@ class MenuStage(game.scene2d.MyStage):
 
         self.semmi = semmi()
         self.add_actor(self.semmi)
-        self.semmi.height = 97
-        self.semmi.width = 299
-        self.semmi.y = 408
-        self.semmi.x = 6
+        self.semmi.height = 46
+        self.semmi.width = 466
+        self.semmi.y = 294
+        self.semmi.x = 405
 
+        self.kilepes = kilep()
+        self.add_actor(self.kilepes)
+        self.kilepes.height = 46
+        self.kilepes.width = 230
+        self.kilepes.y = 423
+        self.kilepes.x = 525
+
+        self.imenu2 = idojarasok()
+        self.add_actor(self.imenu2)
+        self.imenu2.height = 46
+        self.imenu2.width = 466
+        self.imenu2.y = 349
+        self.imenu2.x = 405
+
+        self.set_on_key_down_listener(self.key_down)
         self.semmi.set_on_mouse_down_listener(self.asd1)
+        self.kilepes.set_on_mouse_down_listener(self.asd2)
+        self.imenu2.set_on_mouse_down_listener(self.asd3)
 
     def asd1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.olahgergo.Nap.napscreen.NapScreen)
+            self.screen.game.set_screen(Weathersim.olahgergo.Nap.napscreen.NapScreen())
+
+    def asd2(self, sender, event):
+        if event.button == 1:
+            quit()
+
+    def asd3(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
+
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
