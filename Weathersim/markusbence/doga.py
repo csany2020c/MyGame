@@ -6,6 +6,10 @@ class nap(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/sun.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(0.4)
+
 class rain(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/rain.png')
@@ -38,6 +42,12 @@ class sunny(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/sunny.png')
 
+
+
+class felhocske(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('images/felhocske.png')
+
 class menustage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -69,23 +79,25 @@ class menustage(game.scene2d.MyStage):
         self.button4.x = -50
         self.button4.y = -110
         self.button4.z_index = 4
-        self.button4.set_on_mouse_down_listener(self.katt3)
+        self.button4.set_on_mouse_down_listener(self.katt4)
 
     def katt1(self, sender, event):
         if event.button==1:
-            self.screen.game.set_screen(rainScreen())
+            self.screen.game.set_screen(rainscreen())
 
     def katt2(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(havasesoScreen())
+            self.screen.game.set_screen(havasesoscreen())
 
     def katt3(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(sunnyScreen())
+            self.screen.game.set_screen(sunnyscreen())
 
     def katt4(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(snowScreen())
+            self.screen.game.set_screen(snowscreen())
+
+
 
     def nyom1(self, sender, event):
         if event.key==pygame.K_ESCAPE:
@@ -96,16 +108,54 @@ class rainstage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.rain=rain()
-        self.rain.z_index = 5
+        self.rain.z_index = 4
         self.rain.x=850
         self.rain.y=-130
         self.add_actor(self.rain)
         self.landscape=landscape()
-        self.landscape.z_index = 2
+        self.landscape.z_index = 3
         self.add_actor(self.landscape)
         self.cloudy=cloudy()
         self.add_actor(self.cloudy)
         self.cloudy.z_index = 1
+        self.felhocske = felhocske()
+        self.felhocske.x =850
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =630
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =410
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =1070
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =850
+        self.felhocske.y =70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =610
+        self.felhocske.y =70
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+
+        for i in range(80):
+            self.rain = rain()
+            self.rain.width = 70
+            self.rain.height = 70
+            self.add_actor(self.rain)
+            self.rain.x = random.Random().randint(0, 1280)
+            self.rain.y = random.Random().randint(0, 720)
 
 class snowstage(game.scene2d.MyStage):
     def __init__(self):
@@ -115,23 +165,56 @@ class snowstage(game.scene2d.MyStage):
         self.snow.y=-130
         self.add_actor(self.snow)
         self.landscape=landscape()
+        self.landscape.z_index = 2
         self.add_actor(self.landscape)
         self.cloudy=cloudy()
+        self.cloudy.z_index = 1
         self.add_actor(self.cloudy)
-        self.snow.z_index = 5
+        self.snow.z_index = 3
+        for i in range(50):
+            self.snow=snow()
+            self.snow.width=70
+            self.snow.height=70
+            self.add_actor(self.snow)
+            self.snow.x=random.Random().randint(0,1280)
+            self.snow.y=random.Random().randint(0,720)
+        self.felhocske = felhocske()
+        self.felhocske.x = 850
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 630
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 410
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x = 1070
+        self.felhocske.y = -20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+
 
 class sunnystage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.sunny=sunny()
-        self.sunny.x=0
-        self.sunny.y=0
+        self.sunny.x = 0
+        self.sunny.y = 0
         self.add_actor(self.sunny)
         self.landscape=landscape()
         self.add_actor(self.landscape)
         self.sun=nap()
+        self.sun.x = 850
+        self.sun.y = -95
         self.add_actor(self.sun)
         self.sunny.z_index = 4
+
 
 
 class havasesostage(game.scene2d.MyStage):
@@ -160,21 +243,21 @@ class havasesostage(game.scene2d.MyStage):
             self.rain.y = random.Random().randint(0, 720)
 
 
-class MenuScreen(game.scene2d.MyScreen):
+class menuscreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
         self.set_background_color(0, 0, 0)
         self.add_stage(menustage())
 
-class rainScreen(game.scene2d.MyScreen):
+class rainscreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
         self.set_background_color(0, 0, 0)
         self.add_stage(rainstage())
 
-class snowScreen(game.scene2d.MyScreen):
+class snowscreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
@@ -182,7 +265,7 @@ class snowScreen(game.scene2d.MyScreen):
         self.add_stage(snowstage())
 
 
-class sunnyScreen(game.scene2d.MyScreen):
+class sunnyscreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
@@ -190,7 +273,7 @@ class sunnyScreen(game.scene2d.MyScreen):
         self.add_stage(sunnystage())
 
 
-class havasesoScreen(game.scene2d.MyScreen):
+class havasesoscreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
@@ -201,7 +284,7 @@ class Program(game.scene2d.MyGame):
 
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
         super().__init__(width, height, autorun, autosize)
-        self.screen = MenuScreen()
+        self.screen = snowscreen()
 
 
 Program().run()

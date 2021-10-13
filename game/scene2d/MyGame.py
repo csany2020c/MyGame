@@ -65,7 +65,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                         for st in self.screen.stages_reverse:
                             for ac in st.actors_reverse:
                                 if ac.is_mouse_event_present():
-                                    if ac.overlaps_xy(event.pos[0], event.pos[1]):
+                                    if event.type == pygame.MOUSEWHEEL or ac.overlaps_xy(event.pos[0], event.pos[1]):
                                         if ac.do_mouse_event(sender=ac, event=event):
                                             break
                             if st.is_mouse_event_present():

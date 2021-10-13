@@ -25,8 +25,9 @@ class f_stage3(game.scene2d.MyStage):
         self.cloud = cloud()
         self.add_actor(self.cloud)
         self.cloud.y = 50
-        self.cloud.x = 100
+        self.cloud.x = 250
         self.cloud.w = 180
+        self.cloud.z_index = 2
 
         for i in range(12):
             self.eso = eso()
