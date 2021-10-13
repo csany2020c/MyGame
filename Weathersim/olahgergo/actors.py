@@ -89,3 +89,13 @@ class vissza(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('images/vissza.png')
+
+class kilep(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/kilepes.png')
+
+class idojarasok(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/idojarasok.png')
