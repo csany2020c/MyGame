@@ -23,6 +23,10 @@ class napnap(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/sun.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(0.5)
+
 class ho(game.scene2d.MyActor):
 
     def __init__(self):

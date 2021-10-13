@@ -14,9 +14,9 @@ class NapStage(game.scene2d.MyStage):
         self.eg.height = 1300
         self.eg.z_index = 1
         self.nap = napnap()
-        self.nap.width = 400
-        self.nap.height = 400
-        self.nap.y = -100
+        self.nap.width = 500
+        self.nap.height = 500
+        self.nap.y = 50
         self.nap.x = 500
         self.nap.z_index = 2
         self.add_actor(self.hatter)
