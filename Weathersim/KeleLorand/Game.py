@@ -1,7 +1,7 @@
 import game
 from game.scene2d import *
 from game.scene2d.MyScreen import *
-
+import random
 
 class HatterAct(game.scene2d.MyActor):
     def __init__(self):
@@ -52,6 +52,13 @@ class Leiras3(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Klikkelj bárhová a képernyőn, hogy elindítsd a játékot!")
 
+class Esocsepp(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/rain.png")
+
+class Hopehely(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/snow.png")
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
@@ -91,11 +98,19 @@ class GameStage(game.scene2d.MyStage):
         self.hatter_bg = HatterAct()
         self.napos_bg = NaposAct()
         self.nap_bg = NapAct()
+        self.raindrop = Esocsepp()
+        self.snow = Hopehely()
 
         self.hatter_bg.z_index = 6
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
         self.szurke_bg.z_index = 1
+
+        self.raindrop.height = 30
+        self.raindrop.width = 30
+
+        self.snow.height = 30
+        self.snow.width = 30
 
         self.nyar_lb.x = 640
         self.oszlab_lb.x = 640
@@ -109,10 +124,14 @@ class GameStage(game.scene2d.MyStage):
         #alap
         self.add_actor(self.hatter_bg)
 
-
-
-
+        self.currentTime: int = 1
+        self.waitTime = 5
         self.currentSeason: int = 1
+
+
+
+
+
 
         self.summer : bool = False
         self.fall : bool = False
@@ -127,10 +146,24 @@ class GameStage(game.scene2d.MyStage):
         self.oszlab_lb.onstage : bool = False
         self.tel_lb.onstage : bool = False
 
+        self.havazik : bool = False
+        self.esik : bool = False
 
+        self.rainonstage : bool = False
+        self.snowonstage : bool = False
 
+        self.rainSet : bool = False
+        self.snowSet: bool = False
+
+        self.randomSet : bool = False
 
         self.set_on_key_down_listener(self.key_down)
+
+    def basicTimer(self):
+        for i in range(self.currentTime == self.waitTime):
+            self.currentTime = self.currentTime + 1
+            if self.currentTime == self.waitTime:
+                self.currentTime = 0
 
     def key_down(self, sender, event):
 
@@ -158,7 +191,8 @@ class GameStage(game.scene2d.MyStage):
             self.fall = False
             self.winter = False
             self.spring = False
-
+            self.esik = False
+            self.havazik = False
 
         #osz
         if self.currentSeason == 2:
@@ -166,7 +200,8 @@ class GameStage(game.scene2d.MyStage):
             self.fall = True
             self.winter = False
             self.spring = False
-
+            self.esik = True
+            self.havazik = False
 
         #tel
         if self.currentSeason == 3:
@@ -174,7 +209,8 @@ class GameStage(game.scene2d.MyStage):
             self.fall = False
             self.winter = True
             self.spring = False
-
+            self.esik = False
+            self.havazik = True
 
         #tavasz
         if self.currentSeason == 4:
@@ -182,6 +218,8 @@ class GameStage(game.scene2d.MyStage):
             self.fall = False
             self.winter = False
             self.spring = True
+            self.esik = False
+            self.havazik = False
 
         if self.summer == True:
             self.add_actor(self.napos_bg)
@@ -201,7 +239,6 @@ class GameStage(game.scene2d.MyStage):
                 self.tav_lb.onstage = False
 
 
-
         if self.fall == True:
             if self.nyar_lb.onstage == True:
                 self.remove_actor(self.nyar_lb)
@@ -218,7 +255,11 @@ class GameStage(game.scene2d.MyStage):
             self.oszlab_lb.onstage = True
             if self.tel_lb.onstage == True:
                 self.remove_actor(self.tel_lb)
-                self.tel_lb.onstage = False
+            self.tel_lb.onstage = False
+            self.raindrop.x = random.randint(a=0, b=1280)
+            self.raindrop.y = random.randint(a=-0, b=720)
+            self.add_actor(self.raindrop)
+            self.rainonstage = True
 
         if self.winter == True:
             if self.oszlab_lb.onstage == True:
@@ -256,6 +297,32 @@ class GameStage(game.scene2d.MyStage):
                 self.nyar_lb.onstage = False
 
 
+
+        if self.esik == True:
+            #for i in range(100):
+                #self.raindrop.x = random.randint(a=0, b=1280)
+                #self.raindrop.y = random.randint(a=-0, b=720)
+                #self.add_actor(self.raindrop)
+            self.rainonstage = True
+
+        if self.esik == False:
+            if self.rainonstage == True:
+                self.remove_actor(self.raindrop)
+                self.rainonstage = False
+
+        if self.havazik == True:
+            #for i in range(100):
+                #self.snow.x = random.randint(a=0, b=1280)
+                #self.snow.y = random.randint(a=-0, b=720)
+                #self.add_actor(self.snow)
+            self.snowonstage = True
+
+        if self.havazik == False:
+            if self.snowonstage == True:
+                self.remove_actor(self.snow)
+                self.snowonstage = False
+
+
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
@@ -270,11 +337,6 @@ class GameScreen(game.scene2d.MyScreen):
         if self.stageadded == False:
             self.add_stage(GameStage())
             self.stageadded = True
-
-
-
-
-
 
 
 class GameSelf(game.scene2d.MyGame):
