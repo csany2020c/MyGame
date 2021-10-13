@@ -8,7 +8,7 @@ class rain(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 50
+        self.y += delta_time * 1000
         if self.y > 720:
             self.y = -100
 
@@ -18,7 +18,7 @@ class snow(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 50
+        self.y += delta_time * 200
         self.rotate_with(delta_time * 20)
         if self.y > 720:
             self.y = -100
