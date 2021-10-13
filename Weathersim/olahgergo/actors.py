@@ -23,6 +23,10 @@ class napnap(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('images/sun.png')
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.rotate_with(0.5)
+
 class ho(game.scene2d.MyActor):
 
     def __init__(self):
@@ -84,3 +88,18 @@ class semmi(game.scene2d.MyActor):
 
     def __init__(self):
         self.map = super().__init__('images/semmi.png')
+
+class vissza(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/vissza.png')
+
+class kilep(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/kilepes.png')
+
+class idojarasok(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/idojarasok.png')
