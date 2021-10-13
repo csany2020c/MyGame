@@ -36,6 +36,8 @@ class havazas(game.scene2d.MyActor):
         super().act(delta_time)
         self.r += 0.15 * delta_time
         self.y += 75 * delta_time
+        if self.y > 720:
+            self.y = 0
 
 class eso(game.scene2d.MyActor):
     def __init__(self):
@@ -44,6 +46,8 @@ class eso(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += 75 * delta_time
+        if self.y > 720:
+            self.y = 0
         
 class felhos_actor(game.scene2d.MyActor):
     def __init__(self):
