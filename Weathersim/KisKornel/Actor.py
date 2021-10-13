@@ -56,9 +56,10 @@ class harmasgomb(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("3as gomb.PNG")
 
-class visszagomb(game.scene2d.MyActor):
+class vissza(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("visszagomb.PNG")
+        super().__init__("asd.PNG")
 
-    def click(self):
-        super().set_on_mouse_down_listener()
+class negyesgomb(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("4esgomb")

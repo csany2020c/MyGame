@@ -20,6 +20,10 @@ class RUN(game.scene2d.MyGame):
                 self.screen = RainScreen()
             if event.key == pygame.K_1:
                 self.screen = SunnyScreen()
+            if event.key == pygame.K_BACKSPACE:
+                self.screen = MenuScreen()
+            if event.key == pygame.K_4:
+                self.screen = MenuScreen()
         self.set_on_key_down_listener(key_down)
 
 
