@@ -16,10 +16,22 @@ class Snow (game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/snow.png")
 
-class cloudy (game.scene2d.MyActor):
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 200
+        if self.y > 720:
+            self.y = -50
+
+class Cloudy (game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/cloudy")
 
 class Rain (game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/rain")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 200
+        if self.y > 720:
+            self.y = -50

@@ -1,7 +1,6 @@
 from Weathersim.ZsuppanFlorian import *
 from Weathersim.ZsuppanFlorian.mainstage import *
 from Weathersim.ZsuppanFlorian.mainscreen import *
-
 import game
 import pygame
 
@@ -15,18 +14,27 @@ class MainStage(game.scene2d.MyGame):
     def key_down(self, sender, event):
         print(sender)
         if event.key == pygame.K_ESCAPE:
+            print("Kileptunk")
             pygame.quit()
 
-        if event.key == pygame.K_2:
-            self.screen = HoStage()
+        if event.key == pygame.K_4:
+            print("Havaseso")
+            self.screen = Hoeso()
 
         if event.key == pygame.K_3:
-            self.screen = EsoStage()
+            print("Havazik")
+            self.screen = Havazik()
+
+        if event.key == pygame.K_2:
+            print("Esikeso")
+            self.screen = Esik()
 
         if event.key == pygame.K_1:
-            self.screen = NapStage()
+            print("Sutanap")
+            self.screen = Napsutes()
 
         if event.key == pygame.K_F11:
+            print("Teljes kepernyo")
             pygame.display.toggle_fullscreen()
 
 
