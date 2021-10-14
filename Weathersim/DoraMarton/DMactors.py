@@ -6,6 +6,8 @@ class rain(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
 
+        self.set_width(50)
+
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 1000
@@ -80,5 +82,5 @@ class exit(game.scene2d.MyActor):
             print(event)
             print(sender)
             if event.type == pygame.MOUSEBUTTONDOWN:
-                self.exit()
+                pygame.quit()
         self.set_on_mouse_down_listener(mouse_down)
