@@ -119,6 +119,10 @@ class SzurkeAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/szurke.png")
 
+class TavaszBackAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/tavaszland.png")
+
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -177,6 +181,7 @@ class GameStage(game.scene2d.MyStage):
 
         self.hattersnow = SnowHatterAct()
         self.hatterfall = FallHatterAct()
+        self.hatterspring = TavaszBackAct()
 
         self.snow = Hopehely()
         self.snow2 = Hopehely2()
@@ -292,6 +297,7 @@ class GameStage(game.scene2d.MyStage):
         self.havastaj : bool = False
         self.napostaj : bool = False
         self.oszitaj : bool = False
+        self.tavasztaj : bool = False
 
         self.randomSet : bool = False
 
@@ -384,6 +390,9 @@ class GameStage(game.scene2d.MyStage):
             self.napos_bg.onstage = True
             self.nap_bg.onstage = True
             self.nyar_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.szurke_bg.onstage == True:
                 self.remove_actor(self.szurke_bg)
                 self.szurke_bg.onstage = False
@@ -491,6 +500,9 @@ class GameStage(game.scene2d.MyStage):
                 self.oszlab_lb.onstage = False
             self.add_actor(self.tel_lb)
             self.tel_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.tav_lb.onstage == True:
                 self.remove_actor(self.tav_lb)
                 self.tav_lb.onstage = False
@@ -565,6 +577,8 @@ class GameStage(game.scene2d.MyStage):
                 self.remove_actor(self.szurke_bg)
                 self.szurke_bg.onstage = False
             self.add_actor(self.napos_bg)
+            self.add_actor(self.hatterspring)
+            self.tavasztaj = True
             self.napos_bg.onstage = True
             self.add_actor(self.nap_bg)
             self.nap_bg.onstage = True
