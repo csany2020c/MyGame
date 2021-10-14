@@ -12,7 +12,6 @@ class MenuStage(game.scene2d.MyStage):
         bg = MenuActor()
         self.add_actor(bg)
 
-        bg = BgActor()
         button1 = Button1()
         button2 = Button2()
         button3 = Button3()

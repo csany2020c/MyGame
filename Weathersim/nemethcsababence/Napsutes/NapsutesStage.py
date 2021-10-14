@@ -25,6 +25,12 @@ class NapsutesStage(game.scene2d.MyStage):
         self.add_actor(self.eg)
         self.add_actor(self.nap)
 
+        self.madar = madar()
+        self.add_actor(self.madar)
+        self.madar.width = 70
+        self.madar.height = 90
+        self.madar.z_index = 2
+
         self.button1 = button5()
         self.add_actor(self.button1)
         self.button1.width = 125
