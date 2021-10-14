@@ -67,43 +67,15 @@ class Leiras3(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Klikkelj bárhová a képernyőn, hogy elindítsd a játékot!")
 
+class Leiras5(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("UI: Ez történik amikor nem fizeted a grafikust és te kell megcsináld XD", font_size= 50)
+
 class Esocsepp(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/rain.png")
 
-class Esocsepp2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/rain.png")
-
-class Esocsepp3(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/rain.png")
-
-class Esocsepp4(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/rain.png")
-
-class Esocsepp5(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/rain.png")
-
 class Hopehely(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/snow.png")
-
-class Hopehely2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/snow.png")
-
-class Hopehely3(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/snow.png")
-
-class Hopehely4(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("!_resources/images/snow.png")
-
-class Hopehely5(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/snow.png")
 
@@ -115,9 +87,17 @@ class LeftArrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/leftarrow.png")
 
-class SzurkeAct(game.scene2d.MyActor):
+class SzurkeMenuAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/szurke.png")
+
+class TavaszBackAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/tavaszland.png")
+
+class Cloud(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/cloud.png")
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
@@ -125,19 +105,21 @@ class MenuStage(game.scene2d.MyStage):
 
 
         self.menuhatter = MenuHatterAct()
-        self.szurkehatter = SzurkeAct()
+        self.szurkehatter = SzurkeMenuAct()
 
         self.leiras1 = Leiras1()
         self.leiras2 = Leiras2()
         self.leiras3 = Leiras3()
         self.leiras4 = Leiras4()
+        self.leiras5 = Leiras5()
 
-        self.menuhatter.z_index = 2
-        self.szurkehatter.z_index = 1
+        self.menuhatter.z_index = 1
+        self.szurkehatter.z_index = 0
 
         self.leiras2.y = 100
         self.leiras3.y = 300
         self.leiras4.y = 200
+        self.leiras5.y = 400
         self.menuhatter.y = 300
 
         self.add_actor(self.menuhatter)
@@ -145,6 +127,7 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(self.leiras2)
         self.add_actor(self.leiras3)
         self.add_actor(self.leiras4)
+        self.add_actor(self.leiras5)
         self.add_actor(self.szurkehatter)
 
         self.hatterset : bool = False
@@ -170,31 +153,35 @@ class GameStage(game.scene2d.MyStage):
         self.napos_bg = NaposAct()
         self.nap_bg = NapAct()
         self.raindrop = Esocsepp()
-        self.raindrop2 = Esocsepp2()
-        self.raindrop3 = Esocsepp3()
-        self.raindrop4 = Esocsepp4()
-        self.raindrop5 = Esocsepp5()
+        self.raindrop2 = Esocsepp()
+        self.raindrop3 = Esocsepp()
+        self.raindrop4 = Esocsepp()
+        self.raindrop5 = Esocsepp()
 
         self.hattersnow = SnowHatterAct()
         self.hatterfall = FallHatterAct()
+        self.hatterspring = TavaszBackAct()
 
         self.snow = Hopehely()
-        self.snow2 = Hopehely2()
-        self.snow3 = Hopehely3()
-        self.snow4 = Hopehely4()
-        self.snow5 = Hopehely5()
+        self.snow2 = Hopehely()
+        self.snow3 = Hopehely()
+        self.snow4 = Hopehely()
+        self.snow5 = Hopehely()
 
         self.rightArrow = RightArrow()
         self.leftArrow = LeftArrow()
 
-        self.hatterfall.z_index = 6
-        self.hattersnow.z_index = 6
-        self.hatter_bg.z_index = 6
+        self.cloud = Cloud()
+
+        self.hatterfall.z_index = 7
+        self.hattersnow.z_index = 7
+        self.hatter_bg.z_index = 7
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
         self.szurke_bg.z_index = 1
-        self.leftArrow.z_index = 7
-        self.rightArrow.z_index = 7
+        self.leftArrow.z_index = 8
+        self.rightArrow.z_index = 8
+        self.hatterspring.z_index = 7
 
         self.raindrop.height = 30
         self.raindrop.width = 30
@@ -246,6 +233,12 @@ class GameStage(game.scene2d.MyStage):
         self.nap_bg.x = 900
         self.nap_bg.y = -100
 
+        self.cloud.x = -1280
+        self.cloud.y = -55
+
+        self.cloud.z_index = 6
+
+
 
         self.add_actor(self.rightArrow)
         self.add_actor(self.leftArrow)
@@ -292,10 +285,13 @@ class GameStage(game.scene2d.MyStage):
         self.havastaj : bool = False
         self.napostaj : bool = False
         self.oszitaj : bool = False
+        self.tavasztaj : bool = False
+
+        self.naponstage : bool = False
 
         self.randomSet : bool = False
 
-        self.naple : bool = False
+        self.cloudOnStage : bool = False
 
         self.set_on_key_down_listener(self.key_down)
 
@@ -336,6 +332,8 @@ class GameStage(game.scene2d.MyStage):
             self.havazik = False
 
         #osz
+        self.add_actor(self.cloud)
+        self.cloudOnStage = True
         if self.currentSeason == 2:
             if self.napostaj == True:
                 self.remove_actor(self.hatter_bg)
@@ -350,6 +348,8 @@ class GameStage(game.scene2d.MyStage):
             self.havazik = False
 
         #tel
+        self.add_actor(self.cloud)
+        self.cloudOnStage = True
         if self.currentSeason == 3:
             if self.oszitaj == True:
                 self.remove_actor(self.hatterfall)
@@ -364,6 +364,8 @@ class GameStage(game.scene2d.MyStage):
             self.havazik = True
 
         #tavasz
+        self.add_actor(self.cloud)
+        self.cloudOnStage = True
         if self.currentSeason == 4:
             if self.havastaj == True:
                 self.remove_actor(self.hattersnow)
@@ -378,12 +380,18 @@ class GameStage(game.scene2d.MyStage):
             self.havazik = False
 
         if self.summer == True:
+            if self.cloudOnStage == True:
+                self.remove_actor(self.cloud)
+                self.cloudOnStage = False
             self.add_actor(self.napos_bg)
             self.add_actor(self.nap_bg)
             self.add_actor(self.nyar_lb)
             self.napos_bg.onstage = True
             self.nap_bg.onstage = True
             self.nyar_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.szurke_bg.onstage == True:
                 self.remove_actor(self.szurke_bg)
                 self.szurke_bg.onstage = False
@@ -408,6 +416,28 @@ class GameStage(game.scene2d.MyStage):
             if self.rain5Set == True:
                 self.remove_actor(self.raindrop5)
                 self.rain5Set = False
+
+            if self.snowSet == True:
+                self.remove_actor(self.snow)
+                self.snowSet = False
+
+            if self.snow2Set == True:
+                self.remove_actor(self.snow2)
+                self.snow2Set = False
+
+            if self.snow3Set == True:
+                self.remove_actor(self.snow3)
+                self.snow3Set = False
+
+            if self.snow4Set == True:
+                self.remove_actor(self.snow4)
+                self.snow4Set = False
+
+            if self.snow5Set == True:
+                self.remove_actor(self.snow5)
+                self.snow5Set = False
+
+            self.naponstage = True
 
         if self.fall == True:
             if self.nyar_lb.onstage == True:
@@ -491,6 +521,9 @@ class GameStage(game.scene2d.MyStage):
                 self.oszlab_lb.onstage = False
             self.add_actor(self.tel_lb)
             self.tel_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.tav_lb.onstage == True:
                 self.remove_actor(self.tav_lb)
                 self.tav_lb.onstage = False
@@ -502,6 +535,97 @@ class GameStage(game.scene2d.MyStage):
                 self.napos_bg.onstage = False
             self.add_actor(self.szurke_bg)
             self.szurke_bg.onstage = True
+            if self.rainSet == False:
+                self.raindrop.x = random.randint(a=0, b=1280)
+                self.raindrop.y = random.randint(a=-0, b=0)
+                self.add_actor(self.raindrop)
+            if self.rain2Set == False:
+                self.raindrop2.x = random.randint(a=0, b=1280)
+                self.raindrop2.y = random.randint(a=-0, b=0)
+                self.add_actor(self.raindrop2)
+            if self.rain3Set == False:
+                self.raindrop3.x = random.randint(a=0, b=1280)
+                self.raindrop3.y = random.randint(a=-0, b=0)
+                self.add_actor(self.raindrop3)
+            if self.rain4Set == False:
+                self.raindrop4.x = random.randint(a=0, b=1280)
+                self.raindrop4.y = random.randint(a=-0, b=0)
+                self.add_actor(self.raindrop4)
+            if self.rain5Set == False:
+                self.raindrop5.x = random.randint(a=0, b=1280)
+                self.raindrop5.y = random.randint(a=-0, b=0)
+                self.add_actor(self.raindrop5)
+            for i in range(4):
+                self.raindrop.y = self.raindrop.y + 1
+            for i in range(3):
+                self.raindrop2.y = self.raindrop2.y + 1
+            for i in range(5):
+                self.raindrop3.y = self.raindrop3.y + 1
+            for i in range(4):
+                self.raindrop4.y = self.raindrop4.y + 1
+            for i in range(3):
+                self.raindrop5.y = self.raindrop5.y + 1
+            self.rainSet = True
+            self.rain2Set = True
+            self.rain3Set = True
+            self.rain4Set = True
+            self.rain5Set = True
+            self.rainonstage = True
+            if self.snowSet == False:
+                self.snow.x = random.randint(a=0, b=1280)
+                self.snow.y = random.randint(a=-0, b=0)
+                self.add_actor(self.snow)
+            if self.snow2Set == False:
+                self.snow2.x = random.randint(a=0, b=1280)
+                self.snow2.y = random.randint(a=-0, b=0)
+                self.add_actor(self.snow2)
+            if self.snow3Set == False:
+                self.snow3.x = random.randint(a=0, b=1280)
+                self.snow3.y = random.randint(a=-0, b=0)
+                self.add_actor(self.snow3)
+            if self.snow4Set == False:
+                self.snow4.x = random.randint(a=0, b=1280)
+                self.snow4.y = random.randint(a=-0, b=0)
+                self.add_actor(self.snow4)
+            if self.snow5Set == False:
+                self.snow5.x = random.randint(a=0, b=1280)
+                self.snow5.y = random.randint(a=-0, b=0)
+                self.add_actor(self.snow5)
+            for i in range(4):
+                self.snow.y = self.snow.y + 1
+            for i in range(3):
+                self.snow2.y = self.snow2.y + 1
+            for i in range(5):
+                self.snow3.y = self.snow3.y + 1
+            for i in range(4):
+                self.snow4.y = self.snow4.y + 1
+            for i in range(3):
+                self.snow5.y = self.snow5.y + 1
+            self.snowSet = True
+            self.snow2Set = True
+            self.snow3Set = True
+            self.snow4Set = True
+            self.snow5Set = True
+            self.snowonstage = True
+
+        if self.spring == True:
+            if self.tel_lb.onstage == True:
+                self.remove_actor(self.tel_lb)
+                self.tel_lb.onstage = False
+            self.add_actor(self.tav_lb)
+            self.tav_lb.onstage = True
+            if self.szurke_bg.onstage == True:
+                self.remove_actor(self.szurke_bg)
+                self.szurke_bg.onstage = False
+            self.add_actor(self.napos_bg)
+            self.add_actor(self.hatterspring)
+            self.tavasztaj = True
+            self.napos_bg.onstage = True
+            self.add_actor(self.nap_bg)
+            self.nap_bg.onstage = True
+            if self.nyar_lb.onstage == True:
+                self.remove_actor(self.nyar_lb)
+                self.nyar_lb.onstage = False
             if self.rainSet == True:
                 self.remove_actor(self.raindrop)
                 self.rainSet = False
@@ -554,59 +678,6 @@ class GameStage(game.scene2d.MyStage):
             self.snow5Set = True
             self.snowonstage = True
 
-
-        if self.spring == True:
-            if self.tel_lb.onstage == True:
-                self.remove_actor(self.tel_lb)
-                self.tel_lb.onstage = False
-            self.add_actor(self.tav_lb)
-            self.tav_lb.onstage = True
-            if self.szurke_bg.onstage == True:
-                self.remove_actor(self.szurke_bg)
-                self.szurke_bg.onstage = False
-            self.add_actor(self.napos_bg)
-            self.napos_bg.onstage = True
-            self.add_actor(self.nap_bg)
-            self.nap_bg.onstage = True
-            if self.nyar_lb.onstage == True:
-                self.remove_actor(self.nyar_lb)
-                self.nyar_lb.onstage = False
-            if self.rainSet == True:
-                self.remove_actor(self.raindrop)
-                self.rainSet = False
-            if self.rain2Set == True:
-                self.remove_actor(self.raindrop2)
-                self.rain2Set = False
-            if self.rain3Set == True:
-                self.remove_actor(self.raindrop3)
-                self.rain3Set = False
-            if self.rain4Set == True:
-                self.remove_actor(self.raindrop4)
-                self.rain4Set = False
-            if self.rain5Set == True:
-                self.remove_actor(self.raindrop5)
-                self.rain5Set = False
-
-            if self.snowSet == True:
-                self.remove_actor(self.snow)
-                self.snowSet = False
-
-            if self.snow2Set == True:
-                self.remove_actor(self.snow2)
-                self.snow2Set = False
-
-            if self.snow3Set == True:
-                self.remove_actor(self.snow3)
-                self.snow3Set = False
-
-            if self.snow4Set == True:
-                self.remove_actor(self.snow4)
-                self.snow4Set = False
-
-            if self.snow5Set == True:
-                self.remove_actor(self.snow5)
-                self.snow5Set = False
-
         if self.raindrop.y == 720:
             self.rainSet = False
         if self.raindrop2.y == 720:
@@ -630,13 +701,11 @@ class GameStage(game.scene2d.MyStage):
             self.snow5Set = False
 
 
+        self.cloud.x = self.cloud.x + 1
+        if self.cloud.x == 1290:
+            self.cloud.x = -1280
 
         self.nap_bg.rotate_with(1)
-
-
-
-
-
 
 
 class GameScreen(game.scene2d.MyScreen):
