@@ -74,3 +74,7 @@ class cloud(game.scene2d.MyActor):
 class snowman(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/snowman.png")
+
+class kep_h(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/simakep.jpg")
