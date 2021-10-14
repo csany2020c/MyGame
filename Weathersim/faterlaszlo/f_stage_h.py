@@ -2,6 +2,8 @@ from Weathersim.faterlaszlo.Arial import *
 import Weathersim.faterlaszlo.f_screen_m
 import game
 import pygame
+from Weathersim.faterlaszlo.f_actors import *
+
 
 class f_stage_h(game.scene2d.MyStage):
     def __init__(self):
@@ -11,36 +13,37 @@ class f_stage_h(game.scene2d.MyStage):
         self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("A billentyűzet gombjainak használata")
+        self.t.set_font_underline("line")
         self.t.set_font_size(50)
         self.t.x = 360
         self.t.y = 0
 
         self.t1 = Arial()
         self.add_actor(self.t1)
-        self.t1.set_text("Az 1-es gombra rányomva jelenik meg a napsütés")
+        self.t1.set_text("-Az 1-es gombra rányomva jelenik meg a napsütés")
         self.t1.x = 400
-        self.t1.y = 100
+        self.t1.y = 120
         self.t1.set_font_size(30)
 
         self.t2 = Arial()
         self.add_actor(self.t2)
-        self.t2.set_text("Az 2-es gombra rányomva jelenik meg a havas eső")
+        self.t2.set_text("-Az 2-es gombra rányomva jelenik meg a havas eső")
         self.t2.x = 400
-        self.t2.y = 150
+        self.t2.y = 170
         self.t2.set_font_size(30)
 
         self.t3 = Arial()
         self.add_actor(self.t3)
-        self.t3.set_text("Az 3-es gombra rányomva jelenik meg a eső")
+        self.t3.set_text("-Az 3-es gombra rányomva jelenik meg a eső")
         self.t3.x = 400
-        self.t3.y = 200
+        self.t3.y = 220
         self.t3.set_font_size(30)
 
         self.t4 = Arial()
         self.add_actor(self.t4)
-        self.t4.set_text("Az 4-es gombra rányomva jelenik meg a havazás")
+        self.t4.set_text("-Az 4-es gombra rányomva jelenik meg a havazás")
         self.t4.x = 400
-        self.t4.y = 250
+        self.t4.y = 270
         self.t4.set_font_size(30)
 
         self.t5 = Arial()
@@ -54,9 +57,8 @@ class f_stage_h(game.scene2d.MyStage):
         self.add_actor(self.t6)
         self.t6.set_text("A Backspace az a visszatérés a főoldalra")
         self.t6.x = 400
-        self.t6.y = 300
+        self.t6.y = 320
         self.t6.set_font_size(30)
-
 
         self.t7 = Arial()
         self.add_actor(self.t7)
@@ -65,6 +67,11 @@ class f_stage_h(game.scene2d.MyStage):
         self.t7.y = 0
         self.t7.set_on_mouse_down_listener(self.click)
 
+        self.help_kep = kep_h()
+        self.add_actor(self.help_kep)
+        self.help_kep.x = 600
+        self.help_kep.y = 450
+        self.help_kep.h = 250
 
     def click(self, sneder, event):
         if event.button == 1:
