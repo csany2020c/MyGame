@@ -7,6 +7,10 @@ class HatterAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/landscape.png")
 
+class MenuHatterAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/weathersim.png")
+
 class FallHatterAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/falllandscape.png")
@@ -49,11 +53,15 @@ class Start(game.scene2d.MyLabel):
 
 class Leiras1(game.scene2d.MyLabel):
     def __init__(self):
-        super().__init__("A Játékot a nyilakkal lehet vezérelni.")
+        super().__init__("A Játékot a billentyűzet nyilaival lehet vezérelni.")
 
 class Leiras2(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Az időjárás a kiválasztott évszak alapján változik.")
+
+class Leiras4(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Az ESCAPE gomb lenyomásával, pedig ki tudsz lépni.")
 
 class Leiras3(game.scene2d.MyLabel):
     def __init__(self):
@@ -99,29 +107,57 @@ class Hopehely5(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/snow.png")
 
+class RightArrow(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/rightarrow.png")
+
+class LeftArrow(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/leftarrow.png")
+
+class SzurkeAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/szurke.png")
+
+class TavaszBackAct(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("!_resources/images/tavaszland.png")
+
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
 
-        self.hatter = HatterAct()
-        self.napos = NaposAct()
+        self.menuhatter = MenuHatterAct()
+        self.szurkehatter = SzurkeAct()
 
         self.leiras1 = Leiras1()
         self.leiras2 = Leiras2()
         self.leiras3 = Leiras3()
+        self.leiras4 = Leiras4()
 
-        self.hatter.z_index = 6
-        self.napos.z_index = 4
+        self.menuhatter.z_index = 2
+        self.szurkehatter.z_index = 1
 
         self.leiras2.y = 100
-        self.leiras3.y = 200
+        self.leiras3.y = 300
+        self.leiras4.y = 200
+        self.menuhatter.y = 300
 
-        self.add_actor(self.hatter)
-        self.add_actor(self.napos)
+        self.add_actor(self.menuhatter)
         self.add_actor(self.leiras1)
         self.add_actor(self.leiras2)
         self.add_actor(self.leiras3)
+        self.add_actor(self.leiras4)
+        self.add_actor(self.szurkehatter)
+
+        self.hatterset : bool = False
+
+    def act(self, delta_time: float):
+        if self.hatterset == False:
+            self.menuhatter.y = self.menuhatter.y - 1
+        if self.menuhatter.y == 0:
+            self.hatterset = True
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
@@ -145,6 +181,7 @@ class GameStage(game.scene2d.MyStage):
 
         self.hattersnow = SnowHatterAct()
         self.hatterfall = FallHatterAct()
+        self.hatterspring = TavaszBackAct()
 
         self.snow = Hopehely()
         self.snow2 = Hopehely2()
@@ -152,12 +189,17 @@ class GameStage(game.scene2d.MyStage):
         self.snow4 = Hopehely4()
         self.snow5 = Hopehely5()
 
+        self.rightArrow = RightArrow()
+        self.leftArrow = LeftArrow()
+
         self.hatterfall.z_index = 6
         self.hattersnow.z_index = 6
         self.hatter_bg.z_index = 6
         self.napos_bg.z_index = 4
         self.nap_bg.z_index = 5
         self.szurke_bg.z_index = 1
+        self.leftArrow.z_index = 7
+        self.rightArrow.z_index = 7
 
         self.raindrop.height = 30
         self.raindrop.width = 30
@@ -192,6 +234,15 @@ class GameStage(game.scene2d.MyStage):
         self.snow5.height = 30
         self.snow5.width = 30
 
+        self.rightArrow.height = 500
+        self.leftArrow.height = 500
+
+        self.rightArrow.x = 944
+        self.leftArrow.x = -200
+
+        self.rightArrow.y = 150
+        self.leftArrow.y = 150
+
         self.nyar_lb.x = 640
         self.oszlab_lb.x = 640
         self.tav_lb.x = 640
@@ -201,6 +252,8 @@ class GameStage(game.scene2d.MyStage):
         self.nap_bg.y = -100
 
 
+        self.add_actor(self.rightArrow)
+        self.add_actor(self.leftArrow)
 
 
 
@@ -244,8 +297,11 @@ class GameStage(game.scene2d.MyStage):
         self.havastaj : bool = False
         self.napostaj : bool = False
         self.oszitaj : bool = False
+        self.tavasztaj : bool = False
 
         self.randomSet : bool = False
+
+        self.naple : bool = False
 
         self.set_on_key_down_listener(self.key_down)
 
@@ -257,6 +313,8 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_LEFT:
             self.currentSeason = self.currentSeason - 1
             print(self.currentSeason)
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -332,6 +390,9 @@ class GameStage(game.scene2d.MyStage):
             self.napos_bg.onstage = True
             self.nap_bg.onstage = True
             self.nyar_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.szurke_bg.onstage == True:
                 self.remove_actor(self.szurke_bg)
                 self.szurke_bg.onstage = False
@@ -439,6 +500,9 @@ class GameStage(game.scene2d.MyStage):
                 self.oszlab_lb.onstage = False
             self.add_actor(self.tel_lb)
             self.tel_lb.onstage = True
+            if self.tavasztaj == True:
+                self.remove_actor(self.hatterspring)
+                self.tavasztaj = False
             if self.tav_lb.onstage == True:
                 self.remove_actor(self.tav_lb)
                 self.tav_lb.onstage = False
@@ -513,6 +577,8 @@ class GameStage(game.scene2d.MyStage):
                 self.remove_actor(self.szurke_bg)
                 self.szurke_bg.onstage = False
             self.add_actor(self.napos_bg)
+            self.add_actor(self.hatterspring)
+            self.tavasztaj = True
             self.napos_bg.onstage = True
             self.add_actor(self.nap_bg)
             self.nap_bg.onstage = True
@@ -576,6 +642,15 @@ class GameStage(game.scene2d.MyStage):
             self.snow4Set = False
         if self.snow5.y == 720:
             self.snow5Set = False
+
+
+
+        self.nap_bg.rotate_with(1)
+
+
+
+
+
 
 
 class GameScreen(game.scene2d.MyScreen):
