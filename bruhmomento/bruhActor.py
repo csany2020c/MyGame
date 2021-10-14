@@ -23,11 +23,6 @@ class bruhActor(game.scene2d.MyActor):
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/katona.jpg")
-
-
-class horthy (game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("Images/horthy.jpg")
         def key_down(sender, event):
             print(sender)
             print(event)
@@ -40,6 +35,11 @@ class horthy (game.scene2d.MyActor):
             if event.key == pygame.K_s:
                 self.y += 4
         self.set_on_key_press_listener(key_down)
+
+
+class horthy (game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/horthy.jpg")
 
 class enemy2 (game.scene2d.MyActor):
     def __init__(self):
