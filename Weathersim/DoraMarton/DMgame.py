@@ -4,8 +4,8 @@ from Weathersim.DoraMarton.DMscreen import *
 
 class main(game.scene2d.MyGame):
 
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False):
-        super().__init__(width, height, autorun, autosize)
+    def __init__(self, width: int = 1280, height: int = 720):
+        super().__init__(width, height)
         def key_down(sender, event):
             print(sender)
             print(event)

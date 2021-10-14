@@ -5,6 +5,7 @@ from Weathersim.faterlaszlo.Arial import *
 from Weathersim.faterlaszlo.f_actors import *
 import Weathersim.faterlaszlo.f_screen_m
 
+
 class f_stage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -32,8 +33,8 @@ class f_stage1(game.scene2d.MyStage):
             self.a = apple()
             self.add_actor(self.a)
             self.a.w = 35
-            self.a.x = random.Random().randint(10, 300)
-            self.a.y = random.Random().randint(0, 250)
+            self.a.x = random.Random().randint(80, 300)
+            self.a.y = random.Random().randint(50, 250)
 
     def click(self, sender, event):
         if event.button == 1:

@@ -17,7 +17,7 @@ class rain(game.scene2d.MyActor):
 class snow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
-
+        self.set_width(75)
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 200
