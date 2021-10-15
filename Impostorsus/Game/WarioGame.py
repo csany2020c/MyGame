@@ -3,6 +3,7 @@ import game
 from Impostorsus.Game.WarioActor import *
 from Impostorsus.Game.WarioStage import *
 from Impostorsus.Game.WarioScreen import *
+import Impostorsus.Game.WarioScreen
 
 class Wario(game.scene2d.MyGame):
 

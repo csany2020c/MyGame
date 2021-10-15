@@ -10,7 +10,7 @@ class HavasesoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.taj = taj()
+        self.taj = havastaj()
         self.taj.width = 1280
         self.taj.height = 720
         self.taj.z_index = 2
@@ -43,21 +43,6 @@ class HavasesoStage(game.scene2d.MyStage):
         self.button5.y = 0
         self.button5.x = 0
 
-        self.felho = felho()
-        self.felho.width = 225
-        self.felho.height = 125
-        self.felho.z_index = 1
-        self.felho.y = 50
-        self.add_actor(self.felho)
-
-        self.windbag = windbag()
-        self.windbag.width = 225
-        self.windbag.height = 125
-        self.windbag.z_index = 1
-        self.windbag.y = 450
-        self.windbag.x = 1150
-        self.add_actor(self.windbag)
-        self.windbag.z_index = 3
 
         self.set_on_key_down_listener(self.nyom1)
         self.button5.set_on_mouse_down_listener(self.Klikk1)

@@ -1,16 +1,18 @@
+import random
+
 import game
 
 
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/landscape.png')
+        self.taj = super().__init__('images/landscape.png')
 
 
 class szurkeeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/cloudy.png')
+        self.szeg = super().__init__('images/cloudy.png')
 
 
 class eso(game.scene2d.MyActor):
@@ -23,6 +25,7 @@ class eso(game.scene2d.MyActor):
         self.y += delta_time * 200
         if self.y > 720:
             self.y = -50
+            self.x = random.Random().randint(0, 1280)
 
 
 class button1(game.scene2d.MyActor):

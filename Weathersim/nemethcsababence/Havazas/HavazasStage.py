@@ -9,7 +9,7 @@ class HavazasStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.taj = taj()
+        self.taj = havastaj()
         self.taj.width = 1280
         self.taj.height = 720
         self.taj.z_index = 2
@@ -17,10 +17,6 @@ class HavazasStage(game.scene2d.MyStage):
         self.szeg.width = 1920
         self.szeg.height = 1300
         self.szeg.z_index = 1
-        self.ho = ho()
-        self.ho.width = 100
-        self.ho.height = 100
-        self.ho.z_index = 3
         self.add_actor(self.taj)
         self.add_actor(self.szeg)
         for i in range(30):
@@ -28,6 +24,9 @@ class HavazasStage(game.scene2d.MyStage):
             self.add_actor(self.ho)
             self.ho.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.ho.w)
             self.ho.y = random.Random().randint(0, 720)
+            self.ho.width = 75
+            self.ho.height = 75
+            self.ho.z_index = 3
 
         self.button5 = button5()
         self.add_actor(self.button5)

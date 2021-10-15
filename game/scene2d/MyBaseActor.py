@@ -266,6 +266,9 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
             return Overlaps.circle_vs_circle(self.get_hitbox(), other.get_hitbox())
         return False
 
+    def __str__(self) -> str:
+        return "X = " + str(self._x) + " " + "Y = " + str(self._y) + " " + "Z = " + str(self._z_index) + " " + super().__str__()
+
     x: int = property(get_x, set_x)
     y: int = property(get_y, set_y)
     w: int = property(get_width, set_width)

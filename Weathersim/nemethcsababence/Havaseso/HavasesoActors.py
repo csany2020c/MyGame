@@ -2,22 +2,22 @@ import game
 from game.scene2d.MyScreen import *
 
 
-class taj(game.scene2d.MyActor):
+class havastaj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/landscape.png')
+        self.hotaj = super().__init__('images/snowlandscape.png')
 
 
 class szurkeeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/cloudy.png')
+        self.szeg = super().__init__('images/cloudy.png')
 
 
 class ho(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/snow.png')
+        self.ho = super().__init__('images/snow.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -29,11 +29,11 @@ class ho(game.scene2d.MyActor):
 class eso(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/rain.png')
+        self.eso = super().__init__('images/rain.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 200
+        self.y += delta_time * 150
         if self.y > 720:
             self.y = -50
 
@@ -41,10 +41,10 @@ class eso(game.scene2d.MyActor):
 class button3(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/havaseso2.png')
+        self.butt3 = super().__init__('images/havaseso2.png')
 
 
 class button5(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/Vissza.png')
+        self.butt5 = super().__init__('images/Vissza.png')
