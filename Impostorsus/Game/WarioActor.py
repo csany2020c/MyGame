@@ -1,6 +1,31 @@
 import game
+from game.simpleworld.ShapeType import ShapeType
 
-class Wario4Actor(game.scene2d.MyActor):
+
+class WarioActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("Kepek/actorsusus.png")
+        self.go = True
+        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_w = 0.9
+        self.hitbox_shape = ShapeType.Rectangle
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.go:
+            self.y += 2
+
+    def start(self):
+        self.go = True
+
+    def stop(self):
+        self.go = False
+
+class GroundActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/foldriosus.png")
+        self.set_width(200)
+        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_w = 200
+        self.hitbox_shape = ShapeType.Rectangle
