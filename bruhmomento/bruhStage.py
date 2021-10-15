@@ -12,6 +12,10 @@ class bruhstage(game.scene2d.MyStage):
         super().__init__()
         self.add_actor(map())
         self.add_actor(bruhActor())
+        self.kapu = kapu()
+        self.add_actor(self.kapu)
+        self.kapu.x = 925
+        self.kapu.y = 610
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
         self.enemy1.x = 1000
