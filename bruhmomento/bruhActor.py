@@ -19,7 +19,7 @@ class bruhActor(game.scene2d.MyActor):
                 self.y += 4
 
         self.set_on_key_press_listener(key_down)
-
+        self.set_size(200, 100)
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/katona.png")
@@ -35,7 +35,6 @@ class enemy1(game.scene2d.MyActor):
             if event.key == pygame.K_s:
                 self.y += 4
         self.set_on_key_press_listener(key_down)
-
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):
