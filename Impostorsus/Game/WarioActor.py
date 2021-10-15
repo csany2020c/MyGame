@@ -26,6 +26,6 @@ class GroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
         self.set_width(200)
-        self.hitbox_scale_h = 0.9
-        self.hitbox_scale_w = 200
+        # self.hitbox_scale_h = 0.9
+        # self.hitbox_scale_w = 200
         self.hitbox_shape = ShapeType.Rectangle

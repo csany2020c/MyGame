@@ -115,6 +115,13 @@ class MenuStage(game.scene2d.MyStage):
         self.text.set_height(50)
         self.text.x += 170
         self.text.y += 200
+        self.text2 = MenuText()
+        self.add_actor(self.text2)
+        self.text2.set_text("valami")
+        self.text2.set_width(50)
+        self.text2.set_height(50)
+        self.text2.x += 170
+        self.text2.y += 240
 
         self.set_on_key_down_listener(self.gomb)
     def gomb(self, sender, event):
