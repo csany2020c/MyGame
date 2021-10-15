@@ -13,7 +13,7 @@ class Sunny(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 10:
+        if self.elapsed_time > 15:
             self.game.screen = Rain()
 
 class Rain(game.scene2d.MyScreen):
@@ -23,7 +23,7 @@ class Rain(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 5:
+        if self.elapsed_time > 15:
             self.game.screen = RainSnow()
 
 class RainSnow(game.scene2d.MyScreen):
@@ -33,7 +33,7 @@ class RainSnow(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 5:
+        if self.elapsed_time > 15:
             self.game.screen = Snow()
 
 class Snow(game.scene2d.MyScreen):
@@ -41,6 +41,19 @@ class Snow(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(SnowStage())
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 15:
+            self.game.screen = End()
 
+
+class End(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.add_stage(EndStage())
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 5:
+            self.game.screen = Menu()
 
 

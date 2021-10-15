@@ -8,7 +8,7 @@ class MyZIndex:
     def __init__(self) -> None:
         MyZIndex.auto_z_index += 100
         self._z_index = MyZIndex.auto_z_index
-        print(self.__str__() + str(self._z_index) + " Z index")
+        # print(self.__str__() + str(self._z_index) + " Z index")
 
     def set_z_index(self, zindex: int):
         self._z_index = zindex

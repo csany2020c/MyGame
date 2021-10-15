@@ -36,6 +36,7 @@ class Wario4Actor(game.scene2d.MyActor):
         super().__init__("Kepek/actorsusus.png")
     def act(self, delta_time: float):
         super().act(delta_time)
+        self.y += 2
 
 
 
