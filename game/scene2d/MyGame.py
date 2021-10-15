@@ -60,8 +60,8 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                 # print(event)
                 if event.type == pygame.QUIT:
                     self.exit()
-                if self._screen is not None:
-                    if event.type == pygame.MOUSEBUTTONUP or event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEMOTION or event.type == pygame.MOUSEWHEEL:
+                if event.type == pygame.MOUSEBUTTONUP or event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEMOTION or event.type == pygame.MOUSEWHEEL:
+                    if self._screen is not None:
                         for st in self.screen.stages_reverse:
                             for ac in st.actors_reverse:
                                 if ac.is_mouse_event_present():
@@ -74,10 +74,11 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                         if self.screen.is_mouse_event_present():
                             if self.screen.do_mouse_event(sender=st, event=event):
                                 break
-                        if self.is_mouse_event_present():
-                            if self.do_mouse_event(sender=st, event=event):
-                                break
-                    if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
+                    if self.is_mouse_event_present():
+                        if self.do_mouse_event(sender=self, event=event):
+                            break
+                if event.type == pygame.KEYDOWN or event.type == pygame.KEYUP:
+                    if self._screen is not None:
                         for st in self.screen.stages_reverse:
                             for ac in st.actors_reverse:
                                 if ac.is_keyboard_event_present():
@@ -89,9 +90,9 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
                         if self.screen.is_keyboard_event_present():
                             if self.screen.do_key_event(sender=st, event=event):
                                 break
-                        if self.is_keyboard_event_present():
-                            if self.do_key_event(sender=st, event=event):
-                                break
+                    if self.is_keyboard_event_present():
+                        if self.do_key_event(sender=self, event=event):
+                            break
                 self.debug_key_handle(event)
             self._elapsed_time += self.get_delta_time()
             MyKeyboardListeners.do_keypress_event(self)

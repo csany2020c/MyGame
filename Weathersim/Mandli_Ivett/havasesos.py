@@ -63,13 +63,13 @@ class Stage(game.scene2d.MyStage):
         for i in range(700):
             self.c = ActorC()
             self.add_actor(self.c)
-            self.c.x = random.Random().randint(0, 1240)
+            self.c.x = random.Random().randint(0, 1230)
             self.c.y = random.Random().randint(-3000, 750)
 
         for i in range(1000):
             self.d = ActorD()
             self.add_actor(self.d)
-            self.d.x = random.Random().randint(0, 1240)
+            self.d.x = random.Random().randint(0, 1230)
             self.d.y = random.Random().randint(-3000, 750)
 
     def key_down(self, sender, event):
@@ -82,11 +82,3 @@ class HavasesosScreen(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(Stage())
 
-
-class Start(game.scene2d.MyGame):
-    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
-        super().__init__(width, height, autorun)
-        self.screen = HavasesosScreen()
-
-
-Start().run()
