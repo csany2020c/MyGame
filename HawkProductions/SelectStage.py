@@ -4,6 +4,7 @@ from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.GameScreen
 
+
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -12,17 +13,18 @@ class SelectStgage(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.x = 530
         self.D.y = 250
+        self.D.width = 200
 
-        self.t = Arial()
+        self.t = Arrow()
         self.add_actor(self.t)
-        self.t.set_text("Vissza")
         self.t.set_on_mouse_down_listener(self.click)
+        self.t.w = 125
 
-        self.t1 = Arial()
+        self.t1 = Sellect()
         self.add_actor(self.t1)
-        self.t1.set_text("Select")
+        self.t1.width = 200
         self.t1.x = 530
-        self.t1.y = 450
+        self.t1.y = 400
         self.t1.set_on_mouse_down_listener(self.click1)
 
         self.arrow = Arrow()

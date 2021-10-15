@@ -35,9 +35,26 @@ class ActorD(game.scene2d.MyActor):
 class ActorSnow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
-        self.speed = 0
-
+        self.x = random.randint(-100, 1270)
+        self.y = random.randint(0, 500)
+        self.width = random.randint(40, 70)
+        self.height = random.randint(40, 70)
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * self.speed
+        self.y = self.y + 3
+        if self.y == 720:
+            self.y = 0
+
+class ActorRain(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("rain.png")
+        self.x = random.randint(-100, 1270)
+        self.y = random.randint(0, 500)
+        self.width = random.randint(40, 70)
+        self.height = random.randint(40, 70)
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y = self.y + 3
+        if self.y == 720:
+            self.y = 0
 

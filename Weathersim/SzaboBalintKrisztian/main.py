@@ -38,5 +38,4 @@ class IdoSim(game.scene2d.MyGame):
             pygame.display.toggle_fullscreen()
 
 
-
 IdoSim().run()

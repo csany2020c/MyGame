@@ -4,7 +4,8 @@ from Weathersim.nemethcsababence.Menu.MenuActors import *
 import game
 from Weathersim.nemethcsababence.Eso.EsoScreen import *
 from Weathersim.nemethcsababence.Havazas.HavazasScreen import *
-from Weathersim.nemethcsababence.Havaseso.HavasesoScreen import *
+from Weathersim.nemethcsababence.Havaseso.HavasesoScreen import HavasesoScreen
+from Weathersim.nemethcsababence.Havaseso.HavasesoActors import *
 from Weathersim.nemethcsababence.Napsutes.NapsutesScreen import *
 from game.scene2d.MyScreen import *
 
@@ -68,7 +69,7 @@ class MenuStage(game.scene2d.MyStage):
             self.eso.height = 20
 
         for i in range(25):
-            self.eso2 = menueso()
+            self.eso2 = menueso2()
             self.add_actor(self.eso2)
             self.eso2.y = random.Random().randint(100, 375)
             self.eso2.x = random.Random().randint(650, 925)
@@ -84,13 +85,12 @@ class MenuStage(game.scene2d.MyStage):
             self.ho.height = 20
 
         for i in range(25):
-            self.ho2 = menuho()
+            self.ho2 = menuho2()
             self.add_actor(self.ho2)
             self.ho2.y = random.Random().randint(100, 375)
             self.ho2.x = random.Random().randint(325, 600)
             self.ho2.width = 10
             self.ho2.height = 20
-
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.button2.set_on_mouse_down_listener(self.Klikk2)

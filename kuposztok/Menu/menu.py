@@ -6,10 +6,7 @@ from kuposztok.Menu.MenuScreen import *
 class BgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        height = pygame.display.Info().current_h
-        width = pygame.display.Info().current_h
-        self.set_height = height
-        self.set_width = width
+
         super().__init__('../image/menu.png')
 
 

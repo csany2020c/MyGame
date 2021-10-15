@@ -5,6 +5,7 @@ from Weathersim.faterlaszlo.Arial import *
 import Weathersim.faterlaszlo.f_screen_m
 from Weathersim.faterlaszlo.f_actors import *
 
+
 class f_stage3(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()

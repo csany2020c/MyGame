@@ -4,8 +4,8 @@ from Weathersim.DoraMarton.DMscreen import *
 
 class main(game.scene2d.MyGame):
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, width: int = 1280, height: int = 720):
+        super().__init__(width, height)
         def key_down(sender, event):
             print(sender)
             print(event)
@@ -17,8 +17,11 @@ class main(game.scene2d.MyGame):
                 self.screen = Snowyscreen()
             if event.key == pygame.K_4:
                 self.screen = snowyrainyscreen()
-            if event.key == pygame.K_ESCAPE:
+            if event.key == pygame.K_0:
                 self.screen = Menuscreen()
+            if event.key == pygame.K_ESCAPE:
+                self.exit()
+
         self.set_on_key_down_listener(key_down)
         self.screen = Menuscreen()
         self.run()

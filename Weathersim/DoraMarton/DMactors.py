@@ -6,19 +6,21 @@ class rain(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("rain.png")
 
+        self.set_width(50)
+
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 50
+        self.y += delta_time * 1000
         if self.y > 720:
             self.y = -100
 
 class snow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
-
+        self.set_width(75)
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 50
+        self.y += delta_time * 200
         self.rotate_with(delta_time * 20)
         if self.y > 720:
             self.y = -100
@@ -75,4 +77,10 @@ class exit(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("exit.png")
         self.x = 1060
-        self.y = 490
+        self.y = 500
+        def mouse_down(sender, event):
+            print(event)
+            print(sender)
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                pygame.quit()
+        self.set_on_mouse_down_listener(mouse_down)
