@@ -22,9 +22,10 @@ class WarioStage(game.scene2d.MyStage):
         self.wario.set_on_key_down_listener(self.key_down)
 
         for i in range(10):
-            self.fold2 = GroundActor()
-            self.add_actor(GroundActor())
-            self.fold2.x += 100
+            g = GroundActor()
+            g.y = 400
+            g.x = i * g.w + 300
+            self.add_actor(g)
 
 
     def press(self, sender, event):
@@ -52,10 +53,20 @@ class WarioStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.wario.overlaps(self.fold or self.fold2):
+        overlapsASD: bool = False
+        for actorASD in self.actors:
+            if isinstance(actorASD, GroundActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+        if overlapsASD:
             self.wario.stop()
-        if self.wario.overlaps(self.fold or self.fold2) == False:
+        else:
             self.wario.start()
+        # if self.wario.overlaps(self.fold):
+        #     self.wario.stop()
+        # if self.wario.overlaps(self.fold or self.fold2) == False:
+        #     self.wario.start()
 
 
 
