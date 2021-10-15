@@ -24,3 +24,8 @@ class menuhatter(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("resources/images/menuhatterx.png")
+
+class exit(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__("resources/images/exit.png")

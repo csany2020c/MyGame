@@ -1,7 +1,6 @@
 from Weathersim.TothAkos.stage import *
 
 class Sunnyscr(game.scene2d.MyScreen):
-
     def __init__(self):
         super().__init__()
         self.add_stage(Sunnystage())
