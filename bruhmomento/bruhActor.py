@@ -4,7 +4,7 @@ import pygame
 
 class bruhActor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/legokatona.jpg")
+        super().__init__("Images/legokatona.png")
 
         def key_down(sender, event):
             print(sender)
@@ -22,7 +22,7 @@ class bruhActor(game.scene2d.MyActor):
 
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/katona.jpg")
+        super().__init__("Images/katona.png")
         def key_down(sender, event):
             print(sender)
             print(event)
@@ -39,7 +39,7 @@ class enemy1(game.scene2d.MyActor):
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/horthy.jpg")
+        super().__init__("Images/horthy.png")
 
 class enemy2 (game.scene2d.MyActor):
     def __init__(self):
