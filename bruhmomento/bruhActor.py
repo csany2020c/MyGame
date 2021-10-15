@@ -1,13 +1,10 @@
 import pygame
 import game
 import pygame
-from game.simpleworld.ShapeType import ShapeType
 
 class bruhActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/legokatona.png")
-
-        self.hitbox_shape = ShapeType.Circle
 
         def key_down(sender, event):
             print(sender)
@@ -39,13 +36,10 @@ class enemy2 (game.scene2d.MyActor):
         super().act(delta_time)
         self.x += delta_time * 100
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time * 100
+
 class map(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/map.jpg")
-        
-class kapu(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("Images/horthy.png")
-        self.x = 1000
-        self.y =400
-        self.hitbox_shape = ShapeType.Circle

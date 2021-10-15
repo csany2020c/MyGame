@@ -5,18 +5,12 @@ class bruhScreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.r = 0
-        self.g = 1
-        self.b = 0
         self.add_stage(bruhstage())
 
 class brruhScreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.r = 50
-        self.g = 41
-        self.b = 40
         self.add_stage(bruhstage())
 
     def act(self, delta_time: float):
