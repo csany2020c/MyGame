@@ -17,8 +17,8 @@ class bruhScreen(game.scene2d.MyScreen):
 
 class brruhScreen(game.scene2d.MyScreen):
 
-    def __init__(self, width: int = 1280, height: int = 720):
-        super().__init__(width, height)
+    def __init__(self):
+        super().__init__()
         self.r = 50
         self.g = 41
         self.b = 40
@@ -30,6 +30,6 @@ class brruhScreen(game.scene2d.MyScreen):
             self.game.screen = bruhScreen()
 
 class level2Screen(game.scene2d.MyScreen):
-    def __init__(self, width: int = 1280, height: int = 720):
-        super.__init__(width, height)
+    def __init__(self):
+        super.__init__()
         self.add_stage(level2())

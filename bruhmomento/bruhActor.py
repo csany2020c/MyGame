@@ -43,7 +43,3 @@ class enemy2 (game.scene2d.MyActor):
 class map(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/map.jpg")
-
-class kapu (game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("Images/kkapu.png")
