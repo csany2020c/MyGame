@@ -1,8 +1,10 @@
 import pygame
 import Weathersim.olahgergo.Nap.napscreen
 from Weathersim.olahgergo.actors import *
-import Weathersim.olahgergo.havazas
-import Weathersim.olahgergo.havazas.hoscreen
+from Weathersim.olahgergo.havazas.hoscreen import HavScreen
+from Weathersim.olahgergo.havaseso.havasesoscreen import HavEsoScreen
+from Weathersim.olahgergo.eso.esoscreen import EsoScreen
+
 
 class IMenuStage(game.scene2d.MyStage):
 
@@ -20,12 +22,36 @@ class IMenuStage(game.scene2d.MyStage):
         self.semmi.y = 294
         self.semmi.x = 405
 
+        self.semmi2 = semmi()
+        self.add_actor(self.semmi2)
+        self.semmi2.height = 46
+        self.semmi2.width = 466
+        self.semmi2.y = 520
+        self.semmi2.x = 405
+
+        self.semmi3 = semmi()
+        self.add_actor(self.semmi3)
+        self.semmi3.height = 46
+        self.semmi3.width = 466
+        self.semmi3.y = 520
+        self.semmi3.x = 800
+
         self.set_on_key_down_listener(self.key_down)
         self.semmi.set_on_mouse_down_listener(self.asd1)
+        self.semmi2.set_on_mouse_down_listener(self.asd2)
+        self.semmi3.set_on_mouse_down_listener(self.asd3)
 
     def asd1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(Weathersim.olahgergo.havazas.hoscreen.HavStage())
+            self.screen.game.set_screen(Weathersim.olahgergo.havazas.hoscreen.HavScreen())
+
+    def asd2(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.havaseso.havasesoscreen.HavEsoScreen())
+
+    def asd3(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.eso.esoscreen.EsoScreen())
 
 
     def key_down(self, sender, event):

@@ -1,9 +1,9 @@
 import Weathersim.olahgergo.menu.idojarasm
-import Weathersim.olahgergo.menu.menuu
+from Weathersim.olahgergo.havaseso.havasesoscreen import *
 from Weathersim.olahgergo.actors import *
 
 
-class HavStage(game.scene2d.MyStage):
+class HavEsoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -27,6 +27,14 @@ class HavStage(game.scene2d.MyStage):
             self.ho.y = random.randint(a=-0, b=720)
             self.add_actor(self.ho)
 
+            self.eso = Eso()
+            size = random.randint(a=20, b=100)
+            self.eso.height = size
+            self.eso.width = size
+            self.eso.x = random.randint(a=0, b=1280)
+            self.eso.y = random.randint(a=0, b=720)
+            self.add_actor(self.eso)
+
         self.zsa = vissza()
         self.add_actor(self.zsa)
         self.zsa.width = 125
@@ -34,9 +42,9 @@ class HavStage(game.scene2d.MyStage):
         self.zsa.y = 0
         self.zsa.x = 0
 
-        self.zsa.set_on_mouse_down_listener(self.asd4)
+        self.zsa.set_on_mouse_down_listener(self.asd5)
 
-    def asd4(self, sender, event):
+    def asd5(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
 

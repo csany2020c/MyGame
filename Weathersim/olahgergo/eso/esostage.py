@@ -3,7 +3,7 @@ import Weathersim.olahgergo.menu.menuu
 from Weathersim.olahgergo.actors import *
 
 
-class HavStage(game.scene2d.MyStage):
+class EsoStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -19,13 +19,13 @@ class HavStage(game.scene2d.MyStage):
         self.add_actor(self.feg)
 
         for i in range(40):
-            self.ho = ho()
+            self.esoo = Eso()
             size = random.randint(a=20, b=100)
-            self.ho.height = size
-            self.ho.width = size
-            self.ho.x = random.randint(a=0, b=1280)
-            self.ho.y = random.randint(a=-0, b=720)
-            self.add_actor(self.ho)
+            self.esoo.height = size
+            self.esoo.width = size
+            self.esoo.x = random.randint(a=0, b=1280)
+            self.esoo.y = random.randint(a=-0, b=720)
+            self.add_actor(self.esoo)
 
         self.zsa = vissza()
         self.add_actor(self.zsa)
