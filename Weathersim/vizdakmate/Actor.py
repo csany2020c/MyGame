@@ -26,7 +26,7 @@ class Rain(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * 300
+        self.y += delta_time * 400
 
 class Snow(game.scene2d.MyActor):
     def __init__(self):
@@ -43,3 +43,12 @@ class Sr(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("snow.png")
         super().__init__("rain.png")
+
+class Menu(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__()
+
+class MenuText(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "Text") -> None:
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
