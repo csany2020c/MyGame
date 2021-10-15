@@ -10,21 +10,13 @@ class WarioStage(game.scene2d.MyStage):
         self.wario2 = WarioActor()
         self.add_actor(self.wario)
         self.add_actor(self.wario2)
-        self.fold = GroundActor()
-        self.add_actor(self.fold)
-        self.fold2 = GroundActor()
-        self.add_actor(self.fold2)
-        self.fold2.x += 200
-        self.fold2.y += 615
-        self.fold.x += 350
-        self.fold.y += 615
         self.wario.set_on_key_press_listener(self.press)
         self.wario.set_on_key_down_listener(self.key_down)
 
         for i in range(10):
             g = GroundActor()
-            g.y = 400
-            g.x = i * g.w + 300
+            g.y = 615
+            g.x = i * g.w + -10
             self.add_actor(g)
 
 
