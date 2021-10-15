@@ -4,19 +4,35 @@ import game
 class taj(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/landscape.png')
+        self.taj = super().__init__('images/landscape.png')
 
 
 class kekeg(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/sunny.png')
+        self.eg = super().__init__('images/sunny.png')
+
+class madar(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.madar = super().__init__('images/madar.png')
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 20
+        self.x += delta_time * 100
+        if self.x > 1350:
+            self.y = 0
+            self.x = 0
+
+
+
 
 
 class nap(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/sun.png')
+        self.nap = super().__init__('images/sun.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -28,15 +44,15 @@ class nap(game.scene2d.MyActor):
 class button4(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/napsutes2.png')
+        self.butt4 = super().__init__('images/napsutes.png')
 
 
 class MenuImage(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/menuimage.png')
+        self.Image = super().__init__('images/menuimage.png')
 
 class button5(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/Vissza.png')
+        self.butt5 = super().__init__('images/Vissza.png')

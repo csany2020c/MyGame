@@ -4,7 +4,7 @@ from Weathersim.ZsuppanFlorian.mainstage import *
 class rainStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        for k in range(100):
+        for i in range(100):
             self.rain = eso()
             tag = random.randint(a=40, b=65)
             self.rain.height = tag

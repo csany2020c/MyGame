@@ -1,4 +1,5 @@
 import game
+import random
 
 class sunActor(game.scene2d.MyActor):
 
@@ -17,8 +18,7 @@ class rainActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.r += 20 * delta_time
-        self.x += 32 * delta_time
+        self.y += 32 * delta_time
 
 class snowActor(game.scene2d.MyActor):
 
@@ -27,8 +27,8 @@ class snowActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.r += 20 * delta_time
-        self.x += 32 * delta_time
+        self.r += random.randint(5, 20) * delta_time
+        self.y += 32 * delta_time
 
 class landscapeActor(game.scene2d.MyActor):
 

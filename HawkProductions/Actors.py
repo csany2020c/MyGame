@@ -1,5 +1,12 @@
 import game
 
+class Sellect(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/sellect.png")
+
+class Title(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/title.png")
 
 class Startb(game.scene2d.MyActor):
 

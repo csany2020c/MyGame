@@ -7,5 +7,4 @@ class Menu(game.scene2d.MyGame):
         super().__init__()
         self.screen = MenuScreen()
 
-
 Menu().run()
