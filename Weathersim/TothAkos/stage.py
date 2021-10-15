@@ -32,11 +32,11 @@ class Snowystage (game.scene2d.MyStage):
         self.add_actor(self.b)
         self.landscape = Landscape()
         self.add_actor(self.landscape)
-        for i in range(150):
+        for i in range(40):
             self.Snow = Snow()
             self.add_actor(self.Snow)
-            self.Snow.x = random.Random().randint(-1000, 1270)
-            self.Snow.y = random.Random().randint(-3000, 770)
+            self.Snow.x = random.Random().randint(-100, 1280)
+            self.Snow.y = random.Random().randint(-100, 720)
         self.set_on_key_down_listener(self.gombok)
     def gombok(self,sender,event):
         if event.key == pygame.K_ESCAPE:
@@ -57,11 +57,11 @@ class Rainystage (game.scene2d.MyStage):
         self.add_actor(self.b)
         self.landscape = Landscape()
         self.add_actor(self.landscape)
-        for i in range(200):
+        for i in range(40):
             self.Rain = Rain()
             self.add_actor(self.Rain)
-            self.Rain.x = random.Random().randint(-1000, 1270)
-            self.Rain.y = random.Random().randint(-3000, 770)
+            self.Rain.x = random.Random().randint(-100, 1280)
+            self.Rain.y = random.Random().randint(-100, 720)
         self.set_on_key_down_listener(self.gombok)
     def gombok(self,sender,event):
         if event.key == pygame.K_ESCAPE:
@@ -84,18 +84,18 @@ class Havasesostage (game.scene2d.MyStage):
         self.add_actor(self.landscape)
         self.snow = Snow()
         self.add_actor(self.snow)
-        for i in range(100):
+        for i in range(40):
             self.Snow = Snow()
             self.add_actor(self.Snow)
-            self.Snow.x = random.Random().randint(-1000, 1270)
-            self.Snow.y = random.Random().randint(-3000, 770)
+            self.Snow.x = random.Random().randint(-100, 1280)
+            self.Snow.y = random.Random().randint(-100, 720)
         self.rain = Rain()
         self.add_actor(self.rain)
         for i in range(100):
             self.Rain = Rain()
             self.add_actor(self.Rain)
-            self.Rain.x = random.Random().randint(-1000, 1270)
-            self.Rain.y = random.Random().randint(-3000, 770)
+            self.Rain.x = random.Random().randint(-100, 1280)
+            self.Rain.y = random.Random().randint(-100, 720)
         self.set_on_key_down_listener(self.gombok)
     def gombok(self,sender,event):
         if event.key == pygame.K_ESCAPE:
