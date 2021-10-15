@@ -1,6 +1,6 @@
-from Weathersim.Mandli_Ivett.havazos import *
 from Weathersim.Mandli_Ivett.esos import *
 from Weathersim.Mandli_Ivett.havasesos import *
+from Weathersim.Mandli_Ivett.havazos import *
 from Weathersim.Mandli_Ivett.napsuteses import *
 import pygame
 

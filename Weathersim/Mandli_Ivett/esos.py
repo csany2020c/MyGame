@@ -22,7 +22,7 @@ class ActorC(game.scene2d.MyActor):
     def act(self, delta_time: float):
         game.scene2d.MyLabel.act(self, delta_time)
         if self.x + self.width < game.scene2d.MyGame.get_screen_width():
-            self.y += delta_time * 180
+            self.y += delta_time * 160
 
 
 class ActorD(game.scene2d.MyActor):
@@ -65,7 +65,7 @@ class Stage(game.scene2d.MyStage):
         for i in range(1500):
             self.rain = ActorC()
             self.add_actor(self.rain)
-            self.rain.x = random.Random().randint(0, 1240)
+            self.rain.x = random.Random().randint(0, 1230)
             self.rain.y = random.Random().randint(-3000, 750)
 
     def key_down(self, sender, event):

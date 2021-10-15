@@ -49,7 +49,7 @@ class Stage(game.scene2d.MyStage):
         for i in range(500):
             self.snow = ActorC()
             self.add_actor(self.snow)
-            self.snow.x = random.Random().randint(0, 1240)
+            self.snow.x = random.Random().randint(0, 1230)
             self.snow.y = random.Random().randint(-5000, 750)
 
     def key_down(self, sender, event):
