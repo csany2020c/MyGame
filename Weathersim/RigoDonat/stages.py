@@ -78,6 +78,18 @@ class RainStage(game.scene2d.MyStage):
             self.RainDrop.x = random.Random().randint(-1500, 1500)
             self.RainDrop.y = random.Random().randint(-1000, 1000)
 
+        self.t = game.scene2d.MyTickTimer(interval=1.5, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        for i in range(50):
+            self.RainDrop = RainDrop()
+            self.add_actor(self.RainDrop)
+            self.RainDrop.w = random.Random().randint(30, 30)
+            self.RainDrop.y = random.Random().randint(-100, 50)
+            self.RainDrop.x = random.Random().randint(0, 1400)
+
+
 class SnowStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -92,26 +104,68 @@ class SnowStage(game.scene2d.MyStage):
             self.SnowDrop.x = random.Random().randint(-1500, 1500)
             self.SnowDrop.y = random.Random().randint(-1000, 1000)
 
+        self.t = game.scene2d.MyTickTimer(interval=1.5, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        for i in range(50):
+            self.SnowDrop = SnowDrop()
+            self.add_actor(self.SnowDrop)
+            self.SnowDrop.w = random.Random().randint(30, 30)
+            self.SnowDrop.y = random.Random().randint(-100, 50)
+            self.SnowDrop.x = random.Random().randint(0, 1400)
+
 class RainSnowStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.CloudySky = CloudySky()
         self.add_actor(CloudySky())
         self.add_actor(Forest())
-        for a in range(1000):
+        for a in range(700):
             self.RainDrop = RainDrop()
             self.add_actor(self.RainDrop)
             self.RainDrop.width = 30
             self.RainDrop.height = 30
             self.RainDrop.x = random.Random().randint(-1500, 1500)
             self.RainDrop.y = random.Random().randint(-1000, 1000)
-        for a in range(1000):
+        for a in range(700):
             self.SnowDrop = SnowDrop()
             self.add_actor(self.SnowDrop)
             self.SnowDrop.width = 30
             self.SnowDrop.height = 30
             self.SnowDrop.x = random.Random().randint(-1500, 1500)
             self.SnowDrop.y = random.Random().randint(-1000, 1000)
+
+        self.t = game.scene2d.MyTickTimer(interval=1.5, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        for i in range(50):
+            self.SnowDrop = SnowDrop()
+            self.add_actor(self.SnowDrop)
+            self.SnowDrop.w = random.Random().randint(30, 30)
+            self.SnowDrop.y = random.Random().randint(-100, 50)
+            self.SnowDrop.x = random.Random().randint(0, 1400)
+        for i in range(50):
+            self.RainDrop = RainDrop()
+            self.add_actor(self.RainDrop)
+            self.RainDrop.w = random.Random().randint(30, 30)
+            self.RainDrop.y = random.Random().randint(-100, 50)
+            self.RainDrop.x = random.Random().randint(0, 1400)
+
+class EndStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.MenuBg = MenuBg()
+        self.add_actor(MenuBg())
+        self.endtext = MenuText()
+        self.add_actor(self.endtext)
+        self.endtext.set_text("The simulation is over")
+        self.endtext.set_alpha(500)
+        self.endtext.set_width(80)
+        self.endtext.set_height(80)
+        self.endtext.x += 425
+        self.endtext.y += 300
 
 
 
