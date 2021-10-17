@@ -1,5 +1,3 @@
-from Weathersim.ZsuppanFlorian import *
-from Weathersim.ZsuppanFlorian.mainstage import *
 from Weathersim.ZsuppanFlorian.mainscreen import *
 import game
 import pygame
@@ -33,11 +31,16 @@ class MainStage(game.scene2d.MyGame):
             print("Sutanap")
             self.screen = Napsutes()
 
+        if event.key == pygame.K_0:
+            print("info")
+            self.screen = Infok()
+
+        if event.key == pygame.K_5:
+            print("havazikesiksut")
+            self.screen = Hoesonap()
+
         if event.key == pygame.K_F11:
             print("Teljes kepernyo")
             pygame.display.toggle_fullscreen()
-
-
-
 
 MainStage().run()
