@@ -11,10 +11,10 @@ class SuStage(game.scene2d.MyStage):
         self.S = Sunny()
         self.add_actor(self.S)
 
-        self.Ff2 = Font()
+        self.Ff2 = Font3()
         self.add_actor(self.Ff2)
         self.Ff2.set_text("25°C")
-        self.Ff2.x = 1100
+        self.Ff2.x = 1150
         self.Ff2.y = 10
 
         self.Su = Sun()

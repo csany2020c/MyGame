@@ -28,6 +28,18 @@ class ActorD(game.scene2d.MyActor):
         self.set_height(30)
 
 
+class ActorE(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("szamok.jpg")
+        self.set_width(220)
+
+
+class ActorF(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("esc.jpg")
+        self.set_width(180)
+
+
 class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -35,12 +47,17 @@ class Stage(game.scene2d.MyStage):
         self.b = ActorB()
         self.c = ActorC()
         self.d = ActorD()
+        self.e = ActorE()
+        self.f = ActorF()
         self.b.set_x(400).set_y(50)
         self.d.set_x(110).set_y(650)
+        self.f.set_x(1100).set_y(0)
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
         self.add_actor(self.d)
+        self.add_actor(self.e)
+        self.add_actor(self.f)
         self.set_on_key_down_listener(self.key_down)
 
     def key_down(self, sender, event):

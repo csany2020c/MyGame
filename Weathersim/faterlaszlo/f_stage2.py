@@ -28,16 +28,16 @@ class f_stage2(game.scene2d.MyStage):
             self.add_actor(self.eso)
             self.eso.h = 25
             self.eso.w = 50
-            self.eso.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso.w)
-            self.eso.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.eso.h)
+            self.eso.x = random.Random().randint(0, 1240)
+            self.eso.y = random.Random().randint(0, 720)
 
         for i in range(12):
             self.havazik = havazas()
             self.add_actor(self.havazik)
             self.havazik.h = 20
             self.havazik.w = 45
-            self.havazik.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.havazik.w)
-            self.havazik.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.havazik.h)
+            self.havazik.x = random.Random().randint(0, 1240)
+            self.havazik.y = random.Random().randint(0, 720)
 
 
     def click(self, sender, event):
@@ -45,6 +45,9 @@ class f_stage2(game.scene2d.MyStage):
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 
     def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            print("Sikeresen be lett zárva")
+            quit()
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 

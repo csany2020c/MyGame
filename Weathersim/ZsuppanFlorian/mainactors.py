@@ -21,37 +21,45 @@ class eso(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * random.randint(200, 400)
+        self.y += delta_time * random.randint(100, 500)
         if self.y > 720:
-            self.y = random.randint(-500, 0)
+            self.y = random.randint(-200, 0)
 
 class ho(game.scene2d.MyActor):
     def __init__(self, image_url: str = "resource/images/snow.png"):
         super().__init__(image_url)
-        self.width = 50
+        self.width = 55
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.y += delta_time * random.randint(200, 400)
+        self.y += delta_time * random.randint(100, 500)
         if self.y > 720:
-            self.y = random.randint(-500, 0)
+            self.y = random.randint(-200, 0)
 
 class nap(game.scene2d.MyActor):
     def __init__(self, image_url: str = "resource/images/sun.png"):
         super().__init__(image_url)
-
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.x += delta_time * 50
-        if self.x > game.scene2d.MyGame.get_screen_width():
-            self.x += delta_time * -100
-        self.rotate_with(0.5)
+        self.x += delta_time * 30
+        self.rotate_with(0.2)
 
+class InfoHatter(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "resource/images/infobg.jpg"):
+        super().__init__(image_url)
 
-class Gomb1(game.scene2d.MyLabel):
+class Info1(game.scene2d.MyLabel):
     def __init__(self):
-        super().__init__("gomb1")
+        super().__init__("Az időjárások között az 1-es, 2-es, 3-as, 4-es gombokkal tudsz váltogatni.", font_size=52)
 
-class Gomb2(game.scene2d.MyLabel):
+class Info2(game.scene2d.MyLabel):
     def __init__(self):
-        super().__init__("gomb2")
+        super().__init__("1- Napsütés, 2- Eső, 3- Hó, 4- Havaseső.", font_size=90)
+
+class Info3(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Ha lenyomod az ESCAPE  billentyűt, kilép.", font_size=60)
+
+class Info4(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Az F11 megnyomásával teljes képernyőre vált a program.")
