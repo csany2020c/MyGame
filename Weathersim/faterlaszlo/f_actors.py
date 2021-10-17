@@ -69,7 +69,7 @@ class cloud(game.scene2d.MyActor):
         super().act(delta_time)
         self.x += 90 * delta_time
         if self.elapsed_time > 9:
-            self.x = 1070
+            self.x = 1060
 
 class snowman(game.scene2d.MyActor):
     def __init__(self):
