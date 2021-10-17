@@ -30,19 +30,22 @@ class f_stage3(game.scene2d.MyStage):
         self.cloud.w = 180
         self.cloud.z_index = 2
 
-        for i in range(12):
+        for i in range(24):
             self.eso = eso()
             self.add_actor(self.eso)
             self.eso.h = 25
             self.eso.w = 50
-            self.eso.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso.w)
-            self.eso.y = random.Random().randint(0, game.scene2d.MyGame.get_screen_height() - self.eso.h)
+            self.eso.x = random.Random().randint(0, 1240)
+            self.eso.y = random.Random().randint(0, 720)
 
     def click(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 
     def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            print("Sikeresen be lett zárva")
+            quit()
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 
