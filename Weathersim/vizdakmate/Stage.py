@@ -108,20 +108,47 @@ class SrStage(game.scene2d.MyStage):
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+
         self.text = MenuText()
         self.add_actor(self.text)
-        self.text.set_text("Az F gomb lenyomásával elkezdődik az időjárás szimulálás")
-        self.text.set_width(50)
-        self.text.set_height(50)
-        self.text.x += 170
-        self.text.y += 200
+        self.text.set_text("Időjárás szimuláció")
+        self.text.set_width(80)
+        self.text.set_height(80)
+        self.text.x += 370
+        self.text.y += 100
         self.text2 = MenuText()
         self.add_actor(self.text2)
-        self.text2.set_text("valami")
+        self.text2.set_text("Az F gomb lenyomásával elkezdődik az időjárás szimulálás")
         self.text2.set_width(50)
         self.text2.set_height(50)
         self.text2.x += 170
-        self.text2.y += 240
+        self.text2.y += 300
+        self.text3 = MenuText()
+        self.add_actor(self.text3)
+        self.text3.set_text("Az ESC gomb lenyomásával ki lehet lépni ")
+        self.text3.set_width(50)
+        self.text3.set_height(50)
+        self.text3.x += 170
+        self.text3.y += 360
+
+        self.set_on_key_down_listener(self.gomb)
+    def gomb(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
+        if event.key == pygame.K_f:
+            self.screen.game.set_screen(Weathersim.vizdakmate.Screen.RainScreen())
+
+class EndStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.text = EndText()
+        self.add_actor(self.text)
+        self.text.set_text("Vége:(")
+        self.text.set_width(80)
+        self.text.set_height(80)
+        self.text.x += 500
+        self.text.y += 300
+
 
         self.set_on_key_down_listener(self.gomb)
     def gomb(self, sender, event):
