@@ -4,7 +4,6 @@ from Weathersim.ZsuppanFlorian.mainactors import *
 
 
 class NapStage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         self.nap = nap()
@@ -19,7 +18,6 @@ class NapStage(game.scene2d.MyStage):
 
 
 class HoStage(game.scene2d.MyStage):
-
     def __init__(self):
         super().__init__()
         self.ho = ho()
@@ -106,6 +104,7 @@ class HavasesoNaposStage(game.scene2d.MyStage):
             s.y = random.randint(-500, 200)
             s.x = random.randint(10, 1280) - s.width
             self.add_actor(s)
+
 
 class InfoStage(game.scene2d.MyStage):
     def __init__(self):

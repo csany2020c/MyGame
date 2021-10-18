@@ -3,7 +3,7 @@ import game
 import pygame
 import random
 from HawkProductions.Actors import *
-import HawkProductions.MenuScreen
+import HawkProductions.menu.MenuScreen
 
 
 class GameStage(game.scene2d.MyStage):
@@ -50,12 +50,12 @@ class GameStage(game.scene2d.MyStage):
 
     def click2(self, sender, event):
          if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
 
     def katt(self, sender, event):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
-            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_w:
