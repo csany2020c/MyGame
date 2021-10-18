@@ -12,16 +12,10 @@ class Stage(game.scene2d.MyStage):
             if self.isAPressed == True:
                 self.napos()
 
-
         if event.key == pygame.K_s:
             self.isSPressed = True
             if self.isSPressed == True:
                 self.esos()
-
-        if event.key == pygame.K_m:
-            self.isMPressed = True
-
-
 
         if event.key == pygame.K_f:
             self.isFPressed = True
@@ -33,7 +27,8 @@ class Stage(game.scene2d.MyStage):
             if self.isDPressed == True:
                 self.hav()
                 self.esos()
-
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
     def __init__(self):
         super().__init__()
@@ -102,7 +97,6 @@ class Stage(game.scene2d.MyStage):
         self.s10.remove_from_stage()
         self.s11.remove_from_stage()
         self.s12.remove_from_stage()
-
 
     def cákk(self):
         self.c.remove_from_stage()
@@ -232,19 +226,10 @@ class Stage(game.scene2d.MyStage):
             self.add_timer(self.timer1)
             self.add_timer(self.timer2)
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-
-
-
-
 class Screen(game.scene2d.MyScreen):
-
     def __init__(self):
         super().__init__()
         self.add_stage(Stage())
-
-
 
 class Start(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):

@@ -43,3 +43,9 @@ class Havaseso(game.scene2d.MyActor):
         self.y += delta_time * 200
         if self.y > 720:
             self.y = -50
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 200
+        if self.y > 720:
+            self.y = -50
