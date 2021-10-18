@@ -74,6 +74,9 @@ class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
 
+class Arrow_r(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/nyil_main_f.png")
 
 class Info(game.scene2d.MyActor):
     def __init__(self):
@@ -93,3 +96,17 @@ class Coin(game.scene2d.MyActor):
 class Selectimage(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/Select.png")
+
+class Deagle2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/r6-uj-edit-d2.png")
+
+class Deagle3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/r6-uj-edit-d3.png")
+
+class Deagle4(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/r6-uj-edit-d4.png")
+
+

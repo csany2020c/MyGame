@@ -39,6 +39,19 @@ class SelectStgage(game.scene2d.MyStage):
         self.arrow1.w = 200
         self.arrow1.set_on_mouse_down_listener(self.click3)
 
+        self.arrow2 = Arrow_r()
+        self.arrow2.x = 730
+        self.arrow2.y = 280
+        self.arrow2.w = 200
+        self.arrow2.set_on_mouse_down_listener(self.click3)
+
+        self.arrow3 = Arrow_r()
+        self.add_actor(self.arrow3)
+        self.arrow3.x = 730
+        self.arrow3.y = 280
+        self.arrow3.w = 200
+        self.arrow3.set_on_mouse_down_listener(self.click2)
+
         self.D1 = Deagle2()
         self.D1.x = 520
         self.D1.y = 280
@@ -58,6 +71,8 @@ class SelectStgage(game.scene2d.MyStage):
             self.add_actor(self.D1)
             self.remove_actor(self.arrow)
             self.add_actor(self.arrow1)
+            self.add_actor(self.arrow2)
+            self.remove_actor(self.arrow3)
 
     def click3(self, sender, event):
         if event.button == 1:
@@ -65,5 +80,7 @@ class SelectStgage(game.scene2d.MyStage):
             self.add_actor(self.D)
             self.remove_actor(self.arrow1)
             self.add_actor(self.arrow)
+            self.remove_actor(self.arrow2)
+            self.add_actor(self.arrow3)
 
 
