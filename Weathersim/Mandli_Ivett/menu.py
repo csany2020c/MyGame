@@ -20,9 +20,9 @@ class Menu(game.scene2d.MyGame):
         if event.key == pygame.K_2:
             self.screen = EsosScreen()
         if event.key == pygame.K_3:
-            self.screen = HavasesosScreen()
-        if event.key == pygame.K_4:
             self.screen = HavazosScreen()
+        if event.key == pygame.K_4:
+            self.screen = HavasesosScreen()
 
 
 Menu().run()

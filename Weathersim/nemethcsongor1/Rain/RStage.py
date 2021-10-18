@@ -14,10 +14,10 @@ class RaStage(game.scene2d.MyStage):
         self.Bg = Bg()
         self.add_actor(self.Bg)
 
-        self.Ff2 = Font()
+        self.Ff2 = Font3()
         self.add_actor(self.Ff2)
         self.Ff2.set_text("10°C")
-        self.Ff2.x = 1125
+        self.Ff2.x = 1155
         self.Ff2.y = 10
 
         for i in range(23):

@@ -13,35 +13,23 @@ class MenuStage(game.scene2d.MyStage):
         self.menuk.width = 1280
         self.menuk.height = 720
 
-        self.semmi = semmi()
-        self.add_actor(self.semmi)
-        self.semmi.height = 46
-        self.semmi.width = 466
-        self.semmi.y = 294
-        self.semmi.x = 405
-
         self.kilepes = kilep()
         self.add_actor(self.kilepes)
         self.kilepes.height = 46
         self.kilepes.width = 230
-        self.kilepes.y = 423
+        self.kilepes.y = 402
         self.kilepes.x = 525
 
         self.imenu2 = idojarasok()
         self.add_actor(self.imenu2)
         self.imenu2.height = 46
         self.imenu2.width = 466
-        self.imenu2.y = 349
-        self.imenu2.x = 405
+        self.imenu2.y = 272
+        self.imenu2.x = 407
 
         self.set_on_key_down_listener(self.key_down)
-        self.semmi.set_on_mouse_down_listener(self.asd1)
         self.kilepes.set_on_mouse_down_listener(self.asd2)
         self.imenu2.set_on_mouse_down_listener(self.asd3)
-
-    def asd1(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(Weathersim.olahgergo.Nap.napscreen.NapScreen())
 
     def asd2(self, sender, event):
         if event.button == 1:

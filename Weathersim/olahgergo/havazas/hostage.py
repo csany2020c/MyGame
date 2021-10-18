@@ -18,3 +18,25 @@ class HavStage(game.scene2d.MyStage):
         self.add_actor(self.hatter)
         self.add_actor(self.feg)
 
+        for i in range(40):
+            self.ho = ho()
+            size = random.randint(a=20, b=100)
+            self.ho.height = size
+            self.ho.width = size
+            self.ho.x = random.randint(a=0, b=1280)
+            self.ho.y = random.randint(a=-0, b=720)
+            self.add_actor(self.ho)
+
+        self.zsa = vissza()
+        self.add_actor(self.zsa)
+        self.zsa.width = 125
+        self.zsa.height = 75
+        self.zsa.y = 0
+        self.zsa.x = 0
+
+        self.zsa.set_on_mouse_down_listener(self.asd4)
+
+    def asd4(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
+

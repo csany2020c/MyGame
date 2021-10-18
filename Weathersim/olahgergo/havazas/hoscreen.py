@@ -1,7 +1,7 @@
 from Weathersim.olahgergo.havazas.hostage import *
 
 
-class HoScreen(game.scene2d.MyScreen):
+class HavScreen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()

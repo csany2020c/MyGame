@@ -3,6 +3,7 @@ import game
 from Weathersim.marcontamas.NaposActorok import *
 import Weathersim.marcontamas.MenuScreen
 import Weathersim.marcontamas.EsosScreen
+import Weathersim.marcontamas.HavasEsoScreen
 
 class NaposStage(game.scene2d.MyStage):
     def __init__(self):
@@ -30,3 +31,5 @@ class NaposStage(game.scene2d.MyStage):
             quit()
         if event.key == pygame.K_RIGHT:
             self.screen.game.set_screen(Weathersim.marcontamas.EsosScreen.EsoScreen())
+        if event.key == pygame.K_LEFT:
+            self.screen.game.set_screen(Weathersim.marcontamas.HavasEsoScreen.HavasEsoScreen())
