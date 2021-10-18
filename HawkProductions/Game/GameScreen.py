@@ -1,4 +1,4 @@
-from HawkProductions.GameStage import *
+from HawkProductions.Game.GameStage import *
 
 
 class GameScreen(game.scene2d.MyScreen):
