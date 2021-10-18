@@ -301,7 +301,9 @@ class HavasesoStage(game.scene2d.MyStage):
         self.cloudy.x = 0
         self.cloudy.y = 0
         self.add_actor(self.cloudy)
+        self.cloudy.z_index = 1
         self.landscape = hatter()
+        self.landscape.z_index = 2
         self.add_actor(self.landscape)
         for i in range(50):
             self.snow = snow()
@@ -310,7 +312,6 @@ class HavasesoStage(game.scene2d.MyStage):
             self.add_actor(self.snow)
             self.snow.x = random.Random().randint(0, 1280)
             self.snow.y = random.Random().randint(0, 720)
-
         for i in range(60):
             self.rain = rain()
             self.rain.width = 40
@@ -318,6 +319,30 @@ class HavasesoStage(game.scene2d.MyStage):
             self.add_actor(self.rain)
             self.rain.x = random.Random().randint(0, 1280)
             self.rain.y = random.Random().randint(0, 720)
+        self.felhocske = felhocske()
+        self.felhocske.x =850
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =630
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =410
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske = felhocske()
+        self.felhocske.x =190
+        self.felhocske.y =-20
+        self.felhocske.z_index = 2
+        self.add_actor(self.felhocske)
+        self.felhocske.x = 1070
+        self.felhocske.y = -20
+        self.felhocske.z_index = 1
+        self.add_actor(self.felhocske)
 
         self.set_on_key_down_listener(self.nyom5)
 
