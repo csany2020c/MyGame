@@ -155,6 +155,7 @@ class Stage(game.scene2d.MyStage):
         self.s11 = ActorSnow()
         self.s12 = ActorSnow()
 
+
     def napos(self):
         if self.isAPressed:
             self.add_actor(self.d)
