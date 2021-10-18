@@ -2,7 +2,7 @@ from HawkProductions.Font import *
 import game
 import pygame
 from HawkProductions.Actors import *
-import HawkProductions.MenuScreen
+import HawkProductions.menu.MenuScreen
 
 
 class IStage(game.scene2d.MyStage):
@@ -32,12 +32,12 @@ class IStage(game.scene2d.MyStage):
     def click1(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
 
     def katt1(self, sender, event):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
 
-            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
         if event.key == pygame.K_ESCAPE:
             quit()

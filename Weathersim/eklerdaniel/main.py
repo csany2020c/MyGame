@@ -1,6 +1,7 @@
 import game
 import pygame
 import random
+from HawkProductions.Font import *
 
 class snow (game.scene2d.MyActor):
     def __init__(self):
@@ -42,6 +43,17 @@ class sun (game.scene2d.MyActor):
     def __init__(self):
         super().__init__("../!_resources/images/sun.png")
 
+class Nyil (game.scene2d.MyLabel):
+    def __init__(self, string: str = "MyText") -> None:
+        game.scene2d.MyLabel.__init__(self, string=string, font_name="font/Anything Better Font by 7NTypes.otf")
+
+    def act(self, delta_time: float):
+        game.scene2d.MyLabel.act(self, delta_time)
+
+
+
+
+
 
 
 class landscape (game.scene2d.MyActor):
@@ -53,6 +65,8 @@ class landscape (game.scene2d.MyActor):
         print(sender)
         print(event)
 
+
+
 class DaniStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -60,9 +74,13 @@ class DaniStage(game.scene2d.MyStage):
         self.a = sunny()
         self.b = sun()
         self.c = landscape()
+        self.d = Arial()
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
+        self.add_actor(self.d)
+        self.d.set_text("A jobbra nyil hasznélatával lehet az időjárásokon változtatni!")
+        self.d.width = 1000
 
         self.b.x = 600
         self.set_on_key_down_listener(self.kitt)

@@ -1,5 +1,4 @@
-import game
-from HawkProductions.SelectStage import *
+from HawkProductions.Select.SelectStage import *
 
 
 class SelectScreen(game.scene2d.MyScreen):
