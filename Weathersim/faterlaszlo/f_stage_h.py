@@ -78,6 +78,9 @@ class f_stage_h(game.scene2d.MyStage):
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 
     def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            print("Sikeresen be lett zárva")
+            quit()
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen_m.f_screen_m())
 

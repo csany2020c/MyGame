@@ -8,6 +8,7 @@ from Weathersim.faterlaszlo.f_actors import *
 from Weathersim.faterlaszlo.Arial import *
 import pygame
 
+
 class f_stage_m(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()

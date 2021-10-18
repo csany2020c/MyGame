@@ -32,6 +32,18 @@ class ActorD(game.scene2d.MyActor):
         self.set_width(800)
 
 
+class ActorE(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("szamok.jpg")
+        self.set_width(220)
+
+
+class ActorF(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("esc.jpg")
+        self.set_width(180)
+
+
 class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -39,17 +51,22 @@ class Stage(game.scene2d.MyStage):
         self.b = ActorB()
         self.c = ActorC()
         self.d = ActorD()
+        self.e = ActorE()
+        self.f = ActorF()
         self.d.set_x(525).set_y(-150)
+        self.f.set_x(1100).set_y(0)
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
         self.add_actor(self.d)
+        self.add_actor(self.e)
+        self.add_actor(self.f)
         self.set_on_key_down_listener(self.key_down)
 
         for i in range(500):
             self.snow = ActorC()
             self.add_actor(self.snow)
-            self.snow.x = random.Random().randint(0, 1230)
+            self.snow.x = random.Random().randint(0, 1225)
             self.snow.y = random.Random().randint(-5000, 750)
 
     def key_down(self, sender, event):

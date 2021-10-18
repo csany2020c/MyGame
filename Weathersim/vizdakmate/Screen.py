@@ -53,6 +53,11 @@ class SrScreen(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(SrStage())
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 6:
+            self.game.screen = EndScreen()
+
 class MenuScreen(game.scene2d.MyScreen):
 
     def __init__(self):
@@ -62,4 +67,14 @@ class MenuScreen(game.scene2d.MyScreen):
         self.g = 90
         self.b = 120
 
-        print("HEllo")
+
+
+class EndScreen(game.scene2d.MyScreen):
+
+    def __init__(self):
+        super().__init__()
+        self.add_stage(EndStage())
+        self.r = 100
+        self.g = 90
+        self.b = 120
+
