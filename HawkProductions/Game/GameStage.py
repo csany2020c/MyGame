@@ -4,6 +4,7 @@ import pygame
 import random
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
+import HawkProductions.over.OverScreen
 
 
 class GameStage(game.scene2d.MyStage):
@@ -18,6 +19,8 @@ class GameStage(game.scene2d.MyStage):
         self.D.y = 250
         self.D.x = 300
         self.D.width = 60
+        if self.D.y > 720:
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)

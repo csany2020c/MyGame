@@ -1,4 +1,4 @@
-from HawkProductions.Game.GameScreen import *
+import HawkProductions.Game.GameScreen
 from HawkProductions.Info.InfoScreen import *
 from HawkProductions.Select.SelectScreen import *
 
@@ -50,7 +50,7 @@ class MenuStage(game.scene2d.MyStage):
             quit()
         if event.key == pygame.K_SPACE:
             print("Elindul a játék")
-            self.screen.game.set_screen(GameScreen())
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
         if event.key == pygame.K_i:
             self.screen.game.set_screen(IScreen())
 
@@ -60,7 +60,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def click1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(SelectScreen())
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
 
     def click2(self, sender, event):
         if event.button == 1:
