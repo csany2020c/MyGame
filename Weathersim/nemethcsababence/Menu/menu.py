@@ -60,7 +60,7 @@ class MenuStage(game.scene2d.MyStage):
         self.nap.y = -10
         self.nap.rotate_with(20)
 
-        for i in range(25):
+        for i in range(30):
             self.eso = menueso()
             self.add_actor(self.eso)
             self.eso.y = random.Random().randint(100, 375)
@@ -68,7 +68,7 @@ class MenuStage(game.scene2d.MyStage):
             self.eso.width = 10
             self.eso.height = 20
 
-        for i in range(25):
+        for i in range(30):
             self.eso2 = menueso2()
             self.add_actor(self.eso2)
             self.eso2.y = random.Random().randint(100, 375)
@@ -76,7 +76,7 @@ class MenuStage(game.scene2d.MyStage):
             self.eso2.width = 10
             self.eso2.height = 20
 
-        for i in range(25):
+        for i in range(30):
             self.ho = menuho()
             self.add_actor(self.ho)
             self.ho.y = random.Random().randint(100, 375)
@@ -84,7 +84,7 @@ class MenuStage(game.scene2d.MyStage):
             self.ho.width = 10
             self.ho.height = 20
 
-        for i in range(25):
+        for i in range(30):
             self.ho2 = menuho2()
             self.add_actor(self.ho2)
             self.ho2.y = random.Random().randint(100, 375)
