@@ -1,10 +1,6 @@
-import game
-import pygame
-from HawkProductions.Actors import *
-from HawkProductions.Font import *
-from HawkProductions.GameScreen import *
-from HawkProductions.InfoScreen import *
-from HawkProductions.SelectScreen import *
+from HawkProductions.Game.GameScreen import *
+from HawkProductions.Info.InfoScreen import *
+from HawkProductions.Select.SelectScreen import *
 
 
 class MenuStage(game.scene2d.MyStage):
