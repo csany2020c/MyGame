@@ -1,5 +1,5 @@
 import game
-from HawkProductions.MenuScreen import *
+from HawkProductions.menu.MenuScreen import *
 
 
 class Menu(game.scene2d.MyGame):

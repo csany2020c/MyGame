@@ -1,4 +1,4 @@
-import HawkProductions.MenuScreen
+import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
@@ -59,7 +59,7 @@ class SelectStgage(game.scene2d.MyStage):
 
     def click(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
 
     def click1(self, sender, event):
         if event.button == 1:
