@@ -1,5 +1,5 @@
 import game
-from retardszisza.GameStage import *
+from retardszisza.Stage import *
 
 
 class GameScreen(game.scene2d.MyScreen):
