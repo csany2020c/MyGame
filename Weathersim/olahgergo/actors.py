@@ -59,36 +59,37 @@ class Eso(game.scene2d.MyActor):
             self.speed = random.randint(a=20, b=70)
 
 
-class esoke(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.map = super().__init__('images/esos.png')
-
-class napos(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.map = super().__init__('images/napos.png')
-
-class havazas(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.map = super().__init__('images/havazas.png')
-
-class havasesos(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.map = super().__init__('images/havaseso.png')
-
 
 class menukep(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/alap.png')
+        self.map = super().__init__('images/alap2.png')
 
-class semmi(game.scene2d.MyActor):
+class imenukep(game.scene2d.MyActor):
 
     def __init__(self):
-        self.map = super().__init__('images/semmi.png')
+        self.map = super().__init__('images/idojarasok2.png')
+
+
+class esoskatt(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/esoskatt.png')
+
+class naposkatt(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/naposkatt.png')
+
+class havasesoskatt(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/havasesoskatt.png')
+
+class havazaskatt(game.scene2d.MyActor):
+
+    def __init__(self):
+        self.map = super().__init__('images/havazaskatt.png')
 
 class vissza(game.scene2d.MyActor):
 

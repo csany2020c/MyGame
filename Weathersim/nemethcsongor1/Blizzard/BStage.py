@@ -14,10 +14,10 @@ class BStage(game.scene2d.MyStage):
         self.Bg = Snoww()
         self.add_actor(self.Bg)
 
-        self.Ff2 = Font()
+        self.Ff2 = Font3()
         self.add_actor(self.Ff2)
         self.Ff2.set_text("0°C")
-        self.Ff2.x = 1150
+        self.Ff2.x = 1175
         self.Ff2.y = 10
 
         for i in range(23):
