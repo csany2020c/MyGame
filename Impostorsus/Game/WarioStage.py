@@ -6,8 +6,13 @@ class WarioStage1(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        #self.add_actor(HatterActor1())
+        self.add_actor(HatterActor1())
+        self.kocka = Kocka()
+        self.add_actor(self.kocka)
+        self.kocka.x = 250
+        self.kocka.y = 350
         self.kerdo = Question()
+        self.gomba = Gemba()
         self.add_actor(self.kerdo)
         self.kerdo.x = 200
         self.kerdo.y = 350
@@ -32,6 +37,7 @@ class WarioStage1(game.scene2d.MyStage):
 
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
+        self.gomba.x += 100 * self.get_delta_time()
         pass
 
 
@@ -50,6 +56,23 @@ class WarioStage1(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         overlapsASD: bool = False
+
+        for actorASD in self.actors:
+            if isinstance(actorASD, Question):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+        if overlapsASD:
+            self.wario.stop()
+            self.add_actor(self.gomba)
+            self.gomba.x += 200
+            self.gomba.y += 400
+            self.remove_actor(self.kerdo)
+
+        else:
+            self.wario.start()
+
+
         for actorASD in self.actors:
             if isinstance(actorASD, GroundActor):
                 if self.wario.overlaps(actorASD):
@@ -61,19 +84,39 @@ class WarioStage1(game.scene2d.MyStage):
             self.wario.start()
 
         for actorASD in self.actors:
-            if isinstance(actorASD, Question):
+            if isinstance(actorASD, GroundActor):
+                if self.gomba.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+        if overlapsASD:
+            self.gomba.stop()
+        else:
+            self.gomba.start()
+
+        for actorASD in self.actors:
+            if isinstance(actorASD, Gemba):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+        if overlapsASD:
+            self.gomba = Gemba()
+            self.wario.set_height(200)
+            self.wario.set_width(200)
+
+        for actorASD in self.actors:
+            if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
                     break
         if overlapsASD:
             self.wario.stop()
-
         else:
             self.wario.start()
-        # if self.wario.overlaps(self.fold):
-        #     self.wario.stop()
-        # if self.wario.overlaps(self.fold or self.fold2) == False:
-        #     self.wario.start()
+
+
+
+
+
 
 
 
