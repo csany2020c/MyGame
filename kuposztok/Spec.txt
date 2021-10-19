@@ -5,7 +5,7 @@ Készítők:
 
 Konstrukció:
 -	Joseph’s Life című játék elkészítése.
--	Egy olyan játék, ahol mi tudjuk irányítani Joseph-et, akivel pontokat kell szereznünk miközben a maffia vadászik ránk, és nekünk menekülnünk kell.
+-	Egy olyan játék, ahol mi tudjuk irányítani Joseph-et, akinek az feladata hogy sieljen, snowboard-ozzon, snowmobile-ozzon, valamit szánkózzon.
 -	A játék egyedi grafikával lesz elkészítve.
 -	Mindezek mellett egy weboldal elkészítése is a cél.
 -	A specifikáció persze még változhat ez ebben fájlban lesz megtekinthető.
