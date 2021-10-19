@@ -7,6 +7,7 @@ class WarioActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/actorsusus.png")
         self.go = True
+        self.set_width(100)
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
@@ -14,7 +15,7 @@ class WarioActor(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         if self.go:
-            self.y += 2
+            self.y += 6
 
     def start(self):
         self.go = True
@@ -27,5 +28,17 @@ class GroundActor(game.scene2d.MyActor):
         super().__init__("Kepek/foldriosus.png")
         self.set_width(200)
         # self.hitbox_scale_h = 0.9
-        # self.hitbox_scale_w = 200
+        #self.hitbox_scale_w = 0.2
         self.hitbox_shape = ShapeType.Rectangle
+
+
+class HatterActor1(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/hattersus.png")
+        self.y -= 100
+        self.set_width(1300)
+
+
+class Question(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/kerdosus.png")

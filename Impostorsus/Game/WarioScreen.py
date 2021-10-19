@@ -10,4 +10,4 @@ class WarioScr(game.scene2d.MyScreen):
         self.r = 245
         self.g = 71
         self.b = 146
-        self.add_stage(WarioStage())
+        self.add_stage(WarioStage1())

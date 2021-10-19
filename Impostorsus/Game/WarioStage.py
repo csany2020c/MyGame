@@ -2,22 +2,26 @@ import game
 import pygame
 from Impostorsus.Game.WarioActor import *
 
-class WarioStage(game.scene2d.MyStage):
+class WarioStage1(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.add_actor(HatterActor1())
+        self.add_actor(Question())
         self.wario = WarioActor()
-        self.wario2 = WarioActor()
         self.add_actor(self.wario)
-        self.add_actor(self.wario2)
         self.wario.set_on_key_press_listener(self.press)
         self.wario.set_on_key_down_listener(self.key_down)
 
         for i in range(10):
             g = GroundActor()
             g.y = 615
-            g.x = i * g.w + -10
+            g.x = i * g.w + -150
             self.add_actor(g)
+
+    def ugras(self, delta_time: float):
+        super().act(delta_time)
+        self.wario.y -= 120
 
 
     def press(self, sender, event):
@@ -38,9 +42,10 @@ class WarioStage(game.scene2d.MyStage):
         if event.key == pygame.K_w:
             print("'hoppáré'")
             self.wario.y -= 120
+
         if event.key == pygame.K_SPACE:
             print("'hoppáré'")
-            self.wario.y -= 120
+            self.ugras()
 
 
     def act(self, delta_time: float):
