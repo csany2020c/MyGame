@@ -11,18 +11,18 @@ class Menu(game.scene2d.MyGame):
                  debug: bool = False):
         super().__init__(width, height, autorun, autosize, debug)
         self.set_on_key_down_listener(self.key_down)
-        self.screen = HavazosScreen()
+        self.screen = NapsutesesScreen()
 
     def key_down(self, sender, event):
         print(event)
         if event.key == pygame.K_1:
-            self.screen = HavazosScreen()
-        if event.key == pygame.K_2:
             self.screen = NapsutesesScreen()
-        if event.key == pygame.K_3:
-            self.screen = HavasesosScreen()
-        if event.key == pygame.K_4:
+        if event.key == pygame.K_2:
             self.screen = EsosScreen()
+        if event.key == pygame.K_3:
+            self.screen = HavazosScreen()
+        if event.key == pygame.K_4:
+            self.screen = HavasesosScreen()
 
 
 Menu().run()

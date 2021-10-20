@@ -20,13 +20,9 @@ class MyText:
         self._load_font()
 
     def _load_font(self):
-        print(self._font_name)
-        print(self._font_name.count(".otf"))
         if self._font_name.count(".ttf") != 0 or self._font_name.count(".otf") != 0:
-            print(self.__str__() + " Load font from file. " + self._font_name)
             self._font = pygame.font.Font(self._font_name, self._font_size)
         else:
-            print(self.__str__() + " Load font from system. " + self._font_name)
             self._font = pygame.font.SysFont(self._font_name, self._font_size)
 
     def get_text_surface(self) -> pygame.Surface:

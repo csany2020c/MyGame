@@ -25,7 +25,8 @@ class SaStage(game.scene2d.MyStage):
         self.add_actor(self.Ff2)
         self.Ff2.set_text("Kattintás az iconokra!")
         self.Ff2.x = 400
-        self.Ff2.y = 500
+        self.Ff2.y = 550
+        self.Ff2.set_color(12, 56, 196)
 
         self.S = FSun()
         self.add_actor(self.S)
@@ -55,6 +56,40 @@ class SaStage(game.scene2d.MyStage):
         self.Sw.x = 1000
         self.Sw.y = 270
 
+        self.Ff3 = Font2()
+        self.add_actor(self.Ff3)
+        self.Ff3.set_text("1")
+        self.Ff3.set_color(0, 0, 0)
+        self.Ff3.y = 425
+        self.Ff3.x = 225
+        self.Ff3.set_color(12, 56, 196)
+
+        self.Ff5 = Font2()
+        self.add_actor(self.Ff5)
+        self.Ff5.set_text("2")
+        self.Ff5.set_color(0, 0, 0)
+        self.Ff5.y = 425
+        self.Ff5.x = 505
+        self.Ff5.set_color(12, 56, 196)
+
+        self.Ff6 = Font2()
+        self.add_actor(self.Ff6)
+        self.Ff6.set_text("3")
+        self.Ff6.set_color(0, 0, 0)
+        self.Ff6.y = 425
+        self.Ff6.x = 750
+        self.Ff6.set_color(12, 56, 196)
+
+        self.Ff7 = Font2()
+        self.add_actor(self.Ff7)
+        self.Ff7.set_text("4")
+        self.Ff7.set_color(0, 0, 0)
+        self.Ff7.y = 425
+        self.Ff7.x = 1020
+        self.Ff7.set_color(12, 56, 196)
+
+        self.set_on_key_down_listener(self.klikk)
+
     def katt(self, sender, event):
         print(sender)
         if event.button == 1:
@@ -78,4 +113,17 @@ class SaStage(game.scene2d.MyStage):
     def katt5(self, sender, event):
         print(sender)
         if event.button == 1:
+            self.screen.game.set_screen(CScreen())
+
+    def klikk(self, sender, event):
+        print(sender)
+        if event.key == pygame.K_1:
+            self.screen.game.set_screen(SuScreen())
+        if event.key == pygame.K_2:
+            self.screen.game.set_screen(RScreen())
+        if event.key == pygame.K_3:
+            self.screen.game.set_screen(BScreen())
+        if event.key == pygame.K_4:
+            self.screen.game.set_screen(SwScreen())
+        if event.key == pygame.K_w:
             self.screen.game.set_screen(CScreen())

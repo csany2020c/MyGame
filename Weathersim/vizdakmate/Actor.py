@@ -52,3 +52,12 @@ class MenuText(game.scene2d.MyLabel):
 
     def __init__(self, string: str = "Text") -> None:
             game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+
+class End(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__()
+
+class EndText(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "Text3") -> None:
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")

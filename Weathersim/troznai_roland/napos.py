@@ -23,11 +23,6 @@ class nap(game.scene2d.MyActor):
     def __init__(self):
         self.nap = super().__init__('../!_resources/images/sun.png')
 
-class alma(game.scene2d.MyActor):
-
-    def __init__(self):
-        self.alma = super().__init__('alma.png')
-
 class GameStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -47,16 +42,9 @@ class GameStage(game.scene2d.MyStage):
         self.nap.x = 850
         self.nap.y = -120
 
-        self.alma = alma()
-        self.alma.width = 32
-        self.alma.height = 32
-        self.alma.x = 200
-        self.alma.y = 100
-
         self.add_actor(self.hatter)
         self.add_actor(self.taj)
         self.add_actor(self.nap)
-        self.add_actor(self.alma)
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:

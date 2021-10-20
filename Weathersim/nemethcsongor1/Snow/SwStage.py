@@ -16,10 +16,10 @@ class SwStage(game.scene2d.MyStage):
         self.Bg.width = 1280
         self.Bg.height = 720
 
-        self.Ff2 = Font()
+        self.Ff2 = Font3()
         self.add_actor(self.Ff2)
         self.Ff2.set_text("-10°C")
-        self.Ff2.x = 1100
+        self.Ff2.x = 1150
         self.Ff2.y = 10
 
         for i in range(30):
