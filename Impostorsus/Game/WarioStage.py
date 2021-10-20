@@ -1,7 +1,6 @@
 import game
 import pygame
 from Impostorsus.Game.WarioActor import *
-
 class WarioStage1(game.scene2d.MyStage):
 
     def __init__(self):
@@ -20,6 +19,7 @@ class WarioStage1(game.scene2d.MyStage):
         self.add_actor(self.wario)
         self.wario.set_on_key_press_listener(self.press)
         self.wario.set_on_key_down_listener(self.key_down)
+
 
 
         for i in range(10):
