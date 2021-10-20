@@ -91,7 +91,7 @@ class Havasesostage (game.scene2d.MyStage):
             self.Snow.y = random.Random().randint(-100, 720)
         self.rain = Rain()
         self.add_actor(self.rain)
-        for i in range(100):
+        for i in range(40):
             self.Rain = Rain()
             self.add_actor(self.Rain)
             self.Rain.x = random.Random().randint(-100, 1280)
