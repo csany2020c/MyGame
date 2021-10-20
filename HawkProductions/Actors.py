@@ -39,7 +39,7 @@ class Deagle(game.scene2d.MyActor):
         self.r += 15*delta_time
 
 
-class Deagle_s(game.scene2d.MyActor):
+class Deagle1(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("image/bid2.png")
@@ -48,6 +48,15 @@ class Deagle_s(game.scene2d.MyActor):
 class Deagle2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/Select.png")
+
+
+class Deagle_2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/Select.png")
+
+    def act(self, delta_time: float):
+        self.y += delta_time * 100
+        self.r += delta_time * 15
 
 
 class Pile(game.scene2d.MyActor):
@@ -91,9 +100,11 @@ class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
 
+
 class Arrow_r(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main_f.png")
+
 
 class Info(game.scene2d.MyActor):
     def __init__(self):
@@ -114,16 +125,19 @@ class Selectimage(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/Select.png")
 
-class Deagle2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/r6-uj-edit-d2.png")
 
 class Deagle3(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/r6-uj-edit-d3.png")
+        super().__init__("image/luckyspade.png")
+
 
 class Deagle4(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/r6-uj-edit-d4.png")
+        super().__init__("image/goldengun.png")
+
+
+class Deagle5(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/observator.png")
 
 
