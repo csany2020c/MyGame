@@ -3,11 +3,15 @@ from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
 import HawkProductions.Game2.GameScreen2
+import HawkProductions.Music
 
 
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.set_on_mouse_down_listener(self.click)
