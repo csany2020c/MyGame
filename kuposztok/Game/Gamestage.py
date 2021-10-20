@@ -4,6 +4,7 @@ from kuposztok.Game.GameActor import *
 from kuposztok.Game.GameActor import *
 import kuposztok
 import random
+from kuposztok.Menu.MenuBgActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
@@ -51,6 +52,24 @@ class GameStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
+    def update(self):
+        self.bg = MenuActor()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        if self.bg.y == self.screen.height + self.screen.height:
+            self.bg.set_y(self.bg.y - self.screen.height + 20)
+        else:
+            self.bg.y = self.bg.y + 20
+
+        if self.bg.y == self.screen.height + self.screen.height:
+            self.bg.set_y(self.bg.y - self.screen.height)
+        else:
+            self.bg.y = self.bg.y + 20
+
+        if self.bg.y == self.screen.height + self.screen.height:
+            self.bg.set_y(self.bg.y - self.screen.height)
+        else:
+            self.bg.y = self.bg.y + 20
 
 
 

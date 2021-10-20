@@ -54,23 +54,6 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Credit.CreditScreen.CreditScreen())
 
-    def update(self):
-        self.bg = MenuActor()
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height + 20)
-        else:
-            self.bg.y = self.bg.y + 20
 
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height)
-        else:
-            self.bg.y = self.bg.y + 20
-
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height)
-        else:
-            self.bg.y = self.bg.y + 20
 
 
