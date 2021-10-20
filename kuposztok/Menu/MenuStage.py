@@ -11,6 +11,11 @@ class MenuStage(game.scene2d.MyStage):
         super().__init__()
         bg = MenuActor()
         self.add_actor(bg)
+        height = pygame.display.get_surface().get_height()
+        width = pygame.display.get_surface().get_width()
+        bg.height = height
+        bg.width = width
+        print(width)
 
         button1 = Button1()
         button2 = Button2()

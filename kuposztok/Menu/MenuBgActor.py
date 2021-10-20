@@ -1,10 +1,13 @@
 import game
+import pygame
 
 
 class MenuActor(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/menu.png')
+
+
 
 
 class creditact(game.scene2d.MyActor):
