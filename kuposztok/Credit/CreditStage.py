@@ -19,8 +19,8 @@ class CreditStage(game.scene2d.MyStage):
         self.add_actor(self.button1)
         self.button1.width = 125
         self.button1.height = 75
-        self.button1.y = 0
-        self.button1.x = 0
+        self.button1.y = 700
+        self.button1.x = 1000
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
 
