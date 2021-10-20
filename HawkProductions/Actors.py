@@ -3,7 +3,7 @@ import game
 
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/Select.png")
+        super().__init__("image/sellect.jpg")
 
 
 class Title(game.scene2d.MyActor):
