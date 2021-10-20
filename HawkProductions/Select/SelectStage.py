@@ -2,12 +2,15 @@ import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
-
+import HawkProductions.Music
+import pygame
 
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+        pygame.mixer.music.play(-1)
         self.D = Deagle_s()
         self.add_actor(self.D)
         self.D.x = 530

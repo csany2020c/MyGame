@@ -5,11 +5,16 @@ import random
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.over.OverScreen
+import HawkProductions.Music
 
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
+        pygame.mixer.music.set_volume(0.07)
+        pygame.mixer.music.play(-1)
         self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
@@ -64,6 +69,8 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_w:
             self.D.y -= 50
             self.D.r -= 15
+            Puff = pygame.mixer.Sound("../HawkProductions/Music/Shoot.wav")
+            pygame.mixer.Sound.play(Puff)
         if event.key == pygame.K_s:
             self.D.y += 50
             self.D.r += 15
