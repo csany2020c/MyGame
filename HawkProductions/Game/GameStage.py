@@ -29,8 +29,10 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
 
-        self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
+        self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 3))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd2, 5))
+
+
 
         self.set_on_key_down_listener(self.katt)
 
@@ -41,7 +43,7 @@ class GameStage(game.scene2d.MyStage):
         self.P1.set_hitbox_scale_w = 0.2
         self.P1.set_size(width=250, height=250)
         self.P1.x = 1280
-        self.P1.y = random.randint(10, 500)
+        self.P1.y = random.randint(0, 500)
         self.P1.width = 600
 
     def add_asd2(self, sender):
