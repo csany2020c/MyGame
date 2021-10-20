@@ -34,7 +34,7 @@ class WarioActor(game.scene2d.MyActor):
 
 
     def ugras(self):
-        self.jump = 210
+        self.jump = 305
 
     def start(self):
         self.go = True
@@ -62,6 +62,7 @@ class Question(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kerdosus.png")
         self.hitbox_shape = ShapeType.Rectangle
+        self.set_width(100)
 
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
