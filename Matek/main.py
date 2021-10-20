@@ -1,3 +1,3 @@
-from Screen import Game
+from MathExample import Game
 
 Game().run()
