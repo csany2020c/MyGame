@@ -1,6 +1,6 @@
 import HawkProductions.Game.GameScreen
 from HawkProductions.Info.InfoScreen import *
-from HawkProductions.Select.SelectScreen import *
+import HawkProductions.Select.SelectScreen
 
 
 class MenuStage(game.scene2d.MyStage):
@@ -35,10 +35,10 @@ class MenuStage(game.scene2d.MyStage):
         self.i.y = 400
         self.i.x = 523
 
-        #self.s.set_on_mouse_down_listener(self.click3)
+        self.h1.set_on_mouse_down_listener(self.click3)
 
         self.set_on_key_down_listener(self.key_down)
-        self.h1.set_on_mouse_down_listener(self.click1)
+        #self.h1.set_on_mouse_down_listener(self.click1)
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
 
@@ -66,6 +66,6 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(IScreen())
 
-    ''''def click3(self, sender, event):
+    def click3(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(SelectScreen())'''
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
