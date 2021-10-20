@@ -13,7 +13,7 @@ class BgActor(game.scene2d.MyActor):
 
 class Visszagomb(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/back.png')
+        self.credit = super().__init__('image/Vissza.png')
 
 
 class Joseph(game.scene2d.MyActor):

@@ -56,18 +56,19 @@ class GameStage(game.scene2d.MyStage):
         self.bg = MenuActor()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height + 20)
+
+        if self.bg.y == self.height + self.height:
+            self.bg.set_y(self.y - self.height + 20)
         else:
             self.bg.y = self.bg.y + 20
 
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height)
+        if self.bg.y == self.height + self.height:
+            self.bg.set_y(self.y - self.height)
         else:
             self.bg.y = self.bg.y + 20
 
-        if self.bg.y == self.screen.height + self.screen.height:
-            self.bg.set_y(self.bg.y - self.screen.height)
+        if self.bg.y == self.height + self.height:
+            self.bg.set_y(self.y - self.height)
         else:
             self.bg.y = self.bg.y + 20
 
