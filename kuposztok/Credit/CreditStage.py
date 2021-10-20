@@ -1,4 +1,5 @@
 import kuposztok.Credit.CreditScreen
+import pygame
 from kuposztok.Credit.CreditActors import *
 from kuposztok.Menu.MenuScreen import *
 
@@ -7,8 +8,12 @@ class CreditStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         creditact = Creditlist()
         self.add_actor(creditact)
+        creditact.width = self.width
+        creditact.height = self.height
 
         self.button1 = Visszagomb()
         self.add_actor(self.button1)
