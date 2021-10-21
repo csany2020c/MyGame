@@ -54,7 +54,7 @@ class Screen(game.scene2d.MyScreen):
 
 
 class Game(game.scene2d.MyGame):
-    def __init__(self, width: int = 1600, height: int = 800, autorun: bool = False, autosize: bool = False,
+    def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False, autosize: bool = False,
                  debug: bool = False):
         super().__init__(width, height, autorun, autosize, debug)
         self.screen=Screen()
