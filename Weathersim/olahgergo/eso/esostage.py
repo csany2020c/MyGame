@@ -1,6 +1,7 @@
 import Weathersim.olahgergo.menu.idojarasm
 import Weathersim.olahgergo.menu.menuu
 from Weathersim.olahgergo.actors import *
+import pygame
 
 
 class EsoStage(game.scene2d.MyStage):
@@ -34,9 +35,14 @@ class EsoStage(game.scene2d.MyStage):
         self.zsa.y = 0
         self.zsa.x = 0
 
+        self.set_on_key_down_listener(self.key_down)
         self.zsa.set_on_mouse_down_listener(self.asd4)
 
     def asd4(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
 
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
