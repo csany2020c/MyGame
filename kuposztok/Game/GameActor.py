@@ -1,14 +1,29 @@
 import game
+import random
 
 
 class BgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/menu.png')
+        super().__init__('image/snow.png')
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 500
+        if self.y > 1080:
+            self.y = -1080
+
+class BgActor2(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/snow.png')
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 500
+        if self.y > 1080:
+            self.y = -1080
+
 
 
 class Visszagomb(game.scene2d.MyActor):
@@ -24,3 +39,10 @@ class Joseph(game.scene2d.MyActor):
 class Enemy(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/my-caracter.png')
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 500
+        if self.y > 1200:
+            self.y = -200
+            self.x = random.Random().randint(50, 1270)
