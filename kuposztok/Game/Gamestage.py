@@ -48,14 +48,17 @@ class GameStage(game.scene2d.MyStage):
         self.joseph.set_on_key_press_listener(self.iranyitas)
 
     def iranyitas(self, sender, event, a=10):
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < 1100:
+            if self.joseph.x < self.width - 200:
                 self.joseph.x += a
         if event.key == pygame.K_a:
             if self.joseph.x > 200:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
 
     def Klikk1(self, sender, event):
         if event.button == 1:

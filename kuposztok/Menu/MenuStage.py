@@ -17,7 +17,7 @@ class MenuStage(game.scene2d.MyStage):
         bg.width = self.width
         print(self.width)
         print(self.height)
-        self.Ver = game.scene2d.MyLabel("Ver.:1.0.1")
+        self.Ver = game.scene2d.MyLabel("Ver.:1.0.2")
         self.add_actor(self.Ver)
         self.Ver.x = self.width - 250
         self.Ver.y = self.height - 50
