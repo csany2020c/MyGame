@@ -46,3 +46,17 @@ class Enemy(game.scene2d.MyActor):
         if self.y > 1200:
             self.y = -200
             self.x = random.Random().randint(50, 1270)
+
+class Car1(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/Car1.png')
+
+
+class Car2(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/Car2.jpg')
+
+
+class Car3(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/Car3.jpg')
