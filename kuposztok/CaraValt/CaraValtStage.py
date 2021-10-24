@@ -23,31 +23,40 @@ class CaraValtStage(game.scene2d.MyStage):
         self.button1.x = 0
 
         self.car1 = Car1()
-        self.car1.x = self.width / 2.4
+        self.car1.x = self.width / 4
         self.car1.y = self.height / 2.5
 
         self.car2 = Car2()
-        self.car2.x = self.width / 2.4
+        self.car2.x = self.width / 2
         self.car2.y = self.height / 2.5
 
         self.car3 = Car3()
-        self.car3.x = self.width / 2.4
+        self.car3.x = self.width / 1.3333333333333
         self.car3.y = self.height / 2.5
 
+        self.car4 = Car3()
+        self.car4.x = self.width - 200
+        self.car4.y = self.height / 2.5
+
         self.car1elo = Car1()
-        self.car1elo.x = self.width / 2
-        self.car1elo.y = self.height / 7
+        self.car1elo.x =  self.width / 4
+        self.car1elo.y = self.height / 2.5
         self.add_actor(self.car1elo)
 
         self.car2elo = Car2()
-        self.car2elo.x = self.width / 3
-        self.car2elo.y = self.height / 7
+        self.car2elo.x = self.width / 2
+        self.car2elo.y = self.height / 2.5
         self.add_actor(self.car2elo)
 
         self.car3elo = Car3()
-        self.car3elo.x = self.width / 7
-        self.car3elo.y = self.height / 7
+        self.car3elo.x = self.width / 1.333333
+        self.car3elo.y = self.height /2.5
         self.add_actor(self.car3elo)
+
+        self.car4elo = Car3()
+        self.car4elo.x = self.width / - 200
+        self.car4elo.y = self.height / 2.5
+        self.add_actor(self.car4elo)
 
         self.car1start = Car1()
         self.car1start.x = self.width / 2
