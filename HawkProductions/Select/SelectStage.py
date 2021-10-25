@@ -49,13 +49,13 @@ class SelectStgage(game.scene2d.MyStage):
         self.arrow_l2.x = 330
         self.arrow_l2.y = 280
         self.arrow_l2.w = 200
-        self.arrow_l2.set_on_mouse_down_listener(self.click4)
+        self.arrow_l2.set_on_mouse_down_listener(self.click_l2)
 
         self.arrow_r2 = Arrow_r()
         self.arrow_r2.x = 730
         self.arrow_r2.y = 280
         self.arrow_r2.w = 200
-        self.arrow_r2.set_on_mouse_down_listener(self.click5)
+        self.arrow_r2.set_on_mouse_down_listener(self.click_r2)
 
         self.arrow4 = Arrow()
         self.arrow4.x = 330
@@ -128,7 +128,7 @@ class SelectStgage(game.scene2d.MyStage):
             self.remove_actor(self.s1)
             self.add_actor(self.s2)
 
-    def click4(self, sender, event):
+    def click_l2(self, sender, event):
         if event.button == 1:
             self.remove_actor(self.D2)
             self.add_actor(self.D3)
@@ -136,10 +136,10 @@ class SelectStgage(game.scene2d.MyStage):
             self.add_actor(self.arrow4)
             self.remove_actor(self.arrow_r2)
             self.add_actor(self.arrow5)
-            self.remove_actor(self.s1)
             self.remove_actor(self.s2)
+            self.add_actor(self.s3)
 
-    def click5(self, sender, event):
+    def click_r2(self, sender, event):
         if event.button == 1:
             self.remove_actor(self.D2)
             self.add_actor(self.D)
