@@ -5,7 +5,7 @@ import random
 from kuposztok.Game.GameActor import *
 
 
-class Car3Stage(game.scene2d.MyStage):
+class Car4Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -28,7 +28,7 @@ class Car3Stage(game.scene2d.MyStage):
         self.button1.y = 0
         self.button1.x = 0
 
-        self.joseph = SnowBoard()
+        self.joseph = Ski()
         self.add_actor(self.joseph)
         self.joseph.width = 100
         self.joseph.height = 200

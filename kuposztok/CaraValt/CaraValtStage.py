@@ -4,6 +4,7 @@ import kuposztok.Menu.MenuScreen
 from kuposztok.Game.Car1Screen import Car1Screen
 from kuposztok.Game.Car2Screen import Car2Screen
 from kuposztok.Game.Car3Screen import Car3Screen
+from kuposztok.Game.Car4Screen import Car4Screen
 import pygame
 
 
@@ -29,11 +30,11 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car1.x = self.width / 2 - 100
         self.car1.y = self.height / 2
 
-        self.car2 = Car2()
+        self.car2 = Sledge()
         self.car2.x = self.width / 2 - 100
         self.car2.y = self.height / 2
 
-        self.car3 = Car1()
+        self.car3 = SnowMobile()
         self.car3.x = self.width / 2 - 100
         self.car3.y = self.height / 2
 
@@ -41,24 +42,24 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4.x = self.width / 2 - 100
         self.car4.y = self.height / 2
 
-        self.car1valaszto = Car1()
+        self.car1valaszto = SnowMobile()
         self.car1valaszto.x =  self.width / 5 - 100
         self.car1valaszto.y = self.height / 5
         self.add_actor(self.car1valaszto)
 
-        self.car2valaszto = Car2()
+        self.car2valaszto = Sledge()
         self.car2valaszto.x = self.width / 2.5 - 100
         self.car2valaszto.y = self.height / 5
         self.add_actor(self.car2valaszto)
 
         self.car3valaszto= SnowBoard()
         self.car3valaszto.x = self.width / 1.66666666666 -100
-        self.car3valaszto.y = self.height / 5
+        self.car3valaszto.y = self.height / 5 + 75
         self.add_actor(self.car3valaszto)
 
         self.car4valaszto = Ski()
         self.car4valaszto.x = self.width / 1.25 - 100
-        self.car4valaszto.y = self.height / 5
+        self.car4valaszto.y = self.height / 5 + 75
         self.add_actor(self.car4valaszto)
 
         self.car1start = PlayButton()
@@ -113,7 +114,7 @@ class CaraValtStage(game.scene2d.MyStage):
 
     def Car4Start(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car3Screen.Car3Screen())
+            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
 
     #3
     def Actvalt1(self, sender, event):

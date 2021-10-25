@@ -8,6 +8,7 @@ class BgActor(game.scene2d.MyActor):
         super().__init__('image/snow.png')
 
 
+
 class Visszagomb(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/back_to_menu_button.png')
@@ -24,26 +25,30 @@ class PlayButton(game.scene2d.MyActor):
 
 class Enemy(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/my-caracter.png')
+        self.credit = super().__init__('image/tree.png')
 
 class Ski(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Ski.png')
+        self.width = 100
+        self.height = 100
 
 class SnowBoard(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/SnowBoard.png')
+        self.width = 100
+        self.height = 100
 
-class Car1(game.scene2d.MyActor):
+class SnowMobile(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/Car1.png')
+        self.credit = super().__init__('image/SnowMobile.png')
+        self.width = 200
+        self.height = 200
 
 
-class Car2(game.scene2d.MyActor):
+class Sledge(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/Car2.jpg')
+        self.credit = super().__init__('image/Sledge.png')
+        self.width = 200
+        self.height = 200
 
-
-class Car3(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/Car3.jpg')
