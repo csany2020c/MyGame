@@ -31,7 +31,7 @@ class Car1Stage(game.scene2d.MyStage):
         self.button1.y = 0
         self.button1.x = 0
 
-        self.joseph = Car1()
+        self.joseph = SnowBoard()
         self.add_actor(self.joseph)
         self.joseph.width = 100
         self.joseph.height = 200

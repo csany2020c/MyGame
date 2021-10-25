@@ -1,11 +1,9 @@
-from pygame import mixer
-
 import kuposztok
 from kuposztok.CaraValt.CaraValtAct import *
-from kuposztok.Menu.MenuScreen import MenuScreen
-from kuposztok.Game.Car1Screen import *
-from kuposztok.Game.Car2Screen import *
-from kuposztok.Game.Car3Screen import *
+import kuposztok.Menu.MenuScreen
+from kuposztok.Game.Car1Screen import Car1Screen
+from kuposztok.Game.Car2Screen import Car2Screen
+from kuposztok.Game.Car3Screen import Car3Screen
 import pygame
 
 
@@ -15,8 +13,8 @@ class CaraValtStage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
-        self.bg.width = 2400
-        self.bg.height = 1400
+        self.bg.width = self.width
+        self.bg.height = self.height
         self.bg.y = 0
         self.add_actor(self.bg)
 
@@ -27,7 +25,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.button1.y = 0
         self.button1.x = 0
 
-        self.car1 = Car1()
+        self.car1 = SnowBoard()
         self.car1.x = self.width / 2 - 100
         self.car1.y = self.height / 2
 
@@ -35,11 +33,11 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.x = self.width / 2 - 100
         self.car2.y = self.height / 2
 
-        self.car3 = Car3()
+        self.car3 = Car1()
         self.car3.x = self.width / 2 - 100
         self.car3.y = self.height / 2
 
-        self.car4 = Car3()
+        self.car4 = Ski()
         self.car4.x = self.width / 2 - 100
         self.car4.y = self.height / 2
 
@@ -53,12 +51,12 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2valaszto.y = self.height / 5
         self.add_actor(self.car2valaszto)
 
-        self.car3valaszto= Car3()
+        self.car3valaszto= SnowBoard()
         self.car3valaszto.x = self.width / 1.66666666666 -100
         self.car3valaszto.y = self.height / 5
         self.add_actor(self.car3valaszto)
 
-        self.car4valaszto = Car3()
+        self.car4valaszto = Ski()
         self.car4valaszto.x = self.width / 1.25 - 100
         self.car4valaszto.y = self.height / 5
         self.add_actor(self.car4valaszto)

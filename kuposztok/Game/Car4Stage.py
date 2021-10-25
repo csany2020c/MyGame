@@ -1,11 +1,8 @@
 import game
 import pygame
-from kuposztok.Game.GameActor import *
-from kuposztok.Game.GameActor import *
 import kuposztok
 import random
-from kuposztok.Menu.MenuBgActor import *
-from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
+from kuposztok.Game.GameActor import *
 
 
 class Car3Stage(game.scene2d.MyStage):
@@ -31,7 +28,7 @@ class Car3Stage(game.scene2d.MyStage):
         self.button1.y = 0
         self.button1.x = 0
 
-        self.joseph = Car3()
+        self.joseph = SnowBoard()
         self.add_actor(self.joseph)
         self.joseph.width = 100
         self.joseph.height = 200

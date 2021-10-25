@@ -52,6 +52,13 @@ class Car1(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Car1.png')
 
+class Ski(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/Ski.png')
+
+class SnowBoard(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/SnowBoard.png')
 
 class Car2(game.scene2d.MyActor):
     def __init__(self):
