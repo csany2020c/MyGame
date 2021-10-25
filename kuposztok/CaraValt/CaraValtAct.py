@@ -17,6 +17,10 @@ class Joseph(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/my-caracter.png')
 
+class PlayButton(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/play_button.png')
 
 class Enemy(game.scene2d.MyActor):
     def __init__(self):
@@ -25,7 +29,7 @@ class Enemy(game.scene2d.MyActor):
 
 class Car1(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/SnowBoard.png')
+        self.credit = super().__init__('image/Car1.png')
 
 
 class Car2(game.scene2d.MyActor):

@@ -8,10 +8,12 @@ from kuposztok.Menu.MenuBgActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
-class Car1Stage(game.scene2d.MyStage):
+class Car2Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
         self.bg.width = 2400
         self.bg.height = 1400
@@ -41,8 +43,8 @@ class Car1Stage(game.scene2d.MyStage):
             self.add_actor(self.enemy)
             self.enemy.width = 100
             self.enemy.height = 100
-            self.enemy.x = random.Random().randint(50, 1270)
-            self.enemy.y = random.Random().randint(-500, 0)
+            self.enemy.x = random.Random().randint(0, 1080)
+            self.enemy.y = random.Random().randint(-1080, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)

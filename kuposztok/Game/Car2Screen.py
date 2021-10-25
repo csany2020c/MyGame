@@ -1,8 +1,8 @@
 import game
-from kuposztok.Game.Car1Stage import *
+from kuposztok.Game.Car2Stage import *
 
 
-class GameScreen(game.scene2d.MyScreen):
+class Car2Screen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()

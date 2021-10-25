@@ -1,5 +1,6 @@
 import game
 import random
+import pygame
 
 
 class BgActor(game.scene2d.MyActor):
@@ -45,7 +46,7 @@ class Enemy(game.scene2d.MyActor):
         self.y += delta_time * 500
         if self.y > 1200:
             self.y = -200
-            self.x = random.Random().randint(50, 1270)
+            self.x = random.Random().randint(200, 1080)
 
 class Car1(game.scene2d.MyActor):
     def __init__(self):
