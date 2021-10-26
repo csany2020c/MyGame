@@ -57,15 +57,17 @@ class SelectStgage(game.scene2d.MyStage):
         self.arrow_r2.w = 200
         self.arrow_r2.set_on_mouse_down_listener(self.click_r2)
 
-        self.arrow4 = Arrow()
-        self.arrow4.x = 330
-        self.arrow4.y = 280
-        self.arrow4.w = 200
+        self.arrow_l3 = Arrow()
+        self.arrow_l3.x = 330
+        self.arrow_l3.y = 280
+        self.arrow_l3.w = 200
+        self.arrow_l3.set_on_mouse_down_listener(self.click_l3)
 
-        self.arrow5 = Arrow_r()
-        self.arrow5.x = 730
-        self.arrow5.y = 280
-        self.arrow5.w = 200
+        self.arrow_r3 = Arrow_r()
+        self.arrow_r3.x = 730
+        self.arrow_r3.y = 280
+        self.arrow_r3.w = 200
+        self.arrow_r3.set_on_mouse_down_listener(self.click_r3)
 
         self.D2 = Deagle2()
         self.D2.x = 520
@@ -89,6 +91,28 @@ class SelectStgage(game.scene2d.MyStage):
         self.s3.y = 400
         self.s3.set_on_mouse_down_listener(self.click_g3)
 
+        self.D4 = Deagle4()
+        self.D4.x = 520
+        self.D4.y = 280
+        self.D4.w = 250
+
+        self.s4 = Sellect()
+        self.s4.width = 200
+        self.s4.x = 630
+        self.s4.y = 400
+        self.s4.set_on_mouse_down_listener(self.click_g4)
+
+        self.arrow_l4 = Arrow()
+        self.arrow_l4.x = 330
+        self.arrow_l4.y = 280
+        self.arrow_l4.w = 200
+
+        self.arrow_r4 = Arrow_r()
+        self.arrow_r4.x = 730
+        self.arrow_r4.y = 280
+        self.arrow_r4.w = 200
+
+
     def click_m(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
@@ -102,6 +126,10 @@ class SelectStgage(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.Game2.GameScreen2.GameScreen())
 
     def click_g3(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
+
+    def click_g4(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
 
@@ -122,9 +150,9 @@ class SelectStgage(game.scene2d.MyStage):
             self.remove_actor(self.D)
             self.add_actor(self.D3)
             self.remove_actor(self.arrow_l1)
-            self.add_actor(self.arrow4)
+            self.add_actor(self.arrow_l3)
             self.remove_actor(self.arrow_r1)
-            self.add_actor(self.arrow5)
+            self.add_actor(self.arrow_r3)
             self.remove_actor(self.s1)
             self.add_actor(self.s2)
 
@@ -133,9 +161,9 @@ class SelectStgage(game.scene2d.MyStage):
             self.remove_actor(self.D2)
             self.add_actor(self.D3)
             self.remove_actor(self.arrow_l2)
-            self.add_actor(self.arrow4)
+            self.add_actor(self.arrow_l3)
             self.remove_actor(self.arrow_r2)
-            self.add_actor(self.arrow5)
+            self.add_actor(self.arrow_r3)
             self.remove_actor(self.s2)
             self.add_actor(self.s3)
 
@@ -149,3 +177,25 @@ class SelectStgage(game.scene2d.MyStage):
             self.add_actor(self.arrow_r1)
             self.add_actor(self.s1)
             self.remove_actor(self.s2)
+
+    def click_l3(self, sender, event):
+        if event.button == 1:
+            self.remove_actor(self.D3)
+            self.add_actor(self.D4)
+            self.remove_actor(self.arrow_l3)
+            self.add_actor(self.arrow_l4)
+            self.remove_actor(self.arrow_r3)
+            self.add_actor(self.arrow_r4)
+            self.remove_actor(self.s3)
+            self.add_actor(self.s4)
+
+    def click_r3(self, sender, event):
+        if event.button == 1:
+            self.remove_actor(self.D3)
+            self.add_actor(self.D2)
+            self.remove_actor(self.arrow_l3)
+            self.add_actor(self.arrow_l2)
+            self.remove_actor(self.arrow_r3)
+            self.add_actor(self.arrow_r2)
+            self.remove_actor(self.s3)
+            self.add_actor(self.s2)
