@@ -45,7 +45,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4.y = self.height / 2
 
         self.car1valaszto = SnowMobile()
-        self.car1valaszto.x =  self.width / 5 - 100
+        self.car1valaszto.x = self.width / 5 - 100
         self.car1valaszto.y = self.height / 5
         self.add_actor(self.car1valaszto)
 
