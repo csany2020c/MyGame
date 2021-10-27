@@ -12,6 +12,7 @@ class Car1Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self.score = 0
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -30,13 +31,22 @@ class Car1Stage(game.scene2d.MyStage):
         self.button1.height = 75
         self.button1.y = 0
         self.button1.x = 0
-
         self.joseph = SnowBoard()
         self.add_actor(self.joseph)
         self.joseph.width = 100
         self.joseph.height = 200
         self.joseph.x = 200
         self.joseph.y = 500
+        self.t = MyIntervalTimer(func=self.Timer,start_time=1, stop_time=9223372036854775807)
+        self.add_timer(self.t)
+
+        self.score = 0
+        self.scorelabel = game.scene2d.MyLabel("Score:" + str(self.score))
+        self.add_actor(self.scorelabel)
+        self.scorelabel.x = self.width - 250
+        self.scorelabel.y = self.height - 50
+        self.scorelabel.width = 100
+        self.scorelabel.height = 50
 
         for i in range(5):
             self.enemy = Enemy()
@@ -48,6 +58,11 @@ class Car1Stage(game.scene2d.MyStage):
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
+
+
+    def Timer(self, sender):
+        self.score = self.score + 1
+        self.scorelabel.set_text("Score:" + str(self.score))
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
