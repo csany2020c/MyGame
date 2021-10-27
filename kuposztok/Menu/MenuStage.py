@@ -18,11 +18,17 @@ class MenuStage(game.scene2d.MyStage):
         print(self.width)
         print(self.height)
         self.Ver = game.scene2d.MyLabel("Ver.:1.0.3")
+        self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
         self.Ver.x = self.width - 250
         self.Ver.y = self.height - 50
         self.Ver.width = 100
         self.Ver.height = 50
+        self.Ver.get_hitbox()
+        self.Ver.hitbox_scale_w = 0.4
+        self.Ver.hitbox_scale_h = 0.4
+        self.Ver.hitbox_shape = game.simpleworld.ShapeType.Circle
+        self.Ver.debug = True
         button1 = Button1()
         button2 = Button2()
         button3 = Button3()

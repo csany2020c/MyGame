@@ -30,7 +30,7 @@ class Car2Stage(game.scene2d.MyStage):
         self.button1.height = 75
         self.button1.y = 0
         self.button1.x = 0
-        self.t = MyIntervalTimer(func=self.Timer, start_time=1, stop_time=9223372036854775807)
+        self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
 
         self.score = 0
@@ -38,6 +38,7 @@ class Car2Stage(game.scene2d.MyStage):
         self.add_actor(self.scorelabel)
         self.scorelabel.x = self.width - 250
         self.scorelabel.y = self.height - 50
+        self.scorelabel.set_color(0, 0, 0)
         self.scorelabel.width = 100
         self.scorelabel.height = 50
 
@@ -62,6 +63,12 @@ class Car2Stage(game.scene2d.MyStage):
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.joseph.overlaps(self.enemy):
+            self.score = self.score - self.score
+            print("Utkoztem")
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
