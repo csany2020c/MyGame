@@ -19,8 +19,8 @@ class GameStage(game.scene2d.MyStage):
         self.D.y = 250
         self.D.x = 300
         self.D.width = 60
-        if self.D.y > 720:
-            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        #if self.D.y > 720:
+            #self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
@@ -28,6 +28,7 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.y = 5
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
+
 
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd2, 8))
@@ -46,7 +47,7 @@ class GameStage(game.scene2d.MyStage):
         #self.P1.w = 100
         #self.P1.set_size(width=250, height=250)
         #self.P1.x = 1280
-        self.P1.y = random.randint(-10, 80)
+        self.P1.y = random.randint(-70, -15)
         #self.P1.width = 600
 
         self.P2 = Pile_a()
