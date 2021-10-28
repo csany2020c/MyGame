@@ -60,15 +60,15 @@ class GameStage(game.scene2d.MyStage):
         self.P2.y = random.randint(600, 700)
         #self.P1.width = 600
 
-    '''def add_asd1(self, sender):
-        self.P2 = Pile_a()
-        self.add_actor(self.P2)
-        self.P2.set_size(width=250, height=250)
-        self.P2.x = 1280
-        self.P2.y = random.randint(0, 250)
-        self.P1.set_hitbox_scale_h = 0.2
-        self.P1.set_hitbox_scale_w = 0.5
-        self.P2.width = 600'''
+    #def add_asd1(self, sender):
+     #   self.P2 = Pile_a()
+      #  self.add_actor(self.P2)
+       # self.P2.set_size(width=250, height=250)
+       # self.P2.x = 1280
+       # self.P2.y = random.randint(0, 250)
+        #self.P1.set_hitbox_scale_h = 0.2
+        #self.P1.set_hitbox_scale_w = 0.5
+        #self.P2.width = 600'''
 
     def add_asd2(self, sender):
         self.C = Coin()
@@ -89,7 +89,7 @@ class GameStage(game.scene2d.MyStage):
             quit()
         if event.key == pygame.K_w:
             self.D.y -= 50
-            self.D.r -= 8
+            self.D.r -= 7.5
         if event.key == pygame.K_s:
             self.D.y += 50
-            self.D.r += 8
+            self.D.r += 7.5

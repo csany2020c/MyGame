@@ -13,14 +13,14 @@ class IStage(game.scene2d.MyStage):
         self.H.set_text("Az irányítás a bal klikk lenyomásával történik. A start-tal indul, quit-tel zárul.")
         self.H.x = 25
         self.H.y = 500
-        self.H.set_font_size(45)
+        self.H.set_font_size(25)
 
         self.H2 = Arial()
         self.add_actor(self.H2)
         self.H2.set_text("A balfelsö sarokban található icon-ra kattintva léphet a karakter menübe.")
         self.H2.x = 45
         self.H2.y = 250
-        self.H2.set_font_size(45)
+        self.H2.set_font_size(25)
 
         self.Ba = Arrow()
         self.add_actor(self.Ba)
@@ -37,7 +37,6 @@ class IStage(game.scene2d.MyStage):
     def katt1(self, sender, event):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
-
             self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
         if event.key == pygame.K_ESCAPE:
             quit()

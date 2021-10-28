@@ -76,7 +76,7 @@ class SelectStgage(game.scene2d.MyStage):
 
         self.s2 = Sellect()
         self.s2.width = 200
-        self.s2.x = 630
+        self.s2.x = 530
         self.s2.y = 400
         self.s2.set_on_mouse_down_listener(self.click_g2)
 
@@ -130,6 +130,10 @@ class SelectStgage(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
 
     def click_g4(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
+
+    def click_g5(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
 
