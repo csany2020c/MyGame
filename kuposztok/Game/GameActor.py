@@ -25,7 +25,9 @@ class BgActor2(game.scene2d.MyActor):
         if self.y > 1080:
             self.y = -1080
 
-
+class vesztettel(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/vesztettel.png')
 
 class Visszagomb(game.scene2d.MyActor):
     def __init__(self):
