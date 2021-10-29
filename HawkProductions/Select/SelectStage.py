@@ -10,9 +10,9 @@ import pygame
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        #pygame.mixer.init()
-        #pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        #pygame.mixer.music.play(-1)
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.set_on_mouse_down_listener(self.click_m)

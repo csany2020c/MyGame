@@ -12,17 +12,17 @@ class IStage(game.scene2d.MyStage):
         self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("Írányitás")
-        self.t.x = 150
-        self.t.y = 100
-        self.t.set_font_size(30)
+        self.t.x = 520
+        self.t.y = 50
+        self.t.set_font_size(35)
         self.t.set_font_underline("line")
 
         self.t1 = Arial()
         self.add_actor(self.t1)
         self.t1.set_text("Játék menete")
-        self.t1.x = 250
-        self.t1.y = 100
-        self.t1.set_font_size(30)
+        self.t1.x = 640
+        self.t1.y = 50
+        self.t1.set_font_size(35)
         self.t1.set_on_mouse_down_listener(self.valtas1)
 
         self.H = Arial()
@@ -68,17 +68,17 @@ class Istage2(game.scene2d.MyStage):
         self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("Írányitás")
-        self.t.x = 150
-        self.t.y = 100
-        self.t.set_font_size(30)
+        self.t.x = 520
+        self.t.y = 50
+        self.t.set_font_size(35)
         self.t.set_on_mouse_down_listener(self.valtas)
 
         self.t1 = Arial()
         self.add_actor(self.t1)
         self.t1.set_text("Játék menete")
-        self.t1.x = 250
-        self.t1.y = 100
-        self.t1.set_font_size(30)
+        self.t1.x = 640
+        self.t1.y = 50
+        self.t1.set_font_size(35)
         self.t1.set_font_underline("line")
 
         self.Ba = Arrow()
