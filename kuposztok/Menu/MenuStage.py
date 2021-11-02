@@ -1,8 +1,8 @@
 import game
 import kuposztok
-from kuposztok.Menu.MenuBgActor import *
-from kuposztok.Game.GameScreen import *
+from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
 from kuposztok.Credit.CreditScreen import CreditScreen
+from kuposztok.Menu.MenuBgActor import *
 
 
 class MenuStage(game.scene2d.MyStage):
@@ -17,21 +17,27 @@ class MenuStage(game.scene2d.MyStage):
         bg.width = self.width
         print(self.width)
         print(self.height)
-        self.Ver = game.scene2d.MyLabel("Ver.:1.0.0")
+        self.Ver = game.scene2d.MyLabel("Ver.:1.0.3")
+        self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
-        self.Ver.x = self.width - 100
+        self.Ver.x = self.width - 250
         self.Ver.y = self.height - 50
         self.Ver.width = 100
         self.Ver.height = 50
+        self.Ver.get_hitbox()
+        self.Ver.hitbox_scale_w = 0.4
+        self.Ver.hitbox_scale_h = 0.4
+        self.Ver.hitbox_shape = game.simpleworld.ShapeType.Circle
+        self.Ver.debug = True
         button1 = Button1()
         button2 = Button2()
         button3 = Button3()
-        button2.x = 000
-        button2.y = 400
-        button3.y = 500
-        button3.x = 400
-        button1.y = 300
-        button1.x = 800
+        button2.x = self.width / 7
+        button2.y = self.height / 2.5 + 100
+        button3.y = self.height / 2.5 + 100
+        button3.x = self.width /1.5
+        button1.y = self.height / 2 + 100
+        button1.x = self.width / 2 - 200
         self.add_actor(bg)
         self.add_actor(button3)
         self.add_actor(button1)
@@ -44,7 +50,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def Klikk1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.GameScreen.GameScreen())
+            self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen())
 
     def Klikk2(self, sender, event):
         if event.button == 1:

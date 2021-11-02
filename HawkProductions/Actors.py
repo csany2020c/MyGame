@@ -1,5 +1,5 @@
 import game
-
+import HawkProductions.over.OverScreen
 
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
@@ -36,7 +36,13 @@ class Deagle(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
-        self.r += 15*delta_time
+        #self.r += 15* delta_time
+        self.r += 7.5*delta_time
+
+        if self.y < 0:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.y > 720:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
 
 class Deagle1(game.scene2d.MyActor):
@@ -139,5 +145,3 @@ class Deagle4(game.scene2d.MyActor):
 class Deagle5(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/observator.png")
-
-
