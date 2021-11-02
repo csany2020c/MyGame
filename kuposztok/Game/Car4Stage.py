@@ -80,7 +80,6 @@ class Car4Stage(game.scene2d.MyStage):
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.newgame.set_on_mouse_down_listener(self.NewG)
 
-
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
@@ -96,6 +95,7 @@ class Car4Stage(game.scene2d.MyStage):
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
             self.add_actor(self.newgame)
+            self.remove_actor(self.joseph)
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
