@@ -23,9 +23,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 300
-        self.D.width = 60
-        #if self.D.y > 720:
-            #self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        self.D.width = 95
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
@@ -35,10 +33,9 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.set_on_mouse_down_listener(self.click2)
 
 
+
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd2, 8))
-
-
 
         self.set_on_key_down_listener(self.katt)
 
@@ -50,32 +47,22 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.P1)
         self.P1.set_hitbox_scale_h = 0
         self.P1.set_hitbox_scale_w = 0
-        self.P1.h = 250
-        #self.P1.w = 100
-        #self.P1.set_size(width=250, height=250)
-        #self.P1.x = 1280
+        self.P1.h = 350
         self.P1.y = random.randint(-70, -15)
         #self.P1.width = 600
 
         self.P2 = Pile_a()
         self.add_actor(self.P2)
-        self.P2.h = 250
+        self.P2.h = 370
         self.P2.set_hitbox_scale_h = 0
         self.P2.set_hitbox_scale_w = 0
-        #self.P1.set_size(width=250, height=250)
-        #self.P1.x = 1280
-        self.P2.y = random.randint(600, 700)
-        #self.P1.width = 600
+        self.P2.y = random.randint(550, 700)
 
-    #def add_asd1(self, sender):
-     #   self.P2 = Pile_a()
-      #  self.add_actor(self.P2)
-       # self.P2.set_size(width=250, height=250)
-       # self.P2.x = 1280
-       # self.P2.y = random.randint(0, 250)
-        #self.P1.set_hitbox_scale_h = 0.2
-        #self.P1.set_hitbox_scale_w = 0.5
-        #self.P2.width = 600'''
+
+        #nem jó
+        #if self.D.overlaps(self.P1 or self.P2):
+         #   self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+
 
     def add_asd2(self, sender):
         self.C = Coin()
