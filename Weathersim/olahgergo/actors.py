@@ -37,7 +37,6 @@ class ho(game.scene2d.MyActor):
         self.y = self.y + delta_time * 90
         if self.y > 720:
             self.y = 20
-            self.x = random.randint(0,1280)
 
 
 class Eso(game.scene2d.MyActor):
@@ -50,7 +49,6 @@ class Eso(game.scene2d.MyActor):
         self.y = self.y + delta_time * 250
         if self.y > 720:
             self.y = 20
-            self.x = random.randint(0,1280)
 
 
 
