@@ -1,7 +1,7 @@
 import kuposztok.Credit.CreditScreen
 import pygame
 from kuposztok.Credit.CreditActors import *
-from kuposztok.Menu.MenuScreen import *
+
 
 
 class CreditStage(game.scene2d.MyStage):
@@ -19,13 +19,18 @@ class CreditStage(game.scene2d.MyStage):
         self.add_actor(self.button1)
         self.button1.width = 125
         self.button1.height = 75
-        self.button1.y = 700
-        self.button1.x = 1000
+        self.button1.y = self.height - self.height
+        self.button1.x = self.width - self.width
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
+        self.set_on_key_down_listener(self.Escape)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def Escape(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
 

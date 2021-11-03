@@ -17,31 +17,31 @@ class IMenuStage(game.scene2d.MyStage):
 
         self.havazask = havazaskatt()
         self.add_actor(self.havazask)
-        self.havazask.height = 46
-        self.havazask.width = 1320
-        self.havazask.y = 55
-        self.havazask.x = 136
+        self.havazask.height = 47
+        self.havazask.width = 228
+        self.havazask.y = 402
+        self.havazask.x = 685
 
         self.esosk = esoskatt()
         self.add_actor(self.esosk)
-        self.esosk.height = 46
-        self.esosk.width = 1320
-        self.esosk.y = 55
-        self.esosk.x = -206
+        self.esosk.height = 47
+        self.esosk.width = 228
+        self.esosk.y = 402
+        self.esosk.x = 338
 
         self.naposk = naposkatt()
         self.add_actor(self.naposk)
-        self.naposk.height = 46
-        self.naposk.width = 1320
-        self.naposk.y = 55
-        self.naposk.x = -522
+        self.naposk.height = 47
+        self.naposk.width = 228
+        self.naposk.y = 402
+        self.naposk.x = 23
 
         self.havasesosk = havasesoskatt()
         self.add_actor(self.havasesosk)
-        self.havasesosk.height = 46
-        self.havasesosk.width = 1320
-        self.havasesosk.y = 55
-        self.havasesosk.x = 472
+        self.havasesosk.height = 47
+        self.havasesosk.width = 228
+        self.havasesosk.y = 402
+        self.havasesosk.x = 1021
 
         self.set_on_key_down_listener(self.key_down)
         self.havazask.set_on_mouse_down_listener(self.asd1)
