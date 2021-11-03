@@ -1,5 +1,6 @@
 import game
 import HawkProductions.over.OverScreen
+import pygame
 
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
@@ -145,3 +146,6 @@ class Deagle4(game.scene2d.MyActor):
 class Deagle5(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/observator.png")
+
+
+

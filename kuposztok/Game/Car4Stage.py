@@ -73,13 +73,12 @@ class Car4Stage(game.scene2d.MyStage):
             self.enemy.width = 100
             self.enemy.height = 100
             self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(0, 1080)
+            self.enemy.x = random.Random().randint(self.width - self.width, self.width)
             self.enemy.y = random.Random().randint(-1080, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.newgame.set_on_mouse_down_listener(self.NewG)
-
 
     def Timer(self, sender):
         self.score = self.score + 1
@@ -96,6 +95,7 @@ class Car4Stage(game.scene2d.MyStage):
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
             self.add_actor(self.newgame)
+            self.remove_actor(self.joseph)
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()

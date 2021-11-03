@@ -18,7 +18,7 @@ class HoStage(game.scene2d.MyStage):
         self.add_actor(self.c)
         self.c.z_index = -1
         # ho
-        for i in range(30):
+        for i in range(100):
             self.snow = Snow()
             self.add_actor(self.snow)
 
