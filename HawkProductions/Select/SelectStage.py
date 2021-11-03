@@ -11,7 +11,8 @@ class SelectStgage(game.scene2d.MyStage):
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
         pygame.mixer.music.play(-1)
-        self.D = Deagle_s()
+
+        self.D = Deagle1()
         self.add_actor(self.D)
         self.D.x = 530
         self.D.y = 250
