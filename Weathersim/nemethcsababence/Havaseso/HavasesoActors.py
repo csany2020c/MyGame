@@ -47,4 +47,4 @@ class button3(game.scene2d.MyActor):
 class button5(game.scene2d.MyActor):
 
     def __init__(self):
-        self.butt5 = super().__init__('images/Vissza.png')
+        self.butt5 = super().__init__('images/back.png')
