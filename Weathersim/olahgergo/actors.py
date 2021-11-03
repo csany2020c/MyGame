@@ -31,32 +31,26 @@ class ho(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('images/snow.png')
-        self.speed = random.randint(a=20, b=80)
 
     def act(self, delta_time: float):
         super().act(delta_time)
-
-        self.y = self.y + delta_time * self.speed
-        if self.y > 760:
-            self.y = 40
-            self.x = random.randint(a=0, b=1280)
-            self.speed = random.randint(a=20, b=70)
+        self.y = self.y + delta_time * 90
+        if self.y > 720:
+            self.y = 20
+            self.x = random.randint(0,1280)
 
 
 class Eso(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('images/rain.png')
-        self.speed = random.randint(a=20, b=80)
 
     def act(self, delta_time: float):
         super().act(delta_time)
-
-        self.y = self.y + delta_time * self.speed
-        if self.y > 760:
-            self.y = 40
-            self.x = random.randint(a=0, b=1280)
-            self.speed = random.randint(a=20, b=70)
+        self.y = self.y + delta_time * 250
+        if self.y > 720:
+            self.y = 20
+            self.x = random.randint(0,1280)
 
 
 
