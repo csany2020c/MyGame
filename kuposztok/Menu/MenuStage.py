@@ -32,12 +32,12 @@ class MenuStage(game.scene2d.MyStage):
         button1 = Button1()
         button2 = Button2()
         button3 = Button3()
-        button2.x = self.width / 7
-        button2.y = self.height / 2.5 + 100
-        button3.y = self.height / 2.5 + 100
-        button3.x = self.width /1.5
-        button1.y = self.height / 2 + 100
-        button1.x = self.width / 2 - 200
+        button2.x = self.width / 2 - 230
+        button2.y = self.height / 2.5 + 130
+        button3.y = self.height / 2.5 - 60
+        button3.x = self.width / 2 - 150
+        button1.y = self.height / 2 - 320
+        button1.x = self.width / 2 - 190
         self.add_actor(bg)
         self.add_actor(button3)
         self.add_actor(button1)
