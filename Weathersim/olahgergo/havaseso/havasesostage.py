@@ -53,4 +53,4 @@ class HavEsoStage(game.scene2d.MyStage):
 
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
-            quit()
+            self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
