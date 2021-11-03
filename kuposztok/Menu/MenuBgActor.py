@@ -8,15 +8,6 @@ class MenuActor(game.scene2d.MyActor):
         super().__init__('image/menu.png')
 
 
-
-
-class creditact(game.scene2d.MyActor):
-
-    def __init__(self):
-        super().__init__('image/credit_button.png')
-
-
-
 class Button1(game.scene2d.MyActor):
 
     def __init__(self):
