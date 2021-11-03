@@ -1,6 +1,9 @@
 import game
 import random
 from game.scene2d.MyScreen import *
+class Gomb (game.scene2d.MyActor):
+    def __init__(self):
+        self.map = super().__init__('!_resources/images/gomb.png')
 
 class Gomb1 (game.scene2d.MyActor):
     def __init__(self):
@@ -64,6 +67,21 @@ class NaposStage(game.scene2d.MyStage):
         self.hatter_bg = Hatter()
         self.add_actor(self.napos_bg)
         self.add_actor(self.hatter_bg)
+        self.gomb_bg = Gomb()
+        self.add_actor(self.gomb_bg)
+        self.gomb_bg.set_on_mouse_down_listener(self.Klikk5)
+
+        self.gomb_bg.width = 100
+        self.gomb_bg.height = 50
+        self.gomb_bg.x = 700
+        self.gomb_bg.y = 600
+
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+
+
 
 class EsoStage(game.scene2d.MyStage):
     def __init__(self):
@@ -73,11 +91,28 @@ class EsoStage(game.scene2d.MyStage):
         self.add_actor(self.szurke_bg)
         self.add_actor(self.hatter_bg)
 
+        self.gomb_bg = Gomb()
+        self.add_actor(self.gomb_bg)
+        self.gomb_bg.set_on_mouse_down_listener(self.Klikk5)
+
+        self.gomb_bg.width = 100
+        self.gomb_bg.height = 50
+        self.gomb_bg.x = 700
+        self.gomb_bg.y = 600
+
+
+
         for i in range(50):
             self.eso_bg = Eso()
             self.add_actor(self.eso_bg)
             self.eso_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.eso_bg.w)
             self.eso_bg.y = random.Random().randint(0, 720)
+
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+
 
 
 
@@ -90,12 +125,24 @@ class HavStage(game.scene2d.MyStage):
         self.add_actor(self.hav_bg)
         self.add_actor(self.szurke_bg)
         self.add_actor(self.hatter_bg)
+        self.gomb_bg = Gomb()
+        self.add_actor(self.gomb_bg)
+        self.gomb_bg.set_on_mouse_down_listener(self.Klikk5)
+
+        self.gomb_bg.width = 100
+        self.gomb_bg.height = 50
+        self.gomb_bg.x = 700
+        self.gomb_bg.y = 600
 
         for i in range(50):
             self.hav_bg = Hav()
             self.add_actor(self.hav_bg)
             self.hav_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.hav_bg.w)
             self.hav_bg.y = random.Random().randint(0, 720)
+
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
 
 class HavEsoStage(game.scene2d.MyStage):
     def __init__(self):
@@ -108,6 +155,14 @@ class HavEsoStage(game.scene2d.MyStage):
         self.add_actor(self.hav_bg)
         self.add_actor(self.szurke_bg)
         self.add_actor(self.hatter_bg)
+        self.gomb_bg = Gomb()
+        self.add_actor(self.gomb_bg)
+        self.gomb_bg.set_on_mouse_down_listener(self.Klikk5)
+
+        self.gomb_bg.width = 100
+        self.gomb_bg.height = 50
+        self.gomb_bg.x = 700
+        self.gomb_bg.y = 600
 
 
         for s in range(50):
@@ -121,6 +176,12 @@ class HavEsoStage(game.scene2d.MyStage):
             self.add_actor(self.hav_bg)
             self.hav_bg.x = random.Random().randint(0, game.scene2d.MyGame.get_screen_width() - self.hav_bg.w)
             self.hav_bg.y = random.Random().randint(0, 720)
+
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+
 
 class NaposScreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -200,6 +261,21 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(HavEsoScreen())
 
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+    def Klikk6(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+    def Klikk7(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+
+    def Klikk8(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
 
 class MenuScreen(game.scene2d.MyScreen):
     def __init__(self):
