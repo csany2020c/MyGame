@@ -10,6 +10,10 @@ import HawkProductions.over.OverScreen
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.2)
         self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
@@ -36,6 +40,8 @@ class GameStage(game.scene2d.MyStage):
 
 
         self.set_on_key_down_listener(self.katt)
+
+
 
     def add_asd(self, sender):
         #self.P1 még nem jó
@@ -90,6 +96,8 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_w:
             self.D.y -= 50
             self.D.r -= 7.5
+        effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
+        effect.play()
         if event.key == pygame.K_s:
             self.D.y += 50
             self.D.r += 7.5
