@@ -62,6 +62,7 @@ class IStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Info.InfoScreen.IScreen1())
 
+
 class Istage2(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
