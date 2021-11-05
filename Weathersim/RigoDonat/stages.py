@@ -78,11 +78,11 @@ class RainStage(game.scene2d.MyStage):
             self.RainDrop.x = random.Random().randint(-1500, 1500)
             self.RainDrop.y = random.Random().randint(-1000, 1000)
 
-        self.t = game.scene2d.MyTickTimer(interval=1.5, func=self.tikk)
+        self.t = game.scene2d.MyTickTimer(interval=0.15, func=self.tikk)
         self.add_timer(self.t)
 
     def tikk(self, sender):
-        for i in range(50):
+        for i in range(5):
             self.RainDrop = RainDrop()
             self.add_actor(self.RainDrop)
             self.RainDrop.w = random.Random().randint(30, 30)
