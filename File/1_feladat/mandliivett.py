@@ -2,23 +2,26 @@ import string
 from typing import TextIO
 from typing import List
 
-class Data:
 
+class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Vegee")
+        print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
-
+        self.text: str = ""
+        for i in range(5, len(fields)):
+            self.text += str(fields[i])
+            if i < len(fields) - 1:
+                self.text += " "
 
 
 class Main:
-
     def __init__(self) -> None:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print("Content:")
+        print("2. feladat")
         print(content)
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
