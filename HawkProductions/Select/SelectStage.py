@@ -4,6 +4,8 @@ from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
 import HawkProductions.Music
 import pygame
+import HawkProductions.Select.SelectScreen
+
 
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
@@ -11,6 +13,12 @@ class SelectStgage(game.scene2d.MyStage):
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
         pygame.mixer.music.play(-1)
+        self.t = Arrow()
+        self.add_actor(self.t)
+        self.t.w = 125
+        self.t.hitbox_scale_h = 0.5
+        self.t.hitbox_scale_w = 0.5
+        self.t.set_on_mouse_down_listener(self.katt)
 
         self.D = Deagle1()
         self.add_actor(self.D)
@@ -18,73 +26,177 @@ class SelectStgage(game.scene2d.MyStage):
         self.D.y = 250
         self.D.width = 200
 
-        self.t = Arrow()
-        self.add_actor(self.t)
-        self.t.set_on_mouse_down_listener(self.click)
-        self.t.w = 125
+        self.a = Arrow()
+        self.add_actor(self.a)
+        self.a.x = 300
+        self.a.y = 250
+        self.a.w = 200
+        self.a.hitbox_scale_h = 0.5
+        self.a.hitbox_scale_w = 0.5
+        self.a.set_on_mouse_down_listener(self.katt3)
 
-        self.t1 = Sellect()
-        self.add_actor(self.t1)
-        self.t1.width = 200
-        self.t1.x = 530
-        self.t1.y = 400
-        self.t1.set_on_mouse_down_listener(self.click1)
+        self.a2 = Arrow2()
+        self.add_actor(self.a2)
+        self.a2.x = 725
+        self.a2.y = 250
+        self.a2.w = 200
+        self.a2.hitbox_scale_h = 0.5
+        self.a2.hitbox_scale_w = 0.5
+        self.a2.set_on_mouse_down_listener(self.katt4)
 
-        self.arrow = Arrow()
-        self.add_actor(self.arrow)
-        self.arrow.x = 330
-        self.arrow.y = 280
-        self.arrow.w = 200
-        self.arrow.set_on_mouse_down_listener(self.click2)
+        self.s = Sellect()
+        self.add_actor(self.s)
+        self.s.x = 512.5
+        self.s.y = 450
+        self.s.w = 200
+        self.s.set_on_mouse_down_listener(self.katt2)
 
-        self.arrow1 = Arrow()
-        self.arrow1.x = 330
-        self.arrow1.y = 280
-        self.arrow1.w = 200
-        self.arrow1.set_on_mouse_down_listener(self.click3)
-
-        self.arrow2 = Arrow_r()
-        self.arrow2.x = 730
-        self.arrow2.y = 280
-        self.arrow2.w = 200
-        self.arrow2.set_on_mouse_down_listener(self.click3)
-
-        self.arrow3 = Arrow_r()
-        self.add_actor(self.arrow3)
-        self.arrow3.x = 730
-        self.arrow3.y = 280
-        self.arrow3.w = 200
-        self.arrow3.set_on_mouse_down_listener(self.click2)
-
-        self.D1 = Deagle2()
-        self.D1.x = 520
-        self.D1.y = 280
-        self.D1.w = 200
-
-    def click(self, sender, event):
+    def katt(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
 
-    def click1(self, sender, event):
+    def katt2(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
 
-    def click2(self, sender, event):
+    def katt3(self, sender, event):
+        print(sender)
         if event.button == 1:
-            self.remove_actor(self.D)
-            self.add_actor(self.D1)
-            self.remove_actor(self.arrow)
-            self.add_actor(self.arrow1)
-            self.add_actor(self.arrow2)
-            self.remove_actor(self.arrow3)
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())
 
-    def click3(self, sender, event):
+    def katt4(self, sender, event):
+        print(sender)
         if event.button == 1:
-            self.remove_actor(self.D1)
-            self.add_actor(self.D)
-            self.remove_actor(self.arrow1)
-            self.add_actor(self.arrow)
-            self.remove_actor(self.arrow2)
-            self.add_actor(self.arrow3)
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen3())
 
 
+class SelectStage2(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+        pygame.mixer.music.play(-1)
+        self.t = Arrow()
+        self.add_actor(self.t)
+        self.t.w = 125
+        self.t.hitbox_scale_h = 0.5
+        self.t.hitbox_scale_w = 0.5
+        self.t.set_on_mouse_down_listener(self.katt)
+
+        self.D = Deagle2()
+        self.add_actor(self.D)
+        self.D.x = 530
+        self.D.y = 250
+        self.D.width = 200
+
+        self.a = Arrow()
+        self.add_actor(self.a)
+        self.a.x = 300
+        self.a.y = 250
+        self.a.w = 200
+        self.a.hitbox_scale_h = 0.5
+        self.a.hitbox_scale_w = 0.5
+        self.a.set_on_mouse_down_listener(self.katt4)
+
+        self.a2 = Arrow2()
+        self.add_actor(self.a2)
+        self.a2.x = 725
+        self.a2.y = 250
+        self.a2.w = 200
+        self.a2.hitbox_scale_h = 0.5
+        self.a2.hitbox_scale_w = 0.5
+        self.a2.set_on_mouse_down_listener(self.katt3)
+
+        self.s = Sellect()
+        self.add_actor(self.s)
+        self.s.x = 512.5
+        self.s.y = 450
+        self.s.w = 200
+        self.s.set_on_mouse_down_listener(self.katt2)
+
+    def katt(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+
+    def katt2(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Game2.GameScreen2.GameScreen())
+
+    def katt3(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
+
+    def katt4(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen3())
+
+
+class SelectStage3(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+        pygame.mixer.music.play(-1)
+        self.t = Arrow()
+        self.add_actor(self.t)
+        self.t.w = 125
+        self.t.hitbox_scale_h = 0.5
+        self.t.hitbox_scale_w = 0.5
+        self.t.set_on_mouse_down_listener(self.katt)
+
+        self.D = Deagle3()
+        self.add_actor(self.D)
+        self.D.x = 500
+        self.D.y = 250
+        self.D.w = 300
+
+        self.a = Arrow()
+        self.add_actor(self.a)
+        self.a.x = 300
+        self.a.y = 250
+        self.a.w = 200
+        self.a.hitbox_scale_h = 0.5
+        self.a.hitbox_scale_w = 0.5
+        self.a.set_on_mouse_down_listener(self.katt3)
+
+        self.a2 = Arrow2()
+        self.add_actor(self.a2)
+        self.a2.x = 725
+        self.a2.y = 250
+        self.a2.w = 200
+        self.a2.hitbox_scale_h = 0.5
+        self.a2.hitbox_scale_w = 0.5
+        self.a2.set_on_mouse_down_listener(self.katt4)
+
+        self.s = Sellect()
+        self.add_actor(self.s)
+        self.s.x = 512.5
+        self.s.y = 450
+        self.s.w = 200
+        self.s.set_on_mouse_down_listener(self.katt2)
+
+    def katt(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+
+    def katt2(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Game2.GameScreen2.GameScreen())
+
+    def katt3(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
+
+    def katt4(self, sender, event):
+        print(sender)
+        if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())

@@ -1,5 +1,3 @@
-from pgzero import music
-
 import kuposztok
 from kuposztok.CaraValt.CaraValtAct import *
 import kuposztok.Menu.MenuScreen

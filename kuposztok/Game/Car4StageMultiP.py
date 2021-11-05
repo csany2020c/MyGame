@@ -6,7 +6,7 @@ from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
-class Car4Stage(game.scene2d.MyStage):
+class Car4StageMulti(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -61,7 +61,17 @@ class Car4Stage(game.scene2d.MyStage):
         self.joseph.hitbox_scale_w = 0.4
         self.joseph.hitbox_scale_h = 0.4
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
-        self.joseph.debug = False
+
+        self.joseph2 = Ski()
+        self.add_actor(self.joseph2)
+        self.joseph2.width = 100
+        self.joseph2.z_index = 5
+        self.joseph2.height = 200
+        self.joseph2.x = 400
+        self.joseph2.y = 500
+        self.joseph2.hitbox_scale_w = 0.4
+        self.joseph2.hitbox_scale_h = 0.4
+        self.joseph2.hitbox_shape = game.simpleworld.ShapeType.Circle
 
         self.newgame = Ski()
         self.newgame.x = self.width - 200
@@ -73,11 +83,12 @@ class Car4Stage(game.scene2d.MyStage):
             self.enemy.width = 100
             self.enemy.height = 100
             self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(self.width - self.width, self.width)
+            self.enemy.x = random.Random().randint(0, 1080)
             self.enemy.y = random.Random().randint(-1080, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
+        self.joseph2.set_on_key_press_listener(self.iranyitas2)
         self.newgame.set_on_mouse_down_listener(self.NewG)
 
     def Timer(self, sender):
@@ -95,7 +106,16 @@ class Car4Stage(game.scene2d.MyStage):
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
             self.add_actor(self.newgame)
-            self.remove_actor(self.joseph)
+        if self.joseph.overlaps(self.joseph2):
+            self.score = self.score - self.score
+            self.add_actor(self.vesztettel)
+            self.add_actor(self.vesztettellabel)
+            self.add_actor(self.newgame)
+        if self.joseph2.overlaps(self.enemy):
+            self.score = self.score - self.score
+            self.add_actor(self.vesztettel)
+            self.add_actor(self.vesztettellabel)
+            self.add_actor(self.newgame)
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
@@ -108,6 +128,17 @@ class Car4Stage(game.scene2d.MyStage):
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def iranyitas2(self, sender, event, a=10):
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        if event.key == pygame.K_RIGHT:
+            if self.joseph2.x < self.width - 200:
+                self.joseph2.x += a
+        if event.key == pygame.K_LEFT:
+            if self.joseph2.x > 200:
+                self.joseph2.x -= a
+
 
     def Klikk1(self, sender, event):
         if event.button == 1:
