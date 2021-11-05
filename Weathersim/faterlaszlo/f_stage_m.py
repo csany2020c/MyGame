@@ -73,7 +73,7 @@ class f_stage_m(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             print("Sikeresen be lett zárva")
             quit()
-        if event.key == pygame.K_1:
+        if event.key == pygame.K_1 or event.key == pygame.K_KP_1:
             print("Nspsütés")
             self.screen.game.set_screen(Weathersim.faterlaszlo.f_screen1.f_screen1())
         if event.key == pygame.K_2:
