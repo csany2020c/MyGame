@@ -2,6 +2,8 @@ import game
 import pygame
 import random
 from Weathersim.DoraMarton.DMactors import *
+from game.scene2d import MyLabel, MyActor
+
 
 class sunnystage(game.scene2d.MyStage):
     def __init__(self):
@@ -64,7 +66,11 @@ class menustage(game.scene2d.MyStage):
         self.add_actor(sunny())
         self.add_actor(egyikiras())
         self.add_actor(megegyiras())
+        a = MyActor("megegyiras.PNG")
+        a.x = 800
+        self.add_actor(a)
         self.add_actor(ismetiras())
         self.add_actor(elsefogy())
         self.add_actor(demegis())
         self.add_actor(exit())
+        self.add_actor(MyLabel("Menü", font_size=100))
