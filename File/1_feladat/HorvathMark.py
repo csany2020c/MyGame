@@ -1,10 +1,11 @@
-from typing import IO
 from typing import List
+from typing import TextIO
 
-class Data:
+class data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        self.text: str = ""
+        fields: List['str'] = parseString.split(" ")
+        self.text: int = (int(fields[0]), int(fields[1]), int(fields[2]), int(fields[3]))
 
     def __str__(self) -> str:
         return "text = {txt}".format(txt = self.text)
@@ -12,14 +13,14 @@ class Data:
 class olvasas:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("orvosi_nobeldijak.txt", "r")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
         print(content)
         lines: List['str'] = content.split(sep="\n")
         print(lines)
-        datalist: List['Data'] = list()
+        datalist: List['data'] = list()
         for str in lines:
-            d = Data(str)
+            d = data(str)
             datalist.append(d)
         for d in datalist:
             print(d)
