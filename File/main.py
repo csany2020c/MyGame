@@ -28,7 +28,7 @@ class Data:
     # Más nyelveken "toString". Az objektum példány szöveggé alakításakor ez fut le. Jól jön ebben az esetben, ha tesztelni kell, és csak simán printtel ki akarjuk íratni.
     def __str__(self) -> str:
         # Formázott szöveg, str.format(...) . A {} közé rakott szövegek a formati függvényben paraméterként használhatók, érték adható a helyükre.
-        return "balint = {x}; edesanyja = {y}; tök = {txt}; szep = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
+        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
 
 
 class Main:
