@@ -10,7 +10,7 @@ class snow (game.scene2d.MyActor):
     def act(self, delta_time: float):
         self.y += delta_time * 250
         if self.y > 720:
-            self.y = 0
+            self.y = -self.w
 
 class raindrop (game.scene2d.MyActor):
     def __init__(self):
@@ -19,7 +19,7 @@ class raindrop (game.scene2d.MyActor):
     def act(self, delta_time: float):
         self.y += delta_time * 500
         if self.y > 720:
-            self.y = 0
+            self.y = -self.w
 
 class cloudy (game.scene2d.MyActor):
     def __init__(self):

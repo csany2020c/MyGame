@@ -1,12 +1,19 @@
 import HawkProductions.Game.GameScreen
 from HawkProductions.Info.InfoScreen import *
 import HawkProductions.Select.SelectScreen
+import HawkProductions.Music
+
 
 
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.6)
+        pygame.mixer.music.fadeout(123000)
         self.t = Title()
         self.h1 = Startb()
         self.h2 = Exit()
@@ -41,6 +48,10 @@ class MenuStage(game.scene2d.MyStage):
         #self.h1.set_on_mouse_down_listener(self.click1)
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
+
+
+
+
 
     def key_down(self, sender, event):
         print(sender)
