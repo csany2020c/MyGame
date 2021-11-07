@@ -6,7 +6,7 @@ from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
-class Car3StageMulti(game.scene2d.MyStage):
+class Car4StageMultiP(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -83,13 +83,14 @@ class Car3StageMulti(game.scene2d.MyStage):
             self.enemy.width = 100
             self.enemy.height = 100
             self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(0, 1080)
+            self.enemy.x = random.Random().randint(self.width - self.width, self.width)
             self.enemy.y = random.Random().randint(-1080, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
-        self.joseph2.set_on_key_press_listener(self.iranyitas2)
         self.newgame.set_on_mouse_down_listener(self.NewG)
+        self.set_on_key_down_listener(self.elfordul)
+        self.set_on_key_up_listener(self.visszafordul)
 
     def Timer(self, sender):
         self.score = self.score + 1
@@ -106,16 +107,7 @@ class Car3StageMulti(game.scene2d.MyStage):
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
             self.add_actor(self.newgame)
-        if self.joseph.overlaps(self.joseph2):
-            self.score = self.score - self.score
-            self.add_actor(self.vesztettel)
-            self.add_actor(self.vesztettellabel)
-            self.add_actor(self.newgame)
-        if self.joseph2.overlaps(self.enemy):
-            self.score = self.score - self.score
-            self.add_actor(self.vesztettel)
-            self.add_actor(self.vesztettellabel)
-            self.add_actor(self.newgame)
+            self.remove_actor(self.joseph)
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
@@ -132,13 +124,24 @@ class Car3StageMulti(game.scene2d.MyStage):
     def iranyitas2(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
-        if event.key == pygame.K_RIGHT:
-            if self.joseph2.x < self.width - 200:
+        if event.key == pygame.K_d:
+            if self.joseph2.x < self.width - 500:
                 self.joseph2.x += a
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_a:
             if self.joseph2.x > 200:
                 self.joseph2.x -= a
 
+    def elfordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(+22)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(-22)
+
+    def visszafordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(-22)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(+22)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
@@ -146,7 +149,7 @@ class Car3StageMulti(game.scene2d.MyStage):
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.screen.game.set_screen(kuposztok.Game.Car4ScreenMultiP.Car4ScreenMultiP())
 
 
 

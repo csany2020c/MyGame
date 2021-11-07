@@ -1,12 +1,10 @@
 import game
-import pygame
 import kuposztok
-import random
 from kuposztok.Game.GameActor import *
-from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
+from game.scene2d import MyIntervalTimer
 
 
-class Car4StageMulti(game.scene2d.MyStage):
+class Car1StageMultiP(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -139,14 +137,13 @@ class Car4StageMulti(game.scene2d.MyStage):
             if self.joseph2.x > 200:
                 self.joseph2.x -= a
 
-
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.screen.game.set_screen(kuposztok.Game.Car1Multi.Car1ScreenMultiP.Car1ScreenMultiP())
 
 
 
