@@ -111,6 +111,8 @@ class FoStage(game.scene2d.MyStage):
         print(event)
         if event.key == pygame.K_RIGHT:
             self.screen.game.set_screen(HavasesoScreen())
+        if event.key == pygame.K_ESCAPE:
+            self.screen.game.exit()
 
 class HavasesoStage(game.scene2d.MyStage):
     def __init__(self):
