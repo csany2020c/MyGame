@@ -20,8 +20,6 @@ class Main:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print("Content:")
-        print(content)
         lines: List['str'] = content.split(sep="\n")
         datalist: List['Data'] = list()
         for str in lines:
