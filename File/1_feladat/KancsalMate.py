@@ -8,8 +8,7 @@ class Data:
         print("Create Data from String")
         print(parseString)
 
-        fields: List['str'] = parseString.split(
-            " ")
+        fields: List['str'] = parseString.split(" ")
         self.x: int = int(fields[0])
         self.y: int = int(fields[1])
         self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
