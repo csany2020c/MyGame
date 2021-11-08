@@ -75,6 +75,7 @@ class Pile(game.scene2d.MyActor):
         if self.x < 0:
             self.x = 1280
 
+
 class Pile_a(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/oszlop-a.png")
@@ -84,6 +85,7 @@ class Pile_a(game.scene2d.MyActor):
         if self.x < 0:
             self.x = 1280
 
+
 class Pile_f(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/oszlop-f.png")
@@ -92,6 +94,7 @@ class Pile_f(game.scene2d.MyActor):
         self.x -= 150 * delta_time
         if self.x < 0:
             self.x = 1280
+
 
 class Bg(game.scene2d.MyActor):
     def __init__(self):

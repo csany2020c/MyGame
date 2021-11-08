@@ -2,6 +2,7 @@ import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
+import HawkProductions.Game2.GameScreen2
 import HawkProductions.Music
 import pygame
 import HawkProductions.Select.SelectScreen
