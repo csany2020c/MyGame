@@ -22,7 +22,7 @@ class Data:
             if i < len(fields) - 1:
                 self.text += " "
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.datum, y=self.nev1, txt=self.text, col = self.datum2)
+        return "datum = {datum}; nev1 = {nev1}; datum2 = {datum2}; text = {text}".format(datum=self.datum, nev1=self.nev1, datum2=self.datum2, text = self.text)
 class Main:
 
     def __init__(self) -> None:
