@@ -1,29 +1,30 @@
-from typing import List
+import string
 from typing import TextIO
+from typing import List
 
-class data:
+class Data:
+
     def __init__(self, parseString: str) -> None:
         super().__init__()
+        print(parseString)
         fields: List['str'] = parseString.split(" ")
-        self.text: int = int(fields[0])
+        self.text: str = ""
+        for i in range(0, len(fields)):
+            self.text += str(fields[i])
+            if i < len(fields) - 1:
+                self.text += " "
 
-    def __str__(self) -> str:
-        return "text = {txt}".format(txt = self.text)
+class Main:
 
-class olvasas:
     def __init__(self) -> None:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print(content)
         lines: List['str'] = content.split(sep="\n")
-        print(lines)
-        datalist: List['data'] = list()
+        datalist: List['Data'] = list()
         for str in lines:
-            d = data(str)
+            d = Data(str)
             datalist.append(d)
-        for d in datalist:
-            print(d)
         f.close()
 
-olvasas()
+Main()
