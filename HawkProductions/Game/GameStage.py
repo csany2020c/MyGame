@@ -14,7 +14,6 @@ class GameStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        pygame.mixer.music.fadeout(123000)
         self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)

@@ -1,29 +1,30 @@
+import string
 from typing import List
 from typing import TextIO
 
-class data:
+class Adat:
+
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        fields: List['str'] = parseString.split(" ")
-        self.text: int = int(fields[0])
+        print(parseString)
+        print("Ennyi volt")
+        fields: List['str'] = parseString.split("")
 
-    def __str__(self) -> str:
-        return "text = {txt}".format(txt = self.text)
-
-class olvasas:
+class Beolv:
     def __init__(self) -> None:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
-        content: str = f.read()
-        print(content)
+        content:str = f.read()
         lines: List['str'] = content.split(sep="\n")
-        print(lines)
-        datalist: List['data'] = list()
+        datalist: List['Data'] = list()
         for str in lines:
-            d = data(str)
+            d = Adat(str)
             datalist.append(d)
+        print("Print list")
         for d in datalist:
             print(d)
+
         f.close()
 
-olvasas()
+Beolv()
+
