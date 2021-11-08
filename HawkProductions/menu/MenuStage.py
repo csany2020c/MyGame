@@ -13,7 +13,7 @@ class MenuStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.6)
-        pygame.mixer.music.fadeout(123000)
+        #pygame.mixer.music.fadeout(123000)
         self.t = Title()
         self.h1 = Startb()
         self.h2 = Exit()
