@@ -9,12 +9,13 @@ class Data:
         print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
-
         self.text: str = ""
-        for i in range(0, len(fields)):
+        for i in range(5, len(fields)):
             self.text += str(fields[i])
             if i < len(fields) - 1:
                 self.text += " "
+
+
 
 
 class Main:

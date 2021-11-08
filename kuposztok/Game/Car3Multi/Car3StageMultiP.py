@@ -6,7 +6,7 @@ from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
-class Car2StageMulti(game.scene2d.MyStage):
+class Car3StageMultiP(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -138,6 +138,7 @@ class Car2StageMulti(game.scene2d.MyStage):
         if event.key == pygame.K_LEFT:
             if self.joseph2.x > 200:
                 self.joseph2.x -= a
+
 
     def Klikk1(self, sender, event):
         if event.button == 1:
