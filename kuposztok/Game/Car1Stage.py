@@ -67,18 +67,20 @@ class Car1Stage(game.scene2d.MyStage):
         self.newgame.x = self.width - 200
         self.newgame.y = self.height - self.height + 200
 
-        for i in range(5):
+        for i in range(15):
             self.enemy = Enemy()
             self.add_actor(self.enemy)
             self.enemy.width = 100
             self.enemy.height = 100
             self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(0, 1080)
-            self.enemy.y = random.Random().randint(-1080, 0)
+            self.enemy.x = random.Random().randint(0, self.width)
+            self.enemy.y = random.Random().randint(0 - self.height, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.newgame.set_on_mouse_down_listener(self.NewG)
+        self.set_on_key_down_listener(self.elfordul)
+        self.set_on_key_up_listener(self.visszafordul)
 
 
     def Timer(self, sender):
@@ -91,6 +93,10 @@ class Car1Stage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        if self.enemy.y > 1200:
+            self.enemy.y = -200
+            self.enemy.x = random.Random().randint(0, self.width)
+
         if self.joseph.overlaps(self.enemy):
             self.score = self.score - self.score
             self.add_actor(self.vesztettel)
@@ -101,13 +107,25 @@ class Car1Stage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 200:
+            if self.joseph.x < self.width - 400:
                 self.joseph.x += a
         if event.key == pygame.K_a:
             if self.joseph.x > 200:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def elfordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(+15)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(-15)
+
+    def visszafordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(-15)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(+15)
 
     def Klikk1(self, sender, event):
         if event.button == 1:

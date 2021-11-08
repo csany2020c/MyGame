@@ -9,19 +9,21 @@ class Data:
         print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
-
         self.text: str = ""
-        for i in range(0, len(fields)):
+        for i in range(5, len(fields)):
             self.text += str(fields[i])
             if i < len(fields) - 1:
                 self.text += " "
+
+    def __str__(self) -> str:
+        return "Ev = {x};Nev = {y};SzuletesHalalozas = {txt};Orszagkod = {col}".format(x=self.text, y=self.text, txt=self.text, col = self.text)
 
 
 class Main:
 
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
+        f: TextIO = open("!_Spec//orvosi_nobeldijak.txt", "r")
         content: str = f.read()
         print("Content:")
         print(content)

@@ -13,8 +13,6 @@ class WarioActor(game.scene2d.MyActor):
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
-        #self.wario = pygame.image.load('actorsusus.png')
-        #pygame.transform.flip(self.wario, True, False)
 
     def act(self, delta_time: float):
         super().act(delta_time)

@@ -6,7 +6,7 @@ from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
-class Car1StageMulti(game.scene2d.MyStage):
+class Car2StageMultiP(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -139,14 +139,13 @@ class Car1StageMulti(game.scene2d.MyStage):
             if self.joseph2.x > 200:
                 self.joseph2.x -= a
 
-
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.screen.game.set_screen(kuposztok.Game.Car2Multi.Car2ScreenMultiP.Car2ScreenMultiP())
 
 
 

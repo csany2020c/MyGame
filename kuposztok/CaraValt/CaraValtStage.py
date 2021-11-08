@@ -1,11 +1,11 @@
 import kuposztok
+import pygame
 from kuposztok.CaraValt.CaraValtAct import *
 import kuposztok.Menu.MenuScreen
 from kuposztok.Game.Car1Screen import Car1Screen
 from kuposztok.Game.Car2Screen import Car2Screen
 from kuposztok.Game.Car3Screen import Car3Screen
 from kuposztok.Game.Car4Screen import Car4Screen
-import pygame
 
 
 class CaraValtStage(game.scene2d.MyStage):
@@ -26,20 +26,20 @@ class CaraValtStage(game.scene2d.MyStage):
         self.button1.y = 0
         self.button1.x = 0
 
-        self.car1 = SnowBoard()
-        self.car1.x = self.width / 2 - 100
+        self.car1 = Single()
+        self.car1.x = self.width / 2 - 200
         self.car1.y = self.height / 2
 
-        self.car2 = Sledge()
-        self.car2.x = self.width / 2 - 100
+        self.car2 = Single()
+        self.car2.x = self.width / 2 - 200
         self.car2.y = self.height / 2
 
-        self.car3 = SnowMobile()
-        self.car3.x = self.width / 2 - 100
+        self.car3 = Single()
+        self.car3.x = self.width / 2 - 200
         self.car3.y = self.height / 2
 
-        self.car4 = Ski()
-        self.car4.x = self.width / 2 - 100
+        self.car4 = Single()
+        self.car4.x = self.width / 2 - 200
         self.car4.y = self.height / 2
 
         self.car1valaszto = SnowMobile()
@@ -53,7 +53,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.add_actor(self.car2valaszto)
 
         self.car3valaszto= SnowBoard()
-        self.car3valaszto.x = self.width / 1.66666666666 -100
+        self.car3valaszto.x = self.width / 1.66666666666 - 100
         self.car3valaszto.y = self.height / 5 + 75
         self.add_actor(self.car3valaszto)
 
@@ -62,31 +62,42 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4valaszto.y = self.height / 5 + 75
         self.add_actor(self.car4valaszto)
 
-        self.car1start = PlayButton()
-        self.car1start.x = self.width / 2 -200
-        self.car1start.y = self.height / 1.666666666666 + 100
+        self.car1multvalaszto = Multi()
+        self.car1multvalaszto.x = self.width / 2 + 100
+        self.car1multvalaszto.y = self.height / 2
 
-        self.car2start = PlayButton()
-        self.car2start.x = self.width / 2 - 200
-        self.car2start.y = self.height / 1.666666666666 + 100
+        self.car2multvalaszto = Multi()
+        self.car2multvalaszto.x = self.width / 2 + 100
+        self.car2multvalaszto.y = self.height / 2
 
-        self.car3start = PlayButton()
-        self.car3start.x = self.width / 2 - 200
-        self.car3start.y = self.height / 1.666666666666 + 100
+        self.car3multvalaszto = Multi()
+        self.car3multvalaszto.x = self.width / 2 + 100
+        self.car3multvalaszto.y = self.height / 2
 
-        self.car4start = PlayButton()
-        self.car4start.x = self.width / 2 - 200
-        self.car4start.y = self.height / 1.666666666666 + 100
-        self.add_actor(self.car4start)
+        self.car4multvalaszto = Multi()
+        self.car4multvalaszto.x = self.width / 2 + 100
+        self.car4multvalaszto.y = self.height / 2
+
+        self.kovicucclab = game.scene2d.MyLabel("Ez a funkció a következő frissítésben lesz elérhető.")
+        self.kovicucclab.x = 100
+        self.kovicucclab.y = 100
+        self.kovicucclab.set_color(0, 0, 0)
+        self.kovicucclab.width = 100
+        self.kovicucclab.height = 50
+        self.kovicucclab.z_index = 5
 
         self.car1valaszto.set_on_mouse_down_listener(self.Actvalt1)
         self.car2valaszto.set_on_mouse_down_listener(self.Actvalt2)
         self.car3valaszto.set_on_mouse_down_listener(self.Actvalt3)
         self.car4valaszto.set_on_mouse_down_listener(self.Actvalt4)
-        self.car1start.set_on_mouse_down_listener(self.Car1Start)
-        self.car2start.set_on_mouse_down_listener(self.Car2Start)
-        self.car3start.set_on_mouse_down_listener(self.Car3Start)
-        self.car4start.set_on_mouse_down_listener(self.Car4Start)
+        self.car1.set_on_mouse_down_listener(self.Car1Start)
+        self.car2.set_on_mouse_down_listener(self.Car2Start)
+        self.car3.set_on_mouse_down_listener(self.Car3Start)
+        self.car4.set_on_mouse_down_listener(self.Car4Start)
+        self.car1multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
+        self.car2multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
+        self.car3multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
+        self.car4multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
 
@@ -116,6 +127,22 @@ class CaraValtStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
 
+    def Car1MultStart(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Game.Car1Multi.Car1ScreenMultiP.Car1ScreenMultiP())
+
+    def Car2MultStart(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Game.Car2Multi.Car2ScreenMultiP.Car2ScreenMultiP())
+
+    def Car3MultStart(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Game.Car3Multi.Car3ScreenMultiP.Car3ScreenMultiP())
+
+    def Car4MultStart(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Game.Car4Multi.Car4ScreenMultiP.Car4ScreenMultiP())
+
     #3
     def Actvalt1(self, sender, event):
         if event.button == 1:
@@ -123,16 +150,17 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car2)
             self.add_actor(self.car3)
             self.add_actor(self.car4)
-            self.add_actor(self.car1start)
-            self.add_actor(self.car2start)
-            self.add_actor(self.car3start)
-            self.add_actor(self.car4start)
             self.remove_actor(self.car1)
             self.remove_actor(self.car2)
             self.remove_actor(self.car4)
-            self.remove_actor(self.car1start)
-            self.remove_actor(self.car2start)
-            self.remove_actor(self.car4start)
+            self.add_actor(self.car1multvalaszto)
+            self.add_actor(self.car2multvalaszto)
+            self.remove_actor(self.car2multvalaszto)
+            self.add_actor(self.car3multvalaszto)
+            self.remove_actor(self.car3multvalaszto)
+            self.add_actor(self.car4multvalaszto)
+            self.remove_actor(self.car4multvalaszto)
+
     #2
     def Actvalt2(self, sender, event):
         if event.button == 1:
@@ -140,16 +168,16 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car2)
             self.add_actor(self.car3)
             self.add_actor(self.car4)
-            self.add_actor(self.car1start)
-            self.add_actor(self.car2start)
-            self.add_actor(self.car3start)
-            self.add_actor(self.car4start)
             self.remove_actor(self.car1)
             self.remove_actor(self.car3)
             self.remove_actor(self.car4)
-            self.remove_actor(self.car1start)
-            self.remove_actor(self.car3start)
-            self.remove_actor(self.car4start)
+            self.add_actor(self.car1multvalaszto)
+            self.remove_actor(self.car1multvalaszto)
+            self.add_actor(self.car2multvalaszto)
+            self.add_actor(self.car3multvalaszto)
+            self.remove_actor(self.car3multvalaszto)
+            self.add_actor(self.car4multvalaszto)
+            self.remove_actor(self.car4multvalaszto)
 
     #1
     def Actvalt3(self, sender, event):
@@ -158,16 +186,16 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car2)
             self.add_actor(self.car3)
             self.add_actor(self.car4)
-            self.add_actor(self.car1start)
-            self.add_actor(self.car2start)
-            self.add_actor(self.car3start)
-            self.add_actor(self.car4start)
             self.remove_actor(self.car3)
             self.remove_actor(self.car2)
             self.remove_actor(self.car4)
-            self.remove_actor(self.car3start)
-            self.remove_actor(self.car2start)
-            self.remove_actor(self.car4start)
+            self.add_actor(self.car1multvalaszto)
+            self.remove_actor(self.car1multvalaszto)
+            self.add_actor(self.car2multvalaszto)
+            self.remove_actor(self.car2multvalaszto)
+            self.add_actor(self.car3multvalaszto)
+            self.add_actor(self.car4multvalaszto)
+            self.remove_actor(self.car4multvalaszto)
 
     #4
     def Actvalt4(self, sender, event):
@@ -176,15 +204,13 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car2)
             self.add_actor(self.car3)
             self.add_actor(self.car4)
-            self.add_actor(self.car1start)
-            self.add_actor(self.car2start)
-            self.add_actor(self.car3start)
-            self.add_actor(self.car4start)
             self.remove_actor(self.car3)
             self.remove_actor(self.car2)
             self.remove_actor(self.car1)
-            self.remove_actor(self.car3start)
-            self.remove_actor(self.car2start)
-            self.remove_actor(self.car1start)
-
-
+            self.add_actor(self.car1multvalaszto)
+            self.remove_actor(self.car1multvalaszto)
+            self.add_actor(self.car2multvalaszto)
+            self.remove_actor(self.car2multvalaszto)
+            self.add_actor(self.car3multvalaszto)
+            self.remove_actor(self.car3multvalaszto)
+            self.add_actor(self.car4multvalaszto)
