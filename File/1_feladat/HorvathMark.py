@@ -5,7 +5,7 @@ class data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split(" ")
-        self.text: int = (int(fields[0]), int(fields[1]), int(fields[2]), int(fields[3]))
+        self.text: int = int(fields[0])
 
     def __str__(self) -> str:
         return "text = {txt}".format(txt = self.text)
