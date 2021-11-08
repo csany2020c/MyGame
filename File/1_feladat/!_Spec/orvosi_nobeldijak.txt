@@ -1,4 +1,3 @@
-Év;Név;SzületésHalálozás;Országkód
 1932;Adrian, lord Edgar Douglas;1889-1977;GB
 1978;Arber, Werner;1929-;CH
 1970;Axelrod, Julius;1912-;USA
