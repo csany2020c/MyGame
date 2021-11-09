@@ -4,11 +4,17 @@ from typing import TextIO
 class data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
+        print(parseString)
         fields: List['str'] = parseString.split(" ")
-        self.text: int = int(fields[0])
+        self.text: str = ""
+        for i in range(5, len(fields)):
+            self.text += str(fields[i])
+            if i < len(fields) - 1:
+                self.text += " "
 
     def __str__(self) -> str:
-        return "text = {txt}".format(txt = self.text)
+        return "Ev = {x};Nev = {y};Szuleteshalal = {txt};Orszag = {col}".format(x=self.text, y=self.text, txt=self.text, col=self.text)
+
 
 class olvasas:
     def __init__(self) -> None:
