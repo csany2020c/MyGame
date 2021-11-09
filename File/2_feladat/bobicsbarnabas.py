@@ -10,7 +10,7 @@ class Data:
         print(parseString)
         fields: List['str'] = parseString.split(";")
         self.text: str = ""
-        self.ev: int = int(fields[0])
+        self.ev: int = fields[0]
         self.nev: str = fields[1]
         self.szuleteshalalozas: str = fields[2]
         self.orszagkod: str = fields[3]
@@ -27,7 +27,7 @@ class Main:
 
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
+        f: TextIO = open("!_Specs/dalok.txt", "r")
         content: str = f.read()
         print("Content:")
         print(content)
@@ -36,6 +36,7 @@ class Main:
         print(lines)
         print("Load to List")
         datalist: List['Data'] = list()
+        i : int = 0
         for i in range(1, len(lines) - 1):
             d = Data(lines[i])
             datalist.append(d)
