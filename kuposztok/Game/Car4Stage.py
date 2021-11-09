@@ -10,6 +10,7 @@ class Car4Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self._frame_count = None
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -33,7 +34,16 @@ class Car4Stage(game.scene2d.MyStage):
         self.button1.x = 0
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
-
+        
+        self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
+        self.add_actor(self.fpslabel)
+        self.fpslabel.x = self.width - 150
+        self.fpslabel.y = self.height / 30
+        self.fpslabel.set_color(0, 0, 0)
+        self.fpslabel.width = 50
+        self.fpslabel.height = 25
+        self.fpslabel.z_index = 80
+        
         self.score = 0
         self.scorelabel = game.scene2d.MyLabel("Score:" + str(self.score))
         self.add_actor(self.scorelabel)
@@ -81,7 +91,7 @@ class Car4Stage(game.scene2d.MyStage):
         self.newgame.set_on_mouse_down_listener(self.NewG)
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
-
+    
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
@@ -97,16 +107,15 @@ class Car4Stage(game.scene2d.MyStage):
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
             self.add_actor(self.newgame)
-            self.remove_actor(self.joseph)
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 400:
+            if self.joseph.x < self.width:
                 self.joseph.x += a
         if event.key == pygame.K_a:
-            if self.joseph.x > 200:
+            if self.joseph.x > 0:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())

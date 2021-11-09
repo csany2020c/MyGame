@@ -10,6 +10,7 @@ class Car2Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self._frame_count = None
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -62,6 +63,15 @@ class Car2Stage(game.scene2d.MyStage):
         self.joseph.hitbox_scale_h = 0.4
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
+
+        self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
+        self.add_actor(self.fpslabel)
+        self.fpslabel.x = self.width - 150
+        self.fpslabel.y = self.height / 30
+        self.fpslabel.set_color(0, 0, 0)
+        self.fpslabel.width = 50
+        self.fpslabel.height = 25
+        self.fpslabel.z_index = 80
 
         self.newgame = Ski()
         self.newgame.x = self.width - 200

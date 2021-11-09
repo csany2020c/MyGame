@@ -10,6 +10,7 @@ class Car1Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self._frame_count = None
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -33,6 +34,15 @@ class Car1Stage(game.scene2d.MyStage):
         self.button1.x = 0
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
+
+        self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
+        self.add_actor(self.fpslabel)
+        self.fpslabel.x = self.width - 150
+        self.fpslabel.y = self.height / 30
+        self.fpslabel.set_color(0, 0, 0)
+        self.fpslabel.width = 50
+        self.fpslabel.height = 25
+        self.fpslabel.z_index = 80
 
         self.score = 0
         self.scorelabel = game.scene2d.MyLabel("Score:" + str(self.score))
