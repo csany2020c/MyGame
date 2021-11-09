@@ -8,18 +8,16 @@ class Data:
         super().__init__()
         print("Create Data from String")
         print(parseString)
-        fields: List['str'] = parseString.split(" ")
-        self.x: int = int(fields[0])
-        self.y: int = int(fields[1])
-        self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
+        fields: List['str'] = parseString.split(";")
         self.text: str = ""
-        for i in range(5, len(fields)):
-            self.text += str(fields[i])
-            if i < len(fields) - 1:
-                self.text += " "
+        self.Nev: str = fields[1]
+        self.Ev: str = fields[2]
+        self.SzuletesHalalozas: str = fields[3]
+        self.Orszagkod: str = fields[4]
+
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
+        return "Ev = {x}; Nev = {y}; SzuletesHalalozas = {txt}; Orszagkod = {col}".format(x=self.Ev, y=self.Nev, txt=self.SzuletesHalalozas, col = self.Orszagkod)
 
 
 class Main:
