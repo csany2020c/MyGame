@@ -8,13 +8,13 @@ class Data:
         super().__init__()
 
         print(parseString)
-        #fields: List['str'] = parseString.split(" ")
+        fields: List['str'] = parseString.split(" ")
 
         self.text: str = ""
-        #for i in range(0, len(fields)):
-            #self.text += str(fields[i])
-            #if i < len(fields) - 1:
-                #self.text += " "
+        for i in range(5, len(fields)):
+            self.text += str(fields[i])
+            if i < len(fields) - 1:
+                self.text += " "
 
 
 class Main:
@@ -23,20 +23,23 @@ class Main:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print("Content:")
+        #print("Content:")
         print(content)
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
-        print(lines)
-        print("Load to List")
-        datalist: List['Data'] = list()
-        for str in lines:
-            d = Data(str)
-            datalist.append(d)
-        print("Print list")
-        for d in datalist:
-            print(d)
-        f.close()
+        #print(lines)
+        #print("Load to List")
+        #datalist: List['Data'] = list()
+        #i : int = 0
+        #for str in lines:
+            #if i>1
+          #d = Data(str)
+          #datalist.append(d)
+            #i +=1
+        #print("Print list")
+        #for d in datalist:
+            #print(d)
+        #f.close()
 
 
 Main()
