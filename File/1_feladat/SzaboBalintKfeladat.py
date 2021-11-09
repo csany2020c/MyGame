@@ -8,15 +8,16 @@ class Data:
         super().__init__()
         print("Create Data from String")
         print(parseString)
-        fields: List['str'] = parseString.split(" ")
+        fields: List['str'] = parseString.split(";")
         self.text: str = ""
+        self.nev: str = fields[1]
         for i in range(5, len(fields)):
             self.text += str(fields[i])
             if i < len(fields) - 1:
                 self.text += " "
 
     def __str__(self) -> str:
-        return "Ev = {x};Nev = {y};SzuletesHalalozas = {txt};Orszagkod = {col}".format(x=self.text, y=self.text, txt=self.text, col = self.text)
+        return "Ev = {x};Nev = {y};SzuletesHalalozas = {txt};Orszagkod = {col}".format(x=self.text, y=self.nev, txt=self.text, col = self.text)
 
 
 class Main:
@@ -32,9 +33,11 @@ class Main:
         print(lines)
         print("Load to List")
         datalist: List['Data'] = list()
-        for str in lines:
-            d = Data(str)
+        i : int = 0
+        for i in range(1, len(lines) - 1):
+            d = Data(lines[i])
             datalist.append(d)
+
         print("Print list")
         for d in datalist:
             print(d)
