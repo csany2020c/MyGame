@@ -6,13 +6,21 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
+        print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
+        self.x: int = int(fields[0])
+        self.y: int = int(fields[1])
+        self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
         self.text: str = ""
-        for i in range(0, len(fields)):
+        for i in range(5, len(fields)):
             self.text += str(fields[i])
             if i < len(fields) - 1:
                 self.text += " "
+
+    def __str__(self) -> str:
+        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
+
 
 class Main:
 
@@ -20,11 +28,10 @@ class Main:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
+        print("Content:")
+        print(content)
         lines: List['str'] = content.split(sep="\n")
-        datalist: List['Data'] = list()
-        for str in lines:
-            d = Data(str)
-            datalist.append(d)
         f.close()
+
 
 Main()

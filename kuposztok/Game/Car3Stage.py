@@ -10,6 +10,7 @@ class Car3Stage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        self._frame_count = None
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -63,6 +64,15 @@ class Car3Stage(game.scene2d.MyStage):
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
 
+        self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
+        self.add_actor(self.fpslabel)
+        self.fpslabel.x = self.width - 150
+        self.fpslabel.y = self.height / 30
+        self.fpslabel.set_color(0, 0, 0)
+        self.fpslabel.width = 50
+        self.fpslabel.height = 25
+        self.fpslabel.z_index = 80
+
         self.newgame = Ski()
         self.newgame.x = self.width - 200
         self.newgame.y = self.height - self.height + 200
@@ -81,7 +91,6 @@ class Car3Stage(game.scene2d.MyStage):
         self.newgame.set_on_mouse_down_listener(self.NewG)
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
-
 
     def Timer(self, sender):
         self.score = self.score + 1
