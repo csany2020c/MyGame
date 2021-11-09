@@ -38,7 +38,6 @@ class Main:
         print("Print list")
         for d in datalist:
             print(d)
-
         f.close()
 
 
