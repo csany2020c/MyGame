@@ -27,7 +27,7 @@ class Main:
         print(content)
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
-        print(lines)
+        #print(lines)
         #print("Load to List")
         #datalist: List['Data'] = list()
         #i : int = 0
