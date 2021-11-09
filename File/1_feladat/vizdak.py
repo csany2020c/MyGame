@@ -6,10 +6,15 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Vegee")
-        print(parseString)
-        fields: List['str'] = parseString.split(" ")
 
+        print(parseString)
+        #fields: List['str'] = parseString.split(" ")
+
+        self.text: str = ""
+        #for i in range(0, len(fields)):
+            #self.text += str(fields[i])
+            #if i < len(fields) - 1:
+                #self.text += " "
 
 
 class Main:
