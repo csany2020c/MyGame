@@ -10,6 +10,7 @@ class Data:
         print(parseString)
         fields: List['str'] = parseString.split(" ")
 
+
         self.text: str = ""
         for i in range(5, len(fields)):
             self.text += str(fields[i])
@@ -28,18 +29,16 @@ class Main:
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
         print(lines)
-        #print("Load to List")
-        #datalist: List['Data'] = list()
-        #i : int = 0
-        #for str in lines:
-            #if i>1
-          #d = Data(str)
-          #datalist.append(d)
-            #i +=1
-        #print("Print list")
-        #for d in datalist:
-            #print(d)
-        #f.close()
+        print("Load to List")
+        datalist: List['Data'] = list()
+
+        for i in range(1, len(lines) - 1):
+            d = Data(lines[i])
+            datalist.append(d)
+        print("Print list")
+        for d in datalist:
+            print(d)
+        f.close()
 
 
 Main()
