@@ -6,7 +6,7 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Create Data from String")
+        print("Sor")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
 
