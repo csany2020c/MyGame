@@ -10,7 +10,7 @@ class Data:
         print(parseString)
         fields: List['str'] = parseString.split(";")
         self.text: str = ""
-        self.ev: int = int(fields[0])
+        self.ev: int = fields[0]
         self.nev: str = fields[1]
         self.szuleteshalalozas: str = fields[2]
         self.orszagkod: str = fields[3]
@@ -20,7 +20,7 @@ class Data:
                 self.text += " "
 
     def __str__(self) -> str:
-        return "Ev = {x}; Nev = {y}; Szuleteshalalozas = {txt}; Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.szuleteshalalozas, col = self.orszagkod)
+        return "Ev = {x}; Nev = {y}; Szuletes-Halalozas = {txt}; Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.szuleteshalalozas, col = self.orszagkod)
 
 
 class Main:
