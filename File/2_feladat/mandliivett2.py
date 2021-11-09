@@ -3,20 +3,19 @@ from typing import TextIO
 from typing import List
 
 
-
 class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         #print("Create Data from String")
         #print(parseString)
-        fields: List['str'] = parseString.split(";")
+        #fields: List['str'] = parseString.split(";")
         self.text: str = ""
 
 
 class Main:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Specs/dalok.txt")
         content: str = f.read()
         #print("Content:")
         print(content)
