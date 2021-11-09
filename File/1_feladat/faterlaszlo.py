@@ -21,7 +21,6 @@ class Data:
             if i < len(fields) - 1:
                 self.text += " "
 
-
 #class Olvas:
 #    def __init__(self) -> None:
  #       super().__init__()
