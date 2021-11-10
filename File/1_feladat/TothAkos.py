@@ -15,10 +15,8 @@ class Data:
         self.SzuletesHalalozas: str = fields[3]
         self.Orszagkod: str = fields[4]
 
-
     def __str__(self) -> str:
         return "Ev = {x}; Nev = {y}; SzuletesHalalozas = {txt}; Orszagkod = {col}".format(x=self.Ev, y=self.Nev, txt=self.SzuletesHalalozas, col = self.Orszagkod)
-
 
 class Main:
     def __init__(self) -> None:
