@@ -8,57 +8,39 @@ class Data:
         print("Create Data from String")
         print(parseString)
 
-        fields: List['str'] = parseString.split(" ")
-        self.x: int = int(fields[0])
-        self.y: int = int(fields[1])
-        self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
-        self.text: str = ""
+        fields: List['str'] = parseString.split(";")
+        self.year: int = int(fields[0])
+        self.name: str = str(fields[1])
+        self.born: str = str(fields[2])
+        self.country: str = str(fields[3])
+
 
         for i in range(5, len(
                 fields)):
             self.text += str(fields[i])
-            if i < len(fields) - 1:
-                self.text += " "
 
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col=self.color)
+        return "Év = {x}; Név = {y}; Születés-Halálozás = {txt}; Ország = {col}".format(x=self.year, y=self.name, txt=self.born, col=self.country)
 
 class Main:
 
     def __init__(self) -> None:
         super().__init__()
-
-
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
-
         content: str = f.read()
-
         f.close()
-
         print("Content:")
-
         print(content)
-
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
-
         print(lines)
-
         print("Load to List")
-
         datalist: List['Data'] = list()
-        for s in lines:
-
-            d = Data(s)
-
+        for i in range(1, len(lines)-1):
+            d = Data(lines[i])
             datalist.append(d)
         print("Print list")
-
-
         for d in datalist:
-
             print(d)
-
-
 Main()
