@@ -12,7 +12,7 @@ class Eloado:
         self.zenekar: str = fields[2]
 
     def __str__(self) -> str:
-        return "Előadó = {x}; Helyezés = {y}; Zenekar = {txt}".format(x=self.eloadoid, y=self.helyezes, txt=self.zenekar)
+        return "Helyezés = {x}; Előadó = {y}; Zenekar = {txt}".format(x=self.eloadoid, y=self.helyezes, txt=self.zenekar)
 
 class read:
     def __init__(self) -> None:
