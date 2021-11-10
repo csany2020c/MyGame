@@ -27,17 +27,20 @@ class Data:
 class Main:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
         print("Content:")
         print(content)
         lines: List['str'] = content.split(sep="\n")
+        print("Split content")
+        print(lines)
+        print("Load To List")
         f.close()
         datalist: List['Data'] = list()
         for s in lines:
             d = Data(s)
             datalist.append(d)
-            print("Print list")
+        print("Print list")
         for d in datalist:
             print(d)
 
