@@ -1,6 +1,6 @@
 eloadoid	nev	zenekar
-1	10CC	1
-2	1910 Fruitgum Company	1
+1   10CC   1
+2   1910 Fruitgum Company	1
 3	2 Brothers On The 4th Floor	1
 4	2 Unlimited	1
 5	2Pac ft. Dr. Dre	0
