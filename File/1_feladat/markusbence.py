@@ -17,7 +17,8 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "valami"
+        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col=self.color)
+
 
 class Main:
     def __init__(self) -> None:
