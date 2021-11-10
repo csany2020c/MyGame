@@ -35,7 +35,7 @@ class Olvas:
     for s in range(1, len(lines)-1):
         d = Data(lines[s])
         datalist.append(d)
-    print("A listamnak a vege, sajnos vege")
+    print("Itt a vege")
 
     f.close()
 
