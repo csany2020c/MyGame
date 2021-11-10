@@ -11,11 +11,9 @@ class Data:
         self.elso: int = int(fields[0])
         self.masodik: str = fields[1]
         self.harmadik: str = fields[2]
-        self.negyedik: str = fields[3]
-
 
     def __str__(self) -> str:
-        return " SongID = {a}; ArtistID = {b}; Title = {c}; Appearance = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik, d= self.negyedik)
+        return " ArtistID = {a}; Name = {b}; Band = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
 
 class Main:
 
