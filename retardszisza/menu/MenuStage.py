@@ -26,4 +26,3 @@ class menustage(game.scene2d.MyStage):
     def button_down2(self, sender, event):
         if event.button == 1:
             quit()
-

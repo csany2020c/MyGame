@@ -20,4 +20,5 @@ class GameStage(game.scene2d.MyStage):
         super().act(delta_time)
 
     def halal(self):
-        quit()
+        super().__init__()
+
