@@ -17,7 +17,7 @@ class MenuStage(game.scene2d.MyStage):
         bg.width = self.width
         print(self.width)
         print(self.height)
-        self.Ver = game.scene2d.MyLabel("Ver.:1.0.3")
+        self.Ver = game.scene2d.MyLabel("Ver.:1.0.4")
         self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
         self.Ver.x = self.width - 250
@@ -43,7 +43,7 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(button1)
         self.add_actor(button2)
 
-
+        self.set_on_key_down_listener(self.katt)
         button1.set_on_mouse_down_listener(self.Klikk1)
         button2.set_on_mouse_down_listener(self.Klikk2)
         button3.set_on_mouse_down_listener(self.Klikk3)
@@ -59,6 +59,10 @@ class MenuStage(game.scene2d.MyStage):
     def Klikk3(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Credit.CreditScreen.CreditScreen())
+
+    def katt(self, sender, event):
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
 
 

@@ -77,14 +77,14 @@ class Car4Stage(game.scene2d.MyStage):
         self.newgame.x = self.width - 200
         self.newgame.y = self.height - self.height + 200
 
-        for i in range(15):
-            self.enemy = Enemy()
-            self.add_actor(self.enemy)
-            self.enemy.width = 100
-            self.enemy.height = 100
-            self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(self.width - self.width, self.width)
-            self.enemy.y = random.Random().randint(0 - self.height, 0)
+        for i in range(2):
+            self.enemy2 = Enemy()
+            self.add_actor(self.enemy2)
+            self.enemy2.width = 100
+            self.enemy2.height = 100
+            self.enemy2.z_index = 5
+            self.enemy2.x = random.Random().randint(self.width - self.width, self.width)
+            self.enemy2.y = random.Random().randint(0 - self.height, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
@@ -103,7 +103,7 @@ class Car4Stage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         print(str(self._frame_count))
-        if self.joseph.overlaps(self.enemy):
+        if self.joseph.overlaps(self.enemy2):
             self.score = self.score - self.score
             self.add_actor(self.vesztettel)
             self.add_actor(self.vesztettellabel)
