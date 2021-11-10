@@ -5,20 +5,23 @@ import string
 class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Create Data from String")
         print(parseString)
 
-        fields: List['str'] = parseString.split(" ")
+        fields: List['str'] = parseString.split(";")
 
-        self.x: int = int(fields[0])
-        self.x: int = int(fields[1])
-        self.color: int = int(fields[2], int(fields[3], fields[4]))
-        self.text: str = ""
+        self.ev: int = int(fields[0])
+        self.nev: str = str(fields[1])
+        self.szuleteshalalozas: str = str(fields[2])
+        self.orszagkod: str = str(fields[3])
 
         for i in range(5, len(fields)):
-            self.text += str(fields[i])
+            self.orszagkod += str(fields[i])
             if i < len(fields) - 1:
-                self.text += " "
+                self.orszagkod += " "
+
+    def __str__(self) -> str:
+        return "x = {ev}; y = {nev}; text = {orszagkod}; color = {szuleteshalalozas}".format(x=self.ev, y=self.nev, txt=self.orszagkod, col=self.szuleteshalalozas)
+
 
 class Olvas:
     f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
@@ -26,18 +29,14 @@ class Olvas:
     print("Content:")
     print(content)
     lines: List['str'] = content.split(sep="\n")
-    print("Split content")
     print(lines)
-    print("Load to List")
 
     datalist: List['Data'] = list()
-    for s in lines:
-        d = Data(s)
+    for s in range(1, len(lines)-1):
+        d = Data(lines[s])
         datalist.append(d)
-    print("Print list")
+    print("A listamnak a vege, sajnos vege")
 
-    for d in datalist:
-        print(d)
     f.close()
 
 Olvas()

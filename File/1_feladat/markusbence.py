@@ -9,23 +9,21 @@ class Data:
         print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
-        self.x: int = int(fields[0])
-        self.y: int = int(fields[1])
-        self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
+        self.ev: int = int(fields[0])
+        self.nev: str = fields[1]
+        self.elethalal: str = fields[2]
+        self.orszagkod: str = fields[3]
         self.text: str = ""
-        for i in range(5, len(fields)):
-            self.text += str(fields[i])
-            if i < len(fields) - 1:
-                self.text += " "
+
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
+        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col=self.color)
 
 
 class Main:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r", encoding="utf-8")
         content: str = f.read()
         print("Content:")
         print(content)
