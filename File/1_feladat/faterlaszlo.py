@@ -5,7 +5,6 @@ import string
 class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Create Data from String, Gond majd jo lesz")
         print(parseString)
 
         fields: List['str'] = parseString.split(";")
@@ -36,7 +35,7 @@ class Olvas:
     for s in range(1, len(lines)-1):
         d = Data(lines[s])
         datalist.append(d)
-    print("A listam")
+    print("A listamnak a vege, sajnos vege")
 
     f.close()
 

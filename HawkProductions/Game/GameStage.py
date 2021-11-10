@@ -14,7 +14,6 @@ class GameStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        #pygame.mixer.music.fadeout(123000)
         self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
@@ -31,7 +30,6 @@ class GameStage(game.scene2d.MyStage):
         self.arrow.y = 5
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
-
 
 
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
@@ -84,8 +82,10 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_w:
             self.D.y -= 50
             self.D.r -= 7.5
-        effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
-        effect.play()
+            effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
+            effect.play()
         if event.key == pygame.K_s:
             self.D.y += 50
             self.D.r += 7.5
+            effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
+            effect.play()

@@ -7,9 +7,3 @@ class IScreen(game.scene2d.MyScreen):
         self.set_background_color(1, 122, 10)
         self.add_stage(IStage())
 
-
-class IScreen1(game.scene2d.MyScreen):
-    def __init__(self):
-        super().__init__()
-        self.set_background_color(1, 122, 10)
-        self.add_stage(Istage2())
