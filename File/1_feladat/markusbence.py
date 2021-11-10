@@ -9,11 +9,16 @@ class Data:
         print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
+        self.ev: int = int(fields[0])
+        self.nev: str = fields[1]
+        self.elethalal: str = fields[2]
+        self.orszagkod: str = fields[3]
         self.text: str = ""
 
 
     def __str__(self) -> str:
-        return "valami"
+        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col=self.color)
+
 
 class Main:
     def __init__(self) -> None:
