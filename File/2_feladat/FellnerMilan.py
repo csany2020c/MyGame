@@ -2,12 +2,12 @@ import string
 from typing import TextIO
 from typing import List
 class Eloado:
-    def __init__(self,text) -> None:
+    def __init__(self, text:str) -> None:
         super().__init__()
         print(text)
 
-        fields: List['str'] = text.split("  ")
-
+        fields: List['str'] = text.split("\t")
+        print(fields)
         self.eloadoid: int = int(fields[0])
         self.name: str = str(fields[1])
         self.zenekar: int = int(fields[2])
@@ -20,7 +20,7 @@ class Main:
     def __init__(self) -> None:
         super().__init__()
 
-        t: TextIO = open("!_Specs/eloadok.txt","r")
+        t: TextIO = open("!_Specs/eloadok.txt", "r", encoding="utf-8")
         szoveg : str = t.read()
         t.close()
 
