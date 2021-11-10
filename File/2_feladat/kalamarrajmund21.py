@@ -5,7 +5,8 @@ from typing import TextIO
 class Eloado:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        fields: List['str'] = parseString.split(" ")
+        print(parseString)
+        fields: List['str'] = parseString.split("\t")
         self.eloadoid: int = int(fields[0])
         self.name: str = fields[1]
         self.brand: str = fields[2]
