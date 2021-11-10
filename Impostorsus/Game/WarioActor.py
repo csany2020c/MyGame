@@ -27,6 +27,8 @@ class WarioActor(game.scene2d.MyActor):
             if self.go:
                 self.y += 6
 
+        # self.stage.camera.x = self.x
+        # self.stage.camera.y = self.y
 
 
 
