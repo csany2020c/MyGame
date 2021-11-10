@@ -1,4 +1,4 @@
-import self as self
+
 
 import game
 import random

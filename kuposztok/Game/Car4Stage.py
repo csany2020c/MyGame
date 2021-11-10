@@ -102,6 +102,7 @@ class Car4Stage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        print(str(self._frame_count))
         if self.joseph.overlaps(self.enemy):
             self.score = self.score - self.score
             self.add_actor(self.vesztettel)
