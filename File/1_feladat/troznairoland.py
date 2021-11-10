@@ -7,7 +7,7 @@ class Adat:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split(";")
-        self.ev: int = int(fields[0])
+        self.ev: str = fields[0]
         self.nev: str = fields[1]
         self.szuletes_halalozas: str = fields[2]
         self.orszagkod: str = fields[3]
