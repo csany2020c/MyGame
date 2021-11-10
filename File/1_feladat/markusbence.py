@@ -9,6 +9,10 @@ class Data:
         print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(" ")
+        self.ev: int = int(fields[0])
+        self.nev: str = fields[1]
+        self.elethalal: str = fields[2]
+        self.orszagkod: str = fields[3]
         self.text: str = ""
 
 
