@@ -8,11 +8,11 @@ class Eloado:
         print(parseString)
         fields: List['str'] = parseString.split("\t")
         self.eloadoid: int = int(fields[0])
-        self.name: str = fields[1]
-        self.brand: str = fields[2]
+        self.helyezes: str = fields[1]
+        self.zenekar: str = fields[2]
 
     def __str__(self) -> str:
-        return "Year = {x}; Place = {y}; SongID = {txt}".format(x=self.eloadoid, y=self.name, txt=self.brand)
+        return "Előadó = {x}; Helyezés = {y}; Zenekar = {txt}".format(x=self.eloadoid, y=self.helyezes, txt=self.zenekar)
 
 class read:
     def __init__(self) -> None:
