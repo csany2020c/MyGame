@@ -13,7 +13,6 @@ class Data:
         self.name : str = str(fields[1])
         self.borthdeath : str = str(fields[2])
         self.cCode : str = str(fields[3])
-        self.szoveg : str = ""
 
 
     def __str__(self) -> str:
@@ -36,9 +35,9 @@ class Main:
 
         dataList:List['Data'] = list()
 
-        for s in sorok:
+        for i in range(1, len(sorok) - 1):
             # Új példány létrehozása, a bemenet egy str. A további daraboládokat a Data konstruktora végzi.
-            d = Data(s)
+            d = Data(sorok[i])
             # Hozzáfűzés a listához.
             dataList.append(d)
         print("Print list")
