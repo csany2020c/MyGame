@@ -16,7 +16,7 @@ class Eloado:
 class Main:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Specs/eloadok.txt")
+        f: TextIO = open("!_Specs/eloadok.txt", 'r')
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
         datalist: List['eloadoid'] = list()

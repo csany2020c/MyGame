@@ -29,12 +29,13 @@ class Data2:
 
 
     def __str__(self) -> str:
-        return "d = {a}; e = {b}; f = {c}; g = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik)
+        return "d = {a}; e = {b}; f = {c}; d = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik)
 
 class Main:
 
     def __init__(self) -> None:
         super().__init__()
+        #Lista
         f: TextIO = open("!_Specs//lista.txt", "r")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
@@ -47,6 +48,7 @@ class Main:
             print(d)
         f.close()
 
+        #Dalok
         f: TextIO = open("!_Specs//dalok.txt", "r")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
