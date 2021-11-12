@@ -80,7 +80,6 @@ class Gemba(game.scene2d.MyActor):
         self.hitbox_scale_h = 0.7
         self.hitbox_shape = ShapeType.Rectangle
 
-
     def act(self, delta_time: float):
         super().act(delta_time)
         self.jump: float = 0
