@@ -91,6 +91,8 @@ class GameStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        self.camera.x += 0.5
+        self.camera.y += 0.5
         if self.a.overlaps(self.asd):
             print("OOOOO")
         #self.actors[20].width = 200

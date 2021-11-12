@@ -143,6 +143,7 @@ class CaraValtStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car4Multi.Car4ScreenMultiP.Car4ScreenMultiP())
 
+
     #3
     def Actvalt1(self, sender, event):
         if event.button == 1:

@@ -1,3 +1,4 @@
+from game.scene2d.MyCamera import MyCamera
 from game.scene2d.MyTimers import *
 from game.scene2d.MyElapsedTime import *
 from game.scene2d.MyMouseListeners import *
@@ -27,10 +28,12 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
         self._screen: 'MyScreen' = None
         self._actors: List['MyBaseActor'] = list()
         self._actors_reverse: List['MyBaseActor'] = list()
+        self._camera: MyCamera = MyCamera()
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
         MyTimers.act(self, self.get_delta_time())
+        self._camera.act(delta_time)
         # print(self.elapsed_time)
         for obj in self._actors:
             obj.act(delta_time)
@@ -117,6 +120,9 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
     def get_debug(self) -> bool:
         return self._debug
 
+    def get_camera(self) -> 'MyCamera':
+        return self._camera
+
     z: int = property(get_z_index, set_z_index)
     set_z_index: int = property(get_z_index, set_z_index)
     screen: 'MyScreen' = property(get_screen, set_screen)
@@ -127,3 +133,4 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
     pause: bool = property(is_pause, set_pause)
     visible: bool = property(is_visible, set_visible)
     debug: bool = property(get_debug, set_debug)
+    camera: 'MyCamera' = property(get_camera)

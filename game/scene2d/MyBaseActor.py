@@ -68,20 +68,26 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
 
     def draw(self):
         self._stage.screen.game.surface.blit(self._image, (
-            self._x - self._image.get_width() / 2 + self._w / 2,
-            self._y - self._image.get_height() / 2 + self._h / 2))
+            self._x - self._image.get_width() / 2 + self._w / 2 - self._stage.camera.x,
+            self._y - self._image.get_height() / 2 + self._h / 2 - self._stage.camera.y))
         if self._debug:
             self.draw_debug()
 
     def draw_debug(self):
         m = self.get_border_box()
         i = m.getCorners()
+        for v in i:
+            v.x -= self._stage.camera.x
+            v.y -= self._stage.camera.y
         for k in range(0, len(i) - 1):
             pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[k], end_pos=i[k + 1])
         pygame.draw.line(self._stage.screen.game.surface, color=(0, 200, 27), start_pos=i[0], end_pos=i[k + 1])
 
         m = self.get_hitbox()
         i = m.getCorners()
+        for v in i:
+            v.x -= self._stage.camera.x
+            v.y -= self._stage.camera.y
         for k in range(0, len(i) - 1):
             pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[k], end_pos=i[k + 1])
         pygame.draw.line(self._stage.screen.game.surface, color=(200, 200, 27), start_pos=i[0], end_pos=i[k + 1])

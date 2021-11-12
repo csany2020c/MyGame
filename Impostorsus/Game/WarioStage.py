@@ -16,6 +16,7 @@ class WarioStage1(game.scene2d.MyStage):
         self.kerdo.x = 200
         self.kerdo.y = 350
         self.wario = WarioActor()
+        self.camera.tracking = self.wario
         self.add_actor(self.wario)
         self.wario.set_on_key_press_listener(self.press)
         self.wario.set_on_key_down_listener(self.key_down)
