@@ -50,7 +50,7 @@ class Main:
         f: TextIO = open("!_Specs//dalok.txt", "r")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
-        datalist: List['Data'] = list()
+        datalist: List['Data2'] = list()
         for i in range(1, len(lines) - 1):
             d = Data(lines[i])
             datalist.append(d)
