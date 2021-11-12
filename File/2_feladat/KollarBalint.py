@@ -14,7 +14,7 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "{a}; {b}; {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
+        return "a = {a}; b = {b}; c = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
 
 class Data2:
 
@@ -29,7 +29,7 @@ class Data2:
 
 
     def __str__(self) -> str:
-        return "{a}; {b}; {c}; {d}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik)
+        return "d = {a}; e = {b}; f = {c}; g = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik)
 
 class Main:
 
@@ -52,7 +52,7 @@ class Main:
         lines: List['str'] = content.split(sep="\n")
         datalist: List['Data2'] = list()
         for i in range(1, len(lines) - 1):
-            d = Data(lines[i])
+            d = Data2(lines[i])
             datalist.append(d)
 
         for d in datalist:
