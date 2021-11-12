@@ -2,7 +2,7 @@ import string
 from typing import TextIO
 from typing import List
 
-class Data:
+class Eloadok:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
@@ -19,6 +19,18 @@ class Data:
             if i < len(fields) - 1:
                 self.text += " "
 
+class Dalok:
+
+    def __init__(self, parseString: str) -> None:
+        super().__init__()
+        #print("Create Data from String")
+        #print(parseString)
+        fields: List['str'] = parseString.split(";")
+        #self.text: str = ""
+        self.dalid: int = fields[0]
+        self.eloadoid: str = fields[1]
+        self.cim: str = fields[2]
+        self.megjelenes: str = fields[3]
 
 
 class Main:
