@@ -1,7 +1,7 @@
 from typing import TextIO
 from typing import List
 
-class Data:
+class Eloado:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
@@ -21,7 +21,7 @@ class Main:
         lines: List['str'] = content.split(sep="\n")
         datalist: List['eloadoid'] = list()
         for s in range(1, len(lines) -1):
-            c = Data(lines[s])
+            c = Eloado(lines[s])
             datalist.append(c)
         for d in datalist:
             print(d)
