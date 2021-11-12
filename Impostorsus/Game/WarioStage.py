@@ -59,6 +59,16 @@ class WarioStage1(game.scene2d.MyStage):
         overlapsASD: bool = False
 
         for actorASD in self.actors:
+            if isinstance(actorASD, Gemba):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+        if overlapsASD:
+            self.gomba = Gemba()
+            self.wario.set_height(200)
+            self.wario.set_width(200)
+
+        for actorASD in self.actors:
             if isinstance(actorASD, Question):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
@@ -95,16 +105,6 @@ class WarioStage1(game.scene2d.MyStage):
             self.gomba.start()
 
         for actorASD in self.actors:
-            if isinstance(actorASD, Gemba):
-                if self.wario.overlaps(actorASD):
-                    overlapsASD = True
-                    break
-        if overlapsASD:
-            self.gomba = Gemba()
-            self.wario.set_height(200)
-            self.wario.set_width(200)
-
-        for actorASD in self.actors:
             if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
@@ -113,13 +113,3 @@ class WarioStage1(game.scene2d.MyStage):
             self.wario.stop()
         else:
             self.wario.start()
-
-
-
-
-
-
-
-
-
-
