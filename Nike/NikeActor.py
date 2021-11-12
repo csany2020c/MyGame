@@ -3,7 +3,7 @@ import pygame
 
 class FatJordan(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("images/fatjordan.png")
+        super().__init__("images/fatjordanact.png")
         self.x += 500
         self.y += 250
 
