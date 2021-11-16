@@ -8,39 +8,39 @@ class Eloadok:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
-        self.eloado: str = fields[1]
-        self.nev: str = fields[2]
-        self.zenekar: str = fields[3]
+        self.eloado: str = fields[0]
+        self.nev: str = fields[1]
+        self.zenekar: str = fields[2]
 
 
     def __str__(self) -> str:
 
-        return "x = {x}; y = {y}; text = {txt};".format(x=self.eloado, y=self.nev, txt=self.zenekar)
+        return "{x};     {y};    {txt};".format(x=self.eloado, y=self.nev, txt=self.zenekar)
 
 class dalok:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
-        self.dalid: str = fields[1]
-        self.eloadoid: str = fields[2]
-        self.cim: str = fields[3]
-        self.megjelenes: str = fields[4]
+        self.dalid: str = fields[0]
+        self.eloadoid: str = fields[1]
+        self.cim: str = fields[2]
+        self.megjelenes: str = fields[3]
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; a = {a}; b = {b}".format(x=self.dalid, y=self.eloadoid, a=self.cim, b=self.megjelenes)
+        return "{x};     {y};    {a};  {b}".format(x=self.dalid, y=self.eloadoid, a=self.cim, b=self.megjelenes)
 
 class lista:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
-        self.ev: str = fields[1]
-        self.helyezes: str = fields[2]
-        self.dalid: str = fields[3]
+        self.ev: str = fields[0]
+        self.helyezes: str = fields[1]
+        self.dalid: str = fields[2]
 
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; a = {a};".format(x=self.ev, y=self.helyezes, a=self.dalid)
+        return "{x};     {y};    {a};".format(x=self.ev, y=self.helyezes, a=self.dalid)
 
 class Main:
     def __init__(self) -> None:
