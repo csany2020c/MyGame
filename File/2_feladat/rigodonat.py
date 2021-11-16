@@ -1,7 +1,7 @@
 from typing import List
 from typing import TextIO
 
-class Lista:
+class lista:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
@@ -10,12 +10,12 @@ class Lista:
         self.dalid: int = int(fields[2])
 
     def __str__(self) -> str:
-        return "Ev = {x}; Helyezes = {y}; DalID = {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
+        return "ev = {x}; helyezes = {y}; dalID = {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
 
 
 
 
-class Eloado:
+class eloado:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
@@ -24,7 +24,7 @@ class Eloado:
         self.zenekar: int = int(fields[2])
 
     def __str__(self) -> str:
-        return "EloadoID = {x}; Nev = {y}; Zenekar = {txt}".format(x=self.eloadoID, y=self.nev, txt=self.zenekar)
+        return "eloadoID = {x}; nev = {y}; zenekar = {txt}".format(x=self.eloadoID, y=self.nev, txt=self.zenekar)
 
 class Dal:
     def __init__(self, parseString: str) -> None:
@@ -36,7 +36,7 @@ class Dal:
         self.megjelenes: int = int(fields[3])
 
     def __str__(self) -> str:
-        return "DalID = {x}; EloadoID = {y}; Cim = {txt}; Megjelenes = {col}".format(x=self.dalid, y=self.eloadoid, txt=self.cim, col=self.megjelenes)
+        return "dalID = {x}; eloadoID = {y}; cim = {txt}; megjelenes = {col}".format(x=self.dalid, y=self.eloadoid, txt=self.cim, col=self.megjelenes)
 
 class Main:
     def __init__(self) -> None:
