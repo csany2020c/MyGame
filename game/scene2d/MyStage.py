@@ -5,6 +5,7 @@ from game.scene2d.MyMouseListeners import *
 from game.scene2d.MyKeyboardListeners import *
 from game.scene2d.MyZIndex import *
 from game.scene2d.MyDebug import *
+from game.scene2d.MyGame import MyGame
 
 from typing import TYPE_CHECKING
 from typing import List
@@ -28,7 +29,7 @@ class MyStage(MyMouseListeners, MyKeyboardListeners, MyElapsedTime, MyZIndex, My
         self._screen: 'MyScreen' = None
         self._actors: List['MyBaseActor'] = list()
         self._actors_reverse: List['MyBaseActor'] = list()
-        self._camera: MyCamera = MyCamera()
+        self._camera: MyCamera = MyCamera(MyGame.get_screen_width(), MyGame.get_screen_height())
 
     def act(self, delta_time: float):
         MyElapsedTime.act(self, self.get_delta_time())
