@@ -5,6 +5,12 @@ class WarioStage1(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+
+        for i in range(100):
+            h = HatterActor1()
+            h.x = i * h.w + -150
+            self.add_actor(h)
+
         self.add_actor(HatterActor1())
         self.kocka = Kocka()
         self.add_actor(self.kocka)
@@ -22,8 +28,7 @@ class WarioStage1(game.scene2d.MyStage):
         self.wario.set_on_key_down_listener(self.key_down)
 
 
-
-        for i in range(10):
+        for i in range(100):
             g = GroundActor()
             g.y = 615
             g.x = i * g.w + -150
@@ -67,6 +72,7 @@ class WarioStage1(game.scene2d.MyStage):
             self.gomba = Gemba()
             self.wario.set_height(200)
             self.wario.set_width(200)
+
 
         for actorASD in self.actors:
             if isinstance(actorASD, Question):
