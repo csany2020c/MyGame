@@ -184,3 +184,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
     # screen_height: int = property(get_screen_height)
     surface: pygame.Surface = property(get_surface)
     debug: bool = property(get_debug, set_debug)
+
+
+get_screen_width = staticmethod(MyGame.get_screen_width)
+get_screen_height = staticmethod(MyGame.get_screen_height)
