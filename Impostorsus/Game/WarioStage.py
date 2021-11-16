@@ -62,16 +62,17 @@ class WarioStage1(game.scene2d.MyStage):
         super().act(delta_time)
         overlapsASD: bool = False
 
+        g = None
         for actorASD in self.actors:
             if isinstance(actorASD, Gemba):
-                if self.wario.overlaps(actorASD):
-                    overlapsASD = True
-                    break
-        if overlapsASD:
-            self.gomba = Gemba()
-            self.wario.set_height(200)
-            self.wario.set_width(200)
-            self.remove_actor(self.gomba)
+                if actorASD.elapsed_time > 0.5:
+                    if self.wario.overlaps(actorASD):
+                        # self.gomba = Gemba()
+                        self.wario.set_height(200)
+                        self.wario.set_width(200)
+                        g = actorASD
+        if g is not None:
+            g.remove_from_stage()
 
         for actorASD in self.actors:
             if isinstance(actorASD, GroundActor):
