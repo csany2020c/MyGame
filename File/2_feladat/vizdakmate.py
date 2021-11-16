@@ -9,7 +9,7 @@ class Eloadok:
         #print("Create Data from String")
         #print(parseString)
         fields: List['str'] = parseString.split(";")
-        #self.text: str = ""
+
         self.eloado: int = fields[0]
         self.nev: str = fields[1]
         self.zenekar: str = fields[2]
