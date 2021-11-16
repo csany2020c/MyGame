@@ -14,7 +14,7 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "a = {a}; b = {b}; c = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
+        return "Lista: a = {a}; b = {b}; c = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
 
 class Data2:
 
@@ -29,7 +29,7 @@ class Data2:
 
 
     def __str__(self) -> str:
-        return "d = {a}; e = {b}; f = {c}; g = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik,d=self.negyedik )
+        return "Dalok: a = {a}; b = {b}; c = {c}; d = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik,d=self.negyedik )
 
 class Data3:
 
@@ -43,7 +43,7 @@ class Data3:
 
 
     def __str__(self) -> str:
-        return "h = {a}; i = {b}; k = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
+        return "Eloadok: a = {a}; b = {b}; c = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
 
 class Main:
 
