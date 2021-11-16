@@ -44,9 +44,9 @@ class Main:
         f: TextIO = open("!_Specs/lista.txt", "r")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
-        datalist: List['Lista'] = list()
+        datalist: List['lista'] = list()
         for i in range(1, len(lines) - 1):
-            l = Lista(lines[i])
+            l = lista(lines[i])
             datalist.append(l)
 
         for d in datalist:
