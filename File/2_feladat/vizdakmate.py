@@ -13,7 +13,8 @@ class Eloadok:
         self.eloado: int = fields[0]
         self.nev: str = fields[1]
         self.zenekar: str = fields[2]
-
+        def __str__(self) -> str:
+            return "eloado = {x}; Nev = {y}; zenekar = {txt}".format(x=self.eloado, y=self.nev, txt=self.zenekar)
 
 class Dalok:
 
