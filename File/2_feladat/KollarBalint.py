@@ -25,10 +25,11 @@ class Data2:
         self.elso: str = fields[0]
         self.masodik: str = fields[1]
         self.harmadik: str = fields[2]
+        self.negyedik: str = fields[3]
 
 
     def __str__(self) -> str:
-        return "d = {a}; e = {b}; f = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
+        return "d = {a}; e = {b}; f = {c}; g = {d}".format(a=self.elso, b=self.masodik, c=self.harmadik,d=self.negyedik )
 
 class Data3:
 
@@ -42,7 +43,7 @@ class Data3:
 
 
     def __str__(self) -> str:
-        return "g = {a}; h = {b}; i = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
+        return "h = {a}; i = {b}; k = {c}".format(a=self.elso, b=self.masodik, c=self.harmadik)
 
 class Main:
 
@@ -75,7 +76,7 @@ class Main:
         f.close()
 
         # Eloadok
-        f: TextIO = open("!_Specs//dalok.txt", "r")
+        f: TextIO = open("!_Specs//eloadok.txt", "r", encoding="utf-8")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
         datalist: List['Data3'] = list()
