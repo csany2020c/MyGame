@@ -53,4 +53,4 @@ class Main:
             print(d)
         f.close()
 
-olvasas()
+Main()
