@@ -1,3 +1,4 @@
+import ctypes
 import pygame
 import time
 from pygame.locals import *
@@ -21,7 +22,7 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         MyMouseListeners.__init__(self)
         MyKeyboardListeners.__init__(self)
         MyDebug.__init__(self)
-        pygame.init()
+        #pygame.init()
         MyGame._screen_width = width
         MyGame._screen_height = height
         self._p_et: float = 0
@@ -31,18 +32,23 @@ class MyGame(MyTimers, MyMouseListeners, MyKeyboardListeners, MyDebug):
         self._delta_time: float = 1.0 / self._frame_limiter
         self._ticks_from_last_frame: int = 0
         self._screen: 'MyScreen' = None
-        self.info = pygame.display.Info()
-        self.width = self.info.current_w
-        self.height = self.info.current_h
         self._debug = debug
+        ctypes.windll.user32.SetProcessDPIAware()
+        true_res = (ctypes.windll.user32.GetSystemMetrics(0), ctypes.windll.user32.GetSystemMetrics(1))
+        # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
+        flags = (DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA | ANYFORMAT | HWPALETTE)
+        if autosize:
+            self.width = true_res[0]
+            self.height = true_res[1]
+            self._surface: pygame.Surface = pygame.display.set_mode(depth=32, size=true_res, flags=flags, display=0)
+        else:
+            self.width = width
+            self.height = height
+            self._surface: pygame.Surface = pygame.display.set_mode(depth=32, size=(width, height), flags=flags, display=0)
+        pygame.init()
+        self.info = pygame.display.Info()
         print(self.width)
         print(self.height)
-        # https://stackoverflow.com/questions/6395923/any-way-to-speed-up-python-and-pygame
-        flags = DOUBLEBUF | HWACCEL | HWSURFACE | SRCALPHA | ANYFORMAT | HWPALETTE
-        if autosize:
-            self._surface: pygame.Surface = pygame.display.set_mode(size=(self.width, self.height), flags=flags)
-        else:
-            self._surface: pygame.Surface = pygame.display.set_mode(size=(width, height), flags=flags)
         self._running = True
         self.surface.set_alpha(None)
         info = pygame.display.Info()
