@@ -3,12 +3,12 @@ o                                                      o
 o                                                      o
 o         W                                            o
 o         TTTT                                         o
-o                                                      o
-o                                                      o
+o              ooo                                     o
+o   oooo                                               o
 o              TTTTTT                                  o
-o       * * *                                          o
-o                          ggg                         o
-o    ?  TTTTT                                          o
-o                                                      o
+o       TTTTTTT                                        o
+o            oooo                                      o
+o    ?    ?                                            o
+o      oooo                                            o
 o                                                      o
 oooooooooooooooooooooooooooooooooooooooooooooooooooooooo
