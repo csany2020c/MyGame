@@ -1,7 +1,7 @@
 from typing import List
 from typing import TextIO
 
-class lista:
+class Lista:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
@@ -10,12 +10,12 @@ class lista:
         self.dalid: int = int(fields[2])
 
     def __str__(self) -> str:
-        return "ev  {x}; helyezes  {y}; dalid  {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
+        return "ev = {x}; helyezes = {y}; dalID = {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
 
 
 
 
-class eloado:
+class Eloado:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
@@ -24,9 +24,9 @@ class eloado:
         self.zenekar: int = int(fields[2])
 
     def __str__(self) -> str:
-        return "eloadoid  {x}; nev  {y}; zenekar  {txt}".format(x=self.eloadoID, y=self.nev, txt=self.zenekar)
+        return "EloadoID = {x}; Nev = {y}; Zenekar = {txt}".format(x=self.eloadoID, y=self.nev, txt=self.zenekar)
 
-class dal:
+class Dal:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split("\t")
@@ -36,7 +36,7 @@ class dal:
         self.megjelenes: int = int(fields[3])
 
     def __str__(self) -> str:
-        return "dalid = {x}; eloadoid = {y}; cim = {txt}; megjelenes = {col}".format(x=self.dalid, y=self.eloadoid, txt=self.cim, col=self.megjelenes)
+        return "DalID = {x}; EloadoID = {y}; Cim = {txt}; Megjelenes = {col}".format(x=self.dalid, y=self.eloadoid, txt=self.cim, col=self.megjelenes)
 
 class Main:
     def __init__(self) -> None:
@@ -44,9 +44,9 @@ class Main:
         f: TextIO = open("!_Specs/lista.txt", "r")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
-        datalist: List['lista'] = list()
+        datalist: List['Lista'] = list()
         for i in range(1, len(lines) - 1):
-            l = lista(lines[i])
+            l = Lista(lines[i])
             datalist.append(l)
 
         for d in datalist:
@@ -79,3 +79,4 @@ class Main:
 
 
 Main()
+olvasas()

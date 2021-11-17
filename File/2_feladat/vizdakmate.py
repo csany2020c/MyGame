@@ -9,50 +9,52 @@ class Eloadok:
         #print("Create Data from String")
         #print(parseString)
         fields: List['str'] = parseString.split(";")
-        #self.text: str = ""
+
         self.eloado: int = fields[0]
         self.nev: str = fields[1]
         self.zenekar: str = fields[2]
-
-        for i in range(5, len(fields)):
-            self.text += str(fields[i])
-            if i < len(fields) - 1:
-                self.text += " "
+        def __str__(self) -> str:
+            return "eloado = {x}; Nev = {y}; zenekar = {txt}".format(x=self.eloado, y=self.nev, txt=self.zenekar)
 
 class Dalok:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        #print("Create Data from String")
-        #print(parseString)
-        fields: List['str'] = parseString.split(";")
-        #self.text: str = ""
-        self.dalid: int = fields[0]
-        self.eloadoid: str = fields[1]
+        fields: List['str'] = parseString.split("\t")
+        self.dalid: int = int(fields[0])
+        self.eloadoid: int = int(fields[1])
         self.cim: str = fields[2]
-        self.megjelenes: str = fields[3]
+        self.megjelenes: int = int(fields[3])
+
+    def __str__(self) -> str:
+        return "DalID = {x}; EloadoID = {y}; Cim = {txt}; Megjelenes = {col}".format(x=self.dalid, y=self.eloadoid,
+                                                                                     txt=self.cim, col=self.megjelenes)
 
 
-class Main:
+class olvasas:
 
     def __init__(self) -> None:
-        super().__init__()
         f: TextIO = open("!_Specs/dalok.txt", "r")
         content: str = f.read()
-        print("Content:")
-        print(content)
         lines: List['str'] = content.split(sep="\n")
-        #print("Split content")
-        #print(lines)
-        #print("Load to List")
-        datalist: List['Data'] = list()
-        #i: int = 0
-        #for i in range(1, len(lines) - 1):
-         #   d = Data(lines[i])
-          #  datalist.append(d)
-        #print("Print list")
-        #for d in datalist:
-          #  print(d)
+        datalist: List['Dal'] = list()
+        for i in range(1, len(lines) - 1):
+            D = Dalok(lines[i])
+            datalist.append(D)
 
+        for d in datalist:
+            print(d)
+        f.close()
+        f: TextIO = open("!_Specs/eloadok.txt", "r", encoding="utf-8")
+        content: str = f.read()
+        lines: List['str'] = content.split(sep="\n")
+        datalist: List['Dal'] = list()
+        for i in range(1, len(lines) - 1):
+            E = Eloadok(lines[i])
+            datalist.append(E)
 
-Main()
+        for d in datalist:
+            print(d)
+        f.close()
+
+olvasas()
