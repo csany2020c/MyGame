@@ -36,8 +36,7 @@ class vesztettel(game.scene2d.MyActor):
 
 class Visszagomb(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/Vissza.png')
-
+        self.credit = super().__init__('image/back.png')
 
 class Joseph(game.scene2d.MyActor):
     def __init__(self):
@@ -83,5 +82,11 @@ class SnowMobile(game.scene2d.MyActor):
 class Sledge(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Sledge.png')
+        self.width = 200
+        self.height = 200
+
+class Randomplayer(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/randomplayer.png')
         self.width = 200
         self.height = 200

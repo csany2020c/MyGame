@@ -6,6 +6,7 @@ from kuposztok.Game.Car1Screen import Car1Screen
 from kuposztok.Game.Car2Screen import Car2Screen
 from kuposztok.Game.Car3Screen import Car3Screen
 from kuposztok.Game.Car4Screen import Car4Screen
+from kuposztok.Game.CarOsszesScreen import CarOsszesScreen
 
 
 class CaraValtStage(game.scene2d.MyStage):
@@ -25,6 +26,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.button1.height = 75
         self.button1.y = 0
         self.button1.x = 0
+
 
         self.car1 = Single()
         self.car1.x = self.width / 2 - 200
@@ -62,6 +64,11 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4valaszto.y = self.height / 5 + 75
         self.add_actor(self.car4valaszto)
 
+        self.car5 = Randomplayer()
+        self.car5.x = self.width / 2.5 - 100
+        self.car5.y = self.height / 3
+        self.add_actor(self.car5)
+
         self.car1multvalaszto = Multi()
         self.car1multvalaszto.x = self.width / 2 + 100
         self.car1multvalaszto.y = self.height / 2
@@ -94,12 +101,16 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.set_on_mouse_down_listener(self.Car2Start)
         self.car3.set_on_mouse_down_listener(self.Car3Start)
         self.car4.set_on_mouse_down_listener(self.Car4Start)
+        self.car5.set_on_mouse_down_listener(self.Car5Start)
         self.car1multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
         self.car2multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
         self.car3multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
         self.car4multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
+
+        self.randomvaltozo = None
+
 
     def iranyitas(self, sender, event, ):
         self.height = pygame.display.get_surface().get_height()
@@ -114,34 +125,47 @@ class CaraValtStage(game.scene2d.MyStage):
     def Car1Start(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car1Screen.Car1Screen())
+            self.randomvaltozo = 11
 
     def Car2Start(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car2Screen.Car2Screen())
+            self.randomvaltozo = 21
 
     def Car3Start(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car3Screen.Car3Screen())
+            self.randomvaltozo = 31
 
     def Car4Start(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.randomvaltozo = 41
+
+    def Car5Start(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
+            self.randomvaltozo = 51
 
     def Car1MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car1Multi.Car1ScreenMultiP.Car1ScreenMultiP())
+            self.randomvaltozo = 12
 
     def Car2MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car2Multi.Car2ScreenMultiP.Car2ScreenMultiP())
+            self.randomvaltozo = 22
 
     def Car3MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car3Multi.Car3ScreenMultiP.Car3ScreenMultiP())
+            self.randomvaltozo = 32
 
     def Car4MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car4Multi.Car4ScreenMultiP.Car4ScreenMultiP())
+            self.randomvaltozo = 42
 
 
     #3
@@ -215,3 +239,6 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car3multvalaszto)
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
+
+    def RandomVariable(self):
+        return self.randomvaltozo
