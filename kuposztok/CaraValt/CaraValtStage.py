@@ -6,11 +6,20 @@ from kuposztok.Game.Car1Screen import Car1Screen
 from kuposztok.Game.Car2Screen import Car2Screen
 from kuposztok.Game.Car3Screen import Car3Screen
 from kuposztok.Game.Car4Screen import Car4Screen
+from kuposztok.Game.Car1Multi.Car1ScreenMultiP import Car1ScreenMultiP
+from kuposztok.Game.Car2Multi.Car2ScreenMultiP import Car2ScreenMultiP
+from kuposztok.Game.Car3Multi.Car3ScreenMultiP import Car3ScreenMultiP
+from kuposztok.Game.Car4Multi.Car4ScreenMultiP import Car4ScreenMultiP
+from kuposztok.Game.Car1Multi.Car1StageMultiP import Car1StageMultiP
+from kuposztok.Game.Car2Multi.Car2ScreenMultiP import Car2ScreenMultiP
+from kuposztok.Game.Car3Multi.Car3ScreenMultiP import Car3ScreenMultiP
+from kuposztok.Game.Car4Multi.Car4StageMultiP import Joseph
 
 
 class CaraValtStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.joseph = kuposztok.Game.Car4Multi.Car4StageMultiP.Joseph
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -78,14 +87,6 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4multvalaszto.x = self.width / 2 + 100
         self.car4multvalaszto.y = self.height / 2
 
-        self.kovicucclab = game.scene2d.MyLabel("Ez a funkció a következő frissítésben lesz elérhető.")
-        self.kovicucclab.x = 100
-        self.kovicucclab.y = 100
-        self.kovicucclab.set_color(0, 0, 0)
-        self.kovicucclab.width = 100
-        self.kovicucclab.height = 50
-        self.kovicucclab.z_index = 5
-
         self.car1valaszto.set_on_mouse_down_listener(self.Actvalt1)
         self.car2valaszto.set_on_mouse_down_listener(self.Actvalt2)
         self.car3valaszto.set_on_mouse_down_listener(self.Actvalt3)
@@ -94,10 +95,10 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.set_on_mouse_down_listener(self.Car2Start)
         self.car3.set_on_mouse_down_listener(self.Car3Start)
         self.car4.set_on_mouse_down_listener(self.Car4Start)
-        self.car1multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
-        self.car2multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
-        self.car3multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
-        self.car4multvalaszto.set_on_mouse_down_listener(self.kovicucclab)
+        self.car1multvalaszto.set_on_mouse_down_listener(self.Car1MultStart)
+        self.car2multvalaszto.set_on_mouse_down_listener(self.Car2MultStart)
+        self.car3multvalaszto.set_on_mouse_down_listener(self.Car3MultStart)
+        self.car4multvalaszto.set_on_mouse_down_listener(self.Car4MultStart)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
 
