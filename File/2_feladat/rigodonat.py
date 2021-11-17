@@ -10,7 +10,7 @@ class Lista:
         self.dalid: int = int(fields[2])
 
     def __str__(self) -> str:
-        return "Ev = {x}; Helyezes = {y}; DalID = {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
+        return "ev = {x}; helyezes = {y}; dalID = {txt}".format(x=self.ev, y=self.helyezes, txt=self.dalid)
 
 
 
@@ -53,4 +53,30 @@ class Main:
             print(d)
         f.close()
 
+        f: TextIO = open("!_Specs/eloadok.txt", "r" , encoding="utf-8")
+        content: str = f.read()
+        lines: List['str'] = content.split(sep="\n")
+        datalist: List['eloado'] = list()
+        for i in range(1, len(lines) - 1):
+            e = eloado(lines[i])
+            datalist.append(e)
+
+        for d in datalist:
+            print(d)
+        f.close()
+
+        f: TextIO = open("!_Specs/dalok.txt", "r")
+        content: str = f.read()
+        lines: List['str'] = content.split(sep="\n")
+        datalist: List['dal'] = list()
+        for i in range(1, len(lines) - 1):
+            d = dal(lines[i])
+            datalist.append(d)
+
+        for d in datalist:
+            print(d)
+        f.close()
+
+
+Main()
 olvasas()

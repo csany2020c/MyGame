@@ -2,6 +2,7 @@ import pygame
 import random
 from bruhmomento.bruhScreen import *
 from bruhmomento.bruhActor import *
+from bruhmomento.level2Screen import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 import game
 
@@ -32,14 +33,4 @@ class bruhstage(game.scene2d.MyStage):
                     break
         if overlapsASD:
             print("asdasdasd")
-
-class level2(game.scene2d.MyStage):
-
-    def __init__(self):
-        super().__init__()
-        self.add_actor(map())
-        self.bumsteve = enemy2()
-        self.add_actor(self.bumsteve)
-        self.bumsteve.x = 1000
-        self.bumsteve.y = 300
-        self.add_actor(fohos())
+            self.set_screen = Level2Screen()

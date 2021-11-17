@@ -10,7 +10,7 @@ class fohos(game.scene2d.MyActor):
         self.set_size(200, 100)
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
-        # self.hitbox_shape = ShapeType.Rectangle
+        self.hitbox_shape = ShapeType.Rectangle
 
     def key_down(self, sender, event):
         print(sender)
