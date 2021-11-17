@@ -1,4 +1,4 @@
-from yetifc.yetiscreen import *
+from yetifc.yetiscreen import MenuScreen
 from yetifc import *
 import game
 
