@@ -56,19 +56,19 @@ class MyCamera(MyLifeCycles):
 
             l = self._track.x - self._x - self._track_window.getX()
             if l < 0:
-                self._x += l * self._tracking_speed
+                self._x += l * self._tracking_speed * delta_time * 60
 
             r = self._track.x - self._x - self._track_window.getWidth() + self._track.width
             if r > 0:
-                self._x += r * self._tracking_speed
+                self._x += r * self._tracking_speed * delta_time * 60
 
             t = self._track.y - self._y - self._track_window.getY()
             if t < 0:
-                self._y += t * self._tracking_speed
+                self._y += t * self._tracking_speed * delta_time * 60
 
             b = self._track.y - self._y - self._track_window.getHeight() + self._track.width
             if b > 0:
-                self._y += b * self._tracking_speed
+                self._y += b * self._tracking_speed * delta_time * 60
 
     x: float = property(get_x, set_x)
     y: float = property(get_y, set_y)
