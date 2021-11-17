@@ -8,6 +8,7 @@ class PacalActor(game.scene2d.MyActor):
         super().__init__(image_url)
 
 
+
 class Hatter(game.scene2d.MyActor):
 
     def __init__(self, image_url: str = "images/hatter.jpg"):
