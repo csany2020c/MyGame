@@ -65,3 +65,8 @@ class Sledge(game.scene2d.MyActor):
         self.width = 200
         self.height = 200
 
+class Randomplayer(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/randomplayer.png')
+        self.width = 200
+        self.height = 200
