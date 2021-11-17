@@ -78,4 +78,4 @@ class MenuStage(game.scene2d.MyStage):
 
     def click3(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())

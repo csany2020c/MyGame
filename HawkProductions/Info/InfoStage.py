@@ -23,7 +23,7 @@ class IStage(game.scene2d.MyStage):
 
         self.t1 = Arial()
         self.add_actor(self.t1)
-        self.t1.set_text("Játék menete")
+        self.t1.set_text("Készítők")
         self.t1.x = 640
         self.t1.y = 50
         self.t1.set_font_size(35)
@@ -31,14 +31,14 @@ class IStage(game.scene2d.MyStage):
 
         self.H = Arial()
         self.add_actor(self.H)
-        self.H.set_text("Az irányítás a bal klikk lenyomásával történik. A start-tal indul, quit-tel zárul.")
+        self.H.set_text("Az irányítás a W és az S billentyű nyomogatásával történik. A W a fel, az S a le.")
         self.H.x = 25
         self.H.y = 500
         self.H.set_font_size(25)
 
         self.H2 = Arial()
         self.add_actor(self.H2)
-        self.H2.set_text("A balfelsö sarokban található icon-ra kattintva léphet a karakter menübe.")
+        self.H2.set_text("Pontokat érme felvételével lehet szerezni. 49 a maximum pontszám, aki azt eléri az a Flappy D Király.")
         self.H2.x = 45
         self.H2.y = 250
         self.H2.set_font_size(25)

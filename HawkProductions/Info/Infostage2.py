@@ -19,7 +19,7 @@ class Istage2(game.scene2d.MyStage):
 
         self.t1 = Arial()
         self.add_actor(self.t1)
-        self.t1.set_text("Játék menete")
+        self.t1.set_text("Készítők")
         self.t1.x = 640
         self.t1.y = 50
         self.t1.set_font_size(35)
