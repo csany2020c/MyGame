@@ -2,10 +2,14 @@ import game
 import random
 from game.scene2d.MyScreen import *
 
-class PacalActor(game.scene2d.MyActor):
+class Actor(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/bogracs.png"):
+    def __init__(self, image_url: str = "images/spiderman.png"):
         super().__init__(image_url)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x += delta_time * 100
 
 
 
@@ -15,29 +19,28 @@ class Hatter(game.scene2d.MyActor):
         super().__init__(image_url)
 
 
-class PacalStage(game.scene2d.MyStage):
+class Stage(game.scene2d.MyStage):
 
 
     def __init__(self):
         super().__init__()
 
-        self.actor1_bg = PacalActor()
         self.hatter_bg = Hatter()
-        self.add_actor(self.actor1_bg)
+        self.actor1_bg = Actor()
         self.add_actor(self.hatter_bg)
+        self.add_actor(self.actor1_bg)
 
-class PacalScreen(game.scene2d.MyScreen):
+class Screen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.set_background_color(0, 1, 0)
-        self.add_stage(PacalStage())
+        self.add_stage(Stage())
 
 
-class PacalKep(game.scene2d.MyGame):
+class Kep(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         super().__init__(width, height, autorun)
-        self.screen = PacalScreen()
+        self.screen = Screen()
 
-PacalKep().run()
+Kep().run()
 
