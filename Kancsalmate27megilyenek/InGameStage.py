@@ -1,5 +1,7 @@
 import game
 import pygame
+from Kancsalmate27megilyenek import GrassActor
+from Kancsalmate27megilyenek import WaterActor
 
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
@@ -8,11 +10,11 @@ from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.PlayerActor import *
 from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek.Labels import *
+from game.scene2d import MyBaseActor
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.player = PlayerActor()
-        self.bg = BackgroundActor()
         self.eletero : int = 100
         self.hp = Label()
         self.add_actor(self.hp)
@@ -26,12 +28,38 @@ class InStage(game.scene2d.MyStage):
         self.isEscPressed : bool = False
         self.isShiftPressed: bool = False
         self.hp : int = 100
-        self.add_actor(self.bg)
         self.add_actor(self.player)
-        self.bg.set_z_index(0)
         self.player.set_z_index(1)
         self.set_on_key_down_listener(self.moveKeys)
         self.set_on_key_up_listener(self.moveKeysOff)
+        self.camera.tracking = self.player
+
+        f = open("butamap.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    if c == "0":
+                        self.grass = GrassActor()
+                        a = self.grass
+                    if c == "1":
+                        self.waterActor = WaterActor()
+                        a = self.waterActor
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 64
+                        self.add_actor(a)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
 
 
     def moveKeys(self, sender, event):
