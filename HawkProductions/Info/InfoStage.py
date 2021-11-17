@@ -9,6 +9,10 @@ import HawkProductions.Info.InfoScreen2
 class IStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Sell.wav")
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.2)
         self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("Írányitás")
