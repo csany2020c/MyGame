@@ -20,7 +20,7 @@ class Data:
                 self.orszagkod += " "
 
     def __str__(self) -> str:
-        return "x = {ev}; y = {nev}; text = {orszagkod}; color = {szuleteshalalozas}".format(x=self.ev, y=self.nev, txt=self.orszagkod, col=self.szuleteshalalozas)
+        return "Év = {x}; Név = {y}; Országkód = {txt}; Születés-halálozás = {col}".format(x=self.ev, y=self.nev, txt=self.orszagkod, col=self.szuleteshalalozas)
 
 
 class Olvas:
@@ -36,7 +36,8 @@ class Olvas:
         d = Data(lines[s])
         datalist.append(d)
     print("Itt a vege")
-
+    for d in datalist:
+        print(d)
     f.close()
 
 Olvas()
