@@ -58,6 +58,7 @@ class WarioStage1(game.scene2d.MyStage):
             print("'hoppáré'")
             self.wario.ugras()
 
+
     def act(self, delta_time: float):
         super().act(delta_time)
         overlapsASD: bool = False
