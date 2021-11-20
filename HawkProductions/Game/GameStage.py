@@ -84,9 +84,11 @@ class GameStage(game.scene2d.MyStage):
             self.D.y -= 50
             self.D.r -= 7.5
             effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
+            pygame.mixer.music.set_volume(0.2)
             effect.play()
         if event.key == pygame.K_s:
             self.D.y += 50
             self.D.r += 7.5
             effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
+            pygame.mixer.music.set_volume(0.2)
             effect.play()
