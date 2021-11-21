@@ -39,6 +39,8 @@ class GameStage1(game.scene2d.MyStage):
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd2, 9))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd3, 11))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd4, 6))
+        self.add_timer(game.scene2d.MyTickTimer(self.add_asd5, 8))
+        self.add_timer(game.scene2d.MyTickTimer(self.add_asd6, 10))
 
         self.set_on_key_down_listener(self.katt)
 
@@ -51,10 +53,11 @@ class GameStage1(game.scene2d.MyStage):
         self.P7 = Pile_f()
         self.P8 = Pile_a()
         self.C = Coin()
+        self.C1 = Coin()
+        self.C2 = Coin()
 
     def add_asd(self, sender):
         print(sender)
-        #self.P1 még nem jó
         self.add_actor(self.P1)
         self.P1.set_hitbox_scale_h = 0
         self.P1.set_hitbox_scale_w = 0
@@ -132,10 +135,21 @@ class GameStage1(game.scene2d.MyStage):
 
     def add_asd4(self, sender):
         self.add_actor(self.C)
-        self.C.x = 1280
+        self.C.x = 1180
         self.C.y = 420
         self.C.width = 300
 
+    def add_asd5(self, sender):
+        self.add_actor(self.C1)
+        self.C1.x = 1200
+        self.C1.y = random.randint(200, 500)
+        self.C1.width = 300
+
+    def add_asd6(self, sender):
+        self.add_actor(self.C2)
+        self.C2.x = 1200
+        self.C2.y = random.randint(200, 500)
+        self.C2.width = 300
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -147,19 +161,6 @@ class GameStage1(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P7 or self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-
-
-        #nem jó
-        #if self.D.overlaps(self.P1 or self.P2):
-         #   self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-
-
-    def add_asd2(self, sender):
-        self.C = Coin()
-        self.add_actor(self.C)
-        self.C.x = 1280
-        self.C.y = random.randint(10, 500)
-        self.C.width = 300
 
     def click2(self, sender, event):
          if event.button == 1:
