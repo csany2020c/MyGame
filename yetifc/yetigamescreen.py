@@ -44,7 +44,7 @@ class GameStage(game.scene2d.MyStage):
         self.revolver.y = 410
         self.revolver.x = 70
         self.shotgun.y = 400
-        self.shotgun.x = 100
+        self.shotgun.x = 30
         self.add_actor(self.revolver)
         self.character.y = 400
         self.set_on_key_press_listener(self.key_down)
