@@ -46,6 +46,7 @@ class InStage(game.scene2d.MyStage):
                     if c == "0":
                         self.grass = GrassActor()
                         a = self.grass
+
                     if c == "1":
                         self.waterActor = WaterActor()
                         a = self.waterActor
