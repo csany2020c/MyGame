@@ -25,6 +25,8 @@ class GameStage1(game.scene2d.MyStage):
         self.D.y = 250
         self.D.x = 300
         self.D.width = 95
+        self.D.hitbox_scale_h = 0.55
+        self.D.hitbox_scale_w = 0.75
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
@@ -32,7 +34,6 @@ class GameStage1(game.scene2d.MyStage):
         self.arrow.y = 5
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
-
 
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd, 5))
         self.add_timer(game.scene2d.MyTickTimer(self.add_asd1, 7))
@@ -62,21 +63,21 @@ class GameStage1(game.scene2d.MyStage):
         self.P1.set_hitbox_scale_h = 0
         self.P1.set_hitbox_scale_w = 0
         self.P1.h = 365
-        self.P1.y = -65
+        self.P1.y = random.randint(-70, -20)
         if self.elapsed_time > 15:
-            self.P1.y = -35
+            self.P1.y = random.randint(-20, 100)
         if self.elapsed_time > 20:
-            self.P1.y = -25
+            self.P1.y = random.randint(-20, 100)
 
         self.add_actor(self.P2)
         self.P2.h = 370
         self.P2.set_hitbox_scale_h = 0
         self.P2.set_hitbox_scale_w = 0
-        self.P2.y = 550
+        self.P2.y = random.randint(550, 700)
         if self.elapsed_time > 15:
-            self.P2.y = 580
+            self.P2.y = random.randint(550, 700)
         if self.elapsed_time > 20:
-            self.P2.y = 625
+            self.P2.y = random.randint(550, 700)
 
     def add_asd1(self, sender):
         self.add_actor(self.P3)

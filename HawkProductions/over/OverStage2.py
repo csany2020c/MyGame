@@ -3,7 +3,7 @@ import pygame
 import HawkProductions.menu.MenuScreen
 
 
-class OverStage(game.scene2d.MyStage):
+class OverStage2(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
@@ -11,7 +11,7 @@ class OverStage(game.scene2d.MyStage):
         pygame.mixer.music.play(-1)
         self.F = Arial()
         self.add_actor(self.F)
-        self.F.set_text("Game Over")
+        self.F.set_text("Túl magasra repültél!")
         self.F.x = 500
         self.F.y = 225
         self.F.set_color(204, 0, 0)
