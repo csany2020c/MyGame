@@ -1,5 +1,4 @@
 import game
-import random
 from game.scene2d.MyScreen import *
 
 class Actor(game.scene2d.MyActor):
