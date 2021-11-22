@@ -1,6 +1,6 @@
 import game
 import pygame
-from Kancsalmate27megilyenek.TextureActor import *
+from Kancsalmate27megilyenek.TextureActors import *
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
 from Kancsalmate27megilyenek.MenuScreen import *
