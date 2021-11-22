@@ -58,6 +58,7 @@ class Enemy(game.scene2d.MyActor):
             self.x = random.Random().randint(0, 1500)
 
 
+
 class Ski(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Ski.png')
