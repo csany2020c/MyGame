@@ -1,8 +1,7 @@
 import game
 import pygame
-from Kancsalmate27megilyenek import GrassActor
-from Kancsalmate27megilyenek import WaterActor
-
+from Kancsalmate27megilyenek.WaterActor import *
+from Kancsalmate27megilyenek.GrassActor import *
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
 from Kancsalmate27megilyenek.MenuScreen import *
@@ -34,7 +33,7 @@ class InStage(game.scene2d.MyStage):
         self.set_on_key_up_listener(self.moveKeysOff)
         self.camera.tracking = self.player
 
-        f = open("butamap.txt", "r")
+        f = open("../map/butamap.txt","r")
 
         y: int = 0
         while True:
@@ -44,15 +43,17 @@ class InStage(game.scene2d.MyStage):
                 for c in line:
                     a: MyBaseActor = None
                     if c == "0":
-                        self.grass = GrassActor()
-                        a = self.grass
-                    if c == "1":
                         self.waterActor = WaterActor()
                         a = self.waterActor
+                    if c == "1":
+                        self.grass = GrassActor()
+                        a = self.grass
                     if a is not None:
-                        a.x = x * 64
-                        a.y = y * 64
+                        a.x = x * 16
+                        a.y = y * 16
                         self.add_actor(a)
+                        a.set_z_index(0)
+                        a.set_rotation(90)
                         print(c)
                     x += 1
             else:
