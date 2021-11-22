@@ -1,5 +1,4 @@
 import game
-import random
 from game.scene2d.MyScreen import *
 
 class Actor(game.scene2d.MyActor):
@@ -67,6 +66,7 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(self.gomb_bg)
         self.add_actor(self.hatter_bg)
         self.gomb_bg.set_on_mouse_down_listener(self.Klikk)
+        self.set_on_key_down_listener(self.key_down)
 
         self.gomb_bg.width = 100
         self.gomb_bg.height = 100
@@ -76,6 +76,13 @@ class MenuStage(game.scene2d.MyStage):
     def Klikk(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Screen())
+
+    def key_down(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_ESCAPE:
+            print("'QUIT'")
+            quit()
 
 
 class Screen(game.scene2d.MyScreen):
