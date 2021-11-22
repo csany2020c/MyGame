@@ -2,6 +2,7 @@ import game
 # from game.scene2d import *
 # from game.scene2d.MyScreen import *
 import random
+import pygame
 
 class HatterAct(game.scene2d.MyActor):
     def __init__(self):
@@ -10,7 +11,7 @@ class HatterAct(game.scene2d.MyActor):
 class MenuHatterAct(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("!_resources/images/weathersim.png")
-        self.is
+
 
 class FallHatterAct(game.scene2d.MyActor):
     def __init__(self):

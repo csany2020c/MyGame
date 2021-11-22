@@ -1,6 +1,7 @@
 import game
 from yetistage import MenuStage
 
+
 class MenuScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
