@@ -17,6 +17,10 @@ class Shotgun(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/shotgun.png")
 
+class BulletCount(game.scene2d.MyLabel):
+    def __init__(self):
+        super().__init__("Bullets:")
+
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
@@ -27,15 +31,14 @@ class GameStage(game.scene2d.MyStage):
         self.ronstage : bool = True
         self.sonstage : bool = False
         super().__init__()
-        pygame.mixer.music.load("Images/cowboymusic.wav")
-        pygame.mixer.music.play()
-        pygame.mixer.music.set_volume(1)
         self.character = Character()
         self.gamebg = GameBG()
         self.revolver = Revolver()
         self.shotgun = Shotgun()
+        self.bulletcount = BulletCount()
         self.add_actor(self.gamebg)
         self.add_actor(self.character)
+        self.add_actor(self.bulletcount)
         self.character.width = 200
         self.gamebg.z_index = 0
         self.character.z_index = 1
@@ -84,6 +87,12 @@ class GameStage(game.scene2d.MyStage):
                 pygame.mixer.music.set_volume(1)
             self.add_actor(self.revolver)
             self.ronstage = True
+
+
+        if event.key == pygame.K_SPACE:
+            self.character.x = self.character.x -30
+            self.shotgun.x = self.shotgun.x -30
+            self.revolver.x = self.revolver.x -30
 
 
 
