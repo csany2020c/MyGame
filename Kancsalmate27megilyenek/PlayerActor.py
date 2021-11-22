@@ -9,7 +9,7 @@ class PlayerActor(game.scene2d.MyActor):
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
-        self.set_size(16, 16)
+        self.set_size(64, 64)
         self.hitbox_scale_h = 1
         self.hitbox_scale_w = 1
         self.hitbox_shape = ShapeType.Rectangle
