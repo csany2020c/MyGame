@@ -28,8 +28,8 @@ class Car3Stage(game.scene2d.MyStage):
         self.button1 = Visszagomb()
         self.button1.z_index = 101
         self.add_actor(self.button1)
-        self.button1.width = 125
-        self.button1.height = 75
+        self.button1.width = 95
+        self.button1.height = 45
         self.button1.y = 0
         self.button1.x = 0
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
