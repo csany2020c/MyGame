@@ -184,7 +184,7 @@ class GameStage(game.scene2d.MyStage):
             effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
             effect.play()
 
-#ez uj kod
+#ez uj kod(jobb)
 class GameStage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
