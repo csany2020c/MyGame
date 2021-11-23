@@ -37,6 +37,7 @@ class MenuStage(game.scene2d.MyStage):
         self.exit.y += 250
         self.exit.set_on_mouse_down_listener(self.exitbut)
 
+
     def play(self, sender, event):
         print(sender)
         print(event)
@@ -62,5 +63,9 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(Sztrit())
         self.FatJordanact = FatJordanact()
         self.add_actor(FatJordanact())
+
+
+
+
 
 
