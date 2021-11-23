@@ -57,6 +57,9 @@ class HatterActor1(game.scene2d.MyActor):
         self.y -= 100
         self.set_width(1300)
 
+class EnemyActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Enemysus.png")
 
 class Question(game.scene2d.MyActor):
     def __init__(self):
