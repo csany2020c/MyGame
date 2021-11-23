@@ -6,7 +6,7 @@ class WarioStage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
-        for i in range(2):
+        for i in range(100):
             h = HatterActor1()
             h.x = i * h.w + -150
             self.add_actor(h)
@@ -28,7 +28,7 @@ class WarioStage1(game.scene2d.MyStage):
         self.wario.set_on_key_down_listener(self.key_down)
 
 
-        for i in range(5):
+        for i in range(100):
             g = GroundActor()
             g.y = 615
             g.x = i * g.w + -150
@@ -58,23 +58,21 @@ class WarioStage1(game.scene2d.MyStage):
             print("'hoppáré'")
             self.wario.ugras()
 
-
     def act(self, delta_time: float):
         super().act(delta_time)
         overlapsASD: bool = False
 
         g = None
-        k = None
         for actorASD in self.actors:
             if isinstance(actorASD, Gemba):
-                if actorASD.elapsed_time > 5:
+                if actorASD.elapsed_time > 0.5:
                     if self.wario.overlaps(actorASD):
                         # self.gomba = Gemba()
                         self.wario.set_height(200)
                         self.wario.set_width(200)
                         g = actorASD
-                        if g is not None:
-                            g.remove_from_stage()
+        if g is not None:
+            g.remove_from_stage()
 
         for actorASD in self.actors:
             if isinstance(actorASD, GroundActor):
@@ -96,7 +94,7 @@ class WarioStage1(game.scene2d.MyStage):
             self.add_actor(self.gomba)
             self.gomba.x += 200
             self.gomba.y += 400
-            Question().remove_from_stage()
+            self.remove_actor(self.kerdo)
 
         else:
             self.wario.start()
@@ -120,4 +118,3 @@ class WarioStage1(game.scene2d.MyStage):
             self.wario.stop()
         else:
             self.wario.start()
-
