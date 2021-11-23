@@ -30,7 +30,7 @@ class square(game.scene2d.MyMathFunction):
     def __init__(self, color=(255, 255, 255)) -> None:
         super().__init__(color)
         self.wavelength: float = math.pi * 2
-        self.iterations: int = 30
+        self.iterations: int = 20
 
     def f(self, x: float) -> float:
         sum: float = 0
