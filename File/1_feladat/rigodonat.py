@@ -1,45 +1,33 @@
-import string
-from typing import TextIO
 from typing import List
+from typing import TextIO
 
-class Data:
-
+class data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        #print("Create Data from String")
-        #print(parseString)
         fields: List['str'] = parseString.split(";")
-        print(fields)
-        # self.text: str = ""
-        # for i in range(0, len(fields)):
-        #     self.text += str(fields[i])
-        #     if i < len(fields) - 1:
-        #         self.text += " "
+        self.text: int = int(fields[0])
+        self.nev: str = fields[1]
+        self.elet: str = fields[2]
+        self.orszag: str = fields[3]
 
 
-class Main:
+    def __str__(self) -> str:
+        return "Year = {x}; Name = {y}; Born-death = {txt}; Country = {col}".format(x=self.text, y=self.nev, txt=self.elet, col=self.orszag)
 
+
+class olvasas:
     def __init__(self) -> None:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        #print("Content:")
-        #print(content)
         lines: List['str'] = content.split(sep="\n")
-        #print("Split content")
-        #print(lines)
-        #print("Load to List")
-        datalist: List['Data'] = list()
-        i: int = 0
-        for str in lines:
-            if i > 0:
-                d = Data(str)
-                datalist.append(d)
-            i+=1
-        #print("Print list")
-        #for d in datalist:
-        #    print(d)
+        datalist: List['data'] = list()
+        for i in range(1, len(lines) - 1):
+            d = data(lines[i])
+            datalist.append(d)
+
+        for d in datalist:
+            print(d)
         f.close()
 
-
-Main()
+olvasas()
