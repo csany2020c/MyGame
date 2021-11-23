@@ -9,7 +9,7 @@ class WarioActor(game.scene2d.MyActor):
         super().__init__("Kepek/actorsusus.png")
         self.jump: float = 0
         self.go = True
-        self.set_width(100)
+        self.set_width(64)
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
@@ -62,14 +62,13 @@ class Question(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kerdosus.png")
         self.hitbox_shape = ShapeType.Rectangle
-        self.set_width(75)
+        self.set_width(100)
 
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kockasus.png")
-        self.set_height(100)
-        self.set_width(100)
-        self.hitbox_scale_h = 0.6
+        self.set_height(64)
+        self.set_width(64)
         self.hitbox_shape = ShapeType.Rectangle
 
 
