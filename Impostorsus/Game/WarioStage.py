@@ -29,6 +29,8 @@ class WarioStage1(game.scene2d.MyStage):
                         a = Kocka()
                     if c == "T":
                         a = Question()
+                    if c == "g":
+                        a = GroundActor()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
