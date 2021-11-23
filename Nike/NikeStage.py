@@ -57,12 +57,18 @@ class MenuStage(game.scene2d.MyStage):
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.set_on_key_down_listener(self.backtomenu)
         self.GameBg =GameBg()
         self.add_actor(GameBg())
         self.Sztrit = Sztrit()
         self.add_actor(Sztrit())
         self.FatJordanact = FatJordanact()
         self.add_actor(FatJordanact())
+
+    def backtomenu(self,sender,event):
+        if event.key == pygame.K_ESCAPE:
+            self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
 
 
 
