@@ -36,11 +36,15 @@ class GameStage(game.scene2d.MyStage):
                 for c in line:
                     a: MyBaseActor = None
                     if c == "0":
-                        a = Pile()
-                        a.h = 850
+                        a = Pile_f()
+                        a.set_hitbox_scale_h(0.1)
+                        a.set_hitbox_scale_w(0.1)
+                        a.h = random.randint(400, 500)
                     if c == "1":
-                        a = Pile()
-                        a.h = 750
+                        a = Pile_a()
+                        a.set_hitbox_scale_h(0.1)
+                        a.set_hitbox_scale_w(0.1)
+                        a.h = random.randint(400,500)
                     if c == "d":
                         self.D = Deagle_2()
                         self.D.width = 95
