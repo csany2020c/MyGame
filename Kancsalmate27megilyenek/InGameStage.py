@@ -1,7 +1,6 @@
 import game
 import pygame
-from Kancsalmate27megilyenek.WaterActor import *
-from Kancsalmate27megilyenek.GrassActor import *
+from Kancsalmate27megilyenek.TextureActors import *
 from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
 from Kancsalmate27megilyenek.MenuScreen import *
@@ -43,14 +42,20 @@ class InStage(game.scene2d.MyStage):
                 for c in line:
                     a: MyBaseActor = None
                     if c == "0":
-                        self.waterActor = WaterActor()
-                        a = self.waterActor
+                        self.water = WaterActor()
+                        a = self.water
                     if c == "1":
                         self.grass = GrassActor()
                         a = self.grass
+                    if c == "2":
+                        self.sand = SandActor()
+                        a = self.sand
+                    if c == "3":
+                        self.stone = StoneActor()
+                        a = self.stone
                     if a is not None:
-                        a.x = x * 16
-                        a.y = y * 16
+                        a.x = x * 64
+                        a.y = y * 64
                         self.add_actor(a)
                         a.set_z_index(0)
                         a.set_rotation(90)

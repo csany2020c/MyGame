@@ -8,7 +8,7 @@ o   oooo                                               o
 o              TTTTTT                                  o
 o       TTTTTTT                                        o
 o            oooo                                      o
-o    ?    ?                                            o
+o    ?    ?                    oooooo                  o
 o      oooo                                            o
 o                                                      o
-oooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g
