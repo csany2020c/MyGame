@@ -42,11 +42,17 @@ class enemy2 (game.scene2d.MyActor):
 
 class map(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/map.jpg")
+        super().__init__("Images/palya.png")
+        self.set_size(1280, 720)
 
 class kapu(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/kkapu.png")
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
-        # self.hitbox_shape = ShapeType.Rectangle
+        #self.hitbox_shape = ShapeType.Rectangle
+
+class lovedek(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/lovedek.png")
+        self.set_size(60, 40)
