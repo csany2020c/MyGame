@@ -29,5 +29,16 @@ class FatJordanact(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.x += delta_time * 100
-        self.y += delta_time * 100
+        self.set_on_key_press_listener(self.key_down)
+
+    def key_down(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_d:
+            self.x += 4
+        if event.key == pygame.K_w:
+            self.y -= 4
+        if event.key == pygame.K_a:
+            self.x -= 4
+        if event.key == pygame.K_s:
+            self.y += 4
