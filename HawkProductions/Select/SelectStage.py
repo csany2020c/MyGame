@@ -11,9 +11,6 @@ import HawkProductions.Select.SelectScreen
 class SelectStgage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.w = 125
@@ -83,9 +80,6 @@ class SelectStgage(game.scene2d.MyStage):
 class SelectStage2(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.w = 125
@@ -105,15 +99,6 @@ class SelectStage2(game.scene2d.MyStage):
         self.D.x = 550
         self.D.y = 300
         self.D.width = 150
-
-        self.a = Arrow()
-        self.add_actor(self.a)
-        self.a.x = 300
-        self.a.y = 250
-        self.a.w = 200
-        self.a.hitbox_scale_h = 0.5
-        self.a.hitbox_scale_w = 0.5
-        self.a.set_on_mouse_down_listener(self.katt4)
 
         self.a2 = Arrow2()
         self.add_actor(self.a2)
@@ -146,18 +131,10 @@ class SelectStage2(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
 
-    def katt4(self, sender, event):
-        print(sender)
-        if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen5())
-
 
 class SelectStage3(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.w = 125
@@ -227,9 +204,7 @@ class SelectStage3(game.scene2d.MyStage):
 class SelectStage4(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        pygame.mixer.music.play(-1)
+
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.w = 125
@@ -299,9 +274,6 @@ class SelectStage4(game.scene2d.MyStage):
 class SelectStage5(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
-        pygame.mixer.music.play(-1)
         self.t = Arrow()
         self.add_actor(self.t)
         self.t.w = 125
@@ -331,15 +303,6 @@ class SelectStage5(game.scene2d.MyStage):
         self.a.hitbox_scale_w = 0.5
         self.a.set_on_mouse_down_listener(self.katt3)
 
-        self.a2 = Arrow2()
-        self.add_actor(self.a2)
-        self.a2.x = 725
-        self.a2.y = 250
-        self.a2.w = 200
-        self.a2.hitbox_scale_h = 0.5
-        self.a2.hitbox_scale_w = 0.5
-        self.a2.set_on_mouse_down_listener(self.katt4)
-
         self.s = Sellect()
         self.add_actor(self.s)
         self.s.x = 512.5
@@ -362,8 +325,4 @@ class SelectStage5(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen4())
 
-    def katt4(self, sender, event):
-        print(sender)
-        if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())
 

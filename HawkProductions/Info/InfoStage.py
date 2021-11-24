@@ -4,15 +4,12 @@ import pygame
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.Info.InfoScreen2
+import HawkProductions.image
 
 
 class IStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("../HawkProductions/Music/Info.wav")
-        pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
         self.t = Arial()
         self.add_actor(self.t)
         self.t.set_text("Írányitás")
@@ -47,8 +44,14 @@ class IStage(game.scene2d.MyStage):
         self.add_actor(self.Ba)
         self.Ba.width = 125
 
+        
+
+
         self.Ba.set_on_mouse_down_listener(self.click1)
         self.set_on_key_down_listener(self.katt1)
+
+
+
 
     def click1(self, sender, event):
         print(sender)
