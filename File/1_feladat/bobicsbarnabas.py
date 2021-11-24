@@ -6,7 +6,7 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Create Data from String")
+        #print("Create Data from String")
         print(parseString)
         fields: List['str'] = parseString.split(";")
         self.text: str = ""
@@ -29,19 +29,22 @@ class Main:
         super().__init__()
         f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print("Content:")
+       # print("Content:")
         print(content)
         lines: List['str'] = content.split(sep="\n")
-        print("Split content")
+        #print("Split content")
         print(lines)
-        print("Load to List")
-        datalist: List['Data'] = list()
+        #print("Load to List")
+        dijazottak: List['Data'] = list()
         for i in range(1, len(lines) - 1):
             d = Data(lines[i])
-            datalist.append(d)
-        print("Print list")
-        for d in datalist:
+            dijazottak.append(d)
+        #print("Print list")
+        for d in dijazottak:
             print(d)
+
+
+        kod: str = input()
 
 
 Main()

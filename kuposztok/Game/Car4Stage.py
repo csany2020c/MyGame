@@ -73,9 +73,9 @@ class Car4Stage(game.scene2d.MyStage):
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
 
-        self.newgame = Ski()
-        self.newgame.x = self.width - 200
-        self.newgame.y = self.height - self.height + 200
+        self.newgame = Newgame()
+        self.newgame.x = self.width - 300
+        self.newgame.y = self.height - self.height + 250
 
         for i in range(2):
             self.enemy2 = Enemy()
@@ -96,13 +96,13 @@ class Car4Stage(game.scene2d.MyStage):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
         self.vesztettellabel = game.scene2d.MyLabel("Sajnálom a játék végetért számodra, az elért pontszámod:" + str(self.score))
-        self.vesztettellabel.x = self.width / 5
-        self.vesztettellabel.y = self.height / 5
+        self.vesztettellabel.x = self.width / 18
+        self.vesztettellabel.y = 200
+        self.vesztettellabel.set_font_size(55)
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        print(str(self._frame_count))
         if self.joseph.overlaps(self.enemy2):
             self.score = self.score - self.score
             self.add_actor(self.vesztettel)

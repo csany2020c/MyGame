@@ -12,6 +12,7 @@ from kuposztok.Game.Car3Multi.Car3ScreenMultiP import Car3ScreenMultiP
 from kuposztok.Game.Car4Multi.Car4ScreenMultiP import Car4ScreenMultiP
 from kuposztok.Game.CarOsszesScreen import CarOsszesScreen
 
+randomvaltozo = 0
 
 class CaraValtStage(game.scene2d.MyStage):
     def __init__(self):
@@ -96,7 +97,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.set_on_mouse_down_listener(self.Car2Start)
         self.car3.set_on_mouse_down_listener(self.Car3Start)
         self.car4.set_on_mouse_down_listener(self.Car4Start)
-        self.car4.set_on_mouse_down_listener(self.Car5MultStart)
+        self.car5.set_on_mouse_down_listener(self.Car5Start)
         self.car1multvalaszto.set_on_mouse_down_listener(self.Car1MultStart)
         self.car2multvalaszto.set_on_mouse_down_listener(self.Car2MultStart)
         self.car3multvalaszto.set_on_mouse_down_listener(self.Car3MultStart)
@@ -104,7 +105,6 @@ class CaraValtStage(game.scene2d.MyStage):
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
 
-        self.randomvaltozo = None
 
 
     def iranyitas(self, sender, event, ):
@@ -241,4 +241,6 @@ class CaraValtStage(game.scene2d.MyStage):
             self.add_actor(self.car4multvalaszto)
 
     def RandomVariable(self):
-        return self.randomvaltozo
+        asd = self.randomvaltozo
+        int(asd)
+        return asd
