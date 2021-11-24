@@ -18,9 +18,9 @@ class MenuStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         if self.bg.y > 0:
-            self.bg.y = self.bg.y - 4
-        if self.start.y > 300:
-            self.start.y = self.start.y - 4
+            self.bg.y = self.bg.y - 9
+        if self.start.y > 400:
+            self.start.y = self.start.y - 9
 
 
 
