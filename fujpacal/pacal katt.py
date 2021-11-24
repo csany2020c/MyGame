@@ -1,10 +1,26 @@
 import game
 from game.scene2d.MyScreen import *
+from game.scene2d.MyActor import *
+from game.simpleworld.ShapeType import ShapeType
+
+class Kocka(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/images.jpg")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_shape = ShapeType.Rectangle
 
 class Actor(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/spiderman.png"):
+    def __init__(self, image_url: str = "images/actorsus.png"):
         super().__init__(image_url)
+
+        self.go = True
+        self.set_width(64)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 2
+        self.y = 500
+        self.hitbox_shape = ShapeType.Rectangle
 
 class Gomb (game.scene2d.MyActor):
 
@@ -29,10 +45,34 @@ class Stage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
 
+        f = open("images/palyaxd.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    if c == "o":
+                        a = Kocka()
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 64
+                        self.add_actor(a)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
+
         self.hatter_bg = Hatter()
         self.actor1_bg = Actor()
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
+
 
         self.actor1_bg.set_on_key_press_listener(self.press)
         self.set_on_key_down_listener(self.key_down)
