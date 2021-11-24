@@ -13,30 +13,30 @@ class IStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Info.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        self.t = Arial()
+        self.t = Strokes()
         self.add_actor(self.t)
-        self.t.set_text("Írányitás")
-        self.t.x = 520
+        self.t.set_text("Irányitás")
+        self.t.x = 450
         self.t.y = 50
         self.t.set_font_size(35)
         self.t.set_font_underline("line")
 
-        self.t1 = Arial()
+        self.t1 = Strokes()
         self.add_actor(self.t1)
-        self.t1.set_text("Készítők")
+        self.t1.set_text("Készítök")
         self.t1.x = 640
         self.t1.y = 50
         self.t1.set_font_size(35)
         self.t1.set_on_mouse_down_listener(self.valtas1)
 
-        self.H = Arial()
+        self.H = Strokes()
         self.add_actor(self.H)
-        self.H.set_text("Az irányítás a W és az S billentyű nyomogatásával történik. A W a fel, az S a le.")
+        self.H.set_text("Az irányítás a W és az S billentyü nyomogatásával történik. A W a fel, az S a le.")
         self.H.x = 25
         self.H.y = 500
         self.H.set_font_size(25)
 
-        self.H2 = Arial()
+        self.H2 = Strokes()
         self.add_actor(self.H2)
         self.H2.set_text("Pontokat érme felvételével lehet szerezni. 49 a maximum pontszám, aki azt eléri az a Flappy D Király.")
         self.H2.x = 45
