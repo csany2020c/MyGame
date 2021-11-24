@@ -6,40 +6,53 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        #print("Create Data from String")
-        #print(parseString)
         fields: List['str'] = parseString.split(";")
-        print(fields)
-        # self.text: str = ""
-        # for i in range(0, len(fields)):
-        #     self.text += str(fields[i])
-        #     if i < len(fields) - 1:
-        #         self.text += " "
+        self.Ev: int = int(fields[0])
+        self.Nev: str = fields[1]
+        self.Halalozas: int = None
+        self.SzuletesHalalozas: str = fields[2]
+        szh: List['str'] = self.SzuletesHalalozas.split("-")
+        self.Szuletes: int = int(szh[0])
+        if szh[1] != "":
+            self.Halalozas = int(szh[1])
+        self.Orszagkod: str = fields[3]
 
+    def __str__(self) -> str:
+        return "Ev = {x}; Nev = {y}; SzuletesHalalozas = {txt}; Sz = {sz} H = {h}  Orszagkod = {col}".format(x=self.Ev, y=self.Nev, txt=self.SzuletesHalalozas, col = self.Orszagkod, sz= self.Szuletes, h= self.Halalozas)
 
 class Main:
-
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
         content: str = f.read()
-        #print("Content:")
-        #print(content)
         lines: List['str'] = content.split(sep="\n")
-        #print("Split content")
-        #print(lines)
-        #print("Load to List")
-        datalist: List['Data'] = list()
-        i: int = 0
-        for str in lines:
-            if i > 0:
-                d = Data(str)
-                datalist.append(d)
-            i+=1
-        #print("Print list")
-        #for d in datalist:
-        #    print(d)
+        dijazottak: List['Data'] = list()
+        for i in range(1, len(lines) - 1):
+            dijazottak.append(Data(lines[i]))
         f.close()
+
+        print("3. feladat")
+        print("Díjazottak száma: {db} fő ".format(db=len(dijazottak)))
+
+        max: int = 0
+        for i in range(1, len(dijazottak)):
+            if dijazottak[i].Ev > dijazottak[max].Ev:
+                max = i
+        print(dijazottak[max].Ev)
+
+        kod: str = input()
 
 
 Main()
+
+
+
+
+
+
+
+
+
+
+
+

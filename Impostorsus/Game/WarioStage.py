@@ -29,6 +29,8 @@ class WarioStage1(game.scene2d.MyStage):
                         a = Kocka()
                     if c == "T":
                         a = Question()
+                    if c == "g":
+                        a = GroundActor()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
@@ -91,7 +93,6 @@ class WarioStage1(game.scene2d.MyStage):
         if event.key == pygame.K_SPACE:
             print("'hoppáré'")
             self.wario.ugras()
-
 
     def act(self, delta_time: float):
         super().act(delta_time)
