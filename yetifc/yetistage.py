@@ -7,6 +7,8 @@ class MenuStage(game.scene2d.MyStage):
         super().__init__()
 
         self.bg = BG()
+        self.exit = Exit()
+        self.add_actor(self.exit)
         self.bg.y = 1280
         self.add_actor(self.bg)
         self.start = Start()
