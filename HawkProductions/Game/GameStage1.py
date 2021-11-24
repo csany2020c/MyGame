@@ -25,6 +25,8 @@ class GameStage1(game.scene2d.MyStage):
         self.D.y = 250
         self.D.x = 300
         self.D.width = 95
+        self.D.hitbox_scale_h = 0.55
+        self.D.hitbox_scale_w = 0.75
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
@@ -60,30 +62,28 @@ class GameStage1(game.scene2d.MyStage):
         self.add_actor(self.P1)
         self.P1.set_hitbox_scale_h = 0
         self.P1.set_hitbox_scale_w = 0
-        self.P1.h = 420
-        self.P1.y = -65
-        if self.elapsed_time > 18:
-            self.P1.y = random.randint(-55, -25)
-        if self.elapsed_time > 33:
-            self.P1.y = random.randint(-60, -25)
+        self.P1.h = 365
+        self.P1.y = random.randint(-70, -20)
+        if self.elapsed_time > 15:
+            self.P1.y = random.randint(-65, -25)
+        if self.elapsed_time > 20:
+            self.P1.y = random.randint(-55, -30)
 
         self.add_actor(self.P2)
-        self.P2.h = 420
+        self.P2.h = 370
         self.P2.set_hitbox_scale_h = 0
         self.P2.set_hitbox_scale_w = 0
-        self.P2.y = 550
-        if self.elapsed_time > 18:
-            #nem jo
-            self.P2.y = random.randint(425, 625)
-        if self.elapsed_time > 33:
-            #nem jo
-            self.P2.y = random.randint(500, 670)
+        self.P2.y = random.randint(550, 690)
+        if self.elapsed_time > 15:
+            self.P2.y = random.randint(550, 650)
+        if self.elapsed_time > 20:
+            self.P2.y = random.randint(550, 670)
 
     def add_asd1(self, sender):
         self.add_actor(self.P3)
         self.P3.set_hitbox_scale_h = 0
         self.P3.set_hitbox_scale_w = 0
-        self.P3.h = 420
+        self.P3.h = 365
         self.P3.y = -25
         if self.elapsed_time > 21:
             self.P3.y = -42
@@ -91,7 +91,7 @@ class GameStage1(game.scene2d.MyStage):
             self.P3.y = -52
 
         self.add_actor(self.P4)
-        self.P4.h = 420
+        self.P4.h = 370
         self.P4.set_hitbox_scale_h = 0
         self.P4.set_hitbox_scale_w = 0
         self.P4.y = 600
@@ -104,7 +104,7 @@ class GameStage1(game.scene2d.MyStage):
         self.add_actor(self.P5)
         self.P5.set_hitbox_scale_h = 0
         self.P5.set_hitbox_scale_w = 0
-        self.P5.h = 420
+        self.P5.h = 365
         self.P5.y = -28
         if self.elapsed_time > 27:
             self.P5.y = -24
@@ -112,7 +112,7 @@ class GameStage1(game.scene2d.MyStage):
             self.P5.y = -55
 
         self.add_actor(self.P6)
-        self.P6.h = 420
+        self.P6.h = 370
         self.P6.set_hitbox_scale_h = 0
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 570
@@ -125,11 +125,11 @@ class GameStage1(game.scene2d.MyStage):
         self.add_actor(self.P7)
         self.P7.set_hitbox_scale_h = 0
         self.P7.set_hitbox_scale_w = 0
-        self.P7.h = 420
+        self.P7.h = 365
         self.P7.y = -28
 
         self.add_actor(self.P8)
-        self.P8.h = 420
+        self.P8.h = 370
         self.P8.set_hitbox_scale_h = 0
         self.P8.set_hitbox_scale_w = 0
         self.P8.y = 570
