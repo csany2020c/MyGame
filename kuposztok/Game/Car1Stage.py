@@ -75,9 +75,9 @@ class Car1Stage(game.scene2d.MyStage):
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
 
-        self.newgame = Ski()
-        self.newgame.x = self.width - 200
-        self.newgame.y = self.height - self.height + 200
+        self.newgame = Newgame()
+        self.newgame.x = self.width - 300
+        self.newgame.y = self.height - self.height + 250
 
         for i in range(15):
             self.enemy = Enemy()
