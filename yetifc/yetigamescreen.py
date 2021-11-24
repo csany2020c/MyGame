@@ -92,7 +92,10 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_SPACE:
             self.character.x = self.character.x -30
             self.shotgun.x = self.shotgun.x -30
-            self.revolver.x = self.revolver.x -30
+            self.revolver.x = self.revolver.x - 30
+            if self.sonstage == True:
+                pygame.mixer.music.load("Images/shotgun.wav")
+                pygame.mixer.music.play()
 
 
 
