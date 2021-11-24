@@ -160,4 +160,3 @@ class WarioStage1(game.scene2d.MyStage):
             self.wario.stop()
         else:
             self.wario.start()
-

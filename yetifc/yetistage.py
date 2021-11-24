@@ -5,9 +5,7 @@ import pygame
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.music.load("Images/cowboymusic.wav")
-        pygame.mixer.music.play()
-        pygame.mixer.music.set_volume(1)
+
         self.bg = BG()
         self.bg.y = 1280
         self.add_actor(self.bg)
