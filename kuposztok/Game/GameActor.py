@@ -75,7 +75,7 @@ class SnowBoard(game.scene2d.MyActor):
 
 class SnowMobile(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/unnamed.png')
+        self.credit = super().__init__('image/SnowMobile.png')
         self.width = 200
         self.height = 200
 
@@ -91,3 +91,9 @@ class Randomplayer(game.scene2d.MyActor):
         self.credit = super().__init__('image/randomplayer.png')
         self.width = 200
         self.height = 200
+
+class Newgame(game.scene2d.MyActor):
+    def __init__(self):
+        self.credit = super().__init__('image/new_game.png')
+        self.height = 75
+        self.width = 125
