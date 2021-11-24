@@ -4,7 +4,6 @@ import HawkProductions.Select.SelectScreen
 import HawkProductions.Music
 
 
-
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -47,10 +46,6 @@ class MenuStage(game.scene2d.MyStage):
         #self.h1.set_on_mouse_down_listener(self.click1)
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
-
-
-
-
 
     def key_down(self, sender, event):
         print(sender)
