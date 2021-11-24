@@ -2,13 +2,12 @@ import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
 from HawkProductions.Font import *
 import HawkProductions.Game.GameScreen
-import HawkProductions.Game2.GameScreen2
 import HawkProductions.Music
 import pygame
 import HawkProductions.Select.SelectScreen
 
 
-class SelectStgage(game.scene2d.MyStage):
+class SelectStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
@@ -139,7 +138,7 @@ class SelectStage2(game.scene2d.MyStage):
     def katt2(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.Game2.GameScreen2.GameScreen())
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen2())
 
     def katt3(self, sender, event):
         print(sender)

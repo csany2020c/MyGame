@@ -32,6 +32,8 @@ class Car1Stage(game.scene2d.MyStage):
         self.button1.height = 45
         self.button1.y = 0
         self.button1.x = 0
+
+
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
 
@@ -92,13 +94,38 @@ class Car1Stage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
 
+        f = open("../palya1.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    if c == "b":
+                        a = self.enemy()
+                    if c == "0":
+                        a = self.joseph()
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 64
+                        self.add_actor(a)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
 
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
         self.vesztettellabel = game.scene2d.MyLabel("Sajnálom a játék végetért számodra, az elért pontszámod:" + str(self.score))
-        self.vesztettellabel.x = self.width / 5
-        self.vesztettellabel.y = self.height / 5
+        self.vesztettellabel.x = self.width / 18
+        self.vesztettellabel.y = 200
+        self.vesztettellabel.set_font_size(55)
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):

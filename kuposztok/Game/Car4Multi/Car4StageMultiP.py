@@ -150,7 +150,3 @@ class Car4StageMultiP(game.scene2d.MyStage):
     def NewG(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.Car4ScreenMultiP.Car4ScreenMultiP())
-
-
-
-

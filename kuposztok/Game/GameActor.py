@@ -75,7 +75,7 @@ class SnowBoard(game.scene2d.MyActor):
 
 class SnowMobile(game.scene2d.MyActor):
     def __init__(self):
-        self.credit = super().__init__('image/SnowMobile.png')
+        self.credit = super().__init__('image/unnamed.png')
         self.width = 200
         self.height = 200
 

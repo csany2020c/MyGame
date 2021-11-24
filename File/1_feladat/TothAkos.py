@@ -11,7 +11,7 @@ class Data:
         fields: List['str'] = parseString.split(";")
         self.text: str = ""
         self.Nev: str = fields[1]
-        self.Ev: str = fields[2]
+        self.Ev: int = int(fields[2])
         self.SzuletesHalalozas: str = fields[3]
         self.Orszagkod: str = fields[4]
 
@@ -27,5 +27,8 @@ class Main:
         print(content)
         lines: List['str'] = content.split(sep="\n")
         f.close()
+
+        print("5.feladat")
+
 
 Main()

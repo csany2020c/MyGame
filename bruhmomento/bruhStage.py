@@ -22,6 +22,7 @@ class bruhstage(game.scene2d.MyStage):
         self.add_actor(self.enemy1)
         self.enemy1.x = 1000
         self.enemy1.y = 300
+        self.add_actor(lovedek())
 
     def act(self, delta_time: float):
         super().act(delta_time)
