@@ -4,6 +4,7 @@ from Weathersim.olahgergo.actors import *
 import Weathersim.olahgergo.menu.idojarasm
 from Weathersim.olahgergo.menu.idojarasm import *
 
+
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -40,9 +41,11 @@ class MenuStage(game.scene2d.MyStage):
             self.screen.game.set_screen(Weathersim.olahgergo.menu.idojarasm.IMenuScreen())
 
 
+
     def key_down(self, sender, event):
         if event.key == pygame.K_ESCAPE:
             quit()
+
 
 class MenuScreen(game.scene2d.MyScreen):
 
