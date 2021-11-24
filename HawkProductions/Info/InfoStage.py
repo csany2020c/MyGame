@@ -4,7 +4,6 @@ import pygame
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.Info.InfoScreen2
-import HawkProductions.image
 
 
 class IStage(game.scene2d.MyStage):
@@ -44,14 +43,8 @@ class IStage(game.scene2d.MyStage):
         self.add_actor(self.Ba)
         self.Ba.width = 125
 
-        
-
-
         self.Ba.set_on_mouse_down_listener(self.click1)
         self.set_on_key_down_listener(self.katt1)
-
-
-
 
     def click1(self, sender, event):
         print(sender)

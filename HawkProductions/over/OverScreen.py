@@ -1,17 +1,16 @@
 from HawkProductions.over.OverStage import *
+from HawkProductions.over.OverStage2 import *
 
 
 class OverScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(0, 0, 204)
+        self.set_background_color(0, 0, 0)
         self.add_stage(OverStage())
 
 
-"""class OverGame(game.scene2d.MyGame):
+class OverScreen2(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.screen = OverScreen()"""
-
-
-#OverGame().run()
+        self.set_background_color(0, 0, 0)
+        self.add_stage(OverStage2())

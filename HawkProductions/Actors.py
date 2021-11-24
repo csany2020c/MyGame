@@ -2,6 +2,7 @@ import game
 import HawkProductions.over.OverScreen
 import pygame
 
+
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/sellect.jpg")
@@ -41,7 +42,7 @@ class Deagle(game.scene2d.MyActor):
         self.r += 7.5*delta_time
 
         if self.y < 0:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
@@ -62,8 +63,14 @@ class Deagle_2(game.scene2d.MyActor):
         super().__init__("image/Select.png")
 
     def act(self, delta_time: float):
-        self.y += delta_time * 100
-        self.r += delta_time * 15
+        self.y += 75 * delta_time
+        # self.r += 15* delta_time
+        self.r += 7.5 * delta_time
+
+        if self.y < 0:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
+        if self.y > 720:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
 
 class Pile(game.scene2d.MyActor):

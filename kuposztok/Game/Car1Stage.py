@@ -36,6 +36,8 @@ class Car1Stage(game.scene2d.MyStage):
 
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
+        self.clock = pygame.time.Clock()
+        self.fps = str(int(self.clock.get_fps()))
 
         self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
         self.add_actor(self.fpslabel)
@@ -75,9 +77,9 @@ class Car1Stage(game.scene2d.MyStage):
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
 
-        self.newgame = Ski()
-        self.newgame.x = self.width - 200
-        self.newgame.y = self.height - self.height + 200
+        self.newgame = Newgame()
+        self.newgame.x = self.width - 300
+        self.newgame.y = self.height - self.height + 250
 
         for i in range(15):
             self.enemy = Enemy()
@@ -130,6 +132,7 @@ class Car1Stage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        print(self.fps)
         if self.enemy.y > 1200:
             self.enemy.y = -200
             self.enemy.x = random.Random().randint(0, self.width)

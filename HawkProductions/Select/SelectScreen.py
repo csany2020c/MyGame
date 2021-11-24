@@ -5,7 +5,7 @@ class SelectScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.set_background_color(120, 125, 125)
-        self.add_stage(SelectStgage())
+        self.add_stage(SelectStage())
 
 
 class SelectScreen2(game.scene2d.MyScreen):
