@@ -161,3 +161,6 @@ class WarioStage1(game.scene2d.MyStage):
         else:
             self.wario.start()
 
+class MenuStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()

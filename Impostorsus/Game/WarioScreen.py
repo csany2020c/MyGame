@@ -11,3 +11,11 @@ class WarioScr(game.scene2d.MyScreen):
         self.g = 71
         self.b = 146
         self.add_stage(WarioStage1())
+
+class MenuScr(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.r = 200
+        self.g = 100
+        self.b = 0
+        self.add_stage(MenuStage())
