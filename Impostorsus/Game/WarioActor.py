@@ -10,7 +10,7 @@ class WarioActor(game.scene2d.MyActor):
         self.jump: float = 0
         self.go = True
         self.set_width(64)
-        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_h = 1.030
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
 
