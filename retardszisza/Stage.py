@@ -23,14 +23,14 @@ class GameStage(game.scene2d.MyStage):
     def button_down(self, sender, event):
         if event.key == pygame.K_w:
             self.b.y -= 170
-            print("asd")
+            #print("asd")
         if event.key == pygame.K_s:
             self.b.y += 170
 
-    def act(self, delta_time: float):
-        super().__init__()
+    #def act(self, delta_time: float):
+        #super().__init__()
 
-        if Enemy2Actor.overlaps(Enemy1Actor):
-            quit()
+        #if Enemy2Actor.overlaps(Enemy1Actor):
+            #quit()
 
 
