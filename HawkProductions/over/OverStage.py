@@ -16,6 +16,12 @@ class OverStage(game.scene2d.MyStage):
         self.F.y = 10
         self.F.set_color(255, 255, 255)
         self.F.set_font_size(300)
+        self.F.set_text("Game Over")
+        self.F.x = 500
+        self.F.y = 225
+        self.F.set_color(204, 20, 0)
+        self.F.x = 500
+        self.F.y = 100
 
         self.g = Gameover()
         self.add_actor(self.g)
