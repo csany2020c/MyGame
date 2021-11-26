@@ -6,7 +6,7 @@ class bruhScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.r = 0
-        self.g = 1
+        self.g = 100
         self.b = 0
         self.add_stage(bruhstage())
 
