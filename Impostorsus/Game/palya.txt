@@ -12,9 +12,9 @@ o    ?    ?                    oooooo                  o
 o      oooo                                            o
 o                                                      o
 g  g  g  g  g  g  g  g      g  g  g  g  g  g  g  g  g
-g
+x
 g                    g      g
-g
+x
 g                    g      g
-g
-g                    g      g
+x
+g                    gxxxxxxg
