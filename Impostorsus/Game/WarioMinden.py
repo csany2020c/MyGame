@@ -2,9 +2,11 @@ import game
 import pygame
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
+import Impostorsus.Game.WarioScreen
 
 
-class WarioStage1(game.scene2d.MyStage):
+
+class ASD(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
@@ -72,16 +74,15 @@ class WarioStage1(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.2,0.2,0.6,0.2)
+            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
         if event.key == pygame.K_a:
             sender.x -= 10
-            self.camera.set_tracking_window(0.6,0.2,0.2,0.2)
+            self.camera.set_tracking_window(0.6, 0.2, 0.2, 0.2)
 
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
         self.gomba.x += 100 * self.get_delta_time()
         pass
-
 
     def key_down(self, sender, event):
         print(sender)
@@ -161,6 +162,29 @@ class WarioStage1(game.scene2d.MyStage):
         else:
             self.wario.start()
 
-class MenuStage(game.scene2d.MyStage):
+class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.s = MenuSzoveg()
+        self.add_actor(self.s)
+        self.s.set_text("Play")
+        self.s.set_alpha(500)
+        self.s.set_width(75)
+        self.s.set_height(75)
+        self.s.x += 365
+        self.s.y += 75
+        self.s.set_on_mouse_down_listener(self.menugomb)
+
+    def menugomb(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.ASDSCR())
+                print("'MENÜ'")
+
+
+
+
+
+
