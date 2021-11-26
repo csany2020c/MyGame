@@ -31,8 +31,6 @@ class WarioActor(game.scene2d.MyActor):
         # self.stage.camera.y = self.y
 
 
-
-
     def ugras(self):
         self.jump = 305
 
@@ -42,7 +40,16 @@ class WarioActor(game.scene2d.MyActor):
     def stop(self):
         self.go = False
 
+
 class GroundActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/foldriosus.png")
+        self.set_width(200)
+        # self.hitbox_scale_h = 0.9
+        #self.hitbox_scale_w = 0.2
+        self.hitbox_shape = ShapeType.Rectangle
+
+class SecretGroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
         self.set_width(200)
@@ -57,6 +64,15 @@ class HatterActor1(game.scene2d.MyActor):
         self.y -= 100
         self.set_width(1300)
 
+class EnemyActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Enemysus.png")
+
+class InvisActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/halal.png")
+        self.hitbox_scale_h = 0.2
+        self.hitbox_shape = ShapeType.Rectangle
 
 class Question(game.scene2d.MyActor):
     def __init__(self):

@@ -52,7 +52,6 @@ class Enemy(game.scene2d.MyActor):
 
 
 
-
 class Ski(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Ski.png')

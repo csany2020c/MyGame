@@ -33,6 +33,8 @@ class ASD(game.scene2d.MyStage):
                         a = Question()
                     if c == "g":
                         a = GroundActor()
+                    if c == "x":
+                        a = InvisActor()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
@@ -98,6 +100,7 @@ class ASD(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         overlapsASD: bool = False
+        overASD: bool = False
 
         g = None
         for actorASD in self.actors:
@@ -117,6 +120,11 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, GroundActor):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
+                    break
+
+            if isinstance(actorASD, InvisActor):
+                if self.wario.overlaps(actorASD):
+                    overASD = True
                     break
 
         if g is not None:
@@ -166,6 +174,9 @@ class ASD(game.scene2d.MyStage):
             self.wario.stop()
         else:
             self.wario.start()
+
+        if overASD:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.ASDSCR2())
 
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
