@@ -80,4 +80,4 @@ class wall(game.scene2d.MyActor):
 
 class startgomb(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/lessgo.png")
+        super().__init__("Images/lessgo2.png")
