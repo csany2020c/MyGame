@@ -165,7 +165,7 @@ class CaraValtStage(game.scene2d.MyStage):
     def Car5MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
-            self.randomvaltozo = 1
+            self.randomvaltozo = 52
 
 
     #3
