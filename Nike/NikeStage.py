@@ -71,6 +71,29 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        overlapsASD: bool = False
+
+        g = None
+        for actorASD in self.actors:
+
+            if isinstance(actorASD, Sztrit):
+                if actorASD.y - actorASD.h > self.FatJordanact.y:
+                    if self.FatJordanact.overlaps(actorASD):
+                        overlapsASD = True
+                        break
+
+        if g is not None:
+            g.remove_from_stage()
+
+        if overlapsASD:
+            self.FatJordanact.stop()
+        else:
+            self.FatJordanact.start()
+
+
+
 
 
 
