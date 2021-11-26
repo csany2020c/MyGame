@@ -10,7 +10,7 @@ class WarioActor(game.scene2d.MyActor):
         self.jump: float = 0
         self.go = True
         self.set_width(64)
-        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_h = 1.030
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
 
@@ -71,6 +71,12 @@ class Kocka(game.scene2d.MyActor):
         self.set_width(64)
         self.hitbox_shape = ShapeType.Rectangle
 
+class Gomb(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Wario.png")
+        self.set_height(64)
+        self.set_width(64)
+
 
 class Gemba(game.scene2d.MyActor):
     def __init__(self):
@@ -104,5 +110,11 @@ class Gemba(game.scene2d.MyActor):
 
     def stop(self):
         self.go = False
+
+class MenuSzoveg(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "MyText") -> None:
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+
 
 
