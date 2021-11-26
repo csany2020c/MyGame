@@ -106,3 +106,4 @@ class Gemba(game.scene2d.MyActor):
         self.go = False
 
 
+
