@@ -193,8 +193,6 @@ class GameStage(game.scene2d.MyStage):
             effect = pygame.mixer.Sound('../Hawkproductions/Music/Shoot.wav')
             effect.play()
 
-    def utkozes(self):
-        super().__init__()
 
 class GameStage1(game.scene2d.MyStage):
     def __init__(self):
