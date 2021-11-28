@@ -113,6 +113,7 @@ class Main(game.scene2d.MyActor):
         super().__init__("image/main.png")
 
 
+
 class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
@@ -170,7 +171,7 @@ class Deagle4(game.scene2d.MyActor):
 
 class Deagle_4(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/goldenrun.png")
+        super().__init__("image/goldengun.png")
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
