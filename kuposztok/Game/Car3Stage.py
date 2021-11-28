@@ -113,10 +113,10 @@ class Car3Stage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 400:
+            if self.joseph.x < self.width - 200:
                 self.joseph.x += a
         if event.key == pygame.K_a:
-            if self.joseph.x > 200:
+            if self.joseph.x > 0:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())

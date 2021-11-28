@@ -113,7 +113,7 @@ class Car4Stage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width:
+            if self.joseph.x < self.width - 200:
                 self.joseph.x += a
         if event.key == pygame.K_a:
             if self.joseph.x > 0:
