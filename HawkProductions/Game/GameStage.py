@@ -349,13 +349,21 @@ class GameStage1(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.D.overlaps(self.P1 and self.P2):
+        if self.D.overlaps(self.P1):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P3 and self.P4):
+        if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P5 and self.P6):
+        if self.D.overlaps(self.P3):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P7 and self.P8):
+        if self.D.overlaps(self.P4):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P5):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P6):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P7):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
     def click2(self, sender, event):
@@ -396,7 +404,7 @@ class GameStage2(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 165
+        self.D.width = 105
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 
@@ -535,13 +543,21 @@ class GameStage2(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.D.overlaps(self.P1 and self.P2):
+        if self.D.overlaps(self.P1):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P3 and self.P4):
+        if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P5 and self.P6):
+        if self.D.overlaps(self.P3):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P7 and self.P8):
+        if self.D.overlaps(self.P4):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P5):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P6):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P7):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
     def click2(self, sender, event):
@@ -582,7 +598,7 @@ class GameStage3(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 165
+        self.D.width = 105
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 
@@ -721,13 +737,21 @@ class GameStage3(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.D.overlaps(self.P1 and self.P2):
+        if self.D.overlaps(self.P1):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P3 and self.P4):
+        if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P5 and self.P6):
+        if self.D.overlaps(self.P3):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P7 and self.P8):
+        if self.D.overlaps(self.P4):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P5):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P6):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P7):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
     def click2(self, sender, event):
@@ -768,7 +792,7 @@ class GameStage4(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 165
+        self.D.width = 105
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 
@@ -907,13 +931,21 @@ class GameStage4(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.D.overlaps(self.P1 and self.P2):
+        if self.D.overlaps(self.P1):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P3 and self.P4):
+        if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P5 and self.P6):
+        if self.D.overlaps(self.P3):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
-        if self.D.overlaps(self.P7 and self.P8):
+        if self.D.overlaps(self.P4):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P5):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P6):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P7):
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
 
     def click2(self, sender, event):
