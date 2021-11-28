@@ -68,10 +68,10 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4valaszto.y = self.height / 5 + 75
         self.add_actor(self.car4valaszto)
 
-        self.car5 = Randomplayer()
+        """self.car5 = Randomplayer()
         self.car5.x = self.width / 2.5 - 100
         self.car5.y = self.height / 3
-        self.add_actor(self.car5)
+        self.add_actor(self.car5)"""
 
         self.car1multvalaszto = Multi()
         self.car1multvalaszto.x = self.width / 2 + 100
@@ -97,7 +97,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.set_on_mouse_down_listener(self.Car2Start)
         self.car3.set_on_mouse_down_listener(self.Car3Start)
         self.car4.set_on_mouse_down_listener(self.Car4Start)
-        self.car5.set_on_mouse_down_listener(self.Car5Start)
+        """self.car5.set_on_mouse_down_listener(self.Car5Start)"""
         self.car1multvalaszto.set_on_mouse_down_listener(self.Car1MultStart)
         self.car2multvalaszto.set_on_mouse_down_listener(self.Car2MultStart)
         self.car3multvalaszto.set_on_mouse_down_listener(self.Car3MultStart)
@@ -137,10 +137,10 @@ class CaraValtStage(game.scene2d.MyStage):
             self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
             self.randomvaltozo = 41
 
-    def Car5Start(self, sender, event):
+    """def Car5Start(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
-            self.randomvaltozo = 51
+            self.randomvaltozo = 51"""
 
     def Car1MultStart(self, sender, event):
         if event.button == 1:
@@ -162,10 +162,10 @@ class CaraValtStage(game.scene2d.MyStage):
             self.screen.game.set_screen(kuposztok.Game.Car4Multi.Car4ScreenMultiP.Car4ScreenMultiP())
             self.randomvaltozo = 42
 
-    def Car5MultStart(self, sender, event):
+    """def Car5MultStart(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
-            self.randomvaltozo = 52
+            self.randomvaltozo = 52"""
 
 
     #3
@@ -240,7 +240,7 @@ class CaraValtStage(game.scene2d.MyStage):
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
 
-    def RandomVariable(self):
+    """def RandomVariable(self):
         asd = self.randomvaltozo
         int(asd)
-        return asd
+        return asd"""
