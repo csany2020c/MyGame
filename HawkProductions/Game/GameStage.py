@@ -396,7 +396,7 @@ class GameStage2(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 95
+        self.D.width = 165
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 
@@ -582,7 +582,7 @@ class GameStage3(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 95
+        self.D.width = 165
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 
@@ -768,7 +768,7 @@ class GameStage4(game.scene2d.MyStage):
         self.add_actor(self.D)
         self.D.y = 250
         self.D.x = 350
-        self.D.width = 95
+        self.D.width = 165
         self.D.set_hitbox_scale_w = 0.1
         self.D.set_hitbox_scale_h = 0.1
 

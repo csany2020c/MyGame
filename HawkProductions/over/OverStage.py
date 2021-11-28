@@ -27,8 +27,8 @@ class OverStage(game.scene2d.MyStage):
         self.add_actor(self.g)
         self.g.set_text("Próbáld újra!")
         self.g.set_color(255, 255, 255)
-        self.g.x = 375
-        self.g.y = 150
+        self.g.x = 390
+        self.g.y = 250
         self.g.set_font_size(100)
 
         self.g.set_on_mouse_down_listener(self.click)
