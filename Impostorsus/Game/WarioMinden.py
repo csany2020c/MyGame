@@ -199,15 +199,35 @@ class ASD2 (game.scene2d.MyStage):
         self.e.y += 550
         self.f = FullScreen()
         self.add_actor(self.f)
-        self.f.x += 410
+        self.f.x += 425
         self.f.y += 475
         self.c = Credit()
         self.add_actor(self.c)
         self.c.x += 500
         self.c.y += 400
+        self.bi = Bindings()
+        self.add_actor(self.bi)
+        self.bi.x += 475
+        self.bi.y += 325
         self.p.set_on_mouse_down_listener(self.play)
         self.e.set_on_mouse_down_listener(self.exit)
         self.f.set_on_mouse_down_listener(self.fullscreen)
+        self.bi.set_on_mouse_down_listener(self.bind)
+        self.c.set_on_mouse_down_listener(self.creator)
+
+    def creator(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.CreditScreen())
+
+    def bind(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.BindingsScreen())
 
     def exit(self, sender, event):
         print(sender)
@@ -221,7 +241,7 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioStage())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioScreen())
 
     def fullscreen(self, sender, event):
         print(sender)
@@ -229,6 +249,16 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 pygame.display.toggle_fullscreen()
+
+class BindingsStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+
+
+class CreditStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+
 
 
 
