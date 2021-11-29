@@ -1,5 +1,5 @@
 import game
-from retardszisza.menu.MenuStage import *
+from retardszisza.menu_halal.MenuStage import *
 
 class menuscreen(game.scene2d.MyScreen):
 

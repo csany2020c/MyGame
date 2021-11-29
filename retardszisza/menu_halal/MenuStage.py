@@ -1,7 +1,7 @@
 import retardszisza.Stage
 import game
 import pygame
-from retardszisza.menu.MenuActor import *
+from retardszisza.menu_halal.MenuActor import *
 from retardszisza.Screen import *
 
 class menustage(game.scene2d.MyStage):
