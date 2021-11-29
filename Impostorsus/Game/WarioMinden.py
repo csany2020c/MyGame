@@ -192,7 +192,7 @@ class ASD2 (game.scene2d.MyStage):
         self.p.y += 250
         self.s = SuperWario()
         self.add_actor(self.s)
-        self.s.x += 400
+        self.s.x += 350
         self.s.y += 75
         self.e = Exit()
         self.add_actor(self.e)
@@ -200,15 +200,35 @@ class ASD2 (game.scene2d.MyStage):
         self.e.y += 550
         self.f = FullScreen()
         self.add_actor(self.f)
-        self.f.x += 410
+        self.f.x += 425
         self.f.y += 475
         self.c = Credit()
         self.add_actor(self.c)
         self.c.x += 500
         self.c.y += 400
+        self.bi = Bindings()
+        self.add_actor(self.bi)
+        self.bi.x += 475
+        self.bi.y += 325
         self.p.set_on_mouse_down_listener(self.play)
         self.e.set_on_mouse_down_listener(self.exit)
         self.f.set_on_mouse_down_listener(self.fullscreen)
+        self.bi.set_on_mouse_down_listener(self.bind)
+        self.c.set_on_mouse_down_listener(self.creator)
+
+    def creator(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.CreditScreen())
+
+    def bind(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.BindingsScreen())
 
     def exit(self, sender, event):
         print(sender)
@@ -222,7 +242,7 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioStage())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioScreen())
 
     def fullscreen(self, sender, event):
         print(sender)
@@ -230,6 +250,80 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 pygame.display.toggle_fullscreen()
+
+class BindingsStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.a = MenuSzoveg()
+        self.add_actor(self.a)
+        self.a.set_text("Gombok:")
+        self.a.set_alpha(500)
+        self.a.set_width(75)
+        self.a.set_height(75)
+        self.a.x += 250
+        self.a.y += 50
+        self.b = MenuSzoveg()
+        self.add_actor(self.b)
+        self.b.set_text("A,D,SPACE = Irányítás")
+        self.b.set_alpha(500)
+        self.b.set_width(50)
+        self.b.set_height(50)
+        self.b.x += 250
+        self.b.y += 175
+        self.c = MenuSzoveg()
+        self.add_actor(self.c)
+        self.c.set_text("F11 = FullScreen")
+        self.c.set_alpha(500)
+        self.c.set_width(50)
+        self.c.set_height(50)
+        self.c.x += 250
+        self.c.y += 250
+        self.d = MenuSzoveg()
+        self.add_actor(self.d)
+        self.d.set_text("BACKSPACE = Menü")
+        self.d.set_alpha(500)
+        self.d.set_width(50)
+        self.d.set_height(50)
+        self.d.x += 250
+        self.d.y += 325
+
+
+class CreditStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.a = MenuSzoveg()
+        self.add_actor(self.a)
+        self.a.set_text("Készítők:")
+        self.a.set_alpha(500)
+        self.a.set_width(75)
+        self.a.set_height(75)
+        self.a.x += 250
+        self.a.y += 50
+        self.b = MenuSzoveg()
+        self.add_actor(self.b)
+        self.b.set_text("K.Bálint")
+        self.b.set_alpha(500)
+        self.b.set_width(50)
+        self.b.set_height(50)
+        self.b.x += 250
+        self.b.y += 175
+        self.c = MenuSzoveg()
+        self.add_actor(self.c)
+        self.c.set_text("Sz.Bálint")
+        self.c.set_alpha(500)
+        self.c.set_width(50)
+        self.c.set_height(50)
+        self.c.x += 250
+        self.c.y += 250
+        self.d = MenuSzoveg()
+        self.add_actor(self.d)
+        self.d.set_text("Márk")
+        self.d.set_alpha(500)
+        self.d.set_width(50)
+        self.d.set_height(50)
+        self.d.x += 250
+        self.d.y += 325
+
 
 
 

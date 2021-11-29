@@ -147,8 +147,8 @@ class Play(game.scene2d.MyActor):
 class SuperWario(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/SuperWario.png")
-        self.set_height(450)
-        self.set_width(450)
+        self.set_height(550)
+        self.set_width(550)
 
 class BackGround(game.scene2d.MyActor):
     def __init__(self):
@@ -172,6 +172,13 @@ class Credit(game.scene2d.MyActor):
         super().__init__("Kepek/Credit.png")
         self.set_height(225)
         self.set_width(225)
+
+class Bindings(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/bindings.png")
+        self.set_height(275)
+        self.set_width(275)
+
 
 
 
