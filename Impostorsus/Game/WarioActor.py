@@ -126,6 +126,7 @@ class Gemba(game.scene2d.MyActor):
     def ugras(self):
         self.jump = 210
 
+
     def start(self):
         self.go = True
 
@@ -178,6 +179,12 @@ class Bindings(game.scene2d.MyActor):
         super().__init__("Kepek/bindings.png")
         self.set_height(275)
         self.set_width(275)
+
+class Halalkep(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/halalkep.png")
+        self.set_height(450)
+        self.set_width(450)
 
 
 

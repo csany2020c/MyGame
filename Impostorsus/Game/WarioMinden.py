@@ -10,6 +10,7 @@ class ASD(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(0)
 
         # # for i in range(100):
         # #     h = HatterActor1()
@@ -176,12 +177,13 @@ class ASD(game.scene2d.MyStage):
             self.wario.start()
 
         if overASD:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
 
 
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(10)
         self.b = BackGround()
         self.add_actor(self.b)
         self.b.x += 0
@@ -254,6 +256,7 @@ class ASD2 (game.scene2d.MyStage):
 class BindingsStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mouse.set_visible(0)
         self.a = MenuSzoveg()
         self.add_actor(self.a)
         self.a.set_text("Gombok:")
@@ -323,6 +326,15 @@ class CreditStage (game.scene2d.MyStage):
         self.d.set_height(50)
         self.d.x += 250
         self.d.y += 325
+
+class HalalStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.h = Halalkep()
+        self.add_actor(self.h)
+        self.h.x += 390
+        self.h.y += 300
+
 
 
 

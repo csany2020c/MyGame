@@ -36,4 +36,18 @@ class CreditScreen(game.scene2d.MyScreen):
         self.b = 252
         self.add_stage(CreditStage())
 
+class HalalScreen(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.r = 92
+        self.g = 148
+        self.b = 252
+        self.add_stage(HalalStage())
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 1.3:
+            self.game.screen = WarioScreen()
+
+
 
