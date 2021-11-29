@@ -53,6 +53,7 @@ class Enemy(game.scene2d.MyActor):
         self.y += delta_time * 500
         if self.y > 1180:
             self.y = -500
+            self.x = random.Random().randint(0, 2000)
 
 class Ski(game.scene2d.MyActor):
     def __init__(self):
