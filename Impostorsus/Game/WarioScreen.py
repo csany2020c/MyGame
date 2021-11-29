@@ -49,5 +49,3 @@ class HalalScreen(game.scene2d.MyScreen):
         if self.elapsed_time > 1.3:
             self.game.screen = WarioScreen()
 
-
-

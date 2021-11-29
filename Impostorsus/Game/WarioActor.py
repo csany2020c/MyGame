@@ -37,16 +37,11 @@ class WarioActor(game.scene2d.MyActor):
         if self.go > 0:
             self.jump = False
 
-
     def start(self):
         self.go = True
 
     def stop(self):
         self.go = False
-
-
-
-
 class GroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
@@ -185,6 +180,7 @@ class Halalkep(game.scene2d.MyActor):
         super().__init__("Kepek/halalkep.png")
         self.set_height(450)
         self.set_width(450)
+
 
 
 

@@ -340,4 +340,3 @@ class HalalStage (game.scene2d.MyStage):
 
 
 
-
