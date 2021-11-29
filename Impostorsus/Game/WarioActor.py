@@ -32,7 +32,7 @@ class WarioActor(game.scene2d.MyActor):
 
 
     def ugras(self):
-        self.jump = 200
+        self.jump = 220
 
         if self.go > 0:
             self.jump = False
