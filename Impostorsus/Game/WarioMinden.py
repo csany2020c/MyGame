@@ -178,6 +178,7 @@ class ASD(game.scene2d.MyStage):
         if overASD:
             self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
 
+
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()

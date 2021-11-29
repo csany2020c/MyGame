@@ -8,8 +8,8 @@ o   oooo                                               o
 o                                                      o
 o                                                      o
 o            oooo                                      o
-o    ?    ?                    oooooo                  o
-o      oooo                                            o
+o                            oooooo                    o
+o                                                      o
 o                                                      o
 g  g  g  g  g  g  g  g      g  g  g  g  g  g  g  g  g
 x

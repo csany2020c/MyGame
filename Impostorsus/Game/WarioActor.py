@@ -32,13 +32,19 @@ class WarioActor(game.scene2d.MyActor):
 
 
     def ugras(self):
-        self.jump = 305
+        self.jump = 200
+
+        if self.go > 0:
+            self.jump = False
+
 
     def start(self):
         self.go = True
 
     def stop(self):
         self.go = False
+
+
 
 
 class GroundActor(game.scene2d.MyActor):
