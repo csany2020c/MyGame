@@ -58,7 +58,6 @@ class InStage(game.scene2d.MyStage):
                         a.y = y * 64
                         self.add_actor(a)
                         a.set_z_index(0)
-                        a.set_rotation(90)
                         print(c)
                     x += 1
             else:
