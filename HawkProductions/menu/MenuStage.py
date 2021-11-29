@@ -77,7 +77,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def click3(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
             pygame.mixer.init()
             pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
             pygame.mixer.music.play(-1)
