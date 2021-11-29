@@ -258,6 +258,38 @@ class BindingsStage (game.scene2d.MyStage):
 class CreditStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.a = MenuSzoveg()
+        self.add_actor(self.a)
+        self.a.set_text("Készítők:")
+        self.a.set_alpha(500)
+        self.a.set_width(75)
+        self.a.set_height(75)
+        self.a.x += 250
+        self.a.y += 50
+        self.b = MenuSzoveg()
+        self.add_actor(self.b)
+        self.b.set_text("K.Bálint")
+        self.b.set_alpha(500)
+        self.b.set_width(50)
+        self.b.set_height(50)
+        self.b.x += 250
+        self.b.y += 175
+        self.c = MenuSzoveg()
+        self.add_actor(self.c)
+        self.c.set_text("Sz.Bálint")
+        self.c.set_alpha(500)
+        self.c.set_width(50)
+        self.c.set_height(50)
+        self.c.x += 250
+        self.c.y += 250
+        self.d = MenuSzoveg()
+        self.add_actor(self.d)
+        self.d.set_text("Márk")
+        self.d.set_alpha(500)
+        self.d.set_width(50)
+        self.d.set_height(50)
+        self.d.x += 250
+        self.d.y += 325
 
 
 
