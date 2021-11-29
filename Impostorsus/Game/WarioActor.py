@@ -10,7 +10,7 @@ class WarioActor(game.scene2d.MyActor):
         self.jump: float = 0
         self.go = True
         self.set_width(64)
-        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_h = 1.030
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
 
@@ -31,8 +31,6 @@ class WarioActor(game.scene2d.MyActor):
         # self.stage.camera.y = self.y
 
 
-
-
     def ugras(self):
         self.jump = 305
 
@@ -42,7 +40,16 @@ class WarioActor(game.scene2d.MyActor):
     def stop(self):
         self.go = False
 
+
 class GroundActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/foldriosus.png")
+        self.set_width(200)
+        # self.hitbox_scale_h = 0.9
+        #self.hitbox_scale_w = 0.2
+        self.hitbox_shape = ShapeType.Rectangle
+
+class SecretGroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
         self.set_width(200)
@@ -57,6 +64,15 @@ class HatterActor1(game.scene2d.MyActor):
         self.y -= 100
         self.set_width(1300)
 
+class EnemyActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Enemysus.png")
+
+class InvisActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/halal.png")
+        self.hitbox_scale_h = 0.2
+        self.hitbox_shape = ShapeType.Rectangle
 
 class Question(game.scene2d.MyActor):
     def __init__(self):
@@ -70,6 +86,12 @@ class Kocka(game.scene2d.MyActor):
         self.set_height(64)
         self.set_width(64)
         self.hitbox_shape = ShapeType.Rectangle
+
+class Gomb(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Wario.png")
+        self.set_height(64)
+        self.set_width(64)
 
 
 class Gemba(game.scene2d.MyActor):
@@ -104,5 +126,56 @@ class Gemba(game.scene2d.MyActor):
 
     def stop(self):
         self.go = False
+
+class MenuSzoveg(game.scene2d.MyLabel):
+
+    def __init__(self, string: str = "MyText") -> None:
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+
+class Play(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Playbutton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class SuperWario(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/SuperWario.png")
+        self.set_height(550)
+        self.set_width(550)
+
+class BackGround(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/BackGround.png")
+        self.set_width(1300)
+
+class Exit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/ExitButton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class FullScreen(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Fullscreen.png")
+        self.set_height(375)
+        self.set_width(375)
+
+class Credit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Credit.png")
+        self.set_height(225)
+        self.set_width(225)
+
+class Bindings(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/bindings.png")
+        self.set_height(275)
+        self.set_width(275)
+
+
+
+
+
 
 

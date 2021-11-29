@@ -10,11 +10,11 @@ class BgActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('image/snow.png')
 
-    """def act(self, delta_time: float):
+    def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 500
         if self.y > 1080:
-            self.y = -1080"""
+            self.y = -1080
 
 
 class BgActor2(game.scene2d.MyActor):
@@ -22,11 +22,11 @@ class BgActor2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('image/snow.png')
 
-    """def act(self, delta_time: float):
+    def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 500
         if self.y > 1080:
-            self.y = -1080"""
+            self.y = -1080
 
 
 class vesztettel(game.scene2d.MyActor):
@@ -47,11 +47,13 @@ class Enemy(game.scene2d.MyActor):
 
     def __init__(self):
         self.credit = super().__init__('image/tree.png')
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
 
-
-
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 500
+        if self.y > 1180:
+            self.y = -500
+            self.x = random.Random().randint(0, 2000)
 
 class Ski(game.scene2d.MyActor):
     def __init__(self):

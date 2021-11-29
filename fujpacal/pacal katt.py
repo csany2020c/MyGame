@@ -79,13 +79,10 @@ class Stage(game.scene2d.MyStage):
 
     def press(self, sender, event):
         if event.key == pygame.K_d:
-            sender.x += 10
+            sender.x += 3
         if event.key == pygame.K_a:
-            sender.x -= 10
-        if event.key == pygame.K_w:
-            sender.y -= 10
-        if event.key == pygame.K_s:
-            sender.y += 10
+            sender.x -= 3
+
 
     def interval(self, sender):
         self.actor1_bg.x += 100 * self.get_delta_time()

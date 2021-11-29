@@ -4,7 +4,6 @@ import HawkProductions.Select.SelectScreen
 import HawkProductions.Music
 
 
-
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -48,10 +47,6 @@ class MenuStage(game.scene2d.MyStage):
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
 
-
-
-
-
     def key_down(self, sender, event):
         print(sender)
         print(event)
@@ -75,7 +70,14 @@ class MenuStage(game.scene2d.MyStage):
     def click2(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(IScreen())
+            pygame.mixer.init()
+            pygame.mixer.music.load("../HawkProductions/Music/Info.wav")
+            pygame.mixer.music.play(-1)
+            pygame.mixer.music.set_volume(0.2)
 
     def click3(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())
+            pygame.mixer.init()
+            pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
+            pygame.mixer.music.play(-1)
