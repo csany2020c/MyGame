@@ -176,29 +176,59 @@ class ASD(game.scene2d.MyStage):
             self.wario.start()
 
         if overASD:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.ASDSCR2())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
 
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.s = MenuSzoveg()
+        self.b = BackGround()
+        self.add_actor(self.b)
+        self.b.x += 0
+        self.b.y += 0
+        self.p = Play()
+        self.add_actor(self.p)
+        self.p.x += 535
+        self.p.y += 250
+        self.s = SuperWario()
         self.add_actor(self.s)
-        self.s.set_text("Play")
-        self.s.set_alpha(500)
-        self.s.set_width(75)
-        self.s.set_height(75)
-        self.s.x += 365
+        self.s.x += 400
         self.s.y += 75
-        self.s.set_on_mouse_down_listener(self.menugomb)
+        self.e = Exit()
+        self.add_actor(self.e)
+        self.e.x += 535
+        self.e.y += 550
+        self.f = FullScreen()
+        self.add_actor(self.f)
+        self.f.x += 410
+        self.f.y += 475
+        self.c = Credit()
+        self.add_actor(self.c)
+        self.c.x += 500
+        self.c.y += 400
+        self.p.set_on_mouse_down_listener(self.play)
+        self.e.set_on_mouse_down_listener(self.exit)
+        self.f.set_on_mouse_down_listener(self.fullscreen)
 
-    def menugomb(self, sender, event):
+    def exit(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.ASDSCR())
-                print("'MENÜ'")
+                quit()
 
+    def play(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioStage())
+
+    def fullscreen(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.display.toggle_fullscreen()
 
 
 

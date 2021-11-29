@@ -132,5 +132,43 @@ class MenuSzoveg(game.scene2d.MyLabel):
     def __init__(self, string: str = "MyText") -> None:
             game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
 
+class Play(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Playbutton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class SuperWario(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/SuperWario.png")
+        self.set_height(450)
+        self.set_width(450)
+
+class BackGround(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/BackGround.png")
+        self.set_width(1300)
+
+class Exit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/ExitButton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class FullScreen(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Fullscreen.png")
+        self.set_height(375)
+        self.set_width(375)
+
+class Credit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Credit.png")
+        self.set_height(225)
+        self.set_width(225)
+
+
+
+
 
 
