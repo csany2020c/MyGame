@@ -10,7 +10,9 @@ class Wario(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = MenuScreen()
         self.set_on_key_down_listener(self.key_down)
-
+        pygame.display.set_caption('Super Wario')
+        programIcon = pygame.image.load('Kepek/actorsusus.png')
+        pygame.display.set_icon(programIcon)
     def key_down(self, sender, event):
         print(sender)
         print(event)
