@@ -21,7 +21,7 @@ class Wario(game.scene2d.MyGame):
         if event.key == pygame.K_BACKSPACE:
             self.screen = MenuScreen()
         if event.key == pygame.K_r:
-            self.screen = WarioStage()
+            self.screen = WarioScreen()
 
 
 Wario().run()
