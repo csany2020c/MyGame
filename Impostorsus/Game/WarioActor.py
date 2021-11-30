@@ -50,6 +50,14 @@ class GroundActor(game.scene2d.MyActor):
         #self.hitbox_scale_w = 0.2
         self.hitbox_shape = ShapeType.Rectangle
 
+class Ground2Actor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/foldsus.png")
+        self.set_width(200)
+        # self.hitbox_scale_h = 0.9
+        #self.hitbox_scale_w = 0.2
+        self.hitbox_shape = ShapeType.Rectangle
+
 class SecretGroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
@@ -69,6 +77,12 @@ class EnemyActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Enemysus.png")
 
+#class BossActor(game.scene2d.MyActor):
+    #def __init__(self):
+        #super().__init__("Kepek/gael.gif")
+        #self.set_width(20)
+        #self.set_height(20)
+
 class InvisActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/halal.png")
@@ -84,6 +98,13 @@ class Question(game.scene2d.MyActor):
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kockasus.png")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_shape = ShapeType.Rectangle
+
+class Kockasl(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/slimekockasus.png")
         self.set_height(64)
         self.set_width(64)
         self.hitbox_shape = ShapeType.Rectangle
