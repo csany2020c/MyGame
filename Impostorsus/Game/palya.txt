@@ -3,18 +3,18 @@ p                                                      o
 p                                                      o
 p                                                      o
 p                                                      o
-p              oop                                     o
-p   ooop                                               o
 p                                                      o
 p                                                      o
-p            ooop                                      o
-p                            oooop                     o
+p                                                      o
+p                                                      o
+p                                                      o
+p        ooop                                          o
 p  W                                                   o
 p                                                      o
-g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g
+g  g  g  g  g  g  g  k        j  g  g  g  g  g  g  g  g
 x
-g                    k      j
+x                    k        j
 x
-g                    k      j
+x                    k        j
 x
-g                    gxxxxxxg
+x                    gxxxxxxxxg

@@ -23,6 +23,7 @@ class Sztrit(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/streett.png")
         self.y = 600
+        self.set_width(5000)
         self.hitbox_shape = ShapeType.Rectangle
 
 class FatJordanact(game.scene2d.MyActor):
@@ -42,12 +43,10 @@ class FatJordanact(game.scene2d.MyActor):
         print(sender)
         print(event)
         if event.key == pygame.K_w:
-            print("'hoppáré'")
-            self.wario.ugras()
+            self.ugras()
 
         if event.key == pygame.K_SPACE:
-            print("'hoppáré'")
-            self.wario.ugras()
+            self.ugras()
 
 
     def act(self, delta_time: float):

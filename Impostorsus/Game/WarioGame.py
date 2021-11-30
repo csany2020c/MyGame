@@ -10,18 +10,14 @@ class Wario(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = MenuScreen()
         self.set_on_key_down_listener(self.key_down)
-        pygame.display.set_caption('Super Wario')
-        programIcon = pygame.image.load('Kepek/actorsusus.png')
-        pygame.display.set_icon(programIcon)
+
     def key_down(self, sender, event):
         print(sender)
         print(event)
         if event.key == pygame.K_F11:
             pygame.display.toggle_fullscreen()
         if event.key == pygame.K_BACKSPACE:
-            self.screen = MenuScreen()
-        if event.key == pygame.K_r:
-            self.screen = WarioScreen()
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
 
 
 Wario().run()
