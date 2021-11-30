@@ -348,7 +348,7 @@ class BindingsStage (game.scene2d.MyStage):
         self.d.x += 250
         self.d.y += 325
 
-
+        #a
 class CreditStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
