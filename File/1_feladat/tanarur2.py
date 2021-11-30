@@ -2,6 +2,7 @@ import string
 from typing import TextIO
 from typing import List
 
+
 class Data:
 
     def __init__(self, parseString: str) -> None:

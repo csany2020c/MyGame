@@ -11,7 +11,7 @@ class WarioActor(game.scene2d.MyActor):
         self.go = True
         self.set_width(64)
         self.hitbox_scale_h = 1.030
-        self.hitbox_scale_w = 0.9
+        self.hitbox_scale_w = 1
         self.hitbox_shape = ShapeType.Rectangle
 
     def act(self, delta_time: float):
@@ -32,15 +32,16 @@ class WarioActor(game.scene2d.MyActor):
 
 
     def ugras(self):
-        self.jump = 305
+        self.jump = 220
+
+        if self.go > 0:
+            self.jump = False
 
     def start(self):
         self.go = True
 
     def stop(self):
         self.go = False
-
-
 class GroundActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/foldriosus.png")
@@ -118,7 +119,8 @@ class Gemba(game.scene2d.MyActor):
                 self.y += 6
 
     def ugras(self):
-        self.jump = 210
+        self.jump = 240
+
 
     def start(self):
         self.go = True
@@ -131,6 +133,91 @@ class MenuSzoveg(game.scene2d.MyLabel):
 
     def __init__(self, string: str = "MyText") -> None:
             game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+
+class Play(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Playbutton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class SuperWario(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/SuperWario.png")
+        self.set_height(550)
+        self.set_width(550)
+
+class BackGround(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/BackGround.png")
+        self.set_width(1300)
+
+class Exit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/ExitButton.png")
+        self.set_height(150)
+        self.set_width(150)
+
+class FullScreen(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Fullscreen.png")
+        self.set_height(375)
+        self.set_width(375)
+
+class Credit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Credit.png")
+        self.set_height(225)
+        self.set_width(225)
+
+class Bindings(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/bindings.png")
+        self.set_height(275)
+        self.set_width(275)
+
+class Halalkep(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/halalkep.png")
+        self.set_height(450)
+        self.set_width(450)
+
+class Lathatatlan(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_scale_h = 0.1
+        self.hitbox_scale_w = 1
+
+class Lathatatlan2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_scale_h = 0.1
+        self.hitbox_scale_w = 1
+
+class Lathatatlan3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(1)
+        self.set_width(200)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 1.1
+
+class Lathatatlan4(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(1)
+        self.set_width(200)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 1.1
+
+
+
+
+
+
 
 
 
