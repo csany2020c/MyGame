@@ -27,6 +27,7 @@ class bruhstage(game.scene2d.MyStage):
         self.lovedek.y = 200
 
         self.camera.tracking = self.fohos
+        self.fohos.set_on_key_press_listener(self.press)
 
         f = open("map.txt", "r")
 
@@ -40,7 +41,8 @@ class bruhstage(game.scene2d.MyStage):
                     if c == "w":
                         a = wall()
                     if c == "k":
-                        a = fohos()
+                        self.fohos = fohos()
+                        a = self.fohos
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
@@ -57,8 +59,14 @@ class bruhstage(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
         if event.key == pygame.K_a:
             sender.x -= 10
-            self.camera.set_tracking_window(0.6, 0.2, 0.2, 0.2)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
+        if event.key == pygame.K_w:
+            sender.y -= 10
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
+        if event.key == pygame.K_s:
+            sender.y += 10
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
 
