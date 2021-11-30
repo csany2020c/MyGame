@@ -2,10 +2,6 @@ import kuposztok
 import pygame
 from kuposztok.CaraValt.CaraValtAct import *
 import kuposztok.Menu.MenuScreen
-from kuposztok.Game.Car1Multi.Car1ScreenMultiP import Car1ScreenMultiP
-from kuposztok.Game.Car2Multi.Car2ScreenMultiP import Car2ScreenMultiP
-from kuposztok.Game.Car3Multi.Car3ScreenMultiP import Car3ScreenMultiP
-from kuposztok.Game.Car4Multi.Car4ScreenMultiP import Car4ScreenMultiP
 from kuposztok.Game.CarOsszesScreen import CarOsszesScreen
 
 
@@ -94,11 +90,10 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car2.set_on_mouse_down_listener(self.Car2Start)
         self.car3.set_on_mouse_down_listener(self.Car3Start)
         self.car4.set_on_mouse_down_listener(self.Car4Start)
-        """self.car5.set_on_mouse_down_listener(self.Car5Start)
         self.car1multvalaszto.set_on_mouse_down_listener(self.Car1MultStart)
         self.car2multvalaszto.set_on_mouse_down_listener(self.Car2MultStart)
         self.car3multvalaszto.set_on_mouse_down_listener(self.Car3MultStart)
-        self.car4multvalaszto.set_on_mouse_down_listener(self.Car4MultStart)"""
+        self.car4multvalaszto.set_on_mouse_down_listener(self.Car4MultStart)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
 
@@ -140,36 +135,25 @@ class CaraValtStage(game.scene2d.MyStage):
             self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
 
 
-    """def Car5Start(self, sender, event):
+    def Car1MultStart(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
-            self.randomvaltozo = 51"""
-
-    """def Car1MultStart(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car1Multi.Car1ScreenMultiP.Car1ScreenMultiP())
             self.randomvaltozo = 12
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
 
     def Car2MultStart(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car2Multi.Car2ScreenMultiP.Car2ScreenMultiP())
             self.randomvaltozo = 22
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
 
     def Car3MultStart(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car3Multi.Car3ScreenMultiP.Car3ScreenMultiP())
             self.randomvaltozo = 32
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
 
     def Car4MultStart(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Multi.Car4ScreenMultiP.Car4ScreenMultiP())
             self.randomvaltozo = 42
-
-    def Car5MultStart(self, sender, event):
-        if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen())
-            self.randomvaltozo = 52"""
-
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
 
     #3
     def Actvalt1(self, sender, event):
@@ -243,8 +227,3 @@ class CaraValtStage(game.scene2d.MyStage):
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
 
-
-    """def RandomVariable(self):
-        asd = self.randomvaltozo
-        int(asd)
-        return asd"""

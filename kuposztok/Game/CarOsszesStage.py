@@ -62,13 +62,25 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.vesztettel.height = self.height
 
         if self.carvalt == 11:
-            self.joseph = Ski()
+            self.joseph = SnowBoard()
         if self.carvalt == 21:
             self.joseph = Sledge()
         if self.carvalt == 31:
             self.joseph = SnowMobile()
         if self.carvalt == 41:
+            self.joseph = Ski()
+        if self.carvalt == 12:
+            self.joseph = SnowMobile()
+            self.joseph2 = SnowMobile()
+        if self.carvalt == 22:
+            self.joseph = Sledge()
+            self.joseph2 = Sledge()
+        if self.carvalt == 32:
             self.joseph = SnowBoard()
+            self.joseph2 = SnowBoard()
+        if self.carvalt == 42:
+            self.joseph = Ski()
+            self.joseph2 = Ski()
 
         self.joseph.width = 100
         self.joseph.z_index = 5
@@ -80,6 +92,17 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.joseph.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph.debug = False
         self.add_actor(self.joseph)
+
+        self.joseph2.width = 100
+        self.joseph2.z_index = 5
+        self.joseph2.height = 200
+        self.joseph2.x = 700
+        self.joseph2.y = 500
+        self.joseph2.hitbox_scale_w = 0.4
+        self.joseph2.hitbox_scale_h = 0.4
+        self.joseph2.hitbox_shape = game.simpleworld.ShapeType.Circle
+        self.joseph2.debug = False
+        self.add_actor(self.joseph2)
 
         self.newgame = Newgame()
         self.newgame.x = self.width - 300
@@ -127,6 +150,13 @@ class CarOsszesStage(game.scene2d.MyStage):
         if event.key == pygame.K_a:
             if self.joseph.x > 0:
                 self.joseph.x -= a
+        if event.key == pygame.K_RIGHT:
+            if self.joseph2.x < self.width - 200:
+                self.joseph2.x += a
+        if event.key == pygame.K_LEFT:
+            if self.joseph2.x > 0:
+                self.joseph2.x -= a
+
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
@@ -135,12 +165,20 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.joseph.rotate_with(+22)
         if event.key == pygame.K_a:
             self.joseph.rotate_with(-22)
+        if event.key == pygame.K_RIGHT:
+            self.joseph2.rotate_with(+22)
+        if event.key == pygame.K_LEFT:
+            self.joseph2.rotate_with(-22)
 
     def visszafordul(self, sender, event):
         if event.key == pygame.K_d:
             self.joseph.rotate_with(-22)
         if event.key == pygame.K_a:
             self.joseph.rotate_with(+22)
+        if event.key == pygame.K_RIGHT:
+            self.joseph2.rotate_with(-22)
+        if event.key == pygame.K_LEFT:
+            self.joseph2.rotate_with(+22)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
@@ -148,4 +186,4 @@ class CarOsszesStage(game.scene2d.MyStage):
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.screen.game.set_screen(CarOsszesStage(carvalt= self.carvalt))
