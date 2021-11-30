@@ -109,16 +109,16 @@ class ASD(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.7, 0.2)
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
         if event.key == pygame.K_a:
             sender.x -= 10
-            self.camera.set_tracking_window(0.4, 0.2, 0.2, 0.2)
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
         if event.key == pygame.K_RIGHT:
             sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
         if event.key == pygame.K_LEFT:
             sender.x -= 10
-            self.camera.set_tracking_window(0.6, 0.2, 0.2, 0.2)
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
 
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
