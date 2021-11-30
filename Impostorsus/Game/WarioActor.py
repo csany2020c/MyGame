@@ -11,7 +11,7 @@ class WarioActor(game.scene2d.MyActor):
         self.go = True
         self.set_width(64)
         self.hitbox_scale_h = 1.030
-        self.hitbox_scale_w = 0.9
+        self.hitbox_scale_w = 1
         self.hitbox_shape = ShapeType.Rectangle
 
     def act(self, delta_time: float):

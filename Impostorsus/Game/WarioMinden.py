@@ -77,8 +77,14 @@ class ASD(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, 0.2)
         if event.key == pygame.K_a:
+            sender.x -= 10
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, 0.2)
+        if event.key == pygame.K_RIGHT:
+            sender.x += 10
+            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
+        if event.key == pygame.K_LEFT:
             sender.x -= 10
             self.camera.set_tracking_window(0.6, 0.2, 0.2, 0.2)
 
@@ -95,6 +101,10 @@ class ASD(game.scene2d.MyStage):
             self.wario.ugras()
 
         if event.key == pygame.K_SPACE:
+            print("'hoppáré'")
+            self.wario.ugras()
+
+        if event.key == pygame.K_UP:
             print("'hoppáré'")
             self.wario.ugras()
 
@@ -117,7 +127,6 @@ class ASD(game.scene2d.MyStage):
                     if self.wario.overlaps(actorASD):
                         overlapsASD = True
                         break
-
             if isinstance(actorASD, GroundActor):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
@@ -127,6 +136,11 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     overASD = True
                     break
+            if isinstance(actorASD, Kocka):
+                if self.wario.overlaps(actorASD):
+                    self.wario.y += 4
+
+
 
         if g is not None:
             g.remove_from_stage()
@@ -267,7 +281,7 @@ class BindingsStage (game.scene2d.MyStage):
         self.a.y += 50
         self.b = MenuSzoveg()
         self.add_actor(self.b)
-        self.b.set_text("A,D,SPACE = Irányítás")
+        self.b.set_text("W,A,D,SPACE = Irányítás")
         self.b.set_alpha(500)
         self.b.set_width(50)
         self.b.set_height(50)
