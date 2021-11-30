@@ -22,15 +22,15 @@ class GameStage(game.scene2d.MyStage):
 
         self.D = None
         if puska == 0:
-            self.D = Deagle_3()
-        if puska == 1:
             self.D = Deagle_2()
+        if puska == 1:
+            self.D = Deagle_3()
         if puska == 2:
             self.D = Deagle_4()
         if puska == 3:
             self.D = Deagle_5()
         if puska == 4:
-            self.D = Deagle_3()
+            self.D = Deagle()
 
         self.add_actor(self.D)
         self.D.y = 250
