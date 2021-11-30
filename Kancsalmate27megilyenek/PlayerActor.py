@@ -3,7 +3,7 @@ import pygame
 from game.simpleworld.ShapeType import ShapeType
 
 class PlayerActor(game.scene2d.MyActor):
-    def __init__(self, image_url: str = "../map/terkep.png"):
+    def __init__(self, image_url: str = "Heroamijó_1.png"):
         super().__init__(image_url)
         self.z_index = 1
         self.info = pygame.display.Info()

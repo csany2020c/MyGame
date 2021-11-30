@@ -14,6 +14,12 @@ class InStage(game.scene2d.MyStage):
         super().__init__()
         self.player = PlayerActor()
         self.eletero : int = 100
+        self.heart = HeartActor()
+        self.heart1 = HeartActor()
+        self.heart2 = HeartActor()
+        self.add_actor(self.heart)
+        self.add_actor(self.heart1)
+        self.add_actor(self.heart2)
         self.hp = Label()
         self.add_actor(self.hp)
         self.hp.set_text("HP:" + self.eletero.__str__())
@@ -102,19 +108,30 @@ class InStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        x = 5
+
+        b = 5
         if self.isShiftPressed:
-           x = x * 2
+           b = b * 2
         if self.isWPressed:
-            self.player.y -= x
+            self.player.y -= b
         if self.isAPressed:
-            self.player.x -= x
+            self.player.x -= b
         if self.isSPressed:
-            self.player.y += x
+            self.player.y += b
         if self.isDPressed:
-            self.player.x += x
+            self.player.x += b
         if self.isEscPressed:
             quit()
-
-
+        self.heart.x = self.player.x - 15
+        self.heart.y = self.player.y - 30
+        self.heart1.x = self.player.x + 10
+        self.heart1.y = self.player.y - 30
+        self.heart2.x = self.player.x + 35
+        self.heart2.y = self.player.y - 30
+        if self.eletero < 65:
+            self.heart2.remove_from_stage()
+        if self.eletero < 30:
+            self.heart1.remove_from_stage()
+        if self.eletero < 0:
+            self.heart.remove_from_stage()
 

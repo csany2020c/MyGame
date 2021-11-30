@@ -23,3 +23,9 @@ class StoneActor(game.scene2d.MyActor):
         super().__init__(image_url)
         self.set_size(64, 64)
         self.z_index = 0
+
+class HeartActor(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "Heart.png"):
+        super().__init__(image_url)
+        self.set_size(32, 32)
+        self.z_index = 1
