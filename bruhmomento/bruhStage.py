@@ -59,14 +59,14 @@ class bruhstage(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.45, 0.5)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
         if event.key == pygame.K_a:
             sender.x -= 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.45, 0.5)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
         if event.key == pygame.K_w:
             sender.y -= 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.45, 0.5)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
         if event.key == pygame.K_s:
             sender.y += 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.45, 0.5)
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
 
