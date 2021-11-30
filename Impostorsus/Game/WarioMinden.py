@@ -10,7 +10,6 @@ class ASD(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        pygame.mouse.set_visible(0)
 
         # # for i in range(100):
         # #     h = HatterActor1()
@@ -28,53 +27,23 @@ class ASD(game.scene2d.MyStage):
                 x: int = 0
                 for c in line:
                     a: MyBaseActor = None
-                    a1: MyBaseActor = None
-                    a2: MyBaseActor = None
-                    a3: MyBaseActor = None
-                    a4: MyBaseActor = None
                     if c == "o":
                         a = Kocka()
-                        a1 = Lathatatlan()
-                    if c == "p":
-                        a = Kocka()
-                        a2 = Lathatatlan2()
                     if c == "T":
                         a = Question()
                     if c == "g":
                         a = GroundActor()
-                    if c == "j":
-                        a = GroundActor()
-                        a3 = Lathatatlan3()
-                    if c == "k":
-                        a = GroundActor()
-                        a4 = Lathatatlan4()
+                    if c == "G":
+                        a = Ground2Actor()
                     if c == "x":
                         a = InvisActor()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
-                        a1 = self.wario
-                        a2 = self.wario
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
                         self.add_actor(a)
-                    if a1 is not None:
-                        a1.x = x * 64
-                        a1.y = y * 64
-                        self.add_actor(a1)
-                    if a2 is not None:
-                        a2.x = x * 64
-                        a2.y = y * 64
-                        self.add_actor(a2)
-                    if a3 is not None:
-                        a3.x = x * 64
-                        a3.y = y * 64
-                        self.add_actor(a3)
-                    if a4 is not None:
-                        a4.x = x * 64
-                        a4.y = y * 64
-                        self.add_actor(a4)
                         print(c)
                     x += 1
             else:
@@ -109,16 +78,10 @@ class ASD(game.scene2d.MyStage):
         # print(event.key)
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+            self.camera.set_tracking_window(0.2, 0.2, 0.6, 0.2)
         if event.key == pygame.K_a:
             sender.x -= 10
-            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
-        if event.key == pygame.K_RIGHT:
-            sender.x += 10
-            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
-        if event.key == pygame.K_LEFT:
-            sender.x -= 10
-            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+            #self.camera.set_tracking_window(0.6, 0.2, 0.2, 0.2)
 
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
@@ -133,10 +96,6 @@ class ASD(game.scene2d.MyStage):
             self.wario.ugras()
 
         if event.key == pygame.K_SPACE:
-            print("'hoppáré'")
-            self.wario.ugras()
-
-        if event.key == pygame.K_UP:
             print("'hoppáré'")
             self.wario.ugras()
 
@@ -159,6 +118,7 @@ class ASD(game.scene2d.MyStage):
                     if self.wario.overlaps(actorASD):
                         overlapsASD = True
                         break
+
             if isinstance(actorASD, GroundActor):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
@@ -168,23 +128,6 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     overASD = True
                     break
-            if isinstance(actorASD, Kocka):
-                if self.wario.overlaps(actorASD):
-                    self.wario.y += 4
-            if isinstance(actorASD, Lathatatlan):
-                if self.wario.overlaps(actorASD):
-                    self.wario.x -= 12
-            if isinstance(actorASD, Lathatatlan2):
-                if self.wario.overlaps(actorASD):
-                    self.wario.x += 12
-            if isinstance(actorASD, Lathatatlan3):
-                if self.wario.overlaps(actorASD):
-                    self.wario.x -= 12
-            if isinstance(actorASD, Lathatatlan4):
-                if self.wario.overlaps(actorASD):
-                    self.wario.x += 12
-
-
 
         if g is not None:
             g.remove_from_stage()
@@ -235,13 +178,12 @@ class ASD(game.scene2d.MyStage):
             self.wario.start()
 
         if overASD:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
 
 
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mouse.set_visible(10)
         self.b = BackGround()
         self.add_actor(self.b)
         self.b.x += 0
@@ -314,7 +256,6 @@ class ASD2 (game.scene2d.MyStage):
 class BindingsStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mouse.set_visible(0)
         self.a = MenuSzoveg()
         self.add_actor(self.a)
         self.a.set_text("Gombok:")
@@ -325,7 +266,7 @@ class BindingsStage (game.scene2d.MyStage):
         self.a.y += 50
         self.b = MenuSzoveg()
         self.add_actor(self.b)
-        self.b.set_text("W,A,D,SPACE = Irányítás")
+        self.b.set_text("A,D,SPACE = Irányítás")
         self.b.set_alpha(500)
         self.b.set_width(50)
         self.b.set_height(50)
@@ -384,14 +325,6 @@ class CreditStage (game.scene2d.MyStage):
         self.d.set_height(50)
         self.d.x += 250
         self.d.y += 325
-
-class HalalStage (game.scene2d.MyStage):
-    def __init__(self):
-        super().__init__()
-        self.h = Halalkep()
-        self.add_actor(self.h)
-        self.h.x += 390
-        self.h.y += 300
 
 
 
