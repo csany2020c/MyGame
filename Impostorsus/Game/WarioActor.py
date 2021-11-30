@@ -119,7 +119,7 @@ class Gemba(game.scene2d.MyActor):
                 self.y += 6
 
     def ugras(self):
-        self.jump = 210
+        self.jump = 240
 
 
     def start(self):
@@ -180,6 +180,39 @@ class Halalkep(game.scene2d.MyActor):
         super().__init__("Kepek/halalkep.png")
         self.set_height(450)
         self.set_width(450)
+
+class Lathatatlan(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_scale_h = 0.1
+        self.hitbox_scale_w = 1
+
+class Lathatatlan2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(64)
+        self.set_width(64)
+        self.hitbox_scale_h = 0.1
+        self.hitbox_scale_w = 1
+
+class Lathatatlan3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(1)
+        self.set_width(200)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 1.1
+
+class Lathatatlan4(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_height(1)
+        self.set_width(200)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 1.1
+
 
 
 

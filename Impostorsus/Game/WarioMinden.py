@@ -28,21 +28,53 @@ class ASD(game.scene2d.MyStage):
                 x: int = 0
                 for c in line:
                     a: MyBaseActor = None
+                    a1: MyBaseActor = None
+                    a2: MyBaseActor = None
+                    a3: MyBaseActor = None
+                    a4: MyBaseActor = None
                     if c == "o":
                         a = Kocka()
+                        a1 = Lathatatlan()
+                    if c == "p":
+                        a = Kocka()
+                        a2 = Lathatatlan2()
                     if c == "T":
                         a = Question()
                     if c == "g":
                         a = GroundActor()
+                    if c == "j":
+                        a = GroundActor()
+                        a3 = Lathatatlan3()
+                    if c == "k":
+                        a = GroundActor()
+                        a4 = Lathatatlan4()
                     if c == "x":
                         a = InvisActor()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
+                        a1 = self.wario
+                        a2 = self.wario
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
                         self.add_actor(a)
+                    if a1 is not None:
+                        a1.x = x * 64
+                        a1.y = y * 64
+                        self.add_actor(a1)
+                    if a2 is not None:
+                        a2.x = x * 64
+                        a2.y = y * 64
+                        self.add_actor(a2)
+                    if a3 is not None:
+                        a3.x = x * 64
+                        a3.y = y * 64
+                        self.add_actor(a3)
+                    if a4 is not None:
+                        a4.x = x * 64
+                        a4.y = y * 64
+                        self.add_actor(a4)
                         print(c)
                     x += 1
             else:
@@ -139,6 +171,18 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
                     self.wario.y += 4
+            if isinstance(actorASD, Lathatatlan):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 12
+            if isinstance(actorASD, Lathatatlan2):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 12
+            if isinstance(actorASD, Lathatatlan3):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 12
+            if isinstance(actorASD, Lathatatlan4):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 12
 
 
 
