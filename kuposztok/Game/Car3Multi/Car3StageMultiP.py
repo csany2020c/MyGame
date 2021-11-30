@@ -90,6 +90,8 @@ class Car3StageMultiP(game.scene2d.MyStage):
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.joseph2.set_on_key_press_listener(self.iranyitas2)
         self.newgame.set_on_mouse_down_listener(self.NewG)
+        self.set_on_key_down_listener(self.elfordul)
+        self.set_on_key_up_listener(self.visszafordul)
 
     def Timer(self, sender):
         self.score = self.score + 1
@@ -122,10 +124,10 @@ class Car3StageMultiP(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 200:
+            if self.joseph.x < self.width - 300:
                 self.joseph.x += a
         if event.key == pygame.K_a:
-            if self.joseph.x > 200:
+            if self.joseph.x > 0:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
@@ -134,12 +136,31 @@ class Car3StageMultiP(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_RIGHT:
-            if self.joseph2.x < self.width - 200:
+            if self.joseph2.x < self.width - 300:
                 self.joseph2.x += a
         if event.key == pygame.K_LEFT:
-            if self.joseph2.x > 200:
+            if self.joseph2.x > 0:
                 self.joseph2.x -= a
 
+    def elfordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(+15)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(-15)
+        if event.key == pygame.K_RIGHT:
+            self.joseph2.rotate_with(+15)
+        if event.key == pygame.K_LEFT:
+            self.joseph2.rotate_with(-15)
+
+    def visszafordul(self, sender, event):
+        if event.key == pygame.K_d:
+            self.joseph.rotate_with(-15)
+        if event.key == pygame.K_a:
+            self.joseph.rotate_with(+15)
+        if event.key == pygame.K_RIGHT:
+            self.joseph2.rotate_with(-15)
+        if event.key == pygame.K_LEFT:
+            self.joseph2.rotate_with(+15)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
@@ -147,7 +168,7 @@ class Car3StageMultiP(game.scene2d.MyStage):
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Game.Car4Screen.Car4Screen())
+            self.screen.game.set_screen(kuposztok.Game.Car3Multi.Car3ScreenMultiP.Car3ScreenMultiP())
 
 
 

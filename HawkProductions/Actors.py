@@ -148,14 +148,60 @@ class Deagle3(game.scene2d.MyActor):
         super().__init__("image/luckyspade.png")
 
 
+class Deagle_3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/luckyspade1.png")
+
+    def act(self, delta_time: float):
+        self.y += 75 * delta_time
+        # self.r += 15* delta_time
+        self.r += 7.5 * delta_time
+
+        if self.y < 0:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
+        if self.y > 720:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+
+
 class Deagle4(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/goldengun.png")
 
 
+class Deagle_4(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/goldengun1.png")
+
+    def act(self, delta_time: float):
+        self.y += 75 * delta_time
+        # self.r += 15* delta_time
+        self.r += 7.5 * delta_time
+
+        if self.y < 0:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
+        if self.y > 720:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+
+
 class Deagle5(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/observator.png")
+
+
+class Deagle_5(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/observator.png")
+
+    def act(self, delta_time: float):
+        self.y += 75 * delta_time
+        # self.r += 15* delta_time
+        self.r += 7.5 * delta_time
+
+        if self.y < 0:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
+        if self.y > 720:
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+
 
 class Sarga(game.scene2d.MyActor):
     def __init__(self):

@@ -64,7 +64,6 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.vesztettel.height = self.height
 
         self.joseph = Randomplayer()
-        self.add_actor(self.joseph)
         self.joseph.width = 100
         self.joseph.z_index = 5
         self.joseph.height = 200
@@ -79,15 +78,6 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.newgame = Newgame()
         self.newgame.x = self.width - 300
         self.newgame.y = self.height - self.height + 250
-
-        for i in range(15):
-            self.enemy = Enemy()
-            self.add_actor(self.enemy)
-            self.enemy.width = 100
-            self.enemy.height = 100
-            self.enemy.z_index = 5
-            self.enemy.x = random.Random().randint(0, self.width)
-            self.enemy.y = random.Random().randint(0 - self.height, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)

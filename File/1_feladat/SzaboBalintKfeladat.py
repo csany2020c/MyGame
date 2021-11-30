@@ -23,8 +23,6 @@ class Main:
         super().__init__()
         f: TextIO = open("!_Spec//orvosi_nobeldijak.txt", "r")
         content: str = f.read()
-        print("Content:")
-        print(content)
         lines: List['str'] = content.split(sep="\n")
         print("Split content")
         print(lines)
@@ -34,12 +32,27 @@ class Main:
             d = Data(lines[i])
             datalist.append(d)
 
-        print("Print list")
-        for d in datalist:
-            print(d)
+        #print("Print list")
+        #for d in datalist:
+            #print(d)
 
         print("...")
         f.close()
+
+        print("3. feladat")
+        print("Díjazottak száma: {db} fő ".format(db=len(datalist)))
+
+        max: int = 0
+        for i in range(1, len(datalist)):
+            if datalist[i].ev > datalist[max].ev:
+                max = i
+        print(datalist[max].ev)
+
+        print("5. feladat")
+
+        kod: str = input()
+
+
 
 
 Main()

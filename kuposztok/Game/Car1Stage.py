@@ -96,31 +96,6 @@ class Car1Stage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
 
-        f = open("../palya1.txt", "r")
-
-        y: int = 0
-        while True:
-            line = f.readline().strip()
-            if line:
-                x: int = 0
-                for c in line:
-                    a: MyBaseActor = None
-                    if c == "b":
-                        a = self.enemy()
-                    if c == "0":
-                        a = self.joseph()
-                    if a is not None:
-                        a.x = x * 64
-                        a.y = y * 64
-                        self.add_actor(a)
-                        print(c)
-                    x += 1
-            else:
-                break
-            y += 1
-
-        f.close()
-
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
@@ -147,10 +122,10 @@ class Car1Stage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 400:
+            if self.joseph.x < self.width - 100:
                 self.joseph.x += a
         if event.key == pygame.K_a:
-            if self.joseph.x > 200:
+            if self.joseph.x > 0:
                 self.joseph.x -= a
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())

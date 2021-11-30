@@ -11,5 +11,4 @@ class bruh(game.scene2d.MyGame):
         super().__init__(width, height)
         self.screen = bruhScreen()
 
-
 bruh().run()
