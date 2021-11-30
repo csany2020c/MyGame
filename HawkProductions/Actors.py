@@ -205,4 +205,9 @@ class Deagle_5(game.scene2d.MyActor):
 
 class Sarga(game.scene2d.MyActor):
     def __init__(self):
-        super.__init__("image/Sarga.PNG")
+        super().__init__("image/sarga.png")
+
+
+class Piros(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/piros.png")
