@@ -38,7 +38,6 @@ class Deagle(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
-        #self.r += 15* delta_time
         self.r += 7.5*delta_time
 
         if self.y < 0:
@@ -64,7 +63,6 @@ class Deagle_2(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
-        # self.r += 15* delta_time
         self.r += 7.5 * delta_time
 
         if self.y < 0:
@@ -154,7 +152,6 @@ class Deagle_3(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
-        # self.r += 15* delta_time
         self.r += 7.5 * delta_time
 
         if self.y < 0:
@@ -174,7 +171,6 @@ class Deagle_4(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
-        # self.r += 15* delta_time
         self.r += 7.5 * delta_time
 
         if self.y < 0:
@@ -194,7 +190,6 @@ class Deagle_5(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
-        # self.r += 15* delta_time
         self.r += 7.5 * delta_time
 
         if self.y < 0:
