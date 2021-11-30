@@ -56,7 +56,7 @@ class InStage(game.scene2d.MyStage):
                     if c == "2":
                         self.sand = SandActor()
                         a = self.sand
-                    if c == "3":
+                    if c == "4":
                         self.stone = StoneActor()
                         a = self.stone
                     if a is not None:
