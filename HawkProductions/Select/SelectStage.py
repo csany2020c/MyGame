@@ -71,7 +71,6 @@ class SelectStage(game.scene2d.MyStage):
             if self.puska < 0:
                 self.puska = 4
             self.frissites()
-            # self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen2())
 
     def katt4(self, sender, event):
         print(sender)
@@ -80,7 +79,6 @@ class SelectStage(game.scene2d.MyStage):
             if self.puska > 4:
                 self.puska = 0
             self.frissites()
-            # self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen3())
 
     def frissites(self):
         if self.D == None:
@@ -99,7 +97,7 @@ class SelectStage(game.scene2d.MyStage):
             self.D.image_url = 'image/observator.png'
             self.f.set_text("Observator")
         if self.puska == 4:
-            self.D.image_url = 'image/bidd22.png'
+            self.D.image_url = 'image/bid2.png'
             self.f.set_text("Black Ice")
         self.D.x = 530
         self.D.y = 250
