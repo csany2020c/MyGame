@@ -11,7 +11,6 @@ class OverStage(game.scene2d.MyStage):
         pygame.mixer.music.play(-1)
         self.F = Gameover()
         self.add_actor(self.F)
-        self.F.set_text("Játék Túl")
         self.F.x = 360
         self.F.y = 10
         self.F.set_color(255, 255, 255)
