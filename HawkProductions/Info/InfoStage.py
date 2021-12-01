@@ -62,6 +62,12 @@ class IStage(game.scene2d.MyStage):
         self.Ba.set_on_mouse_down_listener(self.click1)
         self.set_on_key_down_listener(self.katt1)
 
+        self.L = Logo()
+        self.add_actor(self.L)
+        self.L.set_size(228, 172)
+        self.L.x = 850
+        self.L.y = 50
+
     def click1(self, sender, event):
         print(sender)
         if event.button == 1:
@@ -124,8 +130,14 @@ class Istage2(game.scene2d.MyStage):
         self.t4 = Strokes()
         self.add_actor(self.t4)
         self.t4.set_text("Németh Csongor")
-        self.t4.x = 400
+        self.t4.x = 350
         self.t4.y = 560
+
+        self.L = Logo()
+        self.add_actor(self.L)
+        self.L.set_size(228, 172)
+        self.L.x = 850
+        self.L.y = 50
 
     def click1(self, sender, event):
         print(sender)
