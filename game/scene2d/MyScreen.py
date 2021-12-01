@@ -60,7 +60,7 @@ class MyScreen(MyTimers, MyElapsedTime, MyMouseListeners, MyKeyboardListeners, M
                 if s.visible:
                     s.draw()
 
-    def add_stage(self, stage: 'MyStage') -> 'MyScreen':
+    def add_stage(self, stage: object) -> object:
         self._stages.append(stage)
         stage.debug = self.debug
         stage.set_screen(self)
