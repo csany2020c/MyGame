@@ -1,0 +1,9 @@
+
+
+1: Nagyon hasznos hogyha nagyobb pályát szeretnénk mint amekkorát az alap képernyő amit a pycharm ad enged
+   1.2 Könnyű elhelyezni és megérteni hogy működik miután átnézed
+
+2: Egyik korlátja, hogy attól még el lehet rendezni x,y-on nem találtam lehetőséget hogy egy fix pontot kövessen
+   2.2 Másik, hogy sok idő letesztelni, hogy minden oldala működik e
+
+3. Javaslat: A 2.2-ből kiindulóan, egy módszer mint a hitboxoknál ( egy körvonal egy gomb lenyomásakor ) amivel meg lehet nézni egyszerűen a határokat.
