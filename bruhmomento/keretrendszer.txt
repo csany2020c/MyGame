@@ -1,0 +1,8 @@
+1. Milyen előnyökkel rendelkezik a keretrendszer, mik az erősségei.
+Keretrendszer sokat segít, egyszerű parancsok vannak benne, kevesebbet kell írni, és vannak bent dolgok, melyeket a segítsége nélkül nem tudnánk megcsinálni egyedül.
+Ami szintén jó benne, hogy nem limitál a csak benne lévő parancsokra, ha szeretnénk, tudjuk használni az alap pygame-t is.
+A keretrendszer parancsainak nevéből pedig lehet következtetni arra, hogy mit csinálnak, hogyan lehet őket használni.
+
+2. Milyen korlátokkal rendelkezik, mik a hátrányai.
+
+3. Továbbfejlesztési, funkciófejlesztési javaslatok.
