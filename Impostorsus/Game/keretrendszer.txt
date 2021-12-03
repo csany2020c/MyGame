@@ -1,4 +1,4 @@
-
+Ha a kameráról volt szó:
 
 1: Nagyon hasznos hogyha nagyobb pályát szeretnénk mint amekkorát az alap képernyő amit a pycharm ad enged
    1.2 Könnyű elhelyezni és megérteni hogy működik miután átnézed
@@ -7,3 +7,14 @@
    2.2 Másik, hogy sok idő letesztelni, hogy minden oldala működik e
 
 3. Javaslat: A 2.2-ből kiindulóan, egy módszer mint a hitboxoknál ( egy körvonal egy gomb lenyomásakor ) amivel meg lehet nézni egyszerűen a határokat.
+
+
+Ha a MyScreen-ről volt szó
+
+1: Előnye, hogy minden rajta alapul nélküle valószínüleg vakon csinálnánk játékot
+   1.2 Bármilyen színt lehet háttérnek adni az rgb-nek köszönhetően
+
+2: Hátránya, hogy nem lehet mindenhol meghívni, sokszor problémákat okoz, bár ez lehet csak a pycharm hibája
+   2.2 Az elsőnek a második része, problémákat tud okozni a többi parancs ami hozzá van írva használathoz, néha hibának veszi
+
+3: Javaslatom , valami megoldás hogy a háttér folyton egy fix pozícióban maradjon, a kamerához képest.
