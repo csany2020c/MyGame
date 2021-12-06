@@ -1,0 +1,8 @@
+
+1: Előnye, hogy minden rajta alapul nélküle valószínüleg vakon csinálnánk játékot
+   1.2 Bármilyen színt lehet háttérnek adni az rgb-nek köszönhetően
+
+2: Hátránya, hogy nem lehet mindenhol meghívni, sokszor problémákat okoz, bár ez lehet csak a pycharm hibája
+   2.2 Az elsőnek a második része, problémákat tud okozni a többi parancs ami hozzá van írva használathoz, néha hibának veszi
+
+3: Javaslatom , valami megoldás hogy a háttér folyton egy fix pozícióban maradjon, a kamerához képest.

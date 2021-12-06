@@ -59,6 +59,9 @@ class InStage(game.scene2d.MyStage):
                     if c == "3":
                         self.stone = StoneActor()
                         a = self.stone
+                    if c == "4":
+                        self.path = PathActor()
+                        a = self.path
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
