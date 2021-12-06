@@ -23,6 +23,4 @@ class Yeti(game.scene2d.MyGame):
 
 
 
-
-
 Yeti().run()

@@ -47,7 +47,19 @@ class Main:
         print(dijazottak[max].Ev)
 
         kod: str = input()
+        print(kod)
+        db: int = 0
+        for k in range(0, len(dijazottak)):
 
+            print(str(k) + " - " + str(dijazottak[k]))
+
+
+            if dijazottak[k].Orszagkod == kod:
+                db += 1
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db = db))
 
 Main()
 
