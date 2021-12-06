@@ -30,7 +30,7 @@ class Gomb (game.scene2d.MyActor):
 
 class Hatter(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/hatter.jpg"):
+    def __init__(self, image_url: str = "images/city.jpg"):
         super().__init__(image_url)
 
 class MenuHatter(game.scene2d.MyActor):
@@ -41,32 +41,12 @@ class MenuHatter(game.scene2d.MyActor):
 
 class Stage(game.scene2d.MyStage):
 
-
     def __init__(self):
         super().__init__()
 
         f = open("images/palyaxd.txt", "r")
 
-        y: int = 0
-        while True:
-            line = f.readline().strip()
-            if line:
-                x: int = 0
-                for c in line:
-                    a: MyBaseActor = None
-                    if c == "o":
-                        a = Kocka()
-                    if a is not None:
-                        a.x = x * 64
-                        a.y = y * 64
-                        self.add_actor(a)
-                        print(c)
-                    x += 1
-            else:
-                break
-            y += 1
 
-        f.close()
 
         self.hatter_bg = Hatter()
         self.actor1_bg = Actor()

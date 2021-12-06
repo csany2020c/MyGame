@@ -1,5 +1,4 @@
 from HawkProductions.over.OverStage import *
-from HawkProductions.over.OverStage2 import *
 
 
 class OverScreen(game.scene2d.MyScreen):

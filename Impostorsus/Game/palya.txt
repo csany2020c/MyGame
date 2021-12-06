@@ -1,14 +1,20 @@
 o                                                      o
 o                                                      o
 o                                                      o
-o         W                                            o
+o                                                      o
 o                                                      o
 o              ooo                                     o
 o   oooo                                               o
 o                                                      o
 o                                                      o
-o            oooo                                      o
-o    ?    ?                    oooooo                  o
-o      oooo                                            o
+o            oooo                          g           o
+o                            oooooo                    o
+o  W                                    g  G  g        o
 o                                                      o
-g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g g
+g  g  g  g  g  g  g  g      g  g  g  g  G  G  G  g  g
+x
+g                    g      g
+x
+g                    g      g
+x
+g                    gxxxxxxg

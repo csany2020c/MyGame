@@ -71,9 +71,13 @@ class kapu(game.scene2d.MyActor):
         super().__init__("Images/kkapu.png")
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
-        #self.hitbox_shape = ShapeType.Rectangle
+        self.hitbox_shape = ShapeType.Rectangle
 
 class wall(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/fal.jpg")
         self.set_size(65, 65)
+
+class startgomb(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/lessgo2.png")

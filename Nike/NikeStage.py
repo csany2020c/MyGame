@@ -4,6 +4,7 @@ from Nike.NikeActor import *
 import Nike.NikeScreen
 import random
 import pygame
+from game.simpleworld.ShapeType import ShapeType
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
@@ -65,12 +66,20 @@ class GameStage(game.scene2d.MyStage):
         self.FatJordanact = FatJordanact()
         self.add_actor(FatJordanact())
 
+        self.camera.tracking = self.FatJordanact
+        self.FatJordanact.set_on_key_press_listener(self.press)
 
+    def press(self, sender, event):
+        if event.key == pygame.K_d:
+            sender.x += 10
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
+        if event.key == pygame.K_a:
+            sender.x -= 10
+            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
 
     def backtomenu(self,sender,event):
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
-
 
 
 
