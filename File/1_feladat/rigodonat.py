@@ -29,7 +29,9 @@ class Main:
         dijazottak: List['Data'] = list()
         for i in range(1, len(lines) - 1):
             dijazottak.append(Data(lines[i]))
+
         f.close()
+
 
         print("3. feladat")
         print("Díjazottak száma: {db} fő ".format(db=len(dijazottak)))
@@ -41,6 +43,15 @@ class Main:
         print(dijazottak[max].Ev)
 
         kod: str = input()
+
+        db70: int=0
+        for ind in range(1, len(dijazottak)):
+            if ind[index].ev >= 1970 and ind[index].ev <= 1979:
+                
+
+
+
+
 
 
 Main()
