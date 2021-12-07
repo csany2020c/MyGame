@@ -1,4 +1,5 @@
 import game
+import pygame
 from game.scene2d.MyScreen import *
 from game.scene2d.MyActor import *
 from game.simpleworld.ShapeType import ShapeType
@@ -8,6 +9,19 @@ class Kocka(game.scene2d.MyActor):
         super().__init__("images/images.jpg")
         self.set_height(64)
         self.set_width(64)
+        self.hitbox_shape = ShapeType.Rectangle
+
+
+class Golo(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "images/golo.png"):
+        super().__init__(image_url)
+
+        self.go = True
+        self.set_height(14)
+        self.set_width(14)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 2
+        self.y = 500
         self.hitbox_shape = ShapeType.Rectangle
 
 class Actor(game.scene2d.MyActor):
@@ -39,6 +53,15 @@ class MenuHatter(game.scene2d.MyActor):
         super().__init__(image_url)
 
 
+
+
+
+
+
+
+
+
+
 class Stage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -50,8 +73,10 @@ class Stage(game.scene2d.MyStage):
 
         self.hatter_bg = Hatter()
         self.actor1_bg = Actor()
+        self.golo_bg = Golo()
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
+        self.add_actor(self.golo_bg)
 
 
         self.actor1_bg.set_on_key_press_listener(self.press)
@@ -64,8 +89,10 @@ class Stage(game.scene2d.MyStage):
             sender.x -= 3
 
 
+
     def interval(self, sender):
         self.actor1_bg.x += 100 * self.get_delta_time()
+        self.golo_bg.x += 100* self.get_delta_time()
         pass
 
     def key_down(self, sender, event):
@@ -74,6 +101,11 @@ class Stage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             print("'QUIT'")
             quit()
+
+    def Golotuz(self, sender, event):
+        if event.key == pygame.K_SPACE:
+            sender.x += 3
+            print(event)
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
