@@ -35,6 +35,20 @@ class Main:
             if datalist[i].ev > datalist[max].ev:
                 max = i
         print(datalist[max].ev)
-
+        print("5. feladat")
         kod: str = input()
+        #for it in datalist:
+            #print(it)
+        db:int = 0
+        for index in range(len(0, datalist)):
+            if datalist[index].orszag == kod:
+                db += 1
+                utolso = index
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott")
+        elif db == 1:
+            print(datalist[utolso])
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
 Main()
