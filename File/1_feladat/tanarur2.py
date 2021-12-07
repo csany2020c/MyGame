@@ -51,4 +51,27 @@ class Main:
         print(datalist[max].ev)
 
         kod: str = input()
+        # # iterátoros végigjárás
+        # for it in datalist:
+        #     print(it)
+        #
+        # # index alapú végigjárás
+        # for index in range(0, len(datalist)):
+        #     print(str(index) + " ---- " + str(datalist[index]))
+
+        db:int = 0
+        utolso:int = -1
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+                utolso = index
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print(datalist[utolso])
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
+
+
 Main()
