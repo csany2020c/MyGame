@@ -20,6 +20,13 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
 
+        self.point = 0
+        self.pointl = game.scene2d.MyLabel("Point:" + str(self.point))
+        self.add_actor(self.pointl)
+        self.pointl.set_color(0, 0, 0)
+        self.pointl.width = 100
+        self.pointl.height = 50
+
         self.D = None
         if puska == 0:
             self.D = Deagle_2()
@@ -190,6 +197,12 @@ class GameStage(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+        if self.D.overlaps(self.C):
+            self.point += 1
+        if self.D.overlaps(self.C1):
+            self.point += 1
+        if self.D.overlaps(self.C2):
+            self.point += 1
 
     def click2(self, sender, event):
         if event.button == 1:

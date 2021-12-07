@@ -1,0 +1,6 @@
+1. Segít az játéktér vizualizálásában.
+Könnyen és érthetően használható.
+
+2. nem feltétlenül precíz és akadnak collisionnel kapcsolatos problémák léphetnek fel.
+
+3. Többféle játéktípus támogatása nem ártana mert jelenleg a főleg a felsőnézetes és a platformereket preferálja.

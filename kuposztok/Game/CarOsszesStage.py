@@ -69,7 +69,7 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.joseph = SnowMobile()
         if self.carvalt == 41:
             self.joseph = Ski()
-        if self.carvalt == 12:
+        """if self.carvalt == 12:
             self.joseph = SnowMobile()
             self.joseph2 = SnowMobile()
         if self.carvalt == 22:
@@ -80,7 +80,7 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.joseph2 = SnowBoard()
         if self.carvalt == 42:
             self.joseph = Ski()
-            self.joseph2 = Ski()
+            self.joseph2 = Ski()"""
 
         self.joseph.width = 100
         self.joseph.z_index = 5
@@ -93,7 +93,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.joseph.debug = False
         self.add_actor(self.joseph)
 
-        self.joseph2.width = 100
+        """self.joseph2.width = 100
         self.joseph2.z_index = 5
         self.joseph2.height = 200
         self.joseph2.x = 700
@@ -102,7 +102,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.joseph2.hitbox_scale_h = 0.4
         self.joseph2.hitbox_shape = game.simpleworld.ShapeType.Circle
         self.joseph2.debug = False
-        self.add_actor(self.joseph2)
+        self.add_actor(self.joseph2)"""
 
         self.newgame = Newgame()
         self.newgame.x = self.width - 300

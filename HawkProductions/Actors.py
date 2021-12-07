@@ -14,7 +14,6 @@ class Title(game.scene2d.MyActor):
 
 
 class Startb(game.scene2d.MyActor):
-
     def __init__(self):
         super().__init__("image/startb.png")
 
@@ -23,7 +22,6 @@ class Startb(game.scene2d.MyActor):
 
 
 class Exit(game.scene2d.MyActor):
-
     def __init__(self):
         super().__init__("image/quitb.png")
 
@@ -32,7 +30,6 @@ class Exit(game.scene2d.MyActor):
 
 
 class Deagle(game.scene2d.MyActor):
-
     def __init__(self):
         super().__init__("image/bid2.png")
 
@@ -47,19 +44,18 @@ class Deagle(game.scene2d.MyActor):
 
 
 class Deagle1(game.scene2d.MyActor):
-
     def __init__(self):
         super().__init__("image/bid2.png")
 
 
 class Deagle2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/Select.png")
+        super().__init__("image/original.png")
 
 
 class Deagle_2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/Select.png")
+        super().__init__("image/original.png")
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
@@ -106,11 +102,6 @@ class Bg(game.scene2d.MyActor):
         super().__init__("image/hat_kep_j.png")
 
 
-class Main(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/main.png")
-
-
 class Arrow(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/nyil_main.png")
@@ -138,7 +129,7 @@ class Coin(game.scene2d.MyActor):
 
 class Selectimage(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/Select.png")
+        super().__init__("image/original.png")
 
 
 class Deagle3(game.scene2d.MyActor):

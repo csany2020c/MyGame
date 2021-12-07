@@ -30,7 +30,7 @@ class Gomb (game.scene2d.MyActor):
 
 class Hatter(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/hatter.jpg"):
+    def __init__(self, image_url: str = "images/city.jpg"):
         super().__init__(image_url)
 
 class MenuHatter(game.scene2d.MyActor):

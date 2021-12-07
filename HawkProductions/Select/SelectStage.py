@@ -85,7 +85,7 @@ class SelectStage(game.scene2d.MyStage):
             self.D = MyActor('image/bid22.png')
             self.add_actor(self.D)
         if self.puska == 0:
-            self.D.image_url = 'image/Select.png'
+            self.D.image_url = 'image/original.png'
             self.f.set_text("Original")
         if self.puska == 1:
             self.D.image_url = 'image/luckyspade1.png'

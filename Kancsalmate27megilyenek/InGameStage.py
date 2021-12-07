@@ -22,6 +22,7 @@ class InStage(game.scene2d.MyStage):
         self.add_actor(self.heart2)
         self.hp = Label()
         self.add_actor(self.hp)
+        self.player = PlayerActor()
         self.hp.set_text("HP:" + self.eletero.__str__())
         self.hp.x = 500
         self.hp.y = 500
@@ -59,6 +60,9 @@ class InStage(game.scene2d.MyStage):
                     if c == "3":
                         self.stone = StoneActor()
                         a = self.stone
+                    if c == "4":
+                        self.path = PathActor()
+                        a = self.path
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
