@@ -22,6 +22,7 @@ class InStage(game.scene2d.MyStage):
         self.add_actor(self.heart2)
         self.hp = Label()
         self.add_actor(self.hp)
+        self.player = PlayerActor()
         self.hp.set_text("HP:" + self.eletero.__str__())
         self.hp.x = 500
         self.hp.y = 500
