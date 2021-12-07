@@ -35,5 +35,18 @@ class Main:
             print(d)
         f.close()
 
+        print("3. feladat")
+        print("Díjazottak száma: {db} fő ".format(db=len(datalist)))
 
+        max: int = 0
+
+        for i in range(1, len(datalist)):
+            # print(i)
+            if datalist[i].ev > datalist[max].ev:
+                max = i
+
+        print(datalist[max].ev)
+
+        kod: str = input()
+        db: int = 0
 Main()
