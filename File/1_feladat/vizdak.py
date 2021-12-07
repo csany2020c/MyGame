@@ -17,7 +17,7 @@ class Data:
         return "{x};   {y};   {txt};   {col}".format(x=self.ev, y=self.nev, txt=self.elet, col = self.kod)
 
 
-class Main:
+class Feladat:
 
     def __init__(self) -> None:
         super().__init__()
@@ -46,11 +46,33 @@ class Main:
                 max = i
         print(datalist[max].ev)
 
+        #kod: str = input()
         print("5. feladat")
-
         kod: str = input()
 
         db: int = 0
+        utolso: int = -1
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+                utolso = index
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print(datalist[utolso])
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
 
 
-Main()
+        print("6. feladat")
+        kod: str = input()
+        max: int = 0
+        for i in range(0, len(datalist)):
+            if datalist[i].ev > datalist[max].ev:
+                max = i
+            print(datalist[max].ev)
+
+        if datalist[index].ev >= 1970 and  datalist[index].ev <=1979:
+
+Feladat()

@@ -6,10 +6,35 @@ import pygame
 import random
 from bruhmomento.bruhScreen import *
 from bruhmomento.bruhActor import *
-from bruhmomento.menuscreen import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 import game
 
+class menuscreen(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.r = 0
+        self.g = 100
+        self.b = 0
+        self.add_stage(menustage())
+
+class menustage(game.scene2d.MyStage):
+
+    def __init__(self):
+        super().__init__()
+        self.add_actor(startgomb())
+        self.startgomb = startgomb()
+        self.startgomb.set_on_mouse_down_listener(self.inditas)
+
+    #def Click(self, sender,event):
+    #    if event.button == 1:
+    #        self.screen = bruhScreen()
+
+    def inditas(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(bruhScreen(map.txt))
 
 class bruhstage(game.scene2d.MyStage):
 
