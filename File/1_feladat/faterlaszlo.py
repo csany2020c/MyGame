@@ -22,7 +22,7 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "{x};   {y};   {txt};   {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
+        return "Ev = {x};   Nev = {y};   Elethalal = {txt};   Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
 
 
 class Main:
@@ -52,14 +52,25 @@ class Main:
 
         kod: str = input()
 
-        szamok: int = 0
-        for a in range(1, len(datalist)):
-            if datalist[szamok].orszagkod < datalist[i].orszagkod:
-                szamok = i
-            print(datalist[szamok].orszagkod)
+        for index in range(0, len(datalist)):
+            print(str(index) + " ---- " + str(datalist[index]))
 
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print()
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
 
-
-
+        szam: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1970 and datalist[o].ev < 1980:
+                szam += 1
+        print("Dijjak {db}".format(db=szam))
 
 Main()
