@@ -27,7 +27,7 @@ class Data:
 class Main:
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", encoding="utf8")
         content: str = f.read()
         #print("Content:")
         #print(content)
@@ -68,7 +68,7 @@ class Main:
 
 
         # Az input függvény a billentyűzetről olvas be szöveget, a kimenete str típus.
-        kod: str = input()
+        kod: str = input().upper().strip()
         #print(kod)
 
 
@@ -76,7 +76,7 @@ class Main:
 
         # A db változó értéke kezdetben legyen 0, mert 0 db feltételnek megfelelő elem van, mielőtt nekiállunk számolni.
         db: int = 0
-
+        utolso_megtalalt: Data
         # A ciklus 0-tól indul az utols idexig. A k változó index érték, és minden körben egy másik elemet vesz elő ennek a segítségével.
         for k in range(0, len(dijazottak)):
             # Az elemek kírása indexekkel együtt. Ez nem a feladat része, csak teszt.
@@ -86,21 +86,24 @@ class Main:
             # A példában a káadik díjazott országkódja megegyezik a felhasználó által beírttal, akkor növeli.
             if dijazottak[k].Orszagkod == kod:
                 db += 1
+                utolso_megtalalt = dijazottak[k]
 
         # A darabszám értékének a felhasználása a ciklus végén
         if db == 0:
             print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print(utolso_megtalalt)
         else:
             print("A megadott országból {db} fő díjazott volt!".format(db = db))
 
 
-        # iterátoros végigjárás
-        for it in dijazottak:
-            print(it)
-
-        # index alapú végigjárás
-        for index in range(0, len(dijazottak)):
-            print(str(index) + " ---- " + str(dijazottak[index]))
+        # # iterátoros végigjárás
+        # for it in dijazottak:
+        #     print(it)
+        #
+        # # index alapú végigjárás
+        # for index in range(0, len(dijazottak)):
+        #     print(str(index) + " ---- " + str(dijazottak[index]))
 
         #
         # orszagok: dict = dict()
