@@ -19,7 +19,7 @@ class Main:
 
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", encoding="utf-8")
         content: str = f.read()
         print("Content:")
         print(content)
@@ -36,5 +36,11 @@ class Main:
             print(d)
         f.close()
 
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].év >= 1980 and datalist[index].év <= 1989:
+                db += 1
+                print(datalist[index].év, datalist[index].név)
+        print(db)
 
 Main()
