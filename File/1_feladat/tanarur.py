@@ -94,26 +94,26 @@ class Main:
             print("A megadott országból {db} fő díjazott volt!".format(db = db))
 
 
-        # iterátoros végigjárás
-        for it in dijazottak:
-            print(it)
+        # # iterátoros végigjárás
+        # for it in datalist:
+        #     print(it)
+        #
+        # # index alapú végigjárás
+        # for index in range(0, len(datalist)):
+        #     print(str(index) + " ---- " + str(datalist[index]))
 
-        # index alapú végigjárás
-        for index in range(0, len(dijazottak)):
-            print(str(index) + " ---- " + str(dijazottak[index]))
 
-        #
-        # orszagok: dict = dict()
-        # for k in range(0, len(dijazottak)):
-        #     try:
-        #         orszagok[dijazottak[k].Orszagkod]+=1
-        #     except:
-        #         orszagok[dijazottak[k].Orszagkod]=1
-        #
-        # for k, v in orszagok.items():
-        #     if v > 5:
-        #         print("{k} {v}".format(k=k, v=v))
-        #
+        orszagok: dict = dict()
+        for k in range(0, len(dijazottak)):
+            try:
+                orszagok[dijazottak[k].Orszagkod]+=1
+            except:
+                orszagok[dijazottak[k].Orszagkod]=1
+
+        for k, v in orszagok.items():
+            if v > 5:
+                print("{k} {v}".format(k=k, v=v))
+
 
 Main()
 
