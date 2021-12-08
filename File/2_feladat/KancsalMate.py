@@ -28,4 +28,4 @@ class Main:
             print(d)
         f.close()
 
-    Main()
+Main()
