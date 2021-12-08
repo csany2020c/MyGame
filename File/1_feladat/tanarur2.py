@@ -74,4 +74,14 @@ class Main:
             print("A megadott országból {db} fő díjazott volt!".format(db=db))
 
 
+        # Kik kaptak nóbeldíjat a 70-es években, és hányan voltak?
+        # A nevüket és a darabszámukat jelenítse meg.
+
+
+        db70: int = 0
+        for it in datalist:
+            if it.ev >= 1970 and it.ev <= 1979:
+                print(it.nev)
+                db70 += 1
+        print("Az 1970-es években {db70} díjazott volt.".format(db70 = db70))
 Main()

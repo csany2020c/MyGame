@@ -8,11 +8,19 @@ class Data:
         print(text)
 
         fields:List['str'] = text.split(";")
-
+        self.text:str = input()
         self.year : int = int(fields[0])
         self.name : str = str(fields[1])
         self.borthdeath : str = str(fields[2])
         self.cCode : str = str(fields[3])
+
+        self.inputCode = input()
+        for i in range(1,len(text)):
+            if self.inputCode == self.cCode:
+                print("okos vagy")
+            else:
+                print(self.cCode)
+                print("nem vagy okos")
 
 
     def __str__(self) -> str:
@@ -46,5 +54,8 @@ class Main:
         for d in dataList:
             # Mivel fent van egy szépen megírt __str__ függvény, ezlért a Data típus könnyedén, automatikusan (implicit) str típussá alakul.
             print(d)
+
+
+
 
 Main()
