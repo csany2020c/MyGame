@@ -167,7 +167,8 @@ class ASD(game.scene2d.MyStage):
             self.wario.ugras()
             jump_fx.play()
         if event.key == pygame.K_e:
-            webbrowser.open('https://youtu.be/6n3pFFPSlW4')
+            webbrowser.open('https://youtu.be/d1YBv2mWll0')
+            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioScreen())
 
 
     def act(self, delta_time: float):

@@ -153,7 +153,7 @@ class Gemba(game.scene2d.MyActor):
 class MenuSzoveg(game.scene2d.MyLabel):
 
     def __init__(self, string: str = "MyText") -> None:
-            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="8-BIT WONDER.TTF")
 
 class Play(game.scene2d.MyActor):
     def __init__(self):
@@ -255,6 +255,7 @@ class Winkep(game.scene2d.MyActor):
         super().__init__("Kepek/win.png")
         self.set_height(450)
         self.set_width(450)
+
 
 
 
