@@ -236,9 +236,9 @@ class Lathatatlan4(game.scene2d.MyActor):
 
 class Tabla(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Kepek/Lathatatlan.png")
-        self.set_height(64)
-        self.set_width(64)
+        super().__init__("Kepek/Tabla.png")
+        self.set_height(100)
+        self.set_width(100)
         self.hitbox_scale_h = 1.030
         self.hitbox_scale_w = 1.1
 

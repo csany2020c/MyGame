@@ -1,5 +1,6 @@
 import game
 import pygame
+import webbrowser
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScreen
@@ -11,7 +12,6 @@ class ASD(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         pygame.mouse.set_visible(0)
-
         # # for i in range(100):
         # #     h = HatterActor1()
         # #     h.x = i * h.w + -150
@@ -50,11 +50,15 @@ class ASD(game.scene2d.MyStage):
                         a4 = Lathatatlan4()
                     if c == "x":
                         a = InvisActor()
+                    if c == "S":
+                        a = Tabla()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
                         a1 = self.wario
                         a2 = self.wario
+                        a3 = self.wario
+                        a4 = self.wario
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
@@ -104,6 +108,22 @@ class ASD(game.scene2d.MyStage):
         #     g.y = 615
         #     g.x = i * g.w + -150
         #     self.add_actor(g)
+        self.sz = MenuSzoveg()
+        self.add_actor(self.sz)
+        self.sz.set_text("Nyomj")
+        self.sz.set_alpha(500)
+        self.sz.set_width(25)
+        self.sz.set_height(25)
+        self.sz.x += 3410
+        self.sz.y += 715
+        self.sz2 = MenuSzoveg()
+        self.add_actor(self.sz2)
+        self.sz2.set_text("E-t")
+        self.sz2.set_alpha(500)
+        self.sz2.set_width(25)
+        self.sz2.set_height(25)
+        self.sz2.x += 3430
+        self.sz2.y += 740
 
     def press(self, sender, event):
         # print(event.key)
@@ -119,6 +139,7 @@ class ASD(game.scene2d.MyStage):
         if event.key == pygame.K_LEFT:
             sender.x -= 10
             self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+
 
     def interval(self, sender):
         self.wario.x += 100 * self.get_delta_time()
@@ -139,6 +160,9 @@ class ASD(game.scene2d.MyStage):
         if event.key == pygame.K_UP:
             print("'hoppáré'")
             self.wario.ugras()
+        if event.key == pygame.K_e:
+            webbrowser.open('https://youtu.be/6n3pFFPSlW4')
+
 
     def act(self, delta_time: float):
         super().act(delta_time)
