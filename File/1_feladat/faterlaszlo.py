@@ -1,46 +1,76 @@
-from typing import List
-from typing import TextIO
 import string
+from typing import TextIO
+from typing import List
+
 
 class Data:
+
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print(parseString)
-
+        # print(parseString)
         fields: List['str'] = parseString.split(";")
-
         self.ev: int = int(fields[0])
-        self.nev: str = str(fields[1])
-        self.szuleteshalalozas: str = str(fields[2])
-        self.orszagkod: str = str(fields[3])
+        self.nev: str = fields[1]
+        self.elethalal: str = fields[2]
+        self.orszagkod: str = fields[3]
+        szh: List['str'] = fields[2].split("-")  # 1922-2000
+        # print(szh)
+        self.szuletes: int = int(szh[0])
+        self.halalozas: int = None
+        if szh[1] != "":
+            self.halalozas = int(szh[1])
 
-        for i in range(5, len(fields)):
-            self.orszagkod += str(fields[i])
-            if i < len(fields) - 1:
-                self.orszagkod += " "
 
     def __str__(self) -> str:
-        return "Év = {x}; Név = {y}; Országkód = {txt}; Születés-halálozás = {col}".format(x=self.ev, y=self.nev, txt=self.orszagkod, col=self.szuleteshalalozas)
+        return "Ev = {x};   Nev = {y};   Elethalal = {txt};   Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
 
 
-class Olvas:
-    f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
-    content: str = f.read()
-    print("Content:")
-    print(content)
-    lines: List['str'] = content.split(sep="\n")
-    print(lines)
+class Main:
 
-    datalist: List['Data'] = list()
-    for s in range(1, len(lines)-1):
-        d = Data(lines[s])
-        datalist.append(d)
-    print("Itt a vege")
-    for d in datalist:
-        print(d)
-    f.close()
+    def __init__(self) -> None:
+        super().__init__()
+        f: TextIO = open("!_Spec//orvosi_nobeldijak.txt", "r", encoding="utf-8")
+        content: str = f.read()
+        # print(content)
+        lines: List['str'] = content.split(sep="\n")
+        # print(lines)
+        datalist: List['Data'] = list()
+        for i in range(1, len(lines) - 1):
+            d = Data(lines[i])
+            datalist.append(d)
+        # for d in datalist:
+        #     print(d)
+        f.close()
 
-Olvas()
+        print("3. feladat: Díjazottak száma: {db} fő".format(db=len(datalist)))
+        print(datalist[len(datalist) - 1].nev)
+        max: int = 0
+        for i in range(1, len(datalist)):
+            if datalist[max].ev < datalist[i].ev:
+                max = i
+        print(datalist[max].ev)
 
+        kod: str = input()
 
+        for index in range(0, len(datalist)):
+            print(str(index) + " ---- " + str(datalist[index]))
 
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print()
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
+
+        szam: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1970 and datalist[o].ev < 1980:
+                szam += 1
+        print("Dijjak {db}".format(db=szam))
+
+Main()

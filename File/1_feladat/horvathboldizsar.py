@@ -1,24 +1,25 @@
 import string
 from typing import TextIO
 from typing import List
+
 class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split(";")
-        self.ev: int = int(fields[0])
-        self.nev: str = fields[1]
-        self.szuletes: str = fields[2]
-        self.orszagkod: str = fields[3]
+        self.év: int = int(fields[0])
+        self.név: str = fields[1]
+        self.születés: str = fields[2]
+        self.országkód: str = fields[3]
 
     def __str__(self) -> str:
-        return "{x}; {y}; {txt}; {col}".format(x=self.ev, y=self.nev, txt=self.szuletes, col=self.orszagkod)
+        return "{x}; {y}; {txt}; {col}".format(x=self.év, y=self.név, txt=self.születés, col=self.országkód)
 
 class Main:
 
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt")
+        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", encoding="utf-8")
         content: str = f.read()
         print("Content:")
         print(content)
@@ -35,18 +36,11 @@ class Main:
             print(d)
         f.close()
 
-        print("3. feladat")
-        print("Díjazottak száma: {db} fő ".format(db=len(datalist)))
-
-        max: int = 0
-
-        for i in range(1, len(datalist)):
-            # print(i)
-            if datalist[i].ev > datalist[max].ev:
-                max = i
-
-        print(datalist[max].ev)
-
-        kod: str = input()
         db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].év >= 1980 and datalist[index].év <= 1989:
+                db += 1
+                print(datalist[index].év, datalist[index].név)
+        print(db)
+
 Main()

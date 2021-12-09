@@ -26,8 +26,8 @@ class olvasas:
             d = data(lines[i])
             datalist.append(d)
 
-        for d in datalist:
-            print(d)
+        #for d in datalist:
+        #    print(d)
         f.close()
 
         print("3. feladat")
@@ -39,6 +39,12 @@ class olvasas:
                 max = i
         print(datalist[max].ev)
 
-        kod: str = input()
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].ev >= 1970 and datalist[index].ev <= 1979:
+                db += 1
+                print(datalist[index].ev, datalist[index].nev)
+        print(db)
+
 
 olvasas()

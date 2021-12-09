@@ -51,4 +51,37 @@ class Main:
         print(datalist[max].ev)
 
         kod: str = input()
+        # # iterátoros végigjárás
+        # for it in datalist:
+        #     print(it)
+        #
+        # # index alapú végigjárás
+        # for index in range(0, len(datalist)):
+        #     print(str(index) + " ---- " + str(datalist[index]))
+
+        db:int = 0
+        utolso:int = -1
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+                utolso = index
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print(datalist[utolso])
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
+
+
+        # Kik kaptak nóbeldíjat a 70-es években, és hányan voltak?
+        # A nevüket és a darabszámukat jelenítse meg.
+
+
+        db70: int = 0
+        for it in datalist:
+            if it.ev >= 1970 and it.ev <= 1979:
+                print(it.nev)
+                db70 += 1
+        print("Az 1970-es években {db70} díjazott volt.".format(db70 = db70))
 Main()
