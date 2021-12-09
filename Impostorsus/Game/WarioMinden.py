@@ -1,6 +1,7 @@
 import game
 import pygame
 import webbrowser
+from pygame import mixer
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScreen
@@ -18,7 +19,6 @@ class ASD(game.scene2d.MyStage):
         # #     self.add_actor(h)
         #
         # self.add_actor(HatterActor1())
-
         f = open("palya.txt", "r")
 
         y: int = 0
@@ -52,6 +52,8 @@ class ASD(game.scene2d.MyStage):
                         a = InvisActor()
                     if c == "S":
                         a = Tabla()
+                    if c == "z":
+                        a = Zaszlo()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
@@ -147,19 +149,23 @@ class ASD(game.scene2d.MyStage):
         pass
 
     def key_down(self, sender, event):
+        jump_fx = pygame.mixer.Sound("audio/jumpsound.mp3")
+        jump_fx.set_volume(0.1)
         print(sender)
         print(event)
         if event.key == pygame.K_w:
             print("'hoppáré'")
             self.wario.ugras()
+            jump_fx.play()
 
         if event.key == pygame.K_SPACE:
             print("'hoppáré'")
             self.wario.ugras()
-
+            jump_fx.play()
         if event.key == pygame.K_UP:
             print("'hoppáré'")
             self.wario.ugras()
+            jump_fx.play()
         if event.key == pygame.K_e:
             webbrowser.open('https://youtu.be/6n3pFFPSlW4')
 
@@ -168,6 +174,10 @@ class ASD(game.scene2d.MyStage):
         super().act(delta_time)
         overlapsASD: bool = False
         overASD: bool = False
+        dead_fx = pygame.mixer.Sound("audio/deadsound.mp3")
+        dead_fx.set_volume(0.1)
+        win_fx = pygame.mixer.Sound("audio/winsound.mp3")
+        win_fx.set_volume(0.1)
 
         g = None
         for actorASD in self.actors:
@@ -207,6 +217,10 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Lathatatlan4):
                 if self.wario.overlaps(actorASD):
                     self.wario.x += 12
+            if isinstance(actorASD, Zaszlo):
+                if self.wario.overlaps(actorASD):
+                    win_fx.play()
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WinScreen())
 
 
 
@@ -259,6 +273,7 @@ class ASD(game.scene2d.MyStage):
             self.wario.start()
 
         if overASD:
+            dead_fx.play()
             self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
 
 
@@ -416,3 +431,11 @@ class HalalStage (game.scene2d.MyStage):
         self.add_actor(self.h)
         self.h.x += 390
         self.h.y += 300
+
+class WinStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.w = Winkep()
+        self.add_actor(self.w)
+        self.w.x += 390
+        self.w.y += 300

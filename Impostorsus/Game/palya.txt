@@ -1,17 +1,17 @@
-p                                                      o
-p                                                      o
-p                                                      o
-p                                                      o
-p                                                      o
-p              oop                                     o
-p   ooop                                               o
-p                                                      o
-p                                                      o
-p            ooop                          j  k        o
-p                            ooooop                    o
-p  W                                    j  g  g  k   S o
-p                                                      o
-g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p              oop                                         z      o
+p   ooop                                                          o
+p                                                                 o
+p                                                                 o
+p            ooop                          j  k                   o
+p                            ooooop                               o
+p  W                                    j  g  g  k   S            o
+p                                                                 o
+g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
 g                    k      j
 x

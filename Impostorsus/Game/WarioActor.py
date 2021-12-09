@@ -242,6 +242,20 @@ class Tabla(game.scene2d.MyActor):
         self.hitbox_scale_h = 1.030
         self.hitbox_scale_w = 1.1
 
+class Zaszlo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/zaszlo.png")
+        self.set_height(250)
+        self.set_width(250)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 0.4
+
+class Winkep(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/win.png")
+        self.set_height(450)
+        self.set_width(450)
+
 
 
 
