@@ -1,20 +1,20 @@
-o                                                      o
-o                                                      o
-o                                                      o
-o                                                      o
-o                                                      o
-o              ooo                                     o
-o   oooo                                               o
-o                                                      o
-o                                                      o
-o            oooo                          g           o
-o                            oooooo                    o
-o  W                                    g  G  g        o
-o                                                      o
-g  g  g  g  g  g  g  g      g  g  g  g  G  G  G  g  g
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p                                                                 o
+p              oop                                         z      o
+p   ooop                                                          o
+p                                                                 o
+p                                                                 o
+p            ooop                          j  k                   o
+p                            ooooop                               o
+p  W                                    j  g  g  k   S            o
+p                                                                 o
+g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
-g                    g      g
+g                    k      j
 x
-g                    g      g
+g                    k      j
 x
 g                    gxxxxxxg

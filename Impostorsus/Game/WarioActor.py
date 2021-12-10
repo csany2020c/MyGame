@@ -153,7 +153,7 @@ class Gemba(game.scene2d.MyActor):
 class MenuSzoveg(game.scene2d.MyLabel):
 
     def __init__(self, string: str = "MyText") -> None:
-            game.scene2d.MyLabel.__init__(self, string=string, font_name="arial")
+            game.scene2d.MyLabel.__init__(self, string=string, font_name="8-BIT WONDER.TTF")
 
 class Play(game.scene2d.MyActor):
     def __init__(self):
@@ -223,7 +223,7 @@ class Lathatatlan3(game.scene2d.MyActor):
         super().__init__("Kepek/Lathatatlan.png")
         self.set_height(1)
         self.set_width(200)
-        self.hitbox_scale_h = 1
+        self.hitbox_scale_h = 0.8
         self.hitbox_scale_w = 1.1
 
 class Lathatatlan4(game.scene2d.MyActor):
@@ -231,8 +231,31 @@ class Lathatatlan4(game.scene2d.MyActor):
         super().__init__("Kepek/Lathatatlan.png")
         self.set_height(1)
         self.set_width(200)
-        self.hitbox_scale_h = 1
+        self.hitbox_scale_h = 0.8
         self.hitbox_scale_w = 1.1
+
+class Tabla(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Tabla.png")
+        self.set_height(100)
+        self.set_width(100)
+        self.hitbox_scale_h = 1.030
+        self.hitbox_scale_w = 1.1
+
+class Zaszlo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/zaszlo.png")
+        self.set_height(250)
+        self.set_width(250)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 0.4
+
+class Winkep(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/win.png")
+        self.set_height(450)
+        self.set_width(450)
+
 
 
 
