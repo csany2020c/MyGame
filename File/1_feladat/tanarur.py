@@ -105,6 +105,22 @@ class Main:
         # for index in range(0, len(dijazottak)):
         #     print(str(index) + " ---- " + str(dijazottak[index]))
 
+
+        # 5.1
+        # Listázza ki azokat a tudósokat, akik az 1980-as években kaptak
+        # díjat
+
+        # 5.2
+        # Listázza ki az USA-ból származó 1970 előtti díjazottakat
+        # valamint a S-ből származó 1960 utániakat.
+
+        # and - akkor ad igazat, amikor mindkét operandusa igaz.
+        # True and False => False      True and True => True
+        # or - akkor ad igazat, ha legalább az egyik operandusa igaz.
+        # True or False => True      True or True => True    False or False => False
+
+
+        # # 6. feladat
         #
         # orszagok: dict = dict()
         # for k in range(0, len(dijazottak)):

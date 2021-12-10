@@ -18,6 +18,9 @@ eloadoid	nev	zenekar
 17	Acda en De Munnik	1
 18	Ace	1
 19	Ace of Base	1
+20	Adam and the Ants	1
+20	Adam and
+ the Ants	1
 20	Adam & the Ants	1
 21	Adam Lambert	0
 22	Adamo	0
@@ -48,7 +51,8 @@ eloadoid	nev	zenekar
 47	Alex Harvey	0
 48	Alexander Curly	0
 49	Alexis Jordan	0
-50	Alice & Battiato	1
+50	Alice and
+ Battiato	1
 51	Alice Cooper	0
 52	Alice in Chains	1
 53	Alicia Keys	0
@@ -79,16 +83,19 @@ eloadoid	nev	zenekar
 78	Andrew Gold	0
 79	Andy Kim	0
 80	Andy Williams	0
-81	Animals & Eric Burdon	1
+81	Animals and
+ Eric Burdon	1
 82	Anita Garbo	0
 83	Anita Meyer	1
 84	Anita Ward	1
-85	Anna & Kate McGarrigle	1
+85	Anna and
+ Kate McGarrigle	1
 86	Anne Marie David	0
 87	Anne Murray	0
 88	Anneke Grönloh	0
 89	Annie Lennox	0
-90	Annie Lennox & Al Green	0
+90	Annie Lennox and
+ Al Green	0
 91	Anouk	0
 92	Anouk ft Douwe Bob	0
 93	Aphrodite's Child	1
@@ -104,10 +111,12 @@ eloadoid	nev	zenekar
 103	Armin van Buuren ft. Josh Cumbee	0
 104	Arne Jansen	0
 105	Art Garfunkel	0
-106	Art Sullivan & Kiki	0
+106	Art Sullivan and
+ Kiki	0
 107	Arthur Brown	0
 108	Arthur Conley	0
-109	Ashford & Simpson	1
+109	Ashford and
+ Simpson	1
 110	Associates	1
 111	Astrid Nijgh	0
 112	Astrud Gilberto	0
@@ -117,7 +126,8 @@ eloadoid	nev	zenekar
 116	Avicii feat. Aloe Blacc	0
 117	Avicii feat. Robbie Williams	0
 118	Axis	1
-119	Axwell & Ingrosso	1
+119	Axwell and
+ Ingrosso	1
 120	B.B. King	0
 121	Baccara	1
 122	Bachman-Turner Overdrive	1
@@ -130,9 +140,11 @@ eloadoid	nev	zenekar
 129	BAP	1
 130	Bar Kays	1
 131	Barbra Streisand	0
-132	Barbra Streisand & Neil Diamond	0
+132	Barbra Streisand and
+ Neil Diamond	0
 133	Barclay James Harvest	1
-134	Barry & Eileen	1
+134	Barry and
+ Eileen	1
 135	Barry Manilow	0
 136	Barry McGuire	0
 137	Barry Ryan	0
@@ -152,20 +164,25 @@ eloadoid	nev	zenekar
 151	Bert Kaempfert	0
 152	Bertolf	0
 153	Beth Hart	0
-154	Beth Hart & Joe Bonamassa	0
+154	Beth Hart and
+ Joe Bonamassa	0
 155	Bette Midler	0
 156	BEVERLY CRAVEN	0
 157	Beyoncé	0
 158	Beyoncé ft. Jay-Z	0
 159	Big Wheel	1
-160	Bill & Buster	1
-161	Bill Haley & His Comets	1
-162	Bill Medley & Jennifer Warnes	0
+160	Bill and
+ Buster	1
+161	Bill Haley and
+ His Comets	1
+162	Bill Medley and
+ Jennifer Warnes	0
 163	Bill Withers	0
 164	Billie Eillish	0
 165	Billie Holiday	0
 166	Billy Idol	0
-167	Billy J. Kramer & The Dakotas	0
+167	Billy J. Kramer and
+ The Dakotas	0
 168	Billy Jo Spears	0
 169	Billy Joe Royal	0
 170	Billy Joel	0
@@ -176,7 +193,8 @@ eloadoid	nev	zenekar
 175	Billy Swan	0
 176	Billy Vaughn Orchestra	1
 177	Bing Crosby	0
-178	Bing Crosby & Grace Kelly	0
+178	Bing Crosby and
+ Grace Kelly	0
 179	Bintangs	1
 180	Birdy	0
 181	BJ Thomas	0
@@ -190,24 +208,30 @@ eloadoid	nev	zenekar
 189	BLINK 182	1
 190	Bloem	0
 191	BLØF	1
-192	BLØF & Geike	1
-193	Bløf & Nielson	1
+192	BLØF and
+ Geike	1
+193	Bløf and
+ Nielson	1
 194	BLøF ft. Ilse DeLange	1
 195	Blondie	1
-196	Blood Sweat & Tears	1
+196	Blood Sweat and
+ Tears	1
 197	Blue Cheer	1
 198	Blue Diamonds	1
 199	Blue Haze	1
 200	Blue Mink	1
 201	Blue Öyster Cult	1
 202	Blur	1
-203	Bob & Earl	1
+203	Bob and
+ Earl	1
 204	Bob Carlisle	0
 205	Bob Dylan	1
-206	Bob Marley & The Wailers	1
+206	Bob Marley and
+ The Wailers	1
 207	Bob Moore	0
 208	Bob Seger	0
-209	Bob Seger & The Silver Bullet Band	0
+209	Bob Seger and
+ The Silver Bullet Band	0
 210	Bobbie Gentry	0
 211	Bobby Brown	0
 212	Bobby Goldsboro	0
@@ -215,14 +239,16 @@ eloadoid	nev	zenekar
 214	Bobby Rydell	0
 215	Bobby Vinton	0
 216	Bojoura	0
-217	Bolland & Bolland	1
+217	Bolland and
+ Bolland	1
 218	BOMFUNK MC'S	1
 219	Bon Jovi	1
 220	Boney M	1
 221	Bonnie Raitt	0
 222	Bonnie St. Claire	0
 223	Bonnie Tyler	0
-224	Booker T. & The MG's	1
+224	Booker T. and
+ The MG's	1
 225	Boris Gardiner	0
 226	Boston	1
 227	Bots	1
@@ -239,19 +265,25 @@ eloadoid	nev	zenekar
 238	Brian Hyland	0
 239	Brian May	0
 240	Brighouse and Rastrick Brass Band	1
-241	Brigitte Kaandorp & Herman Finkers	0
+241	Brigitte Kaandorp and
+ Herman Finkers	0
 242	Britney Spears	0
 243	Bronski Beat	1
 244	Brooke Fraser	0
 245	Brotherhood of man	1
-246	Bruce Hornsby & The Range	1
+246	Bruce Hornsby and
+ The Range	1
 247	Bruce Springsteen	0
 248	Bruno Mars	0
 249	Bryan Adams	0
-250	Bryan Adams & Barbra Streisand	0
-251	Bryan Adams & Melanie C	0
-252	Bryan Adams & Tina Turner	0
-253	Bryan Adams, Rod Stewart & Sting	0
+250	Bryan Adams and
+ Barbra Streisand	0
+251	Bryan Adams and
+ Melanie C	0
+252	Bryan Adams and
+ Tina Turner	0
+253	Bryan Adams, Rod Stewart and
+ Sting	0
 254	Bryan Ferry	0
 255	Bucks Fizz	1
 256	Buckshot Lefonque	1
@@ -268,9 +300,11 @@ eloadoid	nev	zenekar
 267	Calvin Harris ft. Dua Lipa	0
 268	Camila Cabello ft. Young Thug	0
 269	Candlewick Green	0
-270	Candy Dulfer & Dave Stewart	0
+270	Candy Dulfer and
+ Dave Stewart	0
 271	Canned Heat	0
-272	Captain & Tennille	0
+272	Captain and
+ Tennille	0
 273	Carel Kraayenhof	0
 274	Carl Douglas	0
 275	Carly Rae Jepsen	0
@@ -287,7 +321,8 @@ eloadoid	nev	zenekar
 286	Chaka Khan	0
 287	Champaign	1
 288	Charlene	0
-289	Charles & Eddie	1
+289	Charles and
+ Eddie	1
 290	Charles Aznavour	0
 291	Charles Trenet	0
 292	Charlie Daniels Band	1
@@ -327,15 +362,19 @@ eloadoid	nev	zenekar
 326	Claw Boys Claw	1
 327	Clean Bandit	1
 328	Cliff Richard	0
-329	Cliff Richard & The Shadows	0
-330	Cliff Richard & The Young Ones	1
+329	Cliff Richard and
+ The Shadows	0
+330	Cliff Richard and
+ The Young Ones	1
 331	Clouseau	1
 332	Clout	1
-333	Coasters & King Curtis	1
+333	Coasters and
+ King Curtis	1
 334	Cock Robin	1
 335	Cockney Rebel	0
 336	Coldplay	1
-337	Coldplay & Avicii	1
+337	Coldplay and
+ Avicii	1
 338	Coldplay ft. Beyoncé	1
 339	Colin Blunstone	0
 340	Collective Consciousness Society	1
@@ -345,21 +384,26 @@ eloadoid	nev	zenekar
 344	Conny Vandenbos	0
 345	Coolio ft. L.V.	0
 346	Cornelis Vreeswijk	0
-347	Corry & Rekels	1
+347	Corry and
+ Rekels	1
 348	Corry Brokken	0
 349	Counting Crows	1
-350	Counting Crows & Bløf	1
+350	Counting Crows and
+ Bløf	1
 351	Country Joe and the Fish	1
 352	Crash Test Dummies	1
 353	Cream	1
 354	Creedence Clearwater Revival	1
 355	Crispian St. Peters	0
-356	Crosby, Stills & Nash	1
-357	Crosby, Stills, Nash & Young	1
+356	Crosby, Stills and
+ Nash	1
+357	Crosby, Stills, Nash and
+ Young	1
 358	Crowded House	1
 359	Crystal Fighters	1
 360	Crystal Gayle	0
-361	Cuby & The Blizzards	1
+361	Cuby and
+ The Blizzards	1
 362	Culture Club	1
 363	Cunningham	0
 364	Curiosity Killed The Cat	1
@@ -368,7 +412,8 @@ eloadoid	nev	zenekar
 367	Cutting Crew	1
 368	Cyndi Lauper	0
 369	Daft Punk	1
-370	Daft Punk ft. Pharrell & Nile Rodgers	1
+370	Daft Punk ft. Pharrell and
+ Nile Rodgers	1
 371	Dalida	0
 372	Damien Rice	0
 373	Dan Fogelberg	0
@@ -378,7 +423,8 @@ eloadoid	nev	zenekar
 377	Daniel Lohues	0
 378	Daniel Powter	0
 379	Danyel Gérard	0
-380	Danny & the Juniors	1
+380	Danny and
+ the Juniors	1
 381	Danny de Munk	0
 382	Danny Mirror	0
 383	Danny Vera	0
@@ -387,18 +433,23 @@ eloadoid	nev	zenekar
 386	Dave	0
 387	Dave Berry	0
 388	Dave Davies	0
-389	Dave Dee Dozy Beaky Mick & Tich	1
+389	Dave Dee Dozy Beaky Mick and
+ Tich	1
 390	Dave Edmunds	1
 391	Dave Stewart	0
 392	David Bowie	0
-393	David Bowie & Mick Jagger	0
-394	David Bowie & Pat Metheny Group	0
+393	David Bowie and
+ Mick Jagger	0
+394	David Bowie and
+ Pat Metheny Group	0
 395	David Cassidy	0
 396	David Garrick	0
 397	David Glen Eisley	0
 398	David Gray	0
-399	David Guetta & Kelly Rowland	0
-400	David Guetta & Sia	0
+399	David Guetta and
+ Kelly Rowland	0
+400	David Guetta and
+ Sia	0
 401	David McWilliams	0
 402	David Soul	0
 403	David Sylvian	0
@@ -406,7 +457,8 @@ eloadoid	nev	zenekar
 405	Dawn and Tony Orlando	1
 406	DC Lewis	0
 407	De Dijk	1
-408	De Dijk & Solomon Burke	1
+408	De Dijk and
+ Solomon Burke	1
 409	De Jazzpolitie	1
 410	De Jeugd van Tegenwoordig	0
 411	De Kast	1
@@ -419,22 +471,27 @@ eloadoid	nev	zenekar
 418	Deep Blue Something	1
 419	Deep Purple	1
 420	Del Shannon	0
-421	Delaney, Bonnie & Friends	1
+421	Delaney, Bonnie and
+ Friends	1
 422	Delegation	1
 423	Delerium	1
 424	Demis Roussos	0
 425	Deniece Williams	0
 426	Depeche Mode	1
-427	Derek & The Dominos	1
+427	Derek and
+ The Dominos	1
 428	Desireless	0
 429	Desmond Dekker	0
 430	Des'ree	0
 431	Detroit Emeralds	1
 432	DEUS	1
-433	Dexy's Midnight Runners & The Emerald Express	1
+433	Dexy's Midnight Runners and
+ The Emerald Express	1
 434	Diana Ross	0
-435	Diana Ross & Lionel Richie	0
-436	Diana Ross & The Supremes	0
+435	Diana Ross and
+ Lionel Richie	0
+436	Diana Ross and
+ The Supremes	0
 437	Dido	0
 438	Diesel	1
 439	Diggy Dex	0
@@ -465,10 +522,12 @@ eloadoid	nev	zenekar
 464	Dotan	0
 465	Doug Ashdown	0
 466	Douwe Bob	0
-467	Douwe Bob & Jacqueline Govaert	0
+467	Douwe Bob and
+ Jacqueline Govaert	0
 468	Dr Hook	1
 469	Dr. Buzzard Or. Savannah Band	1
-470	Dr. Dre Ft. Snoop Dogg, Kurupt & Nate Dogg	0
+470	Dr. Dre Ft. Snoop Dogg, Kurupt and
+ Nate Dogg	0
 471	Drafi Deutscher	0
 472	Drs. P	0
 473	Drukwerk	0
@@ -484,10 +543,14 @@ eloadoid	nev	zenekar
 483	Eagle Eye Cherry	0
 484	Eagles	1
 485	Eagles Of Death Metal	1
-486	Earth & Fire	1
-487	Earth Wind & Fire ft. The Emotions	1
-488	Earth, Wind & Fire	1
-489	Echo & The Bunnymen	1
+486	Earth and
+ Fire	1
+487	Earth Wind and
+ Fire ft. The Emotions	1
+488	Earth, Wind and
+ Fire	1
+489	Echo and
+ The Bunnymen	1
 490	Ed Sheeran	0
 491	Eddie Cochran	0
 492	Eddie Floyd	0
@@ -500,31 +563,38 @@ eloadoid	nev	zenekar
 499	Edison Lighthouse	1
 500	Edith Piaf	0
 501	Editors	1
-502	Edward Sharpe & The Magnetic Zeros	1
+502	Edward Sharpe and
+ The Magnetic Zeros	1
 503	Edwin Hawkins Singers	1
 504	EELS	1
 505	Egbert Douwe	0
 506	Ekseption	1
 507	El Debarge	0
-508	Elaine Paige & Barbara Dickson	0
+508	Elaine Paige and
+ Barbara Dickson	0
 509	Elbow	1
 510	Electric Light Orchestra	1
-511	Electric Light Orchestra & Olivia Newton-John	1
+511	Electric Light Orchestra and
+ Olivia Newton-John	1
 512	Electronicas	1
 513	Elkie Brooks	0
 514	Ella Fitzgerald	0
-515	Ella Fitzgerald & Louis Armstrong	0
+515	Ella Fitzgerald and
+ Louis Armstrong	0
 516	Ellen Foley	0
-517	Ellen Ten Damme & 3JS	1
+517	Ellen Ten Damme and
+ 3JS	1
 518	Ellie Goulding	0
 519	Elton John	0
-520	Elton John & Kiki Dee	0
+520	Elton John and
+ Kiki Dee	0
 521	Elvin Bishop	0
 522	Elvis Costello	0
 523	Elvis Presley	0
 524	Elvis vs. JXL	0
 525	Emeli Sandé	0
-526	Emerson, Lake & Palmer	1
+526	Emerson, Lake and
+ Palmer	1
 527	Emilia	0
 528	Eminem	0
 529	Eminem feat. Dido	0
@@ -535,15 +605,19 @@ eloadoid	nev	zenekar
 534	Enigma	1
 535	Ennio Morricone	0
 536	Enrique Iglesias	0
-537	Enrique Iglesias & Whitney Houston	0
+537	Enrique Iglesias and
+ Whitney Houston	0
 538	Enya	0
 539	Eric Carmen	0
 540	Eric Clapton	0
 541	Eros Ramazzotti	0
-542	Eros Ramazzotti & Anastacia	0
-543	Eros Ramazzotti & Tina Turner	0
+542	Eros Ramazzotti and
+ Anastacia	0
+543	Eros Ramazzotti and
+ Tina Turner	0
 544	Eruption	1
-545	Esther & Abi Ofarim	1
+545	Esther and
+ Abi Ofarim	1
 546	Etta James	0
 547	Eumir Deodato	0
 548	Europe	1
@@ -578,11 +652,14 @@ eloadoid	nev	zenekar
 577	Fischer Z	0
 578	Fish	1
 579	Five Americans	1
-580	Flash & The Pan	1
+580	Flash and
+ The Pan	1
 581	Fleetwood Mac	1
-582	Floor Jansen & Henk Poort	0
+582	Floor Jansen and
+ Henk Poort	0
 583	Florence And The Machine	1
-584	Fluitsma & Van Tijn	1
+584	Fluitsma and
+ Van Tijn	1
 585	Focus	1
 586	Foo Fighters	1
 587	Fools Garden	1
@@ -603,16 +680,20 @@ eloadoid	nev	zenekar
 602	Frankie Miller	0
 603	Frankie Valli	0
 604	Frans Bauer	0
-605	Frans Bauer & Marianne Weber	0
+605	Frans Bauer and
+ Marianne Weber	0
 606	Frans Halsema	0
-607	Frans Halsema & Jenny Arean	0
+607	Frans Halsema and
+ Jenny Arean	0
 608	Franz Ferdinand	1
 609	Fred Neil	0
-610	Freddie & The Dreamers	1
+610	Freddie and
+ The Dreamers	1
 611	Freddie Aguilar	0
 612	Freddie Cannon	0
 613	Freddie Mercury	0
-614	Freddie Mercury & Montserrat Caballé	0
+614	Freddie Mercury and
+ Montserrat Caballé	0
 615	Freddy Fender	0
 616	Freddy Quinn	0
 617	Free	1
@@ -630,7 +711,8 @@ eloadoid	nev	zenekar
 629	Gary Brooker	0
 630	Gary Jules	0
 631	Gary Moore	0
-632	Gary Puckett & Union Gap	1
+632	Gary Puckett and
+ Union Gap	1
 633	Gavin DeGraw	0
 634	Gavin James	0
 635	Gazebo	0
@@ -645,17 +727,22 @@ eloadoid	nev	zenekar
 644	George Harrison	0
 645	George McCrae	0
 646	George Michael	0
-647	George Michael & Aretha Franklin	0
-648	George Michael & Elton John	0
-649	George Michael & Mary J Blige	0
-650	George Michael & Queen	0
+647	George Michael and
+ Aretha Franklin	0
+648	George Michael and
+ Elton John	0
+649	George Michael and
+ Mary J Blige	0
+650	George Michael and
+ Queen	0
 651	Georges Moustaki	0
 652	Georgie Fame	0
 653	Gerard Cox	0
 654	Gerard Joling	0
 655	Gerard Lenorman	0
 656	Gerhard Wendland	0
-657	Gerry & the Pacemakers	1
+657	Gerry and
+ the Pacemakers	1
 658	Gerry Rafferty	0
 659	Gers Pardoel	0
 660	Gibson Brothers	1
@@ -664,7 +751,8 @@ eloadoid	nev	zenekar
 663	Gilbert O'Sullivan	0
 664	Gino Vannelli	0
 665	Gipsy Kings	1
-666	Gladys Knight & The Pips	0
+666	Gladys Knight and
+ The Pips	0
 667	Glen Campbell	0
 668	Glenn Medeiros	0
 669	Glenn Miller	0
@@ -672,7 +760,8 @@ eloadoid	nev	zenekar
 671	Gloria Estefan	0
 672	Gloria Gaynor	0
 673	Gnarls Barkley	1
-674	Godley & Creme	1
+674	Godley and
+ Creme	1
 675	Golden Earring	1
 676	Goldie	0
 677	Goo Goo Dolls	1
@@ -689,7 +778,8 @@ eloadoid	nev	zenekar
 688	Grapefruit	1
 689	Greatest Show On Earth	1
 690	Green Day	1
-691	Greenfield & Cook	1
+691	Greenfield and
+ Cook	1
 692	Gregory Porter	0
 693	Greyhound	1
 694	Grover Washington jr.	0
@@ -698,19 +788,25 @@ eloadoid	nev	zenekar
 697	Guns N' Roses	1
 698	Gusttavo Lima	0
 699	Guus Meeuwis	0
-700	Guus Meeuwis & Gers Pardoel	0
-701	Guus Meeuwis & Vagant	0
+700	Guus Meeuwis and
+ Gers Pardoel	0
+701	Guus Meeuwis and
+ Vagant	0
 702	Guy Fletcher	0
 703	Guy Mitchell	0
-704	Guys & Dolls	1
+704	Guys and
+ Dolls	1
 705	Haddaway	0
 706	Haevn	1
-707	Hall & Oates	1
+707	Hall and
+ Oates	1
 708	Handsome Poets	1
-709	Hank The Knife & The Jets	1
+709	Hank The Knife and
+ The Jets	1
 710	Hans de Booy	0
 711	Harold Faltermeyer	0
-712	Harold Melvin & The Blue Notes	1
+712	Harold Melvin and
+ The Blue Notes	1
 713	Harpo	0
 714	Harry Belafonte	0
 715	Harry Chapin	0
@@ -729,8 +825,10 @@ eloadoid	nev	zenekar
 728	Herb Alpert	0
 729	Herbert Gronemeyer	0
 730	Herman Brood	0
-731	Herman Brood & Henny Vrienten	0
-732	Herman Brood & His Wild Romance	0
+731	Herman Brood and
+ Henny Vrienten	0
+732	Herman Brood and
+ His Wild Romance	0
 733	Herman van Keeken	0
 734	Herman van Veen	0
 735	Herman's Hermits	1
@@ -745,13 +843,16 @@ eloadoid	nev	zenekar
 744	Hozier	0
 745	Höllenboer	1
 746	Hues Corporation	1
-747	Huey Lewis & the News	0
+747	Huey Lewis and
+ the News	0
 748	Hunters	1
-749	Ian Dury & Blockheads	1
+749	Ian Dury and
+ Blockheads	1
 750	Icehouse	1
 751	Iggy Pop	0
 752	Iggy Pop Ft. Kate Pierson	0
-753	Ike & Tina Turner	1
+753	Ike and
+ Tina Turner	1
 754	Ilse DeLange	0
 755	Imaani	0
 756	Imagination	1
@@ -774,21 +875,26 @@ eloadoid	nev	zenekar
 773	Jackie Wilson	0
 774	Jackson 5	1
 775	Jackson Browne	0
-776	Jackson Browne & Clarence Clemons	0
+776	Jackson Browne and
+ Clarence Clemons	0
 777	Jacques Brel	0
 778	Jacques Dutronc	0
 779	Jacques Herb	0
-780	James & Bobby Purify	1
+780	James and
+ Bobby Purify	1
 781	James Arthur	0
 782	James Bay	0
 783	James Blake	0
 784	James Blunt	0
 785	James Brown	0
-786	James Ingram & Patti Austin	0
+786	James Ingram and
+ Patti Austin	0
 787	James Morrison	0
-788	James Morrison & Nelly Furtado	0
+788	James Morrison and
+ Nelly Furtado	0
 789	James Taylor	0
-790	James Taylor & Mark Knopfler	0
+790	James Taylor and
+ Mark Knopfler	0
 791	Jamie Cullum	0
 792	Jamiroquai	1
 793	Jan Hammer	0
@@ -799,24 +905,29 @@ eloadoid	nev	zenekar
 798	Japan	1
 799	Jason Donovan	0
 800	Jason Mraz	0
-801	Jason Mraz & Colbie Caillat	0
+801	Jason Mraz and
+ Colbie Caillat	0
 802	Jason Paige	0
-803	Jay & The Americans	1
+803	Jay and
+ The Americans	1
 804	JAY Z	0
-805	Jay Z & Kanye West	0
+805	Jay Z and
+ Kanye West	0
 806	Jay Z ft. Alicia Keys	0
 807	Jean Michel Jarre	0
 808	Jeannie C. Riley	0
 809	Jeff Beck	0
 810	Jeff Buckley	0
 811	Jeff Wayne	0
-812	Jeff Wayne & Justin Hayward	0
+812	Jeff Wayne and
+ Justin Hayward	0
 813	Jefferson Airplane	1
 814	Jennifer Lopez	0
 815	Jennifer Paige	0
 816	Jennifer Rush	0
 817	Jermaine Jackson	0
-818	Jermaine Jackson & Pia Zadora	0
+818	Jermaine Jackson and
+ Pia Zadora	0
 819	Jeroen van der Boom	0
 820	Jeroen van Koningsbrugge	0
 821	Jerry Lee Lewis	0
@@ -840,55 +951,68 @@ eloadoid	nev	zenekar
 839	JJ Cale	0
 840	Joan Armatrading	0
 841	Joan Baez	0
-842	Joan Jett & The Blackhearts	1
+842	Joan Jett and
+ The Blackhearts	1
 843	Joe Bonamassa	0
 844	Joe Cocker	0
-845	Joe Cocker & Jennifer Warnes	0
+845	Joe Cocker and
+ Jennifer Warnes	0
 846	Joe Dassin	0
 847	Joe Jackson	0
 848	Joe South	0
-849	Joey Dee & The Starlighters	1
+849	Joey Dee and
+ The Starlighters	1
 850	Joey Dyser	0
 851	JOHAN	0
 852	John Denver	0
 853	John Farnham	0
-854	John Fred & The Playboy Band	0
+854	John Fred and
+ The Playboy Band	0
 855	John Hiatt	0
 856	John Legend	0
 857	John Lennon	0
-858	John Lennon & Plastic Ono Band	0
+858	John Lennon and
+ Plastic Ono Band	0
 859	John Leyton	0
 860	John Mayall	0
 861	John Mayer	0
-862	John Mayer & Taylor Swift	0
+862	John Mayer and
+ Taylor Swift	0
 863	John Miles	0
 864	John Newman	0
 865	John Parr	0
 866	John Paul Young	0
 867	John Rowles	0
 868	John Travolta	0
-869	John Travolta & Olivia Newton-John	0
+869	John Travolta and
+ Olivia Newton-John	0
 870	John Waite	0
-871	Johnny & Orquestra Rodrigues	0
-872	Johnny & the Hurricanes	1
+871	Johnny and
+ Orquestra Rodrigues	0
+872	Johnny and
+ the Hurricanes	1
 873	Johnny Bristol	0
 874	Johnny Cash	0
 875	Johnny Guitar Watson	0
 876	Johnny Hallyday	0
 877	Johnny Hates Jazz	1
-878	Johnny Kidd & The Pirates	1
+878	Johnny Kidd and
+ The Pirates	1
 879	Johnny Lion	0
 880	Johnny Logan	0
-881	Johnny Mathis & Deniece Williams	0
+881	Johnny Mathis and
+ Deniece Williams	0
 882	Johnny Nash	0
 883	Johnny Tillotson	0
-884	Jon & Vangelis	0
+884	Jon and
+ Vangelis	0
 885	Jon Allen	0
 886	Jon Anderson	0
 887	Jon Secada	0
 888	Jona Lewie	0
 889	Jonathan Jeremiah	0
-890	Jonathan Richman & The Modern Lovers	1
+890	Jonathan Richman and
+ The Modern Lovers	1
 891	Joni Mitchell	0
 892	Joost Nuissl	0
 893	Jose Feliciano	0
@@ -902,11 +1026,13 @@ eloadoid	nev	zenekar
 901	Jules de Corte	0
 902	Juliane Werding	0
 903	Julie Covington	0
-904	Julie Driscoll & The Brian Auger Trinity	1
+904	Julie Driscoll and
+ The Brian Auger Trinity	1
 905	Julie Rogers	0
 906	Julien Clerc	0
 907	Julio Iglesias	0
-908	June Lodge & Mohammed	0
+908	June Lodge and
+ Mohammed	0
 909	Justin Bieber	0
 910	Justin Timberlake	0
 911	Kadanz	1
@@ -916,7 +1042,8 @@ eloadoid	nev	zenekar
 915	Kalin Twins	1
 916	Kamahl	0
 917	Kane	0
-918	Kane & Ilse DeLange	0
+918	Kane and
+ Ilse DeLange	0
 919	Kane Gang	1
 920	Kansas	1
 921	Kaoma	1
@@ -924,11 +1051,13 @@ eloadoid	nev	zenekar
 923	Karin Bloemen	0
 924	Kate Bush	0
 925	Katie Melua	0
-926	Katrina & the Waves	1
+926	Katrina and
+ the Waves	1
 927	Katy Perry	0
 928	Katy Perry ft. Skip Marley	0
 929	Kayak	1
-930	KC & The Sunshine Band	1
+930	KC and
+ The Sunshine Band	1
 931	Keane	1
 932	Keith West	1
 933	Kelly Clarkson	0
@@ -937,10 +1066,13 @@ eloadoid	nev	zenekar
 936	Kenny B.	0
 937	Kenny Loggins, Stevie Nicks	0
 938	Kenny Rogers	0
-939	Kenny Rogers & Dolly Parton	0
-940	Kenny Rogers & Sheena Easton	0
+939	Kenny Rogers and
+ Dolly Parton	0
+940	Kenny Rogers and
+ Sheena Easton	0
 941	Kevin Ayers	0
-942	Kid Creole & the Coconuts	1
+942	Kid Creole and
+ the Coconuts	1
 943	Kid Rock	0
 944	Kids from Fame	1
 945	Kiki Dee	0
@@ -958,9 +1090,11 @@ eloadoid	nev	zenekar
 957	Klaatu	1
 958	Klein Orkest	1
 959	Kodaline	1
-960	Kool & The Gang	1
+960	Kool and
+ The Gang	1
 961	Koos Alberts	0
-962	Koot & Bie	1
+962	Koot and
+ Bie	1
 963	Korn	1
 964	Kovacs	0
 965	Kraftwerk	1
@@ -977,12 +1111,15 @@ eloadoid	nev	zenekar
 976	Lace	0
 977	Lady Antebellum	1
 978	Lady Gaga	0
-979	Lady Gaga & Bradley Cooper	0
+979	Lady Gaga and
+ Bradley Cooper	0
 980	Lady Gaga, Bradley Cooper	0
 981	Laid Back	1
 982	Lana Del Rey	0
-983	Lange Frans & Baas B.	1
-984	Lange Frans & Thé Lau	1
+983	Lange Frans and
+ Baas B.	1
+984	Lange Frans and
+ Thé Lau	1
 985	Latin Quarter	1
 986	Laura Branigan	0
 987	Laura Jansen	0
@@ -992,7 +1129,8 @@ eloadoid	nev	zenekar
 991	Led Zeppelin	1
 992	Lee Towers	0
 993	Leen Jongewaard	0
-994	Leen Jongewaard & Hetty Blok	0
+994	Leen Jongewaard and
+ Hetty Blok	0
 995	Leif Garrett	0
 996	Lemon Pipers	1
 997	Lenny Kravitz	0
@@ -1009,10 +1147,12 @@ eloadoid	nev	zenekar
 1008	Limahl	0
 1009	Limp Bizkit	1
 1010	Linda Ronstadt	0
-1011	Linda Roos & Jessica	1
+1011	Linda Roos and
+ Jessica	1
 1012	Linkin Park	1
 1013	Lionel Richie	0
-1014	Lionel Richie & Trijntje Oosterhuis	0
+1014	Lionel Richie and
+ Trijntje Oosterhuis	0
 1015	Lipps Inc	1
 1016	Liquido	1
 1017	Lisa Lois	0
@@ -1043,7 +1183,8 @@ eloadoid	nev	zenekar
 1042	Los Lobos	1
 1043	Lou Christie	0
 1044	Lou Rawls	0
-1045	Lou Rawls & Dianne Reeves	0
+1045	Lou Rawls and
+ Dianne Reeves	0
 1046	Lou Reed	0
 1047	Louis Armstrong	0
 1048	Louis Neefs	0
@@ -1069,8 +1210,10 @@ eloadoid	nev	zenekar
 1068	M.A.S.H.	1
 1069	Maaike Ouboter	0
 1070	Maarten van Roozendaal	0
-1071	Mac & Katie Kissoon	1
-1072	Macklemore & Ryan Lewis Ft. Ray Dalton	0
+1071	Mac and
+ Katie Kissoon	1
+1072	Macklemore and
+ Ryan Lewis Ft. Ray Dalton	0
 1073	Macklemore ft. Ryan Lewis	0
 1074	Madness	1
 1075	Madonna	0
@@ -1093,10 +1236,14 @@ eloadoid	nev	zenekar
 1092	Marcels	1
 1093	Marcia Hines	0
 1094	Marco Borsato	0
-1095	Marco Borsato & Ali B	0
-1096	Marco Borsato & Do	0
-1097	Marco Borsato & Lucie Silvas	0
-1098	Marco Borsato & Trijntje Oosterhuis	0
+1095	Marco Borsato and
+ Ali B	0
+1096	Marco Borsato and
+ Do	0
+1097	Marco Borsato and
+ Lucie Silvas	0
+1098	Marco Borsato and
+ Trijntje Oosterhuis	0
 1099	Margaret Singana	0
 1100	Margie Ball	0
 1101	Margriet Eshuijs	0
@@ -1109,7 +1256,8 @@ eloadoid	nev	zenekar
 1108	Marillion	1
 1109	MARILYN MANSON	0
 1110	Marilyn Martin	0
-1111	Mark & Clark Band	1
+1111	Mark and
+ Clark Band	1
 1112	Mark Knopfler	0
 1113	Mark Ronson Ft. Amy Winehouse	0
 1114	Mark Ronson ft. Bruno Mars	0
@@ -1117,18 +1265,24 @@ eloadoid	nev	zenekar
 1116	Marlene Dietrich	0
 1117	Marlon Roudette	0
 1118	Maroon 5	1
-1119	Maroon 5 & Christina Aguilera	1
+1119	Maroon 5 and
+ Christina Aguilera	1
 1120	Marshall Hain	1
 1121	Martin Garrix	0
-1122	Martin Garrix & Bebe Rexha	0
-1123	Martin Garrix & Dua Lipa	0
+1122	Martin Garrix and
+ Bebe Rexha	0
+1123	Martin Garrix and
+ Dua Lipa	0
 1124	Martin Garrix feat. Bonn	0
 1125	Marty Wilde	0
 1126	Marvin Gaye	0
-1127	Marvin Gaye & Kim Weston	0
-1128	Marvin Gaye & Tammi Terrell	0
+1127	Marvin Gaye and
+ Kim Weston	0
+1128	Marvin Gaye and
+ Tammi Terrell	0
 1129	Marvin Hamlisch	0
-1130	Marvin, Welch & Farrar	1
+1130	Marvin, Welch and
+ Farrar	1
 1131	Mary Hopkin	0
 1132	Mary MacGregor	0
 1133	Mary Wells	0
@@ -1148,26 +1302,32 @@ eloadoid	nev	zenekar
 1147	Maywood	1
 1148	MC Hammer	0
 1149	McCoys	1
-1150	McGuinn, Clark & Hillman	1
+1150	McGuinn, Clark and
+ Hillman	1
 1151	McGuinness Flint	1
 1152	Meat Loaf	0
 1153	Mecano	1
-1154	Mel & Kim	1
+1154	Mel and
+ Kim	1
 1155	Melanie	0
-1156	Melanie & Edwin Hawkins singers	0
+1156	Melanie and
+ Edwin Hawkins singers	0
 1157	Melissa Etheridge	0
 1158	Men At Work	1
 1159	Metallica	1
 1160	Mezzoforte	1
-1161	MFSB & The Three Degrees	1
+1161	MFSB and
+ The Three Degrees	1
 1162	MGMT	1
 1163	Michael Bolton	0
 1164	Michael Bublé	0
 1165	Michael Jackson	0
-1166	Michael Jackson & Justin Timberlake	0
+1166	Michael Jackson and
+ Justin Timberlake	0
 1167	Michael Kiwanuka	0
 1168	Michael McDonald	0
-1169	Michael Nesmith & First National Band	1
+1169	Michael Nesmith and
+ First National Band	1
 1170	Michael Prins	0
 1171	Michael Zager Band	1
 1172	Michel Delpech	0
@@ -1180,12 +1340,15 @@ eloadoid	nev	zenekar
 1179	Midnight Oil	1
 1180	Mighty Sparrow and Byron Lee	0
 1181	Mika	0
-1182	Mike & The Mechanics	0
+1182	Mike and
+ The Mechanics	0
 1183	Mike Batt	0
 1184	Mike Oldfield	0
-1185	Mike Oldfield & Maggie Reilly	0
+1185	Mike Oldfield and
+ Maggie Reilly	0
 1186	Miley Cyrus	0
-1187	Milk & Honey	1
+1187	Milk and
+ Honey	1
 1188	Milky Chance	1
 1189	Milli Vanilli	1
 1190	Millie Small	0
@@ -1199,7 +1362,8 @@ eloadoid	nev	zenekar
 1198	Moby Grape	1
 1199	Mocedades	1
 1200	Modern Talking	1
-1201	Moments & Whatnauts	1
+1201	Moments and
+ Whatnauts	1
 1202	Monty Python	1
 1203	Mort Shuman	0
 1204	Mory Kante	0
@@ -1208,7 +1372,8 @@ eloadoid	nev	zenekar
 1207	Motions	1
 1208	Motörhead	1
 1209	Mott The Hoople	1
-1210	Mouth & MacNeal	1
+1210	Mouth and
+ MacNeal	1
 1211	Mr. Acker Bilk	0
 1212	Mr. Big	1
 1213	Mr. Bloe	0
@@ -1216,13 +1381,15 @@ eloadoid	nev	zenekar
 1215	Mr. Probz	0
 1216	Mud	1
 1217	Muddy Waters	0
-1218	Mumford & Sons	1
+1218	Mumford and
+ Sons	1
 1219	Mungo Jerry	0
 1220	Murray Head	0
 1221	Muse	1
 1222	Nadieh	0
 1223	Nana Mouskouri	0
-1224	Nancy & Frank Sinatra	0
+1224	Nancy and
+ Frank Sinatra	0
 1225	Nancy Sinatra	0
 1226	Nat 'King' Cole	0
 1227	Natalie Cole	0
@@ -1236,13 +1403,17 @@ eloadoid	nev	zenekar
 1235	Neil Young	0
 1236	Nelly Furtado	0
 1237	Nena	0
-1238	Nena & Kim Wilde	0
+1238	Nena and
+ Kim Wilde	0
 1239	New Order	1
 1240	New Vaudeville Band	1
 1241	Niall Horan	0
-1242	Nick & Simon	1
-1243	Nick & Thomas	1
-1244	Nick Cave & The Bad Seeds	1
+1242	Nick and
+ Simon	1
+1243	Nick and
+ Thomas	1
+1244	Nick Cave and
+ The Bad Seeds	1
 1245	Nick Cave And The Bad Seeds + Kylie Minogue	1
 1246	Nick Lowe	0
 1247	Nick MacKenzie	0
@@ -1250,7 +1421,8 @@ eloadoid	nev	zenekar
 1249	Nicole (Hohloch)	0
 1250	Niels Geusebroek	0
 1251	Nielson	0
-1252	Nielson & Miss Montreal	0
+1252	Nielson and
+ Miss Montreal	0
 1253	Nightwish	1
 1254	Nik Kershaw	0
 1255	Nils Lofgren	0
@@ -1291,7 +1463,8 @@ eloadoid	nev	zenekar
 1290	Owen Paul	0
 1291	Owl City	1
 1292	Ozzy Osbourne	0
-1293	Pacific Gas & Electric	1
+1293	Pacific Gas and
+ Electric	1
 1294	Paco	1
 1295	Panic! at the Disco	1
 1296	Paolo Conte	0
@@ -1309,42 +1482,53 @@ eloadoid	nev	zenekar
 1308	Patrick Hernandez	0
 1309	Patsy Cline	0
 1310	Patsy Gallant	0
-1311	Patti Labelle & Michael McDonald	0
+1311	Patti Labelle and
+ Michael McDonald	0
 1312	Patti Smith	0
 1313	Patty Pravo	0
 1314	Paul Anka	0
 1315	Paul Carrack	0
 1316	Paul Da Vinci	0
 1317	Paul De Leeuw	0
-1318	Paul De Leeuw & Alderliefste	0
-1319	Paul de Leeuw & André Hazes	0
-1320	Paul de Leeuw & Simone Kleinsma	0
+1318	Paul De Leeuw and
+ Alderliefste	0
+1319	Paul de Leeuw and
+ André Hazes	0
+1320	Paul de Leeuw and
+ Simone Kleinsma	0
 1321	Paul Elstak	0
 1322	Paul Hardcastle	0
 1323	Paul Jones	0
 1324	Paul Kalkbrenner	0
 1325	Paul Mauriat	0
 1326	Paul McCartney	0
-1327	Paul McCartney & Michael Jackson	0
-1328	Paul McCartney & Stevie Wonder	0
-1329	Paul McCartney & Wings	0
+1327	Paul McCartney and
+ Michael Jackson	0
+1328	Paul McCartney and
+ Stevie Wonder	0
+1329	Paul McCartney and
+ Wings	0
 1330	Paul McCartney And The Frog Chorus	0
 1331	Paul Simon	0
 1332	Paul Weller	0
 1333	Paul Young	0
-1334	Peabo Bryson & Roberta Flack	1
-1335	Peaches & Herb	1
+1334	Peabo Bryson and
+ Roberta Flack	1
+1335	Peaches and
+ Herb	1
 1336	Pearl Jam	1
 1337	Peggy Lee	0
 1338	Percy Sledge	0
 1339	Peret	0
 1340	Pet Shop Boys	1
 1341	Pete Seeger	0
-1342	Peter & Gordon	1
+1342	Peter and
+ Gordon	1
 1343	Peter Fox	0
 1344	Peter Frampton	0
 1345	Peter Gabriel	0
-1346	Peter Gabriel & Kate Bush	0
+1346	Peter Gabriel and
+ Kate Bush	0
 1347	Peter Koelewijn	0
 1348	Peter Maffay	0
 1349	Peter Sarstedt	0
@@ -1359,7 +1543,8 @@ eloadoid	nev	zenekar
 1358	Phil Lynott	0
 1359	Phil Oakley and Giorgio Moroder	0
 1360	Philip Bailey	0
-1361	Philip Bailey & Phil Collins	0
+1361	Philip Bailey and
+ Phil Collins	0
 1362	Pia Douwes	0
 1363	Piet Veerman	0
 1364	Piglets	1
@@ -1370,7 +1555,8 @@ eloadoid	nev	zenekar
 1369	Pino D'angio	0
 1370	Pixies	1
 1371	PLACEBO	1
-1372	Placido Domingo & John Denver	0
+1372	Placido Domingo and
+ John Denver	0
 1373	Plain White T'S	1
 1374	Plastic Bertrand	0
 1375	Platters	1
@@ -1382,7 +1568,8 @@ eloadoid	nev	zenekar
 1381	Portugal. The Man	1
 1382	Power Station	1
 1383	Prince	0
-1384	Prince & The Revolution	0
+1384	Prince and
+ The Revolution	0
 1385	Procol Harum	1
 1386	Prodigy	1
 1387	Propaganda	1
@@ -1391,7 +1578,8 @@ eloadoid	nev	zenekar
 1390	Pussycat	1
 1391	Q65	1
 1392	Queen	1
-1393	Queen & David Bowie	1
+1393	Queen and
+ David Bowie	1
 1394	Queens Of The Stone Age	1
 1395	Queensrÿche	1
 1396	R. Dean Taylor	0
@@ -1411,8 +1599,11 @@ eloadoid	nev	zenekar
 1410	Rammstein	1
 1411	Ramones	1
 1412	Ramses Shaffy	0
-1413	Ramses Shaffy & Liesbeth List	0
-1414	Ramses Shaffy & Liesbeth List & Alderliefste	0
+1413	Ramses Shaffy and
+ Liesbeth List	0
+1414	Ramses Shaffy and
+ Liesbeth List and
+  Alderliefste	0
 1415	Randy Crawford	0
 1416	Randy Newman	0
 1417	Randy Vanwarmer	0
@@ -1451,14 +1642,17 @@ eloadoid	nev	zenekar
 1450	Rob Hoeke	0
 1451	Rob Hoeke Rhythm	1
 1452	Robbie Williams	0
-1453	Robbie Williams & Gary Barlow	0
-1454	Robbie Williams & Pet Shop Boys	0
+1453	Robbie Williams and
+ Gary Barlow	0
+1454	Robbie Williams and
+ Pet Shop Boys	0
 1455	Robert Long	0
 1456	Robert Miles	0
 1457	Robert Palmer	0
 1458	Robert Plant	0
 1459	Roberta Flack	0
-1460	Roberto Jacketti & the Scooters	1
+1460	Roberto Jacketti and
+ the Scooters	1
 1461	Robin Beck	0
 1462	Robin Gibb	0
 1463	Robin S	0
@@ -1466,16 +1660,19 @@ eloadoid	nev	zenekar
 1465	Rocco Granata	0
 1466	Rod Mckuen	0
 1467	Rod Stewart	0
-1468	Rod Stewart & Tina Turner	0
+1468	Rod Stewart and
+ Tina Turner	0
 1469	Ro-d-ys	1
 1470	Roger Daltrey	0
-1471	Roger Glover & Guests	1
+1471	Roger Glover and
+ Guests	1
 1472	Roger Miller	0
 1473	Roger Whittaker	0
 1474	Roland Kaiser	0
 1475	Romantics	1
 1476	Ronan Keating	0
-1477	Ronnie & De Ronnies	1
+1477	Ronnie and
+ De Ronnies	1
 1478	Room eleven	1
 1479	Rory Block	0
 1480	Rose Royce	0
@@ -1484,10 +1681,12 @@ eloadoid	nev	zenekar
 1483	Roxy Music	1
 1484	Roy Orbison	0
 1485	Rudi Carrell	0
-1486	Rufus & Chaka Khan	1
+1486	Rufus and
+ Chaka Khan	1
 1487	Rufus Wainwright	0
 1488	Rumer	0
-1489	Run DMC & Aerosmith	1
+1489	Run DMC and
+ Aerosmith	1
 1490	Rupert Holmes	0
 1491	Rush	1
 1492	Ruth Jacott	0
@@ -1496,7 +1695,8 @@ eloadoid	nev	zenekar
 1495	Sade	0
 1496	Sailor	1
 1497	Salt-N-Pepa	1
-1498	Sam & Dave	1
+1498	Sam and
+ Dave	1
 1499	Sam Brown	0
 1500	Sam Cooke	0
 1501	Sam Hunt	0
@@ -1512,21 +1712,28 @@ eloadoid	nev	zenekar
 1511	Santa Esmeralda	1
 1512	Santabarbara	0
 1513	Santana	0
-1514	Santana & John Lee Hooker	0
-1515	Santana & Willie Nelson	0
-1516	Santana feat. Product G&B	0
+1514	Santana and
+ John Lee Hooker	0
+1515	Santana and
+ Willie Nelson	0
+1516	Santana feat. Product Gand
+B	0
 1517	Santana Ft. Rob Thomas	0
-1518	Sarah Brightman & Andrea Bocelli	0
+1518	Sarah Brightman and
+ Andrea Bocelli	0
 1519	Saybia	1
 1520	Scissor Sisters	1
 1521	Scorpions	1
-1522	Scott Fitzgerald & Yvonne Keeley	0
+1522	Scott Fitzgerald and
+ Yvonne Keeley	0
 1523	Scott McKenzie	0
 1524	Script	1
 1525	Seal	0
-1526	Seal & Adamski	0
+1526	Seal and
+ Adamski	0
 1527	Seekers	1
-1528	Serge Gainsbourg & Jane Birkin	1
+1528	Serge Gainsbourg and
+ Jane Birkin	1
 1529	Sergio Mendes	0
 1530	Sex Pistols	1
 1531	Shakatak	1
@@ -1542,13 +1749,15 @@ eloadoid	nev	zenekar
 1541	Sheppard	1
 1542	Sherbet	1
 1543	Sheryl Crow	0
-1544	Shirley & Company	1
+1544	Shirley and
+ Company	1
 1545	Shirley Bassey	0
 1546	Shirley Zwerus	0
 1547	Shocking Blue	1
 1548	Sia	0
 1549	Sid Vicious	0
-1550	Simon & Garfunkel	1
+1550	Simon and
+ Garfunkel	1
 1551	Simple Minds	1
 1552	Simply Red	0
 1553	Sinead O'Connor	0
@@ -1565,7 +1774,8 @@ eloadoid	nev	zenekar
 1564	SMASH MOUTH	1
 1565	Smashing Pumpkins	1
 1566	Smiths	1
-1567	Smokey Robinson (& The Miracles)	1
+1567	Smokey Robinson (and
+ The Miracles)	1
 1568	Smokie	1
 1569	Snap	1
 1570	Snelle	0
@@ -1574,7 +1784,8 @@ eloadoid	nev	zenekar
 1573	Snowy White	0
 1574	Soft Cell	1
 1575	Solid Harmonie	1
-1576	Sonny & Cher	1
+1576	Sonny and
+ Cher	1
 1577	Soul Sister	1
 1578	Soundgarden	1
 1579	Space Monkey	1
@@ -1588,7 +1799,8 @@ eloadoid	nev	zenekar
 1587	Spinvis	0
 1588	Split Enz	1
 1589	Splitsing	1
-1590	Spooky & Sue	1
+1590	Spooky and
+ Sue	1
 1591	Springwater	1
 1592	Stampeders	1
 1593	Stan Ridgway	0
@@ -1605,7 +1817,8 @@ eloadoid	nev	zenekar
 1604	Stephen Stills	0
 1605	Steppenwolf	1
 1606	Stereophonics	1
-1607	Steve Harley & Cockney Rebel	1
+1607	Steve Harley and
+ Cockney Rebel	1
 1608	Steve Miller Band	1
 1609	Steve Rowland and the Family Dogg	1
 1610	Steve Winwood	0
@@ -1613,9 +1826,11 @@ eloadoid	nev	zenekar
 1612	Stevie Nicks	0
 1613	Stevie Ray Vaughan	0
 1614	Stevie Wonder	0
-1615	Stevie Wonder & Babyface	0
+1615	Stevie Wonder and
+ Babyface	0
 1616	Sting	0
-1617	Sting & Branford Marsalis	0
+1617	Sting and
+ Branford Marsalis	0
 1618	Stone Roses	1
 1619	STONE TEMPLE PILOTS	1
 1620	Strawbs	1
@@ -1633,15 +1848,18 @@ eloadoid	nev	zenekar
 1632	Surfers	1
 1633	Survivor	1
 1634	Sutherland Brothers And Quiver	1
-1635	Suzan & Freek	1
+1635	Suzan and
+ Freek	1
 1636	Suzanne Vega	0
 1637	Suzi Quatro	0
-1638	Suzi Quatro & Chris Norman	0
+1638	Suzi Quatro and
+ Chris Norman	0
 1639	Swedish House Mafia	1
 1640	Sweet Sensation	1
 1641	Swinging Blue Jeans	1
 1642	Swinging Soul Machine	1
-1643	Sylvain Poons & Oetze Verschoor	1
+1643	Sylvain Poons and
+ Oetze Verschoor	1
 1644	Syndicate of Sound	1
 1645	System Of A Down	1
 1646	T Rex	1
@@ -1706,7 +1924,8 @@ eloadoid	nev	zenekar
 1705	The Contours	1
 1706	The Corrs	1
 1707	The Cranberries	1
-1708	The Crusaders & Randy Crawford	1
+1708	The Crusaders and
+ Randy Crawford	1
 1709	The Crystals	1
 1710	The Cult	1
 1711	The Cure	1
@@ -1736,7 +1955,8 @@ eloadoid	nev	zenekar
 1735	The Isley Brothers	1
 1736	The Ivy League	1
 1737	The Jacksons	1
-1738	The Jacksons & Jackson 5	1
+1738	The Jacksons and
+ Jackson 5	1
 1739	The Jam	1
 1740	The Jumping Jewels	1
 1741	The Killers	1
@@ -1747,7 +1967,8 @@ eloadoid	nev	zenekar
 1746	The Les Humphries Singers	1
 1747	The Lumineers	1
 1748	The Maisonettes	1
-1749	The Mamas & The Papas	1
+1749	The Mamas and
+ The Papas	1
 1750	The Manhattan Transfer	1
 1751	The Marmalade	1
 1752	The Mavericks	1
@@ -1781,7 +2002,8 @@ eloadoid	nev	zenekar
 1780	The Scene	1
 1781	The Scorpions	1
 1782	The Script	1
-1783	The Script & will.i.am	1
+1783	The Script and
+ will.i.am	1
 1784	The Searchers	1
 1785	The Selecter	1
 1786	The Shadows	1
@@ -1834,18 +2056,22 @@ eloadoid	nev	zenekar
 1833	Tim Buckley	0
 1834	Tim Finn	0
 1835	Tim Hardin	1
-1836	Timbaland & OneRepublic	0
+1836	Timbaland and
+ OneRepublic	0
 1837	Time Bandits	1
 1838	Timi Yuro	0
 1839	Timmy Thomas	0
 1840	Tina Charles	0
 1841	Tina Turner	0
-1842	Tina Turner & David Bowie	0
+1842	Tina Turner and
+ David Bowie	0
 1843	Tol Hansse	0
 1844	Tom Browne	0
 1845	Tom Jones	0
-1846	Tom Jones & Art Of Noise	0
-1847	Tom Jones & Mousse T.	0
+1846	Tom Jones and
+ Art Of Noise	0
+1847	Tom Jones and
+ Mousse T.	0
 1848	Tom Odell	0
 1849	Tom Petty	0
 1850	Tom Petty and the Heartbreakers	1
@@ -1866,7 +2092,8 @@ eloadoid	nev	zenekar
 1865	Total Touch	1
 1866	Toto	1
 1867	Toto Cutugno	0
-1868	Tozzi & Raf	1
+1868	Tozzi and
+ Raf	1
 1869	T'Pau	0
 1870	Tracey Ullman	0
 1871	Tracy Chapman	0
@@ -1887,10 +2114,13 @@ eloadoid	nev	zenekar
 1886	Twice As Much	1
 1887	Typhoon	1
 1888	U2	1
-1889	U2 & BB King	1
-1890	U2 & Mary J Blige	1
+1889	U2 and
+ BB King	1
+1890	U2 and
+ Mary J Blige	1
 1891	UB40	1
-1892	UB40 & Chrissie Hynde	1
+1892	UB40 and
+ Chrissie Hynde	1
 1893	UK	1
 1894	Ultravox	1
 1895	Umberto Tozzi	0
@@ -1909,16 +2139,19 @@ eloadoid	nev	zenekar
 1908	Van Velzen	0
 1909	Vandenberg's Moonkings	1
 1910	Vanessa Carlton	0
-1911	Vanessa Carlton & Counting Crows	0
+1911	Vanessa Carlton and
+ Counting Crows	0
 1912	Vanessa Williams	0
 1913	Vangelis	0
 1914	Vaya con Dios	1
-1915	Veldhuis & Kemper	1
+1915	Veldhuis and
+ Kemper	1
 1916	Velvet Underground	1
 1917	Venice	1
 1918	Vera Lynn	0
 1919	Veronica Unlimited	1
-1920	Vicki Brown & New London Chorale	0
+1920	Vicki Brown and
+ New London Chorale	0
 1921	Vicki Sue Robinson	0
 1922	Vicky Leandros	0
 1923	Village People	1
@@ -1936,7 +2169,8 @@ eloadoid	nev	zenekar
 1935	Warm Sounds	1
 1936	Wax	1
 1937	Waylon	1
-1938	Wayne Fontana & the Mindbenders	1
+1938	Wayne Fontana and
+ the Mindbenders	1
 1939	Weather Girls	1
 1940	Weezer	1
 1941	Wes	0
@@ -1954,7 +2188,8 @@ eloadoid	nev	zenekar
 1953	Will Tura	0
 1954	Willeke Alberti	0
 1955	Willie Nelson	0
-1956	Willie Nelson & Julio Iglesias	0
+1956	Willie Nelson and
+ Julio Iglesias	0
 1957	Wilson Pickett	0
 1958	Willy Alberti	0
 1959	Wim Sonneveld	0
@@ -1962,19 +2197,23 @@ eloadoid	nev	zenekar
 1961	Wings	1
 1962	Within Temptation	1
 1963	Wolfmother	1
-1964	Womack & Womack	1
+1964	Womack and
+ Womack	1
 1965	Won Ton Ton	1
 1966	Xavier Rudd	0
 1967	XTC	1
 1968	Yann Tiersen	0
-1969	Yarbrough & Peoples	1
+1969	Yarbrough and
+ Peoples	1
 1970	Yazoo	1
 1971	Yes	1
 1972	Young Gun Silver Fox	1
 1973	Youp van 't Hek	0
-1974	Youssou N'Dour & Neneh Cherry	0
+1974	Youssou N'Dour and
+ Neneh Cherry	0
 1975	Yvonne Elliman	0
-1976	Zager & Evans	1
+1976	Zager and
+ Evans	1
 1977	Zangeres Zonder Naam	0
 1978	Zen	1
 1979	Zijlstra	0

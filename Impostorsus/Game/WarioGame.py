@@ -1,3 +1,4 @@
+
 import game
 import pygame
 from Impostorsus.Game.WarioActor import *
@@ -18,6 +19,8 @@ class Wario(game.scene2d.MyGame):
             pygame.display.toggle_fullscreen()
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
+        if event.key == pygame.K_ESCAPE:
+            quit()
 
 
 Wario().run()
