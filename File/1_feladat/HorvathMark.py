@@ -39,12 +39,23 @@ class olvasas:
                 max = i
         print(datalist[max].ev)
 
-        db: int = 0
-        for index in range(0, len(datalist)):
-            if datalist[index].ev >= 1970 and datalist[index].ev <= 1979:
-                db += 1
-                print(datalist[index].ev, datalist[index].nev)
-        print(db)
+        #db: int = 0
+        #for index in range(0, len(datalist)):
+        #    if datalist[index].ev >= 1970 and datalist[index].ev <= 1979:
+        #        db += 1
+        #        print(datalist[index].ev, datalist[index].nev)
+        #print(db)
+
+        evek: dict = dict()
+
+        for k in range(0, len(datalist)):
+            try:
+                evek[datalist[k].ev]+=1
+            except:
+                evek[datalist[k].ev]=1
+
+        for k, v in evek.items():
+            print("{k}, {v}".format(k = k, v = v))
 
 
 olvasas()
