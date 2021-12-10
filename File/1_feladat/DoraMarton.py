@@ -36,7 +36,7 @@ class Main:
         f.close()
 
         print("3. feladat")
-        print("Díjazottak száma: {db} fő ".format(db=len(datalist)))
+        #print("Dijazottak szama: {db} fő ".format(db=len(datalist)))
 
         max: int = 0
 
@@ -47,6 +47,31 @@ class Main:
 
         print(datalist[max].ev)
 
-        kod: str = input()
+        # kod: str = input()
         db: int = 0
+
+        for index in range (0, len(datalist)):
+            if datalist[index].ev >= 1970 and datalist[index].ev <= 1979:
+                db += 1
+
+        if db >= 0:
+            print("A 70-es evekben {db} dijazott volt".format(db=db))
+
+        if db == 0:
+            print("innen nincs díjazott")
+
+        print("6. feladat")
+
+        ev: dict = dict()
+
+        for k in range(0, len(datalist)):
+            try:
+                ev[datalist[k].ev]+=1
+            except:
+                ev[datalist[k].ev]=1
+
+        for k, v in ev.items():
+            print("{k} {v}".format(k=k, v=v))
+
+
 Main()

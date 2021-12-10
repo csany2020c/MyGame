@@ -67,6 +67,14 @@ class Main:
                 db70 += 1
         print("Az 1970-es években {db70} díjazott volt.".format(db70 = db70))
 
+        ev: dict = dict()
+        for k in range(0, len(datalist)):
+            try:
+                ev[datalist[k].ev]+=1
+            except:
+                ev[datalist[k].ev]= 1
 
+        for k, v in ev.items():
+            print("{k} {v}".format(k=k, v=v))
 
 Main()
