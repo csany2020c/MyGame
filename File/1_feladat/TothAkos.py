@@ -28,6 +28,7 @@ class Main:
         print("Content:")
         print(content)
         lines: List['str'] = content.split(sep="\n")
+        datalist: List['Data'] = list()
         dijazottak: List['Data'] = list()
         for i in range(2, len(lines) - 2):
             dijazottak.append(Data(lines[i]))
@@ -35,23 +36,23 @@ class Main:
 
         print("5.feladat")
         db: int = 0
-        kod: str = input()
-        max: int = 1979
-        min: int = 1970
-
-        for i in range(1, len(dijazottak)):
-            if dijazottak[i].Ev > dijazottak[min].Ev:
-                min = i
-
-        for i in range(1,len(dijazottak)):
-            if dijazottak[i].Ev < dijazottak[max].Ev:
-                max = i
-
-        if db == i:
-            print("{db}".format(db=len(dijazottak)))
+        for it in datalist:
+            if it.ev >= 1970 and it.ev <= 1979:
+                print(it.nev)
+                db += 1
+        print("Az 1970-es években {db} díjazott volt.".format(db=db))
 
 
+        print("6.feladat")
 
+        Ev: dict = dict()
+        for k in range(0, len(datalist)):
+            try:
+                Ev[datalist[k].Ev]+=1
+            except:
+                Ev[datalist[k].Ev]= 1
 
+        for k, v in Ev.items():
+            print("{k} {v}".format(k=k, v=v))
 
 Main()
