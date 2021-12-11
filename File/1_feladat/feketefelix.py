@@ -36,14 +36,26 @@ class Main:
                     print(d)
                 f.close()
             print("3. feladat")
-            print("Díjazottak száma: {db} fő ".format(db=len(dijazottak)))
+            print("Díjazottak száma: {db} fő ".format(db=len(datalist)))
 
             max: int = 0
-            for i in range(1, len(dijazottak)):
-                if dijazottak[i].Ev > dijazottak[max].Ev:
+            for i in range(1, len(datalist)):
+                if datalist[i].ev > datalist[max].ev:
                     max = i
-            print(dijazottak[max].Ev)
+            print(datalist[max].ev)
 
             kod: str = input()
+
+
+
+            ev: dict = dict()
+            for i in range(0, len(datalist)):
+                 try:
+                     ev[datalist[i].ev]+=1
+                 except:
+                     ev[datalist[i].ev]=1
+
+            for k, v in ev.items():
+                    print("{k} {v}".format(k=k, v=v))
 
 Main()
