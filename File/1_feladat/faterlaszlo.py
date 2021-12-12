@@ -69,8 +69,24 @@ class Main:
 
         szam: int = 0
         for o in range(0, len(datalist)):
-            if datalist[o].ev >= 1970 and datalist[o].ev < 1980:
+            if datalist[o].ev >= 1980 and datalist[o].ev < 1990:
                 szam += 1
-        print("Dijjak {db}".format(db=szam))
+        print("5.1 feladat")
+        print("Az 1980-es években {db} díjazott volt. ".format(db=szam))
+
+        orsz: str = "USA"
+        sz: int = 0
+        for z in range(0, len(datalist)):
+            if datalist[z].orszagkod == orsz and datalist[z].ev <= 1970:
+                sz += 1
+        print("5.2")
+        print("Az 1970-es évek előtti dijazottak száma: {db}".format(db=sz))
+
+        sz1: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1970 and datalist[o].ev < 1980:
+                sz1 += 1
+        print("Gyakorlás")
+        print("Dijjak száma:{db}".format(db=sz1))
 
 Main()
