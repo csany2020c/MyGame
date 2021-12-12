@@ -7,43 +7,61 @@ class Data:
 
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        print("Create Data from String")
-        print(parseString)
         fields: List['str'] = parseString.split(";")
-        self.x: int = int(fields[0])
-        self.y: int = int(fields[1])
-        self.color: int = (int(fields[2]), int(fields[3]), int(fields[4]))
-        self.text: str = ""
-
-        for i in range(5, len(fields)):
-            self.text += str(fields[i])
-            if i < len(fields) - 1:
-                self.text += " "
+        self.ev: int = int(fields[0])
+        self.nev: str = fields[1]
+        self.elethalal: str = fields[2]
+        self.orszagkod: str = fields[3]
+        szh: List['str'] = fields[2].split("-")
+        self.szuletes: int = int(szh[0])
+        self.halalozas: int = None
+        if szh[1] != "":
+            self.halalozas = int(szh[1])
 
     def __str__(self) -> str:
-        return "x = {x}; y = {y}; text = {txt}; color = {col}".format(x=self.x, y=self.y, txt=self.text, col = self.color)
+        return "Ev = {x};   Nev = {y};   Elethalal = {txt};   Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
 
 
 class Main:
 
     def __init__(self) -> None:
         super().__init__()
-        f: TextIO = open("!_Spec/orvosi_nobeldijak.txt", "r")
+        f: TextIO = open("!_Spec//orvosi_nobeldijak.txt", "r", encoding="utf-8")
         content: str = f.read()
-        f.close()
-        print("Content:")
-        print(content)
         lines: List['str'] = content.split(sep="\n")
-        print("Split content")
-        print(lines)
-        print("Load to List")
         datalist: List['Data'] = list()
-        for s in lines:
-            d = Data(s)
+        for i in range(1, len(lines) - 1):
+            d = Data(lines[i])
             datalist.append(d)
-        print("Print list")
-        for d in datalist:
-            print(d)
+        f.close()
+
+        print("3. feladat: Díjazottak száma: {db} fő".format(db=len(datalist)))
+        print(datalist[len(datalist) - 1].nev)
+        max: int = 0
+        for i in range(1, len(datalist)):
+            if datalist[max].ev < datalist[i].ev:
+                max = i
+        print(datalist[max].ev)
+
+        kod: str = input()
+
+        for index in range(0, len(datalist)):
+            print(str(index) + " ---- " + str(datalist[index]))
+
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
+
+        szam: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1980 and datalist[o].ev < 1990:
+                szam += 1
+        print("Díjak {db}".format(db=szam))
 
 
 Main()
