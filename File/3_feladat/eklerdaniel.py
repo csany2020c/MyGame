@@ -43,7 +43,7 @@ class Main:
              #print(d)
         f.close()
 
-        print("3. feladat: Egyéni indulók : {db} fő".format(db=len(datalist)))
+        print("3. feladat: Egyéni indulok : {db} fő".format(db=len(datalist)))
         print(datalist[len(datalist) - 1].szam)
         max: int = 0
         for i in range(1, len(datalist)):
@@ -51,7 +51,8 @@ class Main:
                 max = i
         print(datalist[max].versenyzo)
 
-        kod: str = input()
+        kat: str = input()
+        tavo: str = input()
         # # iterátoros végigjárás
          #for it in datalist:
              #print(it)
@@ -63,16 +64,24 @@ class Main:
         db:int = 0
         utolso:int = -1
         for index in range(0, len(datalist)):
-            if datalist[index].kategoria == kod:
+            if datalist[index].tav == tavo:
                 db += 1
                 utolso = index
+
+        for index in range(0, len(datalist)):
+            if datalist[index].kategoria == kat:
+                db -= 1
+                utolso = index
+
+
+
         print(db)
         if db == 0:
-            print("A megadott országból nem volt díjazott!")
+            print("A megadott kateg nem volt díjazott!")
         elif db == 1:
             print(datalist[utolso])
         else:
-            print("A megadott országból {db} fő díjazott volt!".format(db=db))
+            print("4. feladat: Célba érkező Gugu gágá sportolók:{db} fő".format(db=db))
 
 
         # Kik kaptak nóbeldíjat a 70-es években, és hányan voltak?
