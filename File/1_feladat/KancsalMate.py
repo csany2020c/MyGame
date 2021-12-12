@@ -15,10 +15,6 @@ class Data:
         self.orszagkod: str = fields[3]
         szh: List['str'] = fields[2].split("-")  # 1922-2000
         # print(szh)
-        self.szuletes: int = int(szh[0])
-        self.halalozas: int = None
-        if szh[1] != "":
-            self.halalozas = int(szh[1])
 
 
     def __str__(self) -> str:
@@ -38,8 +34,8 @@ class Main:
         for i in range(1, len(lines) - 1):
             d = Data(lines[i])
             datalist.append(d)
-        # for d in datalist:
-        #     print(d)
+        #for d in datalist:
+            #print(d)
         f.close()
 
         # print("3. feladat: Díjazottak száma: {db} fő".format(db=len(datalist)))
@@ -51,9 +47,9 @@ class Main:
         # print(datalist[max].ev)
 
 
-        # # iterátoros végigjárás
-        # for it in datalist:
-        #     print(it)
+         # iterátoros végigjárás
+        #for it in datalist:
+            #print(it)
         #
         # index alapú végigjárás
         #for index in range(0, len(datalist)):
@@ -81,8 +77,8 @@ class Main:
         #     if it.ev <= 1970 and it.orszagkod == str("USA"):
         #        print(it.nev)
 
-        for it in datalist:
-            if it.ev >= 1960 and it.orszagkod == str("S") or it.ev <= 1970 and it.orszagkod == str("USA"):
-                print(it.nev)
+        #for it in datalist:
+         #   if it.ev >= 1960 and it.orszagkod == str("S") or it.ev <= 1970 and it.orszagkod == str("USA"):
+           #     print(it.nev)
 
 Main()
