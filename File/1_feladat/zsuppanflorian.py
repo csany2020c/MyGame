@@ -78,6 +78,16 @@ class Main:
             if v > 5:
                 print("{k} {v}".format(k=k, v=v))
 
+        db80: int = 0
+        for it in dijazottak:
+            if it.Ev >= 1980 and it.Ev <= 1989:
+                print(it.Nev)
+                db80 += 1
+        print("Az 1980-as években {db80} díjazott volt.".format(db80 = db80))
+
+        for it in dijazottak:
+            if it.Ev <= 1969 and it.Orszagkod == str("USA") or it.Ev >= 1960 and it.Orszagkod == str("S"):
+                print(it.Nev)
 
 Main()
 
