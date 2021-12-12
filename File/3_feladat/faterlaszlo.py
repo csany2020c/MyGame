@@ -36,9 +36,9 @@ class Read:
 
         Noi: str = "Noi"
         szam: int = 0
-        mtav: int = 100
+        tav: str = "100"
         for index in range(0, len(datalist)):
-            if datalist[index].kategoria == Noi and datalist[index].tav == mtav:
+            if datalist[index].tav == tav and datalist[index].kategoria == Noi:
                 szam += 1
         print("4. feladat: Célba érkező női sportolók: {db} fő".format(db=szam))
 
