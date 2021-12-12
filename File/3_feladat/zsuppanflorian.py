@@ -27,20 +27,26 @@ class Main:
             print(d)
             f.close()
 
-        db: int = len(datalist)
-        print("Egyéni indulók száma: {db} fő".format(db=db))
 
-        bevitt: str = input()
+#3.feladat
+        print("Egyéni indulók száma: {db} fő".format(db=len(datalist)))
 
+#4.feladat
+        #r = 0
+        #for index in range(0, len(datalist)):
+          #  if datalist[index].kategoria == "Noi":
+         #       r = r + 1
+        #print(f"Női versenyzők száma : {r} fő")
+
+        db: int = 0
+        Noiversenyzok: Data
+        for i in range(0, len(datalist)):
+            if datalist[i].kategoria == "Noi":
+                db = db + 1
+        print("Női versenyzők száma : {db} fő".format(db=db))
 
 #5.feladat
 
-        db: int = 0
-        for index in range(0, len(datalist)):
-            if datalist[index].nev == bevitt:
-                db += 1
-        if db == 0:
-            print("Nem indult ilyen nevű versenyző!")
 
 
 
