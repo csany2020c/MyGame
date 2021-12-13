@@ -47,7 +47,6 @@ class Read:
         for index in range(0, len(datalist)):
             if datalist[index].helyezes == mhely:
                 db += 1
-
         print("Ezüst: {db}".format(db=db))
 
         hhely: int = 3
@@ -55,14 +54,12 @@ class Read:
         for index in range(0, len(datalist)):
             if datalist[index].helyezes == hhely:
                 db += 1
-
         print("Bronz: {db}".format(db=db))
 
         db: int = 0
         for index in range(0, len(datalist)):
             if datalist[index].helyezes >= 1 and datalist[index].helyezes <= 3:
                 db += 1
-
         print("Összesen: {db}".format(db=db))
 
         eshely: int = 1
