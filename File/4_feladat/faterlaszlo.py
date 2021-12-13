@@ -20,7 +20,7 @@ class Read:
         super().__init__()
         f: TextIO = open("!_Specs/helsinki.txt", "r")
         content: str = f.read()
-        lines: List['str'] = content.split("\n")
+        lines: List['str'] = content.split(sep="\n")
         datalist: List['Data'] = list()
         for i in range(0, len(lines)):
             d = Data(lines[i])
