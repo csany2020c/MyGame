@@ -15,7 +15,7 @@ class Data:
         self.tav: str = fields[4]
 
     def __str__(self) -> str:
-        return "Versenyzo = {x}; Rajtszam = {y}; Kategoria = {c};Versenyido = {v}; Tav = {v}".format(
+        return "Versenyző = {x}; Rajtszám = {y}; Kategória = {c};Versenyidő = {v}; Táv = {v}".format(
             x=self.nev, y=self.szam, c=self.kategoria, v=self.ido, b=self.tav)
 
 
@@ -34,14 +34,14 @@ class Main:
         print("Egyéni indulók: {db} fő ".format(db=len(datalist)))
         x = 0
         for index in range(0, len(datalist)):
-            if datalist[index].kategoria == "Noi":
+            if datalist[index].kategoria == "Női":
                 x = x + 1
         print(f"Női versenyzők száma : {x}")
 
         adat: str = input()
         for index in range(0, len(datalist)):
             if datalist[index].nev == adat:
-                print("Indult a versenyen")
+                print("Indúlt a versenyen")
 
 
 
