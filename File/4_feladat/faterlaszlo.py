@@ -26,7 +26,6 @@ class Read:
             d = Data(lines[i])
             datalist.append(d)
             print(d)
-
         f.close()
 
         print("3.feladat:")
