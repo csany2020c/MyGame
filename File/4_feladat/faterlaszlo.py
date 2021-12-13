@@ -66,31 +66,21 @@ class Read:
         print("Összesen: {db}".format(db=db))
 
         eshely: int = 1
-        mshely: int = 2
-        hshely: int = 3
-        nshely: int = 4
-        oshely: int = 5
-        hashely: int = 6
         db: int = 0
-        db1: int = 0
-        db2: int = 0
-        db3: int = 0
-        db4: int = 0
-        db5: int = 0
         for index in range(0, len(datalist)):
             if datalist[index].helyezes == eshely:
                 db += 1 * 7
-            if datalist[index].helyezes == mshely:
-                db1 += 1 * 5
-            if datalist[index].helyezes == hshely:
-                db2 += 1 * 4
-            if datalist[index].helyezes == nshely:
-                db3 += 1 * 3
-            if datalist[index].helyezes == oshely:
-                db4 += 1 * 2
-            if datalist[index].helyezes == hashely:
-                db5 += 1
-        print("Olimpiai pontok száma: {db}".format(db=db + db1 + db2 + db3 + db4 + db5))
+            if datalist[index].helyezes == eshely + 1:
+                db += 1 * 5
+            if datalist[index].helyezes == eshely + 2:
+                db += 1 * 4
+            if datalist[index].helyezes == eshely + 3:
+                db += 1 * 3
+            if datalist[index].helyezes == eshely + 4:
+                db += 1 * 2
+            if datalist[index].helyezes == eshely + 5:
+                db += 1
+        print("Olimpiai pontok száma: {db}".format(db=db))
 
 
 Read()
