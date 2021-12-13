@@ -1,4 +1,3 @@
-import string
 from typing import TextIO
 from typing import List
 
@@ -28,7 +27,6 @@ class Main:
         for d in datalist:
             print(d)
         f.close()
-        print("3. feladat")
         print("Dijazottak száma: {db} fő".format(db=len(datalist)))
         max:int = 0
         for i in range(1, len(datalist)):

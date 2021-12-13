@@ -8,6 +8,7 @@ import Impostorsus.Game.WarioScreen
 
 
 
+
 class ASD(game.scene2d.MyStage):
 
     def __init__(self):
@@ -40,6 +41,8 @@ class ASD(game.scene2d.MyStage):
                         a2 = Lathatatlan2()
                     if c == "T":
                         a = Question()
+                    if c == "B":
+                        a = CannonActor()
                     if c == "g":
                         a = GroundActor()
                     if c == "j":
