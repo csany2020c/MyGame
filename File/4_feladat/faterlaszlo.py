@@ -18,7 +18,7 @@ class Data:
 class Read:
     def __init__(self):
         super().__init__()
-        f: TextIO = open("!_Specs/helsinki.txt", "r")
+        f: TextIO = open("!_Specs/helsinki.txt", "r", encoding="utf-8")
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
         datalist: List['Data'] = list()
