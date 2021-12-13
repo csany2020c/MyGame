@@ -32,12 +32,6 @@ class Main:
         print("Egyéni indulók száma: {db} fő".format(db=len(datalist)))
 
 #4.feladat
-        #r = 0
-        #for index in range(0, len(datalist)):
-          #  if datalist[index].kategoria == "Noi":
-         #       r = r + 1
-        #print(f"Női versenyzők száma : {r} fő")
-
         db: int = 0
         Noiversenyzok: Data
         for i in range(0, len(datalist)):
