@@ -46,6 +46,19 @@ class HalalScreen(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 1.3:
+        if self.elapsed_time > 2:
             self.game.screen = WarioScreen()
+
+class WinScreen(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.r = 92
+        self.g = 148
+        self.b = 252
+        self.add_stage(WinStage())
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 5:
+            self.game.screen = MenuScreen()
 

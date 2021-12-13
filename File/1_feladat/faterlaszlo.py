@@ -22,7 +22,7 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "{x};   {y};   {txt};   {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
+        return "Ev = {x};   Nev = {y};   Elethalal = {txt};   Orszagkod = {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
 
 
 class Main:
@@ -52,14 +52,41 @@ class Main:
 
         kod: str = input()
 
-        szamok: int = 0
-        for a in range(1, len(datalist)):
-            if datalist[szamok].orszagkod < datalist[i].orszagkod:
-                szamok = i
-            print(datalist[szamok].orszagkod)
+        for index in range(0, len(datalist)):
+            print(str(index) + " ---- " + str(datalist[index]))
 
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].orszagkod == kod:
+                db += 1
+        print(db)
+        if db == 0:
+            print("A megadott országból nem volt díjazott!")
+        elif db == 1:
+            print()
+        else:
+            print("A megadott országból {db} fő díjazott volt!".format(db=db))
 
+        szam: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1980 and datalist[o].ev < 1990:
+                szam += 1
+        print("5.1 feladat")
+        print("Az 1980-es években {db} díjazott volt. ".format(db=szam))
 
+        orsz: str = "USA"
+        sz: int = 0
+        for z in range(0, len(datalist)):
+            if datalist[z].orszagkod == orsz and datalist[z].ev <= 1970:
+                sz += 1
+        print("5.2")
+        print("Az 1970-es évek előtti dijazottak száma: {db}".format(db=sz))
 
+        sz1: int = 0
+        for o in range(0, len(datalist)):
+            if datalist[o].ev >= 1970 and datalist[o].ev < 1980:
+                sz1 += 1
+        print("Gyakorlás")
+        print("Dijjak száma:{db}".format(db=sz1))
 
 Main()
