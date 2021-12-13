@@ -40,8 +40,20 @@ class Main:
         print("Női versenyzők száma : {db} fő".format(db=db))
 
 #5.feladat
+        print("5.feladat:")
+        nev: str = input()
+        man: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].nev == nev:
+                man += 1
+        if man == 0:
+            print("Nem indult egyéniben a sportoló!")
+        else:
+            print("Indult egyéniben a sportoló.")
 
-
-
+        if datalist[index].tavszaz == 100:
+            print("Teljesítette a teljes távot.")
+        else:
+            print("Nem teljesítette a teljes távot.")
 
 Main()
