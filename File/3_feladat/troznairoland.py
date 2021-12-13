@@ -9,7 +9,7 @@ class Data:
         self.rajtszam: str = fields[1]
         self.kategoria: str = fields[2]
         self.ido: str = fields[3]
-        self.tavszazalek: str = fields[4]
+        self.tavszazalek: int = int(fields[4])
 
     def __str__(self) -> str:
         return "Versenyző = {x}; Rajtszám = {y}; Kategória = {txt}; Idő = {col}; Távszázalék = {tav}".format(x=self.nev, y=self.rajtszam, txt=self.kategoria, col=self.ido, tav=self.tavszazalek)
@@ -32,13 +32,13 @@ class Main:
         #print("Egyéni indulók száma: {db} fő.".format(db=db))
 
         #print("4.feladat:")
-        #kategória: str = input()
-        #tav: int = 100
-        #db: int = 0
-        #for index in range(0, len(datalist)):
-            #if datalist[index].kategoria == kategória and datalist[index].tavszazalek == tav:
-                #db += 1
-        #print("4. feladat: Célba érkező női sportolók száma: {db} fő ".format(db=db))
+        kategória: str = "Noi" #input()
+        tav: int = 100
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].kategoria == kategória and datalist[index].tavszazalek == tav:
+                db += 1
+        print("4. feladat: Célba érkező női sportolók száma: {db} fő ".format(db=db))
 
         print("5.feladat:")
         név: str = input()

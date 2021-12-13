@@ -10,10 +10,11 @@ class Data:
         # print(parseString)
         fields: List['str'] = parseString.split(";")
         self.versenyzo: str = str(fields[0])
-        self.szam: int = fields[1]
+        self.szam: int = int(fields[1])
         self.kategoria: str = fields[2]
+        # https://docs.python.org/3/library/datetime.html
         self.versenyido: str = fields[3]
-        self.tav: int = fields[4]
+        self.tav: int = int(fields[4])
         #szh: List['str'] = fields[2].split("-")
         #self.szuletes: int = int(szh[0])
         #self.halalozas: int = None
@@ -32,7 +33,7 @@ class Main:
         print("2. feladat")
         f: TextIO = open("!_Specifikacio//ub2017egyeni.txt", "r", encoding="utf-8")
         content: str = f.read()
-        print(content)
+        # print(content)
         lines: List['str'] = content.split(sep="\n")
         #print(lines)
         datalist: List['Data'] = list()
@@ -52,7 +53,7 @@ class Main:
         print(datalist[max].versenyzo)
 
         kat: str = input()
-        tavo: str = input()
+        tavo: int = int(input())
         # # iterátoros végigjárás
          #for it in datalist:
              #print(it)
@@ -61,19 +62,12 @@ class Main:
          #for index in range(0, len(datalist)):
              #print(str(index) + " ---- " + str(datalist[index]))
 
-        db:int = 0
-        utolso:int = -1
+        db: int = 0
+        utolso: int = -1
         for index in range(0, len(datalist)):
-            if datalist[index].tav == tavo:
+            if datalist[index].tav == tavo and datalist[index].kategoria == kat:
                 db += 1
                 utolso = index
-
-        for index in range(0, len(datalist)):
-            if datalist[index].kategoria == kat:
-                db -= 1
-                utolso = index
-
-
 
         print(db)
         if db == 0:
