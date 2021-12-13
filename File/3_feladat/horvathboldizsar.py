@@ -33,7 +33,7 @@ class Read:
         nok: int = 0
         noi: str = "Noi"
         for i in range(1, len(datalist)):
-            if datalist[i].kategoria == noi:
+            if datalist[i].kategoria == noi and datalist[i].tavszazalek == 100:
                 nok += 1
         print("4. feladat: Célba érkező női sportolók száma: {nok} fő".format(nok=nok))
 
