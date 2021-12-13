@@ -73,5 +73,24 @@ class Main:
         else:
             print("A megadott országból {db} fő díjazott volt!".format(db=db))
 
+        db70: int = 0
+        for it in datalist:
+            if it.ev >= 1970 and it.ev <= 1979:
+                print(it.nev)
+                db70 += 1
+        print("Az 1970-es években {db70} díjazott volt.".format(db70=db70))
+
+        orszagok: dict = dict()
+        for k in range(0, len(datalist)):
+            try:
+                orszagok[datalist[k].orszagkod]+=1
+            except:
+                orszagok[datalist[k].orszagkod]=1
+
+        for k, v in orszagok.items():
+            if v > 5:
+                print("{k} {v}".format(k=k, v=v))
+
+
 
 Main()
