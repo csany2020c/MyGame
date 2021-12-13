@@ -28,7 +28,7 @@ class Read:
         for i in range(0, len(lines) - 1):
             d = Data(lines[i])
             datalist.append(d)
-            print(d)
+            #print(d)
 
         f.close()
 
