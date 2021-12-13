@@ -30,6 +30,7 @@ class Main:
 
         print("|3: Egyéni sportolók: {db}| ".format(db=len(datalist)))
 
+        #4feladat
         db: int = 0
         Noiversenyzok: Data
         for i in range(0, len(datalist)):
