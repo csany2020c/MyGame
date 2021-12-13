@@ -31,6 +31,12 @@ class bajvanhelp:
 
         print("Egyeniek: {db}".format(db=len(datalist)))
 
-
+        nok: str = "Noi"
+        no: int = 0
+        tavolsag: str = "100"
+        for index in range(0, len(datalist)):
+            if datalist[index].tavszazalek == tavolsag and datalist[index].kategoria == nok:
+                no += 1
+        print("Noi sportolok: {db}".format(db=no))
 
 bajvanhelp()
