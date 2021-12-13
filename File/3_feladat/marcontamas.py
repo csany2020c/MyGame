@@ -2,7 +2,6 @@ import string
 from typing import TextIO
 from typing import List
 
-
 class Data:
 
     def __init__(self, parsestring: str) -> None:
@@ -17,8 +16,6 @@ class Data:
     def __str__(self) -> str:
         return "Versenyző = {x}; Rajtszám = {y}; Kategória = {c};Versenyidő = {v}; Táv = {v}".format(
             x=self.nev, y=self.szam, c=self.kategoria, v=self.ido, b=self.tav)
-
-
 
 class Main:
     def __init__(self) -> None:
@@ -42,7 +39,5 @@ class Main:
         for index in range(0, len(datalist)):
             if datalist[index].nev == adat:
                 print("Indúlt a versenyen")
-
-
 
 Main()
