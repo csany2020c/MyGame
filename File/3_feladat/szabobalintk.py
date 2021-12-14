@@ -38,7 +38,7 @@ class Nemertemafeladatot:
                 woman += 1
         print("|4: Célba ért női sportolók: {db}| ".format(db=woman))
 
-        nevek = input("|5: Az induló neve? : ")
+        nevek = input("|5: Az induló neve : ")
         volt: str = "Nem"
         teljesitette: str = "Nem"
         for x in range(1, len(datalist)):
