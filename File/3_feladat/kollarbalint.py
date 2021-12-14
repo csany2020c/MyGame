@@ -7,18 +7,18 @@ class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split(";")
-        self.elso: str = fields[0]
-        self.masodik: str = fields[1]
-        self.harmadik: str = fields[2]
-        self.negyedik: str = fields[3]
-        self.otodik: int = int(fields[4])
+        self.versenyzok: str = fields[0].strip()
+        self.rajtszam: int = int(fields[1])
+        self.kategoria: str = fields[2]
+        self.versenyido: str = fields[3]
+        self.tavszazalek: int = int(fields[4])
 
     def IdoOra(self) -> float:
-        s: List['str'] = self.negyedik.split(":")
+        s: List['str'] = self.versenyido.split(":")
         return float(s[0]) + float(s[1])/60.0 + float(s[2])/3600.0
 
     def __str__(self) -> str:
-        return "a = {a}; b = {b}; c = {c}; d = {d}; e = {e}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik, e=self.otodik)
+        return "{a}; ({b}); {c}; {d}; {e}".format(a=self.versenyzok, b=self.rajtszam, c=self.kategoria, d=self.versenyido, e=self.tavszazalek)
 
 class Main:
 
@@ -43,13 +43,17 @@ class Main:
         print("Egyéni indulók: {szam} fő ".format(szam=len(datalist)))
 
         #4.Feladat
-        #print("")
+        print("")
         print("4.Feladat:")
         fo: int = 0
         for i in range(0, len(datalist)):
-            if datalist[i].harmadik == "Noi" and datalist[i].otodik == 100:
+            if datalist[i].kategoria == "Noi" and datalist[i].tavszazalek == 100:
                 fo += 1
-        print("4. Célba érkező női sportolók: {fo} fő ".format(fo=fo))
+        print("Célba érkező női sportolók: {fo} fő ".format(fo=fo))
+
+
+        print("")
+
 
         # print(datalist[2].elso)
         # print(datalist[2].IdoOra())
@@ -57,7 +61,7 @@ class Main:
         osszeg: float = 0
         db: int = 0
         for i in datalist:
-            if i.harmadik == "Ferfi" and i.otodik == 100:
+            if i.kategoria == "Ferfi" and i.tavszazalek == 100:
                 db += 1
                 osszeg += i.IdoOra()
         print("Átlag {atl}".format(atl = osszeg / db))
@@ -67,9 +71,9 @@ class Main:
         befutottNok: List['Data'] = list()
         befutottFerfiak: List['Data'] = list()
         for i in datalist:
-            if i.harmadik == "Ferfi" and i.otodik == 100:
+            if i.kategoria == "Ferfi" and i.tavszazalek == 100:
                 befutottFerfiak.append(i)
-            if i.harmadik == "Noi" and i.otodik == 100:
+            if i.kategoria == "Noi" and i.tavszazalek == 100:
                 befutottNok.append(i)
 
         # for i in befutottNok:
@@ -87,9 +91,5 @@ class Main:
             if befutottFerfiak[minIndex].IdoOra() > befutottFerfiak[i].IdoOra():
                 minIndex = i
         print("Győztes: {gy}".format(gy=befutottFerfiak[minIndex]))
-
-        #5.Feladat
-        #print("")
-        #print("5.Feladat:")
 
 Main()
