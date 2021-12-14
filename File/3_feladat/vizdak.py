@@ -22,19 +22,19 @@ class Main:
         content: str = f.read()
         lines: List['str'] = content.split(sep="\n")
         datalist: List['Data'] = list()
-        for i in range(0, len(lines) - 1):
+        for i in range(1, len(lines)):
             d = Data(lines[i])
             datalist.append(d)
 
         f.close()
 
-        print("|3: Egyéni sportolók: {db}| ".format(db=len(datalist)))
+        print(" Egyéni sportolók: {db}| ".format(db=len(datalist)))
 
         #4feladat
         db: int = 0
         Noiversenyzok: Data
         for i in range(0, len(datalist)):
-            if datalist[i].kategoria == "Noi":
+            if datalist[i].kategoria == "Nok":
                 db = db + 1
         print("Női versenyzők : {db} fő".format(db=db))
 
