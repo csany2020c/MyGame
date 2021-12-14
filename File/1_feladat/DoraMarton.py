@@ -73,5 +73,4 @@ class Main:
         for k, v in ev.items():
             print("{k} {v}".format(k=k, v=v))
 
-
 Main()
