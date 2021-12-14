@@ -42,10 +42,13 @@ class Nemertemafeladatot:
         volt: str = "Nem"
         teljesitette: str = "Nem"
         for x in range(1, len(datalist)):
+
             if datalist[x].versenyzo == nevek:
                 volt = "Igen"
-            if datalist[x].tavsz == 100 and datalist[x].versenyzo == nevek:
+
+            if datalist[x].tavsz == "100" and datalist[x].versenyzo == nevek:
                 teljesitette = "Igen"
+
         print("|5.1:Egyéniben indult? {volt}|".format(volt=volt))
         print("|5.2:Teljesítette a távot? {teljesitette}|".format(teljesitette=teljesitette))
 
