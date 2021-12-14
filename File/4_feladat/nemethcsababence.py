@@ -83,5 +83,4 @@ class Main:
         if torna == uszas:
             print("Az érmek száma egyenlő a két sportágban")
 
-        print("7. feladat, IDK :D")
 Main()
