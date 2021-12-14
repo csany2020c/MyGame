@@ -354,6 +354,7 @@ class ASD2 (game.scene2d.MyStage):
             if event.button == 1:
                 pygame.display.toggle_fullscreen()
 
+
 class BindingsStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
