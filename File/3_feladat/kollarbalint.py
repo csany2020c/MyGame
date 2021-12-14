@@ -11,7 +11,7 @@ class Data:
         self.masodik: str = fields[1]
         self.harmadik: str = fields[2]
         self.negyedik: str = fields[3]
-        self.otodik: str = fields[4]
+        self.otodik: int = int(fields[4])
 
     def __str__(self) -> str:
         return "a = {a}; b = {b}; c = {c}; d = {d}; e = {e}".format(a=self.elso, b=self.masodik, c=self.harmadik, d=self.negyedik, e=self.otodik)
@@ -40,12 +40,12 @@ class Main:
 
         #4.Feladat
         #print("")
-        #print("4.Feladat:")
-        #fo = 0
-        #for i in range(0, len(datalist)):
-            #if datalist[i].harmadik -= "Ferfi":
-                #fo = i
-        #print("3.Egyéni indulók: {fo} fő ".format(fo=len(datalist)))
+        print("4.Feladat:")
+        fo: int = 0
+        for i in range(0, len(datalist)):
+            if datalist[i].harmadik == "Noi" and datalist[i].otodik == 100:
+                fo += 1
+        print("4. Célba érkező női sportolók: {fo} fő ".format(fo=fo))
 
         #5.Feladat
         #print("")
