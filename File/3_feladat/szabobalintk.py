@@ -30,7 +30,7 @@ class Nemertemafeladatot:
 
         print("|3: Induló sportolók száma: {db}| ".format(db=len(datalist)))
 
-        women: str = "women"
+        women: str = "Noi"
         woman: int = 0
         tav: str = "100"
         for index in range(0, len(datalist)):
