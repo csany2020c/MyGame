@@ -13,6 +13,7 @@ class Data:
         self.versenyido: str = fields[3]
         self.tavszazalek: int = int(fields[4])
 
+    #6.Feladat
     def IdoOra(self) -> float:
         s: List['str'] = self.versenyido.split(":")
         return float(s[0]) + float(s[1])/60.0 + float(s[2])/3600.0
@@ -51,8 +52,9 @@ class Main:
                 fo += 1
         print("Célba érkező női sportolók: {fo} fő ".format(fo=fo))
 
-
+        #7.Feladat
         print("")
+        print("7.Feladat:")
 
 
         # print(datalist[2].elso)
@@ -65,6 +67,10 @@ class Main:
                 db += 1
                 osszeg += i.IdoOra()
         print("Átlag {atl}".format(atl = osszeg / db))
+
+        #8.Feladat
+        print("")
+        print("8.Feladat:")
 
         # noiMinIndex: int = 0
         # ferfiMinIndex: int = 0
