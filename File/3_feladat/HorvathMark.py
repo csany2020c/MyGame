@@ -29,18 +29,17 @@ class olvasas:
 
         print("3. feladat: Egyéni indulók: {db} fő ".format(db=len(datalist)))
 
-        #kategória: str = input()
-        #tav: int = 100
-        #db: int = 0
-
-        #for index in range(0, len(datalist)):
-        #    if datalist[index].kategoria == kategória and datalist[index].tavszazalek == tav:
-        #        db += 1
-
-        #print("4. feladat: Célba érkező női sportolók: {db} fő ".format(db=db))
+        kategória: str = "Noi"
+        tav: int = 100
+        db: int = 0
+        for index in range(0, len(datalist)):
+            if datalist[index].kategoria == kategória and datalist[index].tavszazalek == tav:
+                db += 1
+        print("4. feladat: Célba érkező női sportolók: {db} fő ".format(db=db))
 
         név: str = input()
         szemely: int = 0
+        táv: str = "100"
         for index in range(0, len(datalist)):
             if datalist[index].nev == név:
                 szemely += 1
@@ -50,7 +49,7 @@ class olvasas:
         else:
             print("Indult egyéniben a sportoló? Igen")
 
-        if datalist[index].tavszazalek == 100:
+        if datalist[index].tavszazalek == táv:
             print("Teljesítette a teljes távot? Igen")
         else:
             print("Teljesítette a teljes távot? Nem")
