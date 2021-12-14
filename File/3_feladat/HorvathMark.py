@@ -5,7 +5,7 @@ class data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
         fields: List['str'] = parseString.split(";")
-        self.nev: str = fields[0]
+        self.nev: str = fields[0].strip()
         self.rajtszam: int = int(fields[1])
         self.kategoria: str = fields[2]
         self.ido: str = fields[3]
@@ -37,22 +37,26 @@ class olvasas:
                 db += 1
         print("4. feladat: Célba érkező női sportolók: {db} fő ".format(db=db))
 
-        név: str = input()
-        szemely: int = 0
-        táv: str = "100"
+        print("5. feladat: Kérem a sportoló nevét: ")
+        név: str = input().strip()
+        szemely: int = -1
+        # táv: str = "100"
         for index in range(0, len(datalist)):
             if datalist[index].nev == név:
-                szemely += 1
-                print("5. feladat: Kérem a sportoló nevét: {n}".format(n=név))
-        if szemely == 0:
+                szemely = index
+                print(datalist[index].nev)
+        print(szemely)
+
+        if szemely == -1:
             print("Indult egyéniben a sportoló? Nem")
         else:
             print("Indult egyéniben a sportoló? Igen")
+            print(int(datalist[szemely].tavszazalek))
+            if datalist[szemely].tavszazalek == 100:
+                print("Teljesítette a teljes távot? Igen")
+            else:
+                print("Teljesítette a teljes távot? Nem")
 
-        if datalist[index].tavszazalek == táv:
-            print("Teljesítette a teljes távot? Igen")
-        else:
-            print("Teljesítette a teljes távot? Nem")
 
 
 
