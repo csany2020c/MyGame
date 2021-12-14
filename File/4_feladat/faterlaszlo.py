@@ -2,6 +2,7 @@ import string
 from typing import TextIO
 from typing import List
 
+
 class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
@@ -78,5 +79,23 @@ class Read:
                 db += 1
         print("Olimpiai pontok száma: {db}".format(db=db))
 
+        print("6. feladat:")
+
+
+        db: int = 0
+        db1: int = 0
+        uszas: str = "uszas"
+        torna: str = "torna"
+        for index in range(0, len(datalist)):
+            if datalist[index].sportagnev == uszas:
+                db += 1
+            if datalist[index].sportagnev == torna:
+                db1 += 1
+        if db == db1:
+            print("Egyenlő volt az érmek száma")
+        if db > db1:
+            print("Uszás sportágban szereztek több érmet")
+        if db < db1:
+            print("Torna sportágban szereztek több érmet")
 
 Read()
