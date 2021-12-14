@@ -85,9 +85,9 @@ class Main:
             if adatlist[index].sport == "torna":
                 torna = torna + 1
         if torna > uszas:
-            print("A torna sportágban szereztek több érmet")
+            print("Torna sportágban szereztek több érmet")
         if torna < uszas:
-            print("Az úszás sportágban szereztek több érmet")
+            print("Úszás sportágban szereztek több érmet")
         if torna == uszas:
             print("Az érmek száma egyenlő a két sportágban")
 
