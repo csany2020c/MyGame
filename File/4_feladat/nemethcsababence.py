@@ -11,7 +11,7 @@ class Adat:
         self.versenyszam: str = str(field[3])
 
     def __int__(self) -> str:
-        return "helyezes = {a}; sportolokszama_csp = {b}; sport = {c}; versenyszam = {d}".format(a=self.helyezes, b=self.sportolokszama_csp, c=self.sport, d=self.versenyszam)
+        return "{a};{b};{c};{d}".format(a=self.helyezes, b=self.sportolokszama_csp, c=self.sport, d=self.versenyszam)
 
 
 class Main:
@@ -25,7 +25,15 @@ class Main:
             adatlist.append(d)
         f.close()
         print("3. feladat")
+        #első fajta megoldas (nem minden esetben jo!)
         print("Pontszerző heléyezések száma:" + str(len(sorok)))
+        #2.fajta megoldás(tudtommal minden esetben jo)
+        valt = 0
+        for index in range(0, len(adatlist)):
+            if adatlist[index].helyezes < 7:
+                valt = valt + 1
+
+        print(valt)
 
         arany = 0
         ezust = 0
@@ -77,9 +85,9 @@ class Main:
             if adatlist[index].sport == "torna":
                 torna = torna + 1
         if torna > uszas:
-            print("A torna sportágban szereztek több érmet")
+            print("Torna sportágban szereztek több érmet")
         if torna < uszas:
-            print("Az úszás sportágban szereztek több érmet")
+            print("Úszás sportágban szereztek több érmet")
         if torna == uszas:
             print("Az érmek száma egyenlő a két sportágban")
 
