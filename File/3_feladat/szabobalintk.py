@@ -36,6 +36,7 @@ class Nemertemafeladatot:
         for index in range(0, len(datalist)):
             if datalist[index].tavsz == tav and datalist[index].kateg == women:
                 woman += 1
+
         print("|4: Célba ért női sportolók: {db}| ".format(db=woman))
 
         nevek = input("|5: Az induló neve : ")
@@ -52,6 +53,5 @@ class Nemertemafeladatot:
         print("|5.1:Egyéniben indult? {volt}|".format(volt=volt))
         print("|5.2:Teljesítette a távot? {teljesitette}|".format(teljesitette=teljesitette))
 
-#probaltam a 6,7,8-at de már nem értettem azt
 
 Nemertemafeladatot()
