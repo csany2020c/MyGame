@@ -69,7 +69,7 @@ class sziahogyvagy:
         print("Arany:" + str(elso))
         print("Ezüst:" + str(masodik))
         print("Bronz:" + str(harmadik))
-        print("Összesen:" + str(pontok))
+        print("Pontok:" + str(pontok))
 
 
 sziahogyvagy()
