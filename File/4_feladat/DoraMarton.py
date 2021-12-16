@@ -44,26 +44,32 @@ class sziahogyvagy:
         negyedik = 0
         otodik = 0
         hatodik = 0
+        pontok = 0
 
         for index in range(0, len(lines)):
             if datalist[index].helyezes == 1:
                 elso = elso + 1
+                pontok = pontok + 7
             if datalist[index].helyezes == 2:
                 masodik = masodik + 1
+                pontok = pontok + 5
             if datalist[index].helyezes == 3:
                 harmadik = harmadik + 1
+                pontok = pontok + 4
             if datalist[index].helyezes == 4:
                 negyedik = negyedik + 1
+                pontok = pontok + 3
             if datalist[index].helyezes == 5:
                 otodik = otodik + 1
+                pontok = pontok + 2
             if datalist[index].helyezes == 6:
                 hatodik = hatodik + 1
+                pontok = pontok + 1
 
-        print("Elso:" + str(elso))
-        print("Masodik:" + str(masodik))
-        print("Harmadik:" + str(harmadik))
-        print("Negyedik:" + str(negyedik))
-        print("Otozik:" + str(otodik))
-        print("Hatodik:" + str(hatodik))
+        print("Arany:" + str(elso))
+        print("Ezüst:" + str(masodik))
+        print("Bronz:" + str(harmadik))
+        print("Összesen:" + str(pontok))
+
 
 sziahogyvagy()
