@@ -5,7 +5,7 @@ from typing import List
 class Data:
     def __init__(self, parseString: str) -> None:
         super().__init__()
-        fields: List['str'] = parseString.split(";")
+        fields: List['str'] = parseString.split(" ")
         self.helyezes: int = int(fields[0])
         self.sportolok: int = int(fields[1])
         self.sport: str = fields[2]
@@ -26,5 +26,44 @@ class sziahogyvagy:
             datalist.append(d)
             print(d)
         f.close()
+
+        ermesek = 0
+
+        for index in range(0, len(lines)):
+            if datalist[index].helyezes == 1:
+                ermesek = ermesek + 1
+            if datalist[index].helyezes == 2:
+                ermesek = ermesek + 1
+            if datalist[index].helyezes == 3:
+                ermesek = ermesek + 1
+        print("Pontszerző helyezések:" + str(ermesek))
+
+        elso = 0
+        masodik = 0
+        harmadik = 0
+        negyedik = 0
+        otodik = 0
+        hatodik = 0
+
+        for index in range(0, len(lines)):
+            if datalist[index].helyezes == 1:
+                elso = elso + 1
+            if datalist[index].helyezes == 2:
+                masodik = masodik + 1
+            if datalist[index].helyezes == 3:
+                harmadik = harmadik + 1
+            if datalist[index].helyezes == 4:
+                negyedik = negyedik + 1
+            if datalist[index].helyezes == 5:
+                otodik = otodik + 1
+            if datalist[index].helyezes == 6:
+                hatodik = hatodik + 1
+
+        print("Elso:" + str(elso))
+        print("Masodik:" + str(masodik))
+        print("Harmadik:" + str(harmadik))
+        print("Negyedik:" + str(negyedik))
+        print("Otozik:" + str(otodik))
+        print("Hatodik:" + str(hatodik))
 
 sziahogyvagy()
