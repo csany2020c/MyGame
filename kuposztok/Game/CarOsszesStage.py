@@ -85,6 +85,8 @@ class CarOsszesStage(game.scene2d.MyStage):
                 self.joseph = Ski()
                 self.joseph2 = Ski()
 
+        self.nezok = Nezok()
+
         self.joseph.width = 100
         self.joseph.z_index = 5
         self.joseph.height = 200
@@ -120,6 +122,35 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.z_index = 5
             self.enemy2.x = random.Random().randint(self.width - self.width, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height, 0)
+
+        f = open("../kuposztok/palya1.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    a1: MyBaseActor = None
+                    a2: MyBaseActor = None
+                    a3: MyBaseActor = None
+                    a4: MyBaseActor = None
+                    if c == "0":
+                        a = Nezok()
+                    if c == "B":
+                        a = Enemy()
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 0
+                        self.add_actor(a)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
