@@ -34,7 +34,7 @@ class Main:
         print("3.Egyéni indulók: {db} fő ".format(db=len(datalist)))
         x = 0
         for index in range(0, len(datalist)):
-            if datalist[index].kategoria == "Noi":
+            if datalist[index].kategoria == "Noi" and datalist[index].tav == "100":
                 x = x + 1
         print(f"4.Női versenyzők száma : {x}")
 
