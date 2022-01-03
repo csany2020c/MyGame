@@ -24,7 +24,7 @@ class Main:
         for i in range(1, len(lines) - 1):
             d = Data(lines[i])
             datalist.append(d)
-            print(d)
+            #print(d)
             f.close()
 
 
