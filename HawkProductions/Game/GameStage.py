@@ -21,7 +21,7 @@ class GameStage(game.scene2d.MyStage):
         self.Bg.set_size(width=1280, height=720)
 
         self.point = 0
-        self.pointl = game.scene2d.MyLabel("Point:" + str(self.point))
+        self.pointl = game.scene2d.MyLabel("Point: {point}".format(point = self.point))
         self.add_actor(self.pointl)
         self.pointl.set_color(0, 0, 0)
         self.pointl.width = 100
