@@ -34,9 +34,9 @@ class Main:
         db: int = 0
         Noiversenyzok: Data
         for i in range(0, len(datalist)):
-            if datalist[i].kategoria == "Nok":
+            if datalist[i].kategoria == "Noi":
                 db = db + 1
-        print("Női versenyzők : {db} fő".format(db=db))
+        print("Női versenyzők száma : {db} fő".format(db=db))
 
 
 Main()
