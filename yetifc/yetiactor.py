@@ -16,7 +16,7 @@ class Start(game.scene2d.MyActor):
 
 class Exit(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/start.png")
+        super().__init__("Images/exit.png")
 
         self.set_on_mouse_down_listener(self.mouse_down2)
 

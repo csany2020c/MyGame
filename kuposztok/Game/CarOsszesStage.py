@@ -69,18 +69,23 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.joseph = SnowMobile()
         if self.carvalt == 41:
             self.joseph = Ski()
-        """if self.carvalt == 12:
+        if self.carvalt == 12:
             self.joseph = SnowMobile()
             self.joseph2 = SnowMobile()
-        if self.carvalt == 22:
-            self.joseph = Sledge()
-            self.joseph2 = Sledge()
-        if self.carvalt == 32:
-            self.joseph = SnowBoard()
-            self.joseph2 = SnowBoard()
-        if self.carvalt == 42:
-            self.joseph = Ski()
-            self.joseph2 = Ski()"""
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            print("bemegy")
+            print(self.carvalt)
+            if self.carvalt == 22:
+                self.joseph = Sledge()
+                self.joseph2 = Sledge()
+            if self.carvalt == 32:
+                self.joseph = SnowBoard()
+                self.joseph2 = SnowBoard()
+            if self.carvalt == 42:
+                self.joseph = Ski()
+                self.joseph2 = Ski()
+
+        self.nezok = Nezok()
 
         self.joseph.width = 100
         self.joseph.z_index = 5
@@ -93,16 +98,17 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.joseph.debug = False
         self.add_actor(self.joseph)
 
-        """self.joseph2.width = 100
-        self.joseph2.z_index = 5
-        self.joseph2.height = 200
-        self.joseph2.x = 700
-        self.joseph2.y = 500
-        self.joseph2.hitbox_scale_w = 0.4
-        self.joseph2.hitbox_scale_h = 0.4
-        self.joseph2.hitbox_shape = game.simpleworld.ShapeType.Circle
-        self.joseph2.debug = False
-        self.add_actor(self.joseph2)"""
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            self.joseph2.width = 100
+            self.joseph2.z_index = 5
+            self.joseph2.height = 200
+            self.joseph2.x = 700
+            self.joseph2.y = 500
+            self.joseph2.hitbox_scale_w = 0.4
+            self.joseph2.hitbox_scale_h = 0.4
+            self.joseph2.hitbox_shape = game.simpleworld.ShapeType.Circle
+            self.joseph2.debug = False
+            self.add_actor(self.joseph2)
 
         self.newgame = Newgame()
         self.newgame.x = self.width - 300
@@ -116,6 +122,35 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.z_index = 5
             self.enemy2.x = random.Random().randint(self.width - self.width, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height, 0)
+
+        f = open("../kuposztok/palya1.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    a1: MyBaseActor = None
+                    a2: MyBaseActor = None
+                    a3: MyBaseActor = None
+                    a4: MyBaseActor = None
+                    if c == "0":
+                        a = Nezok()
+                    if c == "B":
+                        a = Enemy()
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 0
+                        self.add_actor(a)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
@@ -150,12 +185,13 @@ class CarOsszesStage(game.scene2d.MyStage):
         if event.key == pygame.K_a:
             if self.joseph.x > 0:
                 self.joseph.x -= a
-        if event.key == pygame.K_RIGHT:
-            if self.joseph2.x < self.width - 200:
-                self.joseph2.x += a
-        if event.key == pygame.K_LEFT:
-            if self.joseph2.x > 0:
-                self.joseph2.x -= a
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            if event.key == pygame.K_RIGHT:
+                if self.joseph2.x < self.width - 200:
+                    self.joseph2.x += a
+            if event.key == pygame.K_LEFT:
+                if self.joseph2.x > 0:
+                    self.joseph2.x -= a
 
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
@@ -165,20 +201,22 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.joseph.rotate_with(+22)
         if event.key == pygame.K_a:
             self.joseph.rotate_with(-22)
-        if event.key == pygame.K_RIGHT:
-            self.joseph2.rotate_with(+22)
-        if event.key == pygame.K_LEFT:
-            self.joseph2.rotate_with(-22)
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            if event.key == pygame.K_RIGHT:
+                self.joseph2.rotate_with(+22)
+            if event.key == pygame.K_LEFT:
+                self.joseph2.rotate_with(-22)
 
     def visszafordul(self, sender, event):
         if event.key == pygame.K_d:
             self.joseph.rotate_with(-22)
         if event.key == pygame.K_a:
             self.joseph.rotate_with(+22)
-        if event.key == pygame.K_RIGHT:
-            self.joseph2.rotate_with(-22)
-        if event.key == pygame.K_LEFT:
-            self.joseph2.rotate_with(+22)
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            if event.key == pygame.K_RIGHT:
+                self.joseph2.rotate_with(-22)
+            if event.key == pygame.K_LEFT:
+                self.joseph2.rotate_with(+22)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
