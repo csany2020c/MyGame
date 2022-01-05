@@ -41,6 +41,8 @@ class ASD(game.scene2d.MyStage):
                         a2 = Lathatatlan2()
                     if c == "T":
                         a = Question()
+                    if c == "B":
+                        a = CannonActor()
                     if c == "g":
                         a = GroundActor()
                     if c == "j":
@@ -351,6 +353,7 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 pygame.display.toggle_fullscreen()
+
 
 class BindingsStage (game.scene2d.MyStage):
     def __init__(self):

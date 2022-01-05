@@ -22,7 +22,7 @@ class Data:
 
 
     def __str__(self) -> str:
-        return "{x};   {y};   {txt};   {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
+        return "Ev = {x};   ELethalal = {y};   Orszagkod = {txt};  Szul-hal = {col}".format(x=self.ev, y=self.nev, txt=self.elethalal, col=self.orszagkod)
 
 
 class Main:
@@ -52,12 +52,12 @@ class Main:
 
         kod: str = input()
         # # iterátoros végigjárás
-        # for it in datalist:
+        #for it in datalist:
         #     print(it)
         #
         # # index alapú végigjárás
-        # for index in range(0, len(datalist)):
-        #     print(str(index) + " ---- " + str(datalist[index]))
+        for index in range(0, len(datalist)):
+             print(str(index) + " ---- " + str(datalist[index]))
 
         db:int = 0
         utolso:int = -1

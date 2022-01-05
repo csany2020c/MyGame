@@ -73,6 +73,10 @@ class HatterActor1(game.scene2d.MyActor):
         self.y -= 100
         self.set_width(1300)
 
+class CannonActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/agyu.png")
+
 class EnemyActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Enemysus.png")
@@ -255,6 +259,7 @@ class Winkep(game.scene2d.MyActor):
         super().__init__("Kepek/win.png")
         self.set_height(450)
         self.set_width(450)
+
 
 
 

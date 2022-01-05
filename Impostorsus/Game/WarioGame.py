@@ -23,6 +23,7 @@ class Wario(game.scene2d.MyGame):
             quit()
 
 
+
 Wario().run()
 
 
