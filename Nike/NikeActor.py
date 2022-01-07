@@ -44,19 +44,6 @@ class FatJordanact(game.scene2d.MyActor):
         if event.key == pygame.K_a:
             self.x -= 4
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class LeBron(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/lebronjames.png")
