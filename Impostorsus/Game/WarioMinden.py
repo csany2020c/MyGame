@@ -201,6 +201,10 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
                     break
+            if isinstance(actorASD, CannonActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
 
             if isinstance(actorASD, InvisActor):
                 if self.wario.overlaps(actorASD):
@@ -228,8 +232,8 @@ class ASD(game.scene2d.MyStage):
 
 
 
-        if g is not None:
-            g.remove_from_stage()
+            if g is not None:
+                g.remove_from_stage()
         #
         # for actorASD in self.actors:
         #     if isinstance(actorASD, GroundActor):
