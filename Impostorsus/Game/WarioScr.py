@@ -2,7 +2,7 @@ import game
 from Impostorsus.Game.WarioActor import *
 from Impostorsus.Game.WarioMinden import *
 
-class WarioScreen(game.scene2d.MyScreen):
+class WarioScr(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
@@ -47,7 +47,7 @@ class HalalScreen(game.scene2d.MyScreen):
     def act(self, delta_time: float):
         super().act(delta_time)
         if self.elapsed_time > 2:
-            self.game.screen = WarioScreen()
+            self.game.screen = WarioScr()
 
 class WinScreen(game.scene2d.MyScreen):
     def __init__(self):
