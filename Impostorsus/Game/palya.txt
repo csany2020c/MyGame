@@ -7,10 +7,10 @@ p              oop                                         z      o
 p   ooop                                                          o
 p                                                                 o
 p                                                                 o
-p            ooop                          j  k                   o
-p                            ooooop                               o
-p  W                                    j  g  g  k   S            o
-p                                    B                            o
+p                                          j  k                   o
+p                            oyyyyp                               o
+p  W        b     B                     j  g  g  k   S            o
+p         b                                                       o
 g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
 g                    k      j
@@ -18,3 +18,4 @@ x
 g                    k      j
 x
 g                    gxxxxxxg
+
