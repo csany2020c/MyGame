@@ -208,7 +208,7 @@ class ASD(game.scene2d.MyStage):
                     break
             if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
-                    self.wario.y += 4
+                    self.wario.y += 7.5
             if isinstance(actorASD, Lathatatlan):
                 if self.wario.overlaps(actorASD):
                     self.wario.x -= 12
