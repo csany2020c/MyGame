@@ -77,6 +77,10 @@ class CannonActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/cannon.png")
 
+class BillActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/bill.png")
+
 class EnemyActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Enemysus.png")

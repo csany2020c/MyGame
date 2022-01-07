@@ -33,6 +33,8 @@ class ASD(game.scene2d.MyStage):
                     a4: MyBaseActor = None
                     if c == "y":
                         a = Kocka()
+                    if c == "b":
+                        a = BillActor()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
