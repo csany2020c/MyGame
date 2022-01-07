@@ -47,3 +47,5 @@ class FatJordanact(game.scene2d.MyActor):
 class LeBron(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/lebronjames.png")
+        self.x += 500
+        self.y += 250
