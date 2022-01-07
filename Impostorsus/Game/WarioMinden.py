@@ -33,6 +33,8 @@ class ASD(game.scene2d.MyStage):
                     a4: MyBaseActor = None
                     if c == "y":
                         a = Kocka()
+                    if c == "b":
+                        a = BillActor()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
@@ -201,6 +203,10 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
                     break
+            if isinstance(actorASD, CannonActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
 
             if isinstance(actorASD, InvisActor):
                 if self.wario.overlaps(actorASD):
@@ -221,6 +227,9 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Lathatatlan4):
                 if self.wario.overlaps(actorASD):
                     self.wario.x += 12
+            if isinstance(actorASD, BillActor):
+                if self.wario.overlaps(actorASD):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
             if isinstance(actorASD, Zaszlo):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
@@ -228,8 +237,8 @@ class ASD(game.scene2d.MyStage):
 
 
 
-        if g is not None:
-            g.remove_from_stage()
+            if g is not None:
+                g.remove_from_stage()
         #
         # for actorASD in self.actors:
         #     if isinstance(actorASD, GroundActor):

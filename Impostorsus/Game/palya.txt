@@ -9,8 +9,8 @@ p                                                                 o
 p                                                                 o
 p                                          j  k                   o
 p                            oyyyyp                               o
-p  W              B                     j  g  g  k   S            o
-p           B                        B                            o
+p  W        b     B                     j  g  g  k   S            o
+p         b                                                       o
 g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
 g                    k      j
