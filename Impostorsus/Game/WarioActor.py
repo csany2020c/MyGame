@@ -88,7 +88,6 @@ class BillActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-
         self.x -= 400 * delta_time
 
 class EnemyActor(game.scene2d.MyActor):
