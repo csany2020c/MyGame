@@ -1,5 +1,6 @@
 import game
 import pygame
+from game.scene2d import MyTickTimer
 import webbrowser
 from pygame import mixer
 from Impostorsus.Game.WarioActor import *
@@ -131,6 +132,13 @@ class ASD(game.scene2d.MyStage):
         self.sz2.set_height(25)
         self.sz2.x += 3430
         self.sz2.y += 740
+        self.t = MyTickTimer(interval=1, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        self.b = BillActor()
+        self.add_actor(self.b)
+        self.b.set_y -= 400
 
     def press(self, sender, event):
         # print(event.key)
