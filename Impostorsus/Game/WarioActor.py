@@ -75,7 +75,7 @@ class HatterActor1(game.scene2d.MyActor):
 
 class CannonActor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Kepek/agyu.png")
+        super().__init__("Kepek/cannon.png")
 
 class EnemyActor(game.scene2d.MyActor):
     def __init__(self):
