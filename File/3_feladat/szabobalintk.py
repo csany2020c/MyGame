@@ -29,7 +29,7 @@ class Nemertemafeladatot:
         for i in range(1, len(lines) - 0):
             d = Data(lines[i])
             datalist.append(d)
-
+        
         f.close()
 
         print("|3: Induló sportolók száma: {db}| ".format(db=len(datalist)))

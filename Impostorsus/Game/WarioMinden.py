@@ -7,8 +7,6 @@ from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScreen
 
 
-
-
 class ASD(game.scene2d.MyStage):
 
     def __init__(self):
@@ -33,6 +31,8 @@ class ASD(game.scene2d.MyStage):
                     a2: MyBaseActor = None
                     a3: MyBaseActor = None
                     a4: MyBaseActor = None
+                    if c == "y":
+                        a = Kocka()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
@@ -208,7 +208,7 @@ class ASD(game.scene2d.MyStage):
                     break
             if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
-                    self.wario.y += 4
+                    self.wario.y += 7.5
             if isinstance(actorASD, Lathatatlan):
                 if self.wario.overlaps(actorASD):
                     self.wario.x -= 12

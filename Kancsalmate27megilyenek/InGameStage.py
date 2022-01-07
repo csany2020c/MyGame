@@ -8,7 +8,9 @@ from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.PlayerActor import *
 from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek.Labels import *
+from Kancsalmate27megilyenek.ArenaScreen import *
 from game.scene2d import MyBaseActor
+from Kancsalmate27megilyenek.Map import *
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -39,42 +41,8 @@ class InStage(game.scene2d.MyStage):
         self.set_on_key_up_listener(self.moveKeysOff)
         self.camera.tracking = self.player
 
-        f = open("../map/butamap.txt","r")
+        self.map = Map(self,"butamap")
 
-        y: int = 0
-        while True:
-            line = f.readline().strip()
-            if line:
-                x: int = 0
-                for c in line:
-                    a: MyBaseActor = None
-                    if c == "0":
-                        self.water = WaterActor()
-                        a = self.water
-                    if c == "1":
-                        self.grass = GrassActor()
-                        a = self.grass
-                    if c == "2":
-                        self.sand = SandActor()
-                        a = self.sand
-                    if c == "3":
-                        self.stone = StoneActor()
-                        a = self.stone
-                    if c == "4":
-                        self.path = PathActor()
-                        a = self.path
-                    if a is not None:
-                        a.x = x * 64
-                        a.y = y * 64
-                        self.add_actor(a)
-                        a.set_z_index(0)
-                        print(c)
-                    x += 1
-            else:
-                break
-            y += 1
-
-        f.close()
 
 
     def moveKeys(self, sender, event):
@@ -126,6 +94,11 @@ class InStage(game.scene2d.MyStage):
             self.player.x += b
         if self.isEscPressed:
             quit()
+        if self.player.overlaps(self.sand):
+            self.screen.game.set_screen(ArenaScreen())
+            print("kocc")
+
+
         self.heart.x = self.player.x - 15
         self.heart.y = self.player.y - 30
         self.heart1.x = self.player.x + 10

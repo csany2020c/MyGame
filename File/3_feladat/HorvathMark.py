@@ -11,6 +11,11 @@ class data:
         self.ido: str = fields[3]
         self.tavszazalek: int = int(fields[4])
 
+    def IdoOra(self) -> float:
+        s: List['str'] = self.ido.split(":")
+        return float(s[0]) + float(s[1])/60.0 + float(s[2])/3600.0
+
+
     def __str__(self) -> str:
         return "Name = {x}; Startnumber = {y}; Category = {txt}; Time = {col}; Percentage = {z}".format(x=self.nev, y=self.rajtszam, txt=self.kategoria, col=self.ido, z=self.tavszazalek)
 
@@ -37,15 +42,13 @@ class olvasas:
                 db += 1
         print("4. feladat: Célba érkező női sportolók: {db} fő ".format(db=db))
 
-        print("5. feladat: Kérem a sportoló nevét: ")
+        print("5. feladat: Kérem a sportoló nevét :")
         név: str = input().strip()
         szemely: int = -1
         # táv: str = "100"
         for index in range(0, len(datalist)):
             if datalist[index].nev == név:
                 szemely = index
-                print(datalist[index].nev)
-        print(szemely)
 
         if szemely == -1:
             print("Indult egyéniben a sportoló? Nem")
@@ -57,7 +60,37 @@ class olvasas:
             else:
                 print("Teljesítette a teljes távot? Nem")
 
+        osszeg: float = 0
+        db: int = 0
+        for i in datalist:
+            if i.kategoria == "Ferfi" and i.tavszazalek == 100:
+                db += 1
+                osszeg += i.IdoOra()
+        print("Átlag {atl}".format(atl=osszeg / db))
 
+        # noiMinIndex: int = 0
+        # ferfiMinIndex: int = 0
+        befutottNok: List['data'] = list()
+        befutottFerfiak: List['data'] = list()
+        for i in datalist:
+            if i.kategoria == "Ferfi" and i.tavszazalek == 100:
+                befutottFerfiak.append(i)
+            if i.kategoria == "Noi" and i.tavszazalek == 100:
+                befutottNok.append(i)
 
+        # for i in befutottNok:
+        #     print(i)
+
+        minIndex = 0
+        for i in range(1, len(befutottNok)):
+            if befutottNok[minIndex].IdoOra() > befutottNok[i].IdoOra():
+                minIndex = i
+        print("Győztes: {gy}".format(gy=befutottNok[minIndex]))
+
+        minIndex = 0
+        for i in range(1, len(befutottFerfiak)):
+            if befutottFerfiak[minIndex].IdoOra() > befutottFerfiak[i].IdoOra():
+                minIndex = i
+        print("Győztes: {gy}".format(gy=befutottFerfiak[minIndex]))
 
 olvasas()

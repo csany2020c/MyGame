@@ -52,6 +52,7 @@ class SelectStage(game.scene2d.MyStage):
         self.s.x = 512.5
         self.s.y = 450
         self.s.w = 200
+        self.s.set_on_key_down_listener(self.key_down)
         self.s.set_on_mouse_down_listener(self.katt2)
 
     def katt(self, sender, event):
@@ -79,6 +80,11 @@ class SelectStage(game.scene2d.MyStage):
             if self.puska > 4:
                 self.puska = 0
             self.frissites()
+
+    def key_down(self, sender, event):
+        print(sender)
+        if event.key == pygame.K_SPACE:
+            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen(self.puska))
 
     def frissites(self):
         if self.D == None:
