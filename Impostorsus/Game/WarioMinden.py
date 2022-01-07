@@ -227,6 +227,9 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Lathatatlan4):
                 if self.wario.overlaps(actorASD):
                     self.wario.x += 12
+            if isinstance(actorASD, BillActor):
+                if self.wario.overlaps(actorASD):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
             if isinstance(actorASD, Zaszlo):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
