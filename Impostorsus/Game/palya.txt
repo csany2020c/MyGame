@@ -10,7 +10,7 @@ p                                                                 o
 p                                          j  k                   o
 p                            oyyyyp                               o
 p  W        b     B                     j  g  g  k   S            o
-p         b                                                       o
+p                                                                 o
 g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
 g                    k      j
