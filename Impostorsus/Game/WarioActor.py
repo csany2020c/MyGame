@@ -83,6 +83,8 @@ class CannonActor(game.scene2d.MyActor):
 class BillActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/bill.png")
+        self.hitbox_scale_h = 0.35
+        self.hitbox_scale_w = 0.8
 
 class EnemyActor(game.scene2d.MyActor):
     def __init__(self):
