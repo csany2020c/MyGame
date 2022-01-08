@@ -1,11 +1,11 @@
 import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 import HawkProductions.Game.GameScreen
 import HawkProductions.Music
 import pygame
 import HawkProductions.Select.SelectScreen
-from game.scene2d import MyBaseActor, MyActor
+from game.scene2d import MyActor
 
 
 class SelectStage(game.scene2d.MyStage):

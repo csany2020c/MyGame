@@ -1,7 +1,6 @@
-import game
 import pygame
 import random
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 
 class snow (game.scene2d.MyActor):
     def __init__(self):
