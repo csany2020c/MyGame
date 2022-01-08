@@ -1,11 +1,8 @@
-import time
-import game
-import pygame
 import random
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.over.OverScreen
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 
 
 class GameStage(game.scene2d.MyStage):
