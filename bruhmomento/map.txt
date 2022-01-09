@@ -9,9 +9,9 @@ wwwwwwwwwwwwwwwwww     w
                  w     w                w
                  w     w                w
                  w     w                w
-                 w     wwwwwwwwwwwwww   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                 w
-                 w
-                 w                                         wwwwwww
-                 w                                         w     w
-                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww     wwwwww
+                 w     wwwwwwwwwwwwww   wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                 w                                                       w
+                 w                                                       w
+                 w                                         wwwwwww       w
+                 w                                         w     w       w
+                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww     wwwwwwwww

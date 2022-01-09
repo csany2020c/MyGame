@@ -26,7 +26,7 @@ class Exit(game.scene2d.MyActor):
 
 class Settings(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/settings.png")
+        super().__init__("Images/options.png")
 
         self.set_on_mouse_down_listener(self.mouse_down)
 
