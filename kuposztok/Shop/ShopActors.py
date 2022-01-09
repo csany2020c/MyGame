@@ -2,7 +2,27 @@ import game
 import pygame
 
 
-class ShopActor(game.scene2d.MyActor):
+class ShopBgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/menu.png')
+        super().__init__('image/snow.png')
+
+class DefaultSnowMobile(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/SnowMobile.png')
+
+class DefaultSledge(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/Sledge.png')
+
+class DefaultSnowBoard(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/SnowBoard.png')
+
+class DefaultSki(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/Ski.png')

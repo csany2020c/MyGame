@@ -3,16 +3,16 @@ import kuposztok
 from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
 from kuposztok.Credit.CreditScreen import CreditScreen
 import kuposztok.Shop.ShopScreen
-from kuposztok.Menu import Beolvasas
+#from kuposztok.Menu.Read import *
 from kuposztok.Menu.MenuBgActor import *
+
 
 
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.beolvasas = Beolvasas
-        self.money = self.beolvasas.getMoney()
+        #self.money = getMoney()
         bg = MenuActor()
         self.add_actor(bg)
         self.height = pygame.display.get_surface().get_height()
@@ -57,9 +57,8 @@ class MenuStage(game.scene2d.MyStage):
         button3.set_on_mouse_down_listener(self.Klikk3)
         button4.set_on_mouse_down_listener(self.Klikk4)
 
-    def act(self, delta_time: float):
+    def act(self, delta_time: float,):
         super().act(delta_time)
-        print(self.money)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
@@ -81,5 +80,5 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
 
-    def getMoneyMenu(self):
-        return self.money
+    # def getMenuMoney(self):
+    #     return self.money
