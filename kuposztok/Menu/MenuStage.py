@@ -2,7 +2,7 @@ import game
 import kuposztok
 from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
 from kuposztok.Credit.CreditScreen import CreditScreen
-import kuposztok.Shop.ShopScreen
+import kuposztok.Locker.LockerScreen
 #from kuposztok.Menu.Read import *
 from kuposztok.Menu.MenuBgActor import *
 
@@ -74,7 +74,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def Klikk4(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Shop.ShopScreen.ShopScreen())
+            self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen())
 
     def katt(self, sender, event):
         if event.key == pygame.K_ESCAPE:

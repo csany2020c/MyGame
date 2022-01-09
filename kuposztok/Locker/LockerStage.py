@@ -2,11 +2,11 @@ import game
 import pygame
 
 import kuposztok.Menu.MenuStage
-from kuposztok.Shop.ShopActors import *
+from kuposztok.Locker.LockerActor import *
 import kuposztok.Menu.MenuScreen
 
 
-class ShopStage(game.scene2d.MyStage):
+class LockerStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
@@ -18,6 +18,8 @@ class ShopStage(game.scene2d.MyStage):
         # self.money = MenuStage.getMoneyMenu()
         # self.moneyLabel = game.scene2d.MyLabel("Your money: " + self.money)
         # self.add_actor(self.moneyLabel)
+        self.back = Back()
+        self.add_actor(self.back)
         self.DefSnowMobile = DefaultSnowMobile()
         self.DefSnowMobile.set_size(200, 200)
         self.DefSnowMobile.x = self.width / 5
@@ -81,6 +83,7 @@ class ShopStage(game.scene2d.MyStage):
 
 
         self.set_on_key_down_listener(self.Back)
+        self.back.set_on_mouse_down_listener(self.Back2)
         self.DefSnowMobile.set_on_mouse_down_listener(self.Def1)
         self.DefSledge.set_on_mouse_down_listener(self.Def2)
         self.DefSnowBoard.set_on_mouse_down_listener(self.Def3)
@@ -96,6 +99,10 @@ class ShopStage(game.scene2d.MyStage):
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
+            self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def Back2(self, sender, event):
+        if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
     def Def1(self, sender, event):
