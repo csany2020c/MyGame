@@ -1,11 +1,8 @@
-import time
-import game
-import pygame
 import random
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.over.OverScreen
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 
 
 class GameStage(game.scene2d.MyStage):
@@ -15,17 +12,19 @@ class GameStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        #pygame.mixer.music.fadeout(145000)
         self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
 
-        self.point = 0
-        self.pointl = game.scene2d.MyLabel("Point:" + str(self.point))
+        self.point: int = 0
+        self.pointl = game.scene2d.MyLabel("Point: {point}".format(point=self.point))
         self.add_actor(self.pointl)
         self.pointl.set_color(0, 0, 0)
         self.pointl.width = 100
         self.pointl.height = 50
+        for i in range(100):
+            self.point += 1
+        print(self.point)
 
         self.D = None
         if puska == 0:
@@ -71,6 +70,7 @@ class GameStage(game.scene2d.MyStage):
         self.P6 = Pile_a()
         self.P7 = Pile_f()
         self.P8 = Pile_a()
+
         self.C = Coin()
         self.C1 = Coin()
         self.C2 = Coin()
@@ -160,24 +160,31 @@ class GameStage(game.scene2d.MyStage):
             self.P7.y = random.randint(655, 700)
 
     def add_asd4(self, sender):
+        print(sender)
         self.add_actor(self.C)
         self.C.x = 1180
         self.C.y = 420
-        self.C.width = 300
+        self.C.width = 50
+        self.C.set_hitbox_scale_h = 0.1
+        self.C.set_hitbox_scale_w = 0.1
 
     def add_asd5(self, sender):
         print(sender)
         self.add_actor(self.C1)
         self.C1.x = 1200
         self.C1.y = random.randint(200, 500)
-        self.C1.width = 300
+        self.C1.width = 50
+        self.C1.set_hitbox_scale_h = 0.1
+        self.C1.set_hitbox_scale_w = 0.1
 
     def add_asd6(self, sender):
         print(sender)
         self.add_actor(self.C2)
         self.C2.x = 1200
         self.C2.y = random.randint(200, 500)
-        self.C2.width = 300
+        self.C2.width = 50
+        self.C2.set_hitbox_scale_h = 0.1
+        self.C2.set_hitbox_scale_w = 0.1
 
     def act(self, delta_time: float):
         super().act(delta_time)

@@ -35,14 +35,16 @@ class Main:
 
         bevitel: str = input()
 
-        db: int = 0
+        keresett_index: int = -1
         for index in range(0, len(datalist)):
             if datalist[index].versenyzo == bevitel:
-                db += 1
-        if db == 0:
+                keresett_index = index
+                break
+
+        if keresett_index == -1:
             print("Nem indult ilyen nevű versenyző!")
         else:
-            print("Ez a nevű versenyző eredménye: {db}.".format(db=datalist[1].tavszazalek))
+            print("Ez a nevű versenyző eredménye: {db}.".format(db=datalist[keresett_index].tavszazalek))
 
         for index in range(0, len(datalist)):
             if datalist[index].tavszazalek == 100:

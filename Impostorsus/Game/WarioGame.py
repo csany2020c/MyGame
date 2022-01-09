@@ -2,8 +2,9 @@
 import game
 import pygame
 from Impostorsus.Game.WarioActor import *
-from Impostorsus.Game.WarioScreen import *
-import Impostorsus.Game.WarioScreen
+from Impostorsus.Game.WarioScr import *
+import Impostorsus.Game.WarioScr
+
 
 class Wario(game.scene2d.MyGame):
 
@@ -11,16 +12,23 @@ class Wario(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = MenuScreen()
         self.set_on_key_down_listener(self.key_down)
+        pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
 
     def key_down(self, sender, event):
+        monitor_size = [pygame.display.Info().current_w, pygame.display.Info().current_h]
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         print(sender)
         print(event)
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+        if event.key == pygame.K_BACKSPACE:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.MenuScreen())
         if event.key == pygame.K_F11:
             pygame.display.toggle_fullscreen()
-        if event.key == pygame.K_BACKSPACE:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.MenuScreen())
         if event.key == pygame.K_ESCAPE:
             quit()
+
 
 
 Wario().run()

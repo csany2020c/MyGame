@@ -1,0 +1,2 @@
+def getMoneyMenu():
+    return None

@@ -4,13 +4,13 @@ class szisza(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("images/szisza.png")
-        self.set_width(100)
+        self.set_width(180)
 
 class kocsi1(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("images/kocsi.png")
-        self.set_width(150)
+        self.set_width(200)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -23,4 +23,15 @@ class UtActor(game.scene2d.MyActor):
         super().__init__("images/ut.jpg")
         self.set_width(1450)
 
+class FalActor(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__("images/fal.png")
+        self.set_height(1000)
+
+class Palyaszele(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__("images/palyaszele.png")
+        self.set_width(1500)
 

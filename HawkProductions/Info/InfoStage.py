@@ -1,6 +1,5 @@
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 import game
-import pygame
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.Info.InfoScreen
@@ -62,11 +61,11 @@ class IStage(game.scene2d.MyStage):
         self.Ba.set_on_mouse_down_listener(self.click1)
         self.set_on_key_down_listener(self.katt1)
 
-        self.L = Logo()
-        self.add_actor(self.L)
-        self.L.set_size(228, 172)
-        self.L.x = 850
-        self.L.y = 50
+        # self.L = Logo()
+        # self.add_actor(self.L)
+        # self.L.set_size(228, 172)
+        # self.L.x = 850
+        # self.L.y = 50
 
     def click1(self, sender, event):
         print(sender)
@@ -90,7 +89,7 @@ class Istage2(game.scene2d.MyStage):
         super().__init__()
         self.bg = Piros()
         self.add_actor(self.bg)
-        self.bg.set_size(1280, 720)
+        self.bg.set_size(1290, 730)
 
         self.t = Strokes()
         self.add_actor(self.t)
@@ -133,11 +132,11 @@ class Istage2(game.scene2d.MyStage):
         self.t4.x = 350
         self.t4.y = 560
 
-        self.L = Logo()
-        self.add_actor(self.L)
-        self.L.set_size(228, 172)
-        self.L.x = 850
-        self.L.y = 50
+        # self.L = Logo()
+        # self.add_actor(self.L)
+        # self.L.set_size(228, 172)
+        # self.L.x = 850
+        # self.L.y = 50
 
     def click1(self, sender, event):
         print(sender)

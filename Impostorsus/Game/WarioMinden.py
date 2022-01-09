@@ -1,12 +1,11 @@
 import game
 import pygame
+from game.scene2d import MyTickTimer
 import webbrowser
 from pygame import mixer
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
-import Impostorsus.Game.WarioScreen
-
-
+import Impostorsus.Game.WarioScr
 
 
 class ASD(game.scene2d.MyStage):
@@ -33,6 +32,10 @@ class ASD(game.scene2d.MyStage):
                     a2: MyBaseActor = None
                     a3: MyBaseActor = None
                     a4: MyBaseActor = None
+                    if c == "y":
+                        a = Kocka()
+                    if c == "b":
+                        a = BillActor()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
@@ -41,6 +44,8 @@ class ASD(game.scene2d.MyStage):
                         a2 = Lathatatlan2()
                     if c == "T":
                         a = Question()
+                    if c == "B":
+                        a = CannonActor()
                     if c == "g":
                         a = GroundActor()
                     if c == "j":
@@ -127,6 +132,15 @@ class ASD(game.scene2d.MyStage):
         self.sz2.set_height(25)
         self.sz2.x += 3430
         self.sz2.y += 740
+        self.t = MyTickTimer(interval=2.3, func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        self.b = BillActor()
+        self.add_actor(self.b)
+        self.b.x = +1100
+        self.b.y = +700
+
 
     def press(self, sender, event):
         # print(event.key)
@@ -151,7 +165,7 @@ class ASD(game.scene2d.MyStage):
 
     def key_down(self, sender, event):
         jump_fx = pygame.mixer.Sound("audio/jumpsound.mp3")
-        jump_fx.set_volume(0.1)
+        jump_fx.set_volume(0.03)
         print(sender)
         print(event)
         if event.key == pygame.K_w:
@@ -169,7 +183,7 @@ class ASD(game.scene2d.MyStage):
             jump_fx.play()
         if event.key == pygame.K_e:
             webbrowser.open('https://youtu.be/d1YBv2mWll0')
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioScreen())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
 
 
     def act(self, delta_time: float):
@@ -199,6 +213,10 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
                     break
+            if isinstance(actorASD, CannonActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
 
             if isinstance(actorASD, InvisActor):
                 if self.wario.overlaps(actorASD):
@@ -206,7 +224,7 @@ class ASD(game.scene2d.MyStage):
                     break
             if isinstance(actorASD, Kocka):
                 if self.wario.overlaps(actorASD):
-                    self.wario.y += 4
+                    self.wario.y += 7.5
             if isinstance(actorASD, Lathatatlan):
                 if self.wario.overlaps(actorASD):
                     self.wario.x -= 12
@@ -219,15 +237,18 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Lathatatlan4):
                 if self.wario.overlaps(actorASD):
                     self.wario.x += 12
+            if isinstance(actorASD, BillActor):
+                if self.wario.overlaps(actorASD):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
             if isinstance(actorASD, Zaszlo):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
-                    self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WinScreen())
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.WinScreen())
 
 
 
-        if g is not None:
-            g.remove_from_stage()
+            if g is not None:
+                g.remove_from_stage()
         #
         # for actorASD in self.actors:
         #     if isinstance(actorASD, GroundActor):
@@ -276,7 +297,7 @@ class ASD(game.scene2d.MyStage):
 
         if overASD:
             dead_fx.play()
-            self.screen.game.set_screen(Impostorsus.Game.WarioScreen.HalalScreen())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
 
 
 class ASD2 (game.scene2d.MyStage):
@@ -322,14 +343,14 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.CreditScreen())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.CreditScreen())
 
     def bind(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.BindingsScreen())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.BindingsScreen())
 
     def exit(self, sender, event):
         print(sender)
@@ -343,7 +364,7 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScreen.WarioScreen())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
 
     def fullscreen(self, sender, event):
         print(sender)
@@ -351,6 +372,7 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 pygame.display.toggle_fullscreen()
+
 
 class BindingsStage (game.scene2d.MyStage):
     def __init__(self):
@@ -393,14 +415,16 @@ class BindingsStage (game.scene2d.MyStage):
 class CreditStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         self.a = MenuSzoveg()
         self.add_actor(self.a)
         self.a.set_text("Készítők:")
         self.a.set_alpha(500)
         self.a.set_width(75)
         self.a.set_height(75)
-        self.a.x += 250
-        self.a.y += 50
+        self.a.x += self.width /3 - self.a.get_width() / 2
+        self.a.y += self.height /6 - self.a.get_height() / 2
         self.b = MenuSzoveg()
         self.add_actor(self.b)
         self.b.set_text("K.Bálint")
@@ -431,13 +455,17 @@ class HalalStage (game.scene2d.MyStage):
         super().__init__()
         self.h = Halalkep()
         self.add_actor(self.h)
-        self.h.x += 390
-        self.h.y += 300
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        self.h.x += self.width /2 - self.h.get_width() / 2
+        self.h.y += self.height /2 - self.h.get_height() / 2
 
 class WinStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         self.w = Winkep()
         self.add_actor(self.w)
-        self.w.x += 390
-        self.w.y += 300
+        self.w.x += self.width /2 - self.w.get_width() / 2
+        self.w.y += self.height /2 - self.w.get_height() / 2

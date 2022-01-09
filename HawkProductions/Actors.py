@@ -5,7 +5,7 @@ import pygame
 
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/sellect.jpg")
+        super().__init__("image/select.jpg")
 
 
 class Title(game.scene2d.MyActor):
@@ -31,7 +31,7 @@ class Exit(game.scene2d.MyActor):
 
 class Deagle(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/bid2.png")
+        super().__init__("image/bid.png")
 
     def act(self, delta_time: float):
         self.y += 75*delta_time
@@ -40,17 +40,17 @@ class Deagle(game.scene2d.MyActor):
         if self.y < 0:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
-class Deagle1(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/bid2.png")
+# class Deagle1(game.scene2d.MyActor):
+#     def __init__(self):
+#         super().__init__("image/bid2.png")
 
 
-class Deagle2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/original.png")
+# class Deagle2(game.scene2d.MyActor):
+#     def __init__(self):
+#         super().__init__("image/original.png")
 
 
 class Deagle_2(game.scene2d.MyActor):
@@ -64,7 +64,7 @@ class Deagle_2(game.scene2d.MyActor):
         if self.y < 0:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
 class Pile(game.scene2d.MyActor):
@@ -132,9 +132,9 @@ class Selectimage(game.scene2d.MyActor):
         super().__init__("image/original.png")
 
 
-class Deagle3(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/luckyspade.png")
+# class Deagle3(game.scene2d.MyActor):
+#     def __init__(self):
+#         super().__init__("image/luckyspade.png")
 
 
 class Deagle_3(game.scene2d.MyActor):
@@ -148,12 +148,12 @@ class Deagle_3(game.scene2d.MyActor):
         if self.y < 0:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
-class Deagle4(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/goldengun.png")
+# class Deagle4(game.scene2d.MyActor):
+#     def __init__(self):
+#         super().__init__("image/goldengun.png")
 
 
 class Deagle_4(game.scene2d.MyActor):
@@ -167,17 +167,17 @@ class Deagle_4(game.scene2d.MyActor):
         if self.y < 0:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
-class Deagle5(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("image/observator.png")
+# class Deagle5(game.scene2d.MyActor):
+#     def __init__(self):
+#         super().__init__("image/observator.png")
 
 
 class Deagle_5(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/observator.png")
+        super().__init__("image/observator88.png")
 
     def act(self, delta_time: float):
         self.y += 75 * delta_time
@@ -186,7 +186,7 @@ class Deagle_5(game.scene2d.MyActor):
         if self.y < 0:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
-            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
 class Sarga(game.scene2d.MyActor):
