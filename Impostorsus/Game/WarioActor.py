@@ -75,7 +75,20 @@ class HatterActor1(game.scene2d.MyActor):
 
 class CannonActor(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Kepek/agyu.png")
+        super().__init__("Kepek/cannon.png")
+        self.hitbox_scale_h = 0.58
+        self.hitbox_scale_w = 1
+
+
+class BillActor(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/bill.png")
+        self.hitbox_scale_h = 0.35
+        self.hitbox_scale_w = 0.8
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= 400 * delta_time
 
 class EnemyActor(game.scene2d.MyActor):
     def __init__(self):

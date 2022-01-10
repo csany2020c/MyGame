@@ -8,7 +8,8 @@ class lovedek(game.scene2d.MyActor):
         super().__init__("Images/lovedek.png")
         self.set_size(40, 40)
         self.set_on_key_press_listener(self.key_down)
-        self.hitbox_shape = ShapeType.Rectangle
+        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_w = 0.9
 
     def key_down(self, sender, event):
         print(sender)
@@ -47,7 +48,6 @@ class fohos(game.scene2d.MyActor):
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/katona.png")
-        self.hitbox_shape = ShapeType.Rectangle
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):
@@ -83,3 +83,7 @@ class wall(game.scene2d.MyActor):
 class startgomb(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/lessgo2.png")
+
+class wall2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/fal.jpg")

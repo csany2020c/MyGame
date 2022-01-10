@@ -1,11 +1,11 @@
 import HawkProductions.menu.MenuScreen
 from HawkProductions.Actors import *
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 import HawkProductions.Game.GameScreen
 import HawkProductions.Music
 import pygame
 import HawkProductions.Select.SelectScreen
-from game.scene2d import MyBaseActor, MyActor
+from game.scene2d import MyActor
 
 
 class SelectStage(game.scene2d.MyStage):
@@ -21,7 +21,6 @@ class SelectStage(game.scene2d.MyStage):
 
         self.f = Anything()
         self.add_actor(self.f)
-        self.f.set_text("Black Ice")
         self.f.x = 500
         self.f.y = 100
         self.f.set_color(0, 0, 0)
@@ -100,10 +99,10 @@ class SelectStage(game.scene2d.MyStage):
             self.D.image_url = 'image/goldengun1.png'
             self.f.set_text("Golden Gun")
         if self.puska == 3:
-            self.D.image_url = 'image/observator.png'
+            self.D.image_url = 'image/observator88.png'
             self.f.set_text("Observator")
         if self.puska == 4:
-            self.D.image_url = 'image/bid2.png'
+            self.D.image_url = 'image/bid.png'
             self.f.set_text("Black Ice")
         self.D.x = 530
         self.D.y = 250
