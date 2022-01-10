@@ -103,7 +103,8 @@ class bruhstage(game.scene2d.MyStage):
         super().act(delta_time)
         if self.kapu.overlaps(other=self.fohos):
             self.screen.game.set_screen(bruhScreen("map2.txt"))
-
+        if self.enemy1.overlaps(other=self.lovedek):
+            self.screen.game.set_screen(bruhScreen("map2.txt"))
 
 
 
