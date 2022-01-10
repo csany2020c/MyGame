@@ -24,3 +24,8 @@ class Button3(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/credit_button.png')
+
+class Button4(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/play_button.png')

@@ -1,6 +1,5 @@
-from HawkProductions.Font import *
+from HawkProductions.font.Font import *
 import game
-import pygame
 from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.Info.InfoScreen

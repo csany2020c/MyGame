@@ -4,6 +4,7 @@ import random
 from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 import kuposztok.CaraValt.CaraValtStage
+from kuposztok.Lose.LoseScreen import LoseScreen
 
 class CarOsszesStage(game.scene2d.MyStage):
 
@@ -143,9 +144,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         super().act(delta_time)
         if self.joseph.overlaps(self.enemy2):
             self.score = self.score - self.score
-            self.add_actor(self.vesztettel)
-            self.add_actor(self.vesztettellabel)
-            self.add_actor(self.newgame)
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen())
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
@@ -196,3 +195,7 @@ class CarOsszesStage(game.scene2d.MyStage):
     def NewG(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(CarOsszesStage(carvalt= self.carvalt))
+
+    def getScore(self):
+        return self.score
+

@@ -45,15 +45,17 @@ class bruhstage(game.scene2d.MyStage):
         self.add_actor(self.fohos)
         self.kapu = kapu()
         self.add_actor(self.kapu)
-        self.kapu.x = 70
-        self.kapu.y = 200
+        self.kapu.x = 3400
+        self.kapu.y = 820
+        self.kapu.rotate_with(270)
+        self.lovedek = lovedek()
+        self.lovedek.x = 500
+        self.lovedek.y = 200
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
         self.enemy1.x = 1000
         self.enemy1.y = 300
-        self.lovedek = lovedek()
-        self.lovedek.x = 500
-        self.lovedek.y = 200
+
 
         self.camera.tracking = self.fohos
         self.fohos.set_on_key_press_listener(self.press)
@@ -103,7 +105,8 @@ class bruhstage(game.scene2d.MyStage):
         super().act(delta_time)
         if self.kapu.overlaps(other=self.fohos):
             self.screen.game.set_screen(bruhScreen("map2.txt"))
-
+        if self.enemy1.overlaps(self.fohos):
+            self.enemy1.remove_from_stage()
 
 
 
