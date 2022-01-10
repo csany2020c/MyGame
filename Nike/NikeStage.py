@@ -65,6 +65,8 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(Sztrit())
         self.FatJordanact = FatJordanact()
         self.add_actor(FatJordanact())
+        self.LeBron = LeBron()
+        self.add_actor(LeBron())
 
         self.camera.tracking = self.FatJordanact
         self.FatJordanact.set_on_key_press_listener(self.press)
@@ -80,9 +82,3 @@ class GameStage(game.scene2d.MyStage):
     def backtomenu(self,sender,event):
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
-
-
-
-
-
-

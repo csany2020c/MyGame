@@ -21,6 +21,14 @@ class BulletCount(game.scene2d.MyLabel):
     def __init__(self):
         super().__init__("Bullets:")
 
+class Bullet(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/bullet.png")
+
+class HUD(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/hud.png")
+
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
@@ -30,25 +38,35 @@ class GameStage(game.scene2d.MyStage):
     def __init__(self):
         self.ronstage : bool = True
         self.sonstage : bool = False
+        self.kpushed : bool = False
+        self.revolock : bool = False
         super().__init__()
         self.character = Character()
         self.gamebg = GameBG()
         self.revolver = Revolver()
         self.shotgun = Shotgun()
         self.bulletcount = BulletCount()
+        self.bullet = Bullet()
+        self.hud = HUD()
         self.add_actor(self.gamebg)
         self.add_actor(self.character)
-        self.add_actor(self.bulletcount)
+        #self.add_actor(self.bulletcount)
+        self.add_actor(self.hud)
         self.character.width = 200
         self.gamebg.z_index = 0
         self.character.z_index = 1
         self.revolver.z_index = 2
         self.shotgun.z_index = 2
+        self.bullet.z_index = 2
+        self.hud.z_index = 4
         self.revolver.y = 410
         self.revolver.x = 70
         self.shotgun.y = 400
         self.shotgun.x = 30
+        self.hud.width = 400
+        self.hud.y = -129
         self.add_actor(self.revolver)
+        self.bullet.width = 100
         self.character.y = 400
         self.set_on_key_press_listener(self.key_down)
         self.set_on_key_down_listener(self.weapon_switch)
@@ -67,6 +85,7 @@ class GameStage(game.scene2d.MyStage):
             self.shotgun.x = self.shotgun.x - 10
 
     def weapon_switch(self, sender, event):
+
         if event.key == pygame.K_2:
             if self.ronstage == True:
                 self.remove_actor(self.revolver)
@@ -90,12 +109,34 @@ class GameStage(game.scene2d.MyStage):
 
 
         if event.key == pygame.K_SPACE:
-            self.character.x = self.character.x - 30
             self.shotgun.x = self.shotgun.x - 30
-            self.revolver.x = self.revolver.x - 30
+            if self.ronstage == True:
+                if self.revolock == False:
+                    self.kpushed = True
+                    self.revolock = True
+                    self.bullet.x = self.revolver.x + 70
+                    self.bullet.y = self.revolver.y + 40
+                    self.character.x = self.character.x - 30
+                    self.revolver.x = self.revolver.x - 30
             if self.sonstage == True:
                 pygame.mixer.music.load("Images/shotgun.wav")
                 pygame.mixer.music.play()
+
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.bullet.x > 1300:
+            self.revolock = False
+        if self.kpushed == True:
+            # revolver
+
+            self.add_actor(self.bullet)
+            self.bullet.x = self.bullet.x + 20
+
+
+
+
+
 
 
 

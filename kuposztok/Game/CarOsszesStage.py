@@ -4,6 +4,7 @@ import random
 from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 import kuposztok.CaraValt.CaraValtStage
+from kuposztok.Lose.LoseScreen import LoseScreen
 
 class CarOsszesStage(game.scene2d.MyStage):
 
@@ -123,35 +124,6 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.x = random.Random().randint(self.width - self.width, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height, 0)
 
-        f = open("../kuposztok/palya1.txt", "r")
-
-        y: int = 0
-        while True:
-            line = f.readline().strip()
-            if line:
-                x: int = 0
-                for c in line:
-                    a: MyBaseActor = None
-                    a1: MyBaseActor = None
-                    a2: MyBaseActor = None
-                    a3: MyBaseActor = None
-                    a4: MyBaseActor = None
-                    if c == "0":
-                        a = Nezok()
-                    if c == "B":
-                        a = Enemy()
-                    if a is not None:
-                        a.x = x * 64
-                        a.y = y * 0
-                        self.add_actor(a)
-                        print(c)
-                    x += 1
-            else:
-                break
-            y += 1
-
-        f.close()
-
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.newgame.set_on_mouse_down_listener(self.NewG)
@@ -172,9 +144,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         super().act(delta_time)
         if self.joseph.overlaps(self.enemy2):
             self.score = self.score - self.score
-            self.add_actor(self.vesztettel)
-            self.add_actor(self.vesztettellabel)
-            self.add_actor(self.newgame)
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen())
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
@@ -225,3 +195,7 @@ class CarOsszesStage(game.scene2d.MyStage):
     def NewG(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(CarOsszesStage(carvalt= self.carvalt))
+
+    def getScore(self):
+        return self.score
+
