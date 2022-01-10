@@ -54,3 +54,16 @@ from typing import List
     #osztas = osztas + 1
 
 #8,feladat:
+def primszam(input):
+    osztas = 1
+    eredmeny = 0
+    while osztas <= input:
+        if input % osztas == 0:
+            eredmeny = eredmeny + 1
+        osztas = osztas + 1
+    if eredmeny == 2:
+        print("A(z) " + str(input) + " primszám!")
+    else:
+        print("A(z) " + str(input) + " nem primszám!")
+
+primszam(int(input()))
