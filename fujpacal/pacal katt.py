@@ -153,3 +153,4 @@ class MenuKep(game.scene2d.MyGame):
 
 MenuKep().run()
 
+s
