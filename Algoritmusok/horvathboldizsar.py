@@ -65,13 +65,13 @@ def nyolcadik():
     for i in range(inputxd):
         idk = idk + 1
         eredmeny = inputxd % idk
-        print(eredmeny)
+        # print(eredmeny)
         if eredmeny == 0:
             osztodarab = osztodarab + 1
+        if osztodarab > 2:
+            print("Ez nem prímszám")
+            break
     if osztodarab == 2:
-        print("Prímszám!")
-    else:
-        print("Ez nem prímszám")
-
+        print("Prímszám")
 
 nyolcadik()

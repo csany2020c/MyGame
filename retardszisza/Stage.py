@@ -10,7 +10,6 @@ import random
 import pygame
 import random
 
-
 class GameStage(game.scene2d.MyStage):
 
     def __init__(self):
@@ -19,14 +18,16 @@ class GameStage(game.scene2d.MyStage):
         self.b = szisza()
         self.c = kocsi1()
         self.fal = FalActor()
-        self.palyaszele = Palyaszele()
+        self.palyaszele1 = Palyaszele1()
+        self.palyaszele2 = Palyaszele2()
 
         self.add_actor(self.a)
         self.add_actor(self.b)
         self.add_actor(self.c)
         self.add_actor(self.fal)
-        self.add_actor(self.palyaszele)
-        #pos
+        self.add_actor(self.palyaszele1)
+        self.add_actor(self.palyaszele2)
+        # pos
         self.b.x = 100
         self.b.y = 550
 
@@ -34,8 +35,9 @@ class GameStage(game.scene2d.MyStage):
         self.c.y = 550
 
         self.fal.x = -250
-        self.palyaszele.y = 720
-        #hitbox
+        self.palyaszele1.y = 720
+        self.palyaszele2.y = -100
+        # hitbox
         self.b.hitbox_scale_h = 1
         self.b.hitbox_scale_w = 1
 
@@ -55,23 +57,28 @@ class GameStage(game.scene2d.MyStage):
         super().act(delta_time)
         Overlapsasd: bool = False
         kocsirespawn: bool = False
-        Palyaszel: bool = False
+        Palyaszel1: bool = False
+        Palyaszel2: bool = False
 
-        for ASDASD in self.actors:
-                if self.c.overlaps(self.b):
-                    Overlapsasd = True
-                    break
-                if self.c.overlaps(self.fal):
-                    kocsirespawn = True
-                if self.b.overlaps(self.palyaszele):
-                    Palyaszel = True
-
+        for l in self.actors:
+            if self.c.overlaps(self.b):
+                Overlapsasd = True
+                break
+            if self.c.overlaps(self.fal):
+                kocsirespawn = True
+            if self.b.overlaps(self.palyaszele1):
+                Palyaszel1 = True
+            if self.b.overlaps(self.palyaszele2):
+                Palyaszel2 = True
 
         if Overlapsasd:
-            self.screen.game.set_screen(retardszisza.menu_halal.HalalScreen.halalscreen()) #HALAL
+            self.screen.game.set_screen(retardszisza.menu_halal.HalalScreen.halalscreen())  # HALAL
 
         if kocsirespawn:
             self.c.x = 600
 
-        if Palyaszel:
-            self.b.y = 550
+        if Palyaszel1:
+            self.b.y = 560
+
+        if Palyaszel2:
+            self.b.y = -10
