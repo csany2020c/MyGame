@@ -99,8 +99,7 @@ class Pile_f(game.scene2d.MyActor):
 
 class Bg(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("image/hat_kep_j.png")
-        # super().__init__("image/nyil_main.png")
+        super().__init__("image/bg.png")
 
 
 class Arrow(game.scene2d.MyActor):
