@@ -79,4 +79,6 @@ class Main:
         print("Győztes: {gy}".format(gy=befutottFerfiak[minIndex]))
 
 
+
+
 Main()

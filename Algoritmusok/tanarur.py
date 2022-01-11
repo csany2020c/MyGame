@@ -1,4 +1,5 @@
 from typing import List
+from time import time
 
 # Írassa ki a számokat 1-től 42-ig egyesével növekvően.
 def egytolnegyvenkettoig():
@@ -127,3 +128,22 @@ def osztok(n: int) -> List['int']:
 # Készítsen függvényt, amelynek bemenete egy szám, és a kimenete logikai.
 # A kimenete legyen igaz, amennyiben prímszám a bemenete.
 # Prímszámnak pontosan két osztója van, 1 és önmaga. A 0 és 1 nem prímszám.
+
+def prim(be: int) -> bool:
+    return len(osztok(be)) == 2
+
+
+# for i in range(0, 128):
+#     print("{szam} {prim}".format(szam=i, prim=prim(i)))
+
+
+#HF: A prim(i) függvényt cseréljék le saját prímszám függvényre, amely jobb hatásfokkal
+# működik. A leggyorsabb algoritmus készítője 5-öst kap. Max RAM használat 24 GB.
+
+ts1 = time()
+for i in range(100000, 1000000):
+     primszame = prim(i) # Prímszám eldöntő függvény helye
+     if primszame:
+         print(i)
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
