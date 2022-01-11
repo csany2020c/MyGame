@@ -6,3 +6,27 @@ h1 {
 text-align: center;
 font-size: 69px;
 }
+
+.header {
+background: #171a21;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+text-align: center;
+z-index: 20;
+overflow: hidden;
+padding: 32px 8px;
+}
+
+.header2 {
+background: #171a21;
+position: fixed;
+top: 800;
+left: 0;
+right: 0;
+text-align: center;
+z-index: 20;
+overflow: hidden;
+padding: 50px 8px;
+}
