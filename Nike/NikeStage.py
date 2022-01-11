@@ -36,7 +36,8 @@ class MenuStage(game.scene2d.MyStage):
         self.exit.set_height(80)
         self.exit.x += 850
         self.exit.y += 250
-        self.exit.set_on_mouse_down_listener(self.exitbut)
+        #self.exit.set_on_mouse_down_listener(self.exitbut)
+
 
 
     def play(self, sender, event):
@@ -44,48 +45,26 @@ class MenuStage(game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Nike.NikeScreen.Game()
-                quit()
+                self.screen.game.set_screen(Nike.NikeScreen.Game())
+
 
 class GameStage(game.scene2d.MyStage):
-    def __init__(self, map: str):
+    def __init__(self):
         super().__init__()
         self.set_on_key_down_listener(self.backtomenu)
         self.GameBg =GameBg()
-        #self.add_actor(GameBg())
-        #self.add_actor(GameBg2())
-        #self.Sztrit = Sztrit()
-        self.add_actor(Sztrit())
+        self.add_actor(self.GameBg)
+        self.add_actor(GameBg2())
+        self.Sztrit = Sztrit()
+        self.add_actor(self.Sztrit)
         self.FatJordanact = FatJordanact()
-        self.add_actor(FatJordanact())
+        self.add_actor(self.FatJordanact)
         self.LeBron = LeBron()
-        self.add_actor(LeBron())
+        self.add_actor(self.LeBron)
 
-        self.camera.tracking = self.FatJordanact
+        self.camera.set_tracking(self.FatJordanact)
         self.FatJordanact.set_on_key_press_listener(self.press)
 
-        f = open(map, "r")
-
-        y: int = 0
-        while True:
-            line = f.readline().strip()
-            if line:
-                x: int = 0
-                for c in line:
-                    a: MyBaseActor = None
-                    if c == "s":
-                        a = stone()
-                    if a is not None:
-                        a.x = x * 64
-                        a.y = y * 64
-                        self.add_actor(a)
-                        print(c)
-                    x += 1
-            else:
-                break
-            y += 1
-
-        f.close()
 
     def press(self, sender, event):
         if event.key == pygame.K_d:

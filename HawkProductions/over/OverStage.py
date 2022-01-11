@@ -25,10 +25,16 @@ class OverStage(game.scene2d.MyStage):
         self.g.y = 300
         self.g.set_font_size(100)
         self.g.set_on_mouse_down_listener(self.click)
+        self.g.set_on_key_down_listener(self.back_button)
 
     def click(self, sender, event):
         print(sender)
         if event.button == 1:
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
+
+    def back_button(self, sender, event):
+        print(sender)
+        if event.key == pygame.K_SPACE:
             self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
 
 

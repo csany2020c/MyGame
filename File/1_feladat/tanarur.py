@@ -97,6 +97,7 @@ class Main:
             print("A megadott országból {db} fő díjazott volt!".format(db = db))
 
 
+
         # # iterátoros végigjárás
         # for it in dijazottak:
         #     print(it)

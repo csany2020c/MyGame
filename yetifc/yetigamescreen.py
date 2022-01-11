@@ -25,9 +25,7 @@ class Bullet(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/bullet.png")
 
-class HUD(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("Images/hud.png")
+
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -47,24 +45,22 @@ class GameStage(game.scene2d.MyStage):
         self.shotgun = Shotgun()
         self.bulletcount = BulletCount()
         self.bullet = Bullet()
-        self.hud = HUD()
         self.add_actor(self.gamebg)
         self.add_actor(self.character)
         #self.add_actor(self.bulletcount)
-        self.add_actor(self.hud)
+
         self.character.width = 200
         self.gamebg.z_index = 0
         self.character.z_index = 1
         self.revolver.z_index = 2
         self.shotgun.z_index = 2
         self.bullet.z_index = 2
-        self.hud.z_index = 4
+
         self.revolver.y = 410
         self.revolver.x = 70
         self.shotgun.y = 400
         self.shotgun.x = 30
-        self.hud.width = 400
-        self.hud.y = -129
+
         self.add_actor(self.revolver)
         self.bullet.width = 100
         self.character.y = 400
