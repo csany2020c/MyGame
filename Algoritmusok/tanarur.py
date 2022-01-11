@@ -1,5 +1,7 @@
+import math
 from typing import List
 from time import time
+from math import *
 
 # Írassa ki a számokat 1-től 42-ig egyesével növekvően.
 def egytolnegyvenkettoig():
@@ -137,13 +139,14 @@ def prim(be: int) -> bool:
 #     print("{szam} {prim}".format(szam=i, prim=prim(i)))
 
 
+
 #HF: A prim(i) függvényt cseréljék le saját prímszám függvényre, amely jobb hatásfokkal
 # működik. A leggyorsabb algoritmus készítője 5-öst kap. Max RAM használat 24 GB.
 
 ts1 = time()
 for i in range(100000, 1000000):
      primszame = prim(i) # Prímszám eldöntő függvény helye
-     if primszame:
-         print(i)
+#     if primszame:
+#         print(i)
 ts2 = time()
 print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
