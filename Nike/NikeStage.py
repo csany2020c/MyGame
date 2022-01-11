@@ -53,16 +53,16 @@ class GameStage(game.scene2d.MyStage):
         super().__init__()
         self.set_on_key_down_listener(self.backtomenu)
         self.GameBg =GameBg()
-        self.add_actor(GameBg())
+        self.add_actor(self.GameBg)
         self.add_actor(GameBg2())
         self.Sztrit = Sztrit()
-        self.add_actor(Sztrit())
+        self.add_actor(self.Sztrit)
         self.FatJordanact = FatJordanact()
-        self.add_actor(FatJordanact())
+        self.add_actor(self.FatJordanact)
         self.LeBron = LeBron()
-        self.add_actor(LeBron())
+        self.add_actor(self.LeBron)
 
-        self.camera.tracking = self.FatJordanact
+        self.camera.set_tracking(self.FatJordanact)
         self.FatJordanact.set_on_key_press_listener(self.press)
 
 
