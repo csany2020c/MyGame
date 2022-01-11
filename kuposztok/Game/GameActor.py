@@ -71,7 +71,7 @@ class Enemy(game.scene2d.MyActor):
         super().act(delta_time)
         self.y += delta_time * 500
         if self.y > 1180:
-            self.y = -500
+            self.y = random.Random().randint(-500, 0)
             self.x = random.Random().randint(0, 2000)
 
 
