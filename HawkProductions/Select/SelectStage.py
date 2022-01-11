@@ -87,7 +87,7 @@ class SelectStage(game.scene2d.MyStage):
 
     def frissites(self):
         if self.D == None:
-            self.D = MyActor('image/bid22.png')
+            self.D = MyActor('image/bid.png')
             self.add_actor(self.D)
         if self.puska == 0:
             self.D.image_url = 'image/original.png'
