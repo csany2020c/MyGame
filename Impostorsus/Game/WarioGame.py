@@ -31,6 +31,7 @@ class Wario(game.scene2d.MyGame):
 
 
 
+
 Wario().run()
 
 
