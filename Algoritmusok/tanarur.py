@@ -1,4 +1,5 @@
 from typing import List
+from time import time
 
 # Írassa ki a számokat 1-től 42-ig egyesével növekvően.
 def egytolnegyvenkettoig():
@@ -87,3 +88,62 @@ def osszegzes(lista: List['int']) -> int:
 #print(osszegzes(lista))
 # Ugyan az, csak a lista a függvény paraméterében van létrehozva.
 #print(osszegzes((4, 7, 8, 4)))
+
+def fakt(n: int) -> int:
+    print("Fakt {c} ".format(c=n))
+    szorzat = 1
+    for i in range(2, n + 1):
+        szorzat *= i
+    return szorzat
+
+# for i in range(0, 1024):
+#    print(fakt(i))
+
+# x = fakt(2) + fakt(3) * 100
+# print(x)
+
+# https://www.w3schools.com/python/python_operators.asp
+
+#print(8 % 3)
+#print(100 % 33)
+#if 100 % 33 == 0:
+
+
+# Készítsen függvényt, amelynek bemenete egy szám és egy listában adja vissza
+# a számnak az osztóit.
+
+def osztok(n: int) -> List['int']:
+    l: List['int'] = list()
+    for i in range(1, n + 1):
+        if n % i == 0:
+            l.append(i)
+    return l
+
+
+# print(osztok(26))
+# for i in osztok(26):
+#     print(i)
+
+# https://hu.wikipedia.org/wiki/Pr%C3%ADmsz%C3%A1mok
+# Készítsen függvényt, amelynek bemenete egy szám, és a kimenete logikai.
+# A kimenete legyen igaz, amennyiben prímszám a bemenete.
+# Prímszámnak pontosan két osztója van, 1 és önmaga. A 0 és 1 nem prímszám.
+
+def prim(be: int) -> bool:
+    return len(osztok(be)) == 2
+
+
+# for i in range(0, 128):
+#     print("{szam} {prim}".format(szam=i, prim=prim(i)))
+
+
+#HF: A prim(i) függvényt cseréljék le saját prímszám függvényre, amely jobb hatásfokkal
+# működik. A leggyorsabb algoritmus készítője 5-öst kap. Max RAM használat 24 GB.
+
+ts1 = time()
+for i in range(100000, 1000000):
+     primszame = prim(i) # Prímszám eldöntő függvény helye
+     if primszame:
+         print(i)
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
