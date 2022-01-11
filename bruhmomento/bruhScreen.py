@@ -55,6 +55,10 @@ class bruhstage(game.scene2d.MyStage):
         self.add_actor(self.enemy1)
         self.enemy1.x = 1000
         self.enemy1.y = 300
+        self.kulcs = kulcs()
+        self.add_actor(self.kulcs)
+        self.kulcs.x = 150
+        self.kulcs.y = 350
 
 
         self.camera.tracking = self.fohos

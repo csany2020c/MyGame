@@ -87,3 +87,8 @@ class startgomb(game.scene2d.MyActor):
 class wall2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/fal.jpg")
+
+class kulcs(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/kulcs.png")
+        self.set_size(150,150)
