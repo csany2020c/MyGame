@@ -115,14 +115,16 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.newgame.x = self.width - 300
         self.newgame.y = self.height - self.height + 250
 
-        for i in range(2):
+        for i in range(20):
             self.enemy2 = Enemy()
             self.add_actor(self.enemy2)
             self.enemy2.width = 100
             self.enemy2.height = 100
             self.enemy2.z_index = 5
-            self.enemy2.x = random.Random().randint(self.width - self.width, self.width)
-            self.enemy2.y = random.Random().randint(0 - self.height, 0)
+            self.enemy2.x = random.Random().randint(0, self.width)
+            self.enemy2.y = random.Random().randint(0 - self.height / 2, self.height / 2)
+
+        self.enemy = isinstance(self.enemy2, CarOsszesStage)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
@@ -133,18 +135,18 @@ class CarOsszesStage(game.scene2d.MyStage):
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
-        self.vesztettellabel = game.scene2d.MyLabel(
-            "Sajnálom a játék végetért számodra, az elért pontszámod:" + str(self.score))
+        self.vesztettellabel = game.scene2d.MyLabel("Sajnálom a játék végetért számodra, az elért pontszámod:" + str(self.score))
         self.vesztettellabel.x = self.width / 18
         self.vesztettellabel.y = 200
         self.vesztettellabel.set_font_size(55)
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):
+        self.score = self.score + 1
+        print(self.score)
         super().act(delta_time)
         if self.joseph.overlaps(self.enemy2):
-            self.score = self.score - self.score
-            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen())
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
