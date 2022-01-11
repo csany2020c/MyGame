@@ -2,7 +2,7 @@ import game
 from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor
 from game.scene2d import MyBaseActor
 from game.scene2d.MyStage import *
-
+from Kancsalmate27megilyenek import DamageActor
 class Map():
 
     def __init__(self,stage:MyStage,xd:str) -> None:
@@ -32,6 +32,10 @@ class Map():
                     if c == "4":
                         stage.path = PathActor()
                         a = stage.path
+                    if c == "5":
+                        stage.lava = DamageActor()
+                        a = stage.lava
+
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
