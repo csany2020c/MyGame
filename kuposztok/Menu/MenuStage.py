@@ -1,3 +1,5 @@
+import pygame
+
 import game
 import kuposztok
 from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
@@ -15,7 +17,7 @@ class MenuStage(game.scene2d.MyStage):
         super().__init__()
         # self.money = Read.getMoney()
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/CaraValt/music/kuposztokmusic.wav")
+        pygame.mixer.music.load("../kuposztok/CaraValt/music/kuposztokmusica.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
         bg = MenuActor()
@@ -69,6 +71,7 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen())
 
+
     def Klikk2(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(quit())
@@ -77,9 +80,14 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Credit.CreditScreen.CreditScreen())
 
+
     def Klikk4(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen())
+            pygame.mixer.init()
+            pygame.mixer.music.load("../kuposztok/CaraValt/music/buttonmusica.wav")
+            pygame.mixer.music.play(1)
+            pygame.mixer.music.set_volume(0.2)
 
     def katt(self, sender, event):
         if event.key == pygame.K_ESCAPE:
