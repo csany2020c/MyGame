@@ -20,7 +20,7 @@ class kocsi1(game.scene2d.MyActor):
 class UtActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__("images/ut.jpg")
+        super().__init__("images/uuut.png")
         self.set_width(1450)
 
 class FalActor(game.scene2d.MyActor):
