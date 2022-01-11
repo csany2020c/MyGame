@@ -29,6 +29,9 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.palyaszele1)
         self.add_actor(self.palyaszele2)
         # pos
+        self.a.x = 0
+        self.a.y = -45
+
         self.b.x = 100
         self.b.y = 550
 
