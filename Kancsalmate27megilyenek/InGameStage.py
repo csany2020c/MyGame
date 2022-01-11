@@ -5,7 +5,6 @@ from Kancsalmate27megilyenek.MapActor import *
 from Kancsalmate27megilyenek.BackgroundActor import *
 from Kancsalmate27megilyenek.MenuScreen import *
 from Kancsalmate27megilyenek.MapActor import *
-from Kancsalmate27megilyenek.PlayerActor import *
 from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek.Labels import *
 from Kancsalmate27megilyenek.ArenaScreen import *
@@ -14,7 +13,6 @@ from Kancsalmate27megilyenek.Map import *
 class InStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.player = PlayerActor()
         self.eletero : int = 100
         self.heart = HeartActor()
         self.heart1 = HeartActor()
@@ -25,19 +23,17 @@ class InStage(game.scene2d.MyStage):
         self.player = PlayerActor()
         self.add_actor(self.player)
         self.player.set_z_index(1)
-        self.sand = SandActor()
         # self.set_on_key_down_listener(self.moveKeys)
         # self.set_on_key_up_listener(self.moveKeysOff)
         self.camera.tracking = self.player
-        self.map = Map(self, "butamap")
+        self.map = Map(self,"butamap")
 
 
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.player.overlaps(self.sand):
-            self.screen.game.set_screen(ArenaScreen())
-            print("kocc")
+
+
 
 
         self.heart.x = self.player.x - 15
@@ -52,4 +48,7 @@ class InStage(game.scene2d.MyStage):
             self.heart1.remove_from_stage()
         if self.eletero < 0:
             self.heart.remove_from_stage()
+
+        if self.player.overlaps(self.sand):
+            self.screen.game.set_screen(ArenaScreen())
 
