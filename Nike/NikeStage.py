@@ -36,7 +36,7 @@ class MenuStage(game.scene2d.MyStage):
         self.exit.set_height(80)
         self.exit.x += 850
         self.exit.y += 250
-        self.exit.set_on_mouse_down_listener(self.exitbut)
+        #self.exit.set_on_mouse_down_listener(self.exitbut)
 
 
     def play(self, sender, event):
@@ -44,7 +44,7 @@ class MenuStage(game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Nike.NikeScreen.Game()
+                self.screen.game.set_screen(Nike.NikeScreen.Game)
                 quit()
 
 class GameStage(game.scene2d.MyStage):
