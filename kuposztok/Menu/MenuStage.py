@@ -5,6 +5,7 @@ from kuposztok.Credit.CreditScreen import CreditScreen
 import kuposztok.Locker.LockerScreen
 #from kuposztok.Menu.Read import *
 #from kuposztok.Menu import Read
+from kuposztok.Menu import Read
 from kuposztok.Menu.MenuBgActor import *
 
 
@@ -13,7 +14,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        # self.money = Read.getMoney()
+        self.money = Read.getMoney()
         bg = MenuActor()
         self.add_actor(bg)
         self.height = pygame.display.get_surface().get_height()
@@ -81,5 +82,5 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
 
-    # def getMenuMoney(self):
-        # return self.money
+    def getMenuMoney(self):
+        return self.money

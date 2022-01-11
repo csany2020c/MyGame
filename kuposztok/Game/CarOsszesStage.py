@@ -142,9 +142,11 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):
+        self.score = self.score + 1
+        print(self.score)
         super().act(delta_time)
-        if self.joseph.overlaps(self.enemy):
-            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen())
+        if self.joseph.overlaps(self.enemy2):
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()

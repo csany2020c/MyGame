@@ -20,11 +20,23 @@ class GameBg(game.scene2d.MyActor):
         super().__init__("images/bgpic.jpg")
         self.y = -450
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= delta_time * 500
+        if self.x > 1080:
+            self.x = 1080
+
 class GameBg2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/bgpic.jpg")
         self.y = -450
         self.x = 1900
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= delta_time * 500
+        if self.x > 1080:
+            self.x = 1080
 
 class Sztrit(game.scene2d.MyActor):
     def __init__(self):

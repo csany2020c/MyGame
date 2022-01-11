@@ -40,7 +40,8 @@ class bruhstage(game.scene2d.MyStage):
 
     def __init__(self, map: str):
         super().__init__()
-        self.add_actor(lovedek())
+        self.lovedek = lovedek()
+        self.add_actor(self.lovedek)
         self.fohos = fohos()
         self.add_actor(self.fohos)
         self.kapu = kapu()
@@ -48,7 +49,6 @@ class bruhstage(game.scene2d.MyStage):
         self.kapu.x = 3400
         self.kapu.y = 820
         self.kapu.rotate_with(270)
-        self.lovedek = lovedek()
         self.lovedek.x = 500
         self.lovedek.y = 200
         self.enemy1 = enemy1()
@@ -103,9 +103,10 @@ class bruhstage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        # print(self.lovedek)
         if self.kapu.overlaps(other=self.fohos):
             self.screen.game.set_screen(bruhScreen("map2.txt"))
-        if self.enemy1.overlaps(self.fohos):
+        if self.enemy1.overlaps(self.lovedek):
             self.enemy1.remove_from_stage()
 
 
