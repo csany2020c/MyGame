@@ -6,6 +6,7 @@ from HawkProductions.font.Font import *
 
 
 class GameStage(game.scene2d.MyStage):
+
     def __init__(self, puska: int):
         super().__init__()
         pygame.mixer.init()
@@ -17,14 +18,15 @@ class GameStage(game.scene2d.MyStage):
         self.Bg.set_size(width=1280, height=720)
 
         self.point: int = 0
-        self.pointl = game.scene2d.MyLabel("Point: {point}".format(point=self.point))
+        self.pointl = game.scene2d.MyLabel("")
+        self.update_point()
         self.add_actor(self.pointl)
         self.pointl.set_color(0, 0, 0)
         self.pointl.width = 100
         self.pointl.height = 50
-        for i in range(100):
-            self.point += 1
-        print(self.point)
+        # for i in range(100):
+        #     self.point += 1
+        # print(self.point)
 
         self.D = None
         if puska == 0:
@@ -74,6 +76,9 @@ class GameStage(game.scene2d.MyStage):
         self.C = Coin()
         self.C1 = Coin()
         self.C2 = Coin()
+
+    def update_point(self):
+        self.pointl.set_text("Point: {point}".format(point=self.point))
 
     def add_asd(self, sender):
         print(sender)
@@ -206,10 +211,13 @@ class GameStage(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.C):
             self.point += 1
+            self.update_point()
         if self.D.overlaps(self.C1):
             self.point += 1
+            self.update_point()
         if self.D.overlaps(self.C2):
             self.point += 1
+            self.update_point()
 
     def click2(self, sender, event):
         if event.button == 1:
