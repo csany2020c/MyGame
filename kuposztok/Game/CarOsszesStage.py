@@ -196,8 +196,7 @@ class CarOsszesStage(game.scene2d.MyStage):
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(CarOsszesStage(carvalt= self.carvalt))
+            self.screen.game.set_screen(CarOsszesStage(carvalt=self.carvalt))
 
-    def getScore(self):
-        return self.score
-
+def getScore(self):
+    return self.score
