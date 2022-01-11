@@ -85,6 +85,7 @@ class Stage(game.scene2d.MyStage):
 
 
         self.actor1_bg.set_on_key_press_listener(self.press)
+        self.golo_bg.set_on_key_press_listener(self.Golotuz)
         self.set_on_key_down_listener(self.key_down)
 
     def press(self, sender, event):
@@ -92,6 +93,10 @@ class Stage(game.scene2d.MyStage):
             sender.x += 3
         if event.key == pygame.K_a:
             sender.x -= 3
+
+
+
+
 
 
 
@@ -109,7 +114,7 @@ class Stage(game.scene2d.MyStage):
 
     def Golotuz(self, sender, event):
         if event.key == pygame.K_SPACE:
-            sender.x += 3
+            sender.x += 30
             print(event)
 
 class MenuStage(game.scene2d.MyStage):
