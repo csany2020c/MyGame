@@ -25,11 +25,11 @@ class InStage(game.scene2d.MyStage):
         self.player = PlayerActor()
         self.add_actor(self.player)
         self.player.set_z_index(1)
+        self.sand = SandActor()
         # self.set_on_key_down_listener(self.moveKeys)
         # self.set_on_key_up_listener(self.moveKeysOff)
         self.camera.tracking = self.player
-
-        self.map = Map(self,"butamap")
+        self.map = Map(self, "butamap")
 
 
 
