@@ -20,6 +20,7 @@ class GameStage(game.scene2d.MyStage):
         self.fal = FalActor()
         self.palyaszele1 = Palyaszele1()
         self.palyaszele2 = Palyaszele2()
+        self.score: int = 0
 
         self.add_actor(self.a)
         self.add_actor(self.b)
@@ -45,6 +46,7 @@ class GameStage(game.scene2d.MyStage):
         self.c.hitbox_scale_w = 0.9
 
         self.b.set_on_key_down_listener(self.button_down)
+        self.c.set_on_key_down_listener(self.key_down)
 
     def button_down(self, sender, event):
         if event.key == pygame.K_w:
@@ -52,6 +54,10 @@ class GameStage(game.scene2d.MyStage):
             print("asd")
         if event.key == pygame.K_s:
             self.b.y += 120
+
+    def key_down(self, sender, event):
+        if event.key == pygame.K_m:
+            print(self.score)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -66,6 +72,7 @@ class GameStage(game.scene2d.MyStage):
                 break
             if self.c.overlaps(self.fal):
                 kocsirespawn = True
+                self.score += 1
             if self.b.overlaps(self.palyaszele1):
                 Palyaszel1 = True
             if self.b.overlaps(self.palyaszele2):
