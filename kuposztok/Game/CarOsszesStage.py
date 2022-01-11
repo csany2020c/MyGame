@@ -131,7 +131,6 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.set_on_key_up_listener(self.visszafordul)
 
     def Timer(self, sender):
-        self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
         self.vesztettellabel = game.scene2d.MyLabel(
             "Sajnálom a játék végetért számodra, az elért pontszámod:" + str(self.score))
@@ -141,10 +140,11 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):
+        self.score = self.score + 1
+        print(self.score)
         super().act(delta_time)
         if self.joseph.overlaps(self.enemy2):
-            self.score = self.score - self.score
-            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen())
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
