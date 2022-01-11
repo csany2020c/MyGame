@@ -127,12 +127,12 @@ class MenuStage(game.scene2d.MyStage):
 
         self.gomb_bg.width = 200
         self.gomb_bg.height = 200
-        self.gomb_bg.x = 300
+        self.gomb_bg.x = 200
         self.gomb_bg.y = 200
 
         self.gomb2_bg.width = 200
         self.gomb2_bg.height = 200
-        self.gomb2_bg.x = 500
+        self.gomb2_bg.x = 400
         self.gomb2_bg.y = 200
 
     def Klikk(self, sender, event):
