@@ -53,6 +53,16 @@ class bruhstage(game.scene2d.MyStage):
         self.lovedek.y = 200
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
+        self.enemy2 = enemy1()
+        self.add_actor(self.enemy2)
+        self.enemy2.x = 70
+        self.enemy2.y = 762
+        self.enemy1.x = 452
+        self.enemy1.y = 384
+        self.enemy3 = enemy2()
+        self.add_actor(self.enemy3)
+        self.enemy3.x = 2510
+        self.enemy3.y = 750
         self.enemy1.x = 1000
         self.enemy1.y = 300
         self.kulcs = kulcs()
