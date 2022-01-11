@@ -38,7 +38,12 @@ class Actor(game.scene2d.MyActor):
 
 class Gomb (game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/gomb1.png"):
+    def __init__(self, image_url: str = "images/start1.png"):
+        super().__init__(image_url)
+
+class Gomb2 (game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "images/exit.png"):
         super().__init__(image_url)
 
 
@@ -112,25 +117,38 @@ class MenuStage(game.scene2d.MyStage):
         super().__init__()
         self.hatter_bg = MenuHatter()
         self.gomb_bg = Gomb()
+        self.gomb2_bg = Gomb2()
         self.add_actor(self.gomb_bg)
         self.add_actor(self.hatter_bg)
+        self.add_actor(self.gomb2_bg)
         self.gomb_bg.set_on_mouse_down_listener(self.Klikk)
+        self.gomb2_bg.set_on_mouse_down_listener(self.Klikk2)
         self.set_on_key_down_listener(self.key_down)
 
-        self.gomb_bg.width = 100
-        self.gomb_bg.height = 100
-        self.gomb_bg.x = 300
+        self.gomb_bg.width = 200
+        self.gomb_bg.height = 200
+        self.gomb_bg.x = 200
         self.gomb_bg.y = 200
+
+        self.gomb2_bg.width = 200
+        self.gomb2_bg.height = 200
+        self.gomb2_bg.x = 400
+        self.gomb2_bg.y = 200
 
     def Klikk(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Screen())
 
+    def Klikk2(self, sender, event):
+        if event.button == 1:
+            quit()
+            print("Kiléptél")
+
     def key_down(self, sender, event):
         print(sender)
         print(event)
         if event.key == pygame.K_ESCAPE:
-            print("'QUIT'")
+            print("Kiléptél")
             quit()
 
 
@@ -153,4 +171,3 @@ class MenuKep(game.scene2d.MyGame):
 
 MenuKep().run()
 
-s
