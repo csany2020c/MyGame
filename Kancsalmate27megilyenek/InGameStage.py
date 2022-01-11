@@ -30,12 +30,14 @@ class InStage(game.scene2d.MyStage):
 
 
 
+
     def act(self, delta_time: float):
         super().act(delta_time)
-
-
-
-
+        if self.player.overlaps(self.lava):
+            self.eletero = self.eletero - 1
+        if self.eletero == 0:
+            self.player.remove_from_stage()
+        
         self.heart.x = self.player.x - 15
         self.heart.y = self.player.y - 30
         self.heart1.x = self.player.x + 10
