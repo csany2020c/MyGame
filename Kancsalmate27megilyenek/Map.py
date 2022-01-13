@@ -1,8 +1,7 @@
 import game
-from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor
+from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor, DamageActor
 from game.scene2d import MyBaseActor
 from game.scene2d.MyStage import *
-from Kancsalmate27megilyenek import DamageActor
 class Map():
 
     def __init__(self,stage:MyStage,xd:str) -> None:

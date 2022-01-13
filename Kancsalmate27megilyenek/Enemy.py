@@ -1,4 +1,8 @@
+import Kancsalmate27megilyenek
 import game
+from Kancsalmate27megilyenek import ArenaStage
+from game.scene2d import MyStage
+
 
 class Enemy(game.scene2d.MyActor):
 
@@ -8,21 +12,26 @@ class Enemy(game.scene2d.MyActor):
         self.speed = 0
         self.damage = 0
         self.hp = 0
-        self.image = ""
+
+
+
+class getDatas():
+
+    def __init__(self,stage:MyStage,type:str) -> None:
+        super().__init__()
         if type == "jani":
             self.damage = 20
             self.hp = 50
             self.speed = 5
             self.image = "Heroamijó_1.png"
-            self.image_url=self.image
 
         elif type == "cigany":
             self.speed = 60
             self.hp = 20
             self.damage = 20
             self.image = "Heroamijó_2.png"
-            self.image_url=self.image
-        sta
+
+        stage.add_actor(Enemy(self.image))
 
     def gethp(self) -> int:
         return self.hp
