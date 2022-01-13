@@ -29,5 +29,33 @@ def beolvasasvegjelig2():
         # A ciklusmag végén visszadobja a feltételhez, amennyiben a beírt érték 0,
         # nem fut le újra a ciklus
 
+# Olvasson be számokat 0 végjelig (amikor 0 a bevitt adat)
+# és a végjel után írja ki az
+# szorzatukat, összegüket és darabszámukat.
+# A végjel értéke ne számíton bele az eredménybe.
+def szamok():
+    beolvasas: int = 1
+    # Definiálunk változókat az összegnek, szorzatnak
+    # és darabnak.
+    # A szorzatnál fontos, hogy 1 legyen, mert 0-val nem
+    # jó szorozni kezdetben
+    osszeg: int = 0
+    szorzat: int = 1
+    darab: int = 0
+    while (beolvasas != 0):
+        beolvasas = int(input())
+        # Ha a beolvasott érték nem a végjel...
+        if beolvasas != 0:
+            # Növelje az összeg változó értékét
+            osszeg += beolvasas
+            # Szorozza meg az eddigi szorzatot
+            szorzat *= beolvasas
+            # Növelje a darabot 1-el
+            darab += 1
+    # A ciklus után kiírás.
+    print(osszeg)
+    print(szorzat)
+    print(darab)
 
+szamok()
 
