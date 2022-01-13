@@ -13,7 +13,7 @@ class GameStage(game.scene2d.MyStage):
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        self.Bg = Bg()
+        self.Bg = Bg() #85. sor utan van a fajlbeolvasas
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
 
@@ -27,6 +27,7 @@ class GameStage(game.scene2d.MyStage):
         # for i in range(100):
         #     self.point += 1
         # print(self.point)
+
 
         self.D = None
         if puska == 0:
@@ -77,8 +78,19 @@ class GameStage(game.scene2d.MyStage):
         self.C1 = Coin()
         self.C2 = Coin()
 
+        #f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        #content: str = f.readline()
+        #f.write("\n" + str(self.point))
+
     def update_point(self):
         self.pointl.set_text("Point: {point}".format(point=self.point))
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        #problema: amikor a jatek lefut nem irja uj sorba az eredmenyt, amit a jatakban megszereztunk
+        #f.write('\n') # uj sort hoz létre
+        #eredmenyek.txt fajlba beirja mindig az utoljára kapott kodot
+        f.write(str(self.point))
+        #masik megoldas f.write('\n' + str(self.point))
+        f.close()
 
     def add_asd(self, sender):
         print(sender)
