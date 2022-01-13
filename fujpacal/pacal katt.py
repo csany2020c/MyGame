@@ -170,4 +170,3 @@ class MenuKep(game.scene2d.MyGame):
         self.screen = MenuScreen()
 
 MenuKep().run()
-
