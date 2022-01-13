@@ -1,5 +1,7 @@
 import game
 import pygame
+
+# import kuposztok.Game.CarOsszesScreen
 from kuposztok.Lose.LoseActors import *
 
 
@@ -16,3 +18,12 @@ class LoseStage(game.scene2d.MyStage):
         self.vesztettellabel.y = 200
         self.vesztettellabel.set_color(0, 0, 0)
         self.add_actor(self.vesztettellabel)
+        self.button1 = NewGame()
+        self.add_actor(self.button1)
+        # self.carvalt = carvalt
+
+    #     self.button1.set_on_mouse_down_listener(self.Klikk1)
+    #
+    # def Klikk1(self, sender, event):
+    #     if event.button == 1:
+    #         self.screen.game.set_screen(kuposztok.Game.CarOsszesScreen.CarOsszesScreen(carvalt=self.carvalt))
