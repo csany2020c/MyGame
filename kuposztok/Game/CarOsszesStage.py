@@ -4,13 +4,13 @@ import random
 from kuposztok.Game.GameActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 import kuposztok.CaraValt.CaraValtStage
+from game.scene2d.MyGame import MyGame
 from kuposztok.Lose.LoseScreen import LoseScreen
 
 class CarOsszesStage(game.scene2d.MyStage):
 
     def __init__(self, carvalt: int):
         super().__init__()
-        self._frame_count = None
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
@@ -36,14 +36,14 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.add_timer(self.t)
         self.carvalt = carvalt
 
-        self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
-        self.add_actor(self.fpslabel)
-        self.fpslabel.x = self.width - 150
-        self.fpslabel.y = self.height / 30
-        self.fpslabel.set_color(0, 0, 0)
-        self.fpslabel.width = 50
-        self.fpslabel.height = 25
-        self.fpslabel.z_index = 80
+        # self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
+        # self.add_actor(self.fpslabel)
+        # self.fpslabel.x = self.width - 150
+        # self.fpslabel.y = self.height / 30
+        # self.fpslabel.set_color(0, 0, 0)
+        # self.fpslabel.width = 50
+        # self.fpslabel.height = 25
+        # self.fpslabel.z_index = 80
 
         self.score = 0
         self.scorelabel = game.scene2d.MyLabel("Score:" + str(self.score))
@@ -115,7 +115,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.newgame.x = self.width - 300
         self.newgame.y = self.height - self.height + 250
 
-        for i in range(20):
+        for i in range(1):
             self.enemy2 = Enemy()
             self.add_actor(self.enemy2)
             self.enemy2.width = 100
@@ -147,6 +147,9 @@ class CarOsszesStage(game.scene2d.MyStage):
         super().act(delta_time)
         if self.joseph.overlaps(self.enemy2):
             self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
+
+
+
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()
@@ -196,8 +199,7 @@ class CarOsszesStage(game.scene2d.MyStage):
 
     def NewG(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(CarOsszesStage(carvalt= self.carvalt))
+            self.screen.game.set_screen(CarOsszesStage(carvalt=self.carvalt))
 
-    def getScore(self):
-        return self.score
-
+def getScore(self):
+    return self.score

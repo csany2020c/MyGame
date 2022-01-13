@@ -1,7 +1,12 @@
 import game
 import pygame
+
+
 from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek import MenuScreen
+from Kancsalmate27megilyenek.TextureActors import *
+from Kancsalmate27megilyenek.ArenaScreen import *
+from Kancsalmate27megilyenek.Map import *
 
 class PlayerActor(game.scene2d.MyActor):
     def __init__(self, image_url: str = "Heroamijó_1.png"):
@@ -48,7 +53,6 @@ class PlayerActor(game.scene2d.MyActor):
         super().act(delta_time)
         b=5
         if self.isWPressed:
-            print("jó")
             self.y -= b
         if self.isAPressed:
             self.x -= b
@@ -56,5 +60,6 @@ class PlayerActor(game.scene2d.MyActor):
             self.y += b
         if self.isDPressed:
             self.x += b
+
 
 

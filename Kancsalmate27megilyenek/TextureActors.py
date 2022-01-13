@@ -35,3 +35,9 @@ class HeartActor(game.scene2d.MyActor):
         super().__init__(image_url)
         self.set_size(32, 32)
         self.z_index = 1
+
+class DamageActor(game.scene2d.MyActor):
+    def __init__(self, image_url: str = "lava.png"):
+        super().__init__(image_url)
+        self.z_index = 1
+        self.set_size(64, 64)
