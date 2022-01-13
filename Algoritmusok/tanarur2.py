@@ -74,7 +74,23 @@ def szorzat(lista: List['int']) -> int:
 # Készítsen függvényt, amely a 0 végjelig beolvasott számok
 # listáját adja eredményül.
 
+
+def listababeolvas() -> List['int']:
+    visszaadottlista = list()
+    szam: int = 1
+    while (szam != 0):
+        szam = int(input())
+        if szam != 0:
+            visszaadottlista.append(szam)
+    return visszaadottlista
+
+
+
 l: List['int'] = (4, 2, 3)
 print(l)
 print(szorzat(l))
+
+l2 = listababeolvas()
+print(l2)
+print(szorzat(l2))
 
