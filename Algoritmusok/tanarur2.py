@@ -1,3 +1,5 @@
+from typing import List
+
 # Írasssa ki a számokat 1-től 15-ig.
 def Szamok1tol15ig():
     for i in range(1, 16):
@@ -57,5 +59,22 @@ def szamok():
     print(szorzat)
     print(darab)
 
-szamok()
+# Készítsen függvényt, amelynek bemenete egy lista, kimenete
+# egy szám. A lista elemeinek a szorzatát adja eredményül.
+
+# A függvény bemenete a LISTA, kimenete INT
+def szorzat(lista: List['int']) -> int:
+    sz: int = 1
+    for i in lista:
+        sz *= i
+    # A hívás helyén a return után írt érték jelenik meg.
+    return sz
+
+
+# Készítsen függvényt, amely a 0 végjelig beolvasott számok
+# listáját adja eredményül.
+
+l: List['int'] = (4, 2, 3)
+print(l)
+print(szorzat(l))
 
