@@ -112,10 +112,11 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.add_actor(self.joseph2)
 
         self.newgame = Newgame()
+        self.newgame = Newgame()
         self.newgame.x = self.width - 300
         self.newgame.y = self.height - self.height + 250
 
-        for i in range(1):
+        for i in range(10):
             self.enemy2 = Enemy()
             self.add_actor(self.enemy2)
             self.enemy2.width = 100
@@ -123,8 +124,6 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.z_index = 5
             self.enemy2.x = random.Random().randint(0, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height / 2, self.height / 2)
-
-        self.enemy = isinstance(self.enemy2, CarOsszesStage)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
@@ -145,8 +144,10 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.score = self.score + 1
         print(self.score)
         super().act(delta_time)
-        if self.joseph.overlaps(self.enemy2):
-            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
+        for i in self.actors:
+            if isinstance(i, Enemy):
+                if self.joseph.overlaps(i):
+                    self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
 
 
 
@@ -201,5 +202,5 @@ class CarOsszesStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(CarOsszesStage(carvalt=self.carvalt))
 
-def getScore(self):
-    return self.score
+# def getScore(self):
+#     return self.score

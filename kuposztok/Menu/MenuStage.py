@@ -5,8 +5,7 @@ import kuposztok
 from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
 from kuposztok.Credit.CreditScreen import CreditScreen
 import kuposztok.Locker.LockerScreen
-#from kuposztok.Menu.Read import *
-#from kuposztok.Menu import Read
+#from kuposztok.Menu.Read import Read
 from kuposztok.Menu.MenuBgActor import *
 
 
@@ -15,7 +14,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        # self.money = Read.getMoney()
+        #self.money = Read.Read.getMoney()
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/CaraValt/music/kuposztokmusica.wav")
         pygame.mixer.music.play(-1)
@@ -93,5 +92,5 @@ class MenuStage(game.scene2d.MyStage):
         if event.key == pygame.K_ESCAPE:
             quit()
 
-    # def getMenuMoney(self):
-    #     return self.money
+    #def getMenuMoney(self):
+    #   return self.money
