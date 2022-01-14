@@ -54,6 +54,18 @@ class SelectStage(game.scene2d.MyStage):
         self.s.set_on_key_down_listener(self.key_down)
         self.s.set_on_mouse_down_listener(self.katt2)
 
+        self.pointl = game.scene2d.MyLabel("")
+        self.update_point()
+        self.add_actor(self.pointl)
+        self.pointl.set_color(0, 0, 0)
+        self.pointl.set_width = 50
+        self.pointl.y = 660
+
+    def update_point(self):
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        self.score: str = f.readline() #nem a legjobb megoldas: folyamatban
+        self.pointl.set_text("Last score: {point}".format(point=self.score))
+
     def katt(self, sender, event):
         print(sender)
         if event.button == 1:
