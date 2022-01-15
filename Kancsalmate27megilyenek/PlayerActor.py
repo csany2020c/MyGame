@@ -8,7 +8,6 @@ from Kancsalmate27megilyenek.TextureActors import *
 from Kancsalmate27megilyenek.ArenaScreen import *
 from Kancsalmate27megilyenek.Map import *
 from game.scene2d import MyTickTimer
-from spritesheetanim import SpriteStripAnim
 
 class PlayerActor(game.scene2d.MyActor):
     def __init__(self, image_url: str = "Heroamijó_1.png"):
