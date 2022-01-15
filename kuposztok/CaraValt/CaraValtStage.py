@@ -21,6 +21,12 @@ class CaraValtStage(game.scene2d.MyStage):
         self.money = money
         self.maxScore = maxScore
 
+        self.scoreshow = game.scene2d.MyLabel("Az eddigi legjobb pontszámod:" + str(self.maxScore))
+        self.scoreshow.x = self.width / 2 - self.scoreshow.get_width() / 2
+        self.scoreshow.y = self.height / 1.5
+        self.scoreshow.set_color(0, 0, 0)
+        self.add_actor(self.scoreshow)
+
         self.button1 = Visszagomb()
         self.add_actor(self.button1)
         self.button1.width = 125
