@@ -64,6 +64,7 @@ class MenuStage(game.scene2d.MyStage):
         button2.set_on_mouse_down_listener(self.Klikk2)
         button3.set_on_mouse_down_listener(self.Klikk3)
         button4.set_on_mouse_down_listener(self.Klikk4)
+        self.filebaolvasas()
 
     def filebaolvasas(self):
         with open('../kuposztok/Save/file.txt', 'r') as file:
