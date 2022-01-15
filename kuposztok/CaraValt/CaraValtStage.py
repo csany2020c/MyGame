@@ -8,7 +8,7 @@ from kuposztok.Game.CarOsszesScreen import CarOsszesScreen
 randomvaltozo = 0
 
 class CaraValtStage(game.scene2d.MyStage):
-    def __init__(self):
+    def __init__(self, money: int, maxScore: int):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
@@ -17,6 +17,9 @@ class CaraValtStage(game.scene2d.MyStage):
         self.bg.height = self.height
         self.bg.y = 0
         self.add_actor(self.bg)
+
+        self.money = money
+        self.maxScore = maxScore
 
         self.button1 = Visszagomb()
         self.add_actor(self.button1)
@@ -114,46 +117,46 @@ class CaraValtStage(game.scene2d.MyStage):
     def Car1Start(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 11
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
 
     def Car2Start(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 21
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
 
     def Car3Start(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 31
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
 
     def Car4Start(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 41
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
 
     def Car1MultStart(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 12
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
     def Car2MultStart(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 22
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
     def Car3MultStart(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 32
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
     def Car4MultStart(self, sender, event):
         if event.button == 1:
             self.randomvaltozo = 42
-            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo))
+            self.screen.game.set_screen(CarOsszesScreen(carvalt=self.randomvaltozo, money=self.money, maxScore=self.maxScore))
 
     #3
     def Actvalt1(self, sender, event):
