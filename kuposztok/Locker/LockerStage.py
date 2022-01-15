@@ -116,18 +116,18 @@ class LockerStage(game.scene2d.MyStage):
 
         self.set_on_key_down_listener(self.Back)
         self.back.set_on_mouse_down_listener(self.Back2)
-        self.DefSnowMobile.set_on_mouse_down_listener(self.DefSnowMobile)
-        self.DefSledge.set_on_mouse_down_listener(self.DefSledge)
-        self.DefSnowBoard.set_on_mouse_down_listener(self.DefSnowBoard)
-        self.DefSki.set_on_mouse_down_listener(self.DefSki)
-        self.GoldSnowMobile.set_on_mouse_down_listener(self.GoldSnowMobile)
-        self.GoldSledge.set_on_mouse_down_listener(self.GoldSledge)
-        self.GoldSnowBoard.set_on_mouse_down_listener(self.GoldSnowBoard)
-        self.GoldSki.set_on_mouse_down_listener(self.GoldSki)
-        self.SilverSnowMobile.set_on_mouse_down_listener(self.SilverSnowMobile)
-        self.SilverSledge.set_on_mouse_down_listener(self.SilverSledge)
-        self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoard)
-        self.SilverSki.set_on_mouse_down_listener(self.SilverSki)
+        self.DefSnowMobile.set_on_mouse_down_listener(self.DefSnowMobileB)
+        self.DefSledge.set_on_mouse_down_listener(self.DefSledgeB)
+        self.DefSnowBoard.set_on_mouse_down_listener(self.DefSnowBoardB)
+        self.DefSki.set_on_mouse_down_listener(self.DefSkiB)
+        self.GoldSnowMobile.set_on_mouse_down_listener(self.GoldSnowMobileB)
+        self.GoldSledge.set_on_mouse_down_listener(self.GoldSledgeB)
+        self.GoldSnowBoard.set_on_mouse_down_listener(self.GoldSnowBoardB)
+        self.GoldSki.set_on_mouse_down_listener(self.GoldSkiB)
+        self.SilverSnowMobile.set_on_mouse_down_listener(self.SilverSnowMobileB)
+        self.SilverSledge.set_on_mouse_down_listener(self.SilverSledgeB)
+        self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoardB)
+        self.SilverSki.set_on_mouse_down_listener(self.SilverSkiB)
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -137,62 +137,62 @@ class LockerStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
-    def DefSnowMobile(self, sender, event):
+    def DefSnowMobileB(self, sender, event):
         if event.button == 1:
             print("DefSnowMobile")
             skinvaltozo = 1
 
-    def DefSledge(self, sender, event):
+    def DefSledgeB(self, sender, event):
         if event.button == 1:
             print("DefSledge")
             skinvaltozo = 2
 
-    def DefSnowBoard(self, sender, event):
+    def DefSnowBoardB(self, sender, event):
         if event.button == 1:
             print("DefSnowBoard")
             skinvaltozo = 3
 
-    def DefSki(self, sender, event):
+    def DefSkiB(self, sender, event):
         if event.button == 1:
             print("DefSki")
             skinvaltozo = 4
 
-    def SilverSnowMobile(self, sender, event):
+    def SilverSnowMobileB(self, sender, event):
         if event.button == 1:
             print("SilverSnowMobile")
             goldvaltozo = 1
 
-    def SilverSledge(self, sender, event):
+    def SilverSledgeB(self, sender, event):
         if event.button == 1:
             print("SilverSledge")
             goldvaltozo = 2
 
-    def SilverSnowBoard(self, sender, event):
+    def SilverSnowBoardB(self, sender, event):
         if event.button == 1:
             print("SilverSnowBoard")
             goldvaltozo = 3
 
-    def SilverSki(self, sender, event):
+    def SilverSkiB(self, sender, event):
         if event.button == 1:
             print("SilverSki")
             skinvaltozo = 4
 
-    def GoldSnowMobile(self, sender, event):
+    def GoldSnowMobileB(self, sender, event):
         if event.button == 1:
             print("GoldSnowMobile")
             skinvaltozo = 9
 
-    def GoldSledge(self, sender, event):
+    def GoldSledgeB(self, sender, event):
         if event.button == 1:
             print("GoldSledge")
             skinvaltozo = 10
 
-    def GoldSnowBoard(self, sender, event):
+    def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
             print("GoldSnowBoard")
             skinvaltozo = 11
 
-    def GoldSki(self, sender, event):
+    def GoldSkiB(self, sender, event):
         if event.button == 1:
             print("GoldSki")
             skinvaltozo = 12
