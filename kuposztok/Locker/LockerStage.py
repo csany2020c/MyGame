@@ -17,18 +17,24 @@ class LockerStage(game.scene2d.MyStage):
         bg = ShopBgActor()
         self.add_actor(bg)
         self.snowmobilelabel = game.scene2d.MyLabel("SnowMobile:")
-        self.snowmobilelabel.x = self.width / 1.75
+        self.snowmobilelabel.x = self.width / 5.5
         self.snowmobilelabel.y = self.height / 6.5
         self.snowmobilelabel.set_color(0, 0, 0)
         self.add_actor(self.snowmobilelabel)
         self.sledgelabel = game.scene2d.MyLabel("Sledge:")
+        self.sledgelabel.x = self.width / 3
+        self.sledgelabel.y = self.height / 6.5
+        self.sledgelabel.set_color(0, 0, 0)
         self.add_actor(self.sledgelabel)
         self.snowboardlabel = game.scene2d.MyLabel("SnowBoard:")
-        self.snowmobilelabel.x = self.width / 1.75
-        self.snowmobilelabel.y = self.height / 6.5
-        self.snowmobilelabel.set_color(0, 0, 0)
+        self.snowboardlabel.x = self.width / 1.75
+        self.snowboardlabel.y = self.height / 6.5
+        self.snowboardlabel.set_color(0, 0, 0)
         self.add_actor(self.snowboardlabel)
         self.ski = game.scene2d.MyLabel("Ski:")
+        self.ski.x = self.width / 1.25
+        self.ski.y = self.height / 6.5
+        self.ski.set_color(0, 0, 0)
         self.add_actor(self.ski)
         self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money))
         self.moneylabel.y = 0 + self.moneylabel.get_height() / 2
@@ -65,62 +71,63 @@ class LockerStage(game.scene2d.MyStage):
         self.DefSki.x = self.width / 1.3
         self.DefSki.y = self.height / 5
         self.add_actor(self.DefSki)
-        self.BlueSnowMobile = DefaultSnowMobile()
-        self.BlueSnowMobile.set_size(200, 200)
-        self.BlueSnowMobile.x = self.width / 5
-        self.BlueSnowMobile.y = self.height / 2.5
-        self.add_actor(self.BlueSnowMobile)
-        self.BlueSledge = DefaultSledge()
-        self.BlueSledge.set_size(200, 200)
-        self.BlueSledge.x = self.width / 3
-        self.BlueSledge.y = self.height / 2.5
-        self.add_actor(self.BlueSledge)
-        self.BlueSnowBoard = DefaultSnowBoard()
-        self.BlueSnowBoard.set_size(200, 200)
-        self.BlueSnowBoard.x = self.width / 1.7
-        self.BlueSnowBoard.y = self.height / 2.5
-        self.add_actor(self.BlueSnowBoard)
-        self.BlueSki = DefaultSki()
-        self.BlueSki.set_size(200, 200)
-        self.BlueSki.x = self.width / 1.3
-        self.BlueSki.y = self.height / 2.5
-        self.add_actor(self.BlueSki)
-        self.RedSnowMobile = DefaultSnowMobile()
-        self.RedSnowMobile.set_size(200, 200)
-        self.RedSnowMobile.x = self.width / 5
-        self.RedSnowMobile.y = self.height / 1.5
-        self.add_actor(self.RedSnowMobile)
-        self.RedSledge = DefaultSledge()
-        self.RedSledge.set_size(200, 200)
-        self.RedSledge.x = self.width / 3
-        self.RedSledge.y = self.height / 1.5
-        self.add_actor(self.RedSledge)
-        self.RedSnowBoard = DefaultSnowBoard()
-        self.RedSnowBoard.set_size(200, 200)
-        self.RedSnowBoard.x = self.width / 1.7
-        self.RedSnowBoard.y = self.height / 1.5
-        self.add_actor(self.RedSnowBoard)
-        self.RedSki = DefaultSki()
-        self.RedSki.set_size(200, 200)
-        self.RedSki.x = self.width / 1.3
-        self.RedSki.y = self.height / 1.5
-        self.add_actor(self.RedSki)
+        self.SilverSnowMobile = DefaultSnowMobile()
+        self.SilverSnowMobile.set_size(200, 200)
+        self.SilverSnowMobile.x = self.width / 5
+        self.SilverSnowMobile.y = self.height / 2.5
+        self.add_actor(self.SilverSnowMobile)
+        self.SilverSledge = DefaultSledge()
+        self.SilverSledge.set_size(200, 200)
+        self.SilverSledge.x = self.width / 3
+        self.SilverSledge.y = self.height / 2.5
+        self.add_actor(self.SilverSledge)
+        self.SilverSnowBoard = DefaultSnowBoard()
+        self.SilverSnowBoard.set_size(200, 200)
+        self.SilverSnowBoard.x = self.width / 1.7
+        self.SilverSnowBoard.y = self.height / 2.5
+        self.add_actor(self.SilverSnowBoard)
+        self.SilverSki = DefaultSki()
+        self.SilverSki.set_size(200, 200)
+        self.SilverSki.x = self.width / 1.3
+        self.SilverSki.y = self.height / 2.5
+        self.add_actor(self.SilverSki)
+        self.GoldSnowMobile = DefaultSnowMobile()
+        self.GoldSnowMobile.set_size(200, 200)
+        self.GoldSnowMobile.x = self.width / 5
+        self.GoldSnowMobile.y = self.height / 1.5
+        self.add_actor(self.GoldSnowMobile)
+        self.GoldSledge = DefaultSnowMobile()
+        self.GoldSledge.set_size(200, 200)
+        self.GoldSledge.x = self.width / 5
+        self.GoldSledge.y = self.height / 1.5
+        self.add_actor(self.GoldSledge)
+        self.GoldSnowBoard = DefaultSledge()
+        self.GoldSnowBoard.set_size(200, 200)
+        self.GoldSnowBoard.x = self.width / 3
+        self.GoldSnowBoard.y = self.height / 1.5
+        self.add_actor(self.GoldSnowBoard)
+        self.add_actor(self.GoldSnowMobile)
+        self.GoldSki = DefaultSki()
+        self.GoldSki.set_size(200, 200)
+        self.GoldSki.x = self.width / 1.3
+        self.GoldSki.y = self.height / 1.5
+        self.add_actor(self.GoldSki)
 
 
         self.set_on_key_down_listener(self.Back)
         self.back.set_on_mouse_down_listener(self.Back2)
-        self.DefSnowMobile.set_on_mouse_down_listener(self.Def1)
-        self.DefSledge.set_on_mouse_down_listener(self.Def2)
-        self.DefSnowBoard.set_on_mouse_down_listener(self.Def3)
-        self.DefSki.set_on_mouse_down_listener(self.Def4)
-        self.BlueSnowMobile.set_on_mouse_down_listener(self.Blue1)
-        self.BlueSledge.set_on_mouse_down_listener(self.Blue2)
-        self.DefSnowMobile.set_on_mouse_down_listener(self.Blue3)
-        self.DefSledge.set_on_mouse_down_listener(self.Blue4)
-        self.DefSnowBoard.set_on_mouse_down_listener(self.Red1)
-        self.DefSki.set_on_mouse_down_listener(self.Red2)
-        self.BlueSnowMobile.set_on_mouse_down_listener(self.Red3)
-        self.BlueSledge.set_on_mouse_down_listener(self.Red4)
+        self.DefSnowMobile.set_on_mouse_down_listener(self.DefSnowMobile)
+        self.DefSledge.set_on_mouse_down_listener(self.DefSledge)
+        self.DefSnowBoard.set_on_mouse_down_listener(self.DefSnowBoard)
+        self.DefSki.set_on_mouse_down_listener(self.DefSki)
+        self.GoldSnowMobile.set_on_mouse_down_listener(self.GoldSnowMobile)
+        self.GoldSledge.set_on_mouse_down_listener(self.GoldSledge)
+        self.GoldSnowBoard.set_on_mouse_down_listener(self.GoldSnowBoard)
+        self.GoldSki.set_on_mouse_down_listener(self.GoldSki)
+        self.SilverSnowMobile.set_on_mouse_down_listener(self.SilverSnowMobile)
+        self.SilverSledge.set_on_mouse_down_listener(self.SilverSledge)
+        self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoard)
+        self.SilverSki.set_on_mouse_down_listener(self.SilverSki)
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -130,64 +137,64 @@ class LockerStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
-    def Def1(self, sender, event):
+    def DefSnowMobile(self, sender, event):
         if event.button == 1:
-            print("def1")
+            print("DefSnowMobile")
             skinvaltozo = 1
 
-    def Def2(self, sender, event):
+    def DefSledge(self, sender, event):
         if event.button == 1:
-            print("def2")
+            print("DefSledge")
             skinvaltozo = 2
 
-    def Def3(self, sender, event):
+    def DefSnowBoard(self, sender, event):
         if event.button == 1:
-            print("def3")
+            print("DefSnowBoard")
             skinvaltozo = 3
 
-    def Def4(self, sender, event):
+    def DefSki(self, sender, event):
         if event.button == 1:
-            print("def4")
+            print("DefSki")
             skinvaltozo = 4
 
-    def Blue1(self, sender, event):
+    def SilverSnowMobile(self, sender, event):
         if event.button == 1:
-            print("blue1")
+            print("SilverSnowMobile")
             goldvaltozo = 1
 
-    def Blue2(self, sender, event):
+    def SilverSledge(self, sender, event):
         if event.button == 1:
-            print("blue2")
+            print("SilverSledge")
             goldvaltozo = 2
 
-    def Blue3(self, sender, event):
+    def SilverSnowBoard(self, sender, event):
         if event.button == 1:
-            print("blue3")
+            print("SilverSnowBoard")
             goldvaltozo = 3
 
-    def Blue4(self, sender, event):
+    def SilverSki(self, sender, event):
         if event.button == 1:
-            print("blue4")
+            print("SilverSki")
             skinvaltozo = 4
 
-    def Red1(self, sender, event):
+    def GoldSnowMobile(self, sender, event):
         if event.button == 1:
-            print("red1")
+            print("GoldSnowMobile")
             skinvaltozo = 9
 
-    def Red2(self, sender, event):
+    def GoldSledge(self, sender, event):
         if event.button == 1:
-            print("red2")
+            print("GoldSledge")
             skinvaltozo = 10
 
-    def Red3(self, sender, event):
+    def GoldSnowBoard(self, sender, event):
         if event.button == 1:
-            print("red3")
+            print("GoldSnowBoard")
             skinvaltozo = 11
 
-    def Red4(self, sender, event):
+    def GoldSki(self, sender, event):
         if event.button == 1:
-            print("red4")
+            print("GoldSki")
             skinvaltozo = 12
 
     # def Skinback(self):

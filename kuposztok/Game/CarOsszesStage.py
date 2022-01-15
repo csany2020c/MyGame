@@ -168,11 +168,14 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.score = self.score + 1
         super().act(delta_time)
         print(self.maxScore)
+        self.filebairas()
         for i in self.actors:
             if isinstance(i, Enemy):
                 if self.joseph.overlaps(i):
-                    self.filebairas()
-                    self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, carvalt=self.carvalt, maxScore=self.maxScore))
+                    self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
+                if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+                    if self.joseph2.overlaps(i):
+                        self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
 
 
 
