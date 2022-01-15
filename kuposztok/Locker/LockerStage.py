@@ -11,11 +11,34 @@ class LockerStage(game.scene2d.MyStage):
         super().__init__()
         for i in range(5):
             print(money)
+            self.money = money
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         bg = ShopBgActor()
         self.add_actor(bg)
-        self.skinvaltozo = 0
+        self.snowmobilelabel = game.scene2d.MyLabel("SnowMobile:")
+        self.snowmobilelabel.x = self.width / 1.75
+        self.snowmobilelabel.y = self.height / 6.5
+        self.snowmobilelabel.set_color(0, 0, 0)
+        self.add_actor(self.snowmobilelabel)
+        self.sledgelabel = game.scene2d.MyLabel("Sledge:")
+        self.add_actor(self.sledgelabel)
+        self.snowboardlabel = game.scene2d.MyLabel("SnowBoard:")
+        self.snowmobilelabel.x = self.width / 1.75
+        self.snowmobilelabel.y = self.height / 6.5
+        self.snowmobilelabel.set_color(0, 0, 0)
+        self.add_actor(self.snowboardlabel)
+        self.ski = game.scene2d.MyLabel("Ski:")
+        self.add_actor(self.ski)
+        self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money))
+        self.moneylabel.y = 0 + self.moneylabel.get_height() / 2
+        self.moneylabel.x = self.width - self.moneylabel.get_width()
+        self.moneylabel.set_color(0, 0, 0)
+        self.add_actor(self.moneylabel)
+        self.snowmobile = 0
+        self.sledgevalt = 0
+        self.snowboardvalt = 0
+        self.skivalt = 0
         from kuposztok.Menu.MenuStage import MenuStage
         # self.money = MenuStage.getMoneyMenu()
         # self.moneyLabel = game.scene2d.MyLabel("Your money: " + self.money)
@@ -130,22 +153,22 @@ class LockerStage(game.scene2d.MyStage):
     def Blue1(self, sender, event):
         if event.button == 1:
             print("blue1")
-            skinvaltozo = 5
+            goldvaltozo = 1
 
     def Blue2(self, sender, event):
         if event.button == 1:
             print("blue2")
-            skinvaltozo = 6
+            goldvaltozo = 2
 
     def Blue3(self, sender, event):
         if event.button == 1:
             print("blue3")
-            skinvaltozo = 7
+            goldvaltozo = 3
 
     def Blue4(self, sender, event):
         if event.button == 1:
             print("blue4")
-            skinvaltozo = 8
+            skinvaltozo = 4
 
     def Red1(self, sender, event):
         if event.button == 1:

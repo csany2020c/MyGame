@@ -20,7 +20,7 @@ class CreditStage(game.scene2d.MyStage):
         self.button1.width = 125
         self.button1.height = 75
         self.button1.y = self.height - 80
-        self.button1.x = self.width - self.width + 1000
+        self.button1.x = self.width - self.button1.get_width()
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.Escape)

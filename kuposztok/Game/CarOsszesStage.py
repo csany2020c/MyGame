@@ -39,6 +39,8 @@ class CarOsszesStage(game.scene2d.MyStage):
 
         self.maxScore = maxScore
 
+        self.money = money
+
         # self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
         # self.add_actor(self.fpslabel)
         # self.fpslabel.x = self.width - 150
@@ -126,7 +128,7 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.height = 100
             self.enemy2.z_index = 5
             self.enemy2.x = random.Random().randint(0, self.width)
-            self.enemy2.y = random.Random().randint(0 - self.height / 2, self.height / 2)
+            self.enemy2.y = random.Random().randint(0 - self.height, 0)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
@@ -140,6 +142,17 @@ class CarOsszesStage(game.scene2d.MyStage):
                 file.write(str(self.score))
             else:
                 file.write(str(self.maxScore))
+            if self.score < 100:
+                self.money = self.money + 10
+            if self.score > 100 and self.score < 500:
+                self.money = self.money + 100
+            if self.score > 500 and self.score < 1000:
+                self.money = self.money + 500
+            if self.score > 1000 and self.score < 5000:
+                self.money = self.money + 1500
+            if self.score > 5000 and self.score < 15000:
+                self.money = self.money + 3000
+            file.write("\n" + str(self.money))
             file.close()
 
     def Timer(self, sender):
@@ -154,6 +167,7 @@ class CarOsszesStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         self.score = self.score + 1
         super().act(delta_time)
+        print(self.maxScore)
         for i in self.actors:
             if isinstance(i, Enemy):
                 if self.joseph.overlaps(i):
