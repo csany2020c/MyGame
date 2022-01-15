@@ -7,6 +7,7 @@ import kuposztok.CaraValt.CaraValtStage
 from game.scene2d.MyGame import MyGame
 from kuposztok.Lose.LoseScreen import LoseScreen
 
+
 class CarOsszesStage(game.scene2d.MyStage):
 
     def __init__(self, carvalt: int):
@@ -131,6 +132,20 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
 
+    def filebaolvasas(self):
+        with open('../kuposztok/Save/file.txt', 'r') as file:
+            self.max_score = file.readline()
+            self.money = file.readline()
+            file.close()
+
+    def filebairas(self):
+        with open('../kuposztok/Save/file.txt', 'w') as file:
+            if int(self.max_score) < int(self.score):
+                file.write(str(self.score))
+            else:
+                file.write(str(self.max_score))
+            file.close()
+
     def Timer(self, sender):
         self.score = self.score + 1
         self.scorelabel.set_text("Score:" + str(self.score))
@@ -142,11 +157,12 @@ class CarOsszesStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         self.score = self.score + 1
-        print(self.score)
         super().act(delta_time)
+        print(self.money)
         for i in self.actors:
             if isinstance(i, Enemy):
                 if self.joseph.overlaps(i):
+                    self.filebairas()
                     self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
 
 
