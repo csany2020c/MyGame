@@ -1,10 +1,13 @@
 import game
 from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor
 from game.scene2d import MyBaseActor
+from game.scene2d import MyLabel
 from Kancsalmate27megilyenek.PlayerActor import *
 from Kancsalmate27megilyenek.Map import *
 from random import Random
-from Kancsalmate27megilyenek.Enemy import getDatas
+from Kancsalmate27megilyenek.Enemy import getDatas,Enemy
+from game.scene2d.MyActor import *
+from game.scene2d.MyGame import MyGame
 from game.scene2d.MyActor import *
 
 
@@ -17,19 +20,30 @@ class ArenaStage(game.scene2d.MyStage):
         self.player.set_x = 500
         r = Random()
 
-        enemys:int = int(r.randint(1,5))
-        enemy = list()
-        for i in range(enemys):
-            type:int = int(r.randint(1,2))
-            if type==1:
-                self.enemy1 = getDatas(self,"jani")
-                self.enemy1speed = self.enemy1.speed
-                enemy.append(self.enemy1)
-            elif type==2:
-                self.enemy2 = getDatas(self,"cigany")
-                enemy.append(self.enemy2)
-        for i in (enemy):
-            print("ENNYI VAN : " + str(len(enemy)))
+
+
+        enemys:int = int(r.randint(1,3))
+        enemy:List['getDatas'] = list()
+        enemyActor:List['Enemy'] = list()
+        self.x:int = int(0)
+        for i in range (enemys):
+            type:int = int(r.randint(0,1))
+            enemy.append(getDatas(self,type))
+            enemyActor.append(enemy[0].getActor())
+        for i in range(len(enemyActor)):
+            enemyActor[i].drawhp(self, 0,0)
+            if i!=0:
+                enemyActor[i].y = enemyActor[i - 1].get_y() + 200
+                enemyActor[i].drawhp(self,enemyActor[i].get_x(),enemyActor[i-1].get_y() + 200)
+            self.add_actor(enemyActor[i])
+            enemyActor[i].set_damage(enemy[i].damage)
+            enemyActor[i].set_hp(enemy[i].hp)
+
+            # print("pos: " + str(i.get_x))
+            # print("Hossz:" + str(len(enemyActor)))
+
+
+
     def act(self, delta_time: float):
         super().act(delta_time)
 
