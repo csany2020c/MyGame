@@ -10,7 +10,7 @@ from kuposztok.Lose.LoseScreen import LoseScreen
 
 class CarOsszesStage(game.scene2d.MyStage):
 
-    def __init__(self, carvalt: int):
+    def __init__(self, carvalt: int, money: int, maxScore: int):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
@@ -36,6 +36,8 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.t = MyIntervalTimer(func=self.Timer, start_time=0, stop_time=9223372036854775807)
         self.add_timer(self.t)
         self.carvalt = carvalt
+
+        self.maxScore = maxScore
 
         # self.fpslabel = game.scene2d.MyLabel("FPS: " + str(self._frame_count))
         # self.add_actor(self.fpslabel)
@@ -132,18 +134,12 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
 
-    def filebaolvasas(self):
-        with open('../kuposztok/Save/file.txt', 'r') as file:
-            self.max_score = file.readline()
-            self.money = file.readline()
-            file.close()
-
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
-            if int(self.max_score) < int(self.score):
+            if int(self.maxScore) < int(self.score):
                 file.write(str(self.score))
             else:
-                file.write(str(self.max_score))
+                file.write(str(self.maxScore))
             file.close()
 
     def Timer(self, sender):
@@ -158,12 +154,11 @@ class CarOsszesStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         self.score = self.score + 1
         super().act(delta_time)
-        print(self.money)
         for i in self.actors:
             if isinstance(i, Enemy):
                 if self.joseph.overlaps(i):
                     self.filebairas()
-                    self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score))
+                    self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, carvalt=self.carvalt, maxScore=self.maxScore))
 
 
 

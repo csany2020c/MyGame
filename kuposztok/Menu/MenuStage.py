@@ -20,6 +20,8 @@ class MenuStage(game.scene2d.MyStage):
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
         bg = MenuActor()
+        self.money = 0
+        self.max_score = 0
         self.add_actor(bg)
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
@@ -62,13 +64,20 @@ class MenuStage(game.scene2d.MyStage):
         button2.set_on_mouse_down_listener(self.Klikk2)
         button3.set_on_mouse_down_listener(self.Klikk3)
         button4.set_on_mouse_down_listener(self.Klikk4)
+        self.filebaolvasas()
+
+    def filebaolvasas(self):
+        with open('../kuposztok/Save/file.txt', 'r') as file:
+            self.max_score = int(file.readline())
+            self.money = int(file.readline())
+            file.close()
 
     def act(self, delta_time: float,):
         super().act(delta_time)
 
     def Klikk1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen())
+            self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen(money=self.money, maxScore=self.max_score))
 
 
     def Klikk2(self, sender, event):
@@ -82,7 +91,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def Klikk4(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen())
+            self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen(money=self.money))
             pygame.mixer.init()
             pygame.mixer.music.load("../kuposztok/CaraValt/music/buttonmusica.wav")
             pygame.mixer.music.play(1)

@@ -7,8 +7,10 @@ import kuposztok.Menu.MenuScreen
 
 
 class LockerStage(game.scene2d.MyStage):
-    def __init__(self):
+    def __init__(self, money: int):
         super().__init__()
+        for i in range(5):
+            print(money)
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         bg = ShopBgActor()

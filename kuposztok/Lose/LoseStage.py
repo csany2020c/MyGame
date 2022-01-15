@@ -7,7 +7,7 @@ from kuposztok.Lose.LoseActors import *
 
 
 class LoseStage(game.scene2d.MyStage):
-    def __init__(self, score: int, carvalt:int):
+    def __init__(self, score: int, carvalt: int, maxScore: int):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
