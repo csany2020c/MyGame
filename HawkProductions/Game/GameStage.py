@@ -7,7 +7,7 @@ from HawkProductions.font.Font import *
 
 class GameStage(game.scene2d.MyStage):
 
-    def __init__(self, puska: int):
+    def __init__(self, puska: int, a: int):
         super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
@@ -78,18 +78,10 @@ class GameStage(game.scene2d.MyStage):
         self.C1 = Coin()
         self.C2 = Coin()
 
-        #f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
-        #content: str = f.readline()
-        #f.write("\n" + str(self.point))
-
     def update_point(self):
         self.pointl.set_text("Point: {point}".format(point=self.point))
         f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
-        #problema: amikor a jatek lefut nem irja uj sorba az eredmenyt, amit a jatakban megszereztunk
-        #f.write('\n') # uj sort hoz létre
-        #eredmenyek.txt fajlba beirja mindig az utoljára kapott kodot
         f.write(str(self.point))
-        #masik megoldas f.write('\n' + str(self.point))
         f.close()
 
     def add_asd(self, sender):
@@ -205,8 +197,9 @@ class GameStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        a = None
         if self.D.overlaps(self.P1):
-            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
+            a = random.randint(1, 3)
         if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P3):
