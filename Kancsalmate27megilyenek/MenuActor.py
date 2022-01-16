@@ -1,4 +1,5 @@
 import game
+from Kancsalmate27megilyenek.MenuGame import *
 
 class MenuActor1(game.scene2d.MyActor):
     def __init__(self, image_url: str = ""):
