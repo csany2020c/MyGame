@@ -6,8 +6,8 @@ from game.scene2d import MyBaseActor
 class FatJordan(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/fatjordanact.png")
-        self.y = 350
-        self.x = 500
+        self.y = 280
+        self.x = 530
 
 
 class MenuText(game.scene2d.MyLabel):
@@ -70,6 +70,9 @@ class LeBron(game.scene2d.MyActor):
         super().__init__("images/lebronjames.png")
         self.x += 500
         self.y += 250
+        self.set_size(150,150)
+
+
 
 class stone(game.scene2d.MyActor):
     def __init__(self):
