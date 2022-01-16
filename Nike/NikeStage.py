@@ -36,7 +36,16 @@ class MenuStage(game.scene2d.MyStage):
         self.exit.set_height(80)
         self.exit.x += 850
         self.exit.y += 250
-        #self.exit.set_on_mouse_down_listener(self.exitbut)
+        self.exit.set_on_mouse_down_listener(self.exitbut)
+        self.credit = MenuText()
+        self.add_actor(self.credit)
+        self.credit.set_text("Credit")
+        self.credit.set_alpha(500)
+        self.credit.set_width(80)
+        self.credit.set_height(80)
+        self.credit.x += 550
+        self.credit.y += 550
+        self.credit.set_on_mouse_down_listener(self.creditbut)
 
 
 
@@ -46,6 +55,74 @@ class MenuStage(game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.screen.game.set_screen(Nike.NikeScreen.Game())
+
+    def exitbut(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                quit()
+
+    def creditbut(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Nike.NikeScreen.Credit())
+
+
+class CreditStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.creators = MenuText()
+        self.add_actor(self.creators)
+        self.creators.set_text("Creators:")
+        self.creators.set_alpha(500)
+        self.creators.set_width(80)
+        self.creators.set_height(80)
+        self.creators.x += 500
+        self.creators.y += 50
+        self.akos = MenuText()
+        self.add_actor(self.akos)
+        self.akos.set_text("Tóth Ákos")
+        self.akos.set_alpha(500)
+        self.akos.set_width(80)
+        self.akos.set_height(80)
+        self.akos.x += 500
+        self.akos.y += 150
+        self.mate = MenuText()
+        self.add_actor(self.mate)
+        self.mate.set_text("Vizdák Máté")
+        self.mate.set_alpha(500)
+        self.mate.set_width(80)
+        self.mate.set_height(80)
+        self.mate.x += 470
+        self.mate.y += 220
+        self.donat = MenuText()
+        self.add_actor(self.donat)
+        self.donat.set_text("Rigó Donát")
+        self.donat.set_alpha(500)
+        self.donat.set_width(80)
+        self.donat.set_height(80)
+        self.donat.x += 480
+        self.donat.y += 290
+        self.back = MenuText()
+        self.add_actor(self.back)
+        self.back.set_text("Back")
+        self.back.set_alpha(500)
+        self.back.set_width(80)
+        self.back.set_height(80)
+        self.back.x += 560
+        self.back.y += 600
+        self.back.set_on_mouse_down_listener(self.backbut)
+
+    def backbut(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
 
 
 class GameStage(game.scene2d.MyStage):
@@ -80,6 +157,14 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_s:
             sender.y += 10
             self.camera.set_tracking_window(0.4, 0.2, 0.4, 0.6)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        print(self.FatJordanact)
+        if self.LeBron.overlaps(other=self.FatJordanact):
+            self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
+
 
     def backtomenu(self,sender,event):
         if event.key == pygame.K_ESCAPE:

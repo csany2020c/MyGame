@@ -1,11 +1,15 @@
 from HawkProductions.font.Font import *
 import pygame
 import HawkProductions.menu.MenuScreen
+from game.scene2d import MyActor
 
 
 class OverStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.a: int = 0
+        self.f = None
+        self.update1()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Over.wav")
         pygame.mixer.music.play(-1)
@@ -26,6 +30,12 @@ class OverStage(game.scene2d.MyStage):
         self.g.set_font_size(100)
         self.g.set_on_mouse_down_listener(self.click)
         self.g.set_on_key_down_listener(self.back_button)
+
+    def update1(self):
+        if self.f == None:
+            self.f = MyActor('image/coin.png')
+        if self.a == 3:
+            self.f = MyActor('image/coin.png')
 
     def click(self, sender, event):
         print(sender)
