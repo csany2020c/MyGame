@@ -9,11 +9,17 @@ from Kancsalmate27megilyenek.Enemy import getDatas,Enemy
 from game.scene2d.MyActor import *
 from game.scene2d.MyGame import MyGame
 from game.scene2d.MyActor import *
+from Kancsalmate27megilyenek.AttackActor import *
+import pygame
 
 
 class ArenaStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.init()
+        self.info = pygame.display.Info()
+        self.width = self.info.current_w
+        self.height = self.info.current_h
         self.map = Map(self,"arena")
         self.player = PlayerActor()
         self.add_actor(self.player)
@@ -24,20 +30,39 @@ class ArenaStage(game.scene2d.MyStage):
 
         enemys:int = int(r.randint(1,3))
         enemy:List['getDatas'] = list()
-        enemyActor:List['Enemy'] = list()
+        self.enemyActor:List['Enemy'] = list()
         self.x:int = int(0)
         for i in range (enemys):
             type:int = int(r.randint(0,1))
             enemy.append(getDatas(self,type))
-            enemyActor.append(enemy[0].getActor())
-        for i in range(len(enemyActor)):
-            enemyActor[i].drawhp(self, 0,0)
+            self.enemyActor.append(enemy[0].getActor())
+        for i in range(len(self.enemyActor)):
+            self.enemyActor[i].drawhp(self, 0,0)
             if i!=0:
-                enemyActor[i].y = enemyActor[i - 1].get_y() + 200
-                enemyActor[i].drawhp(self,enemyActor[i].get_x(),enemyActor[i-1].get_y() + 200)
-            self.add_actor(enemyActor[i])
-            enemyActor[i].set_damage(enemy[i].damage)
-            enemyActor[i].set_hp(enemy[i].hp)
+                self.enemyActor[i].y = self.enemyActor[i - 1].get_y() + 200
+                self.enemyActor[i].drawhp(self,self.enemyActor[i].get_x(),self.enemyActor[i-1].get_y() + 200)
+            self.add_actor(self.enemyActor[i])
+            self.enemyActor[i].set_damage(enemy[i].damage)
+            self.enemyActor[i].set_hp(enemy[i].hp)
+
+        self.attack = AttackActor()
+        self.attack.set_size(50,50)
+        self.attack.x = self.width / 2 - self.attack.get_width() / 2
+        self.attack.y = self.height - self.attack.get_height() - 20
+        self.add_actor(self.attack)
+        # self.attack.set_on_mouse_down_listener(self.attack)
+
+
+
+    def attack(self,sender,event):
+        if event.button == 1:
+            print("kurvageci")
+            # for i in range(len(self.enemyActor)):
+            #     self.pickenemy = MyActor("Water.png")
+            #     self.add_actor(self.pickenemy)
+            #     self.pickenemy.y = self.attack.get_y() - self.attack.get_height() - 10
+            #     self.pickenemy.x = self.attack.get_x() + i*100
+
 
             # print("pos: " + str(i.get_x))
             # print("Hossz:" + str(len(enemyActor)))

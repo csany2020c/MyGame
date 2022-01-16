@@ -3,7 +3,8 @@ import game
 
 from Kancsalmate27megilyenek.InGameScreen import *
 from Kancsalmate27megilyenek.MenuActor import *
-from Kancsalmate27megilyenek.MusicActor import *
+from MusicActor import MusicActor
+
 
 
 class Stage3(game.scene2d.MyStage):
@@ -13,6 +14,10 @@ class Stage3(game.scene2d.MyStage):
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
+
+        self.bg = BgActor()
+        self.bg.set_size(self.width,self.height)
+        self.add_actor(self.bg)
 
 
         self.b = MenuActor2()
