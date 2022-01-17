@@ -66,10 +66,6 @@ class Enemy(game.scene2d.MyActor):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.y += delta_time * 500
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * 500
         if self.y > 1180:
             self.y = random.Random().randint(-500, 0)
             self.x = random.Random().randint(0, 2000)
@@ -115,3 +111,17 @@ class Newgame(game.scene2d.MyActor):
         self.credit = super().__init__('image/new_game.png')
         self.height = 75
         self.width = 125
+
+class SportDrink(game.scene2d.MyActor):
+    def __init__(self):
+        self.SportDrink = super().__init__('image/SportDrink.png')
+
+        self.width = 200
+        self.height = 200
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.y += delta_time * 500
+        if self.y > 1180:
+            self.y = random.Random().randint(-500, 0)
+            self.x = random.Random().randint(0, 2000)

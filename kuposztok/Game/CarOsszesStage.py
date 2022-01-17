@@ -130,6 +130,14 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.x = random.Random().randint(0, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height, 0)
 
+        self.suport = SportDrink()
+        self.add_actor(self.suport)
+        self.suport.width = 100
+        self.suport.height = 100
+        self.suport.z_index = 5
+        self.suport.x = random.Random().randint(0, self.width)
+        self.suport.y = random.Random().randint(0 - self.height, 0)
+
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.joseph.set_on_key_press_listener(self.iranyitas)
         self.newgame.set_on_mouse_down_listener(self.NewG)
@@ -152,6 +160,12 @@ class CarOsszesStage(game.scene2d.MyStage):
                 self.money = self.money + 1500
             if self.score > 5000 and self.score < 15000:
                 self.money = self.money + 3000
+            if self.score > 15000 and self.score < 50000:
+                self.money = self.money + 10000
+            if self.score > 50000 and self.score < 100000:
+                self.money = self.money + 50000
+            if self.score > 100000:
+                self.money = self.money + 100000
             file.write("\n" + str(self.money))
             file.close()
 
@@ -167,6 +181,7 @@ class CarOsszesStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         self.score = self.score + 1
         super().act(delta_time)
+        self.scorelabel.x = self.width - self.scorelabel.get_width()
         print(self.maxScore)
         self.filebairas()
         for i in self.actors:
@@ -176,6 +191,10 @@ class CarOsszesStage(game.scene2d.MyStage):
                 if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
                     if self.joseph2.overlaps(i):
                         self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
+        for k in self.actors:
+            if isinstance(k, SportDrink):
+                if self.joseph.overlaps(k):
+                    self.score = self.score + 500
 
 
 
@@ -231,4 +250,5 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.screen.game.set_screen(CarOsszesStage(carvalt=self.carvalt))
 
 # def getScore(self):
+#     return self.score
 #     return self.score

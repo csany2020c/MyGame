@@ -28,7 +28,7 @@ class LoseStage(game.scene2d.MyStage):
         self.maxsclabel.y = self.height / 2
         self.maxsclabel.set_color(0, 0, 0)
         self.add_actor(self.maxsclabel)
-        self.newlabel = game.scene2d.MyLabel("Az új értéked újraindítás után lesz friss.")
+        self.newlabel = game.scene2d.MyLabel("Gratulálok több pontot értél el mint legutóbb.")
         self.newlabel.x = self.width / 14
         self.newlabel.y = self.height / 1.5
         self.newlabel.set_color(0, 0, 0)
@@ -40,3 +40,8 @@ class LoseStage(game.scene2d.MyStage):
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen())
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.maxsclabel.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))
+
