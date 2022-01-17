@@ -3,17 +3,18 @@ from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.over.OverScreen
 from HawkProductions.font.Font import *
+import HawkProductions.win.WinScreen
 
 
 class GameStage(game.scene2d.MyStage):
 
-    def __init__(self, puska: int, a: int):
+    def __init__(self, puska: int):
         super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        self.Bg = Bg() #85. sor utan van a fajlbeolvasas
+        self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
 
@@ -197,9 +198,8 @@ class GameStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        a = None
         if self.D.overlaps(self.P1):
-            a = random.randint(1, 3)
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P3):
@@ -223,6 +223,8 @@ class GameStage(game.scene2d.MyStage):
         if self.D.overlaps(self.C2):
             self.point += 1
             self.update_point()
+        if self.point == 17:
+            self.screen.game.set_screen(HawkProductions.win.WinScreen.WinScreen())
 
     def click2(self, sender, event):
         if event.button == 1:
