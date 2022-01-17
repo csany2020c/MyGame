@@ -91,7 +91,7 @@ class MenuStage(game.scene2d.MyStage):
 
     def Klikk4(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen(money=self.money))
+            self.screen.game.set_screen(kuposztok.Locker.LockerScreen.LockerScreen(money=self.money, max_score=self.max_score))
             pygame.mixer.init()
             pygame.mixer.music.load("../kuposztok/CaraValt/music/buttonmusica.wav")
             pygame.mixer.music.play(1)

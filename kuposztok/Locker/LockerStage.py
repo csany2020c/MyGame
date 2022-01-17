@@ -4,14 +4,16 @@ import pygame
 import kuposztok.Menu.MenuStage
 from kuposztok.Locker.LockerActor import *
 import kuposztok.Menu.MenuScreen
+from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
 
 
 class LockerStage(game.scene2d.MyStage):
-    def __init__(self, money: int):
+    def __init__(self, money: int, max_score:int):
         super().__init__()
         for i in range(5):
             print(money)
             self.money = money
+            self.max_score = max_score
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         bg = ShopBgActor()
@@ -36,19 +38,12 @@ class LockerStage(game.scene2d.MyStage):
         self.ski.y = self.height / 6.5
         self.ski.set_color(0, 0, 0)
         self.add_actor(self.ski)
-        self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money))
-        self.moneylabel.y = 0 + self.moneylabel.get_height() / 2
-        self.moneylabel.x = self.width - self.moneylabel.get_width()
-        self.moneylabel.set_color(0, 0, 0)
-        self.add_actor(self.moneylabel)
-        self.snowmobile = 0
+        self.snowmobilevalt = 0
         self.sledgevalt = 0
         self.snowboardvalt = 0
         self.skivalt = 0
-        from kuposztok.Menu.MenuStage import MenuStage
-        # self.money = MenuStage.getMoneyMenu()
-        # self.moneyLabel = game.scene2d.MyLabel("Your money: " + self.money)
-        # self.add_actor(self.moneyLabel)
+        self.skinvalt = 0
+
         self.back = Back()
         self.add_actor(self.back)
         self.DefSnowMobile = DefaultSnowMobile()
@@ -96,14 +91,14 @@ class LockerStage(game.scene2d.MyStage):
         self.GoldSnowMobile.x = self.width / 5
         self.GoldSnowMobile.y = self.height / 1.5
         self.add_actor(self.GoldSnowMobile)
-        self.GoldSledge = DefaultSnowMobile()
+        self.GoldSledge = DefaultSledge()
         self.GoldSledge.set_size(200, 200)
-        self.GoldSledge.x = self.width / 5
+        self.GoldSledge.x = self.width / 3
         self.GoldSledge.y = self.height / 1.5
         self.add_actor(self.GoldSledge)
-        self.GoldSnowBoard = DefaultSledge()
+        self.GoldSnowBoard = DefaultSnowBoard()
         self.GoldSnowBoard.set_size(200, 200)
-        self.GoldSnowBoard.x = self.width / 3
+        self.GoldSnowBoard.x = self.width / 1.7
         self.GoldSnowBoard.y = self.height / 1.5
         self.add_actor(self.GoldSnowBoard)
         self.add_actor(self.GoldSnowMobile)
@@ -112,7 +107,53 @@ class LockerStage(game.scene2d.MyStage):
         self.GoldSki.x = self.width / 1.3
         self.GoldSki.y = self.height / 1.5
         self.add_actor(self.GoldSki)
+        self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money))
+        self.moneylabel.y = 0 + self.moneylabel.get_height() / 2
+        self.moneylabel.x = self.width - self.moneylabel.get_width()
+        self.moneylabel.set_color(0, 0, 0)
+        self.add_actor(self.moneylabel)
 
+
+        self.silversnowmobilelock = SilverLock()
+        self.silversnowmobilelock.x = self.SilverSnowMobile.get_x()
+        self.silversnowmobilelock.y = self.SilverSnowMobile.get_y()
+        self.silversnowmobilelock.set_size(250, 250)
+        self.add_actor(self.silversnowmobilelock)
+        self.silversledgelock = SilverLock()
+        self.silversledgelock.x = self.SilverSledge.get_x()
+        self.silversledgelock.y = self.SilverSledge.get_y()
+        self.silversledgelock.set_size(250, 250)
+        self.add_actor(self.silversledgelock)
+        self.silversnowboardlock = SilverLock()
+        self.silversnowboardlock.x = self.SilverSnowBoard.get_x()
+        self.silversnowboardlock.y = self.SilverSnowBoard.get_y()
+        self.silversnowboardlock.set_size(250, 250)
+        self.add_actor(self.silversnowboardlock)
+        self.silverskilock = SilverLock()
+        self.silverskilock.x = self.SilverSki.get_x()
+        self.silverskilock.y = self.SilverSki.get_y()
+        self.silverskilock.set_size(250, 250)
+        self.add_actor(self.silverskilock)
+        self.goldsnowmobilelock = GoldLock()
+        self.goldsnowmobilelock.x = self.GoldSnowMobile.get_x()
+        self.goldsnowmobilelock.y = self.GoldSnowMobile.get_y()
+        self.goldsnowmobilelock.set_size(250, 250)
+        self.add_actor(self.goldsnowmobilelock)
+        self.goldsledgelock = GoldLock()
+        self.goldsledgelock.x = self.GoldSledge.get_x()
+        self.goldsledgelock.y = self.GoldSledge.get_y()
+        self.goldsledgelock.set_size(250, 250)
+        self.add_actor(self.goldsledgelock)
+        self.goldsnowboardlock = GoldLock()
+        self.goldsnowboardlock.x = self.GoldSnowBoard.get_x()
+        self.goldsnowboardlock.y = self.GoldSnowBoard.get_y()
+        self.goldsnowboardlock.set_size(250, 250)
+        self.add_actor(self.goldsnowboardlock)
+        self.goldskilock = GoldLock()
+        self.goldskilock.x = self.GoldSki.get_x()
+        self.goldskilock.y = self.GoldSki.get_y()
+        self.goldskilock.set_size(250, 250)
+        self.add_actor(self.goldskilock)
 
         self.set_on_key_down_listener(self.Back)
         self.back.set_on_mouse_down_listener(self.Back2)
@@ -140,68 +181,132 @@ class LockerStage(game.scene2d.MyStage):
     def DefSnowMobileB(self, sender, event):
         if event.button == 1:
             print("DefSnowMobile")
-            skinvaltozo = 1
+            self.snowmobilevalt = 1
 
     def DefSledgeB(self, sender, event):
         if event.button == 1:
             print("DefSledge")
-            skinvaltozo = 2
+            self.sledgevalt = 1
 
     def DefSnowBoardB(self, sender, event):
         if event.button == 1:
             print("DefSnowBoard")
-            skinvaltozo = 3
+            self.snowboardvalt = 1
 
     def DefSkiB(self, sender, event):
         if event.button == 1:
             print("DefSki")
-            skinvaltozo = 4
+            self.skivalt = 1
 
     def SilverSnowMobileB(self, sender, event):
         if event.button == 1:
             print("SilverSnowMobile")
-            goldvaltozo = 1
+            self.snowmobilevalt = 2
+            if self.money >= 20000:
+                self.remove_actor(self.silversnowmobilelock)
+                self.skinvalt = 0
+                self.money = self.money - 20000
+
 
     def SilverSledgeB(self, sender, event):
         if event.button == 1:
             print("SilverSledge")
-            goldvaltozo = 2
+            self.sledgevalt = 2
+            if self.money >= 20000:
+                self.remove_actor(self.silversledgelock)
+                self.skinvalt = 1
+                self.money = self.money - 20000
+
 
     def SilverSnowBoardB(self, sender, event):
         if event.button == 1:
+            self.snowboardvalt = 2
             print("SilverSnowBoard")
-            goldvaltozo = 3
+            if self.money >= 20000:
+                self.remove_actor(self.silversnowboardlock)
+                self.skinvalt = 2
+                self.money = self.money - 20000
+
 
     def SilverSkiB(self, sender, event):
         if event.button == 1:
             print("SilverSki")
-            skinvaltozo = 4
+            self.skivalt = 2
+            if self.money >= 20000:
+                self.remove_actor(self.silverskilock)
+                self.skinvalt = 3
+                self.money = self.money - 20000
+
 
     def GoldSnowMobileB(self, sender, event):
         if event.button == 1:
+            self.snowmobilevalt = 3
             print("GoldSnowMobile")
-            skinvaltozo = 9
+            if self.money >= 100000:
+                self.remove_actor(self.goldsnowmobilelock)
+                self.skinvalt = 4
+                self.money = self.money - 100000
+
 
     def GoldSledgeB(self, sender, event):
         if event.button == 1:
             print("GoldSledge")
-            skinvaltozo = 10
+            self.sledgevalt = 3
+            if self.money >= 100000:
+                self.remove_actor(self.goldsledgelock)
+                self.skinvalt = 5
+                self.money = self.money - 100000
 
     def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
             print("GoldSnowBoard")
-            skinvaltozo = 11
+            self.snowboardvalt = 3
+            if self.money >= 100000:
+                self.remove_actor(self.goldsnowboardlock)
+                self.skinvalt = 6
+                self.money = self.money - 100000
 
     def GoldSkiB(self, sender, event):
         if event.button == 1:
             print("GoldSki")
-            skinvaltozo = 12
+            self.skivalt = 3
+            if self.money >= 100000:
+                self.remove_actor(self.goldskilock)
+                self.skinvalt = 7
+                self.money = self.money - 100000
 
-    # def Skinback(self):
-    #     return self.skinvaltozo
-    #
-    # def act(self, delta_time: float):
-    #     super().act(delta_time)
-    #     print(skinvaltozo)
+    def filebairas(self):
+        with open('../kuposztok/Save/file.txt', 'w') as file:
+            file.write(str(self.max_score))
+            file.write("\n" + str(self.money))
+            file.close()
+
+    def skinbeolvas(self):
+        with open('../kuposztok/Save/skininfile.txt', 'w') as beskinfile:
+            self.silversnom = beskinfile.readline()
+            self.silversnob = beskinfile.readline()
+            self.silversled = beskinfile.readline()
+            self.silverski = beskinfile.readline()
+            self.goldsnom = beskinfile.readline()
+            self.goldsnob = beskinfile.readline()
+            self.goldsled = beskinfile.readline()
+            self.goldski = beskinfile.readline()
+
+            beskinfile.close()
+
+    def skinfilebairas(self):
+        with open('../kuposztok/Save/skininfile.txt', 'w') as skinfile:
+            skinfile.write(str(self.skinvalt) + "\n")
+            skinfile.close()
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.filebairas()
+        self.skinfilebairas()
+        self.moneylabel.set_text("Your money:" + str(self.money))
+
+
+
+
 
 

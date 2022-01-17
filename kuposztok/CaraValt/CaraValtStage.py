@@ -70,11 +70,6 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4valaszto.y = self.height / 5 + 75
         self.add_actor(self.car4valaszto)
 
-        """self.car5 = Randomplayer()
-        self.car5.x = self.width / 2.5 - 100
-        self.car5.y = self.height / 3
-        self.add_actor(self.car5)"""
-
         self.car1multvalaszto = Multi()
         self.car1multvalaszto.x = self.width / 2 + 100
         self.car1multvalaszto.y = self.height / 2
@@ -236,3 +231,6 @@ class CaraValtStage(game.scene2d.MyStage):
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.scoreshow.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))

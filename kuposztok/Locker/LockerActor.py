@@ -36,3 +36,11 @@ class Back(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/back_to_menu_button.png')
+
+class SilverLock(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('image/SilverLock1.png')
+
+class GoldLock(game.scene2d.MyActor):
+    def __init__(self, image_url: str = ""):
+        super().__init__('image/GoldLock.png')
