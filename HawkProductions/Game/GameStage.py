@@ -3,17 +3,17 @@ from HawkProductions.Actors import *
 import HawkProductions.menu.MenuScreen
 import HawkProductions.over.OverScreen
 from HawkProductions.font.Font import *
+import HawkProductions.win.WinScreen
 
 
 class GameStage(game.scene2d.MyStage):
-
-    def __init__(self, puska: int, a: int):
+    def __init__(self, puska: int):
         super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Nixon.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
-        self.Bg = Bg() #85. sor utan van a fajlbeolvasas
+        self.Bg = Bg()
         self.add_actor(self.Bg)
         self.Bg.set_size(width=1280, height=720)
 
@@ -24,10 +24,10 @@ class GameStage(game.scene2d.MyStage):
         self.pointl.set_color(0, 0, 0)
         self.pointl.width = 100
         self.pointl.height = 50
+        self.pointl.y = 65
         # for i in range(100):
         #     self.point += 1
         # print(self.point)
-
 
         self.D = None
         if puska == 0:
@@ -50,8 +50,8 @@ class GameStage(game.scene2d.MyStage):
 
         self.arrow = Arrow()
         self.add_actor(self.arrow)
-        self.arrow.x = 0
-        self.arrow.y = 5
+        self.arrow.x = -20
+        self.arrow.y = -20
         self.arrow.w = 125
         self.arrow.set_on_mouse_down_listener(self.click2)
 
@@ -94,7 +94,7 @@ class GameStage(game.scene2d.MyStage):
         if self.elapsed_time > 15:
             self.P1.y = random.randint(-55, -35)
         if self.elapsed_time > 33:
-            self.P1.y = random.randint(-45, -35)
+            self.P1.y = random.randint(-45, -40)
 
         self.add_actor(self.P2)
         self.P2.h = 420
@@ -102,7 +102,7 @@ class GameStage(game.scene2d.MyStage):
         self.P2.set_hitbox_scale_w = 0
         self.P2.y = 560
         if self.elapsed_time > 15:
-            self.P2.y = random.randint(580, 635)
+            self.P2.y = random.randint(585, 635)
         if self.elapsed_time > 33:
             self.P2.y = random.randint(575, 670)
 
@@ -124,7 +124,7 @@ class GameStage(game.scene2d.MyStage):
         self.P4.set_hitbox_scale_w = 0
         self.P4.y = 625
         if self.elapsed_time > 18:
-            self.P4.y = random.randint(560, 665)
+            self.P4.y = random.randint(565, 665)
         if self.elapsed_time > 28:
             self.P4.y = random.randint(590, 600)
 
@@ -146,9 +146,9 @@ class GameStage(game.scene2d.MyStage):
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 590
         if self.elapsed_time > 25:
-            self.P6.y = random.randint(590, 670)
+            self.P6.y = random.randint(595, 670)
         if self.elapsed_time > 35:
-            self.P6.y = random.randint(580, 675)
+            self.P6.y = random.randint(585, 675)
 
     def add_asd3(self, sender):
         print(sender)
@@ -158,7 +158,7 @@ class GameStage(game.scene2d.MyStage):
         self.P7.h = 420
         self.P7.y = -35
         if self.elapsed_time > 45:
-            self.P7.y = random.randint(-40, -25)
+            self.P7.y = random.randint(-40, -28)
 
         self.add_actor(self.P8)
         self.P8.h = 420
@@ -166,13 +166,15 @@ class GameStage(game.scene2d.MyStage):
         self.P8.set_hitbox_scale_w = 0
         self.P8.y = 590
         if self.elapsed_time > 45:
-            self.P7.y = random.randint(655, 700)
+            self.P7.y = random.randint(660, 700)
 
     def add_asd4(self, sender):
         print(sender)
         self.add_actor(self.C)
         self.C.x = 1180
         self.C.y = 420
+        if self.elapsed_time >= 12:
+            self.C.y = random.randint(380, 490)
         self.C.width = 50
         self.C.set_hitbox_scale_h = 0.1
         self.C.set_hitbox_scale_w = 0.1
@@ -181,7 +183,8 @@ class GameStage(game.scene2d.MyStage):
         print(sender)
         self.add_actor(self.C1)
         self.C1.x = 1200
-        self.C1.y = random.randint(200, 500)
+        self.C1.y = random.randint(380, 550)
+        self.C1.y = 500
         self.C1.width = 50
         self.C1.set_hitbox_scale_h = 0.1
         self.C1.set_hitbox_scale_w = 0.1
@@ -190,16 +193,17 @@ class GameStage(game.scene2d.MyStage):
         print(sender)
         self.add_actor(self.C2)
         self.C2.x = 1200
-        self.C2.y = random.randint(200, 500)
+        self.C2.y = 380
+        if self.elapsed_time >= 20:
+            self.C1.y = random.randint(380, 550)
         self.C2.width = 50
         self.C2.set_hitbox_scale_h = 0.1
         self.C2.set_hitbox_scale_w = 0.1
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        a = None
         if self.D.overlaps(self.P1):
-            a = random.randint(1, 3)
+            self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P2):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.P3):
@@ -223,6 +227,8 @@ class GameStage(game.scene2d.MyStage):
         if self.D.overlaps(self.C2):
             self.point += 1
             self.update_point()
+        if self.point == 497:
+            self.screen.game.set_screen(HawkProductions.win.WinScreen.WinScreen())
 
     def click2(self, sender, event):
         if event.button == 1:

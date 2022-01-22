@@ -63,7 +63,7 @@ class SelectStage(game.scene2d.MyStage):
 
     def update_point(self):
         f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
-        self.score: str = f.readline() #nem a legjobb megoldas: folyamatban
+        self.score: str = f.readline()
         self.pointl.set_text("Last score: {point}".format(point=self.score))
 
     def katt(self, sender, event):
