@@ -24,8 +24,6 @@ class MenuStage(game.scene2d.MyStage):
         self.width = pygame.display.get_surface().get_width()
         bg.height = self.height
         bg.width = self.width
-        print(self.width)
-        print(self.height)
         self.Ver = game.scene2d.MyLabel("Ver.:0.8.1")
         self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)

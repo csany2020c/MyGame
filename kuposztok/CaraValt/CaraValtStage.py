@@ -100,6 +100,7 @@ class CaraValtStage(game.scene2d.MyStage):
         self.car4multvalaszto.set_on_mouse_down_listener(self.Car4MultStart)
         self.button1.set_on_mouse_down_listener(self.Klikk1)
         self.set_on_key_down_listener(self.iranyitas)
+        self.scoreshow.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))
 
 
 
@@ -231,6 +232,5 @@ class CaraValtStage(game.scene2d.MyStage):
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.scoreshow.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))
+
+

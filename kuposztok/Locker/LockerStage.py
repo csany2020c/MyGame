@@ -215,6 +215,8 @@ class LockerStage(game.scene2d.MyStage):
         self.SilverSledge.set_on_mouse_down_listener(self.SilverSledgeB)
         self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoardB)
         self.SilverSki.set_on_mouse_down_listener(self.SilverSkiB)
+        self.moneylabel.set_text("Your money:" + str(self.money))
+        """self.skinbeolvas()"""
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -345,27 +347,34 @@ class LockerStage(game.scene2d.MyStage):
 
     def skinbeolvas(self):
         with open('../kuposztok/Save/skininfile.txt', 'w') as beskinfile:
-            self.silversnom = beskinfile.readline()
-            self.silversnob = beskinfile.readline()
-            self.silversled = beskinfile.readline()
-            self.silverski = beskinfile.readline()
-            self.goldsnom = beskinfile.readline()
-            self.goldsnob = beskinfile.readline()
-            self.goldsled = beskinfile.readline()
-            self.goldski = beskinfile.readline()
-
+            self.valtozo = 1
+            print(str(beskinfile.readline()))
             beskinfile.close()
 
-    def skinfilebairas(self):
+            self.silverSnowMobile = self.valtozo
+            self.silverSledge = self.valtozo
+            self.silverSnowBoard = self.valtozo
+            self.silverSki = self.valtozo
+            self.goldSnowMobile = self.valtozo
+            self.goldSledge = self.valtozo
+            self.goldSnowBoard = self.valtozo
+            self.goldSki = self.valtozo
+
+            print("self.silverSnowMobile")
+
+
+
+
+    """def skinfilebairas(self):
         with open('../kuposztok/Save/skininfile.txt', 'w') as skinfile:
             skinfile.write(str(self.skinvalt) + "\n")
-            skinfile.close()
+            skinfile.close()"""
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebairas()
-        self.skinfilebairas()
-        self.moneylabel.set_text("Your money:" + str(self.money))
+        """self.skinfilebairas()"""
+
 
 
 
