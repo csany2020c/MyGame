@@ -16,8 +16,9 @@ class LockerStage(game.scene2d.MyStage):
             self.max_score = max_score
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
-        bg = ShopBgActor()
-        self.add_actor(bg)
+        self.bg = ShopBgActor()
+        self.bg.width = self.width
+        self.add_actor(self.bg)
         self.snowmobilelabel = game.scene2d.MyLabel("SnowMobile:")
         self.snowmobilelabel.x = self.width / 5.5
         self.snowmobilelabel.y = self.height / 6.5
@@ -247,86 +248,94 @@ class LockerStage(game.scene2d.MyStage):
         if event.button == 1:
             print("SilverSnowMobile")
             self.snowmobilevalt = 2
-            if self.money >= 1000000:
-                self.remove_actor(self.silversnowmobilelock)
-                self.remove_actor(self.silverlabel)
-                self.skinvalt = 0
-                self.money = self.money - 20000
+            if self.silversnowmobilelock.is_on_stage():
+                if self.money >= 1000000:
+                    self.remove_actor(self.silversnowmobilelock)
+                    self.remove_actor(self.silverlabel)
+                    self.skinvalt = 0
+                    self.money = self.money - 20000
 
 
     def SilverSledgeB(self, sender, event):
         if event.button == 1:
             print("SilverSledge")
             self.sledgevalt = 2
-            if self.money >= 1000000:
-                self.remove_actor(self.silversledgelock)
-                self.remove_actor(self.silverlabel2)
-                self.skinvalt = 1
-                self.money = self.money - 20000
+            if self.silversledgelock.is_on_stage():
+                if self.money >= 1000000:
+                    self.remove_actor(self.silversledgelock)
+                    self.remove_actor(self.silverlabel2)
+                    self.skinvalt = 1
+                    self.money = self.money - 20000
 
 
     def SilverSnowBoardB(self, sender, event):
         if event.button == 1:
             self.snowboardvalt = 2
             print("SilverSnowBoard")
-            if self.money >= 1000000:
-                self.remove_actor(self.silversnowboardlock)
-                self.remove_actor(self.silverlabel3)
-                self.skinvalt = 2
-                self.money = self.money - 20000
+            if self.silversnowboardlock.is_on_stage():
+                if self.money >= 1000000:
+                    self.remove_actor(self.silversnowboardlock)
+                    self.remove_actor(self.silverlabel3)
+                    self.skinvalt = 2
+                    self.money = self.money - 20000
 
 
     def SilverSkiB(self, sender, event):
         if event.button == 1:
             print("SilverSki")
             self.skivalt = 2
-            if self.money >= 1000000:
-                self.remove_actor(self.silverskilock)
-                self.remove_actor(self.silverlabel4)
-                self.skinvalt = 3
-                self.money = self.money - 20000
+            if self.silverskilock.is_on_stage():
+                if self.money >= 1000000:
+                    self.remove_actor(self.silverskilock)
+                    self.remove_actor(self.silverlabel4)
+                    self.skinvalt = 3
+                    self.money = self.money - 20000
 
 
     def GoldSnowMobileB(self, sender, event):
         if event.button == 1:
             self.snowmobilevalt = 3
             print("GoldSnowMobile")
-            if self.money >= 5000000:
-                self.remove_actor(self.goldsnowmobilelock)
-                self.remove_actor(self.goldlabel)
-                self.skinvalt = 4
-                self.money = self.money - 100000
+            if self.goldsnowmobilelock.is_on_stage():
+                if self.money >= 5000000:
+                    self.remove_actor(self.goldsnowmobilelock)
+                    self.remove_actor(self.goldlabel)
+                    self.skinvalt = 4
+                    self.money = self.money - 100000
 
 
     def GoldSledgeB(self, sender, event):
         if event.button == 1:
             print("GoldSledge")
             self.sledgevalt = 3
-            if self.money >= 5000000:
-                self.remove_actor(self.goldsledgelock)
-                self.remove_actor(self.goldlabel2)
-                self.skinvalt = 5
-                self.money = self.money - 100000
+            if self.goldsledgelock.is_on_stage():
+                if self.money >= 5000000:
+                    self.remove_actor(self.goldsledgelock)
+                    self.remove_actor(self.goldlabel2)
+                    self.skinvalt = 5
+                    self.money = self.money - 100000
 
     def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
             print("GoldSnowBoard")
             self.snowboardvalt = 3
-            if self.money >= 5000000:
-                self.remove_actor(self.goldsnowboardlock)
-                self.remove_actor(self.goldlabel3)
-                self.skinvalt = 6
-                self.money = self.money - 100000
+            if self.goldsnowboardlock.is_on_stage():
+                if self.money >= 5000000:
+                    self.remove_actor(self.goldsnowboardlock)
+                    self.remove_actor(self.goldlabel3)
+                    self.skinvalt = 6
+                    self.money = self.money - 100000
 
     def GoldSkiB(self, sender, event):
         if event.button == 1:
             print("GoldSki")
             self.skivalt = 3
-            if self.money >= 5000000:
-                self.remove_actor(self.goldskilock)
-                self.remove_actor(self.goldlabel4)
-                self.skinvalt = 7
-                self.money = self.money - 100000
+            if self.goldskilock.is_on_stage():
+                if self.money >= 5000000:
+                    self.remove_actor(self.goldskilock)
+                    self.remove_actor(self.goldlabel4)
+                    self.skinvalt = 7
+                    self.money = self.money - 100000
 
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
