@@ -30,7 +30,7 @@ class Enemy(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.label.set_text("Életerő: " + str(self.hp))
+        # self.label.set_text("Életerő: " + str(self.hp))
 
 
 class getDatas():

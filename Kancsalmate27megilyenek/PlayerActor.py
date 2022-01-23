@@ -17,6 +17,7 @@ class PlayerActor(game.scene2d.MyActor):
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
+        self.hp:int = 100
         self.set_size(64, 64)
         self.hitbox_scale_h = 1
         self.hitbox_scale_w = 1
@@ -42,6 +43,7 @@ class PlayerActor(game.scene2d.MyActor):
             self.isDPressed = True
         if event.key == pygame.K_ESCAPE:
             self.stage.screen.game.set_screen(MenuScreen.MenuScreen3())
+
 
 
     def keyhandlingOff(self,sender,event):
