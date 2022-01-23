@@ -48,9 +48,17 @@ class LoseStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen(money=self.money, maxScore=self.maxScore))
 
+    def filebairas(self):
+        with open('../kuposztok/Save/file.txt', 'w') as file:
+            if int(self.maxScore) < int(self.score):
+                file.write(str(self.score))
+            else:
+                file.write(str(self.maxScore))
+            file.write("\n" + str(self.money))
+            file.close()
+
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebaolvasas()
-        self.maxsclabel.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))
-
-
+        self.filebairas()
+        self.maxsclabel.set_text("Az eddigi legjobb pontszámod:" + str(self.max_scoreno))

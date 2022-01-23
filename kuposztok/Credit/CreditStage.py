@@ -14,7 +14,10 @@ class CreditStage(game.scene2d.MyStage):
         self.add_actor(creditact)
         creditact.width = self.width
         creditact.height = self.height
-
+        pygame.mixer.init()
+        pygame.mixer.music.load("../kuposztok/music/creditmusica.wav")
+        pygame.mixer.music.play(-1)
+        pygame.mixer.music.set_volume(0.2)
         self.button1 = Visszagomb()
         self.add_actor(self.button1)
         self.button1.width = 125

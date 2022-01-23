@@ -17,16 +17,6 @@ class BgActor(game.scene2d.MyActor):
             self.y = -1080
 
 
-class Nezok(game.scene2d.MyActor):
-
-    def __init__(self):
-        super().__init__('image/Nezok.png')
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * 500
-
-
 class BgActor2(game.scene2d.MyActor):
 
     def __init__(self):
@@ -39,23 +29,9 @@ class BgActor2(game.scene2d.MyActor):
             self.y = -1080
 
 
-class vesztettel(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/vesztettel.png')
-
-
 class Visszagomb(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/back.png')
-
-
-class Joseph(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/my-caracter.png')
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        self.y += delta_time * 500
 
 
 class Enemy(game.scene2d.MyActor):
@@ -95,13 +71,6 @@ class SnowMobile(game.scene2d.MyActor):
 class Sledge(game.scene2d.MyActor):
     def __init__(self):
         self.credit = super().__init__('image/Sledge.png')
-        self.width = 200
-        self.height = 200
-
-
-class Randomplayer(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/randomplayer.png')
         self.width = 200
         self.height = 200
 

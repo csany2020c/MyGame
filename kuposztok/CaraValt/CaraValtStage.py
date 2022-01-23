@@ -232,5 +232,15 @@ class CaraValtStage(game.scene2d.MyStage):
             self.remove_actor(self.car3multvalaszto)
             self.add_actor(self.car4multvalaszto)
 
+    def filebaolvasas(self):
+        with open('../kuposztok/Save/file.txt', 'r') as file:
+            self.max_score = int(file.readline())
+            self.money = int(file.readline())
+            file.close()
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.filebaolvasas()
+        self.scoreshow.set_text("Az eddigi legjobb pontszámod:" + str(self.max_score))
 
 
