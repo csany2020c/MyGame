@@ -9,9 +9,9 @@ if TYPE_CHECKING:
 
 class MyText:
 
-    def __init__(self, string: str = "MyText", font_name: str = "system", font_size: int = 64):
+    def __init__(self, string: str = "MyText", font_name: str = "system", font_size: int = 64, font_color: List['int'] = (255,255,255)):
         self._text: str = string
-        self._font_color: List['int'] = [255, 255, 255]
+        self._font_color: List['int'] = font_color
         self._font_alpha: float = 1
         self._font_background: List['int'] = None
         self._font_name: str = font_name

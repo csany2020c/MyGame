@@ -58,3 +58,5 @@ class Game(game.scene2d.MyGame):
                  debug: bool = False):
         super().__init__(width, height, autorun, autosize, debug)
         self.screen=Screen()
+
+Game().run()
