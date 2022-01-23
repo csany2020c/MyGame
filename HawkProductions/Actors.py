@@ -43,16 +43,6 @@ class Deagle(game.scene2d.MyActor):
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
-# class Deagle1(game.scene2d.MyActor):
-#     def __init__(self):
-#         super().__init__("image/bid2.png")
-
-
-# class Deagle2(game.scene2d.MyActor):
-#     def __init__(self):
-#         super().__init__("image/original.png")
-
-
 class Deagle_2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/original.png")
@@ -137,11 +127,6 @@ class Selectimage(game.scene2d.MyActor):
         super().__init__("image/original.png")
 
 
-# class Deagle3(game.scene2d.MyActor):
-#     def __init__(self):
-#         super().__init__("image/luckyspade.png")
-
-
 class Deagle_3(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/luckyspade1.png")
@@ -156,11 +141,6 @@ class Deagle_3(game.scene2d.MyActor):
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
 
 
-# class Deagle4(game.scene2d.MyActor):
-#     def __init__(self):
-#         super().__init__("image/goldengun.png")
-
-
 class Deagle_4(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/goldengun1.png")
@@ -173,11 +153,6 @@ class Deagle_4(game.scene2d.MyActor):
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen2())
         if self.y > 720:
             self.stage.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen3())
-
-
-# class Deagle5(game.scene2d.MyActor):
-#     def __init__(self):
-#         super().__init__("image/observator.png")
 
 
 class Deagle_5(game.scene2d.MyActor):
