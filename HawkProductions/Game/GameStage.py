@@ -92,7 +92,7 @@ class GameStage(game.scene2d.MyStage):
         self.P1.h = 420
         self.P1.y = -65
         if self.elapsed_time > 15:
-            self.P1.y = random.randint(-55, -35)
+            self.P1.y = random.randint(-55, -38)
         if self.elapsed_time > 33:
             self.P1.y = random.randint(-45, -40)
 
@@ -102,7 +102,7 @@ class GameStage(game.scene2d.MyStage):
         self.P2.set_hitbox_scale_w = 0
         self.P2.y = 560
         if self.elapsed_time > 15:
-            self.P2.y = random.randint(585, 635)
+            self.P2.y = random.randint(590, 635)
         if self.elapsed_time > 33:
             self.P2.y = random.randint(575, 670)
 
@@ -114,7 +114,7 @@ class GameStage(game.scene2d.MyStage):
         self.P3.h = 420
         self.P3.y = -25
         if self.elapsed_time > 18:
-            self.P3.y = random.randint(-70, -40)
+            self.P3.y = random.randint(-70, -42)
         if self.elapsed_time > 28:
             self.P3.y = random.randint(-45, -30)
 
@@ -124,7 +124,7 @@ class GameStage(game.scene2d.MyStage):
         self.P4.set_hitbox_scale_w = 0
         self.P4.y = 625
         if self.elapsed_time > 18:
-            self.P4.y = random.randint(565, 665)
+            self.P4.y = random.randint(570, 665)
         if self.elapsed_time > 28:
             self.P4.y = random.randint(590, 600)
 
@@ -136,7 +136,7 @@ class GameStage(game.scene2d.MyStage):
         self.P5.h = 420
         self.P5.y = -35
         if self.elapsed_time > 25:
-            self.P5.y = random.randint(-65, -35)
+            self.P5.y = random.randint(-65, -38)
         if self.elapsed_time > 35:
             self.P5.y = random.randint(-55, -40)
 
@@ -146,7 +146,7 @@ class GameStage(game.scene2d.MyStage):
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 590
         if self.elapsed_time > 25:
-            self.P6.y = random.randint(595, 670)
+            self.P6.y = random.randint(600, 670)
         if self.elapsed_time > 35:
             self.P6.y = random.randint(585, 675)
 
@@ -158,7 +158,7 @@ class GameStage(game.scene2d.MyStage):
         self.P7.h = 420
         self.P7.y = -35
         if self.elapsed_time > 45:
-            self.P7.y = random.randint(-40, -28)
+            self.P7.y = random.randint(-40, -35)
 
         self.add_actor(self.P8)
         self.P8.h = 420
