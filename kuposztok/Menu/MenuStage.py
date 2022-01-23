@@ -5,16 +5,13 @@ import kuposztok
 from kuposztok.CaraValt.CaraValtScreen import CaraValtScreen
 from kuposztok.Credit.CreditScreen import CreditScreen
 import kuposztok.Locker.LockerScreen
-#from kuposztok.Menu.Read import Read
 from kuposztok.Menu.MenuBgActor import *
-
 
 
 class MenuStage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        #self.money = Read.Read.getMoney()
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/CaraValt/music/kuposztokmusica.wav")
         pygame.mixer.music.play(-1)
@@ -27,9 +24,7 @@ class MenuStage(game.scene2d.MyStage):
         self.width = pygame.display.get_surface().get_width()
         bg.height = self.height
         bg.width = self.width
-        print(self.width)
-        print(self.height)
-        self.Ver = game.scene2d.MyLabel("Ver.:0.6.1")
+        self.Ver = game.scene2d.MyLabel("Ver.:0.8.1")
         self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
         self.Ver.x = self.width - 250
@@ -79,7 +74,6 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen(money=self.money, maxScore=self.max_score))
 
-
     def Klikk2(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(quit())
@@ -100,6 +94,3 @@ class MenuStage(game.scene2d.MyStage):
     def katt(self, sender, event):
         if event.key == pygame.K_ESCAPE:
             quit()
-
-    #def getMenuMoney(self):
-    #   return self.money

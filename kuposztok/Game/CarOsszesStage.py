@@ -130,6 +130,14 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.x = random.Random().randint(0, self.width)
             self.enemy2.y = random.Random().randint(0 - self.height, 0)
 
+        self.trap = Trap()
+        self.add_actor(self.trap)
+        self.trap.width = 100
+        self.trap.height = 100
+        self.trap.z_index = 5
+        self.trap.x = random.Random().randint(0, self.width)
+        self.trap.y = random.Random().randint(0 - self.height, 0)
+
         self.suport = SportDrink()
         self.add_actor(self.suport)
         self.suport.width = 100
@@ -184,6 +192,11 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.scorelabel.x = self.width - self.scorelabel.get_width()
         print(self.maxScore)
         self.filebairas()
+        if self.joseph.y == self.height:
+            self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
+        if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+            if self.joseph2.y == self.height:
+                self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
         for i in self.actors:
             if isinstance(i, Enemy):
                 if self.joseph.overlaps(i):
@@ -194,8 +207,22 @@ class CarOsszesStage(game.scene2d.MyStage):
         for k in self.actors:
             if isinstance(k, SportDrink):
                 if self.joseph.overlaps(k):
-                    self.score = self.score + 500
-
+                    if self.joseph.y > 0 and self.joseph.y < self.height:
+                        self.score = self.score + 2000
+                        self.joseph.y = self.joseph.y - 100
+                if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+                    self.joseph2.overlaps(k)
+                    self.score = self.score + 1000
+                    self.joseph2.y = self.joseph.y - 100
+        for t in self.actors:
+            if isinstance(t, Trap):
+                if self.joseph.overlaps(t):
+                    if self.joseph.y < self.height and self.joseph.y > 0:
+                        self.joseph.y = self.joseph.y + 10
+                if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
+                    self.joseph2.overlaps(t)
+                    self.joseph2.y = self.joseph.y + 100
+                    self.score = self.score - 500
 
 
 

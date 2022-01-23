@@ -7,6 +7,13 @@ import kuposztok.CaraValt.CaraValtScreen
 
 
 class LoseStage(game.scene2d.MyStage):
+
+    def filebaolvasas(self):
+        with open('../kuposztok/Save/file.txt', 'r') as file:
+            self.max_scoreno = int(file.readline())
+            self.money = int(file.readline())
+            file.close()
+
     def __init__(self, score: int, maxScore: int):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
@@ -39,9 +46,11 @@ class LoseStage(game.scene2d.MyStage):
     #
     def Klikk1(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen())
+            self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen(money=self.money, maxScore=self.maxScore))
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        self.filebaolvasas()
         self.maxsclabel.set_text("Az eddigi legjobb pontszámod:" + str(self.maxScore))
+
 
