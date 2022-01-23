@@ -198,6 +198,7 @@ class Piros(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/piros.png")
 
+
 class Win(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/win.png")
