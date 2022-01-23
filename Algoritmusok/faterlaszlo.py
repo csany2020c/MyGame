@@ -22,7 +22,6 @@ def fuggveny(n: int) -> list[int]:
             lista.append(i)
     return lista
 
-
 # for i in fuggveny(26):
 #     print(i)
 
