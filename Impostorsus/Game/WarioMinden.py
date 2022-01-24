@@ -459,12 +459,12 @@ class HalalStage (game.scene2d.MyStage):
         self.h.x += self.width /2 - self.h.get_width() / 2
         self.h.y += self.height /2 - self.h.get_height() / 2
 
-class WinStage (game.scene2d.MyStage, pygame.sprite.Sprite):
-    def __init__(self, pos_x, pos_y):
+class WinStage(game.scene2d.MyStage):
+    def __init__(self):
         super().__init__()
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
         self.w = Winkep()
         self.add_actor(self.w)
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         self.w.x += self.width /2 - self.w.get_width() / 2
         self.w.y += self.height /2 - self.w.get_height() / 2
