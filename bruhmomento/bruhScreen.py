@@ -53,23 +53,25 @@ class bruhstage(game.scene2d.MyStage):
         self.lovedek.y = 200
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
+        self.enemy1.x = 452
+        self.enemy1.y = 384
         self.enemy2 = enemy1()
         self.add_actor(self.enemy2)
         self.enemy2.x = 70
         self.enemy2.y = 762
-        self.enemy1.x = 452
-        self.enemy1.y = 384
         self.enemy3 = enemy2()
         self.add_actor(self.enemy3)
         self.enemy3.x = 2510
         self.enemy3.y = 750
-        self.enemy1.x = 1000
-        self.enemy1.y = 300
         self.kulcs = kulcs()
         self.add_actor(self.kulcs)
         self.kulcs.x = 150
         self.kulcs.y = 350
-
+        self.fal = wall()
+        self.zartajto = zartajto()
+        self.add_actor(self.zartajto)
+        self.zartajto.x = 3000
+        self.zartajto.y = 750
 
         self.camera.tracking = self.fohos
         self.fohos.set_on_key_press_listener(self.press)
@@ -122,8 +124,9 @@ class bruhstage(game.scene2d.MyStage):
             self.screen.game.set_screen(bruhScreen("map2.txt"))
         if self.enemy1.overlaps(self.lovedek):
             self.enemy1.remove_from_stage()
-
-
+        if self.fohos.overlaps(self.kulcs):
+            self.zartajto.remove_from_stage()
+            self.kulcs.remove_from_stage()
 
 class bruhScreen(game.scene2d.MyScreen):
     def __init__(self, map: str):
