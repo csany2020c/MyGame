@@ -13,11 +13,6 @@ class Visszagomb(game.scene2d.MyActor):
         self.credit = super().__init__('image/back_to_menu_button.png')
 
 
-class Joseph(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/my-caracter.png')
-
-
 class PlayButton(game.scene2d.MyActor):
     def __init__(self):
         super().__init__('image/play_button.png')
@@ -65,8 +60,3 @@ class Sledge(game.scene2d.MyActor):
         self.width = 200
         self.height = 200
 
-class Randomplayer(game.scene2d.MyActor):
-    def __init__(self):
-        self.credit = super().__init__('image/randomplayer.png')
-        self.width = 200
-        self.height = 200
