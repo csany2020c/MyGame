@@ -25,18 +25,17 @@ class MenuStage(game.scene2d.MyStage):
         self.width = pygame.display.get_surface().get_width()
         bg.height = self.height
         bg.width = self.width
-        self.Ver = game.scene2d.MyLabel("Ver.:0.8.1")
+        self.early = game.scene2d.MyLabel("Early Access, Alpha Test")
+        self.early.set_color(0, 0, 0)
+        self.add_actor(self.early)
+        self.early.set_font_size(20)
+        self.early.x = self.width - self.early.get_width()
+        self.early.y = self.height - self.early.get_height()
+        self.Ver = game.scene2d.MyLabel("Version: 0.9.8")
         self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
-        self.Ver.x = self.width - 250
-        self.Ver.y = self.height - 50
-        self.Ver.width = 100
-        self.Ver.height = 50
-        self.Ver.get_hitbox()
-        self.Ver.hitbox_scale_w = 0.4
-        self.Ver.hitbox_scale_h = 0.4
-        self.Ver.hitbox_shape = game.simpleworld.ShapeType.Circle
-        self.Ver.debug = True
+        self.Ver.x = self.width - self.Ver.get_width()
+        self.Ver.y = self.height - self.Ver.get_height() - self.early.get_height()
         button1 = Button1()
         button2 = Button2()
         button3 = Button3()

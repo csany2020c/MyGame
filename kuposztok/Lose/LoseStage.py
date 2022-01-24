@@ -4,6 +4,7 @@ import pygame
 import kuposztok.CaraValt.CaraValtScreen
 from kuposztok.Lose.LoseActors import *
 import kuposztok.CaraValt.CaraValtScreen
+import kuposztok.Menu.MenuScreen
 
 
 class LoseStage(game.scene2d.MyStage):
@@ -27,6 +28,8 @@ class LoseStage(game.scene2d.MyStage):
         self.vesztettellabel.set_color(0, 0, 0)
         self.add_actor(self.vesztettellabel)
         self.button1 = NewGame()
+        self.button1.x = self.width / 2 + self.button1.get_width() / 2
+        self.button1.y = self.height / 2 - self.button1.get_height() * 2
         self.add_actor(self.button1)
         self.score = score
         self.maxScore = maxScore
@@ -35,15 +38,14 @@ class LoseStage(game.scene2d.MyStage):
         self.maxsclabel.y = self.height / 2
         self.maxsclabel.set_color(0, 0, 0)
         self.add_actor(self.maxsclabel)
-        self.newlabel = game.scene2d.MyLabel("Gratulálok több pontot értél el mint legutóbb.")
-        self.newlabel.x = self.width / 14
-        self.newlabel.y = self.height / 1.5
-        self.newlabel.set_color(0, 0, 0)
-        if int(self.score) > int(self.maxScore):
-            self.add_actor(self.newlabel)
+        self.menub = Menub()
+        self.menub.x = self.width - self.menub.get_width()
+        self.menub.y = self.height - self.menub.get_height()
+        self.add_actor(self.menub)
 
         self.button1.set_on_mouse_down_listener(self.Klikk1)
-    #
+        self.menub.set_on_mouse_down_listener(self.katt)
+
     def Klikk1(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(kuposztok.CaraValt.CaraValtScreen.CaraValtScreen(money=self.money, maxScore=self.maxScore))
@@ -62,3 +64,7 @@ class LoseStage(game.scene2d.MyStage):
         self.filebaolvasas()
         self.filebairas()
         self.maxsclabel.set_text("Az eddigi legjobb pontszámod:" + str(self.max_scoreno))
+
+    def katt(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())

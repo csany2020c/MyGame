@@ -32,6 +32,8 @@ class InfoStage(game.scene2d.MyStage):
         self.energy = Energy()
         self.energy.x = self.text3.get_x()
         self.energy.y = 0 + self.text3.get_height() * 4
+        self.energy.width = 150
+        self.energy.height = 150
         self.add_actor(self.energy)
         self.trap = Trap()
         self.trap.x = self.text3.get_x() + self.text3.get_x() * 3
