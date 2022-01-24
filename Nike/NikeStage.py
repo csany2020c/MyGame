@@ -159,6 +159,8 @@ class GameStage(game.scene2d.MyStage):
         if self.FatJordanact.y == 450:
             if event.key == pygame.K_w:
                 sender.y = 100
+                pygame.mixer.music.load("sounds/music.mp3")
+                pygame.mixer.music.play()
         if sender.y == 500:
             sender.y += 0
         if event.key == pygame.K_d:
