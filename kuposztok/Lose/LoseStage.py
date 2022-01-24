@@ -25,11 +25,12 @@ class LoseStage(game.scene2d.MyStage):
         self.vesztettellabel = game.scene2d.MyLabel("Sajnálom a játék végetért számodra, az elért pontszámod:" + str(score))
         self.vesztettellabel.x = self.width / 18
         self.vesztettellabel.y = 200
+        self.vesztettellabel.set_font_size(50)
         self.vesztettellabel.set_color(0, 0, 0)
         self.add_actor(self.vesztettellabel)
         self.button1 = NewGame()
-        self.button1.x = self.width / 2 + self.button1.get_width() / 2
-        self.button1.y = self.height / 2 - self.button1.get_height() * 2
+        self.button1.x = self.width / 2 + self.button1.get_width()
+        self.button1.y = self.height / 2 - self.button1.get_height()
         self.add_actor(self.button1)
         self.score = score
         self.maxScore = maxScore

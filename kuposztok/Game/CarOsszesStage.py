@@ -120,8 +120,8 @@ class CarOsszesStage(game.scene2d.MyStage):
             self.enemy2.width = 100
             self.enemy2.height = 100
             self.enemy2.z_index = 5
-            self.enemy2.x = random.Random().randint(0, self.width - 200)
-            self.enemy2.y = random.Random().randint(0 - self.height, 0)
+            self.enemy2.x = random.Random().randint(0, self.width - 100)
+            self.enemy2.y = random.Random().randint(0 - self.height,0 - 200)
 
         self.trap = Trap()
         self.add_actor(self.trap)
