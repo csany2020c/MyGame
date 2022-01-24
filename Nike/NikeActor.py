@@ -48,14 +48,11 @@ class FatJordanact(game.scene2d.MyActor):
     def key_down(self, sender, event):
         print(sender)
         print(event)
-        if event.key == pygame.K_d:
-            self.x += 4
-        if event.key == pygame.K_a:
-            self.x -= 4
         if event.key == pygame.K_w:
             self.y -= 4
         if event.key == pygame.K_s:
             self.y += 4
+
 
 
 class LeBron(game.scene2d.MyActor):
