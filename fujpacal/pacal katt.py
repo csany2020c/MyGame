@@ -1,4 +1,5 @@
 import game
+import random
 import pygame
 from game.scene2d.MyScreen import *
 from game.scene2d.MyActor import *
@@ -57,7 +58,19 @@ class MenuHatter(game.scene2d.MyActor):
     def __init__(self, image_url: str = "images/spiderhatter.jpg"):
         super().__init__(image_url)
 
+class venom(game.scene2d.MyActor):
 
+    def __init__(self, image_url: str = "images/venom.jpg"):
+        super().__init__(image_url)
+
+    def __init__(self):
+        super().__init__()
+        self.venom = venom()
+        self.venom.x = 850
+        self.venom.y = -130
+        self.add_actor(self.venom)
+        self.venom.x = random.Random().randint(0, 1280)
+        self.venom.y = random.Random().randint(0, 720)
 
 
 
@@ -111,6 +124,9 @@ class Stage(game.scene2d.MyStage):
         if event.key == pygame.K_SPACE:
             sender.x += 3
             print(event)
+
+
+
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
