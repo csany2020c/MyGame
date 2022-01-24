@@ -6,15 +6,10 @@ import random
 import pygame
 from game.simpleworld.ShapeType import ShapeType
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
-from pygame import mixer
 
 class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        pygame.mixer.init()
-        pygame.mixer.music.load("sounds/rajosan.mp3")
-        pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
         self.FatJordan = FatJordan()
         self.add_actor(FatJordan())
         self.text = MenuText()
