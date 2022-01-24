@@ -43,6 +43,7 @@ class FatJordanact(game.scene2d.MyActor):
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
         self.y += 500
+        self.x += 255
         self.set_on_key_press_listener(self.key_down)
 
     def key_down(self, sender, event):
@@ -58,20 +59,40 @@ class FatJordanact(game.scene2d.MyActor):
 class LeBron(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/lebronjames.png")
-        self.x += 800
-        self.y += 500
         self.set_size(150,150)
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.x -= delta_time * 500
-        if self.x > 1080:
-            self.x = 1080
+        self.x -= delta_time * 2300
 
 
 
-class stone(game.scene2d.MyActor):
+
+class aventador(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("images/Stone.jpg")
-        self.set_size(65, 65)
+        super().__init__("images/aventador.png")
+        self.x += 3250
+        self.y += 470
+
+
+class win(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/win.png")
+        self.x += 400
+        self.y += 200
+
+class lose(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/lose.png")
+        self.x += 450
+        self.y += 200
+
+class house(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/house.jpg")
+        self.x += 3800
+        self.y -= 200
+        self.set_size(800, 1000)
+
+
 

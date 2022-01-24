@@ -49,7 +49,6 @@ class MenuStage(game.scene2d.MyStage):
         self.credit.set_on_mouse_down_listener(self.creditbut)
 
 
-
     def play(self, sender, event):
         print(sender)
         print(event)
@@ -70,6 +69,9 @@ class MenuStage(game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.screen.game.set_screen(Nike.NikeScreen.Credit())
+
+
+
 
 
 class CreditStage(game.scene2d.MyStage):
@@ -116,6 +118,7 @@ class CreditStage(game.scene2d.MyStage):
         self.back.x += 560
         self.back.y += 600
         self.back.set_on_mouse_down_listener(self.backbut)
+        self.mate.set_on_mouse_down_listener(self.letsgo)
 
     def backbut(self, sender, event):
         print(sender)
@@ -123,6 +126,16 @@ class CreditStage(game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
+    def letsgo(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load("sounds/letsgo.wav")
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(50)
+
 
 
 
@@ -139,7 +152,11 @@ class GameStage(game.scene2d.MyStage):
         self.FatJordanact = FatJordanact()
         self.add_actor(self.FatJordanact)
         self.LeBron = LeBron()
-        self.add_actor(self.LeBron)
+        self.aventador = aventador()
+        self.add_actor(self.aventador)
+        self.house = house()
+        self.add_actor(self.house)
+
 
         self.camera.set_tracking(self.FatJordanact)
         self.FatJordanact.set_on_key_press_listener(self.press)
@@ -148,23 +165,27 @@ class GameStage(game.scene2d.MyStage):
         self.add_timer(self.t)
 
     def tikk(self, sender):
-        for i in range(1):
+
+        for j in range(1):
             self.LeBron = LeBron()
             self.add_actor(self.LeBron)
             self.LeBron.y = 500
-            self.LeBron.x = 800
+            self.LeBron.x = 3800
+
+
 
 
     def press(self, sender, event):
         if self.FatJordanact.y == 450:
             if event.key == pygame.K_w:
                 sender.y = 100
-                pygame.mixer.music.load("sounds/music.mp3")
+                pygame.mixer.music.load("sounds/jump.wav")
                 pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.2)
         if sender.y == 500:
             sender.y += 0
         if event.key == pygame.K_d:
-            sender.x += 10
+            sender.x += 5
             self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
 
 
@@ -173,14 +194,38 @@ class GameStage(game.scene2d.MyStage):
         super().act(delta_time)
         print(self.FatJordanact)
         if self.LeBron.overlaps(other=self.FatJordanact):
-            self.screen.game.set_screen(Nike.NikeScreen.Menu())
+            self.screen.game.set_screen(Nike.NikeScreen.Lose())
+            pygame.mixer.music.load("sounds/lose.wav")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(100)
         if self.elapsed_time > 0:
             self.FatJordanact.y += delta_time * 250
         if self.FatJordanact.y > 450:
             self.FatJordanact.y = 450
+        if self.aventador.overlaps(other=self.FatJordanact):
+            self.screen.game.set_screen(Nike.NikeScreen.Win())
+            pygame.mixer.music.load("sounds/win.wav")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(100)
 
 
 
     def backtomenu(self,sender,event):
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
+class WinStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.win = win()
+        self.add_actor(self.win)
+
+class LoseStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.lose = lose()
+        self.add_actor(self.lose)
+
+class InfoStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
