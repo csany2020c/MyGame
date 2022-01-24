@@ -1,9 +1,19 @@
-import game
 import random
-import pygame
-from game.scene2d.MyScreen import *
+
+import game
 from game.scene2d.MyActor import *
+from game.scene2d.MyLabel import *
+from game.scene2d.MyTimer import *
 from game.simpleworld.ShapeType import ShapeType
+
+
+class Meghal(game.scene2d.MyStage):
+
+    def __init__(self):
+        super().__init__()
+        self.meghal = MyLabel("MEGHALTÁL","system", 128, [255,0,0])
+        self.add_actor(self.meghal)
+
 
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
@@ -60,22 +70,14 @@ class MenuHatter(game.scene2d.MyActor):
 
 class venom(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "images/venom.jpg"):
-        super().__init__(image_url)
-
-    def __init__(self):
-        super().__init__()
-        self.venom = venom()
-        self.venom.x = 850
-        self.venom.y = -130
-        self.add_actor(self.venom)
-        self.venom.x = random.Random().randint(0, 1280)
-        self.venom.y = random.Random().randint(0, 720)
+    def __init__(self, x, y):
+        super().__init__("images/venom.png")
 
 
-
-
-
+        self.set_width(180)
+        self.set_height(180)
+        self.x = x
+        self.y = y
 
 
 
@@ -90,14 +92,18 @@ class Stage(game.scene2d.MyStage):
 
 
         self.hatter_bg = Hatter()
+        self.repul = False
+        self.counter = 0
         self.actor1_bg = Actor()
-        self.golo_bg = Golo()
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
-        self.add_actor(self.golo_bg)
+        self.timer = MyTickTimer(func=self.ido,interval=3,start_delay=0,repeat=True)
+        self.add_timer(self.timer)
+
 
 
         self.actor1_bg.set_on_key_press_listener(self.press)
+        self.set_on_key_press_listener(self.Golotuz)
         self.set_on_key_down_listener(self.key_down)
 
     def press(self, sender, event):
@@ -106,12 +112,43 @@ class Stage(game.scene2d.MyStage):
         if event.key == pygame.K_a:
             sender.x -= 3
 
+    def ido(self, sender):
+        self.randomszam = random.randint(0, 100)
+        self.venom_bg = venom(1280 + self.randomszam, self.actor1_bg.get_y())
+        self.add_actor(self.venom_bg)
 
 
     def interval(self, sender):
         self.actor1_bg.x += 100 * self.get_delta_time()
-        self.golo_bg.x += 100* self.get_delta_time()
+        # self.golo_bg.x += 100* self.get_delta_time()
         pass
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.repul == True:
+            for a in self.actors:
+                if isinstance(a,Golo):
+                    a.x = a.get_x() + 3
+                    self.ezegygolo = a
+
+                    for b in self.actors:
+                        if isinstance(b, venom):
+                            if b.overlaps(self.ezegygolo):
+                                b.remove_from_stage()
+                                self.ezegygolo.remove_from_stage()
+                                self.counter = 0
+
+
+
+        for i in self.actors:
+            if isinstance(i, venom):
+                i.x = i.get_x() - 3
+                if i.overlaps(self.actor1_bg):
+                    i.remove_from_stage()
+                    self.screen.game.set_screen(Meghal1())
+
+
+
 
     def key_down(self, sender, event):
         print(sender)
@@ -122,8 +159,19 @@ class Stage(game.scene2d.MyStage):
 
     def Golotuz(self, sender, event):
         if event.key == pygame.K_SPACE:
-            sender.x += 3
-            print(event)
+            for a in self.actors:
+                if isinstance(a, Golo):
+                    self.counter += 1
+            if self.counter == 0:
+                self.add_actor(Golo())
+                for a in self.actors:
+                    if isinstance(a, Golo):
+                        a.x = self.actor1_bg.get_x()
+                        a.y = self.actor1_bg.get_y() + self.actor1_bg.get_height() / 2
+
+
+                self.repul = True
+                print(event)
 
 
 
@@ -137,6 +185,7 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(self.gomb_bg)
         self.add_actor(self.hatter_bg)
         self.add_actor(self.gomb2_bg)
+
         self.gomb_bg.set_on_mouse_down_listener(self.Klikk)
         self.gomb2_bg.set_on_mouse_down_listener(self.Klikk2)
         self.set_on_key_down_listener(self.key_down)
@@ -173,7 +222,11 @@ class Screen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(Stage())
+class Meghal1(game.scene2d.MyScreen):
 
+    def __init__(self):
+        super().__init__()
+        self.add_stage(Meghal())
 
 class MenuScreen(game.scene2d.MyScreen):
     def __init__(self):
