@@ -1,0 +1,12 @@
+FILM (id, cim, ev, hossz)
+	id a film azonosítója (szám), ez a kulcs
+	cim a film címe (szöveg)
+	ev a film bemutatásának éve (szám)
+	hossz a film hossza percben (szám)
+
+1. Hozzon létre egy objektum osztályt, amely alkalmas a fenti adatok tárolására. Az adatszerkezet egyetlen beolvasott sorban lévő adatokat tárolja, majd hozzon létre ebből több sor tárolására alkalmas atadszerkezetet.
+2. Olvassa be a mellékelt állományban lévő adatokat. Úgy dolgozzon, hogy a program akárhány adatot tartalmazó fájl esetén is működjön. A beolvasásnál hagyja ki az ID mező eltárolását. Hagyja ki a beolvasásból a fájl első, mezőket tartalmazó sorát.
+3. Ha mindegyik filmet megnéznénk, akkor összesen mennyi időt kellene rászánnunk? Jelenítse meg percben.
+4. Kérjen be a felhasználótól egy évszámot. Az évszámhoz tartozó filmek címét listázza.
+5. Az adatbázist készítők szerint a 90 percnél hosszabb film hosszú, az ennél rövidebb a rövid jelzést kapja. Készítsen tagfüggvényt az objektum osztályhoz, amely az adott filmről logikai értékkel tér vissza. Ez az érték legyen igaz, ha a film hosszú, hamis, ha rövid. A függvény neve is_long legyen.
+6. Az előzőleg megírt függvény segítségével listázza a rövid filmeket.

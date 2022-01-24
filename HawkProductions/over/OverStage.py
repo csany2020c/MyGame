@@ -27,6 +27,19 @@ class OverStage(game.scene2d.MyStage):
         self.g.set_on_mouse_down_listener(self.click)
         self.g.set_on_key_down_listener(self.back_button)
 
+        self.pointl = Gameover("")
+        self.update_point()
+        self.add_actor(self.pointl)
+        self.pointl.set_color(255, 0, 0)
+        self.pointl.x = 520
+        self.pointl.set_font_size(100)
+        self.pointl.y = 645
+
+    def update_point(self):
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        self.score: str = f.readline()
+        self.pointl.set_text("Your score: {point}".format(point=self.score))
+
     def click(self, sender, event):
         print(sender)
         if event.button == 1:
@@ -56,10 +69,23 @@ class OverStage2(game.scene2d.MyStage):
         self.add_actor(self.g)
         self.g.set_text("Try again!")
         self.g.set_color(204, 0, 0)
-        self.g.x = 500
+        self.g.x = 510
         self.g.y = 310
         self.g.set_on_mouse_down_listener(self.click)
         self.g.set_font_size(100)
+
+        self.pointl = Gameover("")
+        self.update_point()
+        self.add_actor(self.pointl)
+        self.pointl.set_color(255, 0, 0)
+        self.pointl.x = 500
+        self.pointl.set_font_size(100)
+        self.pointl.y = 555
+
+    def update_point(self):
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        self.score: str = f.readline()
+        self.pointl.set_text("Your score: {point}".format(point=self.score))
 
     def click(self, sender, event):
         print(sender)
@@ -85,10 +111,23 @@ class OverStage3(game.scene2d.MyStage):
         self.add_actor(self.g)
         self.g.set_text("Try again!")
         self.g.set_color(204, 0, 0)
-        self.g.x = 500
+        self.g.x = 510
         self.g.y = 310
         self.g.set_on_mouse_down_listener(self.click)
         self.g.set_font_size(100)
+
+        self.pointl = Gameover("")
+        self.update_point()
+        self.add_actor(self.pointl)
+        self.pointl.set_color(255, 0, 0)
+        self.pointl.x = 500
+        self.pointl.set_font_size(100)
+        self.pointl.y = 555
+
+    def update_point(self):
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        self.score: str = f.readline()
+        self.pointl.set_text("Your score: {point}".format(point=self.score))
 
     def click(self, sender, event):
         print(sender)

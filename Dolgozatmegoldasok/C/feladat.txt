@@ -1,0 +1,19 @@
+Barlang
+Természeti értékeire minden ország büszke. Ennek megfelel ően ezeket dokumentálják és nyilvántartásba veszik. Az engedéllyel látogatható magyarországi barlangok adatai állnak rendelkezésre a barlang.txt állományban.
+Az állomány tabulátorral tagolt (\t), UTF-8 kódolású szövegfájl, az els ő sora a mezőneveket tartalmazza, ezt a beolvasás során hagyja ki. 
+
+barlang (id, nev, hossz, kiterjedes, melyseg, magassag, telepules)
+	id a barlang azonosítója (int), erre nem lesz szükség, ne importálja
+	nev a barlang neve (string)
+	hossz a barlang hossza méterben (float)
+	kiterjedes a barlang kiterjedése méterben (float)
+	melyseg a barlang mélysége méterben (float)
+	magassag a barlang magassága a bejárathoz képest méterben (float)
+	telepules településnév, amelyhez a barlang tartozik (string)
+
+1. Hozzon létre egy objektum osztályt, amely alkalmas a fenti adatok tárolására. Az adatszerkezet egyetlen beolvasott sorban lévő adatokat tárolja, majd hozzon létre ebből több sor tárolására alkalmas atadszerkezetet.
+2. Olvassa be a mellékelt állományban lévő adatokat. Úgy dolgozzon, hogy a program akárhány adatot tartalmazó fájl esetén is működjön. A beolvasásnál hagyja ki az ID mező eltárolását. Hagyja ki a beolvasásból a fájl első, mezőket tartalmazó sorát.
+3. Ha az összes barlangot végigjárnánk, mekkora távolságot kellene megtennünk?
+4. Kérjen be a felhasználótól egy településnevet. Listázza azon barlangok nevét, amelyek ezen a településen vannak.
+5. Vannak olyan barlangok, amelyekben a szintkülönbség nagyobb, mint a hosszuk. (melyseg+magassag>hossz) Készítsen tagfüggvényt az osztályhoz, amelynek a visszaadott értéke logikai típus és igazzal tér vissza, ha a fenti állítás igaz rá, hamissal, ha nem.
+6. Az előzőleg elkészített függvény alapján számolja meg, hogy hány barlang van, amelyben a szint több, mint a hossz.
