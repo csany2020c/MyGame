@@ -80,7 +80,7 @@ class GameStage(game.scene2d.MyStage):
 
     def update_point(self):
         self.pointl.set_text("Point: {point}".format(point=self.point))
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "w")
         f.write(str(self.point))
         f.close()
 
