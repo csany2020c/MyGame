@@ -144,27 +144,38 @@ class GameStage(game.scene2d.MyStage):
         self.camera.set_tracking(self.FatJordanact)
         self.FatJordanact.set_on_key_press_listener(self.press)
 
+        self.t = game.scene2d.MyTickTimer(interval=2 , func=self.tikk)
+        self.add_timer(self.t)
+
+    def tikk(self, sender):
+        for i in range(1):
+            self.LeBron = LeBron()
+            self.add_actor(self.LeBron)
+            self.LeBron.y = 500
+            self.LeBron.x = 800
 
 
     def press(self, sender, event):
+        if self.FatJordanact.y == 450:
+            if event.key == pygame.K_w:
+                sender.y = 100
+        if sender.y == 500:
+            sender.y += 0
         if event.key == pygame.K_d:
             sender.x += 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
-        if event.key == pygame.K_a:
-            sender.x -= 10
-            self.camera.set_tracking_window(0.5, 0.6, 0.5, 0.5)
-        if event.key == pygame.K_w:
-            sender.y -= 10
-            self.camera.set_tracking_window(0.4, 0.6, 0.4, 0.2)
-        if event.key == pygame.K_s:
-            sender.y += 10
-            self.camera.set_tracking_window(0.4, 0.2, 0.4, 0.6)
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+
+
 
     def act(self, delta_time: float):
         super().act(delta_time)
         print(self.FatJordanact)
         if self.LeBron.overlaps(other=self.FatJordanact):
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
+        if self.elapsed_time > 0:
+            self.FatJordanact.y += delta_time * 250
+        if self.FatJordanact.y > 450:
+            self.FatJordanact.y = 450
 
 
 

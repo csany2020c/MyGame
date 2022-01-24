@@ -73,6 +73,7 @@ class bruhstage(game.scene2d.MyStage):
         self.zartajto.x = 3000
         self.zartajto.y = 750
 
+
         self.camera.tracking = self.fohos
         self.fohos.set_on_key_press_listener(self.press)
 
@@ -87,6 +88,12 @@ class bruhstage(game.scene2d.MyStage):
                     a: MyBaseActor = None
                     if c == "w":
                         a = wall()
+                    if c == "r":
+                        a = wall2()
+                    if c == "g":
+                        a = eastereggtabla()
+                    if c == "h":
+                        a = easteregg()
                     if c == "k":
                         self.fohos = fohos()
                         a = self.fohos
@@ -127,6 +134,7 @@ class bruhstage(game.scene2d.MyStage):
         if self.fohos.overlaps(self.kulcs):
             self.zartajto.remove_from_stage()
             self.kulcs.remove_from_stage()
+
 
 class bruhScreen(game.scene2d.MyScreen):
     def __init__(self, map: str):
