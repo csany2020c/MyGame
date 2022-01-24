@@ -7,8 +7,14 @@ class Menu(game.scene2d.MyScreen):
         self.set_background_color(100,0,100)
         self.add_stage(MenuStage())
 
+class Credit(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(100,0,100)
+        self.add_stage(CreditStage())
+
 class Game(game.scene2d.MyScreen):
-    def __init__(self, map: str):
+    def __init__(self):
         super().__init__()
         self.set_background_color(100, 0, 100)
-        self.add_stage(GameStage(map.txt))
+        self.add_stage(GameStage())

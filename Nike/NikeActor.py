@@ -6,8 +6,8 @@ from game.scene2d import MyBaseActor
 class FatJordan(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/fatjordanact.png")
-        self.y = 350
-        self.x = 500
+        self.y = 280
+        self.x = 530
 
 
 class MenuText(game.scene2d.MyLabel):
@@ -20,11 +20,23 @@ class GameBg(game.scene2d.MyActor):
         super().__init__("images/bgpic.jpg")
         self.y = -450
 
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= delta_time * 500
+        if self.x > 1080:
+            self.x = 1080
+
 class GameBg2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/bgpic.jpg")
         self.y = -450
         self.x = 1900
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= delta_time * 500
+        if self.x > 1080:
+            self.x = 1080
 
 class Sztrit(game.scene2d.MyActor):
     def __init__(self):
@@ -38,6 +50,7 @@ class FatJordanact(game.scene2d.MyActor):
         super().__init__("images/fatjordanact.png")
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
+        self.y += 500
         self.set_on_key_press_listener(self.key_down)
 
     def key_down(self, sender, event):
@@ -57,7 +70,10 @@ class LeBron(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/lebronjames.png")
         self.x += 500
-        self.y += 250
+        self.y += 500
+        self.set_size(150,150)
+
+
 
 class stone(game.scene2d.MyActor):
     def __init__(self):

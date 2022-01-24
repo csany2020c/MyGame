@@ -37,8 +37,8 @@ class halalstage(game.scene2d.MyStage):
 
     def button_down2(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(menuscreen())
+            self.screen.game.set_screen(GameScreen())
 
     def button_down3(self, sender, event):
         if event.button == 1:
-            self.screen.game.set_screen(menuscreen())
+            self.screen.game.set_screen(GameScreen())
