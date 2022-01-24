@@ -133,7 +133,7 @@ class GameStage(game.scene2d.MyStage):
         self.P5.h = 420
         self.P5.y = -35
         if self.elapsed_time > 25:
-            self.P5.y = random.randint(-65, -38)
+            self.P5.y = random.randint(-65, -40)
         if self.elapsed_time > 35:
             self.P5.y = random.randint(-55, -40)
 
