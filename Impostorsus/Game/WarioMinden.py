@@ -2,12 +2,10 @@ import game
 import pygame
 from game.scene2d import MyTickTimer
 import webbrowser
-from pygame import mixer
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScr
-
-
+import sys
 class ASD(game.scene2d.MyStage):
 
     def __init__(self):
@@ -17,7 +15,6 @@ class ASD(game.scene2d.MyStage):
         # #     h = HatterActor1()
         # #     h.x = i * h.w + -150
         # #     self.add_actor(h)
-        #
         # self.add_actor(HatterActor1())
         f = open("palya.txt", "r")
 
@@ -135,6 +132,7 @@ class ASD(game.scene2d.MyStage):
         self.t = MyTickTimer(interval=2.3, func=self.tikk)
         self.add_timer(self.t)
 
+
     def tikk(self, sender):
         self.b = BillActor()
         self.add_actor(self.b)
@@ -191,9 +189,9 @@ class ASD(game.scene2d.MyStage):
         overlapsASD: bool = False
         overASD: bool = False
         dead_fx = pygame.mixer.Sound("audio/deadsound.mp3")
-        dead_fx.set_volume(0.1)
+        dead_fx.set_volume(0.04)
         win_fx = pygame.mixer.Sound("audio/winsound.mp3")
-        win_fx.set_volume(0.1)
+        win_fx.set_volume(0.04)
 
         g = None
         for actorASD in self.actors:
@@ -239,6 +237,7 @@ class ASD(game.scene2d.MyStage):
                     self.wario.x += 12
             if isinstance(actorASD, BillActor):
                 if self.wario.overlaps(actorASD):
+                    dead_fx.play()
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
             if isinstance(actorASD, Zaszlo):
                 if self.wario.overlaps(actorASD):
@@ -460,8 +459,8 @@ class HalalStage (game.scene2d.MyStage):
         self.h.x += self.width /2 - self.h.get_width() / 2
         self.h.y += self.height /2 - self.h.get_height() / 2
 
-class WinStage (game.scene2d.MyStage):
-    def __init__(self):
+class WinStage (game.scene2d.MyStage, pygame.sprite.Sprite):
+    def __init__(self, pos_x, pos_y):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
