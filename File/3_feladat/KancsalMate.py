@@ -28,7 +28,11 @@ class Main:
         for i in range(1, len(lines)-1):
             d = Data(lines[i])
             datalist.append(d)
+        for d in datalist:
+            print(d)
         f.close()
+
+
         print("Egyéni indulók: {db} fő ".format(db=len(datalist)))
         x = 0
         for index in range(0, len(datalist)):
