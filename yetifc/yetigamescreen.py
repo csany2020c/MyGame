@@ -1,5 +1,6 @@
 import game
 import pygame
+import random
 
 class Character(game.scene2d.MyActor):
     def __init__(self):
@@ -29,6 +30,17 @@ class Hud(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/hud.png")
 
+class Enemy1(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/enemy1.png")
+
+class Enemy2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/enemy2.png")
+
+class Enemy3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/enemy3.png")
 
 class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -43,6 +55,9 @@ class GameStage(game.scene2d.MyStage):
         self.revolock : bool = False
         self.slock : bool = False
         self.kpushed_shotgun : bool = False
+        self.enemy1onstage : bool = True
+        self.enemy1hit : bool = False
+        self.score : float = 0
         super().__init__()
         self.character = Character()
         self.gamebg = GameBG()
@@ -52,9 +67,11 @@ class GameStage(game.scene2d.MyStage):
         self.bullet = Bullet()
         self.bullet2 = Bullet()
         self.bullet3 = Bullet()
+        self.enemy1 = Enemy1()
         self.hud = Hud()
         self.add_actor(self.gamebg)
         self.add_actor(self.character)
+        self.add_actor(self.enemy1)
         #self.add_actor(self.bulletcount)
         self.add_actor(self.hud)
         self.character.width = 200
@@ -71,6 +88,8 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.revolver)
         self.bullet.width = 100
         self.character.y = 400
+        self.enemy1.y = 300
+        self.enemy1.x = 1000
         self.set_on_key_press_listener(self.key_down)
         self.set_on_key_down_listener(self.weapon_switch)
 
@@ -163,6 +182,36 @@ class GameStage(game.scene2d.MyStage):
             self.bullet2.x = self.bullet2.x + 20
             self.add_actor(self.bullet3)
             self.bullet3.x = self.bullet3.x + 20
+
+        if self.bullet.overlaps(self.enemy1) or self.bullet2.overlaps(self.enemy1) or self.bullet2.overlaps(self.enemy1) or self.bullet3.overlaps(self.enemy1):
+            if self.enemy1onstage == True:
+                self.remove_actor(self.enemy1)
+                self.enemy1onstage = False
+            self.enemy1hit = True
+
+
+        if self.ronstage:
+            if self.enemy1hit == True and self.bullet.x > 1300:
+                self.score = self.score + 1
+                self.enemy1.x = random.randint(700, 1000)
+                self.add_actor(self.enemy1)
+                self.enemy1onstage = True
+                self.enemy1hit = False
+
+
+#bugfix
+
+        if self.sonstage:
+            if self.enemy1hit == True and self.bullet.x > 1300 and self.bullet2.x > 1300 and self.bullet3.x > 1300:
+                self.score == self.score + 0.5
+                self.enemy1.x = random.randint(700, 1000)
+                self.add_actor(self.enemy1)
+                self.enemy1onstage = True
+                self.enemy1hit = False
+
+
+
+
 
 
 
