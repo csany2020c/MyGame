@@ -90,6 +90,7 @@ class GameStage(game.scene2d.MyStage):
                 pygame.mixer.music.play()
                 pygame.mixer.music.set_volume(1)
             self.add_actor(self.shotgun)
+            self.shotgun.x = self.character.x
             self.sonstage = True
 
 
