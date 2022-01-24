@@ -25,9 +25,6 @@ class GameStage(game.scene2d.MyStage):
         self.pointl.width = 100
         self.pointl.height = 50
         self.pointl.y = 65
-        # for i in range(100):
-        #     self.point += 1
-        # print(self.point)
 
         self.D = None
         if puska == 0:
