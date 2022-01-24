@@ -1,0 +1,17 @@
+A fájl a 8000 m feletti hegycsúcsok adatait tartalmazza.
+A megoldás során tartsa a kapcsolatot a felhasználóval, írja ki az eredményeket és tájékoztassa az elvárt bemeneti adatokról.
+A fájlban tárolt adatok tabulátorral tagoltak, melynek kódja a \t 
+
+csucs (az, nev, magassag, edatum, orszag)
+	az: a hegycsúcs azonosítója (szám, ezt ne importálja, nincs rá szükség)
+	nev: a hegycsúcs neve (szöveg)
+	magassag: a hegycsúcs magassága méterben (szám)
+	edatum: az első nemzetközileg sikeres mászás időpontja (dátum, ezt tárolja szövegként)
+	orszag: a hegycsúcs mely országokhoz tartozik (szöveg)
+
+1. Hozzon létre egy objektum osztályt, amely alkalmas a fenti adatok tárolására. Az adatszerkezet egyetlen beolvasott sorban lévő adatokat tárolja, majd hozzon létre ebből több sor tárolására alkalmas atadszerkezetet.
+2. Olvassa be a mellékelt állományban lévő adatokat. Úgy dolgozzon, hogy a program akárhány adatot tartalmazó fájl esetén is működjön. A beolvasásnál hagyja ki az AZ mező eltárolását. Hagyja ki a beolvasásból a fájl első, mezőket tartalmazó sorát.
+3. Ha az összes hegycsúcsot a tengerszintről megmásznánk, mennyi szintemelkedést kellene megtennünk?
+4. Kérjen be a felhasználótól egy számot, amely egy magasság adat. Listázza azon hegycsúcsok nevét, amelyek ennél magasabbak.
+5. Készítsen tagfüggvényt az osztályhoz, amely egész számként adja eredményül, hogy az adott hegycsúcs hány országhoz tartozik. Például a Broad Peak Kínához és Pakisztánhoz is tartozik, így a visszaadott értéke 2 legyen. A nem tudja kiszámolni az országok számát, akkor a függvény statikusan a 2 értéket adja vissza.
+6. Az előzőleg elkészített függvény alapján számolja meg, hogy hány csúcs tartozik több országhoz.

@@ -1,0 +1,15 @@
+az	nev	magassag	edatum	orszag
+1	Csomolungma	8848	1953.05.29	Kína, Nepál
+2	K2	8611	1954.07.31	Kína, Pakisztán
+3	Kancsendzönga	8586	1955.05.25	India, Nepál
+4	Lhoce	8516	1956.05.18	Kína, Nepál
+5	Makalu	8463	1955.05.15	Kína, Nepál
+6	Cso-Oju	8201	1954.10.19	Kína, Nepál
+7	Dhaulagiri	8167	1960.05.13	Nepál
+8	Manaszlu	8163	1956.05.09	Nepál
+9	Nanga Parbat	8126	1953.07.03	Pakisztán
+10	Annapurna	8091	1950.06.03	Nepál
+11	Gasherbrum I.	8068	1958.07.05	Kína, Pakisztán
+12	Broad Peak	8047	1957.06.09	Kína, Pakisztán
+13	Gasherbrum II.	8035	1956.07.08	Kína, Pakisztán
+14	Sisapangma	8027	1964.05.02	Kína
