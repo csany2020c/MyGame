@@ -1,0 +1,45 @@
+id	cim	ev	hossz
+1	Csókolj meg, édes!	1932	67
+2	Repülõ arany	1932	48
+3	Piri mindent tud	1932	92
+4	Az ellopott szerda	1933	72
+5	Mindent a nõért	1933	57
+6	Emmy	1934	83
+7	Szerelmi álmok	1935	66
+8	A titokzatos idegen	1936	59
+9	Havi 200 fix	1936	86
+10	Szerelembõl nõsültem	1937	67
+11	Az ember néha téved	1937	49
+12	Toroczkói menyasszony	1937	78
+13	Borcsa Amerikában	1936	91
+14	János Vitéz	1938	65
+15	A leányvári boszorkány	1938	87
+16	Nincsenek véletlenek	1938	73
+17	A varieté csillagai	1938	81
+18	Varjú a toronyórán	1938	59
+19	Pénz beszél	1940	67
+20	Igen, vagy nem?	1940	82
+21	Az elkésett levél	1940	58
+22	Kádár kontra Kerekes	1941	98
+23	Bob herceg	1941	112
+24	Negyedíziglen	1942	78
+25	Bajtársak	1942	68
+26	Egér a palotában	1942	94
+27	Alkalom	1942	65
+28	Kölcsönkért férjek	1941	84
+29	Hegyek lánya	1942	69
+30	Jómadár	1943	73
+31	Tilos a szerelem	1943	76
+32	Sárga kaszinó	1943	81
+33	A huszonnyolcas	1943	51
+34	Makacs Kata	1943	98
+35	Kerek Ferkó	1943	74
+36	Kölcsönadott élet	1943	79
+37	Magyar sasok	1943	58
+38	Idegen utakon	1944	67
+39	Nevetõ Budapest	1930	92
+40	Hölgyek elõnyben	1939	66
+41	Beszállásolás	1938	62
+42	Annamária	1942	85
+43	Magyar feltámadás	1939	64
+44	Rádbízom a feleségem	1937	55
