@@ -110,3 +110,7 @@ class csakany(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/csakany.png")
         self.set_size(150, 150)
+
+class quit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/quit.png")

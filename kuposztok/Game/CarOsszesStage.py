@@ -57,12 +57,9 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.score = 0
         self.scorelabel = game.scene2d.MyLabel("Score:" + str(self.score))
         self.add_actor(self.scorelabel)
-        self.scorelabel.x = self.width - 250
-        self.scorelabel.y = self.height - 50
+        self.scorelabel.x = 0
+        self.scorelabel.y = self.height - self.scorelabel.get_height()
         self.scorelabel.set_color(0, 0, 0)
-        self.scorelabel.width = 100
-        self.scorelabel.height = 50
-        self.scorelabel.z_index = 5
 
 
         if self.carvalt == 11:
@@ -148,12 +145,15 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
 
+    def filebaolvasas(self):
+        with open('../kuposztok/Save/file.txt', 'r') as file:
+            self.max_scoreno = int(file.readline())
+            self.money = int(file.readline())
+            file.close()
+
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
-            if int(self.maxScore) < int(self.score):
-               file.write(str(self.score))
-            else:
-                file.write(str(self.maxScore))
+            file.write(str(self.max_scoreno))
             if self.score < 100:
                 self.money = self.money + 10
             if self.score > 100 and self.score < 500:
@@ -183,10 +183,8 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.vesztettellabel.z_index = 100
 
     def act(self, delta_time: float):
-        self.score = self.score + 1
         super().act(delta_time)
-        self.scorelabel.x = self.width - self.scorelabel.get_width()
-        print(self.maxScore)
+        self.filebaolvasas()
         self.filebairas()
         if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
             if self.joseph.overlaps(self.joseph2):
@@ -230,7 +228,7 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         if event.key == pygame.K_d:
-            if self.joseph.x < self.width - 200:
+            if self.joseph.x < self.width - 100:
                 self.joseph.x += a
         if event.key == pygame.K_a:
             if self.joseph.x > 0:
@@ -275,7 +273,3 @@ class CarOsszesStage(game.scene2d.MyStage):
     def NewG(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(CarOsszesStage(carvalt=self.carvalt))
-
-# def getScore(self):
-#     return self.score
-#     return self.score
