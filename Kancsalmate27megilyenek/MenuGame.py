@@ -1,5 +1,8 @@
-from Kancsalmate27megilyenek.MenuScreen import *
 import game
+from Kancsalmate27megilyenek.MenuScreen import *
+import pygame
+from pygame import mixer
+
 
 
 class MainGame(game.scene2d.MyGame):
@@ -8,4 +11,5 @@ class MainGame(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize)
         self.screen = MenuScreen3()
         self.run()
+
 MainGame()

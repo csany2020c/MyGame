@@ -8,8 +8,10 @@ if TYPE_CHECKING:
 
 class MyLabel(MyText, MyBaseActor):
 
-    def __init__(self, string: str = "MyText", font_name: str = "system", font_size: int = 64):
-        MyText.__init__(self, string, font_name, font_size)
+
+    def __init__(self, string: str = "MyText", font_name: str = "system", font_size: int = 64,font_color: List['int'] = (255, 255, 255)):
+        super().__init__(string, font_name, font_size, font_color)
+        MyText.__init__(self, string, font_name, font_size,font_color)
         MyBaseActor.__init__(self, self.get_text_surface())
 
     def on_font_style_changed(self):
