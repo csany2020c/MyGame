@@ -1,0 +1,12 @@
+MOZI (id, nev, varos)
+	id a mozi azonosítója (szám), ez a kulcs
+	nev a mozi neve (szöveg)
+	varos a mozi városa (szöveg)
+	ferohely a mozi befogadóképessége (szám)
+
+1. Hozzon létre egy objektum osztályt, amely alkalmas a fenti adatok tárolására. Az adatszerkezet egyetlen beolvasott sorban lévő adatokat tárolja, majd hozzon létre ebből több sor tárolására alkalmas atadszerkezetet.
+2. Olvassa be a mellékelt állományban lévő adatokat. Úgy dolgozzon, hogy a program akárhány adatot tartalmazó fájl esetén is működjön. A beolvasásnál hagyja ki az ID mező eltárolását. Hagyja ki a beolvasásból a fájl első, mezőket tartalmazó sorát.
+3. Ha mindegyik mozi megtelne, akkor egyszerre hány néző nézhetné a vetített filmet?
+4. Kérjen be a felhasználól egy számot, majd liszátta ki azoknak a moziknak a nevét és városát, amelyek ezt a létszámot be tudják fogadni.
+5. Készítsen tagfüggvényt az osztályhoz, amely a benne lévő adatokaból eldölti, hogy fővárosi-e. Amennyiben a város mező értéke Budapest, legyen a visszatérési érték igaz, ellenkező esetben hamis.
+6. Az előzőleg megírt függvény segítségével listázza a fővárosi mozik nevét és férőhelyét.
