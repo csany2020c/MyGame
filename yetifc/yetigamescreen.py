@@ -192,24 +192,27 @@ class GameStage(game.scene2d.MyStage):
 
         if self.ronstage:
             if self.enemy1hit == True and self.bullet.x > 1300:
-                self.score = self.score + 1
                 self.enemy1.x = random.randint(700, 1000)
                 self.add_actor(self.enemy1)
                 self.enemy1onstage = True
                 self.enemy1hit = False
+                self.score = self.score + 1
+
 
 
 #bugfix
 
         if self.sonstage:
             if self.enemy1hit == True and self.bullet.x > 1300 and self.bullet2.x > 1300 and self.bullet3.x > 1300:
-                self.score == self.score + 0.5
                 self.enemy1.x = random.randint(700, 1000)
                 self.add_actor(self.enemy1)
                 self.enemy1onstage = True
                 self.enemy1hit = False
+                self.score == self.score + 0.5
 
-
+        with open("scoresave.txt", "w") as scoresave:
+            if self.score > 0:
+                scoresave.write(str(self.score))
 
 
 
