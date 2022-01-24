@@ -50,10 +50,10 @@ class LoseStage(game.scene2d.MyStage):
 
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
-            if int(self.maxScore) < int(self.score):
+            if int(self.max_scoreno) < int(self.score):
                 file.write(str(self.score))
             else:
-                file.write(str(self.maxScore))
+                file.write(str(self.max_scoreno))
             file.write("\n" + str(self.money))
             file.close()
 
