@@ -85,7 +85,8 @@ class startgomb(game.scene2d.MyActor):
 
 class wall2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/fal.jpg")
+        super().__init__("Images/gedvasfal.png")
+        self.set_size(65, 65)
 
 class kulcs(game.scene2d.MyActor):
     def __init__(self):
@@ -96,3 +97,16 @@ class zartajto(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/oszlop.png")
         self.set_size(100, 200)
+
+class eastereggtabla(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/tabla.png")
+
+class easteregg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/ffpog.png")
+        self.set_size(150, 150)
+class csakany(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/csakany.png")
+        self.set_size(150, 150)
