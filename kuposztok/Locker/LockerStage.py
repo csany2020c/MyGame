@@ -228,7 +228,8 @@ class LockerStage(game.scene2d.MyStage):
         self.SilverSledge.set_on_mouse_down_listener(self.SilverSledgeB)
         self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoardB)
         self.SilverSki.set_on_mouse_down_listener(self.SilverSkiB)
-        """self.skinbeolvas()"""
+        self.skinbeolvas()
+
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -366,37 +367,27 @@ class LockerStage(game.scene2d.MyStage):
             file.close()
 
     def skinbeolvas(self):
-        with open('../kuposztok/Save/skininfile.txt', 'w') as beskinfile:
-            self.valtozo = 1
-            print(str(beskinfile.readline()))
+        with open('../kuposztok/Save/skininfile.txt', 'r') as beskinfile:
+            self.skins = str(beskinfile.readline())
+            print(self.skins)
             beskinfile.close()
 
-            self.silverSnowMobile = int(beskinfile.readline())
-            self.silverSledge = int('\n' + beskinfile.readline())
-            self.silverSnowBoard = int('\n' + beskinfile.readline())
-            self.silverSki = int('\n' + beskinfile.readline())
-            self.goldSnowMobile = int('\n' + beskinfile.readline())
-            self.goldSledge = int('\n' + beskinfile.readline())
-            self.goldSnowBoard = int('\n' + beskinfile.readline())
-            self.goldSki = int('\n' + beskinfile.readline())
-
-            print(self.silverSnowMobile)
 
 
 
 
-    def skinfilebairas(self):
+    """def skinfilebairas(self):
         with open('../kuposztok/Save/skininfile.txt', 'w') as skinfile:
             if self.GoldSkiB == True:
-                skinfile.write("\n alsadalma0")
+                skinfile.write("\n alsadalma2")
             else:
                 skinfile.write("alsadalma2")
-            skinfile.close()
+            skinfile.close()"""
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebairas()
-        self.skinfilebairas()
+
 
 
 
