@@ -153,4 +153,3 @@ class Istage2(game.scene2d.MyStage):
     def valtas(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Info.InfoScreen.IScreen())
-

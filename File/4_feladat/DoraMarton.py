@@ -12,7 +12,7 @@ class Data:
         self.versenyszam: str = fields[3]
 
     def __str__(self) -> str:
-        return "{h}; {s}; {s2}; {v}".format(h=self.helyezes, s=self.sportolok, s2=self.sport, v=self.versenyszam)
+        return "{h} {s} {s2} {v}".format(h=self.helyezes, s=self.sportolok, s2=self.sport, v=self.versenyszam)
 
 class sziahogyvagy:
     def __init__(self):

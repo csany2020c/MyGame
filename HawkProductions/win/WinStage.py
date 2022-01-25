@@ -9,6 +9,10 @@ import pygame
 class WinStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.init()
+        pygame.mixer.music.load("../HawkProductions/Music/Win.wav")
+        pygame.mixer.music.play(0)
+        pygame.mixer.music.set_volume(0.2)
         self.c = Win()
         self.add_actor(self.c)
         self.c.set_size(1280, 720)
