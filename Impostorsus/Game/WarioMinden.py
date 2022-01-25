@@ -203,7 +203,7 @@ class ASD(game.scene2d.MyStage):
         overASD: bool = False
         dead_fx = pygame.mixer.Sound("audio/battya.mp3")
         dead_fx.set_volume(0.04)
-        win_fx = pygame.mixer.Sound("audio/winsound.mp3")
+        win_fx = pygame.mixer.Sound("audio/mester.mp3")
         win_fx.set_volume(0.04)
 
         g = None
