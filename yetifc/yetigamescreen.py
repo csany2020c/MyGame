@@ -1,6 +1,7 @@
 import game
 import pygame
 import random
+from yetifc.yetistage import *
 
 class Character(game.scene2d.MyActor):
     def __init__(self):
@@ -46,6 +47,13 @@ class GameScreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
         self.add_stage(GameStage())
+
+class Settings(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.set_background_color(100,0,100)
+        self.add_stage(Settingstage())
+
 
 class GameStage(game.scene2d.MyStage):
     def __init__(self):
