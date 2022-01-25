@@ -109,7 +109,7 @@ class Question(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kerdosus.png")
         self.hitbox_shape = ShapeType.Rectangle
-        self.set_width(100)
+        self.set_width(80)
 
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
@@ -209,6 +209,12 @@ class Credit(game.scene2d.MyActor):
 class Bindings(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/bindings.png")
+        self.set_height(275)
+        self.set_width(275)
+
+class Web(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/websitei.png")
         self.set_height(275)
         self.set_width(275)
 

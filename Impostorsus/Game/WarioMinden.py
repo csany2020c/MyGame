@@ -39,8 +39,6 @@ class ASD(game.scene2d.MyStage):
                     if c == "p":
                         a = Kocka()
                         a2 = Lathatatlan2()
-                    if c == "T":
-                        a = Question()
                     if c == "B":
                         a = CannonActor()
                     if c == "g":
@@ -131,10 +129,14 @@ class ASD(game.scene2d.MyStage):
         self.sz2.y += 740
         self.t = MyTickTimer(interval=2.3, func=self.tikk)
         self.add_timer(self.t)
-        self.t2 = MyTickTimer(interval=0.5, func=self.tikk2)
+        self.t2 = MyTickTimer(interval=0.4, func=self.tikk2)
         self.add_timer(self.t2)
-        self.t3 = MyTickTimer(interval=1, func=self.tikk3)
+        self.t3 = MyTickTimer(interval=0.8, func=self.tikk3)
         self.add_timer(self.t3)
+        self.q = Question()
+        self.add_actor(self.q)
+        self.q.y = 320
+        self.q.x = 2900
 
 
     def tikk(self, sender):
@@ -156,7 +158,6 @@ class ASD(game.scene2d.MyStage):
         if event.key == pygame.K_d:
             sender.x += 10
             self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
-
         if event.key == pygame.K_a:
             sender.x -= 10
             self.wario.image_url = 'Kepek/actorsusus3.png'
@@ -176,7 +177,7 @@ class ASD(game.scene2d.MyStage):
 
     def key_down(self, sender, event):
         jump_fx = pygame.mixer.Sound("audio/jumpsound.mp3")
-        jump_fx.set_volume(0.03)
+        jump_fx.set_volume(0.015)
         print(sender)
         print(event)
         if event.key == pygame.K_w:
@@ -193,7 +194,9 @@ class ASD(game.scene2d.MyStage):
             self.wario.ugras()
             jump_fx.play()
         if event.key == pygame.K_e:
-            webbrowser.open('https://youtu.be/d1YBv2mWll0')
+            pygame.mixer.music.load("audio/jebait.mp3")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(0.04)
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
 
 
@@ -256,7 +259,9 @@ class ASD(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.WinScreen())
-
+            if isinstance(actorASD, Question):
+                if self.wario.overlaps(actorASD):
+                    self.remove_actor(self.q)
 
 
             if g is not None:
@@ -323,7 +328,7 @@ class ASD2 (game.scene2d.MyStage):
         self.p = Play()
         self.add_actor(self.p)
         self.p.x += 535
-        self.p.y += 255
+        self.p.y += 180
         self.s = SuperWario()
         self.add_actor(self.s)
         self.s.x += 350
@@ -344,11 +349,16 @@ class ASD2 (game.scene2d.MyStage):
         self.add_actor(self.bi)
         self.bi.x += 475
         self.bi.y += 325
+        self.w = Web()
+        self.add_actor(self.w)
+        self.w.x += 475
+        self.w.y += 255
         self.p.set_on_mouse_down_listener(self.play)
         self.e.set_on_mouse_down_listener(self.exit)
         self.f.set_on_mouse_down_listener(self.fullscreen)
         self.bi.set_on_mouse_down_listener(self.bind)
         self.c.set_on_mouse_down_listener(self.creator)
+        self.w.set_on_mouse_down_listener(self.website)
 
 
     def creator(self, sender, event):
@@ -357,6 +367,12 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.screen.game.set_screen(Impostorsus.Game.WarioScr.CreditScreen())
+    def website(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                webbrowser.open('https://pbs.twimg.com/media/EPsvEreWsAEVHip?format=jpg&name=large')
 
     def bind(self, sender, event):
         print(sender)
