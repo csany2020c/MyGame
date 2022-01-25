@@ -139,12 +139,19 @@ class ASD(game.scene2d.MyStage):
         self.b.x = +1100
         self.b.y = +700
 
+
+
+
     def press(self, sender, event):
         # print(event.key)
+
         if event.key == pygame.K_d:
             sender.x += 10
             self.wario.image_url = 'Kepek/actorsusus.png'
+
+
             self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+
         if event.key == pygame.K_a:
             sender.x -= 10
             self.wario.image_url = 'Kepek/actorsusus3.png'
