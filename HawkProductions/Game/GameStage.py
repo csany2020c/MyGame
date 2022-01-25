@@ -233,12 +233,12 @@ class GameStage(game.scene2d.MyStage):
     def click2(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
 
     def katt(self, sender, event):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_w:
