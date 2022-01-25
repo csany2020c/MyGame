@@ -55,8 +55,10 @@ class InStage(game.scene2d.MyStage):
             self.heart1.remove_from_stage()
         if self.eletero < 0:
             self.heart.remove_from_stage()
-
-
+        if self.eletero > 65:
+            self.add_actor(self.heart2)
+        if self.eletero > 30:
+            self.add_actor(self.heart1)
         if self.player.overlaps(self.sand):
             self.screen.game.set_screen(ArenaScreen())
 

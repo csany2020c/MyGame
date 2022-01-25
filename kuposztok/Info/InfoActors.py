@@ -4,7 +4,7 @@ import pygame
 class BgActor(game.scene2d.MyActor):
 
     def __init__(self):
-        super().__init__('image/menu.png')
+        super().__init__('image/snow.png')
 
 class Energy(game.scene2d.MyActor):
 
@@ -15,3 +15,8 @@ class Trap(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/Trap.png')
+
+class Back(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/back.png')
