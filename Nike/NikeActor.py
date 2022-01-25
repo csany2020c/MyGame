@@ -95,4 +95,9 @@ class house(game.scene2d.MyActor):
         self.set_size(800, 1000)
 
 
+class Info(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/info.png")
+        self.y = 280
+        self.x = 830
 

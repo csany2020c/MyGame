@@ -47,6 +47,14 @@ class MenuStage(game.scene2d.MyStage):
         self.credit.x += 550
         self.credit.y += 550
         self.credit.set_on_mouse_down_listener(self.creditbut)
+        self.info = Info()
+        self.add_actor(self.info)
+        self.info.set_alpha(200)
+        self.info.set_width(80)
+        self.info.set_height(80)
+        self.info.x += 350
+        self.info.y += 300
+        self.info.set_on_mouse_down_listener(self.infobut)
 
 
     def play(self, sender, event):
@@ -70,7 +78,12 @@ class MenuStage(game.scene2d.MyStage):
             if event.button == 1:
                 self.screen.game.set_screen(Nike.NikeScreen.Credit())
 
-
+    def infobut(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Nike.NikeScreen.Info())
 
 
 
@@ -220,6 +233,8 @@ class WinStage(game.scene2d.MyStage):
         self.win = win()
         self.add_actor(self.win)
 
+
+
 class LoseStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
@@ -229,3 +244,11 @@ class LoseStage(game.scene2d.MyStage):
 class InfoStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.info = Info()
+        self.add_actor(self.info)
+        self.info.set_text("Infooo")
+        self.info.set_alpha(500)
+        self.info.set_width(80)
+        self.info.set_height(80)
+        self.info.x += 500
+        self.info.y += 50
