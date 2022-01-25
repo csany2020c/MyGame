@@ -83,7 +83,7 @@ class BillActor(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/bill.png")
         self.hitbox_scale_h = 0.35
-        self.hitbox_scale_w = 0.8
+        self.hitbox_scale_w = 1.2
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -271,6 +271,12 @@ class Winkep(game.scene2d.MyActor):
         super().__init__("Kepek/win.png")
         self.set_height(450)
         self.set_width(450)
+
+class Skin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/skin.png")
+        self.set_height(150)
+        self.set_width(150)
 
 
 
