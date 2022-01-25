@@ -212,6 +212,12 @@ class Bindings(game.scene2d.MyActor):
         self.set_height(275)
         self.set_width(275)
 
+class Coin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/coin.png")
+        self.set_height(50)
+        self.set_width(50)
+
 class Web(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/websitei.png")

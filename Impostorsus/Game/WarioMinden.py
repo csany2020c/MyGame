@@ -262,6 +262,10 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Question):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.q)
+                    self.c = Coin()
+                    self.add_actor(self.c)
+                    self.c.x = 2900
+                    self.c.y = 320
 
 
             if g is not None:
