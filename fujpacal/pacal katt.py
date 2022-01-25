@@ -7,12 +7,28 @@ from game.scene2d.MyTimer import *
 from game.simpleworld.ShapeType import ShapeType
 
 
+
+
+
 class Meghal(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
         self.meghal = MyLabel("MEGHALTÁL","system", 128, [255,0,0])
         self.add_actor(self.meghal)
+        self.gomb3_bg = Gomb3()
+        self.add_actor(self.gomb3_bg)
+        self.gomb3_bg.set_on_mouse_down_listener(self.Klikk3)
+
+        self.gomb3_bg.width = 200
+        self.gomb3_bg.height = 200
+        self.gomb3_bg.x = 400
+        self.gomb3_bg.y = 200
+
+    def Klikk3(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+            print("Kiléptél")
 
 
 class Kocka(game.scene2d.MyActor):
@@ -57,6 +73,11 @@ class Gomb2 (game.scene2d.MyActor):
     def __init__(self, image_url: str = "images/exit.png"):
         super().__init__(image_url)
 
+class Gomb3 (game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "images/back.png"):
+        super().__init__(image_url)
+
 
 class Hatter(game.scene2d.MyActor):
 
@@ -94,6 +115,7 @@ class Stage(game.scene2d.MyStage):
         self.hatter_bg = Hatter()
         self.repul = False
         self.counter = 0
+        self.count = 0
         self.actor1_bg = Actor()
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
@@ -137,6 +159,12 @@ class Stage(game.scene2d.MyStage):
                                 b.remove_from_stage()
                                 self.ezegygolo.remove_from_stage()
                                 self.counter = 0
+                                self.count += 1
+                                if self.count + 1:
+                                    print(self.count)
+
+
+
 
 
 
@@ -208,6 +236,8 @@ class MenuStage(game.scene2d.MyStage):
         if event.button == 1:
             quit()
             print("Kiléptél")
+
+
 
     def key_down(self, sender, event):
         print(sender)
