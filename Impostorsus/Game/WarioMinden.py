@@ -201,7 +201,7 @@ class ASD(game.scene2d.MyStage):
         super().act(delta_time)
         overlapsASD: bool = False
         overASD: bool = False
-        dead_fx = pygame.mixer.Sound("audio/deadsound.mp3")
+        dead_fx = pygame.mixer.Sound("audio/battya.mp3")
         dead_fx.set_volume(0.04)
         win_fx = pygame.mixer.Sound("audio/winsound.mp3")
         win_fx.set_volume(0.04)
