@@ -49,8 +49,8 @@ class bruhstage(game.scene2d.MyStage):
 
     def __init__(self, map: str):
         super().__init__()
-        self.lovedek = lovedek()
-        self.add_actor(self.lovedek)
+        self.lovedek = None #lovedek()
+        #self.add_actor(self.lovedek)
         self.fohos = fohos()
         self.add_actor(self.fohos)
         self.kapu = kapu()
@@ -58,8 +58,6 @@ class bruhstage(game.scene2d.MyStage):
         self.kapu.x = 3400
         self.kapu.y = 820
         self.kapu.rotate_with(270)
-        self.lovedek.x = 500
-        self.lovedek.y = 200
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
         self.enemy1.x = 452
@@ -132,6 +130,12 @@ class bruhstage(game.scene2d.MyStage):
         if event.key == pygame.K_s:
             sender.y += 10
             self.camera.set_tracking_window(0.4, 0.2, 0.4, 0.6)
+        if event.key == pygame.K_SPACE:
+            if self.lovedek == None or not self.lovedek.is_on_stage():
+                self.lovedek = lovedek(2)
+                self.lovedek.x = self.fohos.x
+                self.lovedek.y = self.fohos.y
+                self.add_actor(self.lovedek)
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -143,7 +147,10 @@ class bruhstage(game.scene2d.MyStage):
         if self.fohos.overlaps(self.kulcs):
             self.zartajto.remove_from_stage()
             self.kulcs.remove_from_stage()
-
+        #if self.enemy2.overlaps(self.lovedek):
+            #self.enemy2.remove_from_stage()
+        #if self.enemy3.overlaps(self.lovedek):
+            #self.enemy3.remove_from_stage()
 
 class bruhScreen(game.scene2d.MyScreen):
     def __init__(self, map: str):
