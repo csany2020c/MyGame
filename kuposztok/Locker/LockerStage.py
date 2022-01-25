@@ -268,6 +268,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.silverlabel)
                     self.skinvalt = 0
                     self.money = self.money - 5000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
 
     def SilverSledgeB(self, sender, event):
@@ -280,6 +281,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.silverlabel2)
                     self.skinvalt = 1
                     self.money = self.money - 5000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
 
     def SilverSnowBoardB(self, sender, event):
@@ -292,6 +294,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.silverlabel3)
                     self.skinvalt = 2
                     self.money = self.money - 5000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
 
     def SilverSkiB(self, sender, event):
@@ -304,6 +307,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.silverlabel4)
                     self.skinvalt = 3
                     self.money = self.money - 5000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
 
     def GoldSnowMobileB(self, sender, event):
@@ -316,6 +320,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.goldlabel)
                     self.skinvalt = 4
                     self.money = self.money - 10000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
 
     def GoldSledgeB(self, sender, event):
@@ -328,6 +333,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.goldlabel2)
                     self.skinvalt = 5
                     self.money = self.money - 10000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
     def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
@@ -339,6 +345,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.goldlabel3)
                     self.skinvalt = 6
                     self.money = self.money - 10000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
     def GoldSkiB(self, sender, event):
         if event.button == 1:
@@ -350,6 +357,7 @@ class LockerStage(game.scene2d.MyStage):
                     self.remove_actor(self.goldlabel4)
                     self.skinvalt = 7
                     self.money = self.money - 10000000
+                    self.moneylabel.set_text("Your money:" + str(self.money))
 
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
@@ -363,16 +371,16 @@ class LockerStage(game.scene2d.MyStage):
             print(str(beskinfile.readline()))
             beskinfile.close()
 
-            self.silverSnowMobile = self.valtozo
-            self.silverSledge = self.valtozo
-            self.silverSnowBoard = self.valtozo
-            self.silverSki = self.valtozo
-            self.goldSnowMobile = self.valtozo
-            self.goldSledge = self.valtozo
-            self.goldSnowBoard = self.valtozo
-            self.goldSki = self.valtozo
+            self.silverSnowMobile = int(beskinfile.readline())
+            self.silverSledge = int('\n' + beskinfile.readline())
+            self.silverSnowBoard = int('\n' + beskinfile.readline())
+            self.silverSki = int('\n' + beskinfile.readline())
+            self.goldSnowMobile = int('\n' + beskinfile.readline())
+            self.goldSledge = int('\n' + beskinfile.readline())
+            self.goldSnowBoard = int('\n' + beskinfile.readline())
+            self.goldSki = int('\n' + beskinfile.readline())
 
-            print("self.silverSnowMobile")
+            print(self.silverSnowMobile)
 
 
 
@@ -380,7 +388,7 @@ class LockerStage(game.scene2d.MyStage):
     def skinfilebairas(self):
         with open('../kuposztok/Save/skininfile.txt', 'w') as skinfile:
             if self.GoldSkiB == True:
-                skinfile.write("\n alsadalma2")
+                skinfile.write("\n alsadalma0")
             else:
                 skinfile.write("alsadalma2")
             skinfile.close()
@@ -389,7 +397,6 @@ class LockerStage(game.scene2d.MyStage):
         super().act(delta_time)
         self.filebairas()
         self.skinfilebairas()
-        self.moneylabel.set_text("Your money:" + str(self.money))
 
 
 
