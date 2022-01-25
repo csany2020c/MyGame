@@ -143,7 +143,7 @@ class GameStage(game.scene2d.MyStage):
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 590
         if self.elapsed_time > 25:
-            self.P6.y = random.randint(600, 670)
+            self.P6.y = random.randint(605, 670)
         if self.elapsed_time > 35:
             self.P6.y = random.randint(585, 675)
 
