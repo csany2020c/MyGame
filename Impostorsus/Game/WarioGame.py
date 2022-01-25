@@ -1,4 +1,3 @@
-
 import game
 import pygame
 from Impostorsus.Game.WarioActor import *
