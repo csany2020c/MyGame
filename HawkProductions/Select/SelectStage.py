@@ -62,7 +62,7 @@ class SelectStage(game.scene2d.MyStage):
         self.pointl.y = 660
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Last score: {point}".format(point=self.score))
 

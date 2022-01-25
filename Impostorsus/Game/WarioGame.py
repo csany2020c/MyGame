@@ -13,6 +13,10 @@ class Wario(game.scene2d.MyGame):
         self.screen = MenuScreen()
         self.set_on_key_down_listener(self.key_down)
         pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
+        clock = pygame.time.Clock()
+        pygame.display.set_caption('SUPER WARIO')
+        T = pygame.image.load('Kepek/Tabla.png')
+        pygame.display.set_icon(T)
 
     def key_down(self, sender, event):
         monitor_size = [pygame.display.Info().current_w, pygame.display.Info().current_h]

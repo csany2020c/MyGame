@@ -1,13 +1,10 @@
 import game
 from bruhmomento.bruhActor import *
-
-
 import pygame
 import random
 from bruhmomento.bruhScreen import *
 from bruhmomento.bruhActor import *
 from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTimer, MyIntervalTimer
-import game
 
 class menuscreen(game.scene2d.MyScreen):
     def __init__(self):
@@ -21,9 +18,14 @@ class menustage(game.scene2d.MyStage):
 
     def __init__(self):
         super().__init__()
-        self.add_actor(startgomb())
         self.startgomb = startgomb()
+        self.add_actor(self.startgomb)
         self.startgomb.set_on_mouse_down_listener(self.inditas)
+        self.quitgomb = quit()
+        self.add_actor(self.quitgomb)
+        self.quitgomb.x = 300
+        self.quitgomb.y = 200
+        self.quitgomb.set_on_mouse_down_listener(self.kilepes)
 
     #def Click(self, sender,event):
     #    if event.button == 1:
@@ -34,7 +36,14 @@ class menustage(game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(bruhScreen(map.txt))
+                self.screen.game.set_screen(bruhScreen("map.txt"))
+
+    def kilepes(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                quit()
 
 class bruhstage(game.scene2d.MyStage):
 
@@ -53,16 +62,25 @@ class bruhstage(game.scene2d.MyStage):
         self.lovedek.y = 200
         self.enemy1 = enemy1()
         self.add_actor(self.enemy1)
+        self.enemy1.x = 452
+        self.enemy1.y = 384
         self.enemy2 = enemy1()
         self.add_actor(self.enemy2)
         self.enemy2.x = 70
         self.enemy2.y = 762
-        self.enemy1.x = 452
-        self.enemy1.y = 384
         self.enemy3 = enemy2()
         self.add_actor(self.enemy3)
         self.enemy3.x = 2510
         self.enemy3.y = 750
+        self.kulcs = kulcs()
+        self.add_actor(self.kulcs)
+        self.kulcs.x = 150
+        self.kulcs.y = 350
+        self.fal = wall()
+        self.zartajto = zartajto()
+        self.add_actor(self.zartajto)
+        self.zartajto.x = 3000
+        self.zartajto.y = 750
 
 
         self.camera.tracking = self.fohos
@@ -79,6 +97,12 @@ class bruhstage(game.scene2d.MyStage):
                     a: MyBaseActor = None
                     if c == "w":
                         a = wall()
+                    if c == "r":
+                        a = wall2()
+                    if c == "g":
+                        a = eastereggtabla()
+                    if c == "h":
+                        a = easteregg()
                     if c == "k":
                         self.fohos = fohos()
                         a = self.fohos
@@ -111,12 +135,14 @@ class bruhstage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        print(self.fohos)
+        # print(self.lovedek)
         if self.kapu.overlaps(other=self.fohos):
             self.screen.game.set_screen(bruhScreen("map2.txt"))
         if self.enemy1.overlaps(self.lovedek):
             self.enemy1.remove_from_stage()
-            self.lovedek.remove_from_stage()
+        if self.fohos.overlaps(self.kulcs):
+            self.zartajto.remove_from_stage()
+            self.kulcs.remove_from_stage()
 
 
 class bruhScreen(game.scene2d.MyScreen):
