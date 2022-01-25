@@ -131,6 +131,10 @@ class ASD(game.scene2d.MyStage):
         self.sz2.y += 740
         self.t = MyTickTimer(interval=2.3, func=self.tikk)
         self.add_timer(self.t)
+        self.t2 = MyTickTimer(interval=0.5, func=self.tikk2)
+        self.add_timer(self.t2)
+        self.t3 = MyTickTimer(interval=1, func=self.tikk3)
+        self.add_timer(self.t3)
 
 
     def tikk(self, sender):
@@ -139,17 +143,18 @@ class ASD(game.scene2d.MyStage):
         self.b.x = +1100
         self.b.y = +700
 
+    def tikk2(self, sender):
+        self.wario.image_url = 'Kepek/actorsusus.png'
+
+    def tikk3(self, sender):
+        self.wario.image_url = 'Kepek/actorsusus2.png'
 
 
 
     def press(self, sender, event):
         # print(event.key)
-
         if event.key == pygame.K_d:
             sender.x += 10
-            self.wario.image_url = 'Kepek/actorsusus.png'
-
-
             self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
 
         if event.key == pygame.K_a:
@@ -318,7 +323,7 @@ class ASD2 (game.scene2d.MyStage):
         self.p = Play()
         self.add_actor(self.p)
         self.p.x += 535
-        self.p.y += 190
+        self.p.y += 255
         self.s = SuperWario()
         self.add_actor(self.s)
         self.s.x += 350
@@ -339,23 +344,12 @@ class ASD2 (game.scene2d.MyStage):
         self.add_actor(self.bi)
         self.bi.x += 475
         self.bi.y += 325
-        self.sk = Skin()
-        self.add_actor(self.sk)
-        self.sk.x += 530
-        self.sk.y += 255
         self.p.set_on_mouse_down_listener(self.play)
         self.e.set_on_mouse_down_listener(self.exit)
         self.f.set_on_mouse_down_listener(self.fullscreen)
         self.bi.set_on_mouse_down_listener(self.bind)
         self.c.set_on_mouse_down_listener(self.creator)
-        self.sk.set_on_mouse_down_listener(self.skingomb)
 
-    def skingomb(self, sender, event):
-        print(sender)
-        print(event)
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScr.SkinScr())
 
     def creator(self, sender, event):
         print(sender)
@@ -489,7 +483,4 @@ class WinStage(game.scene2d.MyStage):
         self.w.x += self.width /2 - self.w.get_width() / 2
         self.w.y += self.height /2 - self.w.get_height() / 2
 
-class SkinStage(game.scene2d.MyStage):
-    def __init__(self):
-        super().__init__()
 
