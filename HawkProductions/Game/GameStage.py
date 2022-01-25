@@ -143,7 +143,7 @@ class GameStage(game.scene2d.MyStage):
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 590
         if self.elapsed_time > 25:
-            self.P6.y = random.randint(600, 670)
+            self.P6.y = random.randint(605, 670)
         if self.elapsed_time > 35:
             self.P6.y = random.randint(585, 675)
 
@@ -170,7 +170,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.C)
         self.C.x = 1180
         self.C.y = 420
-        if self.elapsed_time >= 12:
+        if self.elapsed_time > 12:
             self.C.y = random.randint(380, 490)
         self.C.width = 50
         self.C.set_hitbox_scale_h = 0.1
@@ -228,6 +228,7 @@ class GameStage(game.scene2d.MyStage):
             self.screen.game.set_screen(HawkProductions.win.WinScreen.WinScreen())
 
     def click2(self, sender, event):
+        print(sender)
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
 
