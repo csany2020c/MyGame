@@ -74,9 +74,20 @@ class InfoStage(game.scene2d.MyStage):
         self.text72.x = 100
         self.text72.y = self.height / 2 + self.text72.get_height() * 6
         self.add_actor(self.text72)
+        self.back = Back()
+        self.add_actor(self.back)
+        self.back.x = 1170
+        self.back.y = 700
+        self.back.height = 50
+        self.back.width = 160
 
         self.set_on_key_down_listener(self.katt)
+        self.back.set_on_mouse_down_listener(self.Back)
 
     def katt(self, sender, event):
         if event.key == pygame.K_ESCAPE:
+            self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
+
+    def Back(self, sender, event):
+        if event.button == 1:
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
