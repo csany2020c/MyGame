@@ -1,0 +1,21 @@
+map3.txt
+wwwwwwwwwww
+w         w
+w         w
+w         w
+w         w
+w         w
+w         w
+w         w
+w         w
+w         wwwwwwwwwwwww                          wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+w                     w                          w                                                               w
+w                     w                          w                                                               w
+w       wwwwwwwww     w                          w                                                               w
+               w      w                          w                                                                              w
+               w      w            wwwwwwwwwwwwwwwwwwwwwwwwwwwwww       wwwwwwwwwwwww                                           w
+               w      w      wwwwwww                                    w           w                                           w
+               w      wwwwwwww                                          w           w                                           w
+               w                     wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww           wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+               w               wwwwww
+               wwwwwwwwwwwwwwwww

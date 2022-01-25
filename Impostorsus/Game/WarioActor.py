@@ -30,7 +30,6 @@ class WarioActor(game.scene2d.MyActor):
         # self.stage.camera.x = self.x
         # self.stage.camera.y = self.y
 
-
     def ugras(self):
         self.jump = 220
 
