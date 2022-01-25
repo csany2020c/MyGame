@@ -1,5 +1,5 @@
 import game
-from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor, DamageActor
+from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor, DamageActor, HealActor
 from game.scene2d import MyBaseActor
 from game.scene2d.MyStage import *
 class Map():
@@ -34,7 +34,9 @@ class Map():
                     if c == "5":
                         stage.lava = DamageActor()
                         a = stage.lava
-
+                    if c == "6":
+                        stage.heal = HealActor()
+                        a = stage.heal
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
