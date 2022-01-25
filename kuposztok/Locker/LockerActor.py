@@ -85,8 +85,8 @@ class Back(game.scene2d.MyActor):
 
 class SilverLock(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__('image/SilverLock1.png')
+        super().__init__('image/silver_lock.png')
 
 class GoldLock(game.scene2d.MyActor):
     def __init__(self, image_url: str = ""):
-        super().__init__('image/GoldLock.png')
+        super().__init__('image/golden_lock.png')

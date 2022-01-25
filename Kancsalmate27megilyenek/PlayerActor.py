@@ -58,7 +58,7 @@ class PlayerActor(game.scene2d.MyActor):
             self.image_url = "Heroamijó_1.png"
         if event.key == pygame.K_d:
             self.isDPressed = False
-            self.image_url = "Heroamijó_1.png"
+            self.image_url = "Heroamijó_1_right.png"
 
     def timeHandling(self,sender):
         if self.isAPressed:
@@ -81,7 +81,7 @@ class PlayerActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        b=5
+        b = 5
         if self.isWPressed:
             self.y -= b
         if self.isAPressed:

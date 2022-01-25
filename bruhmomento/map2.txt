@@ -1,4 +1,30 @@
 map3.txt
-www
-www www
- www w w  ww w w  w
+wwwwwwww
+w      wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+w      www                                                      w
+w      www                                                      w
+w      www                   wwwwww                             w
+w      www      wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww       wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+w               w                                 w                                                 w
+w               w                                 w                                                 w
+w               w                                 w                                               j w
+w               w                                 wwwwwwwwwwwwwwwwwwwwwwwwww                        w
+wrrrrrrrrrrrrrrrw                                                          w          wwwwwwwwwwwwwwwwwww
+                                         w               w                                                          w          w                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                                         w               w                                                          w          w                                                                                 w
+                                         w               w                                                          w          w                                                                                 w
+                                         w               w                                                          w          w                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                                         w               w                                                          w                                                                                            w
+                                         w               w                                                          w                                                                                            w
+                                         w               w                                                          wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w               w
+                                         w       h       w
+                                         w          g    w
+                                         wwwwwwwwwwwwwwwww

@@ -25,9 +25,6 @@ class GameStage(game.scene2d.MyStage):
         self.pointl.width = 100
         self.pointl.height = 50
         self.pointl.y = 65
-        # for i in range(100):
-        #     self.point += 1
-        # print(self.point)
 
         self.D = None
         if puska == 0:
@@ -80,7 +77,7 @@ class GameStage(game.scene2d.MyStage):
 
     def update_point(self):
         self.pointl.set_text("Point: {point}".format(point=self.point))
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "w")
         f.write(str(self.point))
         f.close()
 
@@ -136,7 +133,7 @@ class GameStage(game.scene2d.MyStage):
         self.P5.h = 420
         self.P5.y = -35
         if self.elapsed_time > 25:
-            self.P5.y = random.randint(-65, -38)
+            self.P5.y = random.randint(-65, -40)
         if self.elapsed_time > 35:
             self.P5.y = random.randint(-55, -40)
 

@@ -12,7 +12,6 @@ class lovedek(game.scene2d.MyActor):
         self.hitbox_scale_w = 0.9
 
 
-
 class fohos(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/legokatona.png")
@@ -41,8 +40,8 @@ class enemy1(game.scene2d.MyActor):
         self.set_on_key_press_listener(self.key_down)
 
     def key_down(self, sender, event):
-        print(sender)
-        print(event)
+#        print(sender)
+#        print(event)
         if event.key == pygame.K_RIGHT:
             self.x += 4
         if event.key == pygame.K_UP:
@@ -86,4 +85,32 @@ class startgomb(game.scene2d.MyActor):
 
 class wall2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Images/fal.jpg")
+        super().__init__("Images/gedvasfal.png")
+        self.set_size(65, 65)
+
+class kulcs(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/kulcs.png")
+        self.set_size(150,150)
+
+class zartajto(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/oszlop.png")
+        self.set_size(100, 200)
+
+class eastereggtabla(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/tabla.png")
+
+class easteregg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/ffpog.png")
+        self.set_size(150, 150)
+class csakany(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/csakany.png")
+        self.set_size(150, 150)
+
+class quit(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/quit.png")

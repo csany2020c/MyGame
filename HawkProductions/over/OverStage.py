@@ -36,7 +36,7 @@ class OverStage(game.scene2d.MyStage):
         self.pointl.y = 645
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
@@ -83,7 +83,7 @@ class OverStage2(game.scene2d.MyStage):
         self.pointl.y = 555
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
@@ -125,7 +125,7 @@ class OverStage3(game.scene2d.MyStage):
         self.pointl.y = 555
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
