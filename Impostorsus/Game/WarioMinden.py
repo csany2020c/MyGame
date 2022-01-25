@@ -139,9 +139,6 @@ class ASD(game.scene2d.MyStage):
         self.b.x = +1100
         self.b.y = +700
 
-
-
-
     def press(self, sender, event):
         # print(event.key)
         if event.key == pygame.K_d:
