@@ -58,14 +58,14 @@ class IStage(game.scene2d.MyStage):
         self.add_actor(self.Ba)
         self.Ba.width = 125
 
+        self.logo = Logo()
+        self.add_actor(self.logo)
+        self.logo.set_size(227, 149)
+        self.logo.x = 850
+        self.logo.y = 45
+
         self.Ba.set_on_mouse_down_listener(self.click1)
         self.set_on_key_down_listener(self.katt1)
-
-        # self.L = Logo()
-        # self.add_actor(self.L)
-        # self.L.set_size(228, 172)
-        # self.L.x = 850
-        # self.L.y = 50
 
     def click1(self, sender, event):
         print(sender)
@@ -132,11 +132,11 @@ class Istage2(game.scene2d.MyStage):
         self.t4.x = 350
         self.t4.y = 560
 
-        # self.L = Logo()
-        # self.add_actor(self.L)
-        # self.L.set_size(228, 172)
-        # self.L.x = 850
-        # self.L.y = 50
+        self.logo = Logo()
+        self.add_actor(self.logo)
+        self.logo.set_size(227, 149)
+        self.logo.x = 850
+        self.logo.y = 45
 
     def click1(self, sender, event):
         print(sender)
@@ -153,4 +153,3 @@ class Istage2(game.scene2d.MyStage):
     def valtas(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(HawkProductions.Info.InfoScreen.IScreen())
-

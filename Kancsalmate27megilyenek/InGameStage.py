@@ -9,6 +9,7 @@ from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek.Labels import *
 from Kancsalmate27megilyenek.ArenaScreen import *
 from game.scene2d import MyBaseActor
+from Kancsalmate27megilyenek.PlayerActor import *
 from Kancsalmate27megilyenek.Map import *
 class InStage(game.scene2d.MyStage):
     def __init__(self):
@@ -26,7 +27,7 @@ class InStage(game.scene2d.MyStage):
         # self.set_on_key_down_listener(self.moveKeys)
         # self.set_on_key_up_listener(self.moveKeysOff)
         self.camera.tracking = self.player
-        self.map = Map(self,"butamap")
+        self.map = Map(self, "butamap")
 
 
 
@@ -38,6 +39,9 @@ class InStage(game.scene2d.MyStage):
             self.eletero = self.eletero - 1
         if self.eletero == 0:
             self.player.remove_from_stage()
+
+        if self.player.overlaps(self.heal):
+            self.eletero = self.eletero + 1
         
         self.heart.x = self.player.x - 15
         self.heart.y = self.player.y - 30
@@ -51,7 +55,10 @@ class InStage(game.scene2d.MyStage):
             self.heart1.remove_from_stage()
         if self.eletero < 0:
             self.heart.remove_from_stage()
-
+        if self.eletero > 65:
+            self.add_actor(self.heart2)
+        if self.eletero > 30:
+            self.add_actor(self.heart1)
         if self.player.overlaps(self.sand):
             self.screen.game.set_screen(ArenaScreen())
 

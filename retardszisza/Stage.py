@@ -4,7 +4,6 @@ import retardszisza.menu_halal.HalalActor
 import retardszisza.menu_halal.HalalStage
 import retardszisza.menu_halal.HalalScreen
 from retardszisza.menu_halal.HalalScreen import *
-from Actor import *
 import game
 from retardszisza.Actor import *
 import random

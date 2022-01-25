@@ -3,29 +3,35 @@ import pygame
 import HawkProductions.menu.MenuScreen
 
 
+
 class OverStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Over.wav")
         pygame.mixer.music.play(-1)
-        self.F = Gameover()
-        self.add_actor(self.F)
-        self.F.set_color(255, 0, 0)
-        self.F.set_font_size(300)
-        self.F.set_text("Game Over")
-        self.F.x = 400
-        self.F.y = 100
+        self.c = HawkProductions.Gaymover()
+        self.add_actor(self.c)
 
-        self.g = Gameover()
-        self.add_actor(self.g)
-        self.g.set_text("Próbáld újra!")
-        self.g.set_color(255, 255, 255)
-        self.g.x = 525
-        self.g.y = 300
-        self.g.set_font_size(100)
-        self.g.set_on_mouse_down_listener(self.click)
-        self.g.set_on_key_down_listener(self.back_button)
+
+
+        # self.F = Gameover()
+        # self.add_actor(self.F)
+        # self.F.set_color(255, 0, 0)
+        # self.F.set_font_size(300)
+        # self.F.set_text("Game Over")
+        # self.F.x = 400
+        # self.F.y = 100
+
+        # self.g = Gameover()
+        # self.add_actor(self.g)
+        # self.g.set_text("Próbáld újra!")
+        # self.g.set_color(255, 255, 255)
+        # self.g.x = 525
+        # self.g.y = 300
+        # self.g.set_font_size(100)
+        # self.g.set_on_mouse_down_listener(self.click)
+        # self.g.set_on_key_down_listener(self.back_button)
 
         self.pointl = Gameover("")
         self.update_point()
@@ -36,7 +42,7 @@ class OverStage(game.scene2d.MyStage):
         self.pointl.y = 645
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
@@ -83,7 +89,7 @@ class OverStage2(game.scene2d.MyStage):
         self.pointl.y = 555
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
@@ -125,7 +131,7 @@ class OverStage3(game.scene2d.MyStage):
         self.pointl.y = 555
 
     def update_point(self):
-        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r+")
+        f = open("../HawkProductions/eredmenyek/eredmenyek.txt", "r")
         self.score: str = f.readline()
         self.pointl.set_text("Your score: {point}".format(point=self.score))
 
