@@ -212,11 +212,41 @@ class Bindings(game.scene2d.MyActor):
         self.set_height(275)
         self.set_width(275)
 
-class Coin(game.scene2d.MyActor):
+class Pause(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Kepek/coin.png")
-        self.set_height(50)
-        self.set_width(50)
+        super().__init__("Kepek/musicpause.png")
+        self.set_height(45)
+        self.set_width(45)
+
+class Start(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musicstart.png")
+        self.set_height(44)
+        self.set_width(44)
+
+class Next(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musicnext.png")
+        self.set_height(45)
+        self.set_width(45)
+
+class Last(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musiclast.png")
+        self.set_height(42)
+        self.set_width(42)
+
+class KunuM(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mario.png")
+        self.set_height(200)
+        self.set_width(200)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+
+        if self.elapsed_time > 0:
+            self.y -= delta_time * 250
 
 class Web(game.scene2d.MyActor):
     def __init__(self):

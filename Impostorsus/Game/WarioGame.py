@@ -31,6 +31,16 @@ class Wario(game.scene2d.MyGame):
             pygame.display.toggle_fullscreen()
         if event.key == pygame.K_ESCAPE:
             quit()
+        if event.key == pygame.K_LCTRL:
+            pygame.mixer.music.load('audio/rajosan.mp3')
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load('audio/spartai.mp3')
+            pygame.mixer.music.stop()
+        if event.key == pygame.K_RCTRL:
+            pygame.mixer.music.load('audio/rajosan.mp3')
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load('audio/spartai.mp3')
+            pygame.mixer.music.stop()
 
 
 

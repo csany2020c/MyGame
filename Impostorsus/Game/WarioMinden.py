@@ -206,7 +206,7 @@ class ASD(game.scene2d.MyStage):
         overASD: bool = False
         dead_fx = pygame.mixer.Sound("audio/battya.mp3")
         dead_fx.set_volume(0.04)
-        win_fx = pygame.mixer.Sound("audio/mester.mp3")
+        win_fx = pygame.mixer.Sound("audio/winsound.mp3")
         win_fx.set_volume(0.04)
 
         g = None
@@ -262,10 +262,10 @@ class ASD(game.scene2d.MyStage):
             if isinstance(actorASD, Question):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.q)
-                    self.c = Coin()
-                    self.add_actor(self.c)
-                    self.c.x = 2900
-                    self.c.y = 320
+                    self.k = KunuM()
+                    self.add_actor(self.k)
+                    self.k.x = 2850
+                    self.k.y = 900
 
 
             if g is not None:
@@ -324,6 +324,9 @@ class ASD(game.scene2d.MyStage):
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        pygame.mixer.music.load('audio/rajosan.mp3')
+        pygame.mixer.music.play()
+        pygame.mixer.music.set_volume(0.03)
         pygame.mouse.set_visible(10)
         self.b = BackGround()
         self.add_actor(self.b)
@@ -357,12 +360,231 @@ class ASD2 (game.scene2d.MyStage):
         self.add_actor(self.w)
         self.w.x += 475
         self.w.y += 255
+        self.stop = Pause()
+        self.add_actor(self.stop)
+        self.stop.x += 1030
+        self.stop.y += 215
+        self.start = Start()
+        self.add_actor(self.start)
+        self.start.x += 1030
+        self.start.y += 215
+        self.remove_actor(self.start)
+        self.a = MenuSzoveg()
+        self.add_actor(self.a)
+        self.a.set_text("MARIO - Rajosan - OFFICIAL MUSIC VIDEO")
+        self.a.set_alpha(1000)
+        self.a.set_width(17)
+        self.a.set_height(17)
+        self.a.x += 900
+        self.a.y += 190
+        self.next = Next()
+        self.add_actor(self.next)
+        self.next.x += 1095
+        self.next.y += 215
+        self.b = MenuSzoveg()
+        self.add_actor(self.b)
+        self.b.set_text("Jonas Emil - Spártai Kemál Veretőgép")
+        self.b.set_alpha(1000)
+        self.b.set_width(18)
+        self.b.set_height(18)
+        self.b.x += 910
+        self.b.y += 190
+        self.remove_actor(self.b)
+        self.stop1 = Pause()
+        self.add_actor(self.stop1)
+        self.stop1.x += 1030
+        self.stop1.y += 215
+        self.remove_actor(self.stop1)
+        self.start1 = Start()
+        self.add_actor(self.start1)
+        self.start1.x += 1030
+        self.start1.y += 215
+        self.remove_actor(self.start1)
+        self.last = Last()
+        self.add_actor(self.last)
+        self.last.x += 965
+        self.last.y += 215
+        self.remove_actor(self.last)
+        self.c = MenuSzoveg()
+        self.add_actor(self.c)
+        self.c.set_text("25%")
+        self.c.set_alpha(1000)
+        self.c.set_width(18)
+        self.c.set_height(18)
+        self.c.x += 1200
+        self.c.y += 220
+        self.d = MenuSzoveg()
+        self.add_actor(self.d)
+        self.d.set_text("50%")
+        self.d.set_alpha(1000)
+        self.d.set_width(18)
+        self.d.set_height(18)
+        self.d.x += 1200
+        self.d.y += 245
+        self.e = MenuSzoveg()
+        self.add_actor(self.e)
+        self.e.set_text("25%")
+        self.e.set_alpha(1000)
+        self.e.set_width(18)
+        self.e.set_height(18)
+        self.e.x += 1200
+        self.e.y += 220
+        self.remove_actor(self.e)
+        self.f = MenuSzoveg()
+        self.add_actor(self.f)
+        self.f.set_text("50%")
+        self.f.set_alpha(1000)
+        self.f.set_width(18)
+        self.f.set_height(18)
+        self.f.x += 1200
+        self.f.y += 245
+        self.remove_actor(self.f)
         self.p.set_on_mouse_down_listener(self.play)
         self.e.set_on_mouse_down_listener(self.exit)
         self.f.set_on_mouse_down_listener(self.fullscreen)
         self.bi.set_on_mouse_down_listener(self.bind)
         self.c.set_on_mouse_down_listener(self.creator)
         self.w.set_on_mouse_down_listener(self.website)
+        self.stop.set_on_mouse_down_listener(self.stopgomb)
+        self.start.set_on_mouse_down_listener(self.startgomb)
+        self.next.set_on_mouse_down_listener(self.nextgomb)
+        self.stop1.set_on_mouse_down_listener(self.stopgomb1)
+        self.start1.set_on_mouse_down_listener(self.startgomb1)
+        self.last.set_on_mouse_down_listener(self.lastgomb)
+        self.c.set_on_mouse_down_listener(self.volume)
+        self.d.set_on_mouse_down_listener(self.volume1)
+        self.e.set_on_mouse_down_listener(self.volume2)
+        self.f.set_on_mouse_down_listener(self.volume3)
+
+    def volume3(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.08)
+
+    def volume2(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.04)
+
+    def volume1(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.08)
+
+    def volume(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.04)
+
+
+    def nextgomb(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.stop()
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.play()
+                self.remove_actor(self.a)
+                self.add_actor(self.b)
+                self.add_actor(self.stop1)
+                self.remove_actor(self.stop)
+                self.remove_actor(self.next)
+                self.add_actor(self.last)
+                self.remove_actor(self.c)
+                self.remove_actor(self.d)
+                self.add_actor(self.e)
+                self.add_actor(self.f)
+
+    def lastgomb(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.stop()
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.play()
+                self.remove_actor(self.b)
+                self.add_actor(self.a)
+                self.remove_actor(self.stop1)
+                self.add_actor(self.stop)
+                self.add_actor(self.next)
+                self.remove_actor(self.last)
+                self.add_actor(self.c)
+                self.add_actor(self.d)
+                self.remove_actor(self.e)
+                self.remove_actor(self.f)
+
+    def stopgomb1(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.stop()
+                self.remove_actor(self.stop1)
+                self.add_actor(self.start1)
+                self.remove_actor(self.last)
+                self.remove_actor(self.e)
+                self.remove_actor(self.f)
+
+    def startgomb1(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/spartai.mp3')
+                pygame.mixer.music.play()
+                self.remove_actor(self.start1)
+                self.add_actor(self.stop1)
+                self.add_actor(self.last)
+                self.add_actor(self.e)
+                self.add_actor(self.f)
+
+
+    def stopgomb(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.stop()
+                self.remove_actor(self.stop)
+                self.add_actor(self.start)
+                self.remove_actor(self.next)
+                self.remove_actor(self.c)
+                self.remove_actor(self.d)
+
+    def startgomb(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                pygame.mixer.music.load('audio/rajosan.mp3')
+                pygame.mixer.music.play()
+                self.remove_actor(self.start)
+                self.add_actor(self.stop)
+                self.add_actor(self.next)
+                self.add_actor(self.c)
+                self.add_actor(self.d)
 
 
     def creator(self, sender, event):
@@ -443,6 +665,22 @@ class BindingsStage (game.scene2d.MyStage):
         self.d.set_height(50)
         self.d.x += 250
         self.d.y += 325
+        self.e = MenuSzoveg()
+        self.add_actor(self.e)
+        self.e.set_text("ESC = Kilépés")
+        self.e.set_alpha(500)
+        self.e.set_width(50)
+        self.e.set_height(50)
+        self.e.x += 250
+        self.e.y += 400
+        self.f = MenuSzoveg()
+        self.add_actor(self.f)
+        self.f.set_text("CTRL= Zene megállítása")
+        self.f.set_alpha(500)
+        self.f.set_width(50)
+        self.f.set_height(50)
+        self.f.x += 250
+        self.f.y += 475
 
 
 class CreditStage (game.scene2d.MyStage):
