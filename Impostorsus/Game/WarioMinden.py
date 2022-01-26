@@ -266,6 +266,10 @@ class ASD(game.scene2d.MyStage):
                     self.add_actor(self.k)
                     self.k.x = 2850
                     self.k.y = 900
+            if isinstance(actorASD, KunuM):
+                if self.wario.overlaps(actorASD):
+                    self.remove_actor(self.k)
+
 
 
             if g is not None:
