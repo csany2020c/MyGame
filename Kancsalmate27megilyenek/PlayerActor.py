@@ -36,14 +36,18 @@ class PlayerActor(game.scene2d.MyActor):
     def keyHandling(self,sender,event):
         if event.key == pygame.K_w:
             self.isWPressed = True
+            self.isSPressed = False
         if event.key == pygame.K_a:
             self.isAPressed = True
+            self.isDPressed = False
             self.image_url = "Heroamijó_1.png"
         if event.key == pygame.K_s:
             self.isSPressed = True
+            self.isWPressed = False
         if event.key == pygame.K_d:
             self.isDPressed = True
             self.image_url = "Heroamijó_1_right.png"
+            self.isAPressed = False
         if event.key == pygame.K_ESCAPE:
             self.stage.screen.game.set_screen(MenuScreen.MenuScreen3())
 
@@ -52,17 +56,28 @@ class PlayerActor(game.scene2d.MyActor):
     def keyhandlingOff(self,sender,event):
         if event.key == pygame.K_w:
             self.isWPressed = False
-            self.image_url = "Heroamijó_1.png"
+            if self.isAPressed == True:
+                self.image_url = "Heroamijó_1.png"
+            else:
+                self.image_url = "Heroamijó_1_right.png"
         if event.key == pygame.K_a:
             self.isAPressed = False
-            self.image_url = "Heroamijó_1.png"
+            if self.isDPressed == True:
+                self.image_url = "Heroamijó_1_right.png"
+            else:
+                self.image_url = "Heroamijó_1.png"
         if event.key == pygame.K_s:
             self.isSPressed = False
-            self.image_url = "Heroamijó_1.png"
+            if self.isAPressed == True:
+                self.image_url = "Heroamijó_1.png"
+            else:
+                self.image_url = "Heroamijó_1_right.png"
         if event.key == pygame.K_d:
             self.isDPressed = False
-            self.image_url = "Heroamijó_1_right.png"
-
+            if self.isAPressed == True:
+                self.image_url = "Heroamijó_1.png"
+            else:
+                self.image_url = "Heroamijó_1_right.png"
     def timeHandling(self,sender):
         if self.isAPressed:
            if self.get_image_url() == self.leftImages[0]:
