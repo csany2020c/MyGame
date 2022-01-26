@@ -16,7 +16,7 @@ class ASD(game.scene2d.MyStage):
         # #     h.x = i * h.w + -150
         # #     self.add_actor(h)
         # self.add_actor(HatterActor1())
-        f = open("palya.txt", "r")
+        f = open("palya2.txt", "r")
 
         y: int = 0
         while True:
@@ -49,6 +49,8 @@ class ASD(game.scene2d.MyStage):
                     if c == "k":
                         a = GroundActor()
                         a4 = Lathatatlan4()
+                    if c == "l":
+                        a = Ground2Actor()
                     if c == "x":
                         a = InvisActor()
                     if c == "S":
