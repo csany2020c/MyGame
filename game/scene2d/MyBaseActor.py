@@ -126,6 +126,11 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         self._transform()
         return self
 
+    def set_position(self,x: float, y: float) -> 'MyBaseActor':
+        self._x = x
+        self._y = y
+        return self
+
     def rotate_with(self, degree: float) -> 'MyBaseActor':
         self.set_rotation(self._r + degree)
         return self

@@ -38,10 +38,12 @@ class PlayerActor(game.scene2d.MyActor):
             self.isWPressed = True
         if event.key == pygame.K_a:
             self.isAPressed = True
+            self.image_url = "Heroamijó_1.png"
         if event.key == pygame.K_s:
             self.isSPressed = True
         if event.key == pygame.K_d:
             self.isDPressed = True
+            self.image_url = "Heroamijó_1_right.png"
         if event.key == pygame.K_ESCAPE:
             self.stage.screen.game.set_screen(MenuScreen.MenuScreen3())
 
@@ -80,7 +82,7 @@ class PlayerActor(game.scene2d.MyActor):
            elif self.get_image_url() == self.leftImages[7]:
                 self.image_url = self.leftImages[0]
 
-        if self.isDPressed:
+        elif self.isDPressed:
            if self.get_image_url() == self.rightImages[0]:
                self.image_url = self.rightImages[1]
            elif self.get_image_url() == self.rightImages[1]:
@@ -96,7 +98,7 @@ class PlayerActor(game.scene2d.MyActor):
            elif self.get_image_url() == self.rightImages[6]:
                 self.image_url = self.rightImages[7]
            elif self.get_image_url() == self.rightImages[7]:
-                self.image_url = self.rightImages[7]
+                self.image_url = self.rightImages[0]
 
     def act(self, delta_time: float):
         super().act(delta_time)

@@ -5,7 +5,7 @@ import game
 class Enemys:
     def __init__(self) -> None:
         super().__init__()
-        f:TextIO = open("enemyTypes.txt","r",encoding="utf8")
+        f:TextIO = open("../Files/enemyTypes.txt","r",encoding="utf8")
         content:str = f.read()
         lines:List['str'] = content.split("\n")
         self.enemys:List['Enemy'] = list()
