@@ -241,6 +241,8 @@ class KunuM(game.scene2d.MyActor):
         super().__init__("Kepek/mario.png")
         self.set_height(200)
         self.set_width(200)
+        self.hitbox_scale_h = 1.5
+        self.hitbox_scale_w = 0.5
 
     def act(self, delta_time: float):
         super().act(delta_time)
