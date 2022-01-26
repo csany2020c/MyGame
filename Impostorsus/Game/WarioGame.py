@@ -13,7 +13,7 @@ class Wario(game.scene2d.MyGame):
         self.set_on_key_down_listener(self.key_down)
         pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
         clock = pygame.time.Clock()
-        pygame.display.set_caption('KUN WARIO')
+        pygame.display.set_caption('KUNU WARIO')
         T = pygame.image.load('Kepek/Tabla.png')
         pygame.display.set_icon(T)
 
