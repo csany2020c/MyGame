@@ -626,7 +626,7 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.PalyaScr())
 
     def fullscreen(self, sender, event):
         print(sender)
@@ -748,4 +748,290 @@ class WinStage(game.scene2d.MyStage):
         self.w.x += self.width /2 - self.w.get_width() / 2
         self.w.y += self.height /2 - self.w.get_height() / 2
 
+
+class PalyaStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.m1 = Map1()
+        self.add_actor(self.m1)
+        self.m1.x = 300
+        self.m1.y = 200
+        self.m2 = Map2()
+        self.add_actor(self.m2)
+        self.m2.x = 750
+        self.m2.y = 200
+        self.m1.set_on_mouse_down_listener(self.palya1)
+        self.m2.set_on_mouse_down_listener(self.palya2)
+
+    def palya1(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+
+    def palya2(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
+
+class ASD3(game.scene2d.MyStage):
+
+    def __init__(self):
+        super().__init__()
+        pygame.mouse.set_visible(0)
+        f = open("palya2.txt", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    a1: MyBaseActor = None
+                    a2: MyBaseActor = None
+                    a3: MyBaseActor = None
+                    a4: MyBaseActor = None
+                    if c == "y":
+                        a = Kocka()
+                    if c == "b":
+                        a = BillActor()
+                    if c == "o":
+                        a = Kocka()
+                        a1 = Lathatatlan()
+                    if c == "p":
+                        a = Kocka()
+                        a2 = Lathatatlan2()
+                    if c == "B":
+                        a = CannonActor()
+                    if c == "g":
+                        a = GroundActor()
+                    if c == "j":
+                        a = GroundActor()
+                        a3 = Lathatatlan3()
+                    if c == "k":
+                        a = GroundActor()
+                        a4 = Lathatatlan4()
+                    if c == "l":
+                        a = Ground2Actor()
+                    if c == "x":
+                        a = InvisActor()
+                    if c == "S":
+                        a = Tabla()
+                    if c == "z":
+                        a = Zaszlo()
+                    if c == "W":
+                        self.wario = WarioActor()
+                        a = self.wario
+                        a1 = self.wario
+                        a2 = self.wario
+                        a3 = self.wario
+                        a4 = self.wario
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 64
+                        self.add_actor(a)
+                    if a1 is not None:
+                        a1.x = x * 64
+                        a1.y = y * 64
+                        self.add_actor(a1)
+                    if a2 is not None:
+                        a2.x = x * 64
+                        a2.y = y * 64
+                        self.add_actor(a2)
+                    if a3 is not None:
+                        a3.x = x * 64
+                        a3.y = y * 64
+                        self.add_actor(a3)
+                    if a4 is not None:
+                        a4.x = x * 64
+                        a4.y = y * 64
+                        self.add_actor(a4)
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
+
+        self.camera.tracking = self.wario
+        # self.add_actor(self.wario)
+        self.wario.set_on_key_press_listener(self.press)
+        self.wario.set_on_key_down_listener(self.key_down)
+        self.sz = MenuSzoveg()
+        self.add_actor(self.sz)
+        self.sz.set_text("Nyomj")
+        self.sz.set_alpha(500)
+        self.sz.set_width(25)
+        self.sz.set_height(25)
+        self.sz.x += 3410
+        self.sz.y += 715
+        self.sz2 = MenuSzoveg()
+        self.add_actor(self.sz2)
+        self.sz2.set_text("E-t")
+        self.sz2.set_alpha(500)
+        self.sz2.set_width(25)
+        self.sz2.set_height(25)
+        self.sz2.x += 3430
+        self.sz2.y += 740
+        self.t = MyTickTimer(interval=2.3, func=self.tikk)
+        self.add_timer(self.t)
+        self.t2 = MyTickTimer(interval=0.4, func=self.tikk2)
+        self.add_timer(self.t2)
+        self.t3 = MyTickTimer(interval=0.8, func=self.tikk3)
+        self.add_timer(self.t3)
+        self.q = Question()
+        self.add_actor(self.q)
+        self.q.y = 320
+        self.q.x = 2900
+
+
+    def tikk(self, sender):
+        self.b = BillActor()
+        self.add_actor(self.b)
+        self.b.x = +1100
+        self.b.y = +700
+
+    def tikk2(self, sender):
+        self.wario.image_url = 'Kepek/actorsusus.png'
+
+    def tikk3(self, sender):
+        self.wario.image_url = 'Kepek/actorsusus2.png'
+
+
+
+    def press(self, sender, event):
+        # print(event.key)
+        if event.key == pygame.K_d:
+            sender.x += 10
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+        if event.key == pygame.K_a:
+            sender.x -= 10
+            self.wario.image_url = 'Kepek/actorsusus3.png'
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+        if event.key == pygame.K_RIGHT:
+            sender.x += 10
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+        if event.key == pygame.K_LEFT:
+            sender.x -= 10
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+
+
+    def interval(self, sender):
+        self.wario.x += 100 * self.get_delta_time()
+        self.gomba.x += 100 * self.get_delta_time()
+        pass
+
+    def key_down(self, sender, event):
+        jump_fx = pygame.mixer.Sound("audio/jumpsound.mp3")
+        jump_fx.set_volume(0.015)
+        print(sender)
+        print(event)
+        if event.key == pygame.K_w:
+            print("'hoppáré'")
+            self.wario.ugras()
+            jump_fx.play()
+
+        if event.key == pygame.K_SPACE:
+            print("'hoppáré'")
+            self.wario.ugras()
+            jump_fx.play()
+        if event.key == pygame.K_UP:
+            print("'hoppáré'")
+            self.wario.ugras()
+            jump_fx.play()
+        if event.key == pygame.K_e:
+            pygame.mixer.music.load("audio/jebait.mp3")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(0.04)
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        overlapsASD: bool = False
+        overASD: bool = False
+        dead_fx = pygame.mixer.Sound("audio/battya.mp3")
+        dead_fx.set_volume(0.04)
+        win_fx = pygame.mixer.Sound("audio/winsound.mp3")
+        win_fx.set_volume(0.04)
+
+        g = None
+        for actorASD in self.actors:
+            if isinstance(actorASD, Gemba):
+                if actorASD.elapsed_time > 0.5:
+                    if self.wario.overlaps(actorASD):
+                        # self.gomba = Gemba()
+                        self.wario.set_height(200)
+                        self.wario.set_width(200)
+                        g = actorASD
+            if isinstance(actorASD, Kocka):
+                if actorASD.y - actorASD.h > self.wario.y:
+                    if self.wario.overlaps(actorASD):
+                        overlapsASD = True
+                        break
+            if isinstance(actorASD, GroundActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+            if isinstance(actorASD, CannonActor):
+                if self.wario.overlaps(actorASD):
+                    overlapsASD = True
+                    break
+
+            if isinstance(actorASD, InvisActor):
+                if self.wario.overlaps(actorASD):
+                    overASD = True
+                    break
+            if isinstance(actorASD, Kocka):
+                if self.wario.overlaps(actorASD):
+                    self.wario.y += 7.5
+            if isinstance(actorASD, Lathatatlan):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 12
+            if isinstance(actorASD, Lathatatlan2):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 12
+            if isinstance(actorASD, Lathatatlan3):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 12
+            if isinstance(actorASD, Lathatatlan4):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 12
+            if isinstance(actorASD, BillActor):
+                if self.wario.overlaps(actorASD):
+                    dead_fx.play()
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
+            if isinstance(actorASD, Zaszlo):
+                if self.wario.overlaps(actorASD):
+                    win_fx.play()
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.WinScreen())
+            if isinstance(actorASD, Question):
+                if self.wario.overlaps(actorASD):
+                    self.remove_actor(self.q)
+                    self.k = KunuM()
+                    self.add_actor(self.k)
+                    self.k.x = 2850
+                    self.k.y = 900
+            if isinstance(actorASD, KunuM):
+                if self.wario.overlaps(actorASD):
+                    self.remove_actor(self.k)
+
+
+
+            if g is not None:
+                g.remove_from_stage()
+
+        if overlapsASD:
+            self.wario.stop()
+        else:
+            self.wario.start()
+
+        if overASD:
+            dead_fx.play()
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
 
