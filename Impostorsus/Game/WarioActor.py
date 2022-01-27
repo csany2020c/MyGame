@@ -217,6 +217,10 @@ class Keret(game.scene2d.MyActor):
         super().__init__("Kepek/keret.png")
         self.set_width(400)
 
+class BackGround2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/background2.jpg")
+
 class Map1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/map1.png")

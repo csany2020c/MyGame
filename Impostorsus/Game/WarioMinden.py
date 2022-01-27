@@ -762,9 +762,9 @@ class PalyaStage(game.scene2d.MyStage):
         self.add_actor(self.k1)
         self.k1.x = 230
         self.k1.y = 260
-        self.h2 = BackGround()
+        self.h2 = BackGround2()
         self.add_actor(self.h2)
-        self.h2.set_width(400)
+        self.h2.set_width(382)
         self.h2.x = 675
         self.h2.y = 275
         self.k2 = Keret()
