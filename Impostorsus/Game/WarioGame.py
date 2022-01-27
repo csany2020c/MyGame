@@ -13,7 +13,7 @@ class Wario(game.scene2d.MyGame):
         self.set_on_key_down_listener(self.key_down)
         pygame.display.set_mode((1280, 720), pygame.RESIZABLE)
         clock = pygame.time.Clock()
-        pygame.display.set_caption('SUPER WARIO')
+        pygame.display.set_caption('KUNU WARIO')
         T = pygame.image.load('Kepek/Tabla.png')
         pygame.display.set_icon(T)
 
@@ -23,14 +23,22 @@ class Wario(game.scene2d.MyGame):
         self.width = pygame.display.get_surface().get_width()
         print(sender)
         print(event)
-        if event.key == pygame.K_r:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.MenuScreen())
         if event.key == pygame.K_F11:
             pygame.display.toggle_fullscreen()
         if event.key == pygame.K_ESCAPE:
             quit()
+        if event.key == pygame.K_LCTRL:
+            pygame.mixer.music.load('audio/rajosan.mp3')
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load('audio/spartai.mp3')
+            pygame.mixer.music.stop()
+        if event.key == pygame.K_RCTRL:
+            pygame.mixer.music.load('audio/rajosan.mp3')
+            pygame.mixer.music.stop()
+            pygame.mixer.music.load('audio/spartai.mp3')
+            pygame.mixer.music.stop()
 
 
 

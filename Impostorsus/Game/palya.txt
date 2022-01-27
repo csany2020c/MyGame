@@ -4,13 +4,13 @@ p                                                                 o
 p                                                                 o
 p                                                                 o
 p              oop                                         z      o
-p   ooop                                                          o
-p                                                                 o
-p                                                                 o
-p                                          j  k                   o
-p                            oyyyyp                               o
-p  W        b     B                     j  g  g  k   S            o
-p                                                                 o
+p   ooop                                                   1      o
+p                                                          2      o
+p                                                          3      o
+p                                          j  k            4      o
+p                            oyyyyp                        5      o
+p  W        b     B                     j  g  g  k   S     6      o
+p                                                          7      o
 g  g  g  g  g  g  g  k      j  g  g  g  g  g  g  g  g  g  g  g  g
 x
 g                    k      j
@@ -18,4 +18,5 @@ x
 g                    k      j
 x
 g                    gxxxxxxg
+
 

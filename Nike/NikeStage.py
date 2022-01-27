@@ -11,7 +11,9 @@ class MenuStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.FatJordan = FatJordan()
-        self.add_actor(FatJordan())
+        self.add_actor(self.FatJordan)
+        self.FatJordan.y = 280
+        self.FatJordan.x = 530
         self.text = MenuText()
         self.add_actor(self.text)
         self.text.set_text("Fat Jordan")

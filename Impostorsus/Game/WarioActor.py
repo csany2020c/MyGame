@@ -109,7 +109,7 @@ class Question(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/kerdosus.png")
         self.hitbox_shape = ShapeType.Rectangle
-        self.set_width(100)
+        self.set_width(80)
 
 class Kocka(game.scene2d.MyActor):
     def __init__(self):
@@ -209,6 +209,65 @@ class Credit(game.scene2d.MyActor):
 class Bindings(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/bindings.png")
+        self.set_height(275)
+        self.set_width(275)
+
+class Keret(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/keret.png")
+        self.set_width(400)
+
+class Map1(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/map1.png")
+        self.set_width(225)
+
+class Map2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/map2.png")
+        self.set_width(225)
+
+class Pause(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musicpause.png")
+        self.set_height(45)
+        self.set_width(45)
+
+class Start(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musicstart.png")
+        self.set_height(44)
+        self.set_width(44)
+
+class Next(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musicnext.png")
+        self.set_height(45)
+        self.set_width(45)
+
+class Last(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/musiclast.png")
+        self.set_height(42)
+        self.set_width(42)
+
+class KunuM(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mario.png")
+        self.set_height(200)
+        self.set_width(200)
+        self.hitbox_scale_h = 1.5
+        self.hitbox_scale_w = 0.5
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+
+        if self.elapsed_time > 0:
+            self.y -= delta_time * 250
+
+class Web(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/websitei.png")
         self.set_height(275)
         self.set_width(275)
 
