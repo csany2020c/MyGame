@@ -16,7 +16,7 @@ class ASD(game.scene2d.MyStage):
         # #     h.x = i * h.w + -150
         # #     self.add_actor(h)
         # self.add_actor(HatterActor1())
-        f = open("palya2.txt", "r")
+        f = open("palya.txt", "r")
 
         y: int = 0
         while True:
