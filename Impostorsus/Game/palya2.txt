@@ -12,7 +12,7 @@ p                         B o
 p                         b o
 p                         oyyyyyyyyyo
 p                                   o
-p                              W    o
+p                                   o
 p    oyyyp         S                o
 p                                   o
 p               oyyp      oyyyyyyyyyo
@@ -24,7 +24,7 @@ p      oyyp               o
 p                         o
 p                         o
 p              oyyyyp     o
-p                         o
+p    W                    o
 p                         o
 g  g  g  g  g  g  g  g  g
 
