@@ -23,8 +23,6 @@ class Wario(game.scene2d.MyGame):
         self.width = pygame.display.get_surface().get_width()
         print(sender)
         print(event)
-        if event.key == pygame.K_r:
-            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.MenuScreen())
         if event.key == pygame.K_F11:
