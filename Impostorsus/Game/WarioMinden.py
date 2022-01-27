@@ -848,8 +848,14 @@ class ASD3(game.scene2d.MyStage):
                         a = Kocka()
                     if c == "L":
                         a = Ladder()
+                    if c == "P":
+                        a = Pipe()
+                    if c == "M":
+                        a = Pipe1()
                     if c == "h":
                         a = KockaHalf()
+                    if c == "H":
+                        a = KockaHalf2()
                     if c == "b":
                         self.a = BillActor()
                     if c == "o":
@@ -917,19 +923,19 @@ class ASD3(game.scene2d.MyStage):
         self.wario.set_on_key_down_listener(self.key_down)
         self.sz = MenuSzoveg()
         self.add_actor(self.sz)
-        self.sz.set_text("Nyomj")
+        self.sz.set_text("Ugorj")
         self.sz.set_alpha(500)
         self.sz.set_width(25)
         self.sz.set_height(25)
-        self.sz.x += 1804
+        self.sz.x += 1810
         self.sz.y += 460
         self.sz2 = MenuSzoveg()
         self.add_actor(self.sz2)
-        self.sz2.set_text("E-t")
+        self.sz2.set_text("bele")
         self.sz2.set_alpha(500)
         self.sz2.set_width(25)
         self.sz2.set_height(25)
-        self.sz2.x += 1825
+        self.sz2.x += 1815
         self.sz2.y += 485
         self.sz3 = MenuSzoveg()
         self.add_actor(self.sz3)
@@ -1051,6 +1057,11 @@ class ASD3(game.scene2d.MyStage):
                     if self.wario.overlaps(actorASD):
                         overlapsASD = True
                         break
+            if isinstance(actorASD, KockaHalf2):
+                if actorASD.y - actorASD.h > self.wario.y:
+                    if self.wario.overlaps(actorASD):
+                        overlapsASD = True
+                        break
             if isinstance(actorASD, GroundActor):
                 if self.wario.overlaps(actorASD):
                     overlapsASD = True
@@ -1100,7 +1111,16 @@ class ASD3(game.scene2d.MyStage):
                     if self.elapsed_time > 0:
                         self.t = MyTickTimer(interval=0.2, func=self.tikktok)
                         self.add_timer(self.t)
-
+            if isinstance(actorASD, Pipe):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 2325
+                    self.wario.y -= 50
+                    self.remove_actor(self.c)
+                    self.remove_actor(self.c3)
+            if isinstance(actorASD, Pipe1):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 2325
+                    self.wario.y -= 50
 
 
 

@@ -1,13 +1,13 @@
-pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
-p                                    o
-p                                    o
-p                                z   o
-p                                    o
-p                                    o
-p                                    o
-p                           S        o
-p                                    o
-p            L oyyp       oyyyyyyyyyyo
+pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy                          pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyo
+p                                    o                          p                                                                  o
+p                                    o                          p                                                               z  o
+p                                    o                          p                                                                  o
+p                                    o                          p                      h                  H         oyyyyp         o
+p                                    o                          p                  oyp                               o    p        o
+p                                    o                          p       oyyp                                         o     p       o
+p                           S  P     o                          pM                                                   o      p      o
+p                                    o                          p                                                    o       yyyyyyy
+p            L oyyp       oyyyyyyyyyyo                          g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g  g
 p                         B o
 p                         b o
 p                         oyyyyyyyyyo
