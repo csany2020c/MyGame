@@ -241,6 +241,28 @@ class Bindings(game.scene2d.MyActor):
         self.set_height(275)
         self.set_width(275)
 
+class Cloud(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/cloud.png")
+        self.set_height(75)
+        self.set_width(75)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 0:
+            self.x += 20 * delta_time
+
+class Cloud3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/cloud3.png")
+        self.set_height(150)
+        self.set_width(150)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 0:
+            self.x += 20 * delta_time
+
 class Ladder(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/ladder.png")

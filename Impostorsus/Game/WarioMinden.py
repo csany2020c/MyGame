@@ -5,6 +5,7 @@ import webbrowser
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScr
+import random
 import sys
 class ASD(game.scene2d.MyStage):
 
@@ -831,6 +832,7 @@ class ASD3(game.scene2d.MyStage):
         pygame.mouse.set_visible(0)
         f = open("palya2.txt", "r")
 
+
         y: int = 0
         while True:
             line = f.readline().strip()
@@ -947,7 +949,18 @@ class ASD3(game.scene2d.MyStage):
         self.add_actor(self.q)
         self.q.x = 2150
         self.q.y = 880
+        self.timer = MyTickTimer(interval=2.5, func=self.idocucc)
+        self.add_timer(self.timer)
 
+    def idocucc(self, sender):
+        self.c = Cloud()
+        self.add_actor(self.c)
+        self.c3 = Cloud3()
+        self.add_actor(self.c3)
+        self.c.y = random.Random().randint(300, 1500)
+        self.c.x = random.Random().randint(100, 900)
+        self.c3.y = random.Random().randint(300, 1500)
+        self.c3.x = random.Random().randint(100, 900)
 
     def tikk(self, sender):
         self.add_actor(self.a)
@@ -1084,6 +1097,14 @@ class ASD3(game.scene2d.MyStage):
             if isinstance(actorASD, KunuM):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.k)
+                    if self.elapsed_time > 0:
+                        self.t = MyTickTimer(interval=0.5, func=self.tikktok)
+                        self.add_timer(self.t)
+
+
+
+
+
             if isinstance(actorASD, Ladder):
                 if self.wario.overlaps(actorASD):
                     self.wario.y -= 20
@@ -1099,3 +1120,10 @@ class ASD3(game.scene2d.MyStage):
         if overASD:
             dead_fx.play()
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen2())
+
+    def tikktok(self, sender):
+        self.screen.r = random.randint(0, 255)
+        self.screen.g = random.randint(0, 255)
+        self.screen.b = random.randint(0, 255)
+
+
