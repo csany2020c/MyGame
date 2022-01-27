@@ -19,6 +19,7 @@ class PlayerActor(game.scene2d.MyActor):
         self.width = self.info.current_w
         self.height = self.info.current_h
         self.hp:int = 100
+        self.max_hp:int = 100
         self.set_size(64, 64)
         self.hitbox_scale_h = 1
         self.hitbox_scale_w = 1
