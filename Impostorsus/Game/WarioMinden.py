@@ -186,7 +186,8 @@ class ASD(game.scene2d.MyStage):
             print("'hoppáré'")
             self.wario.ugras()
             jump_fx.play()
-
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
         if event.key == pygame.K_SPACE:
             print("'hoppáré'")
             self.wario.ugras()
@@ -935,7 +936,8 @@ class ASD3(game.scene2d.MyStage):
             print("'hoppáré'")
             self.wario.ugras()
             jump_fx.play()
-
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
         if event.key == pygame.K_SPACE:
             print("'hoppáré'")
             self.wario.ugras()
@@ -1021,8 +1023,6 @@ class ASD3(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.k)
 
-
-
             if g is not None:
                 g.remove_from_stage()
 
@@ -1034,4 +1034,3 @@ class ASD3(game.scene2d.MyStage):
         if overASD:
             dead_fx.play()
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
-
