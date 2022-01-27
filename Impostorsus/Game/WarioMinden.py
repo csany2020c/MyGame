@@ -1098,7 +1098,7 @@ class ASD3(game.scene2d.MyStage):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.k)
                     if self.elapsed_time > 0:
-                        self.t = MyTickTimer(interval=0.5, func=self.tikktok)
+                        self.t = MyTickTimer(interval=0.2, func=self.tikktok)
                         self.add_timer(self.t)
 
 
