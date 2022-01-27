@@ -346,18 +346,18 @@ class ASD2 (game.scene2d.MyStage):
         self.add_actor(self.s)
         self.s.x += 350
         self.s.y += 75
-        self.e = Exit()
-        self.add_actor(self.e)
-        self.e.x += 535
-        self.e.y += 550
-        self.f = FullScreen()
-        self.add_actor(self.f)
-        self.f.x += 425
-        self.f.y += 475
-        self.c = Credit()
-        self.add_actor(self.c)
-        self.c.x += 500
-        self.c.y += 400
+        self.ex = Exit()
+        self.add_actor(self.ex)
+        self.ex.x += 535
+        self.ex.y += 550
+        self.fu = FullScreen()
+        self.add_actor(self.fu)
+        self.fu.x += 425
+        self.fu.y += 475
+        self.cr = Credit()
+        self.add_actor(self.cr)
+        self.cr.x += 500
+        self.cr.y += 400
         self.bi = Bindings()
         self.add_actor(self.bi)
         self.bi.x += 475
@@ -446,10 +446,10 @@ class ASD2 (game.scene2d.MyStage):
         self.f.y += 245
         self.remove_actor(self.f)
         self.p.set_on_mouse_down_listener(self.play)
-        self.e.set_on_mouse_down_listener(self.exit)
-        self.f.set_on_mouse_down_listener(self.fullscreen)
+        self.ex.set_on_mouse_down_listener(self.exit)
+        self.fu.set_on_mouse_down_listener(self.fullscreen)
         self.bi.set_on_mouse_down_listener(self.bind)
-        self.c.set_on_mouse_down_listener(self.creator)
+        self.cr.set_on_mouse_down_listener(self.creator)
         self.w.set_on_mouse_down_listener(self.website)
         self.stop.set_on_mouse_down_listener(self.stopgomb)
         self.start.set_on_mouse_down_listener(self.startgomb)
@@ -599,6 +599,7 @@ class ASD2 (game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.screen.game.set_screen(Impostorsus.Game.WarioScr.CreditScreen())
+
     def website(self, sender, event):
         print(sender)
         print(event)
