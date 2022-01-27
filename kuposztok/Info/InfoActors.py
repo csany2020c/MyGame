@@ -20,3 +20,5 @@ class Back(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/back.png')
+        self.width = 100
+        self.height = 50

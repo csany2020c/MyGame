@@ -76,10 +76,8 @@ class InfoStage(game.scene2d.MyStage):
         self.add_actor(self.text72)
         self.back = Back()
         self.add_actor(self.back)
-        self.back.x = 1170
-        self.back.y = 700
-        self.back.height = 50
-        self.back.width = 160
+        self.back.x = self.width - self.back.get_width()
+        self.back.y = self.height - self.back.get_height()
 
         self.set_on_key_down_listener(self.katt)
         self.back.set_on_mouse_down_listener(self.Back)
