@@ -212,6 +212,11 @@ class Bindings(game.scene2d.MyActor):
         self.set_height(275)
         self.set_width(275)
 
+class Keret(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/keret.png")
+        self.set_width(400)
+
 class Map1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/map1.png")

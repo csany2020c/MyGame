@@ -753,16 +753,38 @@ class WinStage(game.scene2d.MyStage):
 class PalyaStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.h1 = BackGround()
+        self.add_actor(self.h1)
+        self.h1.set_width(400)
+        self.h1.x = 230
+        self.h1.y = 275
+        self.k1 = Keret()
+        self.add_actor(self.k1)
+        self.k1.x = 230
+        self.k1.y = 260
+        self.h2 = BackGround()
+        self.add_actor(self.h2)
+        self.h2.set_width(400)
+        self.h2.x = 675
+        self.h2.y = 275
+        self.k2 = Keret()
+        self.add_actor(self.k2)
+        self.k2.x = 675
+        self.k2.y = 260
         self.m1 = Map1()
         self.add_actor(self.m1)
         self.m1.x = 300
         self.m1.y = 200
         self.m2 = Map2()
         self.add_actor(self.m2)
-        self.m2.x = 750
+        self.m2.x = 760
         self.m2.y = 200
         self.m1.set_on_mouse_down_listener(self.palya1)
+        self.h1.set_on_mouse_down_listener(self.palya1)
+        self.k1.set_on_mouse_down_listener(self.palya1)
         self.m2.set_on_mouse_down_listener(self.palya2)
+        self.h2.set_on_mouse_down_listener(self.palya2)
+        self.k2.set_on_mouse_down_listener(self.palya2)
 
     def palya1(self, sender, event):
         print(sender)
