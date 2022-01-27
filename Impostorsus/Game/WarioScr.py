@@ -6,18 +6,18 @@ class WarioScr(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.r = 245
-        self.g = 71
-        self.b = 146
+        self.r = 92
+        self.g = 148
+        self.b = 252
         self.add_stage(ASD())
 
 class WarioScr2(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
-        self.r = 245
-        self.g = 71
-        self.b = 146
+        self.r = 92
+        self.g = 148
+        self.b = 252
         self.add_stage(ASD3())
 
 
