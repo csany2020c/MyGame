@@ -1,9 +1,9 @@
 pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy                          pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyo
 p                                    o                          p                                                                  o
 p                                    o                          p                                                               z  o
-p                                    o                          p                                                                  o
-p                                    o                          p                      h                  H         oyyyyp         o
-p                                    o                          p                  oyp                               o    p        o
+p                                    o                          p                   W                                              o
+p                                    o                          p                            oyyyyp                 ooyyyyp        o
+p                                    o                          p                  oyyp                   oyyp       o    p        o
 p                                    o                          p       oyyp                                         o     p       o
 p                           S  P     o                          pM                                                   o      p      o
 p                                    o                          p                                                    o       yyyyyyy
@@ -24,7 +24,7 @@ p      oyyp               o
 p                         o
 p                         o
 p              oyyyyp     o
-p    W                    o
+p                         o
 p                         o
 g  g  g  g  g  g  g  g  g
 

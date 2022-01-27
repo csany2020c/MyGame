@@ -854,8 +854,6 @@ class ASD3(game.scene2d.MyStage):
                         a = Pipe1()
                     if c == "h":
                         a = KockaHalf()
-                    if c == "H":
-                        a = KockaHalf2()
                     if c == "b":
                         self.a = BillActor()
                     if c == "o":
@@ -1053,11 +1051,6 @@ class ASD3(game.scene2d.MyStage):
                         overlapsASD = True
                         break
             if isinstance(actorASD, KockaHalf):
-                if actorASD.y - actorASD.h > self.wario.y:
-                    if self.wario.overlaps(actorASD):
-                        overlapsASD = True
-                        break
-            if isinstance(actorASD, KockaHalf2):
                 if actorASD.y - actorASD.h > self.wario.y:
                     if self.wario.overlaps(actorASD):
                         overlapsASD = True

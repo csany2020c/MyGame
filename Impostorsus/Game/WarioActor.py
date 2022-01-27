@@ -147,30 +147,6 @@ class KockaHalf(game.scene2d.MyActor):
         if self.elapsed_time > 31.5:
             self.x -= 80 * delta_time
 
-class KockaHalf2(game.scene2d.MyActor):
-    def __init__(self):
-        super().__init__("Kepek/kockahalf.png")
-        self.set_height(64)
-        self.set_width(64)
-        self.hitbox_shape = ShapeType.Rectangle
-
-    def tikk(self, sender, delta_time: float):
-        self.x -= 40 * delta_time
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        if self.elapsed_time > 0:
-            self.x -= 80 * delta_time
-        if self.elapsed_time > 7:
-            self.x += 160 * delta_time
-        if self.elapsed_time > 14:
-            self.x -= 160 * delta_time
-        if self.elapsed_time > 21:
-            self.x += 160 * delta_time
-        if self.elapsed_time > 28:
-            self.x -= 160 * delta_time
-        if self.elapsed_time > 31.5:
-            self.x += 80 * delta_time
 
 class Kockasl(game.scene2d.MyActor):
     def __init__(self):
