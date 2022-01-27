@@ -1,7 +1,7 @@
 pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy                          pyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyo
 p                                    o                          p                                                                  o
 p                                    o                          p                                                               z  o
-p                                    o                          p                   W                                              o
+p                                    o                          p                                                                  o
 p                                    o                          p                            oyyyyp                 ooyyyyp        o
 p                                    o                          p                  oyyp                   oyyp       o    p        o
 p                                    o                          p       oyyp                                         o     p       o
@@ -24,7 +24,7 @@ p      oyyp               o
 p                         o
 p                         o
 p              oyyyyp     o
-p                         o
+p   W                     o
 p                         o
 g  g  g  g  g  g  g  g  g
 
