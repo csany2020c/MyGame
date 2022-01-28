@@ -224,6 +224,109 @@ class Exit(game.scene2d.MyActor):
         self.set_height(150)
         self.set_width(150)
 
+class Road(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/road.jpg")
+        self.set_width(1280)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y -= 60 * delta_time
+
+class Finish(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/finish.png")
+        self.set_width(1050)
+        self.hitbox_scale_h = 0.1
+        self.hitbox_scale_w = 1.5
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y -= 60 * delta_time
+
+class KartEnemy(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/cactus.png")
+        self.set_width(100)
+        self.hitbox_scale_h = 0.9
+        self.hitbox_scale_w = 0.6
+
+class WarioKart(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/wariokart.png")
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y += 200 * delta_time
+
+class WarioKartSkin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/wariokart.png")
+
+class MarioKartSkin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mariokart.png")
+
+class TodKartSkin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/todkart.png")
+
+class DonkeyKartSkin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/donkeykart.png")
+
+class LuigiKartSkin(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/luigikart.png")
+
+class Barrel(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/barrel.png")
+        self.set_width(120)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 0.6
+
+class Blue(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/blue.png")
+        self.set_width(1300)
+
+
+class LathatatlanKart(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_width(80)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 2
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y += 200 * delta_time
+
+class LathatatlanKart2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_width(80)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 2
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y += 200 * delta_time
+class LathatatlanKart3(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_width(1)
+
+class Ramp(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/ramp.png")
+        self.set_width(150)
+
 class FullScreen(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Fullscreen.png")
@@ -292,19 +395,23 @@ class Keret(game.scene2d.MyActor):
         super().__init__("Kepek/keret.png")
         self.set_width(400)
 
+class Keret2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/keret2.png")
+
 class BackGround2(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("Kepek/background2.jpg")
+        super().__init__("Kepek/kartmenukep.png")
 
 class Map1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/map1.png")
-        self.set_width(225)
+        self.set_width(330)
 
 class Map2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/map2.png")
-        self.set_width(225)
+        self.set_width(290)
 
 class Pause(game.scene2d.MyActor):
     def __init__(self):
