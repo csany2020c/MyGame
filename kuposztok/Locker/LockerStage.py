@@ -214,6 +214,7 @@ class LockerStage(game.scene2d.MyStage):
         self.gold2 = False
         self.gold3 = False
         self.gold4 = False
+        self.egy = 1
 
         self.set_on_key_down_listener(self.Back)
         self.back.set_on_mouse_down_listener(self.Back2)
@@ -230,6 +231,16 @@ class LockerStage(game.scene2d.MyStage):
         self.SilverSnowBoard.set_on_mouse_down_listener(self.SilverSnowBoardB)
         self.SilverSki.set_on_mouse_down_listener(self.SilverSkiB)
         self.skinbeolvas()
+        self.add_actor(self.silversnowmobilelock)
+        self.add_actor(self.silversledgelock)
+        self.add_actor(self.silversnowboardlock)
+        self.add_actor(self.silverskilock)
+        self.add_actor(self.goldsnowmobilelock)
+        self.add_actor(self.goldsledgelock)
+        self.add_actor(self.goldsnowboardlock)
+        self.add_actor(self.goldskilock)
+        self.Ellenorzes()
+
 
     def skinbeolvas(self):
         with open('../kuposztok/Save/skininfile.txt', 'r') as beskinfile:
@@ -246,59 +257,67 @@ class LockerStage(game.scene2d.MyStage):
     def Ellenorzes(self):
         if self.silver1valt == 0:
             self.silver1 = False
-            self.add_actor(self.silversnowmobilelock)
         if self.silver1valt == 1:
             self.silver1 = True
-            self.remove_actor(self.silversnowmobilelock)
+            if self.silversnowmobilelock.is_on_stage():
+                self.remove_actor(self.silversnowmobilelock)
+                self.remove_actor(self.silverlabel)
 
         if self.silver2valt == 0:
             self.silver2 = False
-            self.add_actor(self.silversledgelock)
         if self.silver2valt == 1:
             self.silver2 = True
-            self.remove_actor(self.silversledgelock)
+            if self.silversledgelock.is_on_stage():
+                self.remove_actor(self.silversledgelock)
+                self.remove_actor(self.silverlabel2)
 
         if self.silver3valt == 0:
             self.silver3 = False
-            self.add_actor(self.silversnowboardlock)
         if self.silver3valt == 1:
             self.silver3 = True
-            self.remove_actor(self.silversnowboardlock)
+            if self.silversnowboardlock.is_on_stage():
+                self.remove_actor(self.silversnowboardlock)
+                self.remove_actor(self.silverlabel3)
 
         if self.silver4valt == 0:
             self.silver4 = False
-            self.add_actor(self.silverskilock)
         if self.silver4valt == 1:
             self.silver4 = True
-            self.remove_actor(self.silverskilock)
+            if self.silverskilock.is_on_stage():
+                self.remove_actor(self.silverskilock)
+                self.remove_actor(self.silverlabel4)
 
         if self.gold1valt == 0:
             self.gold1 = False
-            self.add_actor(self.goldsnowmobilelock)
         if self.gold1valt == 1:
             self.gold1 = True
-            self.remove_actor(self.goldsnowmobilelock)
+            if self.goldsnowmobilelock.is_on_stage():
+                self.remove_actor(self.goldsnowmobilelock)
+                self.remove_actor(self.goldlabel)
 
         if self.gold2valt == 0:
             self.gold2 = False
-            self.add_actor(self.goldsledgelock)
         if self.gold2valt == 1:
             self.gold2 = True
-            self.remove_actor(self.goldsledgelock)
+            if self.goldsledgelock.is_on_stage():
+                self.remove_actor(self.goldsledgelock)
+                self.remove_actor(self.goldlabel2)
 
         if self.gold3valt == 0:
             self.gold3 = False
-            self.add_actor(self.goldsnowboardlock)
         if self.gold3valt == 1:
             self.gold3 = True
-            self.remove_actor(self.goldsnowboardlock)
+            if self.goldsnowboardlock.is_on_stage():
+                self.remove_actor(self.goldsnowboardlock)
+                self.remove_actor(self.goldlabel3)
 
         if self.gold4valt == 0:
             self.gold4 = False
-            self.add_actor(self.goldskilock)
         if self.gold4valt == 1:
             self.gold4 = True
-            self.remove_actor(self.goldskilock)
+            if self.goldskilock.is_on_stage():
+                self.remove_actor(self.goldskilock)
+                self.remove_actor(self.goldlabel4)
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
@@ -456,42 +475,40 @@ class LockerStage(game.scene2d.MyStage):
             if self.silver1 == False:
                 skinfile.write(str(self.silver1valt))
             else:
-                skinfile.write("1")
+                skinfile.write(str(self.egy))
             if self.silver2 == False:
                 skinfile.write('\n' + str(self.silver2valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.silver3 == False:
                 skinfile.write('\n' + str(self.silver3valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.silver4 == False:
                 skinfile.write('\n' + str(self.silver4valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.gold1 == False:
                 skinfile.write('\n' + str(self.gold1valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.gold2 == False:
                 skinfile.write('\n' + str(self.gold2valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.gold3 == False:
                 skinfile.write('\n' + str(self.gold3valt))
             else:
-                skinfile.write('\n' + "1")
+                skinfile.write('\n' + str(self.egy))
             if self.gold4 == False:
                 skinfile.write('\n' + str(self.gold4valt))
             else:
-                skinfile.write('\n' + "1")
-
+                skinfile.write('\n' + str(self.egy))
             skinfile.close()
 
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebairas()
-
 
 
 

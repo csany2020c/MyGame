@@ -18,6 +18,7 @@ class EnemyActor(game.scene2d.MyActor):
         self.szelesseg = pygame.display.get_surface().get_width()
         self.magassag = pygame.display.get_surface().get_height()
         self.rStage = stage
+        self.selected:bool = False
         self.player = None
         for a in self.rStage.actors:
             if isinstance(a,PlayerActor):
@@ -38,22 +39,28 @@ class EnemyActor(game.scene2d.MyActor):
         self.damage:int = int(self.ellenseg.damage)
         self.hp:int = int(self.ellenseg.hp)
         self.maxHP:int = int(self.ellenseg.hp)
-        self.timer = MyTickTimer(self.generateCoords,interval=3.5,start_delay=0,repeat=True)
-        self.timer2 = MyTickTimer(self.attack, interval=0.3, start_delay=0, repeat=True)
+        self.timer = MyTickTimer(self.generateCoords,interval=4.5,start_delay=0,repeat=True)
+        self.timer2 = MyTickTimer(self.attack, interval=1, start_delay=0, repeat=True)
+        self.timer3 = MyTickTimer(self.removeThose,interval=3, start_delay=0, repeat=True)
         self.add_timer(self.timer)
     def generateCoords(self,sender):
         if self.ellenseg.name == "Gnome":
             self.randX = random.randint(int(self.player.get_x() - 100),int(self.player.get_x() + 100))
             self.randY = random.randint(int(self.player.get_y() - 100),int(self.player.get_y() + 100))
-            self.attack()
             self.rStage.add_actor(RedCircle(self.randX,self.randY))
+            self.add_timer(self.timer2)
 
-    def attack(self):
+    def attack(self,sender):
         self.rStage.explosion = ExplosionActor(self.randX, self.randY)
         self.rStage.add_actor(self.rStage.explosion)
+        self.remove_timer(self.timer2)
+        self.add_timer(self.timer3)
+
+    def removeThose(self,sender):
         for a in self.rStage.actors:
             if isinstance(a, RedCircle):
                 self.rStage.remove_actor(a)
+        self.remove_timer(self.timer3)
 
 
     def act(self, delta_time: float):
