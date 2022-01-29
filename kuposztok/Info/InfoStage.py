@@ -4,16 +4,31 @@ from kuposztok.Info.InfoActors import *
 import kuposztok
 
 class InfoStage(game.scene2d.MyStage):
+
+    def soundvaltread(self):
+        with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
+            self.soundvaltbe = int(beskinfile1.readline())
+            beskinfile1.close()
+
     def __init__(self):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
+        self.soundvaltread()
         self.bg = BgActor()
         self.add_actor(self.bg)
+        self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/infomusica.wav")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        if self.soundvalt == 0 or self.soundvalt == 1:
+            pygame.mixer.music.set_volume(0.5)
+        if self.soundvalt == 2:
+            pygame.mixer.music.set_volume(0.25)
+        if self.soundvalt == 3:
+            pygame.mixer.music.set_volume(0.10)
+        if self.soundvalt == 4:
+            pygame.mixer.music.stop()
         self.text1 = game.scene2d.MyLabel("A játék lényege, hogy a karakterünkel minél több")
         self.text1.set_color(0, 0, 0)
         self.text1.x = 100

@@ -9,16 +9,30 @@ from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTi
 
 class LockerStage(game.scene2d.MyStage):
 
+    def soundvaltread(self):
+        with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
+            self.soundvaltbe = int(beskinfile1.readline())
+            beskinfile1.close()
+
     def __init__(self, money: int, max_score:int):
         super().__init__()
+        self.soundvaltread()
         for i in range(5):
             print(money)
             self.money = money
             self.max_score = max_score
+            self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/shopmusica.wav")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        if self.soundvalt == 0 or self.soundvalt == 1:
+            pygame.mixer.music.set_volume(0.5)
+        if self.soundvalt == 2:
+            pygame.mixer.music.set_volume(0.25)
+        if self.soundvalt == 3:
+            pygame.mixer.music.set_volume(0.10)
+        if self.soundvalt == 4:
+            pygame.mixer.music.stop()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.bg = ShopBgActor()

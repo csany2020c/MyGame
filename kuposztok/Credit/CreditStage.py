@@ -6,18 +6,32 @@ from kuposztok.Credit.CreditActors import *
 
 class CreditStage(game.scene2d.MyStage):
 
+    def soundvaltread(self):
+        with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
+            self.soundvaltbe = int(beskinfile1.readline())
+            beskinfile1.close()
+
     def __init__(self):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
+        self.soundvaltread()
         creditact = Creditlist()
         self.add_actor(creditact)
+        self.soundvalt = self.soundvaltbe
         creditact.width = self.width
         creditact.height = self.height
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/creditmusica.wav")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        if self.soundvalt == 0 or self.soundvalt == 1:
+            pygame.mixer.music.set_volume(0.5)
+        if self.soundvalt == 2:
+            pygame.mixer.music.set_volume(0.25)
+        if self.soundvalt == 3:
+            pygame.mixer.music.set_volume(0.10)
+        if self.soundvalt == 4:
+            pygame.mixer.music.stop()
         self.button1 = Visszagomb()
         self.add_actor(self.button1)
         self.button1.width = 125

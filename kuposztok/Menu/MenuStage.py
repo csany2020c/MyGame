@@ -20,14 +20,28 @@ class MenuStage(game.scene2d.MyStage):
         self.ma = datetime.datetime.now()
         self.ido.set_text("Jelenlegi idő: " + str(self.ma.hour) + " : " + str(self.ma.minute))
 
+    def soundvaltread(self):
+        with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
+            self.soundvaltbe = int(beskinfile1.readline())
+            beskinfile1.close()
+
     def __init__(self):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
+        self.soundvaltread()
+        self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/menumusica.wav")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        if self.soundvalt == 0 or self.soundvalt == 1:
+            pygame.mixer.music.set_volume(0.5)
+        if self.soundvalt == 2:
+            pygame.mixer.music.set_volume(0.25)
+        if self.soundvalt == 3:
+            pygame.mixer.music.set_volume(0.10)
+        if self.soundvalt == 4:
+            pygame.mixer.music.stop()
         bg = MenuActor()
         self.add_actor(bg)
         bg.height = self.height
