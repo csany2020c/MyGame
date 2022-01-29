@@ -97,20 +97,43 @@ class CarOsszesStage(game.scene2d.MyStage):
             if self.skivaltozo == 3:
                 self.joseph = goldski()
         if self.carvalt == 12:
-            self.joseph = SnowMobile()
-            self.joseph2 = SnowMobile()
+            if self.snowmvaltozo == 1 or self.snowmvaltozo == 0:
+                self.joseph = SnowMobile()
+                self.joseph2 = SnowMobile()
+            if self.snowmvaltozo == 2:
+                self.joseph = silversnowmobile()
+                self.joseph2 = silversnowmobile()
+            if self.snowmvaltozo == 3:
+                self.joseph = goldsnowmobile()
+                self.joseph2 = goldsnowmobile()
         if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
-            print("bemegy")
-            print(self.carvalt)
             if self.carvalt == 22:
-                self.joseph = Sledge()
-                self.joseph2 = Sledge()
+                if self.sledgevaltozo == 1 or self.sledgevaltozo == 0:
+                    self.joseph = Sledge()
+                    self.joseph2 = Sledge()
+                if self.sledgevaltozo == 2:
+                    self.joseph = silversledge()
+                    self.joseph2 = silversledge()
             if self.carvalt == 32:
-                self.joseph = SnowBoard()
-                self.joseph2 = SnowBoard()
+                if self.snowbvaltozo == 1 or self.snowbvaltozo == 0:
+                    self.joseph = SnowBoard()
+                    self.joseph2 = SnowBoard()
+                if self.snowbvaltozo == 2:
+                    self.joseph = silversnowboard()
+                    self.joseph2 = silversnowboard()
+                if self.snowbvaltozo == 3:
+                    self.joseph = goldsnowboard()
+                    self.joseph2 = goldsnowboard()
             if self.carvalt == 42:
-                self.joseph = Ski()
-                self.joseph2 = Ski()
+                if self.skivaltozo == 1 or self.skivaltozo == 0:
+                    self.joseph = Ski()
+                    self.joseph2 = Ski()
+                if self.skivaltozo == 2:
+                    self.joseph = silverski()
+                    self.joseph2 = silverski()
+                if self.skivaltozo == 3:
+                    self.joseph = goldski()
+                    self.joseph2 = goldski()
 
         self.joseph.width = 100
         self.joseph.z_index = 5
@@ -255,7 +278,6 @@ class CarOsszesStage(game.scene2d.MyStage):
                 if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
                     if self.joseph2.overlaps(q):
                         self.joseph2.y = self.joseph2.y + 10
-
 
 
     def iranyitas(self, sender, event, a=10):

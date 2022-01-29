@@ -7,24 +7,43 @@ from kuposztok.Credit.CreditScreen import CreditScreen
 import kuposztok.Locker.LockerScreen
 from kuposztok.Menu.MenuBgActor import *
 from kuposztok.Info.InfoScreen import InfoScreen
+import datetime
+import kuposztok.options.OptionsScreen
+import webbrowser
 
 
 class MenuStage(game.scene2d.MyStage):
 
+    def act(self, delta_time: float,):
+        super().act(delta_time)
+        self.filebaolvasas()
+        self.ma = datetime.datetime.now()
+        self.ido.set_text("Jelenlegi idő: " + str(self.ma.hour) + " : " + str(self.ma.minute))
+
     def __init__(self):
         super().__init__()
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/menumusica.wav")
         pygame.mixer.music.play(-1)
         pygame.mixer.music.set_volume(0.2)
         bg = MenuActor()
-        self.money = 0
-        self.max_score = 0
         self.add_actor(bg)
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
         bg.height = self.height
         bg.width = self.width
+        self.options = OptionsButton()
+        self.options.set_position(self.width / 2 - self.options.get_width() / 2, self.height - self.options.get_height() * 3)
+        self.add_actor(self.options)
+        self.ma = datetime.datetime.now()
+        self.ido = game.scene2d.MyLabel("Jelenlegi idő: " + str(self.ma.hour) + " : " + str(self.ma.minute))
+        self.ido.set_color(0, 0, 0)
+        self.add_actor(self.ido)
+        self.ido.set_font_size(40)
+        self.ido.x = 0
+        self.ido.y = 0 + self.ido.get_height() - 20
+        self.money = 0
+        self.max_score = 0
         self.early = game.scene2d.MyLabel("Early Access, Alpha Test")
         self.early.set_color(0, 0, 0)
         self.add_actor(self.early)
@@ -73,6 +92,7 @@ class MenuStage(game.scene2d.MyStage):
         self.button3.set_on_mouse_down_listener(self.Klikk3)
         self.button4.set_on_mouse_down_listener(self.Klikk4)
         self.button5.set_on_mouse_down_listener(self.Klikk5)
+        self.options.set_on_mouse_down_listener(self.OptionsButton)
         self.set_on_key_down_listener(self.Admin1)
 
 
@@ -89,10 +109,9 @@ class MenuStage(game.scene2d.MyStage):
             file.write("\n" + str(self.money + 60000000))
             file.close()
 
-    def act(self, delta_time: float,):
-        super().act(delta_time)
-        self.filebaolvasas()
-
+    def OptionsButton(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(kuposztok.options.OptionsScreen.OptionsScreen())
 
     def Klikk1(self, sender, event):
         if event.button == 1:
