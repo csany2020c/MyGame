@@ -87,6 +87,9 @@ class ArenaStage(game.scene2d.MyStage):
 
     def timeHandle(self,sender):
         self.set_on_key_down_listener(self.handleKeyDown)
+
+    def index_in_list(self,a_list, index) -> bool:
+        return(index < len(a_list))
     def act(self, delta_time: float):
         super().act(delta_time)
         if self.pHpBar:
@@ -97,21 +100,25 @@ class ArenaStage(game.scene2d.MyStage):
         for a in self.actors:
             if isinstance(a,ArrowActor):
                 for i in range(len(self.enemyList)):
-                    self.minHP = 140/self.enemyList[i].maxHP
-                    if a.overlaps(self.enemyList[i]):
-                        self.enemyList[i].hp = self.enemyList[i].hp - 25
-                        a.remove_from_stage()
-                        print("SZÉLESSÉG:" + str(self.minHP * self.enemyList[i].hp))
-                        if self.minHP * self.enemyList[i].hp > 0:
-                            self.hpbarlist[i].set_size(self.minHP * self.enemyList[i].hp,9)
-                            self.hpbarlist[i].set_position(self.xPos,self.hphudlist[i].get_y() + self.hphudlist[i].get_height() * 0.33)
+                    print("I JÓ?" + str(self.index_in_list(self.enemyList, i)))
+                    if self.index_in_list(self.enemyList, i):
+                        if a.overlaps(self.enemyList[i]):
+                            self.minHP = 140 / self.enemyList[i].maxHP
+                            self.enemyList[i].hp = self.enemyList[i].hp - 25
+                            a.remove_from_stage()
+                            print("SZÉLESSÉG:" + str(self.minHP * self.enemyList[i].hp))
+                            if self.minHP * self.enemyList[i].hp > 0:
+                                self.hpbarlist[i].set_size(self.minHP * self.enemyList[i].hp,9)
+                                self.hpbarlist[i].set_position(self.xPos,self.hphudlist[i].get_y() + self.hphudlist[i].get_height() * 0.33)
+                            else:
+                                self.remove_actor(self.enemyList[i])
+                                self.remove_actor(self.hphudlist[i])
+                                self.remove_actor(self.hpbarlist[i])
+                                self.enemyList.pop(i)
+                                self.hphudlist.pop(i)
+                                self.hpbarlist.pop(i)
                         else:
-                            self.remove_actor(self.enemyList[i])
-                            self.remove_actor(self.hphudlist[i])
-                            self.remove_actor(self.hpbarlist[i])
-                            self.enemyList.remove(self.enemyList[i])
-                            self.hphudlist.remove(self.hphudlist[i])
-                            self.hpbarlist.remove(self.hpbarlist[i])
+                            i+=1
                 if a.fly == False:
                     a.remove_from_stage()
             if isinstance(a,ExplosionActor):
