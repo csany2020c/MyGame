@@ -114,12 +114,7 @@ class LockerStage(game.scene2d.MyStage):
         self.GoldSki.x = self.width / 1.3 + + self.GoldSki.get_width() * 2
         self.GoldSki.y = self.height / 1.5
         self.add_actor(self.GoldSki)
-        self.dollarlabel = game.scene2d.MyLabel("$")
-        self.dollarlabel.y = 0 + self.dollarlabel.get_height() / 2
-        self.dollarlabel.x = self.width - self.dollarlabel.get_width() - 20
-        self.dollarlabel.set_color(0, 0, 0)
-        self.add_actor(self.dollarlabel)
-        self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money))
+        self.moneylabel = game.scene2d.MyLabel("Your money:" + str(self.money) + "$")
         self.moneylabel.y = 0 + self.moneylabel.get_height() / 2
         self.moneylabel.x = self.width - self.moneylabel.get_width() - 50
         self.moneylabel.set_color(0, 0, 0)
@@ -215,6 +210,10 @@ class LockerStage(game.scene2d.MyStage):
         self.gold3 = False
         self.gold4 = False
         self.egy = 1
+        self.snowmobileuse = False
+        self.sledgeuse = False
+        self.snowboarduse = False
+        self.skiuse = False
 
         self.set_on_key_down_listener(self.Back)
         self.back.set_on_mouse_down_listener(self.Back2)
@@ -240,6 +239,7 @@ class LockerStage(game.scene2d.MyStage):
         self.add_actor(self.goldsnowboardlock)
         self.add_actor(self.goldskilock)
         self.Ellenorzes()
+        self.skinvaltread()
 
 
     def skinbeolvas(self):
@@ -321,36 +321,42 @@ class LockerStage(game.scene2d.MyStage):
 
     def Back(self, sender, event):
         if event.key == pygame.K_ESCAPE:
+            self.skinvaltwrite()
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
     def Back2(self, sender, event):
         if event.button == 1:
+            self.skinvaltwrite()
             self.screen.game.set_screen(kuposztok.Menu.MenuScreen.MenuScreen())
 
     def DefSnowMobileB(self, sender, event):
         if event.button == 1:
             print("DefSnowMobile")
             self.snowmobilevalt = 1
+            self.snowmobileuse = True
 
     def DefSledgeB(self, sender, event):
         if event.button == 1:
             print("DefSledge")
             self.sledgevalt = 1
+            self.sledgeuse = True
 
     def DefSnowBoardB(self, sender, event):
         if event.button == 1:
             print("DefSnowBoard")
             self.snowboardvalt = 1
+            self.snowboarduse = True
 
     def DefSkiB(self, sender, event):
         if event.button == 1:
             print("DefSki")
             self.skivalt = 1
+            self.skiuse = True
 
     def SilverSnowMobileB(self, sender, event):
         if event.button == 1:
             print("SilverSnowMobile")
-            self.snowmobilevalt = 2
+            self.snowmobileuse = True
             if self.silversnowmobilelock.is_on_stage():
                 if self.money >= 5000000:
                     self.remove_actor(self.silversnowmobilelock)
@@ -360,12 +366,13 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.silver1 = True
                     self.skinfilebairas()
-
+            if self.silver1 == True:
+                self.snowmobilevalt = 2
 
     def SilverSledgeB(self, sender, event):
         if event.button == 1:
             print("SilverSledge")
-            self.sledgevalt = 2
+            self.sledgeuse = True
             if self.silversledgelock.is_on_stage():
                 if self.money >= 5000000:
                     self.remove_actor(self.silversledgelock)
@@ -375,11 +382,13 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.silver2 = True
                     self.skinfilebairas()
+            if self.silver2 == True:
+                self.sledgevalt = 2
 
 
     def SilverSnowBoardB(self, sender, event):
         if event.button == 1:
-            self.snowboardvalt = 2
+            self.snowboarduse = True
             print("SilverSnowBoard")
             if self.silversnowboardlock.is_on_stage():
                 if self.money >= 5000000:
@@ -390,12 +399,13 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.silver3 = True
                     self.skinfilebairas()
-
+            if self.silver3 == True:
+                self.snowboardvalt = 2
 
     def SilverSkiB(self, sender, event):
         if event.button == 1:
             print("SilverSki")
-            self.skivalt = 2
+            self.skiuse = True
             if self.silverskilock.is_on_stage():
                 if self.money >= 5000000:
                     self.remove_actor(self.silverskilock)
@@ -405,11 +415,12 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.silver4 = True
                     self.skinfilebairas()
-
+            if self.silver4 == True:
+                self.skivalt = 2
 
     def GoldSnowMobileB(self, sender, event):
         if event.button == 1:
-            self.snowmobilevalt = 3
+            self.snowmobileuse = True
             print("GoldSnowMobile")
             if self.goldsnowmobilelock.is_on_stage():
                 if self.money >= 10000000:
@@ -420,12 +431,14 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.gold1 = True
                     self.skinfilebairas()
+            if self.gold1 == True:
+                self.snowmobilevalt = 3
 
 
     def GoldSledgeB(self, sender, event):
         if event.button == 1:
             print("GoldSledge")
-            self.sledgevalt = 3
+            self.sledgeuse = True
             if self.goldsledgelock.is_on_stage():
                 if self.money >= 10000000:
                     self.remove_actor(self.goldsledgelock)
@@ -435,11 +448,13 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.gold2 = True
                     self.skinfilebairas()
+            if self.gold2 == True:
+                self.sledgevalt = 3
 
     def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
             print("GoldSnowBoard")
-            self.snowboardvalt = 3
+            self.snowboarduse = True
             if self.goldsnowboardlock.is_on_stage():
                 if self.money >= 10000000:
                     self.remove_actor(self.goldsnowboardlock)
@@ -449,11 +464,13 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.gold3 = True
                     self.skinfilebairas()
+            if self.gold3 == True:
+                self.snowboardvalt = 3
 
     def GoldSkiB(self, sender, event):
         if event.button == 1:
             print("GoldSki")
-            self.skivalt = 3
+            self.skiuse = True
             if self.goldskilock.is_on_stage():
                 if self.money >= 10000000:
                     self.remove_actor(self.goldskilock)
@@ -463,11 +480,41 @@ class LockerStage(game.scene2d.MyStage):
                     self.moneylabel.set_text("Your money:" + str(self.money))
                     self.gold4 = True
                     self.skinfilebairas()
+            if self.gold4 == True:
+                self.skivalt = 3
 
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
             file.write(str(self.max_score))
             file.write("\n" + str(self.money))
+            file.close()
+
+    def skinvaltread(self):
+        with open('../kuposztok/Save/skinvalt.txt', 'r') as beskinfile1:
+            self.snowmobilevaltbe = int(beskinfile1.readline())
+            self.sledgevaltbe = int(beskinfile1.readline())
+            self.snowboardvaltbe= int(beskinfile1.readline())
+            self.skivaltbe = int(beskinfile1.readline())
+            beskinfile1.close()
+
+    def skinvaltwrite(self):
+        with open('../kuposztok/Save/skinvalt.txt', 'w') as file:
+            if self.snowmobileuse == True:
+                file.write(str(self.snowmobilevalt))
+            else:
+                file.write(str(self.snowmobilevaltbe))
+            if self.sledgeuse == True:
+                file.write("\n" + str(self.sledgevalt))
+            else:
+                file.write('\n' + str(self.sledgevaltbe))
+            if self.snowboarduse == True:
+                file.write("\n" + str(self.snowboardvalt))
+            else:
+                file.write("\n" + str(self.snowboardvaltbe))
+            if self.skiuse == True:
+                file.write("\n" + str(self.skivalt))
+            else:
+                file.write('\n' + str(self.skivaltbe))
             file.close()
 
     def skinfilebairas(self):
@@ -509,7 +556,6 @@ class LockerStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebairas()
-
 
 
 

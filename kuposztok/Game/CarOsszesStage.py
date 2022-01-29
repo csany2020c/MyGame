@@ -6,12 +6,14 @@ from game.scene2d import MyPermanentTimer, MyOneTickTimer, MyBaseActor, MyTickTi
 import kuposztok.CaraValt.CaraValtStage
 from game.scene2d.MyGame import MyGame
 from kuposztok.Lose.LoseScreen import LoseScreen
+from kuposztok.Locker.LockerStage import LockerStage
 
 
 class CarOsszesStage(game.scene2d.MyStage):
 
     def __init__(self, carvalt: int, money: int, maxScore: int):
         super().__init__()
+        self.skinvaltread()
         pygame.mixer.init()
         pygame.mixer.music.load("../kuposztok/music/gamemusica.wav")
         pygame.mixer.music.play(-1)
@@ -20,6 +22,10 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.width = pygame.display.get_surface().get_width()
         self.bg = BgActor()
         self.bg.width = 2400
+        self.snowmvaltozo = self.snowmobilevalt
+        self.sledgevaltozo = self.sledgevalt
+        self.snowbvaltozo = self.snowboardvalt
+        self.skivaltozo = self.skivalt
         self.bg.height = 1400
         self.bg.y = 0
         self.bg.z_index = 1
@@ -63,13 +69,33 @@ class CarOsszesStage(game.scene2d.MyStage):
 
 
         if self.carvalt == 11:
-            self.joseph = SnowBoard()
+            if self.snowbvaltozo == 1 or self.snowbvaltozo == 0:
+                self.joseph = SnowBoard()
+            if self.snowbvaltozo == 2:
+                self.joseph = silversnowboard()
+            if self.snowbvaltozo == 3:
+                self.joseph = goldsnowboard()
         if self.carvalt == 21:
-            self.joseph = Sledge()
+            if self.sledgevaltozo == 1 or self.sledgevaltozo == 0:
+                self.joseph = Sledge()
+            if self.sledgevaltozo == 2:
+                self.joseph = silversledge()
+            if self.sledgevaltozo == 3:
+                self.joseph = goldsledge()
         if self.carvalt == 31:
-            self.joseph = SnowMobile()
+            if self.snowmvaltozo == 1 or self.snowmvaltozo == 0:
+                self.joseph = SnowMobile()
+            if self.snowmvaltozo == 2:
+                self.joseph = silversnowmobile()
+            if self.snowmvaltozo == 3:
+                self.joseph = goldsnowmobile()
         if self.carvalt == 41:
-            self.joseph = Ski()
+            if self.skivaltozo == 1 or self.skivaltozo == 0:
+                self.joseph = Ski()
+            if self.skivaltozo == 2:
+                self.joseph = silverski()
+            if self.skivaltozo == 3:
+                self.joseph = goldski()
         if self.carvalt == 12:
             self.joseph = SnowMobile()
             self.joseph2 = SnowMobile()
@@ -144,6 +170,14 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.newgame.set_on_mouse_down_listener(self.NewG)
         self.set_on_key_down_listener(self.elfordul)
         self.set_on_key_up_listener(self.visszafordul)
+
+    def skinvaltread(self):
+        with open('../kuposztok/Save/skinvalt.txt', 'r') as beskinfile1:
+            self.snowmobilevalt = int(beskinfile1.readline())
+            self.sledgevalt = int(beskinfile1.readline())
+            self.snowboardvalt = int(beskinfile1.readline())
+            self.skivalt = int(beskinfile1.readline())
+            beskinfile1.close()
 
     def filebaolvasas(self):
         with open('../kuposztok/Save/file.txt', 'r') as file:
