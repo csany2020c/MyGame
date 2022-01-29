@@ -17,6 +17,7 @@ from random import Random
 from game.scene2d.MyActor import *
 from game.scene2d.MyGame import MyGame
 from game.scene2d.MyActor import *
+from Kancsalmate27megilyenek.WinScreen import *
 from Kancsalmate27megilyenek.AttackActor import *
 from Kancsalmate27megilyenek.Enemys import Enemy
 from game.scene2d.MyTimers import *
@@ -101,14 +102,15 @@ class ArenaStage(game.scene2d.MyStage):
             self.pHpBar.set_size(140/self.player.max_hp * self.player.hp,9)
 
 
-        #Itt van ha legyőzte az enemyket
-        #if len(self.enemyList) < 1:
-        # IDE JÖHET AZ ÚJ SCREEN
+
+        if len(self.enemyList) < 1:
+            self.screen.game.set_screen(WinScreen())
 
         #Itt van ha legyőzték az enemyk
-        #if self.player.hp <= 0:
-            #self.player.hp = 0
-            #Lose képernyő jöhet ide
+        if self.player.hp == 20:
+            self.player.hp = 0
+            self.screen.game.set_screen(LoseScreen)
+
 
 
 
