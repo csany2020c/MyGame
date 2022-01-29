@@ -1,6 +1,7 @@
 import time
 
 import game
+from Kancsalmate27megilyenek.AlertBox import *
 from Kancsalmate27megilyenek.ArrowActor import ArrowActor
 from Kancsalmate27megilyenek.DistanceBetween import intermediates
 from Kancsalmate27megilyenek.EnemyActor import *
@@ -54,6 +55,8 @@ class ArenaStage(game.scene2d.MyStage):
         self.add_actor(self.pHpBar)
         r = Random()
 
+        self.alert = AlertBox(self,"Sikeresen legyőzted ezt a szintet!")
+
         self.intermediates = None
         self.arrow = None
         for i in range(2):
@@ -96,6 +99,19 @@ class ArenaStage(game.scene2d.MyStage):
             self.pHpHUD.set_position(self.player.get_x(),self.player.get_y() - 105)
             self.pHpBar.set_position(self.pHpHUD.get_x() + self.pHpHUD.get_width() * 0.3,self.pHpHUD.get_y() + self.pHpHUD.get_height() * 0.33)
             self.pHpBar.set_size(140/self.player.max_hp * self.player.hp,9)
+
+
+        #Itt van ha legyőzte az enemyket
+        #if len(self.enemyList) < 1:
+        # IDE JÖHET AZ ÚJ SCREEN
+
+        #Itt van ha legyőzték az enemyk
+        #if self.player.hp <= 0:
+            #self.player.hp = 0
+            #Lose képernyő jöhet ide
+
+
+
 
         for a in self.actors:
             if isinstance(a,ArrowActor):
