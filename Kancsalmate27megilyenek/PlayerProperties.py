@@ -42,9 +42,9 @@ class PlayerPropertie:
 
 class WritePlayerPropertie:
 
-    def __init__(self,pLevel:int,maxLvl:int,playerHP:int,playerDMG:int,money:int) -> None:
+    def __init__(self,pLevel:float,maxLvl:int,playerHP:int,playerDMG:int,money:int) -> None:
         super().__init__()
-        self.playerLevel: int = pLevel
+        self.playerLevel: float = pLevel
         self.maxAchievedLevel: int = maxLvl
         self.playerHP: int = playerHP
         self.playerDamage: int =playerDMG

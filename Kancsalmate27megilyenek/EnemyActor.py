@@ -4,6 +4,9 @@ import pygame
 from pygame import mixer
 
 import game
+from Kancsalmate27megilyenek.AngleCalc import AngleCalc
+from Kancsalmate27megilyenek.ArrowActor import ArrowActor, ArrowActor2
+from Kancsalmate27megilyenek.DistanceBetween import intermediates
 from Kancsalmate27megilyenek.Enemys import *
 from Kancsalmate27megilyenek.ExplosionActor import *
 from Kancsalmate27megilyenek.PlayerActor import PlayerActor
@@ -19,6 +22,8 @@ class EnemyActor(game.scene2d.MyActor):
         self.magassag = pygame.display.get_surface().get_height()
         self.rStage = stage
         self.selected:bool = False
+        self.megy = True
+        self.count = 0
         self.player = None
         for a in self.rStage.actors:
             if isinstance(a,PlayerActor):
@@ -50,12 +55,20 @@ class EnemyActor(game.scene2d.MyActor):
             self.randY = random.randint(int(self.player.get_y() - 100),int(self.player.get_y() + 100))
             self.rStage.add_actor(RedCircle(self.randX,self.randY))
             self.add_timer(self.timer2)
-
+        elif self.ellenseg.name == "Kardos":
+            self.points = intermediates([self.get_x(), self.get_y()], [self.player.get_x(), self.player.get_y()], 100)
+            self.arrow = ArrowActor2(self.points,self.damage)
+            self.rStage.add_actor(self.arrow)
+            self.anglecalc = AngleCalc()
+            self.rot = self.anglecalc.angle_between_points((self.get_x(), self.get_y()),(self.player.get_x(), self.player.get_y() + self.player.get_height() / 2))
+            self.arrow.rotation = self.rot
     def attack(self,sender):
-        self.rStage.explosion = ExplosionActor(self.randX, self.randY,self.damage)
-        self.rStage.add_actor(self.rStage.explosion)
-        self.remove_timer(self.timer2)
-        self.add_timer(self.timer3)
+        if self.ellenseg.name =="Gnome":
+            self.rStage.explosion = ExplosionActor(self.randX, self.randY,self.damage)
+            self.rStage.add_actor(self.rStage.explosion)
+            self.remove_timer(self.timer2)
+            self.add_timer(self.timer3)
+
 
     def removeThose(self,sender):
         for a in self.rStage.actors:
@@ -70,7 +83,6 @@ class EnemyActor(game.scene2d.MyActor):
             if isinstance(a,ExplosionActor):
                 if a.image_url == "tile071.png":
                     self.rStage.remove_actor(a)
-
 
 
 

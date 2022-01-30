@@ -19,13 +19,16 @@ class PlayerActor(game.scene2d.MyActor):
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
+        self.b = 5
         # Player adatok
-        self.hp:int = self.playerDatas.playerpropertie.pHP
-        self.max_hp:int = self.playerDatas.playerpropertie.pHP
-        self.damage:int = self.playerDatas.playerpropertie.pDMG
+
         self.pLevel:int = self.playerDatas.playerpropertie.pLevel
+        self.hp:int = self.playerDatas.playerpropertie.pHP + self.pLevel * 100
+        self.max_hp:int = self.playerDatas.playerpropertie.pHP + self.pLevel * 100
+        self.damage:int = self.playerDatas.playerpropertie.pDMG * self.pLevel * 25
         self.money:int = self.playerDatas.playerpropertie.penz
         self.mLevel:int = self.playerDatas.playerpropertie.mLevel
+        self.dealtDMG:int = 0
         self.set_size(64, 64)
         self.hitbox_scale_h = 1
         self.hitbox_scale_w = 1
@@ -124,15 +127,14 @@ class PlayerActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        b = 5
         if self.isWPressed:
-            self.y -= b
+            self.y -= self.b
         if self.isAPressed:
-            self.x -= b
+            self.x -= self.b
         if self.isSPressed:
-            self.y += b
+            self.y += self.b
         if self.isDPressed:
-            self.x += b
+            self.x += self.b
 
 
 
