@@ -9,6 +9,7 @@ class CreditStage(game.scene2d.MyStage):
     def soundvaltread(self):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
+            self.musica = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self):
@@ -27,9 +28,9 @@ class CreditStage(game.scene2d.MyStage):
         if self.soundvalt == 0 or self.soundvalt == 1:
             pygame.mixer.music.set_volume(0.5)
         if self.soundvalt == 2:
-            pygame.mixer.music.set_volume(0.25)
+            pygame.mixer.music.set_volume(0.20)
         if self.soundvalt == 3:
-            pygame.mixer.music.set_volume(0.10)
+            pygame.mixer.music.set_volume(0.07)
         if self.soundvalt == 4:
             pygame.mixer.music.stop()
         self.button1 = Visszagomb()

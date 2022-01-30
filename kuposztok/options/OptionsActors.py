@@ -29,3 +29,8 @@ class SaveButton(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/save.png')
+
+class Select(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/kijeloles.png')

@@ -14,6 +14,7 @@ class CarOsszesStage(game.scene2d.MyStage):
     def soundvaltread(self):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
+            self.musica = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self, carvalt: int, money: int, maxScore: int):
@@ -21,15 +22,26 @@ class CarOsszesStage(game.scene2d.MyStage):
         self.soundvaltread()
         self.skinvaltread()
         self.soundvalt = self.soundvaltbe
+        self.musicaselect = self.musica
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/music/gamemusica.wav")
+        if self.musicaselect == 0 or self.musicaselect == 1:
+            pygame.mixer.music.load("../kuposztok/music/gamemusica1.wav")
+        if self.musicaselect == 2:
+            pygame.mixer.music.load("../kuposztok/music/gamemusica2.wav")
+        if self.musicaselect == 3:
+            pygame.mixer.music.load("../kuposztok/music/gamemusica3.wav")
+        if self.musicaselect == 4:
+            pygame.mixer.music.load("../kuposztok/music/gamemusica4.wav")
+        if self.musicaselect == 5:
+            pygame.mixer.music.load("../kuposztok/music/gamemusica5.wav")
+
         pygame.mixer.music.play(-1)
         if self.soundvalt == 0 or self.soundvalt == 1:
             pygame.mixer.music.set_volume(0.5)
         if self.soundvalt == 2:
-            pygame.mixer.music.set_volume(0.25)
+            pygame.mixer.music.set_volume(0.20)
         if self.soundvalt == 3:
-            pygame.mixer.music.set_volume(0.10)
+            pygame.mixer.music.set_volume(0.07)
         if self.soundvalt == 4:
             pygame.mixer.music.stop()
         self.height = pygame.display.get_surface().get_height()
