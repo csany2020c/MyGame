@@ -4,11 +4,13 @@ import game
 
 class ArrowActor(game.scene2d.MyActor):
     def __init__(self,cords:list):
-        super().__init__("Water.png")
+        super().__init__("arrow.png")
         self.thiscord = cords
         self.cords:List['int'] = list()
         self.count = 0
         self.fly = True
+        self.width = 69
+        self.height = 19
 
     def act(self, delta_time: float):
         super().act(delta_time)

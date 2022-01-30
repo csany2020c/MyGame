@@ -1,5 +1,7 @@
 import time
 
+from sympy import Point
+
 import game
 from Kancsalmate27megilyenek.AlertBox import *
 from Kancsalmate27megilyenek.ArrowActor import ArrowActor
@@ -23,6 +25,7 @@ from Kancsalmate27megilyenek.Enemys import Enemy
 from game.scene2d.MyTimers import *
 from game.scene2d.MyCamera import *
 from Kancsalmate27megilyenek.ExplosionActor import *
+from Kancsalmate27megilyenek.AngleCalc import *
 import pygame
 
 
@@ -107,7 +110,7 @@ class ArenaStage(game.scene2d.MyStage):
             self.screen.game.set_screen(WinScreen())
 
         #Itt van ha legyőzték az enemyk
-        if self.player.hp == 20:
+        if self.player.hp == 0:
             self.player.hp = 0
             self.screen.game.set_screen(LoseScreen)
 
@@ -118,13 +121,11 @@ class ArenaStage(game.scene2d.MyStage):
         for a in self.actors:
             if isinstance(a,ArrowActor):
                 for i in range(len(self.enemyList)):
-                    print("I JÓ?" + str(self.index_in_list(self.enemyList, i)))
                     if self.index_in_list(self.enemyList, i):
                         if a.overlaps(self.enemyList[i]):
                             self.minHP = 140 / self.enemyList[i].maxHP
                             self.enemyList[i].hp = self.enemyList[i].hp - 25
                             a.remove_from_stage()
-                            print("SZÉLESSÉG:" + str(self.minHP * self.enemyList[i].hp))
                             if self.minHP * self.enemyList[i].hp > 0:
                                 self.hpbarlist[i].set_size(self.minHP * self.enemyList[i].hp,9)
                                 self.hpbarlist[i].set_position(self.xPos,self.hphudlist[i].get_y() + self.hphudlist[i].get_height() * 0.33)
@@ -141,7 +142,6 @@ class ArenaStage(game.scene2d.MyStage):
                     a.remove_from_stage()
             if isinstance(a,ExplosionActor):
                 if a.overlaps(self.player):
-                    print("Player hp-ja:" + str(self.player.hp))
                     self.player.hp = self.player.hp - self.player.max_hp * 0.001
 
 
@@ -159,6 +159,12 @@ class ArenaStage(game.scene2d.MyStage):
             self.intermediates = intermediates([self.player.get_x(),self.player.get_y()],[self.target.get_x(),self.target.get_y()],nb_points=100)
             self.arrow = ArrowActor(self.intermediates)
             self.add_actor(self.arrow)
+            self.anglecalc = AngleCalc()
+            self.rot = self.anglecalc.angle_between_points((self.player.get_x(),self.player.get_y() + self.player.get_height()/2),(self.target.get_x(),self.target.get_y()))
+            self.arrow.rotation = self.rot
+            print("ANGLE:" + str(self.rot))
+            print("ROTATION:" + str(self.arrow.get_rotation()))
+
             self.remove_on_key_down_listener()
             self.add_timer(self.delay)
 
