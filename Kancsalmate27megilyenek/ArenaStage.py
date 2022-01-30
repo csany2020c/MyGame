@@ -1,3 +1,4 @@
+import random
 import time
 
 from sympy import Point
@@ -63,11 +64,17 @@ class ArenaStage(game.scene2d.MyStage):
 
         self.intermediates = None
         self.arrow = None
-        for i in range(2):
+        self.rand = random.randint(1,3)
+        for i in range(self.rand):
             #Ellenfelek létrehozása
-            self.enemy = EnemyActor(i,100,int(self.height/12 + i*150),self)
+            self.enemy = EnemyActor(random.randint(0,1),100,int(self.height/12 + i*150),self)
             self.add_actor(self.enemy)
             self.enemy.set_size(int(self.width/16),int(self.width/16))
+            self.randLvl = random.randint(self.player.mLevel-1,self.player.mLevel)
+            self.enemy.lvl = self.randLvl
+            self.enemy.maxHP += self.enemy.lvl * 50
+            self.enemy.hp += self.enemy.lvl * 50
+            self.enemy.damage += self.enemy.lvl *25
             self.enemyList.append(self.enemy)
             #HPHUD
             self.hphud = HPHUD(int(self.enemyList[i].get_x()) - 15,int(self.enemyList[i].get_y() - 105))
@@ -102,17 +109,19 @@ class ArenaStage(game.scene2d.MyStage):
         if self.pHpBar:
             self.pHpHUD.set_position(self.player.get_x(),self.player.get_y() - 105)
             self.pHpBar.set_position(self.pHpHUD.get_x() + self.pHpHUD.get_width() * 0.3,self.pHpHUD.get_y() + self.pHpHUD.get_height() * 0.33)
-            self.pHpBar.set_size(140/self.player.max_hp * self.player.hp,9)
-
+            if 140/self.player.max_hp * self.player.hp > 0:
+                self.pHpBar.set_size(140/self.player.max_hp * self.player.hp,9)
+            else:
+                self.pHpBar.set_size(0,9)
 
 
         if len(self.enemyList) < 1:
             self.screen.game.set_screen(WinScreen())
-
-        #Itt van ha legyőzték az enemyk
+            self.player.playerDatas.playerpropertie.mLevel +=1
+            self.player.playerDatas.update()
         if self.player.hp == 0:
             self.player.hp = 0
-            self.screen.game.set_screen(LoseScreen)
+            self.screen.game.set_screen(LoseScreen())
 
 
 
@@ -124,12 +133,13 @@ class ArenaStage(game.scene2d.MyStage):
                     if self.index_in_list(self.enemyList, i):
                         if a.overlaps(self.enemyList[i]):
                             self.minHP = 140 / self.enemyList[i].maxHP
-                            self.enemyList[i].hp = self.enemyList[i].hp - 25
+                            self.enemyList[i].hp = self.enemyList[i].hp - self.player.playerDatas.playerpropertie.pDMG
                             a.remove_from_stage()
                             if self.minHP * self.enemyList[i].hp > 0:
                                 self.hpbarlist[i].set_size(self.minHP * self.enemyList[i].hp,9)
                                 self.hpbarlist[i].set_position(self.xPos,self.hphudlist[i].get_y() + self.hphudlist[i].get_height() * 0.33)
                             else:
+                                self.player.playerDatas.playerpropertie.pLevel += 0.2
                                 self.remove_actor(self.enemyList[i])
                                 self.remove_actor(self.hphudlist[i])
                                 self.remove_actor(self.hpbarlist[i])
@@ -142,7 +152,7 @@ class ArenaStage(game.scene2d.MyStage):
                     a.remove_from_stage()
             if isinstance(a,ExplosionActor):
                 if a.overlaps(self.player):
-                    self.player.hp = self.player.hp - self.player.max_hp * 0.001
+                    self.player.hp -= a.dmg / 10
 
 
 

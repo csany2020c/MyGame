@@ -31,7 +31,7 @@ class PlayerPropertie:
         self.playerDamage:str = str(fields[3])
         self.money:str = str(fields[4])
 
-        self.pLevel:int = int(self.playerLevel)
+        self.pLevel:float = float(self.playerLevel)
         self.mLevel:int = int(self.maxAchievedLevel)
         self.pHP:int = int(self.playerHP)
         self.pDMG:int = int(self.playerDamage)

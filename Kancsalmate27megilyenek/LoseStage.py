@@ -8,3 +8,4 @@ class LoseStage(game.scene2d.MyStage):
         super().__init__()
         pygame.init()
 
+

@@ -36,9 +36,10 @@ class EnemyActor(game.scene2d.MyActor):
         self.x = x
         self.y = y
         self.image_url = self.ellenseg.image
+        self.lvl:int = int(0)
         self.damage:int = int(self.ellenseg.damage)
-        self.hp:int = int(self.ellenseg.hp)
         self.maxHP:int = int(self.ellenseg.hp)
+        self.hp:int = int(self.maxHP)
         self.timer = MyTickTimer(self.generateCoords,interval=4.5,start_delay=0,repeat=True)
         self.timer2 = MyTickTimer(self.attack, interval=1, start_delay=0, repeat=True)
         self.timer3 = MyTickTimer(self.removeThose,interval=3, start_delay=0, repeat=True)
@@ -51,7 +52,7 @@ class EnemyActor(game.scene2d.MyActor):
             self.add_timer(self.timer2)
 
     def attack(self,sender):
-        self.rStage.explosion = ExplosionActor(self.randX, self.randY)
+        self.rStage.explosion = ExplosionActor(self.randX, self.randY,self.damage)
         self.rStage.add_actor(self.rStage.explosion)
         self.remove_timer(self.timer2)
         self.add_timer(self.timer3)
