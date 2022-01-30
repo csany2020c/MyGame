@@ -15,11 +15,13 @@ class CarOsszesStage(game.scene2d.MyStage):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
             self.musica = int(beskinfile1.readline())
+            self.allstagebe = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self, carvalt: int, money: int, maxScore: int):
         super().__init__()
         self.soundvaltread()
+        self.allstageben =self.allstagebe
         self.skinvaltread()
         self.soundvalt = self.soundvaltbe
         self.musicaselect = self.musica
@@ -304,7 +306,6 @@ class CarOsszesStage(game.scene2d.MyStage):
                 if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
                     if self.joseph2.overlaps(q):
                         self.joseph2.y = self.joseph2.y + 10
-
 
     def iranyitas(self, sender, event, a=10):
         self.height = pygame.display.get_surface().get_height()

@@ -34,3 +34,11 @@ class Select(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/kijeloles.png')
+
+class AllSSelect(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('image/jelolve.png')
+
+class Jelolo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('image/jelolo.png')

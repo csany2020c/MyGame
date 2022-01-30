@@ -13,18 +13,47 @@ class LockerStage(game.scene2d.MyStage):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
             self.musica = int(beskinfile1.readline())
+            self.allstagebe = int(beskinfile1.readline())
+            beskinfile1.close()
+
+    def skinvaltread(self):
+        with open('../kuposztok/Save/skinvalt.txt', 'r') as beskinfile1:
+            self.snowmobilevaltbe = int(beskinfile1.readline())
+            self.sledgevaltbe = int(beskinfile1.readline())
+            self.snowboardvaltbe= int(beskinfile1.readline())
+            self.skivaltbe = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self, money: int, max_score:int):
         super().__init__()
         self.soundvaltread()
+        self.skinvaltread()
+        self.allstageben = self.allstagebe
+        self.musicaselect = self.musica
         for i in range(5):
             print(money)
             self.money = money
             self.max_score = max_score
             self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/music/shopmusica.wav")
+        self.allstage = False
+        if self.allstageben == 0 or self.allstageben == 1:
+            self.allstage = True
+        if self.allstageben == 2:
+            self.allstage = False
+        if self.allstage == False:
+            pygame.mixer.music.load("../kuposztok/music/shopmusica.wav")
+        else:
+            if self.musicaselect == 0 or self.musicaselect == 1:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica1.wav")
+            if self.musicaselect == 2:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica2.wav")
+            if self.musicaselect == 3:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica3.wav")
+            if self.musicaselect == 4:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica4.wav")
+            if self.musicaselect == 5:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica5.wav")
         pygame.mixer.music.play(-1)
         if self.soundvalt == 0 or self.soundvalt == 1:
             pygame.mixer.music.set_volume(0.5)
@@ -216,6 +245,54 @@ class LockerStage(game.scene2d.MyStage):
         self.goldlabel4.set_color(0, 0, 0)
         self.goldlabel4.set_font_size(45)
         self.add_actor(self.goldlabel4)
+        self.snowmobvalt = self.snowmobilevaltbe
+        self.sledgvalt = self.sledgevaltbe
+        self.snowboavalt = self.snowmobilevaltbe
+        self.skiivalt = self.skivaltbe
+        self.snowmselect = Select()
+        if self.snowmobvalt == 0 or self.snowmobvalt == 1:
+            self.snowmselect.set_position(self.DefSnowMobile.get_x(), self.DefSnowMobile.get_y())
+            self.snowmselect.set_size(self.DefSnowMobile.get_width(), self.DefSnowMobile.get_width() * 2)
+        if self.snowmobvalt == 2:
+            self.snowmselect.set_position(self.SilverSnowMobile.get_x(), self.SilverSnowMobile.get_y())
+            self.snowmselect.set_size(self.SilverSnowMobile.get_width(), self.SilverSnowMobile.get_width() * 2)
+        if self.snowmobvalt == 3:
+            self.snowmselect.set_position(self.GoldSnowMobile.get_x(), self.GoldSnowMobile.get_y())
+            self.snowmselect.set_size(self.GoldSnowMobile.get_width(), self.GoldSnowMobile.get_width() * 2)
+        self.add_actor(self.snowmselect)
+        self.sledgeselect = Select()
+        if self.sledgvalt == 0 or self.sledgvalt == 1:
+            self.sledgeselect.set_position(self.DefSledge.get_x(), self.DefSledge.get_y())
+            self.sledgeselect.set_size(self.DefSledge.get_width(), self.DefSledge.get_width() * 2)
+        if self.sledgvalt == 2:
+            self.sledgeselect.set_position(self.SilverSledge.get_x(), self.SilverSledge.get_y())
+            self.sledgeselect.set_size(self.SilverSledge.get_width(), self.SilverSledge.get_width() * 2)
+        if self.sledgvalt == 3:
+            self.sledgeselect.set_position(self.GoldSledge.get_x(), self.GoldSledge.get_y())
+            self.sledgeselect.set_size(self.GoldSledge.get_width(), self.GoldSledge.get_width() * 2)
+        self.add_actor(self.sledgeselect)
+        self.snowbselect = Select()
+        if self.snowboavalt == 0 or self.snowboavalt == 1:
+            self.snowbselect.set_position(self.DefSnowBoard.get_x(), self.DefSnowBoard.get_y())
+            self.snowbselect.set_size(self.DefSnowBoard.get_width(), self.DefSnowBoard.get_width() * 3)
+        if self.snowboavalt == 2:
+            self.snowbselect.set_position(self.SilverSnowBoard.get_x(), self.SilverSnowBoard.get_y())
+            self.snowbselect.set_size(self.SilverSnowBoard.get_width(), self.SilverSnowBoard.get_width() * 3)
+        if self.snowboavalt == 3:
+            self.snowbselect.set_position(self.GoldSnowBoard.get_x(), self.GoldSnowBoard.get_y())
+            self.snowbselect.set_size(self.GoldSnowBoard.get_width(), self.GoldSnowBoard.get_width() * 3)
+        self.add_actor(self.snowbselect)
+        self.skiselect = Select()
+        if self.skiivalt == 0 or self.skiivalt == 1:
+            self.skiselect.set_position(self.DefSki.get_x(), self.DefSki.get_y())
+            self.skiselect.set_size(self.DefSki.get_width(), self.DefSki.get_width() * 3)
+        if self.skiivalt == 2:
+            self.skiselect.set_position(self.SilverSki.get_x(), self.SilverSki.get_y())
+            self.skiselect.set_size(self.SilverSki.get_width(), self.SilverSki.get_width() * 3)
+        if self.skiivalt == 3:
+            self.skiselect.set_position(self.GoldSki.get_x(), self.GoldSki.get_y())
+            self.skiselect.set_size(self.GoldSki.get_width(), self.GoldSki.get_width() * 3)
+        self.add_actor(self.skiselect)
         self.silver1 = False
         self.silver2 = False
         self.silver3 = False
@@ -254,7 +331,6 @@ class LockerStage(game.scene2d.MyStage):
         self.add_actor(self.goldsnowboardlock)
         self.add_actor(self.goldskilock)
         self.Ellenorzes()
-        self.skinvaltread()
 
 
     def skinbeolvas(self):
@@ -349,24 +425,33 @@ class LockerStage(game.scene2d.MyStage):
             print("DefSnowMobile")
             self.snowmobilevalt = 1
             self.snowmobileuse = True
+            self.snowmselect.set_position(self.DefSnowMobile.get_x(), self.DefSnowMobile.get_y())
+            self.snowmselect.set_size(self.DefSnowMobile.get_width(), self.DefSnowMobile.get_width() * 2)
 
     def DefSledgeB(self, sender, event):
         if event.button == 1:
             print("DefSledge")
             self.sledgevalt = 1
             self.sledgeuse = True
+            self.sledgeselect.set_position(self.DefSledge.get_x(), self.DefSledge.get_y())
+            self.sledgeselect.set_size(self.DefSledge.get_width(), self.DefSledge.get_width() * 2)
 
     def DefSnowBoardB(self, sender, event):
         if event.button == 1:
             print("DefSnowBoard")
             self.snowboardvalt = 1
             self.snowboarduse = True
+            self.snowbselect.set_position(self.DefSnowBoard.get_x(), self.DefSnowBoard.get_y())
+            self.snowbselect.set_size(self.DefSnowBoard.get_width(), self.DefSnowBoard.get_width() * 3)
 
     def DefSkiB(self, sender, event):
         if event.button == 1:
             print("DefSki")
             self.skivalt = 1
             self.skiuse = True
+            self.skiselect.set_position(self.DefSki.get_x(), self.DefSki.get_y())
+            self.skiselect.set_size(self.DefSki.get_width(), self.DefSki.get_width() * 3)
+
 
     def SilverSnowMobileB(self, sender, event):
         if event.button == 1:
@@ -383,6 +468,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.silver1 == True:
                 self.snowmobilevalt = 2
+                self.snowmselect.set_position(self.SilverSnowMobile.get_x(), self.SilverSnowMobile.get_y())
+                self.snowmselect.set_size(self.SilverSnowMobile.get_width(), self.SilverSnowMobile.get_width() * 2)
 
     def SilverSledgeB(self, sender, event):
         if event.button == 1:
@@ -399,7 +486,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.silver2 == True:
                 self.sledgevalt = 2
-
+                self.sledgeselect.set_position(self.SilverSledge.get_x(), self.SilverSledge.get_y())
+                self.sledgeselect.set_size(self.SilverSledge.get_width(), self.SilverSledge.get_width() * 2)
 
     def SilverSnowBoardB(self, sender, event):
         if event.button == 1:
@@ -416,6 +504,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.silver3 == True:
                 self.snowboardvalt = 2
+                self.snowbselect.set_position(self.SilverSnowBoard.get_x(), self.SilverSnowBoard.get_y())
+                self.snowbselect.set_size(self.SilverSnowBoard.get_width(), self.SilverSnowBoard.get_width() * 3)
 
     def SilverSkiB(self, sender, event):
         if event.button == 1:
@@ -432,6 +522,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.silver4 == True:
                 self.skivalt = 2
+                self.skiselect.set_position(self.SilverSki.get_x(), self.SilverSki.get_y())
+                self.skiselect.set_size(self.SilverSki.get_width(), self.SilverSki.get_width() * 3)
 
     def GoldSnowMobileB(self, sender, event):
         if event.button == 1:
@@ -448,6 +540,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.gold1 == True:
                 self.snowmobilevalt = 3
+                self.snowmselect.set_position(self.GoldSnowMobile.get_x(), self.GoldSnowMobile.get_y())
+                self.snowmselect.set_size(self.GoldSnowMobile.get_width(), self.GoldSnowMobile.get_width() * 2)
 
 
     def GoldSledgeB(self, sender, event):
@@ -465,6 +559,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.gold2 == True:
                 self.sledgevalt = 3
+                self.sledgeselect.set_position(self.GoldSledge.get_x(), self.GoldSledge.get_y())
+                self.sledgeselect.set_size(self.GoldSledge.get_width(), self.GoldSledge.get_width() * 2)
 
     def GoldSnowBoardB(self, sender, event):
         if event.button == 1:
@@ -481,6 +577,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.gold3 == True:
                 self.snowboardvalt = 3
+                self.snowbselect.set_position(self.GoldSnowBoard.get_x(), self.GoldSnowBoard.get_y())
+                self.snowbselect.set_size(self.GoldSnowBoard.get_width(), self.GoldSnowBoard.get_width() * 3)
 
     def GoldSkiB(self, sender, event):
         if event.button == 1:
@@ -497,6 +595,8 @@ class LockerStage(game.scene2d.MyStage):
                     self.skinfilebairas()
             if self.gold4 == True:
                 self.skivalt = 3
+                self.skiselect.set_position(self.GoldSki.get_x(), self.GoldSki.get_y())
+                self.skiselect.set_size(self.GoldSki.get_width(), self.GoldSki.get_width() * 3)
 
     def filebairas(self):
         with open('../kuposztok/Save/file.txt', 'w') as file:
@@ -512,6 +612,7 @@ class LockerStage(game.scene2d.MyStage):
             self.skivaltbe = int(beskinfile1.readline())
             beskinfile1.close()
 
+    #melyiket használjuk
     def skinvaltwrite(self):
         with open('../kuposztok/Save/skinvalt.txt', 'w') as file:
             if self.snowmobileuse == True:

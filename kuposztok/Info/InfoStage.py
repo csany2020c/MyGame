@@ -9,6 +9,7 @@ class InfoStage(game.scene2d.MyStage):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
             self.musica = int(beskinfile1.readline())
+            self.allstagebe = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self):
@@ -16,11 +17,30 @@ class InfoStage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.soundvaltread()
+        self.musicaselect  = self.musica
+        self.allstageben = self.allstagebe
         self.bg = BgActor()
         self.add_actor(self.bg)
         self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/music/infomusica.wav")
+        self.allstage = False
+        if self.allstageben == 0 or self.allstageben == 1:
+            self.allstage = True
+        if self.allstageben == 2:
+            self.allstage = False
+        if self.allstage == False:
+            pygame.mixer.music.load("../kuposztok/music/infomusica.wav")
+        else:
+            if self.musicaselect == 0 or self.musicaselect == 1:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica1.wav")
+            if self.musicaselect == 2:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica2.wav")
+            if self.musicaselect == 3:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica3.wav")
+            if self.musicaselect == 4:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica4.wav")
+            if self.musicaselect == 5:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica5.wav")
         pygame.mixer.music.play(-1)
         if self.soundvalt == 0 or self.soundvalt == 1:
             pygame.mixer.music.set_volume(0.5)

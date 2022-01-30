@@ -24,6 +24,7 @@ class MenuStage(game.scene2d.MyStage):
         with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
             self.soundvaltbe = int(beskinfile1.readline())
             self.musica = int(beskinfile1.readline())
+            self.allstagebe = int(beskinfile1.readline())
             beskinfile1.close()
 
     def __init__(self):
@@ -31,9 +32,28 @@ class MenuStage(game.scene2d.MyStage):
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.soundvaltread()
+        self.allstageben = self.allstagebe
         self.soundvalt = self.soundvaltbe
+        self.musicaselect = self.musica
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/music/menumusica.wav")
+        self.allstage = False
+        if self.allstageben == 0 or self.allstageben == 1:
+            self.allstage = True
+        if self.allstageben == 2:
+            self.allstage = False
+        if self.allstage == False:
+            pygame.mixer.music.load("../kuposztok/music/menumusica.wav")
+        else:
+            if self.musicaselect == 0 or self.musicaselect == 1:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica1.wav")
+            if self.musicaselect == 2:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica2.wav")
+            if self.musicaselect == 3:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica3.wav")
+            if self.musicaselect == 4:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica4.wav")
+            if self.musicaselect == 5:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica5.wav")
         pygame.mixer.music.play(-1)
         if self.soundvalt == 0 or self.soundvalt == 1:
             pygame.mixer.music.set_volume(0.5)
@@ -48,7 +68,7 @@ class MenuStage(game.scene2d.MyStage):
         bg.height = self.height
         bg.width = self.width
         self.options = OptionsButton()
-        self.options.set_position(self.width / 2 - self.options.get_width() / 2, self.height - self.options.get_height() * 3)
+        self.options.set_position(0, self.height - self.options.get_height() * 2)
         self.add_actor(self.options)
         self.ma = datetime.datetime.now()
         self.ido = game.scene2d.MyLabel("Jelenlegi idő: " + str(self.ma.hour) + " : " + str(self.ma.minute))
@@ -65,7 +85,7 @@ class MenuStage(game.scene2d.MyStage):
         self.early.set_font_size(20)
         self.early.x = self.width - self.early.get_width()
         self.early.y = self.height - self.early.get_height()
-        self.Ver = game.scene2d.MyLabel("Version: 0.9.9")
+        self.Ver = game.scene2d.MyLabel("Version: 1.0")
         self.Ver.set_color(0, 0, 0)
         self.add_actor(self.Ver)
         self.Ver.x = self.width - self.Ver.get_width()

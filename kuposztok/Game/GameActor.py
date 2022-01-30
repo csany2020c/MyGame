@@ -162,3 +162,4 @@ class goldsledge(game.scene2d.MyActor):
         self.credit = super().__init__('image/Sledge_gold.png')
         self.width = 200
         self.height = 200
+
