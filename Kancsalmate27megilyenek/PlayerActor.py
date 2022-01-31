@@ -1,7 +1,7 @@
 import game
 import pygame
 
-
+from Kancsalmate27megilyenek.PlayerProperties import PlayerProperties
 from game.simpleworld.ShapeType import ShapeType
 from Kancsalmate27megilyenek import MenuScreen
 from Kancsalmate27megilyenek.TextureActors import *
@@ -12,13 +12,23 @@ from game.scene2d import MyTickTimer
 class PlayerActor(game.scene2d.MyActor):
     def __init__(self, image_url: str = "Heroamijó_1.png"):
         super().__init__(image_url)
+        self.playerDatas = PlayerProperties()
         self.leftImages: List['str'] = ("Heroamijó_1.png","Heroamijó_2.png","Heroamijó_3.png","Heroamijó_4.png","Heroamijó_5.png","Heroamijó_6.png","Heroamijó_7.png","Heroamijó_8.png")
         self.rightImages: List['str'] = ("Heroamijó_1_right.png", "Heroamijó_2_right.png", "Heroamijó_3_right.png", "Heroamijó_4_right.png", "Heroamijó_5_right.png","Heroamijó_6_right.png", "Heroamijó_7_right.png", "Heroamijó_8_right.png")
         self.z_index = 1
         self.info = pygame.display.Info()
         self.width = self.info.current_w
         self.height = self.info.current_h
-        self.hp:int = 100
+        self.b = 5
+        # Player adatok
+
+        self.pLevel:int = self.playerDatas.playerpropertie.pLevel
+        self.hp:int = self.playerDatas.playerpropertie.pHP + self.pLevel * 100
+        self.max_hp:int = self.playerDatas.playerpropertie.pHP + self.pLevel * 100
+        self.damage:int = self.playerDatas.playerpropertie.pDMG * self.pLevel * 25
+        self.money:int = self.playerDatas.playerpropertie.penz
+        self.mLevel:int = self.playerDatas.playerpropertie.mLevel
+        self.dealtDMG:int = 0
         self.set_size(64, 64)
         self.hitbox_scale_h = 1
         self.hitbox_scale_w = 1
@@ -117,15 +127,14 @@ class PlayerActor(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        b = 5
         if self.isWPressed:
-            self.y -= b
+            self.y -= self.b
         if self.isAPressed:
-            self.x -= b
+            self.x -= self.b
         if self.isSPressed:
-            self.y += b
+            self.y += self.b
         if self.isDPressed:
-            self.x += b
+            self.x += self.b
 
 
 

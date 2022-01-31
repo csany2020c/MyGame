@@ -8,9 +8,9 @@ from game.scene2d.MyStage import *
 
 class ExplosionActor(game.scene2d.MyActor):
 
-        def __init__(self,x:int,y:int):
+        def __init__(self,x:int,y:int,dmg:int):
             super().__init__("tile000.png")
-
+            self.dmg = dmg
             self.width = 128
             self.height = 124
             self.x = x
