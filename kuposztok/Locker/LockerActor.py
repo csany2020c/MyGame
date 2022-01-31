@@ -88,5 +88,9 @@ class SilverLock(game.scene2d.MyActor):
         super().__init__('image/silver_lock.png')
 
 class GoldLock(game.scene2d.MyActor):
-    def __init__(self, image_url: str = ""):
+    def __init__(self):
         super().__init__('image/golden_lock.png')
+
+class Select(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__('image/kijeloles.png')

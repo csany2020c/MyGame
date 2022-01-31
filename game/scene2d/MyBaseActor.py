@@ -148,6 +148,8 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
 
     def get_y(self) -> float:
         return self._y
+    def get_position(self) -> ():
+        return (self._x,self._y)
 
     def set_width(self, width: float, aspect_ratio: bool = True) -> 'MyBaseActor':
         if self.w == 0:
