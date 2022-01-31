@@ -48,7 +48,7 @@ class IStage(game.scene2d.MyStage):
 
         self.H2 = Strokes()
         self.add_actor(self.H2)
-        self.H2.set_text("497 a maximum pontszám, aki azt eléri az a Flappy D Király.")
+        self.H2.set_text("497 a maximum pontszám, aki azt eléri az a Flappy D King.")
         self.H2.x = 300
         self.H2.y = 225
         self.H2.set_font_size(25)
