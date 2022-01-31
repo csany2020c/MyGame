@@ -4,6 +4,7 @@ import game
 from Kancsalmate27megilyenek.InGameScreen import *
 from Kancsalmate27megilyenek.MenuActor import *
 from MusicActor import MusicActor
+import Kancsalmate27megilyenek.InfoScreen
 
 
 
@@ -34,6 +35,8 @@ class Stage3(game.scene2d.MyStage):
         self.c.x =self.width / 2 - self.c.width / 2
         self.c.y = self.height - self.height * 0.75 + self.b.get_height() + self.height * 0.1
         self.add_actor(self.c)
+        self.c.set_on_mouse_down_listener(self.igen)
+
 
         self.a = MenuActor1()
         self.a.set_size(300, 100)
@@ -66,5 +69,7 @@ class Stage3(game.scene2d.MyStage):
             self.screen.game.set_screen(InScreen())
 
 
-
+    def igen(self,sender,event):
+        if event.button == 1:
+            self.screen.game.set_screen(Kancsalmate27megilyenek.InfoScreen.InfoScreen())
 

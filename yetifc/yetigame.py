@@ -1,7 +1,7 @@
+import yetifc.yetigamescreen
 from yetifc.yetiscreen import MenuScreen
-from yetifc.yetigamescreen import GameScreen
-from yetifc.yetigamescreen import GameStage
-
+from yetifc.yetigamescreen import *
+from yetifc.yetistage import *
 import game
 import pygame
 
