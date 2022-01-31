@@ -227,7 +227,7 @@ class GameStage(game.scene2d.MyStage):
             self.C2.remove_from_stage()
             self.point += 1
             self.update_point()
-        if self.point == 0:
+        if self.point == 497:
             self.screen.game.set_screen(HawkProductions.win.WinScreen.WinScreen())
 
     def click2(self, sender, event):
