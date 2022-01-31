@@ -5,7 +5,9 @@ import webbrowser
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
 import Impostorsus.Game.WarioScr
+import random
 import sys
+
 class ASD(game.scene2d.MyStage):
 
     def __init__(self):
@@ -32,7 +34,7 @@ class ASD(game.scene2d.MyStage):
                     if c == "y":
                         a = Kocka()
                     if c == "b":
-                        a = BillActor()
+                        self.a = BillActor()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
@@ -142,10 +144,9 @@ class ASD(game.scene2d.MyStage):
 
 
     def tikk(self, sender):
-        self.b = BillActor()
-        self.add_actor(self.b)
-        self.b.x = +1100
-        self.b.y = +700
+        self.add_actor(self.a)
+        self.a.x = +1100
+        self.a.y = +700
 
     def tikk2(self, sender):
         self.wario.image_url = 'Kepek/actorsusus.png'
@@ -326,7 +327,6 @@ class ASD(game.scene2d.MyStage):
         if overASD:
             dead_fx.play()
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
-
 
 class ASD2 (game.scene2d.MyStage):
     def __init__(self):
@@ -738,6 +738,31 @@ class HalalStage (game.scene2d.MyStage):
         self.width = pygame.display.get_surface().get_width()
         self.h.x += self.width /2 - self.h.get_width() / 2
         self.h.y += self.height /2 - self.h.get_height() / 2
+        self.set_on_key_down_listener(self.r)
+
+    def r(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+
+class HalalStage2 (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.h = Halalkep()
+        self.add_actor(self.h)
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        self.h.x += self.width /2 - self.h.get_width() / 2
+        self.h.y += self.height /2 - self.h.get_height() / 2
+        self.set_on_key_down_listener(self.r)
+
+    def r(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
+
 
 class WinStage(game.scene2d.MyStage):
     def __init__(self):
@@ -762,43 +787,38 @@ class PalyaStage(game.scene2d.MyStage):
         self.add_actor(self.k1)
         self.k1.x = 230
         self.k1.y = 260
-        self.h2 = BackGround()
+        self.h2 = BackGround2()
         self.add_actor(self.h2)
-        self.h2.set_width(400)
-        self.h2.x = 675
-        self.h2.y = 275
-        self.k2 = Keret()
-        self.add_actor(self.k2)
-        self.k2.x = 675
-        self.k2.y = 260
+        self.h2.set_height(360)
+        self.h2.x = 730
+        self.h2.y = 262
         self.m1 = Map1()
         self.add_actor(self.m1)
-        self.m1.x = 300
+        self.m1.x = 270
         self.m1.y = 200
         self.m2 = Map2()
         self.add_actor(self.m2)
-        self.m2.x = 760
+        self.m2.x = 730
         self.m2.y = 200
         self.m1.set_on_mouse_down_listener(self.palya1)
         self.h1.set_on_mouse_down_listener(self.palya1)
         self.k1.set_on_mouse_down_listener(self.palya1)
         self.m2.set_on_mouse_down_listener(self.palya2)
         self.h2.set_on_mouse_down_listener(self.palya2)
-        self.k2.set_on_mouse_down_listener(self.palya2)
 
     def palya1(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
 
     def palya2(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
+                self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioKartScr())
 
 class ASD3(game.scene2d.MyStage):
 
@@ -806,6 +826,7 @@ class ASD3(game.scene2d.MyStage):
         super().__init__()
         pygame.mouse.set_visible(0)
         f = open("palya2.txt", "r")
+
 
         y: int = 0
         while True:
@@ -820,8 +841,16 @@ class ASD3(game.scene2d.MyStage):
                     a4: MyBaseActor = None
                     if c == "y":
                         a = Kocka()
+                    if c == "L":
+                        a = Ladder()
+                    if c == "P":
+                        a = Pipe()
+                    if c == "M":
+                        a = Pipe1()
+                    if c == "h":
+                        a = KockaHalf()
                     if c == "b":
-                        a = BillActor()
+                        self.a = BillActor()
                     if c == "o":
                         a = Kocka()
                         a1 = Lathatatlan()
@@ -845,7 +874,7 @@ class ASD3(game.scene2d.MyStage):
                     if c == "S":
                         a = Tabla()
                     if c == "z":
-                        a = Zaszlo()
+                        a = Zaszlo2()
                     if c == "W":
                         self.wario = WarioActor()
                         a = self.wario
@@ -887,21 +916,29 @@ class ASD3(game.scene2d.MyStage):
         self.wario.set_on_key_down_listener(self.key_down)
         self.sz = MenuSzoveg()
         self.add_actor(self.sz)
-        self.sz.set_text("Nyomj")
+        self.sz.set_text("Ugorj")
         self.sz.set_alpha(500)
         self.sz.set_width(25)
         self.sz.set_height(25)
-        self.sz.x += 3410
-        self.sz.y += 715
+        self.sz.x += 1810
+        self.sz.y += 460
         self.sz2 = MenuSzoveg()
         self.add_actor(self.sz2)
-        self.sz2.set_text("E-t")
+        self.sz2.set_text("bele")
         self.sz2.set_alpha(500)
         self.sz2.set_width(25)
         self.sz2.set_height(25)
-        self.sz2.x += 3430
-        self.sz2.y += 740
-        self.t = MyTickTimer(interval=2.3, func=self.tikk)
+        self.sz2.x += 1815
+        self.sz2.y += 485
+        self.sz3 = MenuSzoveg()
+        self.add_actor(self.sz3)
+        self.sz3.set_text("--->")
+        self.sz3.set_alpha(500)
+        self.sz3.set_width(25)
+        self.sz3.set_height(25)
+        self.sz3.x += 1248
+        self.sz3.y += 982
+        self.t = MyTickTimer(interval=3, func=self.tikk)
         self.add_timer(self.t)
         self.t2 = MyTickTimer(interval=0.4, func=self.tikk2)
         self.add_timer(self.t2)
@@ -909,15 +946,26 @@ class ASD3(game.scene2d.MyStage):
         self.add_timer(self.t3)
         self.q = Question()
         self.add_actor(self.q)
-        self.q.y = 320
-        self.q.x = 2900
+        self.q.x = 2150
+        self.q.y = 880
+        self.timer = MyTickTimer(interval=2.5, func=self.idocucc)
+        self.add_timer(self.timer)
+        self.camera.set_tracking_window(0.2, 0.2, 0.5, -0.3)
 
+    def idocucc(self, sender):
+        self.c = Cloud()
+        self.add_actor(self.c)
+        self.c3 = Cloud3()
+        self.add_actor(self.c3)
+        self.c.y = random.Random().randint(300, 1500)
+        self.c.x = random.Random().randint(100, 900)
+        self.c3.y = random.Random().randint(300, 1500)
+        self.c3.x = random.Random().randint(100, 900)
 
     def tikk(self, sender):
-        self.b = BillActor()
-        self.add_actor(self.b)
-        self.b.x = +1100
-        self.b.y = +700
+        self.add_actor(self.a)
+        self.a.x = +1600
+        self.a.y = +630
 
     def tikk2(self, sender):
         self.wario.image_url = 'Kepek/actorsusus.png'
@@ -972,7 +1020,7 @@ class ASD3(game.scene2d.MyStage):
             pygame.mixer.music.load("audio/jebait.mp3")
             pygame.mixer.music.play()
             pygame.mixer.music.set_volume(0.04)
-            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
 
 
     def act(self, delta_time: float):
@@ -994,6 +1042,11 @@ class ASD3(game.scene2d.MyStage):
                         self.wario.set_width(200)
                         g = actorASD
             if isinstance(actorASD, Kocka):
+                if actorASD.y - actorASD.h > self.wario.y:
+                    if self.wario.overlaps(actorASD):
+                        overlapsASD = True
+                        break
+            if isinstance(actorASD, KockaHalf):
                 if actorASD.y - actorASD.h > self.wario.y:
                     if self.wario.overlaps(actorASD):
                         overlapsASD = True
@@ -1029,8 +1082,8 @@ class ASD3(game.scene2d.MyStage):
             if isinstance(actorASD, BillActor):
                 if self.wario.overlaps(actorASD):
                     dead_fx.play()
-                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
-            if isinstance(actorASD, Zaszlo):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen2())
+            if isinstance(actorASD, Zaszlo2):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.WinScreen())
@@ -1039,11 +1092,25 @@ class ASD3(game.scene2d.MyStage):
                     self.remove_actor(self.q)
                     self.k = KunuM()
                     self.add_actor(self.k)
-                    self.k.x = 2850
-                    self.k.y = 900
+                    self.k.x = 2035
+                    self.k.y = 1220
             if isinstance(actorASD, KunuM):
                 if self.wario.overlaps(actorASD):
                     self.remove_actor(self.k)
+                    if self.elapsed_time > 0:
+                        self.t = MyTickTimer(interval=0.2, func=self.tikktok)
+                        self.add_timer(self.t)
+            if isinstance(actorASD, Pipe):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x += 2325
+                    self.wario.y -= 50
+            if isinstance(actorASD, Pipe1):
+                if self.wario.overlaps(actorASD):
+                    self.wario.x -= 2325
+                    self.wario.y -= 50
+            if isinstance(actorASD, Ladder):
+                if self.wario.overlaps(actorASD):
+                    self.wario.y -= 20
 
             if g is not None:
                 g.remove_from_stage()
@@ -1055,4 +1122,225 @@ class ASD3(game.scene2d.MyStage):
 
         if overASD:
             dead_fx.play()
-            self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen())
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen2())
+
+    def tikktok(self, sender):
+        self.screen.r = random.randint(0, 255)
+        self.screen.g = random.randint(0, 255)
+        self.screen.b = random.randint(0, 255)
+
+class WarioKartStage(game.scene2d.MyStage):
+
+    def __init__(self):
+        super().__init__()
+        pygame.mixer.music.load('audio/rajosan.mp3')
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load('audio/spartai.mp3')
+        pygame.mixer.music.stop()
+        pygame.mixer.music.load('audio/racemusic.mp3')
+        pygame.mixer.music.play()
+        pygame.mixer.music.set_volume(0.03)
+        pygame.mouse.set_visible(1)
+        f = open("palya3", "r")
+
+        y: int = 0
+        while True:
+            line = f.readline().strip()
+            if line:
+                x: int = 0
+                for c in line:
+                    a: MyBaseActor = None
+                    if c == "r":
+                        a = Road()
+                    if c == "e":
+                        a = KartEnemy()
+                    if c == "b":
+                        a = Barrel()
+                    if c == "p":
+                        a = Ramp()
+                    if c == "l":
+                        a = LathatatlanKart3()
+                    if c == "f":
+                        a = Finish()
+                    if a is not None:
+                        a.x = x * 64
+                        a.y = y * 64
+                        self.add_actor(a)
+
+                        print(c)
+                    x += 1
+            else:
+                break
+            y += 1
+
+        f.close()
+        self.l1 = LathatatlanKart()
+        self.add_actor(self.l1)
+        self.l1.x = 25
+        self.l1.y = 150
+        self.l2 = LathatatlanKart2()
+        self.add_actor(self.l2)
+        self.l2.x = 1170
+        self.l2.y = 150
+        self.wario = WarioKart()
+        self.add_actor(self.wario)
+        self.camera.tracking = self.wario
+        self.wario.set_on_key_press_listener(self.press)
+        self.set_on_key_down_listener(self.key_down)
+        self.wario.x = 600
+        self.wario.y = 150
+        self.bl = Blue()
+        self.add_actor(self.bl)
+        self.mk = MarioKartSkin()
+        self.add_actor(self.mk)
+        self.mk.x = 350
+        self.mk.y = 300
+        self.wk = WarioKartSkin()
+        self.add_actor(self.wk)
+        self.wk.x = 485
+        self.wk.y = 300
+        self.sz = MenuSzoveg()
+        self.add_actor(self.sz)
+        self.sz.set_text("Válassz skint")
+        self.sz.set_alpha(500)
+        self.sz.set_width(50)
+        self.sz.set_height(50)
+        self.sz.x += 460
+        self.sz.y += 175
+        self.tk = TodKartSkin()
+        self.add_actor(self.tk)
+        self.tk.x = 570
+        self.tk.y = 300
+        self.dk = DonkeyKartSkin()
+        self.add_actor(self.dk)
+        self.dk.x = 680
+        self.dk.y = 300
+        self.lk = LuigiKartSkin()
+        self.add_actor(self.lk)
+        self.lk.x = 790
+        self.lk.y = 300
+        self.wk.set_on_mouse_down_listener(self.skin1)
+        self.mk.set_on_mouse_down_listener(self.skin2)
+        self.tk.set_on_mouse_down_listener(self.skin3)
+        self.dk.set_on_mouse_down_listener(self.skin4)
+        self.lk.set_on_mouse_down_listener(self.skin5)
+
+    def skin1(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.wario.image_url = 'Kepek/wariokart.png'
+    def skin2(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.wario.image_url = 'Kepek/mariokart.png'
+    def skin3(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.wario.image_url = 'Kepek/todkart.png'
+    def skin4(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.wario.image_url = 'Kepek/donkeykart.png'
+    def skin5(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.wario.image_url = 'Kepek/luigikart.png'
+
+
+    def key_down(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioKartScr())
+
+
+    def press(self, sender, event):
+        # print(event.key)
+        if event.key == pygame.K_d:
+            sender.x += 3.5
+            self.camera.set_tracking_window(0, 0, 0, 0.7)
+        if event.key == pygame.K_a:
+            sender.x -= 3.5
+            self.camera.set_tracking_window(0, 0, 0, 0.7)
+        if event.key == pygame.K_RIGHT:
+            sender.x += 3.5
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+        if event.key == pygame.K_LEFT:
+            sender.x -= 3.5
+            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 2:
+            self.mk.x = +3000
+            self.bl.x = +3000
+            self.wk.x = +3000
+            self.sz.x = +3000
+            self.tk.x = +3000
+            self.dk.x = +3000
+            self.lk.x = +3000
+            pygame.mouse.set_visible(0)
+
+        for i in self.actors:
+            if isinstance(i, LathatatlanKart):
+                if self.wario.overlaps(i):
+                    self.wario.x += 3.5
+            if isinstance(i, LathatatlanKart2):
+                if self.wario.overlaps(i):
+                    self.wario.x -= 3.5
+            if isinstance(i, Finish):
+                if self.wario.overlaps(i):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartWinScr())
+                    pygame.mixer.music.load('audio/winsound.mp3')
+                    pygame.mixer.music.play()
+            if isinstance(i, Barrel):
+                if self.wario.overlaps(i):
+                    self.wario.y -= 140
+            if isinstance(i, Ramp):
+                if self.wario.overlaps(i):
+                    self.wario.y += 100
+            if isinstance(i, KartEnemy):
+                if self.wario.overlaps(i):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
+                    pygame.mixer.music.load('audio/battya.mp3')
+                    pygame.mixer.music.play()
+
+
+
+class KartHalalStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.h = Halalkep()
+        self.add_actor(self.h)
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        self.h.x += self.width /2 - self.h.get_width() / 2
+        self.h.y += self.height /2 - self.h.get_height() / 2
+        self.set_on_key_down_listener(self.r)
+
+    def r(self, sender, event):
+        print(sender)
+        print(event)
+        if event.key == pygame.K_r:
+            self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioKartScr())
+
+class KartWinStage (game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.h = Winkep()
+        self.add_actor(self.h)
+        self.height = pygame.display.get_surface().get_height()
+        self.width = pygame.display.get_surface().get_width()
+        self.h.x += self.width /2 - self.h.get_width() / 2
+        self.h.y += self.height /2 - self.h.get_height() / 2
+

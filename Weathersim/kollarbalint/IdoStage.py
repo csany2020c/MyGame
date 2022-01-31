@@ -93,7 +93,7 @@ class HavazasStage(game.scene2d.MyStage):
     def idocucc(self, sender):
         self.Ho = (SnowImg())
         self.add_actor(self.Ho)
-        self.Ho.x = random.Random().randint(-150, 1150)
+        self.Ho.x = random.Random().randint(-500, 1150)
 
 
     def key_down(self, sender, event):

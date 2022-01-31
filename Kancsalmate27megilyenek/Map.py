@@ -1,5 +1,6 @@
 import game
-from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor, DamageActor, HealActor
+from Kancsalmate27megilyenek.TextureActors import WaterActor, GrassActor, SandActor, StoneActor, PathActor, DamageActor, \
+    HealActor, WaterActor2
 from game.scene2d import MyBaseActor
 from game.scene2d.MyStage import *
 class Map():
@@ -26,8 +27,8 @@ class Map():
                         stage.sand = SandActor()
                         a = stage.sand
                     if c == "3":
-                        stage.stone = StoneActor()
-                        a = stage.stone
+                        stage.water2 = WaterActor2()
+                        a = stage.water2
                     if c == "4":
                         stage.path = PathActor()
                         a = stage.path
@@ -47,5 +48,3 @@ class Map():
             else:
                 break
             y += 1
-
-        f.close()

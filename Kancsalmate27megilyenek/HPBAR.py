@@ -16,5 +16,5 @@ class HPBAR(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__("hpbar.png")
-        self.width = 280
+        self.width = 140
         self.height = 9

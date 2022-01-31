@@ -35,3 +35,10 @@ class Button5(game.scene2d.MyActor):
 
     def __init__(self):
         super().__init__('image/info_button.png')
+
+class OptionsButton(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__('image/options.png')
+        self.width = 100
+        self.height = 100
