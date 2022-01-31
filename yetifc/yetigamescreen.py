@@ -48,10 +48,10 @@ class GameScreen(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(GameStage())
 
-class Settings(game.scene2d.MyScreen):
+class Settingscreen(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100,0,100)
+        self.set_background_color(1,100,100)
         self.add_stage(Settingstage())
 
 
