@@ -1393,6 +1393,8 @@ class WarioKartStage(game.scene2d.MyStage):
             if isinstance(i, GombaKart):
                 if self.wario.overlaps(i):
                     self.wario.image_url = 'Kepek/kunukart.png'
+                    self.wario.hitbox_scale_w = 0.65
+                    self.wario.hitbox_scale_h = 0.85
             if isinstance(i, BananKart):
                 if self.wario.overlaps(i):
                     self.wario.y -= 120 * delta_time
