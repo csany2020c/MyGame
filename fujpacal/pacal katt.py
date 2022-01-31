@@ -124,6 +124,8 @@ class Stage(game.scene2d.MyStage):
         self.repul = False
         self.counter = 0
         self.count = 0
+        # self.add_actor(self.score)
+        self.score = MyLabel("", "system", 64, [255, 0, 0])
         self.actor1_bg = Actor()
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
@@ -170,6 +172,9 @@ class Stage(game.scene2d.MyStage):
                                 self.count += 1
                                 if self.count + 1:
                                     print(self.count)
+                                    self.score.set_text(str(self.count))
+                                    self.add_actor(self.score)
+
 
 
 
