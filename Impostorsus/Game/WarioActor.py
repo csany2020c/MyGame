@@ -229,10 +229,6 @@ class Road(game.scene2d.MyActor):
         super().__init__("Kepek/road.jpg")
         self.set_width(1280)
 
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        if self.elapsed_time > 3:
-            self.y -= 60 * delta_time
 
 class Finish(game.scene2d.MyActor):
     def __init__(self):
@@ -249,8 +245,27 @@ class KartEnemy(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/cactus.png")
         self.set_width(100)
-        self.hitbox_scale_h = 0.9
-        self.hitbox_scale_w = 0.6
+        self.hitbox_scale_h = 0.8
+        self.hitbox_scale_w = 0.75
+
+class BananKart(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/banan.png")
+        self.set_width(85)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 0.9
+
+class GombaKart(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/gomba.png")
+        self.set_width(50)
+        self.hitbox_scale_h = 1
+        self.hitbox_scale_w = 1
+
+class MarioDead(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mariodead.png")
+        self.set_width(200)
 
 class WarioKart(game.scene2d.MyActor):
     def __init__(self):
@@ -292,6 +307,18 @@ class Blue(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/blue.png")
         self.set_width(1300)
+
+class MarioKartWin1(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mariokartwin1.png")
+
+class MarioKartWin2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/mariokartwin2.png")
+
+class KartPodium(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/podium.png")
 
 
 class LathatatlanKart(game.scene2d.MyActor):
