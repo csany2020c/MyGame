@@ -126,6 +126,11 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
         self._transform()
         return self
 
+    def set_position(self,x: float, y: float) -> 'MyBaseActor':
+        self._x = x
+        self._y = y
+        return self
+
     def rotate_with(self, degree: float) -> 'MyBaseActor':
         self.set_rotation(self._r + degree)
         return self
@@ -143,6 +148,8 @@ class MyBaseActor(MyElapsedTime, MyTimers, MyZIndex, MyMouseListeners, MyKeyboar
 
     def get_y(self) -> float:
         return self._y
+    def get_position(self) -> ():
+        return (self._x,self._y)
 
     def set_width(self, width: float, aspect_ratio: bool = True) -> 'MyBaseActor':
         if self.w == 0:

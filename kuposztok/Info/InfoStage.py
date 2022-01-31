@@ -4,16 +4,52 @@ from kuposztok.Info.InfoActors import *
 import kuposztok
 
 class InfoStage(game.scene2d.MyStage):
+
+    def soundvaltread(self):
+        with open('../kuposztok/Save/options.txt', 'r') as beskinfile1:
+            self.soundvaltbe = int(beskinfile1.readline())
+            self.musica = int(beskinfile1.readline())
+            self.allstagebe = int(beskinfile1.readline())
+            beskinfile1.close()
+
     def __init__(self):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
+        self.soundvaltread()
+        self.musicaselect  = self.musica
+        self.allstageben = self.allstagebe
         self.bg = BgActor()
         self.add_actor(self.bg)
+        self.soundvalt = self.soundvaltbe
         pygame.mixer.init()
-        pygame.mixer.music.load("../kuposztok/music/infomusica.wav")
+        self.allstage = False
+        if self.allstageben == 0 or self.allstageben == 1:
+            self.allstage = True
+        if self.allstageben == 2:
+            self.allstage = False
+        if self.allstage == False:
+            pygame.mixer.music.load("../kuposztok/music/infomusica.wav")
+        else:
+            if self.musicaselect == 0 or self.musicaselect == 1:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica1.wav")
+            if self.musicaselect == 2:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica2.wav")
+            if self.musicaselect == 3:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica3.wav")
+            if self.musicaselect == 4:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica4.wav")
+            if self.musicaselect == 5:
+                pygame.mixer.music.load("../kuposztok/music/gamemusica5.wav")
         pygame.mixer.music.play(-1)
-        pygame.mixer.music.set_volume(0.2)
+        if self.soundvalt == 0 or self.soundvalt == 1:
+            pygame.mixer.music.set_volume(0.5)
+        if self.soundvalt == 2:
+            pygame.mixer.music.set_volume(0.20)
+        if self.soundvalt == 3:
+            pygame.mixer.music.set_volume(0.07)
+        if self.soundvalt == 4:
+            pygame.mixer.music.stop()
         self.text1 = game.scene2d.MyLabel("A játék lényege, hogy a karakterünkel minél több")
         self.text1.set_color(0, 0, 0)
         self.text1.x = 100
@@ -76,10 +112,8 @@ class InfoStage(game.scene2d.MyStage):
         self.add_actor(self.text72)
         self.back = Back()
         self.add_actor(self.back)
-        self.back.x = 1170
-        self.back.y = 700
-        self.back.height = 50
-        self.back.width = 160
+        self.back.x = self.width - self.back.get_width()
+        self.back.y = self.height - self.back.get_height()
 
         self.set_on_key_down_listener(self.katt)
         self.back.set_on_mouse_down_listener(self.Back)

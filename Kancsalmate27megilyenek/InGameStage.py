@@ -1,3 +1,5 @@
+import webbrowser
+
 import game
 import pygame
 from Kancsalmate27megilyenek.TextureActors import *
@@ -34,15 +36,6 @@ class InStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-
-        if self.player.overlaps(self.lava):
-            self.eletero = self.eletero - 1
-        if self.eletero == 0:
-            self.player.remove_from_stage()
-
-        if self.player.overlaps(self.heal):
-            self.eletero = self.eletero + 1
-        
         self.heart.x = self.player.x - 15
         self.heart.y = self.player.y - 30
         self.heart1.x = self.player.x + 10
@@ -55,8 +48,13 @@ class InStage(game.scene2d.MyStage):
             self.heart1.remove_from_stage()
         if self.eletero < 0:
             self.heart.remove_from_stage()
-
-
+        if self.eletero > 65:
+            self.add_actor(self.heart2)
+        if self.eletero > 30:
+            self.add_actor(self.heart1)
         if self.player.overlaps(self.sand):
             self.screen.game.set_screen(ArenaScreen())
+
+        if self.player.overlaps(self.water2):
+            webbrowser.open("https://www.youtube.com/watch?v=rX7XZLcGAxw")
 

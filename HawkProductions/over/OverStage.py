@@ -3,12 +3,18 @@ import pygame
 import HawkProductions.menu.MenuScreen
 
 
+
 class OverStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Over.wav")
         pygame.mixer.music.play(-1)
+        #self.c = HawkProductions.Gaymover()
+        #self.add_actor(self.c)
+
+
+
         self.F = Gameover()
         self.add_actor(self.F)
         self.F.set_color(255, 0, 0)

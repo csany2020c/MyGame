@@ -15,11 +15,13 @@ class MenuStage(game.scene2d.MyStage):
         self.t = Title()
         self.h1 = Startb()
         self.h2 = Exit()
-        self.b = Anything()
+#        self.b = DiaSign()
+        self.b2 = Anything()
         self.add_actor(self.t)
         self.add_actor(self.h1)
         self.add_actor(self.h2)
-        self.add_actor(self.b)
+        #        self.add_actor(self.b)
+        self.add_actor(self.b2)
 
         self.t.width = 1300
 
@@ -31,9 +33,14 @@ class MenuStage(game.scene2d.MyStage):
         self.h2.y = 550
         self.h2.w = 200
 
-        self.b.set_text("Flappy D")
-        self.b.x = 500
-        self.b.y = 100
+        # self.b.set_text("A Hawk Productions game")
+        # self.b.x = 500
+        # self.b.y = 50
+        # self.b.set_size(250, 50)
+
+        self.b2.set_text("Flappy D")
+        self.b2.x = 500
+        self.b2.y = 100
 
         self.i = Info()
         self.add_actor(self.i)
@@ -43,7 +50,6 @@ class MenuStage(game.scene2d.MyStage):
         self.h1.set_on_mouse_down_listener(self.click3)
 
         self.set_on_key_down_listener(self.key_down)
-        #self.h1.set_on_mouse_down_listener(self.click1)
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
 
@@ -55,7 +61,7 @@ class MenuStage(game.scene2d.MyStage):
             quit()
         if event.key == pygame.K_SPACE:
             print("Elindul a játék")
-            self.screen.game.set_screen(HawkProductions.Game.GameScreen.GameScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
         if event.key == pygame.K_i:
             self.screen.game.set_screen(IScreen())
 

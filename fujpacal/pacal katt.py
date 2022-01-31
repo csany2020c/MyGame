@@ -100,7 +100,15 @@ class venom(game.scene2d.MyActor):
         self.x = x
         self.y = y
 
+class mysterio(game.scene2d.MyActor):
 
+    def __init__(self, x, y):
+        super().__init__("images/mysterio.png")
+
+        self.set_width(180)
+        self.set_height(180)
+        self.x = x
+        self.y = y
 
 
 class Stage(game.scene2d.MyStage):

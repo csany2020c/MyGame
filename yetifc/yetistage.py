@@ -34,6 +34,13 @@ class MenuStage(game.scene2d.MyStage):
         self.exit.x = 550
         self.exit.y = 900
 
+    def settingsbut(self, sender, event):
+        print(sender)
+        print(event)
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.button == 1:
+                self.screen.game.set_screen(Settingstage())
+
     def act(self, delta_time: float):
         if self.bg.y > 0:
             self.bg.y = self.bg.y - 15
@@ -44,5 +51,11 @@ class MenuStage(game.scene2d.MyStage):
         if self.exit.y > 500:
             self.exit.y = self.exit.y - 8
 
-
+class Settingstage(game.scene2d.MyStage):
+    def key_down(self, sender, event):
+        print(sender)
+        if event.key == pygame.K_F11:
+            print("Teljes kepernyo")
+            pygame.display.toggle_fullscreen()
+            self.set_on_key_press_listener(self.key_down)
 

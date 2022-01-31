@@ -84,8 +84,8 @@ class GameStage(game.scene2d.MyStage):
     def add_asd(self, sender):
         print(sender)
         self.add_actor(self.P1)
-        self.P1.set_hitbox_scale_h = 0
-        self.P1.set_hitbox_scale_w = 0
+        self.P1.set_hitbox_scale_h = 0.1
+        self.P1.set_hitbox_scale_w = 0.1
         self.P1.h = 420
         self.P1.y = -65
         if self.elapsed_time > 15:
@@ -95,8 +95,8 @@ class GameStage(game.scene2d.MyStage):
 
         self.add_actor(self.P2)
         self.P2.h = 420
-        self.P2.set_hitbox_scale_h = 0
-        self.P2.set_hitbox_scale_w = 0
+        self.P2.set_hitbox_scale_h = 0.1
+        self.P2.set_hitbox_scale_w = 0.1
         self.P2.y = 560
         if self.elapsed_time > 15:
             self.P2.y = random.randint(590, 635)
@@ -143,7 +143,7 @@ class GameStage(game.scene2d.MyStage):
         self.P6.set_hitbox_scale_w = 0
         self.P6.y = 590
         if self.elapsed_time > 25:
-            self.P6.y = random.randint(600, 670)
+            self.P6.y = random.randint(605, 670)
         if self.elapsed_time > 35:
             self.P6.y = random.randint(585, 675)
 
@@ -170,7 +170,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.C)
         self.C.x = 1180
         self.C.y = 420
-        if self.elapsed_time >= 12:
+        if self.elapsed_time > 12:
             self.C.y = random.randint(380, 490)
         self.C.width = 50
         self.C.set_hitbox_scale_h = 0.1
@@ -216,25 +216,29 @@ class GameStage(game.scene2d.MyStage):
         if self.D.overlaps(self.P8):
             self.screen.game.set_screen(HawkProductions.over.OverScreen.OverScreen())
         if self.D.overlaps(self.C):
+            self.C.remove_from_stage()
             self.point += 1
             self.update_point()
         if self.D.overlaps(self.C1):
+            self.C1.remove_from_stage()
             self.point += 1
             self.update_point()
         if self.D.overlaps(self.C2):
+            self.C2.remove_from_stage()
             self.point += 1
             self.update_point()
         if self.point == 497:
             self.screen.game.set_screen(HawkProductions.win.WinScreen.WinScreen())
 
     def click2(self, sender, event):
+        print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
 
     def katt(self, sender, event):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
         if event.key == pygame.K_ESCAPE:
             quit()
         if event.key == pygame.K_w:

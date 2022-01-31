@@ -4,52 +4,69 @@ import pygame
 from game.simpleworld.ShapeType import ShapeType
 
 class lovedek(game.scene2d.MyActor):
-    def __init__(self):
+
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.irany == 1:
+            self.x += 1000*delta_time
+        elif self.irany == 2:
+            self.x -= 1000*delta_time
+        if self.irany == 3:
+            self.y += 1000*delta_time
+        elif self.irany == 4:
+            self.y -= 1000*delta_time
+        self.distance += 1000*delta_time
+
+        if self.distance > 1000:
+            self.remove_from_stage()
+
+    def __init__(self, irany: int):
         super().__init__("Images/lovedek.png")
+        self.irany = irany
+        self.distance = 0
         self.set_size(40, 40)
 
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
+        # self.set_on_key_press_listener(self.key_down)
+    # def key_down(self, sender, event):
+    #     print(event)
+    #     print(sender)
+    #     if event.key == pygame.K_LEFT:
+    #         self.x -= 150
+    #     if event.key == pygame.K_RIGHT:
+    #         self.x += 150
+
+
 
 
 class fohos(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/legokatona.png")
-        self.set_on_key_press_listener(self.key_down)
+        # self.set_on_key_press_listener(self.key_down)
         self.set_size(200, 100)
         self.hitbox_scale_h = 0.9
         self.hitbox_scale_w = 0.9
 
         #self.hitbox_shape = ShapeType.Rectangle
-
-    def key_down(self, sender, event):
-        print(sender)
-        print(event)
-        if event.key == pygame.K_d:
-            self.x += 4
-        if event.key == pygame.K_w:
-            self.y -= 4
-        if event.key == pygame.K_a:
-            self.x -= 4
-        if event.key == pygame.K_s:
-            self.y += 4
+    #
+    # def key_down(self, sender, event):
+    #     print(sender)
+    #     print(event)
+    #     if event.key == pygame.K_d:
+    #         self.x += 4
+    #     if event.key == pygame.K_w:
+    #         self.y -= 4
+    #     if event.key == pygame.K_a:
+    #         self.x -= 4
+    #     if event.key == pygame.K_s:
+    #         self.y += 4
 
 class enemy1(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/katona.png")
-        self.set_on_key_press_listener(self.key_down)
 
-    def key_down(self, sender, event):
-#        print(sender)
-#        print(event)
-        if event.key == pygame.K_RIGHT:
-            self.x += 4
-        if event.key == pygame.K_UP:
-            self.y -= 4
-        if event.key == pygame.K_LEFT:
-            self.x -= 4
-        if event.key == pygame.K_DOWN:
-            self.y += 4
 
 class horthy (game.scene2d.MyActor):
     def __init__(self):

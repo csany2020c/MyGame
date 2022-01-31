@@ -34,5 +34,3 @@ class WinStage(game.scene2d.MyStage):
         print(sender)
         if event.key == pygame.K_BACKSPACE:
             self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
-
-
