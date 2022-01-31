@@ -1,5 +1,6 @@
 import game
 from kuposztok.Menu.MenuScreen import MenuScreen
+from kuposztok.Devicesave.DeviceSaveScreen import DeviceSaveScreen
 
 
 class Game(game.scene2d.MyGame):

@@ -152,6 +152,7 @@ class MenuStage(game.scene2d.MyStage):
             self.deviceben = self.alldevice
             if self.deviceben == self.devicename:
                 device.write("")
+                
             if self.deviceben != self.devicename:
                 device.write('\n' + str(self.devicename))
             device.close()
