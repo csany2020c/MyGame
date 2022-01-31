@@ -1,5 +1,7 @@
 import game
+import yetifc.yetigame
 from yetiactor import*
+from yetigamescreen import *
 import pygame
 
 class MenuStage(game.scene2d.MyStage):
@@ -58,4 +60,7 @@ class Settingstage(game.scene2d.MyStage):
             print("Teljes kepernyo")
             pygame.display.toggle_fullscreen()
             self.set_on_key_press_listener(self.key_down)
+        if event.key == pygame.K_BACKSPACE:
+            self.screen.game.set_screen(yetifc.yetistage.MenuStage())
+            self.set_on_key_down_listener(self.key_down)
 

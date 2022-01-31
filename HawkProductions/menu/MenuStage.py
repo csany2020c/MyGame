@@ -52,6 +52,7 @@ class MenuStage(game.scene2d.MyStage):
         self.set_on_key_down_listener(self.key_down)
         self.h2.set_on_mouse_down_listener(self.click)
         self.i.set_on_mouse_down_listener(self.click2)
+        self.b.set_on_mouse_down_listener(self.click4)
 
     def key_down(self, sender, event):
         print(sender)
@@ -87,3 +88,7 @@ class MenuStage(game.scene2d.MyStage):
             pygame.mixer.init()
             pygame.mixer.music.load("../HawkProductions/Music/Sel.wav")
             pygame.mixer.music.play(-1)
+
+    def click4(self, sender, event):
+        if event.button == 1:
+            print("Hawk Production's Flappy D")
