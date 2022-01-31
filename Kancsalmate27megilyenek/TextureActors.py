@@ -8,7 +8,7 @@ class WaterActor(game.scene2d.MyActor):
 
 class WaterActor2(game.scene2d.MyActor):
 
-    def __init__(self, image_url: str = "Water2.png"):
+    def __init__(self, image_url: str = "water2.png"):
         super().__init__(image_url)
         self.set_size(64,64)
         self.z_index = 0
