@@ -229,7 +229,7 @@ class ArenaStage(game.scene2d.MyStage):
 
 
     def handleKeyDown(self,sender,event):
-        if event.key == pygame.K_1:
+        if event.key == pygame.K_SPACE:
             self.smaller:float = 99999
             self.target = None
             for i in self.enemyList:
@@ -247,7 +247,7 @@ class ArenaStage(game.scene2d.MyStage):
             self.remove_on_key_down_listener()
             self.add_timer(self.delay)
 
-        elif event.key == pygame.K_2:
+        elif event.key == pygame.K_r:
             if self.ultimate == True:
                 self.player.hp += self.player.max_hp - self.player.hp
                 self.ultimate = False
