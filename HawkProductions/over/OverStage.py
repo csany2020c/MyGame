@@ -13,8 +13,6 @@ class OverStage(game.scene2d.MyStage):
         #self.c = HawkProductions.Gaymover()
         #self.add_actor(self.c)
 
-
-
         self.F = Gameover()
         self.add_actor(self.F)
         self.F.set_color(255, 0, 0)
