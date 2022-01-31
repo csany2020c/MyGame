@@ -7,7 +7,36 @@ from game.scene2d.MyTimer import *
 from game.simpleworld.ShapeType import ShapeType
 
 
+class Info(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.keszitok = MyLabel("Keszitők:", "system", 128, [255, 0, 0])
+        self.add_actor(self.keszitok)
+        self.rajmund = MyLabel("Rajmund", "system", 64,[0,255,0])
+        self.rajmund.x = 500
+        self.rajmund.y = 20
+        self.add_actor(self.rajmund)
+        self.marcon = MyLabel("Marcon Tamás", "system", 64, [0, 255, 0])
+        self.marcon.x = 500
+        self.marcon.y = 80
+        self.add_actor(self.marcon)
+        self.markus = MyLabel("Márkus Bence", "system", 64, [0, 255, 0])
+        self.markus.x = 500
+        self.markus.y = 140
+        self.add_actor(self.markus)
+        self.gomb4_bg = Gomb4()
+        self.add_actor(self.gomb4_bg)
+        self.gomb4_bg.set_on_mouse_down_listener(self.Klikk6)
 
+        self.gomb4_bg.width = 50
+        self.gomb4_bg.height = 50
+        self.gomb4_bg.x = 30
+        self.gomb4_bg.y = 650
+
+    def Klikk6 (self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(MenuScreen())
+            print("Kiléptél")
 
 
 class Meghal(game.scene2d.MyStage):
@@ -24,6 +53,7 @@ class Meghal(game.scene2d.MyStage):
         self.gomb3_bg.height = 200
         self.gomb3_bg.x = 400
         self.gomb3_bg.y = 200
+
 
     def Klikk3(self, sender, event):
         if event.button == 1:
@@ -76,6 +106,16 @@ class Gomb2 (game.scene2d.MyActor):
 class Gomb3 (game.scene2d.MyActor):
 
     def __init__(self, image_url: str = "images/back.png"):
+        super().__init__(image_url)
+
+class Gomb4 (game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "images/back.png"):
+        super().__init__(image_url)
+
+class Gomb5 (game.scene2d.MyActor):
+
+    def __init__(self, image_url: str = "images/infos.png"):
         super().__init__(image_url)
 
 
@@ -231,12 +271,15 @@ class MenuStage(game.scene2d.MyStage):
         self.hatter_bg = MenuHatter()
         self.gomb_bg = Gomb()
         self.gomb2_bg = Gomb2()
+        self.gomb5_bg = Gomb5()
         self.add_actor(self.gomb_bg)
         self.add_actor(self.hatter_bg)
         self.add_actor(self.gomb2_bg)
+        self.add_actor(self.gomb5_bg)
 
         self.gomb_bg.set_on_mouse_down_listener(self.Klikk)
         self.gomb2_bg.set_on_mouse_down_listener(self.Klikk2)
+        self.gomb5_bg.set_on_mouse_down_listener(self.Klikk5)
         self.set_on_key_down_listener(self.key_down)
 
         self.gomb_bg.width = 200
@@ -249,6 +292,11 @@ class MenuStage(game.scene2d.MyStage):
         self.gomb2_bg.x = 400
         self.gomb2_bg.y = 200
 
+        self.gomb5_bg.width = 100
+        self.gomb5_bg.height = 100
+        self.gomb5_bg.x = 100
+        self.gomb5_bg.y = 250
+
     def Klikk(self, sender, event):
         if event.button == 1:
             self.screen.game.set_screen(Screen())
@@ -256,6 +304,11 @@ class MenuStage(game.scene2d.MyStage):
     def Klikk2(self, sender, event):
         if event.button == 1:
             quit()
+            print("Kiléptél")
+
+    def Klikk5(self, sender, event):
+        if event.button == 1:
+            self.screen.game.set_screen(Infok())
             print("Kiléptél")
 
 
@@ -284,9 +337,17 @@ class MenuScreen(game.scene2d.MyScreen):
         super(MenuScreen, self).__init__()
         self.add_stage(MenuStage())
 
+class Infok(game.scene2d.MyScreen):
+    def __init__(self):
+        super(Infok, self).__init__()
+        self.add_stage(Info())
+
+
 class MenuKep(game.scene2d.MyGame):
     def __init__(self, width: int = 1280, height: int = 720, autorun: bool = False):
         super().__init__(width, height, autorun)
         self.screen = MenuScreen()
+
+
 
 MenuKep().run()
