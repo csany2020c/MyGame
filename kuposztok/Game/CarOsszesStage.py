@@ -274,10 +274,10 @@ class CarOsszesStage(game.scene2d.MyStage):
         if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
             if self.joseph.overlaps(self.joseph2):
                 self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
-        if self.joseph.y == self.height:
+        if self.joseph.y > self.height:
             self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
         if self.carvalt == 12 or self.carvalt == 22 or self.carvalt == 32 or self.carvalt == 42:
-            if self.joseph2.y == self.height:
+            if self.joseph2.y > self.height:
                 self.screen.game.set_screen(kuposztok.Lose.LoseScreen.LoseScreen(score=self.score, maxScore=self.maxScore))
         for i in self.actors:
             if isinstance(i, Enemy):

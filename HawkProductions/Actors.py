@@ -5,6 +5,7 @@ import HawkProductions.over.OverScreen
 import pygame
 import random
 
+
 class Sellect(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("image/select.jpg")
@@ -157,3 +158,8 @@ class Gaymover(game.scene2d.MyActor):
     def __init__(self):
         gaym = ["image/Gameover.png", "image/Gameover2.png", "image/Gamover3.png", "image/Gameover4.png", "image/Gamover5.png", "image/Gameover6.png"]
         super().__init__(random.choice(gaym))
+
+
+class Logo(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("image/Logo.png")
