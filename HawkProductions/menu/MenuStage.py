@@ -15,12 +15,12 @@ class MenuStage(game.scene2d.MyStage):
         self.t = Title()
         self.h1 = Startb()
         self.h2 = Exit()
-        self.b = DiaSign()
+#        self.b = DiaSign()
         self.b2 = Anything()
         self.add_actor(self.t)
         self.add_actor(self.h1)
         self.add_actor(self.h2)
-        self.add_actor(self.b)
+        #        self.add_actor(self.b)
         self.add_actor(self.b2)
 
         self.t.width = 1300
@@ -33,10 +33,10 @@ class MenuStage(game.scene2d.MyStage):
         self.h2.y = 550
         self.h2.w = 200
 
-        self.b.set_text("A Hawk Productions game")
-        self.b.x = 500
-        self.b.y = 50
-        self.b.set_size(250, 50)
+        # self.b.set_text("A Hawk Productions game")
+        # self.b.x = 500
+        # self.b.y = 50
+        # self.b.set_size(250, 50)
 
         self.b2.set_text("Flappy D")
         self.b2.x = 500

@@ -43,7 +43,7 @@ class Gameover(game.scene2d.MyLabel):
 
 class DiaSign(game.scene2d.MyLabel):
     def __init__(self, string: str = "MyText") -> None:
-        game.scene2d.MyLabel.__init__(self, string=string, font_name="font/DiaSign.ttf")
+        game.scene2d.MyLabel.__init__(self, string=string, font_name="font/diasign.ttf")
 
     def act(self, delta_time: float):
         game.scene2d.MyLabel.act(self, delta_time)
