@@ -79,7 +79,7 @@ class MenuStage(game.scene2d.MyStage):
         self.ido.y = 0 + self.ido.get_height() - 20
         self.money = 0
         self.max_score = 0
-        self.early = game.scene2d.MyLabel("Early Access, Alpha Test")
+        self.early = game.scene2d.MyLabel("Early Access, Closed Beta Test")
         self.early.set_color(0, 0, 0)
         self.add_actor(self.early)
         self.early.set_font_size(20)
