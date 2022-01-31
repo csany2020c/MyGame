@@ -1,4 +1,5 @@
 import pygame
+import socket
 
 import game
 import kuposztok
@@ -18,6 +19,7 @@ class MenuStage(game.scene2d.MyStage):
         super().act(delta_time)
         self.filebaolvasas()
         self.ma = datetime.datetime.now()
+        self.devicelabel.set_text("A gép neve:" + str(self.devicename))
         self.ido.set_text("Jelenlegi idő: " + str(self.ma.hour) + " : " + str(self.ma.minute))
 
     def soundvaltread(self):
@@ -31,6 +33,10 @@ class MenuStage(game.scene2d.MyStage):
         super().__init__()
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
+        self.devicename = socket.gethostname()
+        self.devicewrite()
+        self.deviceread()
+        self.deviceben = self.alldevice
         self.soundvaltread()
         self.allstageben = self.allstagebe
         self.soundvalt = self.soundvaltbe
@@ -115,6 +121,11 @@ class MenuStage(game.scene2d.MyStage):
         self.add_actor(self.button4)
         self.add_actor(self.button2)
         self.add_actor(self.button5)
+        self.devicelabel = game.scene2d.MyLabel("A gép neve:" + str(self.devicename))
+        self.devicelabel.set_position(self.width / 2 - self.devicelabel.get_width() / 4, 0)
+        self.devicelabel.set_font_size(40)
+        self.devicelabel.set_color(0, 0, 0)
+        self.add_actor(self.devicelabel)
         self.a = False
         self.d = False
         self.m = False
@@ -130,6 +141,20 @@ class MenuStage(game.scene2d.MyStage):
         self.options.set_on_mouse_down_listener(self.OptionsButton)
         self.set_on_key_down_listener(self.Admin1)
 
+    def deviceread(self):
+        with open('../kuposztok/Save/devices.txt', 'r') as device:
+            self.alldevice = str(device.readline())
+            device.close()
+
+    def devicewrite(self):
+        with open('../kuposztok/Save/devices.txt', 'r+') as device:
+            self.alldevice = str(device.readline())
+            self.deviceben = self.alldevice
+            if self.deviceben == self.devicename:
+                device.write("")
+            if self.deviceben != self.devicename:
+                device.write('\n' + str(self.devicename))
+            device.close()
 
     def filebaolvasas(self):
         with open('../kuposztok/Save/file.txt', 'r') as file:

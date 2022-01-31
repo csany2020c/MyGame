@@ -163,3 +163,4 @@ class goldsledge(game.scene2d.MyActor):
         self.width = 200
         self.height = 200
 
+
