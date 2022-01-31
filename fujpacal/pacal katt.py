@@ -127,8 +127,11 @@ class Stage(game.scene2d.MyStage):
         # self.add_actor(self.score)
         self.score = MyLabel("", "system", 64, [255, 0, 0])
         self.actor1_bg = Actor()
+        # self.golo_bg = Golo()
+        self.lassul = 3
         self.add_actor(self.hatter_bg)
         self.add_actor(self.actor1_bg)
+        # self.add_actor(self.golo_bg)
         self.timer = MyTickTimer(func=self.ido,interval=3,start_delay=0,repeat=True)
         self.add_timer(self.timer)
 
@@ -170,8 +173,10 @@ class Stage(game.scene2d.MyStage):
                                 self.ezegygolo.remove_from_stage()
                                 self.counter = 0
                                 self.count += 1
+
                                 if self.count + 1:
                                     print(self.count)
+                                    self.lassul += 0.2
                                     self.score.set_text(str(self.count))
                                     self.add_actor(self.score)
 
@@ -183,10 +188,13 @@ class Stage(game.scene2d.MyStage):
 
         for i in self.actors:
             if isinstance(i, venom):
-                i.x = i.get_x() - 3
+                i.x = i.get_x() - self.lassul
                 if i.overlaps(self.actor1_bg):
                     i.remove_from_stage()
                     self.screen.game.set_screen(Meghal1())
+
+
+
 
 
 
