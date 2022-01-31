@@ -3,7 +3,6 @@ import pygame
 import HawkProductions.menu.MenuScreen
 
 
-
 class OverStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
