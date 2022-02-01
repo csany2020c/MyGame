@@ -9,8 +9,6 @@ class OverStage(game.scene2d.MyStage):
         pygame.mixer.init()
         pygame.mixer.music.load("../HawkProductions/Music/Over.wav")
         pygame.mixer.music.play(-1)
-        #self.c = HawkProductions.Gaymover()
-        #self.add_actor(self.c)
 
         self.F = Gameover()
         self.add_actor(self.F)
@@ -72,7 +70,7 @@ class OverStage2(game.scene2d.MyStage):
         self.add_actor(self.g)
         self.g.set_text("Try again!")
         self.g.set_color(204, 0, 0)
-        self.g.x = 510
+        self.g.x = 520
         self.g.y = 310
         self.g.set_on_mouse_down_listener(self.click)
         self.g.set_font_size(100)
@@ -93,7 +91,7 @@ class OverStage2(game.scene2d.MyStage):
     def click(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())
 
 
 class OverStage3(game.scene2d.MyStage):
@@ -105,10 +103,10 @@ class OverStage3(game.scene2d.MyStage):
         self.F = Gameover()
         self.add_actor(self.F)
         self.F.set_text("Túl alacsonyan szálltál!")
-        self.F.x = 10
+        self.F.x = 20
         self.F.y = 150
         self.F.set_color(255, 255, 255)
-        self.F.set_font_size(300)
+        self.F.set_font_size(290)
 
         self.g = Gameover()
         self.add_actor(self.g)
@@ -135,4 +133,4 @@ class OverStage3(game.scene2d.MyStage):
     def click(self, sender, event):
         print(sender)
         if event.button == 1:
-            self.screen.game.set_screen(HawkProductions.menu.MenuScreen.MenuScreen())
+            self.screen.game.set_screen(HawkProductions.Select.SelectScreen.SelectScreen())

@@ -1,6 +1,6 @@
 import game
 import pygame
-from game.scene2d import MyTickTimer
+from game.scene2d import MyTickTimer, MyIntervalTimer
 import webbrowser
 from Impostorsus.Game.WarioActor import *
 from game.scene2d import MyBaseActor
@@ -749,6 +749,7 @@ class HalalStage (game.scene2d.MyStage):
 class HalalStage2 (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.pontbeolvasas()
         self.h = Halalkep()
         self.add_actor(self.h)
         self.height = pygame.display.get_surface().get_height()
@@ -756,6 +757,15 @@ class HalalStage2 (game.scene2d.MyStage):
         self.h.x += self.width /2 - self.h.get_width() / 2
         self.h.y += self.height /2 - self.h.get_height() / 2
         self.set_on_key_down_listener(self.r)
+        self.pontkiiras = game.scene2d.MyLabel("Elért idő: {ido}mp".format(ido=self.score))
+        self.pontkiiras.x = 490
+        self.pontkiiras.y = 200
+        self.add_actor(self.pontkiiras)
+
+    def pontbeolvasas(self):
+        with open('Save/marioido', 'r') as file:
+            self.score = int(file.readline())
+            file.close()
 
     def r(self, sender, event):
         print(sender)
@@ -764,15 +774,26 @@ class HalalStage2 (game.scene2d.MyStage):
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioScr2())
 
 
+
 class WinStage(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.pontbeolvasas()
         self.w = Winkep()
         self.add_actor(self.w)
         self.height = pygame.display.get_surface().get_height()
         self.width = pygame.display.get_surface().get_width()
         self.w.x += self.width /2 - self.w.get_width() / 2
         self.w.y += self.height /2 - self.w.get_height() / 2
+        self.pontkiiras = game.scene2d.MyLabel("Elért idő: {ido}mp".format(ido=self.score))
+        self.pontkiiras.x = 490
+        self.pontkiiras.y = 200
+        self.add_actor(self.pontkiiras)
+
+    def pontbeolvasas(self):
+        with open('Save/marioido', 'r') as file:
+            self.score = int(file.readline())
+            file.close()
 
 
 class PalyaStage(game.scene2d.MyStage):
@@ -951,6 +972,24 @@ class ASD3(game.scene2d.MyStage):
         self.timer = MyTickTimer(interval=2.5, func=self.idocucc)
         self.add_timer(self.timer)
         self.camera.set_tracking_window(0.2, 0.2, 0.5, -0.3)
+        self.pont = 0
+        self.pontkiiras = game.scene2d.MyLabel("Idő: {ido}mp".format(ido=self.pont))
+        self.add_actor(self.pontkiiras)
+        self.pontkiiras.x = 10
+        self.pontkiiras.y = 100
+        self.ponttimer = MyTickTimer(func=self.ponttimerszamolo, interval=1)
+        self.add_timer(self.ponttimer)
+
+    def pontiras(self):
+        self.pontkiiras.set_text("Idő: {ido}mp".format(ido=self.pont))
+        f = open("Save/marioido", "w")
+        f.write(str(self.pont))
+        f.close()
+
+    def ponttimerszamolo(self, sender):
+        self.pont += 1
+        self.pontkiiras.set_text("Idő: {point}mp".format(point=self.pont))
+        self.pontiras()
 
     def idocucc(self, sender):
         self.c = Cloud()
@@ -1082,10 +1121,12 @@ class ASD3(game.scene2d.MyStage):
             if isinstance(actorASD, BillActor):
                 if self.wario.overlaps(actorASD):
                     dead_fx.play()
+                    self.ponttimer.stop()
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.HalalScreen2())
             if isinstance(actorASD, Zaszlo2):
                 if self.wario.overlaps(actorASD):
                     win_fx.play()
+                    self.ponttimer.stop()
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.WinScreen())
             if isinstance(actorASD, Question):
                 if self.wario.overlaps(actorASD):
@@ -1156,6 +1197,10 @@ class WarioKartStage(game.scene2d.MyStage):
                         a = KartEnemy()
                     if c == "b":
                         a = Barrel()
+                    if c == "g":
+                        a = BananKart()
+                    if c == "o":
+                        a = GombaKart()
                     if c == "p":
                         a = Ramp()
                     if c == "l":
@@ -1224,6 +1269,26 @@ class WarioKartStage(game.scene2d.MyStage):
         self.tk.set_on_mouse_down_listener(self.skin3)
         self.dk.set_on_mouse_down_listener(self.skin4)
         self.lk.set_on_mouse_down_listener(self.skin5)
+        self.pont = 0
+        self.pontkiiras = game.scene2d.MyLabel("Idő: {ido}mp".format(ido=self.pont))
+        self.pontkiiras.x = 1075
+        self.pontkiiras.y = 50
+        self.add_actor(self.pontkiiras)
+        self.camera.set_tracking_window(0, 0, 0, 0.7)
+        self.ponttimer = MyTickTimer(func=self.ponttimerszamolo, interval=1)
+        self.add_timer(self.ponttimer)
+
+    def pontiras(self):
+        self.pontkiiras.set_text("Idő: {ido}mp".format(ido=self.pont))
+        f = open("Save/kartido", "w")
+        f.write(str(self.pont))
+        f.close()
+
+    def ponttimerszamolo(self, sender):
+        if self.elapsed_time > 3:
+            self.pont += 1
+            self.pontkiiras.set_text("Idő: {point}mp".format(point=self.pont))
+            self.pontiras()
 
     def skin1(self, sender, event):
         print(sender)
@@ -1237,25 +1302,32 @@ class WarioKartStage(game.scene2d.MyStage):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.wario.image_url = 'Kepek/mariokart.png'
+                self.wario.hitbox_scale_w = 0.65
+                self.wario.hitbox_scale_h = 0.85
     def skin3(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.wario.image_url = 'Kepek/todkart.png'
+                self.wario.hitbox_scale_w = 0.65
+                self.wario.hitbox_scale_h = 0.85
     def skin4(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.wario.image_url = 'Kepek/donkeykart.png'
+                self.wario.hitbox_scale_w = 0.65
+                self.wario.hitbox_scale_h = 0.85
     def skin5(self, sender, event):
         print(sender)
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 self.wario.image_url = 'Kepek/luigikart.png'
-
+                self.wario.hitbox_scale_w = 0.65
+                self.wario.hitbox_scale_h = 0.85
 
     def key_down(self, sender, event):
         print(sender)
@@ -1274,13 +1346,15 @@ class WarioKartStage(game.scene2d.MyStage):
             self.camera.set_tracking_window(0, 0, 0, 0.7)
         if event.key == pygame.K_RIGHT:
             sender.x += 3.5
-            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+            self.camera.set_tracking_window(0, 0, 0, 0.7)
         if event.key == pygame.K_LEFT:
             sender.x -= 3.5
-            self.camera.set_tracking_window(0.4, 0.2, 0.2, -0.2)
+            self.camera.set_tracking_window(0, 0, 0, 0.7)
 
     def act(self, delta_time: float):
         super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.pontkiiras.y += 200 * delta_time
         if self.elapsed_time > 2:
             self.mk.x = +3000
             self.bl.x = +3000
@@ -1303,30 +1377,59 @@ class WarioKartStage(game.scene2d.MyStage):
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartWinScr())
                     pygame.mixer.music.load('audio/winsound.mp3')
                     pygame.mixer.music.play()
+                    self.ponttimer.stop()
             if isinstance(i, Barrel):
                 if self.wario.overlaps(i):
-                    self.wario.y -= 140
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
+                    self.ponttimer.stop()
+                    pygame.mixer.music.load('audio/battya.mp3')
+                    pygame.mixer.music.play()
             if isinstance(i, Ramp):
                 if self.wario.overlaps(i):
                     self.wario.y += 100
+                    self.pontkiiras.y += 100
+                    self.l1.y += 100
+                    self.l2.y += 100
+            if isinstance(i, GombaKart):
+                if self.wario.overlaps(i):
+                    self.wario.image_url = 'Kepek/kunukart.png'
+                    self.wario.hitbox_scale_w = 0.65
+                    self.wario.hitbox_scale_h = 0.85
+            if isinstance(i, BananKart):
+                if self.wario.overlaps(i):
+                    self.wario.y -= 120 * delta_time
+                    self.l1.y -= 120 * delta_time
+                    self.l2.y -= 120 * delta_time
+                    self.pontkiiras.y -= 120 * delta_time
+                    self.wario.rotation -= 165 * delta_time
+                else:
+                    self.wario.rotation = 0
             if isinstance(i, KartEnemy):
                 if self.wario.overlaps(i):
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
                     pygame.mixer.music.load('audio/battya.mp3')
                     pygame.mixer.music.play()
+                    self.ponttimer.stop()
 
 
 
 class KartHalalStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.pontbeolvasas()
+        self.p = MarioDead()
+        self.add_actor(self.p)
+        self.p.x = 525
+        self.p.y = 275
         self.h = Halalkep()
         self.add_actor(self.h)
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
-        self.h.x += self.width /2 - self.h.get_width() / 2
-        self.h.y += self.height /2 - self.h.get_height() / 2
-        self.set_on_key_down_listener(self.r)
+        self.h.x = 405
+        self.h.y = 100
+        self.pontkiiras = game.scene2d.MyLabel("Elért idő: {ido}mp".format(ido=self.score))
+        self.pontkiiras.x = 490
+        self.pontkiiras.y = 200
+        self.add_actor(self.pontkiiras)
+
 
     def r(self, sender, event):
         print(sender)
@@ -1334,13 +1437,44 @@ class KartHalalStage (game.scene2d.MyStage):
         if event.key == pygame.K_r:
             self.screen.game.set_screen(Impostorsus.Game.WarioScr.WarioKartScr())
 
+    def pontbeolvasas(self):
+        with open('Save/kartido', 'r') as file:
+            self.score = int(file.readline())
+            file.close()
+
 class KartWinStage (game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
+        self.pontbeolvasas()
+        self.p = KartPodium()
+        self.add_actor(self.p)
+        self.p.x = 375
+        self.p.y = 350
         self.h = Winkep()
         self.add_actor(self.h)
-        self.height = pygame.display.get_surface().get_height()
-        self.width = pygame.display.get_surface().get_width()
-        self.h.x += self.width /2 - self.h.get_width() / 2
-        self.h.y += self.height /2 - self.h.get_height() / 2
+        self.h.x = 405
+        self.h.y = 50
+        self.m = MarioKartWin1()
+        self.add_actor(self.m)
+        self.m.x = 540
+        self.m.y = 200
+        self.t2 = MyTickTimer(interval=0.3, func=self.tikk)
+        self.add_timer(self.t2)
+        self.t3 = MyTickTimer(interval=0.6, func=self.tikk2)
+        self.add_timer(self.t3)
+        self.pontkiiras = game.scene2d.MyLabel("Elért idő: {ido}mp".format(ido=self.score))
+        self.pontkiiras.x = 490
+        self.pontkiiras.y = 200
+        self.add_actor(self.pontkiiras)
+
+    def pontbeolvasas(self):
+        with open('Save/kartido', 'r') as file:
+            self.score = int(file.readline())
+            file.close()
+
+    def tikk(self, sender):
+        self.m.image_url = 'Kepek/mariokartwin1.png'
+
+    def tikk2(self, sender):
+        self.m.image_url = 'Kepek/mariokartwin2.png'
 

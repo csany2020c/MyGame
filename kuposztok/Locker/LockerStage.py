@@ -672,9 +672,3 @@ class LockerStage(game.scene2d.MyStage):
     def act(self, delta_time: float):
         super().act(delta_time)
         self.filebairas()
-
-
-
-
-
-
