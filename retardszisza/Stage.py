@@ -22,9 +22,10 @@ class GameStage(game.scene2d.MyStage):
         self.kocsi3 = kocsi3()
         self.kocsi4 = kocsi4()
         self.fal = FalActor()
+        self.fal2 = FalActor2()
         self.palyaszele1 = Palyaszele1()
         self.palyaszele2 = Palyaszele2()
-        self.score: int = 0
+        self.score: int = 170
 
         self.asdddsa = MyLabel("Score:")
         self.points = MyLabel("")
@@ -37,6 +38,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.kocsi3)
         self.add_actor(self.kocsi4)
         self.add_actor(self.fal)
+        self.add_actor(self.fal2)
         self.add_actor(self.palyaszele1)
         self.add_actor(self.palyaszele2)
         # pos
@@ -46,20 +48,21 @@ class GameStage(game.scene2d.MyStage):
         self.macska.x = 100
         self.macska.y = 600
 
-        self.kocsi1.x = random.randint(1200, 1550)
+        self.kocsi1.x = 1000
         self.kocsi1.y = 550
 
-        self.kocsi2.x = random.randint(1200, 1550)
+        self.kocsi2.x = 1300
         self.kocsi2.y = 380
 
-        self.kocsi3.x = random.randint(600, 1350)
+        self.kocsi3.x = 1000
         self.kocsi3.y = 190
 
-        self.kocsi4.x = random.randint(900, 1550)
+        self.kocsi4.x = 1200
         self.kocsi4.y = 50
 
         self.fal.x = -300
-        self.palyaszele1.y = 720
+        self.fal2.x = -140
+        self.palyaszele1.y = 790
         self.palyaszele2.y = -100
 
         self.points.x = 150
@@ -85,7 +88,6 @@ class GameStage(game.scene2d.MyStage):
     def button_down(self, sender, event):
         if event.key == pygame.K_w:
             self.macska.y -= 190
-            print("asd")
         if event.key == pygame.K_s:
             self.macska.y += 190
         if event.key == pygame.K_d:
@@ -102,7 +104,7 @@ class GameStage(game.scene2d.MyStage):
         kocsirespawn4: bool = False
         Palyaszel1: bool = False
         Palyaszel2: bool = False
-        Fal: bool = False
+        Fal2: bool = False
 
         for l in self.actors:
             if self.kocsi1.overlaps(self.macska):
@@ -139,8 +141,8 @@ class GameStage(game.scene2d.MyStage):
             if self.macska.overlaps(self.palyaszele2):
                 Palyaszel2 = True
 
-            if self.macska.overlaps(self.fal):
-                Fal = True
+            if self.macska.overlaps(self.fal2):
+                Fal2 = True
 
         if Overlaps:
             self.screen.game.set_screen(retardszisza.menu_halal.HalalScreen.halalscreen())  # HALAL
@@ -179,23 +181,32 @@ class GameStage(game.scene2d.MyStage):
         if Palyaszel2:
             self.macska.y = 30
 
-        if Fal:
-            self.macska.x = 0
+        if Fal2:
+            self.macska.x = -20
 
         if self.score > 20:
             self.kocsi4.act(delta_time / 3)
-            self.kocsi3.act(delta_time / 3)
-            self.kocsi2.act(delta_time / 2)
+            self.kocsi3.act(delta_time / 3.5)
+            self.kocsi2.act(delta_time / 2.5)
             self.kocsi1.act(delta_time / 1.5)
 
         if self.score > 50:
-            self.kocsi4.act(delta_time / 5)
+            self.kocsi4.act(delta_time / 6)
             self.kocsi3.act(delta_time / 4.5)
-            self.kocsi2.act(delta_time / 4)
+            self.kocsi2.act(delta_time / 3.5)
             self.kocsi1.act(delta_time / 2.5)
 
         if self.score > 100:
-            self.kocsi4.act(delta_time / 8.5)
-            self.kocsi3.act(delta_time / 7.5)
-            self.kocsi2.act(delta_time / 6)
-            self.kocsi1.act(delta_time / 5)
+            self.kocsi4.act(delta_time / 9.5)
+            self.kocsi3.act(delta_time / 8.8)
+            self.kocsi2.act(delta_time / 6.9)
+            self.kocsi1.act(delta_time / 5.4)
+
+        if self.score > 180:
+            self.kocsi4.act(delta_time * 1.8)
+            self.kocsi3.act(delta_time * 1.5)
+            self.kocsi2.act(delta_time * 1.4)
+            self.kocsi1.act(delta_time * 1.2)
+
+        if self.score > 250:
+            quit()
