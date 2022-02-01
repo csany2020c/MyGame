@@ -25,7 +25,7 @@ class GameStage(game.scene2d.MyStage):
         self.fal2 = FalActor2()
         self.palyaszele1 = Palyaszele1()
         self.palyaszele2 = Palyaszele2()
-        self.score: int = 0
+        self.score: int = 170
 
         self.asdddsa = MyLabel("Score:")
         self.points = MyLabel("")
@@ -48,16 +48,16 @@ class GameStage(game.scene2d.MyStage):
         self.macska.x = 100
         self.macska.y = 600
 
-        self.kocsi1.x = random.randint(1200, 1550)
+        self.kocsi1.x = 1000
         self.kocsi1.y = 550
 
-        self.kocsi2.x = random.randint(1200, 1550)
+        self.kocsi2.x = 1300
         self.kocsi2.y = 380
 
-        self.kocsi3.x = random.randint(600, 1350)
+        self.kocsi3.x = 1000
         self.kocsi3.y = 190
 
-        self.kocsi4.x = random.randint(900, 1550)
+        self.kocsi4.x = 1200
         self.kocsi4.y = 50
 
         self.fal.x = -300
@@ -88,7 +88,6 @@ class GameStage(game.scene2d.MyStage):
     def button_down(self, sender, event):
         if event.key == pygame.K_w:
             self.macska.y -= 190
-            print("asd")
         if event.key == pygame.K_s:
             self.macska.y += 190
         if event.key == pygame.K_d:
@@ -187,18 +186,27 @@ class GameStage(game.scene2d.MyStage):
 
         if self.score > 20:
             self.kocsi4.act(delta_time / 3)
-            self.kocsi3.act(delta_time / 3)
-            self.kocsi2.act(delta_time / 2)
+            self.kocsi3.act(delta_time / 3.5)
+            self.kocsi2.act(delta_time / 2.5)
             self.kocsi1.act(delta_time / 1.5)
 
         if self.score > 50:
-            self.kocsi4.act(delta_time / 5)
+            self.kocsi4.act(delta_time / 6)
             self.kocsi3.act(delta_time / 4.5)
-            self.kocsi2.act(delta_time / 4)
+            self.kocsi2.act(delta_time / 3.5)
             self.kocsi1.act(delta_time / 2.5)
 
         if self.score > 100:
-            self.kocsi4.act(delta_time / 8.5)
-            self.kocsi3.act(delta_time / 7.5)
-            self.kocsi2.act(delta_time / 6)
-            self.kocsi1.act(delta_time / 5)
+            self.kocsi4.act(delta_time / 9.5)
+            self.kocsi3.act(delta_time / 8.8)
+            self.kocsi2.act(delta_time / 6.9)
+            self.kocsi1.act(delta_time / 5.4)
+
+        if self.score > 180:
+            self.kocsi4.act(delta_time * 1.8)
+            self.kocsi3.act(delta_time * 1.5)
+            self.kocsi2.act(delta_time * 1.4)
+            self.kocsi1.act(delta_time * 1.2)
+
+        if self.score > 250:
+            quit()
