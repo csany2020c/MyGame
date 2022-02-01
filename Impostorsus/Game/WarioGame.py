@@ -16,6 +16,7 @@ class Wario(game.scene2d.MyGame):
         pygame.display.set_caption('KUNU WARIO')
         T = pygame.image.load('Kepek/Tabla.png')
         pygame.display.set_icon(T)
+        pygame.display.toggle_fullscreen()
 
     def key_down(self, sender, event):
         monitor_size = [pygame.display.Info().current_w, pygame.display.Info().current_h]
