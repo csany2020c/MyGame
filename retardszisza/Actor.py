@@ -62,6 +62,12 @@ class FalActor(game.scene2d.MyActor):
         super().__init__("images/fal.png")
         self.set_height(1000)
 
+class FalActor2(game.scene2d.MyActor):
+
+    def __init__(self):
+        super().__init__("images/fal.png")
+        self.set_height(1000)
+
 class Palyaszele1(game.scene2d.MyActor):
 
     def __init__(self):
