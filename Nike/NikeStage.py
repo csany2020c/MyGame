@@ -141,7 +141,7 @@ class CreditStage(game.scene2d.MyStage):
 
 
 
-class GameStage(game.scene2d.MyStage):
+class GameStage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.set_on_key_down_listener(self.backtomenu)
@@ -210,6 +210,29 @@ class GameStage(game.scene2d.MyStage):
             pygame.mixer.music.play()
             pygame.mixer.music.set_volume(100)
 
+
+
+    def backtomenu(self,sender,event):
+        if event.key == pygame.K_ESCAPE:
+            self.screen.game.set_screen(Nike.NikeScreen.Menu())
+
+
+class GameStage2(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.set_on_key_down_listener(self.backtomenu)
+        self.basketbg = basketbg()
+        self.add_actor(self.basketbg)
+        self.basketbg.y = -450
+        self.add_actor(self.basketbg)
+        self.basketbg.y = -450
+        self.basketbg.x = 1900
+        self.Sztrit = Sztrit()
+        self.add_actor(self.Sztrit)
+        self.FatJordanact = FatJordanact()
+        self.add_actor(self.FatJordanact)
+        self.aventador = aventador()
+        self.add_actor(self.aventador)
 
 
     def backtomenu(self,sender,event):
