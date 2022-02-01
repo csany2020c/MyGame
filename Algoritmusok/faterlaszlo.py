@@ -35,10 +35,18 @@ def fuggveny(n: int) -> list[int]:
 # for i in range(0, 126):
 #      print("{szam} {primszam}".format(szam=i, primszam=fuggveny1(i)))
 
-ts1 = time()
-for i in range(100000, 1000000):
-    primszame = fuggveny(i)  # Prímszám eldöntő függvény helye
-    if primszame:
-        print(i)
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+#új számolás
+# ts1 = time()
+# for i in range(100000, 1000000):
+#     primszame = fuggveny(i)  # Prímszám eldöntő függvény helye
+#     if primszame:
+#         print(i)
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+def binaris() -> int:
+    a = bin(237)
+    # for i in range(8):
+    #     >>>a<<2
+    print(a)
+binaris()
