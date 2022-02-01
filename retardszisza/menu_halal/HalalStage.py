@@ -21,11 +21,11 @@ class halalstage(game.scene2d.MyStage):
         self.fomenu.x = 500
         self.fomenu.y = 150
 
-        self.restart.x = 500
-        self.restart.y = 300
+        self.restart.x = 220
+        self.restart.y = 180
 
-        self.kilepes.x = 500
-        self.kilepes.y = 450
+        self.kilepes.x = 220
+        self.kilepes.y = 300
 
         self.kilepes.set_on_mouse_down_listener(self.button_down)
         self.restart.set_on_mouse_down_listener(self.button_down2)
