@@ -1401,9 +1401,6 @@ class WarioKartStage(game.scene2d.MyStage):
                     self.l1.y -= 120 * delta_time
                     self.l2.y -= 120 * delta_time
                     self.pontkiiras.y -= 120 * delta_time
-                    self.wario.rotation -= 165 * delta_time
-                else:
-                    self.wario.rotation = 0
             if isinstance(i, KartEnemy):
                 if self.wario.overlaps(i):
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
