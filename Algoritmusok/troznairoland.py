@@ -54,16 +54,31 @@ from typing import List
     #osztas = osztas + 1
 
 #8,feladat:
-def primszam(input):
-    osztas = 1
-    eredmeny = 0
-    while osztas <= input:
-        if input % osztas == 0:
-            eredmeny = eredmeny + 1
-        osztas = osztas + 1
-    if eredmeny == 2:
-        print("A(z) " + str(input) + " primszám!")
-    else:
-        print("A(z) " + str(input) + " nem primszám!")
+#def primszam(input):
+    #osztas = 1
+    #eredmeny = 0
+    #while osztas <= input:
+        #if input % osztas == 0:
+            #eredmeny = eredmeny + 1
+        #osztas = osztas + 1
+    #if eredmeny == 2:
+        #print("A(z) " + str(input) + " primszám!")
+    #else:
+        #print("A(z) " + str(input) + " nem primszám!")
 
-primszam(int(input()))
+#primszam(int(input()))
+
+#9,feladat:
+def binary() -> int:
+    bemenet: int = int(input())
+    valtozo = 1
+    valtozo2: str =
+    while valtozo < bemenet:
+        valtozo = valtozo * 2
+        print(valtozo)
+
+    """while bemenet >= 1:
+        bemenet = bemenet - 1
+        print(bemenet)"""
+
+binary()
