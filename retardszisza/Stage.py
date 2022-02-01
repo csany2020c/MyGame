@@ -22,6 +22,7 @@ class GameStage(game.scene2d.MyStage):
         self.kocsi3 = kocsi3()
         self.kocsi4 = kocsi4()
         self.fal = FalActor()
+        self.fal2 = FalActor2()
         self.palyaszele1 = Palyaszele1()
         self.palyaszele2 = Palyaszele2()
         self.score: int = 0
@@ -37,6 +38,7 @@ class GameStage(game.scene2d.MyStage):
         self.add_actor(self.kocsi3)
         self.add_actor(self.kocsi4)
         self.add_actor(self.fal)
+        self.add_actor(self.fal2)
         self.add_actor(self.palyaszele1)
         self.add_actor(self.palyaszele2)
         # pos
@@ -59,7 +61,8 @@ class GameStage(game.scene2d.MyStage):
         self.kocsi4.y = 50
 
         self.fal.x = -300
-        self.palyaszele1.y = 720
+        self.fal2.x = -140
+        self.palyaszele1.y = 790
         self.palyaszele2.y = -100
 
         self.points.x = 150
@@ -102,7 +105,7 @@ class GameStage(game.scene2d.MyStage):
         kocsirespawn4: bool = False
         Palyaszel1: bool = False
         Palyaszel2: bool = False
-        Fal: bool = False
+        Fal2: bool = False
 
         for l in self.actors:
             if self.kocsi1.overlaps(self.macska):
@@ -139,8 +142,8 @@ class GameStage(game.scene2d.MyStage):
             if self.macska.overlaps(self.palyaszele2):
                 Palyaszel2 = True
 
-            if self.macska.overlaps(self.fal):
-                Fal = True
+            if self.macska.overlaps(self.fal2):
+                Fal2 = True
 
         if Overlaps:
             self.screen.game.set_screen(retardszisza.menu_halal.HalalScreen.halalscreen())  # HALAL
@@ -179,8 +182,8 @@ class GameStage(game.scene2d.MyStage):
         if Palyaszel2:
             self.macska.y = 30
 
-        if Fal:
-            self.macska.x = 0
+        if Fal2:
+            self.macska.x = -20
 
         if self.score > 20:
             self.kocsi4.act(delta_time / 3)
