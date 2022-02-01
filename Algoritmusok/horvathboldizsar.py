@@ -58,20 +58,41 @@
 #         if eredmeny == 0:
 #             print(teszt)
 #
-def nyolcadik():
-    inputxd = int(input("Kérlek adj meg egy számot: "))
-    idk = 0
-    osztodarab = 0
-    for i in range(inputxd):
-        idk = idk + 1
-        eredmeny = inputxd % idk
-        # print(eredmeny)
-        if eredmeny == 0:
-            osztodarab = osztodarab + 1
-        if osztodarab > 2:
-            print("Ez nem prímszám")
-            break
-    if osztodarab == 2:
-        print("Prímszám")
+# def nyolcadik():
+#     inputxd = int(input("Kérlek adj meg egy számot: "))
+#     idk = 0
+#     osztodarab = 0
+#     for i in range(inputxd):
+#         idk = idk + 1
+#         eredmeny = inputxd % idk
+#         # print(eredmeny)
+#         if eredmeny == 0:
+#             osztodarab = osztodarab + 1
+#         if osztodarab > 2:
+#             print("Ez nem prímszám")
+#             break
+#     if osztodarab == 2:
+#         print("Prímszám")
 
-nyolcadik()
+def binaris():
+
+    bemenet = int(input("Adj meg egy számot: "))
+    idk = 1
+    bit = 1
+    while bemenet > idk:
+        print(idk)
+        idk = idk * 2
+        bit += 1
+    print("{bit} bit".format(bit=bit))
+    for i in range(bit):
+        if bemenet - idk >= 0:
+            print("1", end="")
+            bemenet -= idk
+            idk = idk / 2
+
+        else:
+            print("0", end="")
+            idk = idk / 2
+
+
+binaris()
