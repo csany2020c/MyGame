@@ -93,5 +93,14 @@ class house(game.scene2d.MyActor):
         self.y -= 200
         self.set_size(800, 1000)
 
+class basketbg(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/basketbg")
 
 
+class  FatSpiderman(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/fatspiderman.png")
+        self.x = 500
+        self.y = 500
+        self.set_size(150, 150)

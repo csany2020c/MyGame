@@ -20,7 +20,6 @@ class lovedek(game.scene2d.MyActor):
 
         if self.distance > 1000:
             self.remove_from_stage()
-
     def __init__(self, irany: int):
         super().__init__("Images/lovedek.png")
         self.irany = irany
