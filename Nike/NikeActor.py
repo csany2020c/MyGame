@@ -62,7 +62,7 @@ class LeBron(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        self.x -= delta_time * 2300
+        self.x -= delta_time * 2000
 
 
 
@@ -95,12 +95,20 @@ class house(game.scene2d.MyActor):
 
 class basketbg(game.scene2d.MyActor):
     def __init__(self):
-        super().__init__("images/basketbg")
+        super().__init__("images/basketbg.jpg")
+        self.set_size(1480,920)
+
+class basketbg2(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("images/basketbg.jpg")
+        self.set_size(1480,920)
 
 
 class  FatSpiderman(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/fatspiderman.png")
-        self.x = 500
-        self.y = 500
         self.set_size(150, 150)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        self.x -= delta_time * 3000

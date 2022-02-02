@@ -18,6 +18,11 @@ class Game(game.scene2d.MyScreen):
         super().__init__()
         self.add_stage(GameStage1())
 
+class Game2(game.scene2d.MyScreen):
+    def __init__(self):
+        super().__init__()
+        self.add_stage(GameStage2())
+
 class Win(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
