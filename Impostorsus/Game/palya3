@@ -26,7 +26,7 @@ l       e
 l
 l
 l
-l    e     e
+l    e     b
 l
 l              e
 l      p
@@ -36,13 +36,13 @@ l   e      e    e
 l
 l             o
 l     e
-l               e
+l           g   e
 l
 r         e
 l   e
 l
 l            e
-l       e
+l       b
 l
 l
 l
@@ -52,13 +52,14 @@ l              e
 l      p
 l
 l
-l   e      e    e
+l   e      b    e
 l
+l      g
 l
 l     e
 l               e
-l
-r         e
+r
+l         e
 l
 l
 l
@@ -74,11 +75,13 @@ l
 l          e
 l   e
 l
+l      g
 l
 l
-l        e
+r   e
+l        b
 l
-r  e           e
+l  e           e
 l
 l    e
 l
@@ -95,10 +98,10 @@ l             e
 l
 l           e
 l
-l         e
+r        e
 l       e
 l
-r   p
+l   p
 l
 l
 l
@@ -106,17 +109,54 @@ l
 l            e
 l  e
 l
-l      e     e
+l     b     e
 l
 l       e
 l     e        e
-l           e    e
+l           g    e
 l     e
-l
-l      e    p
-l
+l          p
 l       e
 l
+r  b      g
+l
+l
+l
+l     e     b
+l
+l   e      p
+l              e
+l       g
+l
+l e
+l          b
+l   e
+l           e
+l     e
+l
+l
+l  g     e   p
+l     e
+l
+r e
+l
+l     b
+l
+l           g
+l   e
+l
+l
+l      e
+l
+l
+l
+l
+l
+l
+l
+l
+l
+l
 l
 r
 l
@@ -124,21 +164,6 @@ l
 l
 l
 l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-l
-r
 l
 l
 l
