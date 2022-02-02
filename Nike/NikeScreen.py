@@ -10,19 +10,18 @@ class Menu(game.scene2d.MyScreen):
 class Credit(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100,0,100)
+        self.set_background_color(155,0,00)
         self.add_stage(CreditStage())
 
 class Game(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100, 0, 100)
         self.add_stage(GameStage())
 
 class Win(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100, 0, 100)
+        self.set_background_color(100,0,100)
         self.add_stage(WinStage())
 
     def act(self, delta_time: float):
@@ -33,12 +32,12 @@ class Win(game.scene2d.MyScreen):
 class Lose(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100, 0, 100)
+        self.set_background_color(100,0,100)
         self.add_stage(LoseStage())
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 6:
+        if self.elapsed_time > 4:
             self.game.screen = Game()
 
 
