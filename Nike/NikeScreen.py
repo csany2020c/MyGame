@@ -4,19 +4,18 @@ from Nike.NikeStage import *
 class Menu(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(155,0,0)
+        self.set_background_color(155, 0, 0)
         self.add_stage(MenuStage())
 
 class Credit(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100,0,100)
+        self.set_background_color(155, 0, 0)
         self.add_stage(CreditStage())
 
 class Game(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(100, 0, 100)
         self.add_stage(GameStage1())
 
 class Win(game.scene2d.MyScreen):
@@ -27,7 +26,7 @@ class Win(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 6:
+        if self.elapsed_time > 4:
             self.game.screen = Menu()
 
 class Lose(game.scene2d.MyScreen):
@@ -38,7 +37,7 @@ class Lose(game.scene2d.MyScreen):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 6:
+        if self.elapsed_time > 4:
             self.game.screen = Game()
 
 
