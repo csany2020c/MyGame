@@ -238,7 +238,7 @@ class Finish(game.scene2d.MyActor):
         self.hitbox_scale_w = 1.5
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.y -= 60 * delta_time
 
 class KartEnemy(game.scene2d.MyActor):
@@ -273,7 +273,7 @@ class WarioKart(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.y += 200 * delta_time
 
 class WarioKartSkin(game.scene2d.MyActor):
@@ -330,7 +330,7 @@ class LathatatlanKart(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.y += 200 * delta_time
 
 
@@ -343,7 +343,7 @@ class LathatatlanKart2(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.y += 200 * delta_time
 class LathatatlanKart3(game.scene2d.MyActor):
     def __init__(self):
@@ -359,7 +359,7 @@ class HalalKart(game.scene2d.MyActor):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.y += 200 * delta_time
 
 class Ramp(game.scene2d.MyActor):

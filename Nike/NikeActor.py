@@ -70,7 +70,7 @@ class LeBron(game.scene2d.MyActor):
 class aventador(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("images/aventador.png")
-        self.x += 3250
+        self.x += 3300
         self.y += 470
 
 
