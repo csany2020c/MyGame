@@ -333,6 +333,7 @@ class LathatatlanKart(game.scene2d.MyActor):
         if self.elapsed_time > 3:
             self.y += 200 * delta_time
 
+
 class LathatatlanKart2(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Lathatatlan.png")
@@ -348,6 +349,18 @@ class LathatatlanKart3(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Kepek/Lathatatlan.png")
         self.set_width(1)
+
+class HalalKart(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Kepek/Lathatatlan.png")
+        self.set_width(80)
+        self.hitbox_scale_h = 2
+        self.hitbox_scale_w = 250
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        if self.elapsed_time > 3:
+            self.y += 200 * delta_time
 
 class Ramp(game.scene2d.MyActor):
     def __init__(self):
