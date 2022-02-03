@@ -1,30 +1,30 @@
 map3.txt
-wwwwwwww
-w      wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-w      www                                                      w
-w      www                                                      w
-w      www                   wwwwww                             w
-w      www      wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww       wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-w               w                                 w                                                 w
-w               w                                 w                                                 w
-w               w                                 w                                               j w
-w               w                                 wwwwwwwwwwwwwwwwwwwwwwwwww                        w
-wrrrrrrrrrrrrrrrw                                                          w          wwwwwwwwwwwwwwwwwww
-                                         w               w                                                          w          w                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                                         w               w                                                          w          w                                                                                 w
-                                         w               w                                                          w          w                                                                                 w
-                                         w               w                                                          w          w                 wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                                         w               w                                                          w                                                                                            w
-                                         w               w                                                          w                                                                                            w
-                                         w               w                                                          wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w               w
-                                         w       h       w
-                                         w          g    w
+oooooooo
+w      oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+w      yww                                                      y
+w      yww                                                      y
+w      yww                   yiiiiw                             y
+w      yow      iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii       iiiiiiooooooooooooooooooooooooooooooooooooo
+w               y                                 w                                                 y
+w               y                                 w                                                 y
+w               y                                 w                                               j y
+w               y                                 wiiiiiiiiiiiiiiiiiiiiiiiii                        y
+wrrrrrrrrrrrrrrry                                                          w          ooooooooooooooooooo
+                                         w               y                                                          w          y                 ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+                                         w               y                                                          w          y                                                                                 y
+                                         w               y                                                          w          y                                                                                 y
+                                         w               y                                                          w          y                 iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiy
+                                         w               y                                                          w                                                                                            y
+                                         w               y                                                          w                                                                                            y
+                                         w               y                                                          iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w               y
+                                         w       h       y
+                                         w          g    y
                                          wwwwwwwwwwwwwwwww
