@@ -1,15 +1,15 @@
 map2.txt
 oooooooooooooooooooooooo
-w                      y
-w                      y
-wiiiiiiiiiiiiiiiii     y
-ooooooooooooooooow     y                y
-                yw      y               y
-                yw      y               y
-                yw      y               y
-                yw      y               y
-                yw      y               y
-                yw     oooooooooooooo   oooooooooooooooooooooooooooooooooo
+w                       y
+w                       y
+wiiiiiiiiiiiiiiiii      y
+ooooooooooooooooow      y               y
+                yw      yw              y
+                yw      yw              y
+                yw      yw              y
+                yw      yw              y
+                yw      ywiiiiiiiiiii   y
+                yw      ooooooooooooo   ooooooooooooooooooooooooooooooooo
                 yw                                                       y
                 yw                                                       y
                 yw                                         iiiiiii       y

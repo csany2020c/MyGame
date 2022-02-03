@@ -111,6 +111,10 @@ class bruhstage(game.scene2d.MyStage):
                     if c == "k":
                         self.fohos = fohos()
                         a = self.fohos
+                    if c == "l":
+                        self.enemy1 = enemy1()
+                        a = self.enemy1
+
                     if a is not None:
                         a.x = x * 64
                         a.y = y * 64
