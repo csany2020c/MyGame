@@ -192,9 +192,9 @@ class GameStage(game.scene2d.MyStage):
 
         if self.score > 50:
             self.kocsi4.act(delta_time / 6)
-            self.kocsi3.act(delta_time / 4.5)
-            self.kocsi2.act(delta_time / 3.5)
-            self.kocsi1.act(delta_time / 2.5)
+            self.kocsi3.act(delta_time / 4.9)
+            self.kocsi2.act(delta_time / 4.6)
+            self.kocsi1.act(delta_time / 3.4)
 
         if self.score > 100:
             self.kocsi4.act(delta_time / 9.5)
