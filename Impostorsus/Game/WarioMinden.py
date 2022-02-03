@@ -1278,6 +1278,11 @@ class WarioKartStage(game.scene2d.MyStage):
         self.ponttimer = MyTickTimer(func=self.ponttimerszamolo, interval=1)
         self.add_timer(self.ponttimer)
 
+        self.hal = HalalKart()
+        self.add_actor(self.hal)
+        self.hal.x = 500
+        self.hal.y = -200
+
     def pontiras(self):
         self.pontkiiras.set_text("Idő: {ido}mp".format(ido=self.pont))
         f = open("Save/kartido", "w")
@@ -1380,16 +1385,17 @@ class WarioKartStage(game.scene2d.MyStage):
                     self.ponttimer.stop()
             if isinstance(i, Barrel):
                 if self.wario.overlaps(i):
-                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
-                    self.ponttimer.stop()
-                    pygame.mixer.music.load('audio/battya.mp3')
-                    pygame.mixer.music.play()
+                    self.wario.y -= 100
+                    self.pontkiiras.y -= 100
+                    self.l1.y -= 100
+                    self.l2.y -= 100
             if isinstance(i, Ramp):
                 if self.wario.overlaps(i):
                     self.wario.y += 100
                     self.pontkiiras.y += 100
                     self.l1.y += 100
                     self.l2.y += 100
+                    self.hal.y += 100
             if isinstance(i, GombaKart):
                 if self.wario.overlaps(i):
                     self.wario.image_url = 'Kepek/kunukart.png'
@@ -1401,10 +1407,14 @@ class WarioKartStage(game.scene2d.MyStage):
                     self.l1.y -= 120 * delta_time
                     self.l2.y -= 120 * delta_time
                     self.pontkiiras.y -= 120 * delta_time
-                    self.wario.rotation -= 165 * delta_time
-                else:
-                    self.wario.rotation = 0
+                    self.hal.y -= 120 * delta_time
             if isinstance(i, KartEnemy):
+                if self.wario.overlaps(i):
+                    self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
+                    pygame.mixer.music.load('audio/battya.mp3')
+                    pygame.mixer.music.play()
+                    self.ponttimer.stop()
+            if isinstance(i, HalalKart):
                 if self.wario.overlaps(i):
                     self.screen.game.set_screen(Impostorsus.Game.WarioScr.KartHalalScr())
                     pygame.mixer.music.load('audio/battya.mp3')

@@ -49,14 +49,6 @@ class MenuStage(game.scene2d.MyStage):
         self.credit.x += 550
         self.credit.y += 550
         self.credit.set_on_mouse_down_listener(self.creditbut)
-        self.info = Info()
-        self.add_actor(self.info)
-        self.info.set_alpha(200)
-        self.info.set_width(80)
-        self.info.set_height(80)
-        self.info.x += 350
-        self.info.y += 300
-        self.info.set_on_mouse_down_listener(self.infobut)
 
 
     def play(self, sender, event):
@@ -80,12 +72,7 @@ class MenuStage(game.scene2d.MyStage):
             if event.button == 1:
                 self.screen.game.set_screen(Nike.NikeScreen.Credit())
 
-    def infobut(self, sender, event):
-        print(sender)
-        print(event)
-        if event.type == pygame.MOUSEBUTTONDOWN:
-            if event.button == 1:
-                self.screen.game.set_screen(Nike.NikeScreen.Info())
+
 
 
 
@@ -151,10 +138,22 @@ class CreditStage(game.scene2d.MyStage):
                 pygame.mixer.music.play()
                 pygame.mixer.music.set_volume(50)
 
+class WinStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.win = win()
+        self.add_actor(self.win)
+
+class LoseStage(game.scene2d.MyStage):
+    def __init__(self):
+        super().__init__()
+        self.lose = lose()
+        self.add_actor(self.lose)
 
 
 
-class GameStage(game.scene2d.MyStage):
+
+class GameStage1(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
         self.set_on_key_down_listener(self.backtomenu)
@@ -172,7 +171,6 @@ class GameStage(game.scene2d.MyStage):
         self.house = house()
         self.add_actor(self.house)
 
-
         self.camera.set_tracking(self.FatJordanact)
         self.FatJordanact.set_on_key_press_listener(self.press)
 
@@ -187,9 +185,6 @@ class GameStage(game.scene2d.MyStage):
             self.LeBron.y = 500
             self.LeBron.x = 3800
 
-
-
-
     def press(self, sender, event):
         if self.FatJordanact.y == 450:
             if event.key == pygame.K_w:
@@ -202,8 +197,6 @@ class GameStage(game.scene2d.MyStage):
         if event.key == pygame.K_d:
             sender.x += 5
             self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
-
-
 
     def act(self, delta_time: float):
         super().act(delta_time)
@@ -218,39 +211,74 @@ class GameStage(game.scene2d.MyStage):
         if self.FatJordanact.y > 450:
             self.FatJordanact.y = 450
         if self.aventador.overlaps(other=self.FatJordanact):
-            self.screen.game.set_screen(Nike.NikeScreen.Win())
-            pygame.mixer.music.load("sounds/win.wav")
-            pygame.mixer.music.play()
-            pygame.mixer.music.set_volume(100)
-
+            self.screen.game.set_screen(Nike.NikeScreen.Game2())
 
 
     def backtomenu(self,sender,event):
         if event.key == pygame.K_ESCAPE:
             self.screen.game.set_screen(Nike.NikeScreen.Menu())
 
-class WinStage(game.scene2d.MyStage):
+class GameStage2(game.scene2d.MyStage):
     def __init__(self):
         super().__init__()
-        self.win = win()
-        self.add_actor(self.win)
+        self.basketbg = basketbg()
+        self.add_actor(self.basketbg)
+        self.basketbg.y = -70
+        self.basketbg2 = basketbg2()
+        self.add_actor(self.basketbg2)
+        self.basketbg2.y = -70
+        self.basketbg2.x = 1475
+        self.basketbg2 = basketbg2()
+        self.add_actor(self.basketbg2)
+        self.basketbg2.y = -70
+        self.basketbg2.x = 2950
+        self.FatJordanact = FatJordanact()
+        self.add_actor(self.FatJordanact)
+        self.FatSpiderman = FatSpiderman()
+        self.aventador = aventador()
+        self.add_actor(self.aventador)
 
+        self.camera.set_tracking(self.FatJordanact)
+        self.FatJordanact.set_on_key_press_listener(self.press)
 
+        self.t = game.scene2d.MyTickTimer(interval=2, func=self.tikk)
+        self.add_timer(self.t)
 
-class LoseStage(game.scene2d.MyStage):
-    def __init__(self):
-        super().__init__()
-        self.lose = lose()
-        self.add_actor(self.lose)
+    def tikk(self, sender):
 
-class InfoStage(game.scene2d.MyStage):
-    def __init__(self):
-        super().__init__()
-        self.info = Info()
-        self.add_actor(self.info)
-        self.info.set_text("Infooo")
-        self.info.set_alpha(500)
-        self.info.set_width(80)
-        self.info.set_height(80)
-        self.info.x += 500
-        self.info.y += 50
+        for t in range(1):
+            self.FatSpiderman = FatSpiderman()
+            self.add_actor(self.FatSpiderman)
+            self.FatSpiderman.y = 500
+            self.FatSpiderman.x = 3800
+
+    def press(self, sender,event):
+        if self.FatJordanact.y == 450:
+            if event.key == pygame.K_w:
+                sender.y = 100
+                pygame.mixer.music.load("sounds/jump.wav")
+                pygame.mixer.music.play()
+                pygame.mixer.music.set_volume(0.2)
+        if sender.y == 500:
+            sender.y += 0
+        if event.key == pygame.K_d:
+            sender.x += 5
+            self.camera.set_tracking_window(0.2, 0.2, 0.7, -0.2)
+
+    def act(self, delta_time: float):
+        super().act(delta_time)
+        print(self.FatJordanact)
+        if self.FatSpiderman.overlaps(other=self.FatJordanact):
+            self.screen.game.set_screen(Nike.NikeScreen.Lose())
+            pygame.mixer.music.load("sounds/lose.wav")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(100)
+        if self.elapsed_time > 0:
+            self.FatJordanact.y += delta_time * 250
+        if self.FatJordanact.y > 450:
+            self.FatJordanact.y = 450
+        if self.aventador.overlaps(other=self.FatJordanact):
+            self.screen.game.set_screen(Nike.NikeScreen.Win())
+            pygame.mixer.music.load("sounds/win.wav")
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(100)
