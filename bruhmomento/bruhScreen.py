@@ -203,20 +203,6 @@ class bruhScreen(game.scene2d.MyScreen):
         self.b = 0
         self.add_stage(bruhstage(map))
 
-class brruhScreen(game.scene2d.MyScreen):
-
-    def __init__(self):
-        super().__init__()
-        self.r = 50
-        self.g = 41
-        self.b = 40
-        self.add_stage(bruhstage())
-
-    def act(self, delta_time: float):
-        super().act(delta_time)
-        if self.elapsed_time > 1:
-            self.game.screen = bruhScreen()
-
 class map2stage(game.scene2d.MyStage):
     def __init__(self, map: str):
         super().__init__()
