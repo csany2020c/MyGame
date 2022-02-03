@@ -20,6 +20,7 @@ class lovedek(game.scene2d.MyActor):
 
         if self.distance > 1000:
             self.remove_from_stage()
+
     def __init__(self, irany: int):
         super().__init__("Images/lovedek.png")
         self.irany = irany
@@ -44,9 +45,9 @@ class fohos(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/legokatona.png")
         # self.set_on_key_press_listener(self.key_down)
-        self.set_size(200, 100)
-        self.hitbox_scale_h = 0.9
-        self.hitbox_scale_w = 0.9
+        self.set_size(150, 100)
+        self.hitbox_scale_h = 0.7
+        self.hitbox_scale_w = 0.7
 
         #self.hitbox_shape = ShapeType.Rectangle
     #
@@ -90,7 +91,20 @@ class kapu(game.scene2d.MyActor):
         self.hitbox_scale_w = 0.9
         self.hitbox_shape = ShapeType.Rectangle
 
-class wall(game.scene2d.MyActor):
+class wallbal(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/fal.jpg")
+        self.set_size(65, 65)
+
+class wallfelso(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/fal.jpg")
+        self.set_size(65, 65)
+class wallalso(game.scene2d.MyActor):
+    def __init__(self):
+        super().__init__("Images/fal.jpg")
+        self.set_size(65, 65)
+class walljobb(game.scene2d.MyActor):
     def __init__(self):
         super().__init__("Images/fal.jpg")
         self.set_size(65, 65)
