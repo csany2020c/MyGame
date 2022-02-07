@@ -44,5 +44,3 @@ class Lose(game.scene2d.MyScreen):
         super().act(delta_time)
         if self.elapsed_time > 4:
             self.game.screen = Game()
-
-

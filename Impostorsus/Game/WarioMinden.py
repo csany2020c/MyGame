@@ -1358,9 +1358,9 @@ class WarioKartStage(game.scene2d.MyStage):
 
     def act(self, delta_time: float):
         super().act(delta_time)
-        if self.elapsed_time > 3:
+        if self.elapsed_time > 4:
             self.pontkiiras.y += 200 * delta_time
-        if self.elapsed_time > 2:
+        if self.elapsed_time > 3:
             self.mk.x = +3000
             self.bl.x = +3000
             self.wk.x = +3000
@@ -1487,4 +1487,13 @@ class KartWinStage (game.scene2d.MyStage):
 
     def tikk2(self, sender):
         self.m.image_url = 'Kepek/mariokartwin2.png'
+
+
+
+
+
+
+
+
+
 
