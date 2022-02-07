@@ -138,15 +138,42 @@ def prim(be: int) -> bool:
 # for i in range(0, 128):
 #     print("{szam} {prim}".format(szam=i, prim=prim(i)))
 
-
+def primszam_Boldizsar(inputxd: int) -> bool:
+    idk = 0
+    osztodarab = 0
+    for i in range(inputxd):
+        idk = idk + 1
+        eredmeny = inputxd % idk
+        # print(eredmeny)
+        if eredmeny == 0:
+            osztodarab = osztodarab + 1
+        if osztodarab > 2:
+            return False
+            #print("Ez nem prímszám")
+            break
+    if osztodarab == 2:
+        return True
+        # print("Prímszám")
 
 #HF: A prim(i) függvényt cseréljék le saját prímszám függvényre, amely jobb hatásfokkal
 # működik. A leggyorsabb algoritmus készítője 5-öst kap. Max RAM használat 24 GB.
 
+
+def primszamgyors(szam: int) -> bool:
+    gyok: int = int(math.sqrt(szam))
+    for i in range(2, gyok):
+        if szam % i == 0:
+            return False
+    return True
+
+
+
 ts1 = time()
-for i in range(100000, 1000000):
-     primszame = prim(i) # Prímszám eldöntő függvény helye
-#     if primszame:
-#         print(i)
+for i in range(1, 101000):
+    #primszame = prim(i) # Prímszám eldöntő függvény helye
+    #primszame = primszamgyors(i)
+    primszame = primszam_Boldizsar(i)
+    # if primszame:
+    #     print(i)
 ts2 = time()
 print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
