@@ -10,25 +10,31 @@ from typing import List
 #for i in range(0, 10000):
  #   print(fakt(4))
 
-def deez(nuts: int) -> List['int']:
-    l: List['int'] = list()
-    for i in range(1, nuts + 1):
-        if nuts % i == 0:
-            l.append(i)
-    return l
+# def deez(nuts: int) -> List['int']:
+#     l: List['int'] = list()
+#     for i in range(1, nuts + 1):
+#         if nuts % i == 0:
+#             l.append(i)
+#     return l
+#
+# #print(deez(54))
+#
+# def prim(be: int) -> bool:
+#     return len(deez(be)) == 2
+#
+# for i in range(0,128):
+#     print("{szam} {prim}".format(szam=i, prim=prim(i)))
+#
+# for i in range (0, 1024):
+#     primszam = prim(i)
+#     if primszam:
+#         print()
+def oszti():
 
-#print(deez(54))
+    for i in  range(1, 256):
+        i = i%2
+        print(i)
 
-def prim(be: int) -> bool:
-    return len(deez(be)) == 2
-
-for i in range(0,128):
-    print("{szam} {prim}".format(szam=i, prim=prim(i)))
-
-for i in range (0, 1024):
-    primszam = prim(i)
-    if primszam:
-        print()
-
+oszti()
 
 
