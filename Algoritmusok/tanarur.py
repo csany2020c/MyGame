@@ -138,15 +138,74 @@ def prim(be: int) -> bool:
 # for i in range(0, 128):
 #     print("{szam} {prim}".format(szam=i, prim=prim(i)))
 
-
+def primszam_Boldizsar(inputxd: int) -> bool:
+    idk = 0
+    osztodarab = 0
+    for i in range(inputxd):
+        idk = idk + 1
+        eredmeny = inputxd % idk
+        # print(eredmeny)
+        if eredmeny == 0:
+            osztodarab = osztodarab + 1
+        if osztodarab > 2:
+            return False
+            #print("Ez nem prímszám")
+            break
+    if osztodarab == 2:
+        return True
+        # print("Prímszám")
 
 #HF: A prim(i) függvényt cseréljék le saját prímszám függvényre, amely jobb hatásfokkal
 # működik. A leggyorsabb algoritmus készítője 5-öst kap. Max RAM használat 24 GB.
 
-ts1 = time()
-for i in range(100000, 1000000):
-     primszame = prim(i) # Prímszám eldöntő függvény helye
-#     if primszame:
-#         print(i)
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+def primszamgyors(szam: int) -> bool:
+    gyok: int = int(math.sqrt(szam))
+    for i in range(2, gyok):
+        if szam % i == 0:
+            return False
+    return True
+
+
+#
+# ts1 = time()
+# for i in range(1, 101000):
+#     #primszame = prim(i) # Prímszám eldöntő függvény helye
+#     #primszame = primszamgyors(i)
+#     primszame = primszam_Boldizsar(i)
+#     # if primszame:
+#     #     print(i)
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+
+# https://wiki.python.org/moin/BitwiseOperators
+#
+# 1 == igaz; 0 == hamis
+#      10110111
+#    & 11010001
+#    ----------
+#      10010001
+
+#      10110111
+#    >>       1
+#---------------
+#      01011011
+#
+#  x=0b 0101 1011
+#  h=0x   5    B
+# https://towardsdatascience.com/binary-hex-and-octal-in-python-20222488cee1
+# https://slidetodoc.com/presentation_image/c38ff823e30ffb14271c6e0e604b1b10/image-21.jpg
+
+def binaris_maszkolassal(szam: int) -> str:
+    s: str = ""
+    for i in range(0, 24):
+        if (szam & 0x800000) == 0:
+            s += "0"
+        else:
+            s += "1"
+        szam <<= 1
+        print(szam)
+    return s
+
+print(binaris_maszkolassal(200))
