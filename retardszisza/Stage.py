@@ -25,7 +25,7 @@ class GameStage(game.scene2d.MyStage):
         self.fal2 = FalActor2()
         self.palyaszele1 = Palyaszele1()
         self.palyaszele2 = Palyaszele2()
-        self.score: int = 170
+        self.score: int = 0
 
         self.asdddsa = MyLabel("Score:")
         self.points = MyLabel("")
@@ -192,21 +192,18 @@ class GameStage(game.scene2d.MyStage):
 
         if self.score > 50:
             self.kocsi4.act(delta_time / 6)
-            self.kocsi3.act(delta_time / 4.5)
-            self.kocsi2.act(delta_time / 3.5)
-            self.kocsi1.act(delta_time / 2.5)
+            self.kocsi3.act(delta_time / 4.9)
+            self.kocsi2.act(delta_time / 4.6)
+            self.kocsi1.act(delta_time / 3.4)
 
         if self.score > 100:
             self.kocsi4.act(delta_time / 9.5)
             self.kocsi3.act(delta_time / 8.8)
-            self.kocsi2.act(delta_time / 6.9)
-            self.kocsi1.act(delta_time / 5.4)
+            self.kocsi2.act(delta_time / 7.9)
+            self.kocsi1.act(delta_time / 5.8)
 
         if self.score > 180:
             self.kocsi4.act(delta_time * 1.8)
             self.kocsi3.act(delta_time * 1.5)
             self.kocsi2.act(delta_time * 1.4)
             self.kocsi1.act(delta_time * 1.2)
-
-        if self.score > 250:
-            quit()
