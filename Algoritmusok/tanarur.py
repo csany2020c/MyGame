@@ -199,8 +199,8 @@ def primszamgyors(szam: int) -> bool:
 
 def binaris_maszkolassal(szam: int) -> str:
     s: str = ""
-    for i in range(0, 24):
-        if (szam & 0x800000) == 0:
+    for i in range(0, 32):
+        if (szam & 0x80000000) == 0:
             s += "0"
         else:
             s += "1"
