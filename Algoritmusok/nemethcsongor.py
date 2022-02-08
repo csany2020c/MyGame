@@ -1,5 +1,5 @@
-def binaris(bemenet):
-    b = ''
+def binaris(bemenet: int) -> str:
+    b: str = ''
     while bemenet > 0:
         if bemenet % 2 == 0:
             bemenet = bemenet // 2
