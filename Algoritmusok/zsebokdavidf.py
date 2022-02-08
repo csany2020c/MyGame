@@ -26,4 +26,4 @@ def prime(input):
     else:
         print("A(z) " + str(input) + " nem prímszám")
 
-oszthatoe(int(input()))
+prime(50000)
