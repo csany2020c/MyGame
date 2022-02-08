@@ -1,15 +1,14 @@
-def binaris(d):
-    b = ''
-    while True:
-        if d == 0:
-            break
-        elif (d % 2) == 0:
-            d = d // 2
+def binaris(bemenet: int) -> str:
+    b: str = ''
+    while bemenet > 0:
+        if bemenet % 2 == 0:
+            bemenet = bemenet // 2
             b = '0' + b
         else:
-            d = d // 2
+            bemenet = bemenet // 2
             b = '1' + b
     return b
 
 
-print(binaris(200))
+szam = 20220208
+print("A " + str(szam) + " bináris értéke " + str(binaris(szam) + "."))
