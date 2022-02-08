@@ -71,14 +71,15 @@ from typing import List
 #9,feladat:
 def binary() -> int:
     bemenet: int = int(input())
-    valtozo = 1
-    valtozo2: str =
-    while valtozo < bemenet:
-        valtozo = valtozo * 2
-        print(valtozo)
-
-    """while bemenet >= 1:
-        bemenet = bemenet - 1
-        print(bemenet)"""
+    originalbemenet = bemenet
+    string: str = str(0)
+    while 0 < bemenet:
+        if bemenet % 2 == 0:
+            string = string + str(0)
+        else:
+            string = string + str(1)
+            bemenet = bemenet - 1
+        bemenet = bemenet / 2
+    print("A " + str(originalbemenet) + " binárisan: " + str(string))
 
 binary()
