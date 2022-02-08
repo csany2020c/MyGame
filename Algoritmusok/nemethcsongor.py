@@ -1,15 +1,15 @@
-def binaris(d):
+def binaris(bemenet):
     b = ''
     while True:
-        if d == 0:
+        if bemenet == 0:
             break
-        elif (d % 2) == 0:
-            d = d // 2
+        elif (bemenet % 2) == 0:
+            bemenet = bemenet // 2
             b = '0' + b
         else:
-            d = d // 2
+            bemenet = bemenet // 2
             b = '1' + b
     return b
 
 
-print(binaris(200))
+print("A szám bináris értéke " + str(binaris(124)))
