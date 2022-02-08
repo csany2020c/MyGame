@@ -60,6 +60,7 @@ print(l)
 print(szorzat(l))
 
 
-def fuggveny(list: List['int']) -> int:
+def fuggveny():
+    szam = int(input("Szám: "))
 
-    print(l)
+    print("Osztók: {eredmeny}".format())
