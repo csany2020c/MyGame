@@ -208,4 +208,20 @@ def binaris_maszkolassal(szam: int) -> str:
         print(szam)
     return s
 
+def binary_osztassal(be: int) -> str:
+    bemenet = abs(be)
+    kimenet: str = ""
+    while 0 < bemenet:
+        if bemenet % 2 == 0:
+            kimenet = "0" + kimenet
+        else:
+            kimenet = "1" + kimenet
+        bemenet = bemenet // 2
+    if kimenet == "":
+        return "0"
+    # return string[::-1]
+    if be < 0:
+        return "-" + kimenet
+    return kimenet
+
 print(binaris_maszkolassal(200))
