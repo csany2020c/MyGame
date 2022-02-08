@@ -10,4 +10,5 @@ def binaris(bemenet: int) -> str:
     return b
 
 
-print("A szám bináris értéke " + str(binaris(10)))
+szam = 20220208
+print("A " + str(szam) + " bináris értéke " + str(binaris(szam) + "."))
