@@ -50,25 +50,45 @@ from typing import List
 #
 # osztok()
 
+#
+# def osztok(n: int) -> List['int']:
+#     l: list['int'] = list()
+#     for i in range(1, n + 1 ):
+#         if n % i == 0:
+#             l.append(i)
+#     return(l)
+#     for i in osztok(len(osztok)):
+#         if len(list) == 2:
+#             print("true")
+#         else:
+#             print("false")
+# for i in range(1, 20):
+#     print(i)
+#     for i in osztok(len(list)):
+#         if len(list) == 2:
+#             print("true")
+#         else:
+#             print("false")
+def binaris_osztas() -> List['int']:
+    visszaadja = list()
+    szam: str = int(input())
+    s = ""
+    for i in range(0, 24):
+        if (szam & 0x800000) == 0:
+            s += "0"
+            visszaadja.append(s)
+        else:
+            s += "1"
+        szam <<= 1
 
-def osztok(n: int) -> List['int']:
-    l: list['int'] = list()
-    for i in range(1, n + 1 ):
-        if n % i == 0:
-            l.append(i)
-    return(l)
-    for i in osztok(len(osztok)):
-        if len(list) == 2:
-            print("true")
-        else:
-            print("false")
-for i in range(1, 20):
-    print(i)
-    for i in osztok(len(list)):
-        if len(list) == 2:
-            print("true")
-        else:
-            print("false")
+        print(visszaadja)
+
+
+    return visszaadja
+
+
+
+
 
 
 

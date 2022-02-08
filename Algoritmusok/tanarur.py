@@ -199,13 +199,29 @@ def primszamgyors(szam: int) -> bool:
 
 def binaris_maszkolassal(szam: int) -> str:
     s: str = ""
-    for i in range(0, 24):
-        if (szam & 0x800000) == 0:
+    for i in range(0, 32):
+        if (szam & 0x80000000) == 0:
             s += "0"
         else:
             s += "1"
         szam <<= 1
         print(szam)
     return s
+
+def binary_osztassal(be: int) -> str:
+    bemenet = abs(be)
+    kimenet: str = ""
+    while 0 < bemenet:
+        if bemenet % 2 == 0:
+            kimenet = "0" + kimenet
+        else:
+            kimenet = "1" + kimenet
+        bemenet = bemenet // 2
+    if kimenet == "":
+        return "0"
+    # return string[::-1]
+    if be < 0:
+        return "-" + kimenet
+    return kimenet
 
 print(binaris_maszkolassal(200))
