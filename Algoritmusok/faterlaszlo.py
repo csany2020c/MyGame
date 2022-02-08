@@ -13,7 +13,7 @@ from time import time
 # 2. feladat
 # print(8 % 3)
 
-# primszam fuggveny
+# primszam fuggveny break
 def fuggveny(n: int) -> list[int]:
     lista: List['int'] = list()
     # bemenet: int = int(input())
@@ -49,4 +49,32 @@ def binaris() -> int:
     # for i in range(8):
     #     >>>a<<2
     print(a)
-binaris()
+#binaris()
+
+def binaris_ketto() -> int:
+    w: str = ""
+    alma: int = int(input("Szam:"))
+    nulla: int = 0
+    szamolas: int = 0
+    while True:
+        if alma == 0:
+            break
+        elif alma % 2 == 0:
+            alma = alma / 2
+            w = w + "0"
+        else:
+            alma = alma / 2
+            w = w + "1"
+        print(w)
+    return w
+
+
+
+    # while alma > nulla:
+    #     alm
+    #     szamolas += 1
+    #     if alma == 0:
+    #         break
+
+binaris_ketto()
+
