@@ -56,10 +56,18 @@ def binaris_ketto() -> int:
     alma: int = int(input("Szam:"))
     nulla: int = 0
     szamolas: int = 0
-    if alma >= 0:
-        w += "1"
-    else:
-        w += "0"
+    while True:
+        if alma == 0:
+            break
+        elif alma % 2 == 0:
+            alma = alma / 2
+            w = w + "0"
+        else:
+            alma = alma / 2
+            w = w + "1"
+        print(w)
+    return w
+
 
 
     # while alma > nulla:
