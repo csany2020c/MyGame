@@ -49,6 +49,17 @@ def szorzat(lista: List['int']) -> int:
 
 
 
-l: List['int'] = (4, 2, 3)
-print(l)
-print(szorzat(l))
+#l: List['int'] = (4, 2, 3)
+#print(l)
+#print(szorzat(l))
+
+
+def osztoosszeg(szam: int)-> int:
+    szamfele: int = szam // 2
+    for x range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
+
+print()
+
