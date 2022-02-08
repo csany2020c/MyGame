@@ -69,17 +69,22 @@ from typing import List
 #primszam(int(input()))
 
 #9,feladat:
-def binary() -> int:
-    bemenet: int = int(input())
-    originalbemenet = bemenet
-    string: str = str(0)
+def binary(be: int) -> str:
+    bemenet = abs(be)
+    kimenet: str = ""
     while 0 < bemenet:
         if bemenet % 2 == 0:
-            string = string + str(0)
+            kimenet = "0" + kimenet
         else:
-            string = string + str(1)
-            bemenet = bemenet - 1
-        bemenet = bemenet / 2
-    print("A " + str(originalbemenet) + " binárisan: " + str(string))
+            kimenet = "1" + kimenet
+        bemenet = bemenet // 2
+    if kimenet == "":
+        return "0"
+    # return string[::-1]
+    if be < 0:
+        return "-" + kimenet
+    return kimenet
 
-binary()
+
+originalbemenet: int = int(input())
+print("A " + str(originalbemenet) + " binárisan: " + binary(originalbemenet))
