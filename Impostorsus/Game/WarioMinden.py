@@ -606,7 +606,7 @@ class ASD2 (game.scene2d.MyStage):
         print(event)
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
-                webbrowser.open('https://pbs.twimg.com/media/EPsvEreWsAEVHip?format=jpg&name=large')
+                webbrowser.open('http://localhost:63342/MyGame/Impostorsus/kunoldal/kunweb.html?_ijt=cjm94dbrm2t5ma8c7htoogeun')
 
     def bind(self, sender, event):
         print(sender)
