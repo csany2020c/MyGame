@@ -45,6 +45,14 @@ def listababeolvas() -> List['int']:
             visszaadottlista.append(szam)
     return visszaadottlista
 
+#l: List['int'] = (4, 2, 3)
+#print(l)
+#print(szorzat(l))
+
+#l2 = listababeolvas()
+#print(l2)
+#print(szorzat(l2))
+
 def osztoosszeg(szam: int) -> int:
     szamfele: int = szam // 2
     osszeg: int = 0
@@ -52,7 +60,7 @@ def osztoosszeg(szam: int) -> int:
         if szam % x == 0:
             osszeg = osszeg + x
         return osszeg
-print(osztoosszeg(int(input())))
+#print(osztoosszeg(int(input())))
 
 def baratszamok(a: int, b: int) -> bool:
     a: int = 0
@@ -64,14 +72,25 @@ def baratszamok(a: int, b: int) -> bool:
             b = b+x
         if a == b:
             return True
+#print(baratszamok(int(input())))
+
+def hatvany(c: int, d: int)-> List[int]:
+    hatvanylista = list()
+    for x in range():
+        c *= c
 
 
-print(baratszamok(int(input())))
 
-l: List['int'] = (4, 2, 3)
-print(l)
-print(szorzat(l))
 
-l2 = listababeolvas()
-print(l2)
-print(szorzat(l2))
+
+
+
+
+
+
+
+
+
+
+
+
