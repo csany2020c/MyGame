@@ -54,7 +54,19 @@ def osztoosszeg(szam: int) -> int:
         return osszeg
 print(osztoosszeg(int(input())))
 
+def baratszamok(a: int, b: int) -> bool:
+    a: int = 0
+    b: int = 0
+    for x in range():
+        if a % x == 0:
+            a = a+x
+        if b % x == 0:
+            b = b+x
+        if a == b:
+            return True
 
+
+print(baratszamok(int(input())))
 
 l: List['int'] = (4, 2, 3)
 print(l)
