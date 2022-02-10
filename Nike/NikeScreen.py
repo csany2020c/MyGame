@@ -26,7 +26,7 @@ class Game2(game.scene2d.MyScreen):
 class Win(game.scene2d.MyScreen):
     def __init__(self):
         super().__init__()
-        self.set_background_color(0, 0, 100)
+        self.set_background_color(1, 0, 100)
         self.add_stage(WinStage())
 
     def act(self, delta_time: float):
