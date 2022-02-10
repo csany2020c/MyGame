@@ -86,11 +86,26 @@ def listababeolvas() -> List['int']:
 
 
 
-l: List['int'] = (4, 2, 3)
-print(l)
-print(szorzat(l))
+# l: List['int'] = (4, 2, 3)
+# print(l)
+# print(szorzat(l))
+#
+# l2 = listababeolvas()
+# print(l2)
+# print(szorzat(l2))
 
-l2 = listababeolvas()
-print(l2)
-print(szorzat(l2))
 
+# Készítsen függvényt, amelynek a bemenete egy egész szám,
+# és a kimenete is egész számként adja vissza a nála kisebb osztóinak
+# az összegét.
+# pl: be: 12, ki:1+2+3+4+6, azaz 16
+
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
+
+print(osztoosszeg(int(input())))
