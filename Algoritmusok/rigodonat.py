@@ -50,15 +50,15 @@ def listababeolvas() -> List['int']:
 
 
 
-l: List['int'] = (4, 2, 3)
-print(l)
-print(szorzat(l))
+#l: List['int'] = (4, 2, 3)
+#print(l)
+#print(szorzat(l))
 
-l2 = listababeolvas()
-print(l2)
-print(szorzat(l2))
+#l2 = listababeolvas()
+#print(l2)
+#print(szorzat(l2))
 
-def osztoosszeg (szam: int) -> int:
+def osztoosszeg(szam: int) -> int:
     szamfele: int = szam // 2 + 1
     osszeg: int = 0
     for x in range(1, szamfele):
@@ -66,7 +66,32 @@ def osztoosszeg (szam: int) -> int:
             osszeg = osszeg + x
     return osszeg
 
-print(osztoosszeg(12))
-print(osztoosszeg(16))
-print(osztoosszeg(21))
+#print(osztoosszeg(12))
+#print(osztoosszeg(16))
+#print(osztoosszeg(21))
+
+def baratszame(a: int, b: int)-> bool:
+    szamfelea:  int = a // 2 + 1
+    szamfeleb:  int = b // 2 + 1
+    osszega: int = 0
+    osszegb: int = 0
+    for y in range(1, szamfelea):
+        if a % y ==0:
+            osszega = osszega + y
+    for y in range(1, szamfeleb):
+        if b % y ==0:
+            osszegb = osszegb + y
+    if osszega !=b and osszegb !=a or a == b:
+        return False
+    else:
+        return True
+
+print(baratszame(220,284))
+print(baratszame(6,6))
+print(baratszame(1184,1210))
+
+
+
+
+
 
