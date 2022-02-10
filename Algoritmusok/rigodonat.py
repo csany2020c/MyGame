@@ -86,12 +86,19 @@ def baratszame(a: int, b: int)-> bool:
     else:
         return True
 
-print(baratszame(220,284))
-print(baratszame(6,6))
-print(baratszame(1184,1210))
+#print(baratszame(220,284))
+#print(baratszame(6,6))
+#print(baratszame(1184,1210))
 
+def hatvanyok(alap: int, kitevo: int) -> List['int']:
+    hatvanyoklista: list = []
+    szorzat: int = 1
+    for i in range(0, kitevo + 1):
+        hatvanyoklista.append(szorzat)
+        szorzat *= alap
+    return hatvanyoklista
 
-
+print(hatvanylista(2,8))
 
 
 
