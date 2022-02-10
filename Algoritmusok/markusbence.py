@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 #def fakt(n: int) -> int:
     #szorzat = 1
@@ -31,21 +32,26 @@ from typing import List
     #return l
 
 
-def prim():
-    inp = int(input())
-    lista =[]
-    mb = 1
-    mb2 = False
-    for i in range(inp):
-        if inp % mb == 0:
-            lista.append(mb)
-        mb = mb + 1
+# def prim():
+#     inp = int(input())
+#     lista =[]
+#     mb = 1
+#     mb2 = False
+#     for i in range(inp):
+#         if inp % mb == 0:
+#             lista.append(mb)
+#         mb = mb + 1
+#
+#     if len(lista) == 2:
+#         mb2 = True
+#     print(lista)
 
-    if len(lista) == 2:
-        mb2 = True
-    print(lista)
 
-prim()
+
+
+
+
+
 
 
 
