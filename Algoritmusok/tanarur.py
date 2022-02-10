@@ -224,4 +224,4 @@ def binary_osztassal(be: int) -> str:
         return "-" + kimenet
     return kimenet
 
-print(binaris_maszkolassal(200))
+print(binaris_maszkolassal(255))
