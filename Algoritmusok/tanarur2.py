@@ -1,4 +1,7 @@
+import math
 from typing import List
+from time import time
+from math import *
 
 # Írasssa ki a számokat 1-től 15-ig.
 def Szamok1tol15ig():
@@ -108,4 +111,37 @@ def osztoosszeg(szam: int) -> int:
             osszeg = osszeg + x
     return osszeg
 
-print(osztoosszeg(int(input())))
+# print(osztoosszeg(int(input())))
+
+def baratiszamoke(a: int, b: int) -> bool:
+    return a != b and osztoosszeg(a) == b and osztoosszeg(b) == a
+
+def baratitesztlassu(eddigkeres: int):
+    for x in range(1, eddigkeres + 1):
+        for y in range(1, eddigkeres + 1):
+            if baratiszamoke(x, y):
+                print("{x} {y}".format(x=x, y=y))
+
+def baratitesztgyors(eddigkeres: int):
+    for x in range(1, eddigkeres + 1):
+        if baratiszamoke(x, osztoosszeg(x)):
+            print("{x} {y}".format(x=x, y=osztoosszeg(x)))
+
+def baratitesztmeggyorsabb(eddigkeres: int):
+    for x in range(1, eddigkeres + 1):
+        y = osztoosszeg(x)
+        z = osztoosszeg(y)
+        if x != y and z == x:
+            print("{x} {y}".format(x=x, y=y))
+
+ts1 = time()
+#baratitesztmeggyorsabb(10856)
+baratitesztgyors(10856)
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+
+# print(baratiszamoke(6,6))
+# print(baratiszamoke(332,123))
+# print(baratiszamoke(220, 284))
+# print(baratiszamoke(319550, 430402))
