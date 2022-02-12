@@ -1,6 +1,7 @@
 from typing import List
 from time import time
 
+#1. feladat: faktorialis szamolas
 # def faktoralis(asd: int) -> int:
 #     szorzat = 1
 #     for i in range(2, asd + 1):
@@ -13,7 +14,7 @@ from time import time
 # 2. feladat
 # print(8 % 3)
 
-# primszam fuggveny break
+#3. feladat: primszam fuggveny break
 def fuggveny(n: int) -> list[int]:
     lista: List['int'] = list()
     # bemenet: int = int(input())
@@ -46,35 +47,23 @@ def fuggveny(n: int) -> list[int]:
 
 def binaris() -> int:
     a = bin(237)
-    # for i in range(8):
-    #     >>>a<<2
     print(a)
 #binaris()
 
-def binaris_ketto() -> int:
+def binaris_ketto(a: int) -> int:
     w: str = ""
-    alma: int = int(input("Szam:"))
-    nulla: int = 0
-    szamolas: int = 0
-    while True:
-        if alma == 0:
-            break
-        elif alma % 2 == 0:
-            alma = alma / 2
-            w = w + "0"
-        else:
-            alma = alma / 2
+    erkezo = a
+    while erkezo > 0:
+        if erkezo % 2 == 0:
             w = w + "1"
-        print(w)
+        else:
+            w = w + "0"
+        erkezo = erkezo // 2
     return w
 
+bejovo: int = int(input("Írj be egy számot: "))
+print("Az eredmény:" + " " + binaris_ketto(bejovo))
 
-
-    # while alma > nulla:
-    #     alm
-    #     szamolas += 1
-    #     if alma == 0:
-    #         break
-
-binaris_ketto()
-
+#erdekesseg
+# print(6 / 2)
+# print(6 // 2)
