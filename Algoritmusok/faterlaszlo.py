@@ -67,13 +67,13 @@ def osztok(n: int) -> list[int]:
 #      print("{szam} {primszam}".format(szam=i, primszam=fuggveny1(i)))
 
 #új számolás-gyakorlas
-ts1 = time()
-for i in range(100000, 1000000):
-    primszame = primszam_sajat(i)  # Prímszám eldöntő függvény helye
-    if primszame:
-        print(i)
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+# ts1 = time()
+# for i in range(100000, 1000000):
+#     primszame = primszam_sajat(i)  # Prímszám eldöntő függvény helye
+#     if primszame:
+#         print(i)
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
 #9. feladat: binaris szamok
 def binaris_ketto(a: int) -> int:
