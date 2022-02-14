@@ -264,3 +264,28 @@ def parosak(belist: List['int']) -> List['int']:
 # Negatív értékre is működjön.
 # Pl: be: 6 ki: [0,1,2,3,4,5,6]
 # Pl: be: -6 ki: [0, -1, -2, -3, -4, -5, -6]
+
+def szamolas(be: int) -> List['int']:
+    kilist: List['int'] = list()
+    if be < 0:
+        for i in range(0, be - 1, -1):
+            kilist.append(i)
+    else:
+        for i in range(0, be + 1):
+            kilist.append(i)
+    return kilist
+
+# print(szamolas(6))
+# print(szamolas(-6))
+# print(szamolas(0))
+
+
+# Az előző függvények felhasználásával készítsen egy
+# függvényt, amelynek bemenete egy szám, és 0-tól
+# kezdve a páros számokat addig a számíg kiírja.
+# A megoldás 1-2 sor lehet csak!
+# A kimenet egy lista legyen.
+def paroslista(be: int) -> List['int']:
+    return parosak(szamolas(be))
+
+print(paroslista(22))
