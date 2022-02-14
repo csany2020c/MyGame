@@ -224,4 +224,26 @@ def binary_osztassal(be: int) -> str:
         return "-" + kimenet
     return kimenet
 
-print(binaris_maszkolassal(255))
+# print(binaris_maszkolassal(255))
+
+# Készítsen függvényt, melynek bemenete egy
+# számokból álló lista,
+# a kimenete szintén egy ugyan ilyen lista,
+# de az csak a páros számokat tartlamazza
+# azok közül, amik a bemeneten voltak.
+
+# def függvénynév(bemeneteket kell írni) -> kimenet típusát, mert a kimenet neve a függvény neve
+def parosak(belist: List['int']) -> List['int']:
+    kilist: List['int'] = list()
+    for i in belist:
+        if i % 2 == 0:
+            kilist.append(i)
+    return kilist
+
+
+l3 = [3, 6, 8, 2, 3, 1, 4]
+l9 = [333, 4, 0, 44]
+l4 = parosak(l3)
+l5 = parosak(l9)
+print(l4)
+print(l5)
