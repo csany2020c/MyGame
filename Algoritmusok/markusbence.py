@@ -47,7 +47,7 @@ import math
 #     print(lista)
 
 
-
+def hazi():
 
 
 
