@@ -40,12 +40,12 @@ from typing import List
 #         print(i)
 
 
-def parosak(belist: List['int']) -> List['int']:
-    kilist: List['int'] = list()
-    for i in belist:
+def parosak(bemenet: List['int']) -> List['int']:
+    kimenet: List['int'] = list()
+    for i in bemenet:
         if i % 2 == 0:
-            kilist.append(i)
-    return kilist
+            kimenet.append(i)
+    return kimenet
 
 l3 = [3, 6, 8, 2, 3, 1, 4]
 l9 = [333, 4, 0, 44]
@@ -54,4 +54,23 @@ l5 = parosak(l9)
 print(l4)
 print(l5)
 
+def fugg(bemenet: int) -> List['int']:
+    kimenet: List['int'] = list()
+    szam : int = 0
+    if bemenet < 0:
+        for i in range(bemenet):
+            kimenet.append(szam)
+            szam = szam - 1
+    else:
+        for i in range(bemenet):
+            kimenet.append(szam)
+            szam = szam + 1
+    return kimenet
 
+bemenet =11
+print(fugg(bemenet))
+
+def paroslist(be :int) -> List['int']:
+    return parosak(fugg(be))
+
+print(paroslist(22))
