@@ -47,9 +47,6 @@ def prim(input: int) -> bool:
         return True
 
 
-prim(szam)
-
-
 if prim(szam) == True:
     a: str = " prímszám"
 else:
@@ -90,3 +87,98 @@ def parosszamolo(ncs: int) -> List['int']:
 
 
 # print(parosszamolo(6))
+
+
+def oszt(num: int, lajst: List['int']) -> List['int']:
+    lajst2: List['int'] = list()
+    for i in lajst:
+        if i % num == 0:
+            lajst2.append(i)
+    return lajst2
+
+
+berakando: List['int'] = (1, 2, 3, 4, 5, 6,)
+# print(oszt(2, berakando))
+
+
+def nulla(lista5: List['int']) -> bool:
+    for i in lista5:
+        if i == 0:
+            return True
+        else:
+            return False
+
+
+lista6: List['int'] = (0, 1, 2, 3, 4,)
+# print(nulla(lista6))
+
+
+def min(egy: int, ketto: int) -> int:
+    if egy < ketto:
+        return egy
+    else:
+        return ketto
+
+
+# print(min(-6, 5))
+
+
+def minlist(lajstrom: List['int']) -> int:
+    kicsi: int = lajstrom[0]
+    for i in lajstrom:
+        if kicsi > i:
+            kicsi = i
+    return kicsi
+
+
+lajstrom2: List['int'] = (15, 11, 6, 8, 37, 5)
+# print(minlist(lajstrom2))
+
+
+def haromszam(a1: int, q: int, n: int) -> List['int']:
+    ki: List['int'] = list()
+    ki.append(a1)
+    for i in range(n - 1):
+        ki.append(a1 * q)
+        a1 *= q
+    return ki
+
+
+# print(haromszam(5, 6, 7))
+
+
+def osszeadas(lista9: List['int']) -> int:
+    a2 = 0
+    for i in lista9:
+        a2 += i
+    return a2
+
+
+lajstrom3: List['int'] = (1, 2, 3, 4)
+# print(osszeadas(lajstrom3))
+
+
+def mertan(elso: int, masodik: int, harmadik: int) -> int:
+    return osszeadas(haromszam(4, 5, 8))
+
+
+# print(mertan(4, 5, 54))
+
+
+def masodfoku(a3: float, b3: float, c3: float) -> List['float']:
+    diszkriminans: float = b3*b3 - 4*a3*c3
+    megoldas: List['float'] = list()
+    if diszkriminans < 0:
+        return megoldas
+    diszkriminans2 = math.sqrt(b3*b3 - 4*a3*c3)
+    megoldas1 = (-b3 + diszkriminans2) / 2*a3
+    megoldas2 = (-b3 - diszkriminans2) / 2*a3
+    if megoldas1 == megoldas2:
+        megoldas.append(megoldas1)
+    else:
+        megoldas.append(megoldas2)
+        megoldas.append(megoldas1)
+    return megoldas
+
+
+# print(masodfoku(1, -7, 9))
