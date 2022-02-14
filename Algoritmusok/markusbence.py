@@ -47,12 +47,16 @@ import math
 #     print(lista)
 
 
-def hazi():
+def hazi(belist: List['int']) -> List['int']:
+    kilist: List['int'] = list()
+
+    for i in belist:
+        if i % 2 == 0:
+            kilist.append(i)
+
+    return kilist
 
 
-
-
-
-
-
-
+l1 = [1, 55, 4877, 4625, 4, 2, 9, 7]
+l2 = hazi(l1)
+print(l1)
