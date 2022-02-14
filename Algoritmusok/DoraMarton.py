@@ -33,7 +33,14 @@ def woohoo():
         szorzat *= i
     print(szorzat)
 
-def asdf():
-    
+def hazifeladat00(lista: List['int'], b: int) -> List['int']:
+    List = []
+    for i in range(0):
+        lista %= b
+    return List
 
-asdf()
+print(hazifeladat00(lista(10, 20, 30), 10))
+
+def hazifeladat1(a: int, b: int) -> int:
+    kisebb = 1
+    for i in range(1):
