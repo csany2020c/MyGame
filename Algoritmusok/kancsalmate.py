@@ -1,8 +1,10 @@
+import plistlib
+from typing import List
+
 class igen:
     def __init__(self) -> None:
         super().__init__()
-        self.osztok()
-        print(self.prim())
+
     def faktorialis(self):
         x = 1
         a = int(input())
@@ -24,5 +26,35 @@ class igen:
             prim = True
             return prim
 
+    def paroslista(self, szamok: list) -> List['int']:
+        parosok :List['int'] = list()
+        for i in range(len(szamok)):
+            if szamok[i] % 2 == 0:
+                parosok.append(szamok[i])
+        return parosok
 
+    def szamolo(self, szam) -> List['int']:
+        lista: List['int'] = list()
+        if szam < 0:
+            szam = -szam
+            for i in range(szam):
+                lista.append(-i-1)
+        else:
+            for i in range(szam):
+                lista.append(i+1)
+        return lista
+
+    def parosszamolo(self, szam) -> List['int']:
+        lista : List['int'] = list()
+        for i in range(szam):
+            if i % 2 == 0:
+                lista.append(i)
+        return lista
+
+
+
+
+
+
+''
 igen()
