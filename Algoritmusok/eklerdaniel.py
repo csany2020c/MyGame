@@ -29,12 +29,47 @@ from typing import List
 #     primszam = prim(i)
 #     if primszam:
 #         print()
-def oszti():
+# def oszti():
+#
+#     for i in  range(40, 42):
+#         i = i%2
+#         print(i)
+#
+#
+# oszti()
 
-    for i in  range(1, 256):
-        i = i%2
-        print(i)
 
-oszti()
+# def deez(be:int) -> List['int']:
+#     ki: List['int'] = list()
+#
+#     if be < 0:
+#         for i in range(0, be - 1, -1):
+#             ki.append(i)
+#         return ki
+#     else:
+#         for i in range(0, be + 1):
+#             ki.append(i)
+#             return ki
+#
+#
+#
+#
+#
+# print(deez(-43))
+
+def nuts(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for i in range(0, be+1):
+        ki.append(i)
+        return ki
+    if be % 2 ==0:
+        ki.append(ki)
+        return ki
+
+print(nuts(2))
+
+
+
+
 
 
