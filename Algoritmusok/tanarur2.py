@@ -134,11 +134,33 @@ def baratitesztmeggyorsabb(eddigkeres: int):
         if x != y and z == x:
             print("{x} {y}".format(x=x, y=y))
 
-ts1 = time()
-#baratitesztmeggyorsabb(10856)
-baratitesztgyors(10856)
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+# ts1 = time()
+# #baratitesztmeggyorsabb(10856)
+# baratitesztgyors(10856)
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+# Készítsen függvényt, melynek a bemete két szám,
+# a kimenete pedig egy lista.
+# A bemenetként megadott számok:
+#   - a hatvány alapja
+#   - a hatvány kitevője
+# Pl bemenet: hatvany(2,8)
+# Adja vissza listában a hatványokat a kitevőig a 0. hatványtól kezdve.
+# pl kimenet: [1,2,4,8,16,32,64,128,256]
+# Pl2 bemenet: hatvany(3,4)
+# pl2 kimenet: [1,3,9,27,81]
+
+def hatvanylista(alap: int, kitevo: int) -> List['int']:
+    lista: list = []
+    szorzat: int = 1
+    for i in range(0, kitevo + 1):
+        lista.append(szorzat)
+        szorzat *= alap
+    return lista
+
+print(hatvanylista(2,8))
+print(hatvanylista(3,4))
 
 
 # print(baratiszamoke(6,6))
