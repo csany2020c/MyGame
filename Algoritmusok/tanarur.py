@@ -234,16 +234,33 @@ def binary_osztassal(be: int) -> str:
 
 # def függvénynév(bemeneteket kell írni) -> kimenet típusát, mert a kimenet neve a függvény neve
 def parosak(belist: List['int']) -> List['int']:
+    # Elő kell állítani a kimenetre kerülő adatokat tartalmazó listát
     kilist: List['int'] = list()
+    # Végigjárja a bemeneti listát
     for i in belist:
+        # Ha a listaelem (i) 2-vel való osztással képzett maradéka egyenlő 0-val, akkor...
         if i % 2 == 0:
+            # ...hozzáfűzi a kimeneti listához.
             kilist.append(i)
+    # A kimeneti listát vissza kell adni a hívás helyének.
     return kilist
 
 
-l3 = [3, 6, 8, 2, 3, 1, 4]
-l9 = [333, 4, 0, 44]
-l4 = parosak(l3)
-l5 = parosak(l9)
-print(l4)
-print(l5)
+# l3 = [3, 6, 8, 2, 3, 1, 4]
+# l9 = [333, 4, 0, 44]
+# l7 = [3]
+# l4 = parosak(l3)
+# l5 = parosak(l9)
+# print(l4)
+# print(l5)
+# print(parosak(l7))
+# print(parosak([]))
+# print(parosak([2, 6, 8, 9]))
+
+# Készítsen függvényt, amelynek bemenete egy szám, és
+# a kimenete egy olyan lista, amely 0-tól a bemeneteként
+# megadott számig 1-esével beleteszi az összes számot
+# a kimeneti listába.
+# Negatív értékre is működjön.
+# Pl: be: 6 ki: [0,1,2,3,4,5,6]
+# Pl: be: -6 ki: [0, -1, -2, -3, -4, -5, -6]
