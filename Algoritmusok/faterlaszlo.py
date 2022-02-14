@@ -252,8 +252,8 @@ def nemtom(a1: int, q: int, n: int) -> int:
 # print(nemtom(5, 8, 2))
 
 #6. feladat-nincs kész, majd egyszer...
-def jerry(a: float, b: float, c: float) -> List['int']:
-    listam: List['int'] = list()
+def jerry(a: float, b: float, c: float) -> List['float']:
+    listam: List['float'] = list()
     if a == 0:
         fruit = " "
         listam.append(fruit)
