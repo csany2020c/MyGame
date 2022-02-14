@@ -1,6 +1,43 @@
 from typing import List
 from time import time
 import math
+#----------------------------------------------------------------------------------------
+#1. feladat 42-ig szamok egyesevel kiiaratasa
+# a: int = 0
+# for c in range(42):
+#     a = a + 1
+#     print(a)
+
+#2. feladat szamok beolvasasa ameddig a bemenet nem lesz 0
+#3. feladat a 2. feladat alapján szamolja ossze a bemeneteket, ameddig nem 0 a bement
+# asd = 0
+# while(True):
+#     a: int = int(input())
+#     asd = asd + a
+#     if a == 0:
+#         # print(asd)
+#         print("A beirt szamok osszege:" + " " + str(asd))
+#         break
+
+#4. feladat
+# def osszeglistaban():
+#     lista: List['int'] = (6, 1, 1, 1, 1, 1, 1)
+#     ad: int = 0
+#     for i in range(0, len(lista)):
+#         ad += lista[i]
+#     print("Az összeg: {sum}".format(sum=ad))
+#
+# osszeglistaban()
+lista: List['int'] = (6, 1, 1, 1, 1, 1, 1)
+def osszegzes(lista: List['int']) -> int:
+    szam: int = 0
+    for i in range(0, len(lista)):
+        szam += lista[i]
+    return szam
+
+
+print(osszegzes(lista))
+#----------------------------------------------------------------------------------------
 
 #1. feladat: faktorialis szamolas
 # def faktoralis(asd: int) -> int:
@@ -76,20 +113,30 @@ def osztok(n: int) -> list[int]:
 # print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
 #9. feladat: binaris szamok
-def binaris_ketto(a: int) -> int:
-    w: str = ""
-    erkezo = a
-    while erkezo > 0:
-        if erkezo % 2 == 0:
-            w = w + "1"
-        else:
-            w = w + "0"
-        erkezo = erkezo // 2
-    return w
-
-bejovo: int = int(input("Írj be egy számot: "))
-print("Az eredmény:" + " " + binaris_ketto(bejovo))
+# def binaris_ketto(a: int) -> int:
+#     w: str = ""
+#     erkezo = a
+#     while erkezo > 0:
+#         if erkezo % 2 == 0:
+#             w = w + "0"
+#         else:
+#             w = w + "1"
+#         erkezo = erkezo // 2
+#     return w
+#
+# bejovo: int = int(input("Írj be egy számot: "))
+# print("Az eredmény:" + " " + binaris_ketto(bejovo))
 
 #erdekesseg
 # print(6 / 2)
 # print(6 // 2)
+
+def parosfuggveny(a: List['int']) -> List['int']:
+    lista: List['int'] = list()
+    for i in a:
+        if i % 2 == 0:
+            lista.append(i)
+    return lista
+
+bemenetelist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+print(parosfuggveny(bemenetelist))
