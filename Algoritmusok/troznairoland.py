@@ -69,22 +69,52 @@ from typing import List
 #primszam(int(input()))
 
 #9,feladat:
-def binary(be: int) -> str:
-    bemenet = abs(be)
-    kimenet: str = ""
-    while 0 < bemenet:
-        if bemenet % 2 == 0:
-            kimenet = "0" + kimenet
-        else:
-            kimenet = "1" + kimenet
-        bemenet = bemenet // 2
-    if kimenet == "":
-        return "0"
+#def binary(be: int) -> str:
+    #bemenet = abs(be)
+    #kimenet: str = ""
+    #while 0 < bemenet:
+        #if bemenet % 2 == 0:
+            #kimenet = "0" + kimenet
+        #else:
+            #kimenet = "1" + kimenet
+        #bemenet = bemenet // 2
+    #if kimenet == "":
+        #return "0"
     # return string[::-1]
-    if be < 0:
-        return "-" + kimenet
-    return kimenet
+    #if be < 0:
+        #return "-" + kimenet
+    #return kimenet
 
 
-originalbemenet: int = int(input())
-print("A " + str(originalbemenet) + " binárisan: " + binary(originalbemenet))
+#originalbemenet: int = int(input())
+#print("A " + str(originalbemenet) + " binárisan: " + binary(originalbemenet))
+
+#10,feladat:
+def paros_lista(input: List['int']) -> List['int']:
+    lisst: List['int'] = list()
+    for i in lisst2:
+        if i % 2 == 0:
+            lisst.append(i)
+    return lisst
+
+lisst2 = [1, 4, 6, 8, 3, 5, 9, 2, 0, 10, 12, 34, 132, 353, 1, 31, 123, 89, 90]
+lisst3 = paros_lista(lisst2)
+#print(lisst3)
+
+#11,feladat:
+def egyesevel_lista(be: int) -> List['int']:
+    ki: List['int'] = list()
+    for i in range(abs(be) + 1):
+        if be > 0:
+            ki.append(i)
+        else:
+            ki.append(-i)
+    #print(ki)
+
+egyesevel_lista(be = -100)
+
+#12,feladat:
+def parosan_lista(be: int) -> List['int']:
+    return paros_lista(egyesevel_lista(be))
+
+print(parosan_lista(5))
