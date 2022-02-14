@@ -284,3 +284,8 @@ def szamolas(be: int) -> List['int']:
 # függvényt, amelynek bemenete egy szám, és 0-tól
 # kezdve a páros számokat addig a számíg kiírja.
 # A megoldás 1-2 sor lehet csak!
+# A kimenet egy lista legyen.
+def paroslista(be: int) -> List['int']:
+    return parosak(szamolas(be))
+
+print(paroslista(22))
