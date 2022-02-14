@@ -1,6 +1,7 @@
 from typing import List
 from time import time
 import math
+
 #----------------------------------------------------------------------------------------
 #1. feladat 42-ig szamok egyesevel kiiaratasa
 # a: int = 0
@@ -28,15 +29,15 @@ import math
 #     print("Az összeg: {sum}".format(sum=ad))
 #
 # osszeglistaban()
-lista: List['int'] = (6, 1, 1, 1, 1, 1, 1)
-def osszegzes(lista: List['int']) -> int:
-    szam: int = 0
-    for i in range(0, len(lista)):
-        szam += lista[i]
-    return szam
-
-
-print(osszegzes(lista))
+# lista: List['int'] = (6, 1, 1, 1, 1, 1, 1)
+# def osszegzes(lista: List['int']) -> int:
+#     szam: int = 0
+#     for i in range(0, len(lista)):
+#         szam += lista[i]
+#     return szam
+#
+#
+# print(osszegzes(lista))
 #----------------------------------------------------------------------------------------
 
 #1. feladat: faktorialis szamolas
@@ -131,6 +132,7 @@ def osztok(n: int) -> list[int]:
 # print(6 / 2)
 # print(6 // 2)
 
+# .feladat: parosszamok, bemenet lista, kimenete lista a paros szamokkal
 def parosfuggveny(a: List['int']) -> List['int']:
     lista: List['int'] = list()
     for i in a:
@@ -138,5 +140,27 @@ def parosfuggveny(a: List['int']) -> List['int']:
             lista.append(i)
     return lista
 
-bemenetelist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-print(parosfuggveny(bemenetelist))
+# bemenetelist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -2, -3, -11]
+# print(parosfuggveny(bemenetelist))
+
+# .feladat:szamolas 6-ig
+def szamolas(a: int) -> List['int']:
+    lista: List['int'] = list()
+    # if a < 0:
+    #     return "Sajnos ilyen számot jelenleg nem lehet számolni!"
+    if a < 0:
+        for i in range(0, a - 1, -1):
+            lista.append(i)
+    else:
+        for i in range(0, a + 1):
+            lista.append(i)
+    return lista
+
+# print(szamolas(66))
+# print(szamolas(-66))
+
+# . feladat: az elozo fuggvenyek hasznalta
+def osszeshasznalata(a: int) -> List['int']:
+    return parosfuggveny(szamolas(a))
+
+print(osszeshasznalata(7))
