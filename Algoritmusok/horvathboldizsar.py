@@ -83,7 +83,10 @@ def binaris():
         print(idk)
         idk = idk * 2
         bit += 1
-    print("{bit} bit".format(bit=bit))
+        bit2 = bit
+    if bemenet >= 3:
+        bit2 -= 1
+    print("{bit} bit".format(bit=bit2))
     for i in range(bit):
         if bemenet - idk >= 0:
             print("1", end="")
