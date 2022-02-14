@@ -224,4 +224,68 @@ def binary_osztassal(be: int) -> str:
         return "-" + kimenet
     return kimenet
 
-print(binaris_maszkolassal(255))
+# print(binaris_maszkolassal(255))
+
+# Készítsen függvényt, melynek bemenete egy
+# számokból álló lista,
+# a kimenete szintén egy ugyan ilyen lista,
+# de az csak a páros számokat tartlamazza
+# azok közül, amik a bemeneten voltak.
+
+# def függvénynév(bemeneteket kell írni) -> kimenet típusát, mert a kimenet neve a függvény neve
+def parosak(belist: List['int']) -> List['int']:
+    # Elő kell állítani a kimenetre kerülő adatokat tartalmazó listát
+    kilist: List['int'] = list()
+    # Végigjárja a bemeneti listát
+    for i in belist:
+        # Ha a listaelem (i) 2-vel való osztással képzett maradéka egyenlő 0-val, akkor...
+        if i % 2 == 0:
+            # ...hozzáfűzi a kimeneti listához.
+            kilist.append(i)
+    # A kimeneti listát vissza kell adni a hívás helyének.
+    return kilist
+
+
+# l3 = [3, 6, 8, 2, 3, 1, 4]
+# l9 = [333, 4, 0, 44]
+# l7 = [3]
+# l4 = parosak(l3)
+# l5 = parosak(l9)
+# print(l4)
+# print(l5)
+# print(parosak(l7))
+# print(parosak([]))
+# print(parosak([2, 6, 8, 9]))
+
+# Készítsen függvényt, amelynek bemenete egy szám, és
+# a kimenete egy olyan lista, amely 0-tól a bemeneteként
+# megadott számig 1-esével beleteszi az összes számot
+# a kimeneti listába.
+# Negatív értékre is működjön.
+# Pl: be: 6 ki: [0,1,2,3,4,5,6]
+# Pl: be: -6 ki: [0, -1, -2, -3, -4, -5, -6]
+
+def szamolas(be: int) -> List['int']:
+    kilist: List['int'] = list()
+    if be < 0:
+        for i in range(0, be - 1, -1):
+            kilist.append(i)
+    else:
+        for i in range(0, be + 1):
+            kilist.append(i)
+    return kilist
+
+# print(szamolas(6))
+# print(szamolas(-6))
+# print(szamolas(0))
+
+
+# Az előző függvények felhasználásával készítsen egy
+# függvényt, amelynek bemenete egy szám, és 0-tól
+# kezdve a páros számokat addig a számíg kiírja.
+# A megoldás 1-2 sor lehet csak!
+# A kimenet egy lista legyen.
+def paroslista(be: int) -> List['int']:
+    return parosak(szamolas(be))
+
+print(paroslista(22))

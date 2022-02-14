@@ -1,3 +1,5 @@
+from typing import List
+
 """valtozo = int(input())
 eredmeny = 1
 szorzas = 1
@@ -26,4 +28,32 @@ def prime(input):
     else:
         print("A(z) " + str(input) + " nem prímszám")
 
-prime(50000)
+
+def parose(intup: List) -> List:
+    szamoklist: List = list()
+    for i in range(len(intup)):
+        if i % 2 == 0:
+            szamoklist.append(intup[i])
+    return szamoklist
+
+
+valtozo = -500
+inputszamok: List = list()
+for i in range(1000):
+    inputszamok.append(valtozo)
+    valtozo = valtozo + 1
+
+
+def szaminputig(intup: int) -> List['int']:
+    output: List = list()
+    for i in range(abs(intup) + 1):
+        if intup < 0:
+            output.append(-i)
+        else:
+            output.append(i)
+    return output
+
+def vegyes(intup: int) -> List['int']:
+    return parose(szaminputig(intup))
+
+print(vegyes(-100))
