@@ -219,21 +219,17 @@ minilistam = [5, 6, 8, 88, 2, 66, 30]
 # print(minilist(minilistam))
 
 #3.feladat
-def harombemenet(a1: int, q: int, n: int) -> List['int']:
-    uj: List['int'] = list()
-    szam = ()
-    szam = a1 * q
-    while n > 0:
-        szam = a1 * q
-        n = n - 1
-        break
-    while n > 0:
+def mertanisorozat(a1: float, q: float, n: float) -> List['int']:
+    uj: List['float'] = [a1]
+    szam: int = a1
+    while n > 1:
         szam = szam * q
         n = n - 1
-    if n == 0:
         uj.append(szam)
-        return uj
-# print(harombemenet(4, 4, 1))
+    return uj
+
+print(mertanisorozat(7, 10, 5))
+print(mertanisorozat(1, 1.3, 15))
 
 #4. feladat
 def osszeglista(a: List['int']) -> int:
@@ -247,7 +243,7 @@ osszeglistam = [1, 8, 16, 32, 88, 789]
 
 #5. feladat
 def nemtom(a1: int, q: int, n: int) -> int:
-    return osszeglista(harombemenet(a1, q, n))
+    return osszeglista(mertanisorozat(a1, q, n))
 
 # print(nemtom(5, 8, 2))
 
