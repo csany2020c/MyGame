@@ -105,12 +105,11 @@ def nulla(lista5: List['int']) -> bool:
     for i in lista5:
         if i == 0:
             return True
-        else:
-            return False
+    return False
 
 
-lista6: List['int'] = (0, 1, 2, 3, 4,)
-# print(nulla(lista6))
+lista6: List['int'] = (1, 0, 2, 3, 4,)
+print(nulla(lista6))
 
 
 def min(egy: int, ketto: int) -> int:
