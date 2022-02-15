@@ -76,6 +76,7 @@ class Main:
         # ferfiMinIndex: int = 0
         befutottNok: List['Data'] = list()
         befutottFerfiak: List['Data'] = list()
+
         for i in datalist:
             if i.kategoria == "Ferfi" and i.tavszazalek == 100:
                 befutottFerfiak.append(i)
