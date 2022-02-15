@@ -69,26 +69,64 @@ from typing import List
 #             print("true")
 #         else:
 #             print("false")
-def binaris_osztas() -> List['int']:
-    visszaadja = list()
-    szam: str = int(input())
-    s = ""
-    for i in range(0, 24):
-        if (szam & 0x800000) == 0:
-            s += "0"
-            visszaadja.append(s)
-        else:
-            s += "1"
-        szam <<= 1
-
-        print(visszaadja)
-
-
-    return visszaadja
-
-
-
+# def binaris_osztas() -> List['int']:
+#     visszaadja = list()
+#     szam: str = int(input())
+#     s = ""
+#     for i in range(0, 24):
+#         if (szam & 0x800000) == 0:
+#             s += "0"
+#             visszaadja.append(s)
+#         else:
+#             s += "1"
+#         szam <<= 1
+#
+#         print(visszaadja)
+#
+#
+#     return visszaadja
+#
 
 
+# def hazi(n: List['int'], a: int ) -> List['int']:
+#     visszaadottlista: List['int'] = list()
+#     for i in n:
+#         if i % a == 0:
+#             visszaadottlista.append(i)
+#
+#     return visszaadottlista
+#
+# print(hazi([1, 2, 3, 4, 5, 6, 7], 3))
+
+# def hazi2(n: List['int']) -> bool:
+#     csocs = 0
+#     for i in n:
+#         if i == 0:
+#             csocs += 1
+#
+#     if csocs > 0:
+#         return True
+#     else:
+#         return False
+#
+#
+# print(hazi2([1,2,3,4,5,6,7,0]))
+
+# def hazi3(a : int, b: int) -> int:
+#         if a > b:
+#             return b
+#         else:
+#
+#             return a
+# print(hazi3(3,5))
 
 
+# def hazi4(n: List['int']) -> int:
+#         a = 900000
+#         for i in n:
+#             if i < a:
+#                 a = i
+#
+#         return a
+#
+# print(hazi4([6,2,3,4,5,1,7,8]))
