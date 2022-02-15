@@ -198,8 +198,8 @@ def hat(a: float, b: float, c: float) -> List['float']:
     if d < 0:
         print("Hiba! A diszkrimináns kisebb mint 0.")
     else:
-        x1: float = (-b + sqrt(d)) / 2
-        x2: float = (-b - sqrt(d)) / 2
+        x1: float = (-b + sqrt(d)) / 2 * a
+        x2: float = (-b - sqrt(d)) / 2 * a
         megoldas.append(x1)
         megoldas.append(x2)
 
