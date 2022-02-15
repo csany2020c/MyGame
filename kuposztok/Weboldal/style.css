@@ -9,6 +9,9 @@
     margin-left: 40%;
 }
 h2{
-
-
+    border-radius : 20px;
+    background-color: gray;
+}
+*{
+background-color:silver;
 }
