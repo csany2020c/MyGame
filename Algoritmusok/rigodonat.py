@@ -100,7 +100,7 @@ def hatvanyok(alap: int, kitevo: int) -> List['int']:
 
 
 
-def feladat00(lista1: List['int'], oszto: int) -> List['int']:
+def feladat0(lista1: List['int'], oszto: int) -> List['int']:
     lista2: list = []
     for i in lista1:
         if i % oszto == 0:
@@ -109,7 +109,7 @@ def feladat00(lista1: List['int'], oszto: int) -> List['int']:
     return lista2
 
 
-#print(feladat00((1,2,3,4,5,6), 3))
+#print(feladat0((1,2,3,4,5,6), 3))
 
 
 def feladat01(lista: List['int']) -> bool:
@@ -122,11 +122,22 @@ def feladat01(lista: List['int']) -> bool:
 def feladat1(szam1:int, szam2:int) -> int:
     if szam1 < szam2:
         return szam1
-    else:
+    if szam2 < szam1:
         return szam2
 
-#print(feladat1(3,9))
 
+#print(feladat1(2,5))
+
+def feladat2(lista : List['int']) -> int:
+    x = int = lista[1]
+    for i in lista:
+        if x > i:
+            x = i
+    return x
+
+#print(feladat2((4444,2345,224,22345,111,5663,44)))
+
+def feladat3(a1:int, q:int, n:int) -> List['int']
 
 
 def feladat4(lista: List['int']) -> int:
@@ -135,13 +146,7 @@ def feladat4(lista: List['int']) -> int:
         x += i
     return x
 
-print(feladat4((1,2,4,8,16)))
+#print(feladat4((5,3,6,9,11)))
 
 
-
-
-
-
-
-
-
+def feladat6(a: float, b: float, c: float) -> List['float']:
