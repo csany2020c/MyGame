@@ -54,12 +54,40 @@ def szorzat(lista: List['int']) -> int:
 #print(szorzat(l))
 
 
-def osztoosszeg(szam: int)-> int:
-    szamfele: int = szam // 2
-    for x range(1, szamfele):
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
         if szam % x == 0:
             osszeg = osszeg + x
     return osszeg
+
+
+def baratiszamok(a: int, b: int)-> bool:
+    szama: int = 0
+    szamb: int = 0
+    for x in range():
+        if szama % x == szama + x:
+            #osszeg = szama + x
+        if szamb % x == szamb + x:
+            #osszeg = szamb + x
+  #  return
+
+def hatvany(a: int, b:int) -> List['int']:
+    visszadottlista = list()
+    szam: int = 1
+    while (szam != 1):
+        szam = int(input())
+        if szam != 0:
+            visszaadottlista.append(szam)
+    return visszaadottlista
+
+    print()
+
+
+
+
+
 
 print()
 
