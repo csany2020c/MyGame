@@ -86,9 +86,19 @@ def baratszame(a: int, b: int)-> bool:
     else:
         return True
 
-print(baratszame(220,284))
-print(baratszame(6,6))
-print(baratszame(1184,1210))
+#print(baratszame(220,284))
+#print(baratszame(6,6))
+#print(baratszame(1184,1210))
+
+def hatvanyok(alap: int, kitevo: int) -> List['int']:
+    hatvanyoklista: list = []
+    szorzat: int = 1
+    for i in range(0, kitevo + 1):
+        hatvanyoklista.append(szorzat)
+        szorzat *= alap
+    return hatvanyoklista
+
+
 
 def feladat00(lista1: List['int'], oszto: int) -> List['int']:
     lista2: list = []
@@ -109,31 +119,23 @@ def feladat01(lista: List['int']) -> bool:
 
 #print(feladat01((0,1,2,3)))
 
-def feladat1_min(szam1:int, szam2:int) -> int:
+def feladat1(szam1:int, szam2:int) -> int:
     if szam1 < szam2:
         return szam1
     else:
         return szam2
 
-#print(feladat1_min(3,9))
-
-def feladat2_minlist(lista: List['int']) -> int:
-    x: int = 10000000000000000000000000000000000
-    for i in lista:
-        if x > i:
-            x = i
-    return x
-
-#print(feladat2_minlist((100,600,200,1000)))
+#print(feladat1(3,9))
 
 
-def feladat4_osszeg(lista: List['int']) -> int:
+
+def feladat4(lista: List['int']) -> int:
     x = 0
     for i in lista:
         x += i
     return x
 
-print(feladat4_osszeg((1,2,4,8,16)))
+print(feladat4((1,2,4,8,16)))
 
 
 
