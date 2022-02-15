@@ -1,25 +1,35 @@
 from typing import List
+import math
 
-def osztoosszeg(szam: int, osszeg: int) -> int:
-    szamfele: int = szam // 2 + 1
-    szamfele2: int = osszeg // 2 + 1
-    osszeg2: int = 0
-    for x in range(1, szamfele):
-        if szam % x == 0:
-            osszeg = osszeg + x
-    for o in range(1, szamfele2):
-        if osszeg % o == 0:
-            osszeg2 = osszeg2 + o
-    if szam == osszeg2:
-        print("True")
-    else:
-        print("False")
-    print(osszeg2)
-    return osszeg
+class afass:
+    #def osztoosszeg(szam: int, osszeg: int) -> int:
+    #    szamfele: int = szam // 2 + 1
+    #    szamfele2: int = osszeg // 2 + 1
+    #    osszeg2: int = 0
+    #    for x in range(1, szamfele):
+    #        if szam % x == 0:
+    #            osszeg = osszeg + x
+    #    for o in range(1, szamfele2):
+    #        if osszeg % o == 0:
+    #            osszeg2 = osszeg2 + o
+    #    if szam == osszeg2:
+    #        print("True")
+    #    else:
+    #        print("False")
+    #    print(osszeg2)
+    #    return osszeg
+    #
+    #print(osztoosszeg(6, 6))
+    #print(osztoosszeg(326, 326))
+    #print(osztoosszeg(220, 284))
 
-print(osztoosszeg(6, 6))
-print(osztoosszeg(326, 326))
-print(osztoosszeg(220, 284))
+    def feladat1(szam: List['int'], valami):
+        kimenet: List['int'] = list()
+        for i in range(len(szam)):
+            if szam[i] % valami == 0:
+                kimenet.append(szam[i])
 
+    def feladat2(szam: List['int']):
+        asd =
 
-
+afass()
