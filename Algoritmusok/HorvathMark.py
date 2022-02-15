@@ -88,13 +88,13 @@ def feladat1_min(szam1:int, szam2:int) -> int:
 #print(feladat1_min(5,2))
 
 def feladat2_minlist(lista: List['int']) -> int:
-    x: int = 100000000000000000000000000000000000000000000000000000
+    x: int = lista[1]
     for i in lista:
         if x > i:
             x = i
     return x
 
-#print(feladat2_minlist((100,600,200,1000,10340,1024)))
+#print(feladat2_minlist((100,600,20,1000,10340,1024)))
 
 #def feladat3_mertani_szorzat(a: int, q: int, n:int) -> List['int']: ?
 
@@ -104,7 +104,7 @@ def feladat4_osszeg(lista: List['int']) -> int:
         x += i
     return x
 
-print(feladat4_osszeg((1,2,4,8,16,32,64,128,256)))
+#print(feladat4_osszeg((1,2,4,8,16,32,64,128,256)))
 
 
 def feladat6_masodfokufugveny(a: float, b:float, c:float) -> List['int']:
