@@ -97,6 +97,54 @@ def hatvanyok(alap: int, kitevo: int) -> List['int']:
         hatvanyoklista.append(szorzat)
         szorzat *= alap
     return hatvanyoklista
+def feladat00(lista1: List['int'], oszto: int) -> List['int']:
+    lista2: list = []
+    for i in lista1:
+        if i % oszto == 0:
+            lista2.append(i)
+
+    return lista2
+
+
+#print(feladat00((1,2,3,4,5,6), 3))
+
+
+def feladat01(lista: List['int']) -> bool:
+    for i in lista:
+        if i == 0:
+            return True
+
+#print(feladat01((0,1,2,3)))
+
+def feladat1_min(szam1:int, szam2:int) -> int:
+    if szam1 < szam2:
+        return szam1
+    else:
+        return szam2
+
+#print(feladat1_min(3,9))
+
+def feladat2_minlist(lista: List['int']) -> int:
+    x: int = 10000000000000000000000000000000000
+    for i in lista:
+        if x > i:
+            x = i
+    return x
+
+#print(feladat2_minlist((100,600,200,1000)))
+
+
+def feladat4_osszeg(lista: List['int']) -> int:
+    x = 0
+    for i in lista:
+        x += i
+    return x
+
+print(feladat4_osszeg((1,2,4,8,16)))
+
+
+
+
 
 print(hatvanylista(2,8))
 
