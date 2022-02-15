@@ -1,3 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+/encodings.xml
+/misc.xml
+/MyGame.iml
+*.iml
+*.xml
