@@ -83,12 +83,11 @@ def HF2(belist: List['int']) -> bool:
     kibool: bool
     for i in belist:
         if 0 in belist:
-            print("Igaz")
+            return True
         else:
-            print("Hamis")
-
-L7 = [3, 6, 8, 2, 3, 1, 4, 333, ]
-#print(HF2(L7))
+            return False
+L7 = [3, 6, 8, 2, 0, 3, 1, 4, 333, ]
+print(HF2(L7))
 
 
 def min(be: int, bebe: int) -> int:
