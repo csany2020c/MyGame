@@ -105,8 +105,3 @@ print(listelem([10, 10, 3]))'''
 #5. feladat
 
 #6. feladat
-# '''def masodfoku(egyikszam:float, masikszam:float, harmadikszam:float)-> List['int']:
-#     kilist : List['int'] = list()
-#     a = egyikszam
-#     b = masikszam
-#     c = harmadikszam'''
