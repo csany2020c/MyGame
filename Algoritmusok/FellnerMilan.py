@@ -1,4 +1,5 @@
 import math
+from time import time
 from typing import List
 
 
@@ -20,6 +21,13 @@ class Algorythm:
         #         vege += "0"
         # print(vege)
         #print(self.masikBinaris(63))
+        #print(self.paros([2]))
+        # t1 = time()
+        # print(self.szamoljelodaig(999999))
+        # t2 = time()
+        # print(t2-t1)
+        #print(self.szamolasparos(-12))
+        #print(self.masikBinaris(63))
         #print(self.elso([10,12,13],2))
         #print(str(self.masodik([1,2])))
         #print(str(self.min(1,5)))
@@ -27,7 +35,6 @@ class Algorythm:
         #print(str(self.mertanisorozat(1,2,3)))
         #print(str(self.negyedik([5,6,9])))
         #print(self.otodik(1,2,3))
-        print(self.masodfoku(2,2,1))
     def masikBinaris(self,szam:int) -> str:
         outP:str = ""
         for i in range(8):
@@ -81,17 +88,38 @@ class Algorythm:
 
     def masodfoku(self,a:float,b:float,c:float) -> List['float']:
         outLista:List['float'] = list()
-        megoldas1:float = (-b+(math.sqrt(b**2 - 4 * a * c)))/2 * a
-        megoldas2: float = (-b - (math.sqrt(b ** 2 - 4 * a * c))) / 2 * a
-        outLista.append(megoldas1)
-        outLista.append(megoldas2)
+        delta:float = b ** 2 -4 * a * c
+        print(delta)
+        if (delta >= 0):
+            outLista.append((-b + math.sqrt(delta)) / (2 * a))
+            outLista.append((-b - math.sqrt(delta)) / (2 * a))
+        else:
+            print("Nem valós gyök")
         return outLista
 
 
 
 
+    def paros(self,szamok:List['int']) -> List['int']:
+
+        parosok:List['int'] = list()
+        for i in szamok:
+            if (i%2 == 0):
+                parosok.append(i)
+        return parosok
+
+    def szamoljelodaig(self,szam:int) -> List['int']:
+        outLista:List['int'] = list()
+        if (szam > 0):
+            for i in range(0,szam+1):
+                outLista.append(i)
+        else:
+            szam = -szam
+            for i in range(0,szam+1):
+                outLista.append(-i)
+        return outLista
 
 
-
-
+    def szamolasparos(self,szam:int) -> List['int']:
+        return self.paros(self.szamoljelodaig(szam))
 Algorythm()
