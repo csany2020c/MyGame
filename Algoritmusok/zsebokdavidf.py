@@ -108,7 +108,7 @@ def osszeadas(lista: List['int']) -> int:
 def mertaniosszege(firstnumber: int, kvociens: int, length: int) -> int:
     return osszeadas(mertan(firstnumber=firstnumber, kvociens=kvociens, length=length))
 
-
+# a*x**2 + b*x + c == 0
 def masodfoku(a: float, b: float, c: float) -> List['float']:
     output: List['float'] = list()
     if b*b - 4*a*c < 0:

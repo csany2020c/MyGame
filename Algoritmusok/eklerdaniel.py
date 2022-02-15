@@ -80,15 +80,11 @@ L7 = [3, 6, 8, 2, 3, 1, 4, 333, 4, 0, 44]
 # print(HF1(L7, 11))
 
 def HF2(belist: List['int']) -> bool:
-    kibool: bool
-    for i in belist:
-        if 0 in belist:
-            print("Igaz")
-        else:
-            print("Hamis")
+    return 0 in belist
 
-L7 = [3, 6, 8, 2, 3, 1, 4, 333, ]
-#print(HF2(L7))
+
+L7 = [3, 6, 8, 2, 10, 3, 1, 4, 333]
+print(HF2(L7))
 
 
 def min(be: int, bebe: int) -> int:
