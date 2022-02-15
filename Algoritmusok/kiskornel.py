@@ -21,7 +21,7 @@ def valami2():
 
         if szam != 0:
             szam += szam2
-    print(szam2)
+    #print(szam2)
 
 
 
@@ -32,7 +32,7 @@ def listaz():
     szorzat: int = 1
     for i in lista:
         szorzat *= i
-        print("Eredmény: {dsa}".format(dsa=szorzat))
+        #print("Eredmény: {dsa}".format(dsa=szorzat))
 
 
 
@@ -67,5 +67,37 @@ def hatvany(alap: int, kitevo: int) -> List['int']:
         szorzat *= alap
     return  lista
 
-print(hatvany(2, 8))
-print(hatvany(3, 4))
+#print(hatvany(2, 8))
+#print(hatvany(3, 4))
+
+def feladat1(lista: List['int'], szam: int) -> List['int']:
+    lista2: list = []
+    for x in lista:
+        if x % szam == 0:
+            lista2.append(x)
+    return lista2
+
+#print(feladat1((1,2,3,4,5,6,7,8), 2))
+
+def feladat2(lista: List['int']) -> bool:
+    if lista == 0:
+        print("True")
+    else:
+        print("False")
+
+#print(feladat2(0))
+
+def feladat3min(sz1: int, sz2: int) -> int:
+    if sz1 < sz2:
+        return sz1
+    if sz2 <sz1:
+        return sz2
+#print(feladat3(3, 2))
+
+def feladat4minlist(lista: List['int']) -> List['int']:
+    x: int =
+    for i in lista:
+        if x > i:
+
+
+
