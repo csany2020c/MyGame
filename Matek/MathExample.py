@@ -39,17 +39,23 @@ class square(game.scene2d.MyMathFunction):
         y = 4 / math.pi * sum
         return y
 
+class masodfoku(game.scene2d.MyMathFunction):
+
+    def f(self, x: float) -> float:
+        return 3*x*x + 7*x + 4
+
 
 class Screen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
         m = game.scene2d.MyMathGraphStage()
-        m.add_math_function(Fuzetbol(color=(200, 100, 50)))
-        m.add_math_function(X2(color=(200, 100, 250)))
-        m.add_math_function(X3(color=(200, 200, 250)))
-        m.add_math_function(sin(color=(100, 200, 250)))
-        m.add_math_function(square())
+        m.add_math_function(masodfoku())
+        # m.add_math_function(Fuzetbol(color=(200, 100, 50)))
+        # m.add_math_function(X2(color=(200, 100, 250)))
+        # m.add_math_function(X3(color=(200, 200, 250)))
+        # m.add_math_function(sin(color=(100, 200, 250)))
+        # m.add_math_function(square())
         self.add_stage(m)
 
 
