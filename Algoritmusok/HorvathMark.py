@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def feladat(szam: int) -> int:
     szamfele: int = szam // 2 + 1
@@ -98,9 +99,8 @@ def feladat2_minlist(lista: List['int']) -> int:
 
 def feladat3_mertani_sorozat(a: int, q: int, n:int) -> List['int']:
     lista: list = []
-    for i in range(1, n):
-        y= a * q**(i-1)
-        lista.append(y)
+    for i in range(1, n + 1):
+        lista.append(a * q**(i-1))
     return lista
 
 #print(feladat3_mertani_sorozat(1,2,10))
@@ -114,8 +114,7 @@ def feladat4_osszeg(lista: List['int']) -> int:
 #print(feladat4_osszeg((1,2,4,8,16,32,64,128,256)))
 
 def feladat5_F4_F3_osszeg(a: int, q: int, n: int) -> int:
-    x: int = feladat4_osszeg(feladat3_mertani_sorozat(a, q, n))
-    return x
+    return feladat4_osszeg(feladat3_mertani_sorozat(a, q, n))
 
 #print(feladat5_F4_F3_osszeg(1,2,10))
 
@@ -123,12 +122,12 @@ def feladat6_masodfokufugveny(a: float, b:float, c:float) -> List['float']:
     lista: list = []
     D = b*b - 4*a*c
     if D >= 0:
-        x: int = (-b + D) / 2*a
+        x: int = (-b + math.sqrt(D)) / 2*a
         lista.append(x)
-        y: int = (-b - D) / 2*a
+        y: int = (-b - math.sqrt(D)) / 2*a
         if x != y:
             lista.append(y)
 
     return lista
 
-#print(feladat6_masodfokufugveny(2,10,6))
+print(feladat6_masodfokufugveny(1,3,-2))
