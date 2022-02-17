@@ -107,7 +107,11 @@ def feladat01(lista: List['int']) -> bool:
     for i in lista:
         if i == 0:
             return True
+        else:
+            return False
     pass
+
+#print(feladat01((2, 3, 67, 1, 5, 6)))
 
 def min(szam1: int, szam2: int) -> int:
     if szam1 > szam2:
