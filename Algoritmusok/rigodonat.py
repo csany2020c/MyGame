@@ -164,3 +164,13 @@ def feladat5(a:int, q:int, n:int) -> int:
 
 
 def feladat6(a: float, b: float, c: float) -> List['float']:
+    kilista: List['list'] = list()
+    D: float = b * b - 4 *a * c
+    if D >= 0:
+        kilista.append((-b + math.sqrt(D)) / (2 * a))
+    if D > 0:
+        kilista.append((-b - math.sqrt(D)) / (2 * a))
+    return kilista
+
+print()
+
