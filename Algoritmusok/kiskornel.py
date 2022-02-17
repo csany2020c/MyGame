@@ -1,27 +1,103 @@
 from typing import List
 
-class szamolas:
-    #def szamok1tol15ig():
-        #for i in range(1, 16):
-            #print(i)
 
-    def valami():
-        while True:
-            valami: int = int(input())
+def valami():
+    while True:
+        valami: int = int(input())
 
-            if valami == 0:
-                break
-    valami()
+        if valami == 0:
+            break
 
-    def valami2():
-        szam: int = 1
-        szam2: int = 0
 
-        while(szam != 0):
-            szam = int(input())
 
-            if szam !=0:
-                szam += szam2
-        print(szam2)
+
+
+def valami2():
+    szam: int = 1
+    szam2: int = 0
+
+    while (szam != 0):
+        szam = int(input())
+
+        if szam != 0:
+            szam += szam2
+    #print(szam2)
+
+
+
+
+
+def listaz():
+    lista: List['int'] = (4, 2, 3)
+    szorzat: int = 1
+    for i in lista:
+        szorzat *= i
+        #print("Eredmény: {dsa}".format(dsa=szorzat))
+
+
+
+
+
+
+def osztoosszeg(sz: int) -> int:
+    szamfele: int = sz // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if sz % x == 0:
+            osszeg = osszeg + x
+    return osszeg
+#print(osztoosszeg(int(input())))
+#print(osztoosszeg(16))
+#print(osztoosszeg(21))
+
+def baratsagosszamok(sz: int, sz2: int) -> bool:
+    return sz != sz2 and osztoosszeg(sz) == sz2 and osztoosszeg(sz2) == sz
+
+#print(baratsagosszamok(6, 6))
+#print(baratsagosszamok(332,123))
+#print(baratsagosszamok(220, 284))
+#print(baratsagosszamok(319550, 430402))
+
+
+def hatvany(alap: int, kitevo: int) -> List['int']:
+    lista : list = []
+    szorzat: int = 1
+    for i in range(0, kitevo + 1):
+        lista.append(szorzat)
+        szorzat *= alap
+    return  lista
+
+#print(hatvany(2, 8))
+#print(hatvany(3, 4))
+
+def feladat1(lista: List['int'], szam: int) -> List['int']:
+    lista2: list = []
+    for x in lista:
+        if x % szam == 0:
+            lista2.append(x)
+    return lista2
+
+#print(feladat1((1,2,3,4,5,6,7,8), 2))
+
+def feladat2(lista: List['int']) -> bool:
+    if lista == 0:
+        print("True")
+    else:
+        print("False")
+
+#print(feladat2(0))
+
+def feladat3min(sz1: int, sz2: int) -> int:
+    if sz1 < sz2:
+        return sz1
+    if sz2 <sz1:
+        return sz2
+#print(feladat3(3, 2))
+
+def feladat4minlist(lista: List['int']) -> List['int']:
+    x: int =
+    for i in lista:
+        if x > i:
+
 
 
