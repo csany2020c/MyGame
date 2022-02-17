@@ -130,7 +130,7 @@ def nullapontegy(list: List['int']) -> bool:
 
 nullapontegylista = [32, 53, 532, 213, 46, 3, 0]
 
-print(nullapontegy(nullapontegylista))
+#print(nullapontegy(nullapontegylista))
 
 
 # 1.
@@ -159,8 +159,13 @@ def egy(szam1: int, szam2: int) -> int:
 
 def ketto(list: List['int']) -> int:
     szam = 0
-    #for i in list:
-        #szam = 1
+    for i in list:
+        if szam < i:
+            szam = i
+        break
+    for i in list:
+        if szam > i:
+            szam = i
     return szam
 
 
@@ -179,11 +184,12 @@ kettolista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 
 
 def harom(a1: int, q: int, n: int):
-    return
+    lista: list = []
+    for i in range(1, n+1):
+        lista.append(a1*q**(i-1))
+    return lista
 
-haromlista = []
-
-#print(harom())
+print(harom(4, 5, 9))
 
 
 # 4.
@@ -207,12 +213,12 @@ negylista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 # A függvény kimenete egy szám legyen, a bemenete pedig a mértani sorozat generálásához szükséges értékek.
 
 
-def ot(list: List['int']) -> int:
+def ot(a1: int, q: int, n: int) -> int:
+    szam = 0
+
     return
 
-otlista = []
-
-#print(ot())
+#print(ot(4, 5, 9))
 
 
 # 6.
