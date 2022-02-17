@@ -23,8 +23,20 @@ def feladat1(a: int, b: int) -> int:
 
 
 def feladat2(list: List['int']) -> int:
-        szam: int =
+        x = int = List[1]
+        for i in lista:
+            if x > i:
+                x = i
 
+        return x
+
+#print(5555,3333,2222,115,22)
+
+
+
+
+def feladat3(n: int,a1: int, q: 2) -> List['int']:
+    for i in ranger(1, n+1):
 
 
 
