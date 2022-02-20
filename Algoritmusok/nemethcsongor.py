@@ -180,3 +180,13 @@ def masodfoku(a3: float, b3: float, c3: float) -> List['float']:
 
 
 # print(masodfoku(1, -7, 9))
+
+
+def pitagorasz(bef1: int, bef2: int) -> float:
+    a2: int = bef1 * bef1
+    b2: int = bef2 * bef2
+    atf: float = math.sqrt(a2 + b2)
+    return atf
+
+
+# print(pitagorasz(5, 6))
