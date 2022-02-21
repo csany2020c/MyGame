@@ -130,3 +130,13 @@ from typing import List
 #         return a
 #
 # print(hazi4([6,2,3,4,5,1,7,8]))
+
+
+def helyiertek(szam: int) -> List['int']:
+    lista: List['int'] = list()
+
+    while szam > 0:
+        lista.append(szam % 10)
+        szam //= 10
+    return lista[::-1]
+print(helyiertek(1123))

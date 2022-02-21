@@ -185,17 +185,28 @@ from typing import List
 
 
 #Gyakorlás1:
-def relativprim(a: int, b:int) -> bool:
-    osztok = 0
-    if a < b:
-        osztok = a
-    else:
-        osztok = b
-    while osztok > 1:
-        if a % osztok == 0 and b % osztok == 0:
-            return False
-        osztok = osztok - 1
-    return True
+#def relativprim(a: int, b:int) -> bool:
+    #osztok = 0
+    #if a < b:
+        #osztok = a
+    #else:
+        #osztok = b
+    #while osztok > 1:
+        #if a % osztok == 0 and b % osztok == 0:
+            #return False
+        #osztok = osztok - 1
+    #return True
 
-print(relativprim(6,35))
+#print(relativprim(6,35))
 
+
+#Hazi 2.3:
+#def helyiertek(be:int) -> List['int']:
+    #ki: List['int'] = list()
+    #marad = 0
+    #if be % 10 > 0:
+        #ki.append()
+    #else:
+
+
+#helyiertek(be = 623)

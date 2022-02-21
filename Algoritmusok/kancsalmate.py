@@ -51,8 +51,43 @@ class igen:
                 lista.append(i)
         return lista
 
+    #1
+    def tokeletes(self, szam):
+        osszeg = 0
+        lista: List['int'] = list()
+        for i in range(1, szam + 1):
+            if szam % i == 0:
+                lista.append(i)
+        for i in range(len(lista) - 1):
+            osszeg = lista[i] + osszeg
+        if osszeg == szam:
+            return True
+        else:
+            return False
+#2
+    def tokeletes2(self,kezdo, hatar):
+        szamok:List['int'] = list()
+        for i in range(kezdo,hatar):
+            if self.tokeletes(i) == True:
+                szamok.append(i)
+        return szamok
 
+#3
+    def helyiertek(self, num):
+        x = [int(a) for a in str(num)]
+        return x
 
+#5
+    def szorzatos(self, kezdo, hatar):
+        osszeadando:List['int'] = list()
+        for i in range(kezdo, hatar):
+            if sum(self.helyiertek(i)) == i:
+                osszeadando.append(i)
+        return osszeadando
+
+#3
+    def osszeguk(self, szam):
+        return sum(self.helyiertek(szam))
 
 
 
