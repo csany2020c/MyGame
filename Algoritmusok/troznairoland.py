@@ -182,3 +182,20 @@ from typing import List
 
 
 #masodfoku(int)
+
+
+#Gyakorlás1:
+def relativprim(a: int, b:int) -> bool:
+    osztok = 0
+    if a < b:
+        osztok = a
+    else:
+        osztok = b
+    while osztok > 1:
+        if a % osztok == 0 and b % osztok == 0:
+            return False
+        osztok = osztok - 1
+    return True
+
+print(relativprim(6,35))
+

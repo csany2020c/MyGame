@@ -228,8 +228,8 @@ def mertanisorozat(a1: float, q: float, n: float) -> List['int']:
         uj.append(szam)
     return uj
 
-print(mertanisorozat(7, 10, 5))
-print(mertanisorozat(1, 1.3, 15))
+# print(mertanisorozat(7, 10, 5))
+# print(mertanisorozat(1, 1.3, 15))
 
 #4. feladat
 def osszeglista(a: List['int']) -> int:
@@ -261,4 +261,45 @@ def masodfoku(a: float, b: float, c: float) -> List['float']:
         listam.append(mo2)
     return listam
 
-print(masodfoku(8, 20, 3))
+# print(masodfoku(8, 20, 3))
+
+#orai munka-jo megoldas
+def relativ_primek(a: int, b: int) -> bool:
+    for i in range(2, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            return False
+    return True
+    # lista: List['int'] = list()
+    # lista2 : List['int'] = list()
+    # lista3: List['int'] = list()
+    # szam = 1
+    # google: 0
+    # if a > b:
+    #     nagyobbik = a
+    # else:
+    #     nagyobbik = b
+    # for i in range(nagyobbik):
+    #     if a % szam == 0:
+    #         lista.append(i)
+    #     if b % szam == 0:
+    #         lista2.append(i)
+    #     szam = szam + 1
+    # # return lista, "a", lista2
+    #
+    # gyors = len(lista)
+    # gyors2 = len(lista2)
+
+# print(relativ_primek(8, 21))
+
+def reletivprim2(a: int, b: int) -> bool:
+    lista: List['int'] = list()
+    lista2 : List['int'] = list()
+    lista3: List['int'] = list()
+    google: 0
+    for i in range(2, a + 1):
+        if a % i == 0:
+            lista.append(i)
+    for i in range(2, b + 1):
+        if b % i == 0:
+            lista2.append(i)
+    # return lista, "a", lista2
