@@ -363,7 +363,7 @@ asd = [1, 2, 5, 8, 9, 10, 50, 44, 60, 71]
 def armstrong() ->List['int']:
     szamjegyek: List['int'] = list()
     joszamok: List['int'] = list()
-    for i in range(100, 999):
+    for i in range(100, 1000):
         i2 = i
         while i > 0:
             szamjegyek.append(i % 10)
