@@ -137,7 +137,15 @@ def feladat2(lista : List['int']) -> int:
 
 #print(feladat2((4444,2345,224,22345,111,5663,44)))
 
-def feladat3(a1:int, q:int, n:int) -> List['int']
+def feladat3(a1:int, q:int, n:int) -> List['int']:
+    lista: lista = []
+    for i in range(1, n+1):
+        x = a1 * q**(i-1)
+        lista.append(x)
+    return lista
+
+
+#print(feladat3(1,2,2))
 
 
 def feladat4(lista: List['int']) -> int:
@@ -148,5 +156,21 @@ def feladat4(lista: List['int']) -> int:
 
 #print(feladat4((5,3,6,9,11)))
 
+def feladat5(a:int, q:int, n:int) -> int:
+    osszeg: int = feladat4(feladat3(a , q , n))
+    return osszeg
+
+#print(feladat5(1,2,2))
+
 
 def feladat6(a: float, b: float, c: float) -> List['float']:
+    kilista: List['list'] = list()
+    D: float = b * b - 4 *a * c
+    if D >= 0:
+        kilista.append((-b + math.sqrt(D)) / (2 * a))
+    if D > 0:
+        kilista.append((-b - math.sqrt(D)) / (2 * a))
+    return kilista
+
+print()
+

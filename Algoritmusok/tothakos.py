@@ -109,9 +109,15 @@ def feladat2(lista: List['int']) -> int:
         if x > i:
             x = i
         return x
-#print(feladat2((100,600,20,1000,10340,1024)))
+#print(feladat2((600,20,1000,10340,1024, 1500)))
 
-#def fealadat3(a: int, q: int, n:int) -> List['int']:
+def fealadat3(a: int, q: int, n:int) -> List['int']:
+    lista: list = []
+    for i in range(1, n+1):
+        x= a * q ** (i-1)
+        lista.append(x)
+    return lista
+#print(fealadat3(1,2,10))
 
 def feladat4(lista: List['int']) -> int:
     x = 0
@@ -120,8 +126,18 @@ def feladat4(lista: List['int']) -> int:
     return x
 #print(feladat4((1,2,4,8,16,32,64,128,256)))
 
-#def feladat5():
+def feladat5(a: int, q: int, n: int) -> int:
+    y: int = feladat4(fealadat3(a, q, n))
+    return y
+#print(feladat5(1, 2, 10))
 
 def feladat6(a: float, b:float, c:float) -> List['int']:
-    lista: list = [1]
-
+    lista: list = []
+    x = b * b - 4 * a * c
+    if x >= 0:
+        y: int = (-b + x) / (2 * a)
+        lista.append(y)
+        z: int = (-b - x) / (2 * a)
+        lista.append(z)
+    return lista
+print(feladat6(3, 7, 4))

@@ -94,10 +94,44 @@ def feladat3min(sz1: int, sz2: int) -> int:
         return sz2
 #print(feladat3(3, 2))
 
-def feladat4minlist(lista: List['int']) -> List['int']:
-    x: int =
+def feladat4minlist(lista: List['int']) -> int:
+    x: int = lista[1]
     for i in lista:
-        if x > i:
+        if i < x:
+            x = i
+    return x
+
+#print(feladat4minlist((4,200,30,31,5,6,7,8,9)))
+
+def feladat5(a1: int, q: int, n: int) -> List['int']:
+    lista: list = []
+    for i in range(n):
+        x = a1 * q ** (i)
+        lista.append(x)
+    return lista
+
+#print(feladat5(1, 2 ,4))
+
+def feladat6(lista: List['int']) -> int:
+    x: int = 0
+    for i in lista:
+        x += i
+    return x
+
+#print(feladat6((1,2,3)))
+
+def feladat7(a: int, q: int, n: int) -> int:
+    return feladat6(feladat5(a, q, n))
+#print(feladat7(3, 5, 9))
+
+def feladat8(a: float, b: float, c: float) -> List['float']:
+    kilista: List['float'] = list()
+    D: float = b*b - 4 * a * c
+    if D >= 0:
+        kilista.append((-b + math.sqrt(D)) / 2 * a)
+    if D > 0:
+        kilista.append((-b - math.sqrt(D)) / 2 * a)
+    return kilista
 
 
-
+print(feladat8(3,7,4))
