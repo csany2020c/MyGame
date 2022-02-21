@@ -167,3 +167,24 @@ print(hatvanylista(3,4))
 # print(baratiszamoke(332,123))
 # print(baratiszamoke(220, 284))
 # print(baratiszamoke(319550, 430402))
+
+def masodfoku(a: float, b: float, c: float) -> List['float']:
+    kilista: List['float'] = list()
+    D: float = b * b - 4 * a * c
+    print(D)
+    if D >= 0:
+        kilista.append((-b + math.sqrt(D)) / (2 * a))
+    if D > 0:
+        kilista.append((-b - math.sqrt(D)) / (2 * a))
+    return kilista
+
+print(masodfoku(3, 7, 4))
+
+
+
+
+
+
+
+
+

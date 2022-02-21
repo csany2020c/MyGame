@@ -2,7 +2,7 @@ from typing import List
 from time import time
 import math
 
-#----------------------------------------------------------------------------------------
+
 #1. feladat 42-ig szamok egyesevel kiiaratasa
 # a: int = 0
 # for c in range(42):
@@ -38,9 +38,8 @@ import math
 #
 #
 # print(osszegzes(lista))
-#----------------------------------------------------------------------------------------
 
-#1. feladat: faktorialis szamolas
+#5. feladat: faktorialis szamolas
 # def faktoralis(asd: int) -> int:
 #     szorzat = 1
 #     for i in range(2, asd + 1):
@@ -53,7 +52,7 @@ import math
 # 2. feladat
 # print(8 % 3)
 
-#3. feladat: primszam fuggveny, break
+#6. feladat: primszam fuggveny, break
 def osztok(n: int) -> list[int]:
     lista: List['int'] = list()
     for i in range(1, n + 1):
@@ -66,7 +65,7 @@ def osztok(n: int) -> list[int]:
 #
 # print(osztok(26))
 
-# .feladat: primszam eldonto fuggveny, bemenet egy szam- kimenet igaz vagy hamis
+#7.feladat: primszam eldonto fuggveny, bemenet egy szam- kimenet igaz vagy hamis
 # def primszam(a: int) -> bool:
 #     if len(osztok(a)) == 2:
 #         return True
@@ -75,7 +74,7 @@ def osztok(n: int) -> list[int]:
 #
 # print(primszam(16))
 
-#gyakorlas primszam fuggveny(lassu a szamolas 100000 felett)
+#8. feladat: gyakorlas primszam fuggveny(lassu a szamolas 100000 felett)
 # def primszam_sajat(a: int) -> bool:
 #     erkezo = a
 #     random = 0
@@ -97,7 +96,7 @@ def osztok(n: int) -> list[int]:
 
 #print(primszam_sajat(250))
 
-# 3.feladat, felesleges, mert mar feljebb van erre fuggveny
+# *.feladat, felesleges, mert mar feljebb van erre fuggveny
 # def fuggveny1(n: int) -> bool:
 #     return len(primszam(n)) == 2
 #
@@ -132,7 +131,7 @@ def osztok(n: int) -> list[int]:
 # print(6 / 2)
 # print(6 // 2)
 
-# .feladat: parosszamok, bemenet lista, kimenete lista a paros szamokkal
+#10.feladat: parosszamok, bemenet lista, kimenete lista a paros szamokkal
 def parosfuggveny(a: List['int']) -> List['int']:
     lista: List['int'] = list()
     for i in a:
@@ -143,7 +142,7 @@ def parosfuggveny(a: List['int']) -> List['int']:
 # bemenetelist = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -2, -3, -11]
 # print(parosfuggveny(bemenetelist))
 
-# .feladat:szamolas 6-ig
+#11.feladat:szamolas 6-ig
 def szamolas(a: int) -> List['int']:
     lista: List['int'] = list()
     # if a < 0:
@@ -160,7 +159,147 @@ def szamolas(a: int) -> List['int']:
 # print(szamolas(-66))
 
 # . feladat: az elozo fuggvenyek hasznalta
-def osszeshasznalata(a: int) -> List['int']:
-    return parosfuggveny(szamolas(a))
+# def osszeshasznalata(a: int) -> List['int']:
+#     return parosfuggveny(szamolas(a))
+#
+# print(osszeshasznalata(7))
 
-print(osszeshasznalata(7))
+#házi feladat
+#0.0 feladat
+def maradeknelkuliosztok(a: List['int'], b: int) -> List['int']:
+    uj: List['int'] = list()
+    for i in a:
+        if i % b == 0:
+            uj.append(i)
+    return uj
+
+listacska = [1, 5 , 8, 9 , 150, 60, 44, 3, 0, 7]
+# print(maradeknelkuliosztok(listacska, 6))
+
+#
+def logikaifuggveny(a: List['int']) -> bool:
+    almagyar = 0
+    for i in a:
+        if i == 0:
+            almagyar = almagyar + 1
+    if almagyar >= 1:
+        return True
+    else:
+        return False
+
+alma = [20, 60, 70, 5, 6, 3, 7, 32]
+alma1 = [12, 0, 6, 20, 7]
+# print(logikaifuggveny(alma))
+# print(logikaifuggveny(alma1))
+
+#1. feladat
+def min(a: int, b: int) -> int:
+    if a > b:
+        return b
+    elif a == b:
+        return a, b
+    else:
+        return a
+
+# print(min(9, 8))
+
+#2, feladat
+def minilist(a: List['int']) -> int:
+    szam = 0
+    for i in a:
+        if szam < i:
+            szam = i
+        break
+    for i in a:
+        if szam > i:
+            szam = i
+    return szam
+
+minilistam = [5, 6, 8, 88, 2, 66, 30]
+# print(minilist(minilistam))
+
+#3.feladat
+def mertanisorozat(a1: float, q: float, n: float) -> List['int']:
+    uj: List['float'] = [a1]
+    szam: int = a1
+    while n > 1:
+        szam = szam * q
+        n = n - 1
+        uj.append(szam)
+    return uj
+
+# print(mertanisorozat(7, 10, 5))
+# print(mertanisorozat(1, 1.3, 15))
+
+#4. feladat
+def osszeglista(a: List['int']) -> int:
+    szam = 0
+    for i in a:
+        szam = szam + i
+    return szam
+
+osszeglistam = [1, 8, 16, 32, 88, 789]
+# print(osszeglista(osszeglistam))
+
+#5. feladat
+def osszesegyfuggvenyben(a1: int, q: int, n: int) -> int:
+    return osszeglista(mertanisorozat(a1, q, n))
+
+# print(osszesegyfuggvenyben(5, 8, 2))
+
+#6. feladat-nincs kész, majd egyszer...
+def masodfoku(a: float, b: float, c: float) -> List['float']:
+    listam: List['float'] = list()
+    d = b**2 - 4*a*c
+    if d < 0:
+        return listam
+    else:
+        diszkriminansa = math.sqrt(d)
+        mo1: float = -b + diszkriminansa / 2 * a
+        mo2: float = -b - diszkriminansa / 2 * a
+        listam.append(mo1)
+        listam.append(mo2)
+    return listam
+
+# print(masodfoku(8, 20, 3))
+
+#orai munka-jo megoldas
+def relativ_primek(a: int, b: int) -> bool:
+    for i in range(2, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            return False
+    return True
+    # lista: List['int'] = list()
+    # lista2 : List['int'] = list()
+    # lista3: List['int'] = list()
+    # szam = 1
+    # google: 0
+    # if a > b:
+    #     nagyobbik = a
+    # else:
+    #     nagyobbik = b
+    # for i in range(nagyobbik):
+    #     if a % szam == 0:
+    #         lista.append(i)
+    #     if b % szam == 0:
+    #         lista2.append(i)
+    #     szam = szam + 1
+    # # return lista, "a", lista2
+    #
+    # gyors = len(lista)
+    # gyors2 = len(lista2)
+
+# print(relativ_primek(8, 21))
+
+def reletivprim2(a: int, b: int) -> bool:
+    lista: List['int'] = list()
+    lista2 : List['int'] = list()
+    lista3: List['int'] = list()
+    google: 0
+    for i in range(2, a + 1):
+        if a % i == 0:
+            lista.append(i)
+    for i in range(2, b + 1):
+        if b % i == 0:
+            lista2.append(i)
+    # return lista, "a", lista2

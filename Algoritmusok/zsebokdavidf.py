@@ -109,6 +109,7 @@ def mertaniosszege(firstnumber: int, kvociens: int, length: int) -> int:
     return osszeadas(mertan(firstnumber=firstnumber, kvociens=kvociens, length=length))
 
 
+# a*x**2 + b*x + c == 0
 def masodfoku(a: float, b: float, c: float) -> List['float']:
     output: List['float'] = list()
     if b*b - 4*a*c < 0:
@@ -122,11 +123,20 @@ def masodfoku(a: float, b: float, c: float) -> List['float']:
     return output
 
 
+def relativprim(a: int, b: int) -> bool:
+    if a < b:
+        oszto = a
+    else:
+        oszto = b
+    while oszto > 1:
+        if a % oszto == 0 and b % oszto == 0:
+            return False
+        oszto -= 1
+    return True
 
 
-print(masodfoku(9, 3, -7))
-print(masodfoku(9, 6, 1))
-print(masodfoku(9, 6, 2))
+print(relativprim(6, 27))
+
 
 
 
