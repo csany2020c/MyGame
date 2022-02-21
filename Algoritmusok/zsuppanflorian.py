@@ -183,3 +183,29 @@ relativ(21, 8)
 #         return False
 #
 # print(donto(21, 8))
+
+
+#1
+Num = int(input(" "))
+ossz = 0
+for i in range(1, Num):
+    if(Num % i == 0):
+        ossz = ossz + i
+if (ossz == Num):
+    print("igaz")
+else:
+    print("hamis")
+
+#2
+#def tokeletes(belist: List['int']) -> List['int']:
+    #kilist: List['int'] = list()
+    #for i in belist:
+    #kilist.append(i)
+
+
+#4
+szam = 13455
+osszeg = 0
+for ossz in str(szam):
+    osszeg += int(ossz)
+print(osszeg)
