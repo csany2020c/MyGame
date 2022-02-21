@@ -291,6 +291,7 @@ def relativ_primek(a: int, b: int) -> bool:
 
 # print(relativ_primek(8, 21))
 
+#masik megoldasa
 def reletivprim2(a: int, b: int) -> bool:
     lista: List['int'] = list()
     lista2 : List['int'] = list()
@@ -303,3 +304,81 @@ def reletivprim2(a: int, b: int) -> bool:
         if b % i == 0:
             lista2.append(i)
     # return lista, "a", lista2
+
+
+#hazi feladat
+
+#1. feladat
+def tokeletesszamok(a: int) -> bool:
+    osszead: int = 0
+    for i in range(1, a):
+        if a % i == 0:
+            osszead = osszead + i
+            # print(i)
+    if osszead == a:
+        return True
+    else:
+        return False
+
+
+# print(tokeletesszamok(27)) #false
+# print(tokeletesszamok(28)) #true
+# print(tokeletesszamok(6)) #true
+# print(tokeletesszamok(4)) #false
+
+#2. feladat
+def tokeletesellenorzo(a: int, b: int) -> List['int']:
+    lista: List['int'] = list()
+    for i in range(a, b + 1):
+        alma = tokeletesszamok(i)
+        # print(i)
+        if alma == True:
+            lista.append(i)
+    return lista
+
+# print(tokeletesellenorzo(6, 496))
+# print(tokeletesellenorzo(4, 88))
+
+#3. feladat
+def tizesszamrendszer(a: int) -> List['int']:
+    lista: List['int'] = list()
+    for i in str(a):
+       lista.append(int(i))
+    return lista
+
+# print(tizesszamrendszer(230))
+
+#4. feladat
+def osszegfuggveny(a: int) -> bool:
+    szam = 0
+    for i in str(a):
+        szam = szam + int(i)
+    return szam
+
+# print(osszegfuggveny(4))
+# print(osszegfuggveny(856))
+
+
+#5. feladat
+def szamjegyszorzat(a: int) -> bool:
+    szam = 1
+    for i in str(a):
+        szam = szam * int(i)
+        if szam == a:
+            return True
+        else:
+            return False
+
+# print(szamjegyszorzat(56))
+# print(szamjegyszorzat(8))
+# print(szamjegyszorzat(15))
+
+#6. feladat - még nincs kész
+def haromjegyu() -> int:
+    db = 0
+    for i in range(100, 999):
+        if i % 15 == 0:
+            db = db + 1
+    return db
+
+print(haromjegyu())
