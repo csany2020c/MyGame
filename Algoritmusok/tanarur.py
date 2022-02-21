@@ -326,9 +326,10 @@ def relativprim2(a: int, b: int) -> bool:
     #print("Symmetric difference :", al ^ bl)
 
 
+#
+# print(relativprim2(21, 8))
+# print(relativprim2(8, 21))
+# print(relativprim2(8, 10))
+# print(relativprim2(2412, 2417))
+# print(relativprim2(2422, 2427))
 
-print(relativprim2(21, 8))
-print(relativprim2(8, 21))
-print(relativprim2(8, 10))
-print(relativprim2(2412, 2417))
-print(relativprim2(2422, 2427))
