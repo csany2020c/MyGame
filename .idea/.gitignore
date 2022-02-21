@@ -4,3 +4,5 @@
 /encodings.xml
 /misc.xml
 /MyGame.iml
+*.iml
+*.xml

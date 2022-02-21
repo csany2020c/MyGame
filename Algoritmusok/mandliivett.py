@@ -103,10 +103,10 @@ from typing import List
 # azokat a számokat, amelyek a bemeneti listában a bemeneti számmal maradék nélkül oszthatók.
 
 
-def nullapontnulla(a: List['int'], b:int) -> List['int']:
+def nullapontnulla(a: List['int'], b: int) -> List['int']:
     return
 
-nullapontnullalista = []
+nullapontnullalista = [3, 54, 32, 52, 11, 75]
 
 #print(nullapontnulla(nullapontnullalista))
 
@@ -116,10 +116,19 @@ nullapontnullalista = []
 # A visszaadott érték legyen igaz, ha a listában van 0. Ha nincs, akkor hamis.
 
 
-def nullapontegy(list: List['int']) -> int:
-    return
+# ezmukodik
+def nullapontegy(list: List['int']) -> bool:
+    ertek = 0
+    for i in list:
+        if i == 0:
+            ertek = ertek + 1
+    if ertek >= 1:
+        return True
+    if ertek <= 1:
+        return False
 
-nullapontegylista = []
+
+nullapontegylista = [32, 53, 532, 213, 46, 3, 0]
 
 #print(nullapontegy(nullapontegylista))
 
@@ -129,12 +138,17 @@ nullapontegylista = []
 # A neve min legyen.
 
 
-def egy(szam1: int, szam2: int):
-    return
+# ezmukodik
+def egy(szam1: int, szam2: int) -> int:
+    if szam1 > szam2:
+        return szam2
+    if szam1 == szam2:
+        return szam1, szam2
+    if szam1 < szam2:
+        return szam1
 
-egylista = []
 
-#print(egy())
+#print(egy(97, 64))
 
 
 # 2.
@@ -145,9 +159,15 @@ egylista = []
 
 def ketto(list: List['int']) -> int:
     szam = 0
-    #for i in list:
-        #szam = 1
+    for i in list:
+        if szam < i:
+            szam = i
+        break
+    for i in list:
+        if szam > i:
+            szam = i
     return szam
+
 
 kettolista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 
@@ -164,17 +184,18 @@ kettolista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 
 
 def harom(a1: int, q: int, n: int):
-    return
+    lista: list = []
+    for i in range(1, n+1):
+        lista.append(a1*q**(i-1))
+    return lista
 
-haromlista = []
-
-#print(harom())
+print(harom(4, 5, 9))
 
 
 # 4.
 # Készítsen függvényt, amelynek bemenete egy lista, visszaadott értéke pedig a lista elemeinek az összege.
 
-
+# ezmukodik
 def negy(list: List['int']) -> int:
     szam = 0
     for i in list:
@@ -184,7 +205,7 @@ def negy(list: List['int']) -> int:
 
 negylista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 
-print(negy(negylista))
+#print(negy(negylista))
 
 
 # 5.
@@ -192,12 +213,12 @@ print(negy(negylista))
 # A függvény kimenete egy szám legyen, a bemenete pedig a mértani sorozat generálásához szükséges értékek.
 
 
-def ot(list: List['int']) -> int:
+def ot(a1: int, q: int, n: int) -> int:
+    szam = 0
+
     return
 
-otlista = []
-
-#print(ot())
+#print(ot(4, 5, 9))
 
 
 # 6.
@@ -207,14 +228,17 @@ otlista = []
 # Amennyiben az egyenletnek nincs megoldása a valós számok halmazán, üres listával térjen vissza.
 
 
-def hat(a: float, b: float, c: float) -> List['int']:
+def hat(a: float, b: float, c: float) -> List['float']:
     # ax^2 + bx + c
-    #megoldas: a^2 + b + c
-    #if megoldas == 0:
-        #print("asd")
+    megoldas: List['float'] = list()
+    # megoldas: ax^2 + bx + c
+    diszkriminans: b**2-4*a*c
+    if diszkriminans < 0:
+        print("Nincs megoldás.")
 
-    return #megoldas
+    return megoldas
 
-hatlista = []
 
-#print(hat())
+hatlista = [4, 21, 54]
+
+#print(hat(hatlista))

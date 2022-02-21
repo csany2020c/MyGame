@@ -242,26 +242,23 @@ osszeglistam = [1, 8, 16, 32, 88, 789]
 # print(osszeglista(osszeglistam))
 
 #5. feladat
-def nemtom(a1: int, q: int, n: int) -> int:
+def osszesegyfuggvenyben(a1: int, q: int, n: int) -> int:
     return osszeglista(mertanisorozat(a1, q, n))
 
-# print(nemtom(5, 8, 2))
+# print(osszesegyfuggvenyben(5, 8, 2))
 
 #6. feladat-nincs kész, majd egyszer...
-def jerry(a: float, b: float, c: float) -> List['float']:
+def masodfoku(a: float, b: float, c: float) -> List['float']:
     listam: List['float'] = list()
-    if a == 0:
-        fruit = " "
-        listam.append(fruit)
+    d = b**2 - 4*a*c
+    if d < 0:
         return listam
     else:
-        szam = math.pow(b, 2) # (b**2)
-        szam1 = 4 * c
-        szam2 = szam - szam1
-        szam2 = 2 * a
-        szam2 = pow(szam2, 2)
+        diszkriminansa = math.sqrt(d)
+        mo1: float = -b + diszkriminansa / 2 * a
+        mo2: float = -b - diszkriminansa / 2 * a
+        listam.append(mo1)
+        listam.append(mo2)
+    return listam
 
-        if szam2 < 0:
-            return listam
-
-# print(jerry(8, 12, 3))
+print(masodfoku(8, 20, 3))
