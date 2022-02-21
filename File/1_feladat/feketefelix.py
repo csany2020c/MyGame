@@ -32,8 +32,8 @@ class Main:
                 d = Data(lines[i])
                 datalist.append(d)
                 print("Print list")
-                for d in datalist:
-                    print(d)
+                #for d in datalist:
+                    #print(d)
                 f.close()
             print("3. feladat")
             print("Díjazottak száma: {db} fő ".format(db=len(datalist)))

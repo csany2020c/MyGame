@@ -107,7 +107,8 @@ def nulla(lista5: List['int']) -> bool:
             return True
     return False
 
-lista6: List['int'] = (5, 1, 1, 3, 4)
+
+lista6: List['int'] = (1, 0, 2, 3, 4,)
 # print(nulla(lista6))
 
 
@@ -189,4 +190,18 @@ def pitagorasz(bef1: float, bef2: float) -> float:
     return atf
 
 
-print(pitagorasz(5, 6))
+# print(pitagorasz(5, 6))
+
+
+def relativ_prim(szam2: int, szam3: int) -> bool():
+    idk = 1
+    for i in range(szam2):
+        idk = idk + 1
+        er = szam3 % idk
+        er2 = szam2 % idk
+        if er == er2:
+            return False
+        return True
+
+
+# print(relativ_prim(4, 35))

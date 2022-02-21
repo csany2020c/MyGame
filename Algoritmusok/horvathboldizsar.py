@@ -190,18 +190,51 @@ asd = [1, 2, 5, 8, 9, 10, 50, 44, 60, 71]
 #
 # def ot()
 #
-def hat(a: float, b: float, c: float) -> List['float']:
-    megoldas: List['float'] = list()
+# def hat(a: float, b: float, c: float) -> List['float']:
+#     megoldas: List['float'] = list()
+#
+#     d: float = pow(b, 2) - (4 * a * c)
+#
+#     if d < 0:
+#         print("Hiba! A diszkrimináns kisebb mint 0.")
+#     else:
+#         x1: float = (-b + sqrt(d)) / 2 * a
+#         x2: float = (-b - sqrt(d)) / 2 * a
+#         megoldas.append(x1)
+#         megoldas.append(x2)
+#
+#     return megoldas
+# print(hat(8, -25, 3))
+#
+def relativpar(szam1: int, szam2: int) -> bool:
+    osztok1: List['int'] = list()
+    osztok2: List['int'] = list()
+    kozososztok: List['int'] = list()
 
-    d: float = pow(b, 2) - (4 * a * c)
-
-    if d < 0:
-        print("Hiba! A diszkrimináns kisebb mint 0.")
+    if szam1 > szam2:
+        hossz = szam1
     else:
-        x1: float = (-b + sqrt(d)) / 2 * a
-        x2: float = (-b - sqrt(d)) / 2 * a
-        megoldas.append(x1)
-        megoldas.append(x2)
+        hossz = szam2
 
-    return megoldas
-print(hat(8, -25, 3))
+    for i in range(hossz):
+        a = i + 1
+        if szam1 % int(a) == 0:
+            osztok1.append(a)
+        if szam2 % int(a) == 0:
+            osztok2.append(a)
+
+    for x in range(len(osztok1)):
+        for y in range(len(osztok2)):
+            if osztok1[x] == osztok2[y]:
+                kozososztok.append(osztok1[x])
+
+    print(osztok1)
+    print(osztok2)
+    print(kozososztok)
+
+    if len(kozososztok) == 1:
+        return True
+    else:
+        return False
+
+print(relativpar(130, 991))
