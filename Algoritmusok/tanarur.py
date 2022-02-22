@@ -333,3 +333,16 @@ def relativprim2(a: int, b: int) -> bool:
 # print(relativprim2(2412, 2417))
 # print(relativprim2(2422, 2427))
 
+def tokeletes(be: int) -> bool:
+    return osszegzes(osztok(be)) - be == be
+
+
+def tokeletes2(be: int) -> bool:
+    osszeg: int = 0
+    for i in range(1, be // 2 + 1):
+        if be % i == 0:
+            osszeg += i
+    return osszeg == be
+
+
+print(tokeletes2(8128))
