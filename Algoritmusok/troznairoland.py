@@ -200,13 +200,42 @@ from typing import List
 #print(relativprim(6,35))
 
 
-#Hazi 2.3:
+# Hazi 2.3:
 #def helyiertek(be:int) -> List['int']:
     #ki: List['int'] = list()
-    #marad = 0
-    #if be % 10 > 0:
-        #ki.append()
-    #else:
+    #while be % 10 != 0:
+        #ki.append(be % 10)
+        #be = be // 10
+    #if len(ki) == 0:
+        #ki.append(0)
+    #ki.reverse()
+    #return ki
+
+#print(helyiertek(be = 623))
+
+#def helyiertek2(be:int) -> List['int']:
+    #ki: List['int'] = list()
+    #for c in str(be):
+        #ki.append(int(c))
+    #return ki
 
 
-#helyiertek(be = 623)
+#print(helyiertek2(be = 623))
+
+#Hazi 2.4:
+def helyiertekosszeg(be:int) -> List['int']:
+    ki: List['int'] = list()
+    osszeg = 0
+    while be % 10 != 0:
+        ki.append(be % 10)
+        be = be // 10
+    if len(ki) == 0:
+        ki.append(0)
+    ki.reverse()
+    for i in range (len(ki)):
+        osszeg += ki[i]
+    print("Az összeg: {osszeg}".format(osszeg=osszeg))
+    return ki
+
+
+(helyiertekosszeg(be=623))
