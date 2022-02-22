@@ -130,4 +130,37 @@ def feladat6_masodfokufugveny(a: float, b:float, c:float) -> List['float']:
 
     return lista
 
-print(feladat6_masodfokufugveny(1,3,-2))
+#print(feladat6_masodfokufugveny(1,3,-2))
+
+def HF2feladat1_tökeletesszam(szam: int) -> bool:
+    összeg: int = 0
+    oszto: int = szam // 2
+    for x in range(1, oszto + 1):
+        if szam % x == 0:
+            összeg += x
+    if összeg == szam:
+        return True
+    else:
+        return False
+
+#print(HF2feladat1_tökeletesszam(28))
+
+def HF2feladat2_tökeletesszam_lista(min: int, max: int) -> List['int']:
+    lista: List['int'] = []
+    for i in range(min, max):
+        if HF2feladat1_tökeletesszam(i):
+            lista.append(i)
+
+    return lista
+
+#print(HF2feladat2_tökeletesszam_lista(1, 10))
+
+
+def HF2feladat3_szamfelbontas(szam: int) -> List['int']:
+    lista: List['int'] = []
+    while szam != 0:
+        lista.append(szam % 10)
+        szam = szam // 10
+    return lista
+
+print(HF2feladat3_szamfelbontas(123))
