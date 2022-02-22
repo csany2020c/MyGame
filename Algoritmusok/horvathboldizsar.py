@@ -190,18 +190,192 @@ asd = [1, 2, 5, 8, 9, 10, 50, 44, 60, 71]
 #
 # def ot()
 #
-def hat(a: float, b: float, c: float) -> List['float']:
-    megoldas: List['float'] = list()
+# def hat(a: float, b: float, c: float) -> List['float']:
+#     megoldas: List['float'] = list()
+#
+#     d: float = pow(b, 2) - (4 * a * c)
+#
+#     if d < 0:
+#         print("Hiba! A diszkrimináns kisebb mint 0.")
+#     else:
+#         x1: float = (-b + sqrt(d)) / 2 * a
+#         x2: float = (-b - sqrt(d)) / 2 * a
+#         megoldas.append(x1)
+#         megoldas.append(x2)
+#
+#     return megoldas
+# print(hat(8, -25, 3))
+#
+# def relativpar(szam1: int, szam2: int) -> bool:
+#     osztok1: List['int'] = list()
+#     osztok2: List['int'] = list()
+#     kozososztok: List['int'] = list()
+#
+#     if szam1 > szam2:
+#         hossz = szam1
+#     else:
+#         hossz = szam2
+#
+#     for i in range(hossz):
+#         a = i + 1
+#         if szam1 % int(a) == 0:
+#             osztok1.append(a)
+#         if szam2 % int(a) == 0:
+#             osztok2.append(a)
+#
+#     for x in range(len(osztok1)):
+#         for y in range(len(osztok2)):
+#             if osztok1[x] == osztok2[y]:
+#                 kozososztok.append(osztok1[x])
+#
+#     print(osztok1)
+#     print(osztok2)
+#     print(kozososztok)
+#
+#     if len(kozososztok) == 1:
+#         return True
+#     else:
+#         return False
+#
+# print(relativpar(130, 991))
+#
+### --- Házi Feladat --- ###
+#
+# def tokeletes(szam: int) -> bool:
+#
+#     osztok: List['int'] = list()
+#     valtozo = 0
+#
+#     for i in range(1, szam):
+#         if szam % i == 0:
+#             osztok.append(i)
+#     for y in range(len(osztok)):
+#         valtozo = valtozo + osztok[y]
+#
+#     print(osztok)
+#     print(valtozo)
+#
+#     if szam == valtozo:
+#         return True
+#     else:
+#         return False
+#
+# print(tokeletes(28))
+#
+# def tokeleteslista(szam1: int, szam2: int) -> List['int']:
+#     osztok: List['int'] = list()
+#     tlist: List['int'] = list()
+#     valtozo = 0
+#     for x in range(szam1, (szam2 + 1)):
+#
+#         for i in range(1, x):
+#             if x % i == 0:
+#                 osztok.append(i)
+#
+#         for f in range(0, len(osztok)):
+#             valtozo = valtozo + osztok[f]
+#
+#         if valtozo == x:
+#             tlist.append(x)
+#
+#         osztok.clear()
+#         valtozo = 0
+#
+#     return tlist
+#
+# print(tokeleteslista(5, 2051))
+#
+# def tizesfelbonto(szam: int) -> List['int']:
+#     felbontott: List['int'] = list()
+#
+#     while szam > 0:
+#         felbontott.append(szam % 10)
+#         szam //= 10
+#     return felbontott[::-1]
+#
+# print(tizesfelbonto(1266))
+#
+# def szosszeg(szam: int) -> int:
+#     felbontott: List['int'] = list()
+#     osszeg = 0
+#
+#     while szam > 0:
+#         felbontott.append(szam % 10)
+#         szam //= 10
+#     felbontott.reverse()
+#
+#     for i in range(len(felbontott)):
+#         osszeg += felbontott[i]
+#
+#     return osszeg
+# print(szosszeg(1241))
+#
+# def szamjegyszegyenlo(kezdet: int, veg: int) -> List['int']:
+#     osztok: List['int'] = list()
+#     szszorzat: List['int'] = list()
+#     valtozo = 1
+#
+#     for x in range(kezdet, veg + 1):
+#         for i in range(1, x):
+#             if x % i == 0:
+#                 osztok.append(i)
+#
+#
+#         for q in range(len(osztok)):
+#             valtozo = valtozo * osztok[q]
+#
+#         if valtozo == x:
+#             szszorzat.append(x)
+#
+#         osztok.clear()
+#     return szszorzat
+#
+#     # print(osztok)
+# print(szamjegyszegyenlo(1, 1236))
+#
+# def harom15() ->int:
+#     felbontott: List['int'] = list()
+#     tizenoterteku: List['int'] = list()
+#     eredmeny = 0
+#     for i in range(100, 1000):
+#         i2 = i
+#         osszeg = 0
+#         while i > 0:
+#             felbontott.append(i % 10)
+#             i //= 10
+#         felbontott.reverse()
+#
+#         for x in range(len(felbontott)):
+#             osszeg += felbontott[x]
+#         felbontott.clear()
+#
+#         if osszeg == 15:
+#             tizenoterteku.append(i2)
+#     for z in range(len(tizenoterteku)):
+#         if z % 15 == 0:
+#             eredmeny += 1
+#     # print(felbontott)
+#     # print(osszeg)
+#     # print(tizenoterteku)
+#     return eredmeny
+# print(harom15())
+#
+def armstrong() ->List['int']:
+    szamjegyek: List['int'] = list()
+    joszamok: List['int'] = list()
+    for i in range(100, 1000):
+        i2 = i
+        while i > 0:
+            szamjegyek.append(i % 10)
+            i //= 10
+            szamjegyek.reverse()
+        osszeg = pow(szamjegyek[0], 3) + pow(szamjegyek[1], 3) + pow(szamjegyek[2], 3)
 
-    d: float = pow(b, 2) - (4 * a * c)
+        if osszeg == i2:
+            joszamok.append(i2)
 
-    if d < 0:
-        print("Hiba! A diszkrimináns kisebb mint 0.")
-    else:
-        x1: float = (-b + sqrt(d)) / 2 * a
-        x2: float = (-b - sqrt(d)) / 2 * a
-        megoldas.append(x1)
-        megoldas.append(x2)
+    print(szamjegyek)
+    print(osszeg)
+    return joszamok
 
-    return megoldas
-print(hat(8, -25, 3))
+print(armstrong())
