@@ -35,6 +35,14 @@ class Algorythm:
         #print(str(self.mertanisorozat(1,2,3)))
         #print(str(self.negyedik([5,6,9])))
         #print(self.otodik(1,2,3))
+        #print(self.masodfoku(2,20,2))
+        #print(self.relativprim(12000000,2))
+        #print(self.helyiertek(125))
+        #print(self.tokeletes(6))
+        #print(self.helyiertekosszeg(123))
+        #print(self.szamjegyeinekszorzata(10))
+        #print(self.szamjegyekosszeesoszthato())
+
     def masikBinaris(self,szam:int) -> str:
         outP:str = ""
         for i in range(8):
@@ -89,7 +97,6 @@ class Algorythm:
     def masodfoku(self,a:float,b:float,c:float) -> List['float']:
         outLista:List['float'] = list()
         delta:float = b ** 2 -4 * a * c
-        print(delta)
         if (delta >= 0):
             outLista.append((-b + math.sqrt(delta)) / (2 * a))
             outLista.append((-b - math.sqrt(delta)) / (2 * a))
@@ -122,4 +129,82 @@ class Algorythm:
 
     def szamolasparos(self,szam:int) -> List['int']:
         return self.paros(self.szamoljelodaig(szam))
+
+    def relativprim(self,szam1:int,szam2:int) -> bool:
+        szam1oszthatok:List['int'] = list()
+        szam2oszthatok:List['int'] = list()
+        for i in range(2,szam1+1):
+            if (szam1%i == 0):
+                szam1oszthatok.append(i)
+        for i in range(2, szam2+1):
+            if (szam2%i == 0):
+                szam2oszthatok.append(i)
+        for i in szam1oszthatok:
+            for a in szam2oszthatok:
+                if a == i:
+                    return False
+        return True
+
+    def tokeletes(self,szam:int) -> bool:
+        osztok:List['int'] = list()
+        szorzat:int = 1
+        for i in range(1,szam):
+            if (szam%i == 0):
+                osztok.append(i)
+
+        for i in osztok:
+            szorzat*=i
+        return szorzat==szam
+
+    def tokeletesLista(self,eleje:int,vege:int) -> List['int']:
+        lista:List['int'] = list()
+        for i in range(eleje,vege):
+            if (self.tokeletes(i)):
+                lista.append(i)
+        return lista
+
+
+
+
+    def helyiertek(self,szam:int) -> List['int']:
+        outLista:List['int'] = list()
+        for i in str(szam):
+            outLista.append(int(i))
+        return outLista
+
+    def helyiertekosszeg(self,szam:int) -> int:
+        lista:List['int'] = self.helyiertek(int(szam))
+        count:int=0
+        for i in lista:
+            count+=i
+        return count
+
+    def szamjegyeinekszorzata(self,szam:int) -> List['int']:
+        outLista:List['int'] = list()
+
+        for i in range(szam):
+            count = 1
+            lista:List['int'] = self.helyiertek(i)
+            for a in lista:
+                count*=a
+                print(count)
+
+            if (i == count):
+                outLista.append(i)
+
+        return outLista
+
+    def szamjegyekosszeesoszthato(self) -> List['int']:
+        outLista:List['int'] = list()
+        vege = 999
+        for i in range(vege):
+            if (i % 15 == 0 and self.helyiertekosszeg(i) == 15):
+                outLista.append(i)
+        return outLista
+
+
+
+
+
+
 Algorythm()
