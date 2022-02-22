@@ -189,7 +189,7 @@ def harom(a1: int, q: int, n: int):
         lista.append(a1*q**(i-1))
     return lista
 
-print(harom(4, 5, 9))
+#print(harom(4, 5, 9))
 
 
 # 4.
@@ -242,3 +242,88 @@ def hat(a: float, b: float, c: float) -> List['float']:
 hatlista = [4, 21, 54]
 
 #print(hat(hatlista))
+
+
+
+# HF2
+
+# https://hu.wikipedia.org/wiki/T%C3%B6k%C3%A9letes_sz%C3%A1mok
+# 1. Készítsen függvényt, amely eldönti egy számról, hogy "tökéletes"-e.
+
+
+def tokeletesszame(szam: int) -> int:
+    osszeg: int = 0
+    for x in range(1, szam):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    if osszeg == szam:
+        return True
+    else:
+        return False
+
+
+# print(tokeletesszame(6))
+
+
+# 2. Készítsen függvényt, amely a paraméterként megadott határokon belül megnézi az összes egész számra,
+# hogy tökéletes-e, és a tökéletes számok listájával tér vissza.
+
+
+def tokeletesszame2() -> List['float']:
+    return
+
+
+# print(tokeletesszame2())
+
+
+# 3. Készítsen függvényt, amely egy bemeneti számot 10-es számrendszerben felbont helyiértékeire,
+# és egy listával tér vissza.
+# Pl: be: 623; ki: [6, 2, 3]
+
+
+def helyiertekrebontas(szam: int) -> List['float']:
+    megoldas: List['float'] = list()
+
+    return
+
+
+# print(helyiertekrebontas(623))
+
+
+# 4. Készítsen függvényt, amely egy bemeneti számból kiszámolja a számjegyeinek az összegét.
+
+
+def szamjegyekosszege(szam: int) -> int:
+    return
+
+# print(szamjegyekosszege(856))
+
+
+# 5. Keressen olyan számokat, amelyeknek a számjegyeinek a szorzata megegyezik a számmal.
+
+
+def szamjegyekszorzata():
+    return
+
+# print(szamjegyekszorzata())
+
+
+# 6. Hány olyan háromjegyű szám van, melyben a számjegyek összege 15, és a szám osztható 15-tel?
+
+
+def haromjegyu15():
+    return
+
+# print(haromjegyu15())
+
+
+# 7. Armstrong-számok
+#     Melyek azok a háromjegyű számok, amelyeknek a jegyeit külön-külön a harmadikra hatványozva
+#     és ezeket összeadva az eredeti számot kapjuk vissza?
+#     Létezik négyjegyű szám is olyan, ahol az egyes számjegyek negyedik hatványának összege visszaadja az eredeti számot?
+
+
+def Armstrong():
+    return
+
+# print(Armstrong())
