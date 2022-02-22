@@ -140,4 +140,19 @@ def feladat6(a: float, b:float, c:float) -> List['int']:
         z: int = (-b - x) / (2 * a)
         lista.append(z)
     return lista
-print(feladat6(3, 7, 4))
+#print(feladat6(3, 7, 4))
+
+def tokeletes(a: int)->bool:
+    ossz: int = 0
+    for i in range(1, ):
+        if a % i == 0:
+            ossz = ossz + i
+    if ossz == a:
+        return True
+    else:
+        return False
+print(tokeletes)
+
+#def tokeletes2():
+
+#def bonto(x: int)-> list:
