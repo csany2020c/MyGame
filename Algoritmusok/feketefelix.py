@@ -41,23 +41,37 @@ def osztoosszeg(szam: int) -> int:
 
 #print(osztoosszeg(int(input())))
 
-def baratiszamok(a:int, b:int)-> bool:
-    return a != b and osztoosszeg(a) == b and osztoosszeg(b) == 0
+#def baratiszamok(a:int, b:int)-> bool:
+    #return a != b and osztoosszeg(a) == b and osztoosszeg(b) == 0
 
 #print(baratiszamok(10,20))
 #print(baratiszamok(33,66))
 #print(baratiszamok(77,99))
 
-def idk(c:int)-> int:
-    d: int = osztoosszeg(c)
-    if c == osztoosszeg(d) and c != d:
-        return d
-    else:
-        print("Nem baratok")
+#def idk(c:int)-> int:
+    #d: int = osztoosszeg(c)
+    #if c == osztoosszeg(d) and c != d:
+        #return d
+    #else:
+        #print("Nem baratok")
 
-print(idk(int(input())))
+#print(idk(int(input())))
 
-def sracokvanegyinhalatoromjolvagyok(f:int, g:int)-> List['int']:
-    dani = list
-    szorzat: int = 1
+#def sracokvanegyinhalatoromjolvagyok(f:int, g:int)-> List['int']:
+    #dani = list
+    #szorzat: int = 1
+
+
+def pls(k:int)-> int:
+    l: int=osztoosszeg(k)
+    if k + osztoosszeg(l):
+        return l
+
+
+
+
+print(pls(10))
+
+
+
 
