@@ -37,6 +37,14 @@ def woohoo():
         szorzat *= i
     print(szorzat)
 
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
+
 
 def hazifeladat00(lista: List['int'], b: int) -> List['int']:
     listar: list = []
@@ -105,4 +113,21 @@ def feladat6(a: float, b: float, c: float) -> List['int']:
         lista.append(-b + math.sqrt(D) / (2 * a))
     return lista
 
-print(feladat6(2, 3, 4))
+#print(feladat6(2, 3, 4))
+
+def tokeletes(a = int):
+    if osztoosszeg(a) == a:
+        return True
+    else:
+        return False
+
+# print(tokeletes(6))
+
+def termeszettokeletes(a = int, b = int) -> List['int']:
+    lista: list = []
+    for i in range(a, b):
+        if tokeletes(i) == i:
+            lista.append(i)
+    return lista
+
+print(termeszettokeletes(1, 30))
