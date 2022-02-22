@@ -68,26 +68,40 @@ def baratiszamok(a: int, b: int)-> bool:
     szamb: int = 0
     for x in range():
         if szama % x == szama + x:
-            #osszeg = szama + x
+            osszeg = szama + x
         if szamb % x == szamb + x:
-            #osszeg = szamb + x
+            osszeg = szamb + x
   #  return
 
-def hatvany(a: int, b:int) -> List['int']:
-    visszadottlista = list()
-    szam: int = 1
-    while (szam != 1):
-        szam = int(input())
-        if szam != 0:
-            visszaadottlista.append(szam)
-    return visszaadottlista
+#def hatvany(a: int, b:int) -> List['int']:
+ #   visszadottlista = list()
+  #  szam: int = 1
+   # while (szam != 1):
+    #    szam = int(input())
+ #       if szam != 0:
+  #          visszaadottlista.append(szam)
+    #return visszaadottlista
 
-    print()
-
-
+   # print()
 
 
+def tokeletes(szam: int) -> int:
+    szam1: int = szam
+    osszeg: int = 0
+    for x in range(1, szam1):
+        if szam % x == 0:
+            osszeg = osszeg + x
+       # return osszeg
+    if osszeg == szam:
+        return True
+    else:
+        return False
 
+#print(tokeletes(42))
 
-print()
+def parameter(szam: int) -> bool:
+    osszeg: int = 0
+        for i in range(1, szam):
+            if osszeg == szam:
 
+print(parameter(22))
