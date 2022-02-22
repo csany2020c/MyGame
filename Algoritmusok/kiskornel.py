@@ -134,4 +134,20 @@ def feladat8(a: float, b: float, c: float) -> List['float']:
     return kilista
 
 
-print(feladat8(3,7,4))
+#print(feladat8(3,7,4))
+
+def tokeletesszamok(sz: int,) -> bool:
+    oszt: int = sz // 2 + 1
+    osszeg: int = 0
+    for i in range(1, oszt):
+        if sz % i == 0:
+            osszeg = osszeg + i
+    if osszeg == sz:
+        return True
+    else:
+        return False
+
+print(tokeletesszamok(2))
+
+def felbontas(sz: int) -> List['int']:
+
