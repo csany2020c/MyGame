@@ -182,3 +182,40 @@ from typing import List
 
 
 #masodfoku(int)
+
+
+#Gyakorlás1:
+#def relativprim(a: int, b:int) -> bool:
+    #osztok = 0
+    #if a < b:
+        #osztok = a
+    #else:
+        #osztok = b
+    #while osztok > 1:
+        #if a % osztok == 0 and b % osztok == 0:
+            #return False
+        #osztok = osztok - 1
+    #return True
+
+#print(relativprim(6,35))
+
+
+# Hazi 2.3:
+def helyiertek(be:int) -> List['int']:
+    ki: List['int'] = list()
+    while be % 10 != 0:
+        ki.append(be % 10)
+        be = be // 10
+    if len(ki) == 0:
+        ki.append(0)
+    ki.reverse()
+    return ki
+
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(be):
+        ki.append(int(c))
+    return ki
+
+
+print(helyiertek2(be = 623))

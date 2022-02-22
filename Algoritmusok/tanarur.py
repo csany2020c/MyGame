@@ -288,4 +288,61 @@ def szamolas(be: int) -> List['int']:
 def paroslista(be: int) -> List['int']:
     return parosak(szamolas(be))
 
-print(paroslista(22))
+# print(paroslista(22))
+
+def relativprim(a: int, b: int) -> bool:
+    for i in range(2, min(a, b) + 1):
+        if a % i == 0 and b % i == 0:
+            return False
+    return True
+
+def relativprim2(a: int, b: int) -> bool:
+    al = set()
+    bl = set()
+    for i in range(2, a + 1):
+        if a % i == 0:
+            al.add(i)
+    for i in range(2, b + 1):
+        if b % i == 0:
+            bl.add(i)
+    # cl = al & bl
+    # if len(cl) == 0:
+    #     return True
+    # else:
+    #     return False
+    return len(al & bl) == 0
+    # https://www.geeksforgeeks.org/python-set-operations-union-intersection-difference-symmetric-difference/
+    # https://slideplayer.hu/slide/2929987/10/images/6/M%C5%B1veletek+halmazokkal.jpg
+    # union
+    #print("Union :", al | bl)
+
+    # intersection
+    #print("Intersection :", al & bl)
+
+    # difference
+    #print("Difference :", al - bl)
+
+    # symmetric difference
+    #print("Symmetric difference :", al ^ bl)
+
+
+#
+# print(relativprim2(21, 8))
+# print(relativprim2(8, 21))
+# print(relativprim2(8, 10))
+# print(relativprim2(2412, 2417))
+# print(relativprim2(2422, 2427))
+
+def tokeletes(be: int) -> bool:
+    return osszegzes(osztok(be)) - be == be
+
+
+def tokeletes2(be: int) -> bool:
+    osszeg: int = 0
+    for i in range(1, be // 2 + 1):
+        if be % i == 0:
+            osszeg += i
+    return osszeg == be
+
+
+print(tokeletes2(8128))
