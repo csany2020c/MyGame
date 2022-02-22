@@ -186,26 +186,39 @@ relativ(21, 8)
 
 
 #1
-Num = int(input(" "))
-ossz = 0
-for i in range(1, Num):
-    if(Num % i == 0):
-        ossz = ossz + i
-if (ossz == Num):
-    print("igaz")
-else:
-    print("hamis")
+def tokeletesszamok(szam: int) -> bool:
+    ossz = 0
+    for i in range(1, szam):
+        if(szam % i == 0):
+            ossz = ossz + i
+    if ossz == szam:
+        return True
+    else:
+        return False
+print(tokeletesszamok(28))
 
 #2
-#def tokeletes(belist: List['int']) -> List['int']:
-    #kilist: List['int'] = list()
-    #for i in belist:
-    #kilist.append(i)
+def tokeletes(a: int, b: int) -> List['int']:
+    lista: List['int'] = list()
+    for i in range(a, b + 1):
+        tok = tokeletesszamok(i)
+        # print(i)
+        if tok == True:
+            lista.append(i)
+    return lista
 
+#3
+def helyiertek(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for i in str(be):
+        ki.append(int(i))
+    return ki
+print(helyiertek(be=466))
 
 #4
-szam = 13455
-osszeg = 0
-for ossz in str(szam):
-    osszeg += int(ossz)
-print(osszeg)
+def osszegzes(szam: int) -> bool:
+    osszeg = 0
+    for ossz in str(szam):
+        osszeg += int(ossz)
+    return osszeg
+print(osszegzes(szam=23766373))
