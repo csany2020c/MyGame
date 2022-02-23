@@ -93,10 +93,7 @@ from typing import List
 #print(hatvanyozas(3, 4))
 
 
-#
-
-
-# HF
+# HF-------------------------------------------------------------------------------------------------------
 
 # 0.0
 # Készítsen függvényt, amelynek bemenete egy lista és egy szám. Válogassa ki a kimenetre egy új listába
@@ -245,7 +242,7 @@ hatlista = [4, 21, 54]
 
 
 
-# HF2
+# HF2-------------------------------------------------------------------------------------------------------
 
 # https://hu.wikipedia.org/wiki/T%C3%B6k%C3%A9letes_sz%C3%A1mok
 # 1. Készítsen függvényt, amely eldönti egy számról, hogy "tökéletes"-e.
@@ -320,10 +317,102 @@ def haromjegyu15():
 # 7. Armstrong-számok
 #     Melyek azok a háromjegyű számok, amelyeknek a jegyeit külön-külön a harmadikra hatványozva
 #     és ezeket összeadva az eredeti számot kapjuk vissza?
-#     Létezik négyjegyű szám is olyan, ahol az egyes számjegyek negyedik hatványának összege visszaadja az eredeti számot?
+#     Létezik négyjegyű szám is olyan, ahol az egyes számjegyek negyedik hatványának összege visszaadja
+#     az eredeti számot?
 
 
 def Armstrong():
     return
 
 # print(Armstrong())
+
+
+
+# HF3-------------------------------------------------------------------------------------------------------
+
+#https://hu.wikipedia.org/wiki/Mersenne-pr%C3%ADmek
+# A matematikában Mersenne-prímeknek nevezzük a kettő-hatványnál eggyel kisebb, azaz a 2n ‒ 1 alakban
+# felírható prímszámokat, ahol n szintén prímszám.
+
+# 1.a Készítsen függvényt, amelynek a bemenete a hatványkitevő. Visszaadott értéke igaz vagy hamis az alapján,
+# hogy Mersenne pím-e.
+# A 2^n-1 alakban felírt számok nagy valószínűséggel prímek, főleg ha n is prím. De nem biztos,
+# tehát meg kell vizsgálni.
+
+
+def Mersenne(n: int) -> int:
+    osszeg: int = 0
+
+    if osszeg == n:
+        return True
+    else:
+        return False
+
+
+print(Mersenne(31))
+
+
+# 1.b Keressen Mersenne prímeket. Az előző függvényt felhasználva keresse őket úgy, hogy a fenti függvény
+# hatványkitevő bemenete prímszám legyen,
+# A 2^n-1 alakban felírt számokra, ahol n prím minden esetben írja ki, hogy prím-e vagy nem.
+
+
+def Mersenne2():
+    return
+
+
+# print(Mersenne2())
+
+
+# https://hu.wikipedia.org/wiki/Fibonacci-sz%C3%A1mok
+# 2. Készítsen függvényt, amely listában adja vissza az első n darab Fibonacci számot. Az n a függvény bemenete.
+
+
+def Fibonacci(n: int) -> List['float']:
+    return
+
+
+# print(Fibonacci(50))
+
+
+# https://hu.wikipedia.org/wiki/Legkisebb_k%C3%B6z%C3%B6s_t%C3%B6bbsz%C3%B6r%C3%B6s
+# 3. Készítsen függvényt, amely két szám legkisebb közös többszörösét adja eredményül.
+
+
+def legkisebbkozostobbszoros(a: int, b: int)-> int:
+    eredmeny: int = 0
+
+    return eredmeny
+
+
+#print(legkisebbkozostobbszoros(9, 63))
+
+
+# https://hu.wikipedia.org/wiki/Legnagyobb_k%C3%B6z%C3%B6s_oszt%C3%B3
+# 4. Készítsen függvényt, amely két szám legnagyobb közös osztóját adja eredményül.
+
+
+def legnagyobbkozososzto(a: int, b: int)-> int:
+    eredmeny: int = 0
+
+    return eredmeny
+
+
+# print(legnagyobbkozososzto(74, 38))
+
+
+# https://hu.wikipedia.org/wiki/Szfenikus_sz%C3%A1mok
+# Szfenikus számok
+# 5. Függvénnyel döntse el egy számról szfenikus szám-e.
+
+
+def szfenikusszame(szam: int):
+    szam: int = 0
+
+    if szam == szam:
+        return True
+    else:
+        return False
+
+
+# print(szfenikusszame(30))
