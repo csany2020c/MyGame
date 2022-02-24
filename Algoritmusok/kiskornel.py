@@ -147,7 +147,34 @@ def tokeletesszamok(sz: int,) -> bool:
     else:
         return False
 
-print(tokeletesszamok(2))
+#print(tokeletesszamok(2))
 
 def felbontas(sz: int) -> List['int']:
+    lista: List['int'] = []
+    if sz == 0:
+        lista.append(0)
+    while sz > 0:
+        lista.append(sz % 10)
+        sz = sz // 10
+    lista.reverse()
+    return lista
 
+#print(felbontas(254))
+
+def szamjegyekosszege(sz: int) -> int:
+    osszeg: int = 0
+    for i in felbontas(sz):
+        osszeg += i
+    return osszeg
+#print(szamjegyekosszege(523))
+
+def szamjegyekszorzata(sz: int) -> bool:
+    szorzas: int = 1
+    for i in felbontas(sz):
+        szorzas*=i
+    if szorzas == sz:
+        return True
+    else:
+        return False
+
+print(szamjegyekszorzata())
