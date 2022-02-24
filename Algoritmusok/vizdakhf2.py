@@ -65,12 +65,3 @@ def legkisebbtöbbszörös(a: int, b: int) -> int:
     return szam
 #print(legkisebbtöbbszörös(3, 9))
 
-def legnagyobb_köz_oszto(a: int, b:int) -> int:
-    szam = 0
-    for i in range(1, a + 1):
-        if a % i == 0 and b % i == 0:
-            if szam < i:
-                szam = i
-    return szam
-
-print(legnagyobb_köz_oszto(4,46))
