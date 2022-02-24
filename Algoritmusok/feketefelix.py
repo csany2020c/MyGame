@@ -31,13 +31,13 @@ def listaz():
         #if io%ku == 3:
             #break
 
-def osztoosszeg(szam: int) -> int:
-    szamfele: int = szam // 2 + 1
-    osszeg: int = 0
-    for x in range(1, szamfele):
-        if szam % x == 0:
-            osszeg = osszeg + x
-    return osszeg
+#def osztoosszeg(szam: int) -> int:
+    #szamfele: int = szam // 2 + 1
+    #osszeg: int = 0
+    #for x in range(1, szamfele):
+        #if szam % x == 0:
+            #osszeg = osszeg + x
+    #return osszeg
 
 #print(osztoosszeg(int(input())))
 
@@ -62,15 +62,25 @@ def osztoosszeg(szam: int) -> int:
     #szorzat: int = 1
 
 
-def pls(k:int)-> int:
-    l: int=osztoosszeg(k)
-    if k + osztoosszeg(l):
-        return l
+#def pls(k:int)-> int:
+    #l: int=osztoosszeg(k)
+    #if k + osztoosszeg(l):
+        #return l
 
 
 
 
-print(pls(10))
+#print(pls(10))
+
+def mersenne(o:int)-> int:
+    z = 2
+    for i in range(0, 10000):
+        if o == z ^ i - 1:
+            return True
+        else:
+            False
+
+print(mersenne(int(input())))
 
 
 
