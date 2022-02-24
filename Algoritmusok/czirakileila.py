@@ -1,10 +1,8 @@
 from typing import List
 
-class egytoltizenotig:
-    for i in range(1, 16):
-        print(i)
-
-
+#class egytoltizenotig:
+    #for i in range(1, 16):
+#print(i)
 
 class beolvasas:
     while(True):
@@ -44,5 +42,36 @@ def tokeletesszam(szam: int) -> int:
             return
 
 
+# A matematikában Mersenne-prímeknek nevezzük a kettő-hatványnál eggyel kisebb, azaz a 2n ‒ 1 alakban felírható prímszámokat, ahol n szintén prímszám.
 
+def mersenne(a: float, b: float, c:float) -> List['float']:
+    kilista: List['float'] = list()
+    D: float
+    return
+
+
+
+# 2. Készítsen függvényt, amely listában adja vissza az első n darab Fibonacci számot. Az n a függvény bemenete.
+
+
+
+
+
+# 3. Készítsen függvényt, amely két szám legkisebb közös többszörösét adja eredményül.
+
+#def kicsitöbb(a: float, b:float) -> List['float']:
+
+
+# 4. Készítsen függvényt, amely két szám legnagyobb közös osztóját adja eredményül.
+
+def legnagyobbkoz(a: float, b: float) -> List['float']:
+    kilista = List['float'] = list()
+    if a == b:
+        return a
+    if a < b:
+        return legnagyobbkoz(a, b - a)
+    if a > b:
+        return legnagyobbkoz(b, a - b)
+
+print(legnagyobbkoz(21, 33))
 
