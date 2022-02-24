@@ -151,8 +151,59 @@ def tokeletes(a: int)->bool:
         return True
     else:
         return False
-print(tokeletes)
+#print(tokeletes)
 
-#def tokeletes2():
+def tokeletes2(min: int, max: int) -> List['int']:
+    lista: List['int'] = []
+    for i in range(min, max):
+        if tokeletes2(i):
+            lista.append(i)
+    return lista
+#print(tokeletes2(1, 10))
 
-#def bonto(x: int)-> list:
+def bonto(x: int)-> List['int']:
+    lista: List['int'] = []
+    if x <= 0:
+        lista.append(0)
+        return lista
+    while x != 0:
+        lista.append(x % 10)
+        x = x // 10
+    lista.reverse()
+    return lista
+#print(bonto(123))
+
+def szamjegyosszeg(a: int)-> int:
+    osszeg = 0
+    for i in bonto(a):
+        osszeg += i
+    return osszeg
+#print(szamjegyosszeg(123))
+
+def szamjegyszorzat(y: int) -> int:
+    szorzat = 1
+    for i in bonto(y):
+        szorzat *= i
+    if szorzat == y:
+        return True
+    else:
+        return False
+
+#print(szamjegyszorzat(8))
+
+def tizenot() -> int:
+    db = 0
+    for i in range(100, 1000):
+        if i % 15 == 0 and szamjegyosszeg(i) == 15:
+            db +=  1
+    return db
+#print(tizenot())
+
+def armstrong() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(100, 1000):
+        for i in (bonto(x)):
+            összeg += i ** 3
+
+#print(armstrong())

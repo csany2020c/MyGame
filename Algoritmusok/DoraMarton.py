@@ -1,3 +1,4 @@
+import math
 from typing import List
 
 
@@ -130,4 +131,26 @@ def termeszettokeletes(a = int, b = int) -> List['int']:
             lista.append(i)
     return lista
 
-print(termeszettokeletes(1, 30))
+#print(termeszettokeletes(1, 30))
+
+def prim0(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+
+def prim1(szam: int):
+    if szam == 1: return False
+    return osztoosszeg(szam) == 1
+
+
+def mersenneszam(n: int):
+    return 2**n - 1
+
+
+def mersenneprime(a: int):
+    return prim0(a) and prim0(mersenneszam(a))
+
