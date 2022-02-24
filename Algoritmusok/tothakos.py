@@ -189,4 +189,21 @@ def szamjegyszorzat(y: int) -> int:
     else:
         return False
 
-print(szamjegyszorzat(8))
+#print(szamjegyszorzat(8))
+
+def tizenot() -> int:
+    db = 0
+    for i in range(100, 1000):
+        if i % 15 == 0 and szamjegyosszeg(i) == 15:
+            db +=  1
+    return db
+#print(tizenot())
+
+def armstrong() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(100, 1000):
+        for i in (bonto(x)):
+            összeg += i ** 3
+
+#print(armstrong())
