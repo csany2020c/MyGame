@@ -130,4 +130,14 @@ def termeszettokeletes(a = int, b = int) -> List['int']:
             lista.append(i)
     return lista
 
-print(termeszettokeletes(1, 30))
+#print(termeszettokeletes(1, 30))
+
+def mersennesdolog1(a = int):
+    x = 2
+    for i in range(1, x**a):
+        if x**a-1 % i == 1 and x**a-1 % i == x**a-1 and x**a % i == 1 and x**a % i == x**a and a % i == 1 and a % i == a:
+            return True
+        else:
+            return False
+
+print(mersennesdolog1(3))

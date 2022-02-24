@@ -158,9 +158,8 @@ def HF2feladat2_tökeletesszam_lista(min: int, max: int) -> List['int']:
 
 def HF2feladat3_szamfelbontas(szam: int) -> List['int']:
     lista: List['int'] = []
-    while szam != 0:
-        lista.append(szam % 10)
-        szam = szam // 10
+    for i in str(szam):
+        lista.append(int(i))
     return lista
 
 #print(HF2feladat3_szamfelbontas(123))
@@ -185,14 +184,52 @@ def HF2feladat5_szamjegyszorzas(szam: int) -> bool:
 
 def HF2feladat6_15szam() -> int:
     db = 0
-    for i in range (100,999):
+    for i in range (100,1000):
         if i % 15 == 0 and HF2feladat4_szamjegyosszeg(i) == 15:
             db += 1
     return db
 
 #print(HF2feladat6_15szam())
 
-#def HF2feladat7_armstrongszamok()
+def HF2feladat7a_Armstrongszam() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(100, 1000):
+        for i in (HF2feladat3_szamfelbontas(x)):
+            összeg += i ** 3
+        if összeg != x:
+            összeg = 0
+        else:
+            lista.append(összeg)
+            összeg = 0
+    return lista
+
+#print(HF2feladat7a_Armstrongszam())
+
+def HF2feladat7b_Armstrongszam() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(1000, 10000):
+        for i in (HF2feladat3_szamfelbontas(x)):
+            összeg += i ** 4
+        if összeg != x:
+            összeg = 0
+        else:
+            lista.append(összeg)
+            összeg = 0
+    return lista
+
+
+#print(HF2feladat7b_Armstrongszam())
+
+def HF3feladat1_Mersenneprim(hatvany: int) -> bool:
+    szam = 2 ** hatvany - 1
+    for i in range (1, szam + 1):
+
+
+
+
+print(HF3feladat1_Mersenneprim(4))
 
 def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
     szam = 0
