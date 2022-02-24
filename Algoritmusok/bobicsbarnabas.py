@@ -99,7 +99,7 @@ def feladat00(lista: List['int'], oszto: int) -> List['int']:
     listak: list = [5, 6]
     for i in lista:
         if i % oszto == 0:
-            lista2.append(i)
+            lista.append(i)
     return listak
     pass
 
@@ -129,3 +129,31 @@ def minlist(lista: List['int']) -> int:
     return x
 
 #print(minlist((21, 2, 23,43, 55, 43)))
+
+def tokeletesszam(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    if osszeg == szam:
+        print("Tökéletes szám")
+    else:
+        print("Nem tökéletes szám")
+    return osszeg
+
+print(tokeletesszam(6))
+print(tokeletesszam(16))
+print(tokeletesszam(28))
+
+def baratiszamoke(a: int, b: int) -> bool:
+    return a != b and tokeletesszam(a) == b and tokeletesszam(b) == a
+
+def tokeletesszam2(minszam: int, maxszam: int) -> bool:
+    for x in range(minszam, maxszam + 1):
+        if baratiszamoke(x,tokeletesszam(x)):
+            print("{x} {y}".format(x=x, y=tokeletesszam(x)))
+    return tokeletesszam2()
+
+print(tokeletesszam2(3, 30))
+print(tokeletesszam2())
