@@ -1,5 +1,5 @@
 from typing import List
-
+import math
 
 def valami():
     while True:
@@ -177,4 +177,18 @@ def szamjegyekszorzata(sz: int) -> bool:
     else:
         return False
 
-print(szamjegyekszorzata())
+#print(szamjegyekszorzata())
+
+def primek(sz: int) -> int:
+    if sz == 1: return False
+    gyokpluszegy = int(math.sqrt(sz)) + 1
+    for i in range(2, gyokpluszegy):
+        if sz % i == 0:
+            return False
+    return True
+#print(primek(7))
+def Mersenneszam(a: int):
+    return 2 ** a -1
+
+def Mersenneprim(n: int) -> bool:
+    pass
