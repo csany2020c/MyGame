@@ -74,8 +74,8 @@ def listaz():
 
 def mersenne(o:int)-> int:
     z = 2
-    for i in range(0, 10000):
-        if o == z ^ i - 1:
+    for i in range(0, 1000000):
+        if o == z * i - 1:
             return True
         else:
             False
