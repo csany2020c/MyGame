@@ -1,4 +1,3 @@
 from typing import List
 
-
-def oszhatok(bemenet: List['int']) -> List['int']:
+def hatvanykitevo(hatvany: int) -> bool:
