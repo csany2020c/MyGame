@@ -189,4 +189,54 @@ def szamjegyszorzat(y: int) -> int:
     else:
         return False
 
-print(szamjegyszorzat(8))
+#print(szamjegyszorzat(8))
+
+def tizenot() -> int:
+    db = 0
+    for i in range(100, 1000):
+        if i % 15 == 0 and szamjegyosszeg(i) == 15:
+            db += 1
+    return db
+#print(tizenot())
+
+def armstrong() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(100, 1000):
+        for i in (bonto(x)):
+            összeg += i ** 3
+            if összeg != x:
+                összeg = 0
+            else:
+                lista.append(összeg)
+                összeg = 0
+        return lista
+
+print(armstrong())
+
+#def mensenne(hatvany: int) -> bool:
+    #szam = 2 ** hatvany - 1
+    #for i in range (1, szam + 1):
+#print(mensenne())
+
+def legkisebbtobbszoros(a: int, b: int) -> int:
+    szam = 0
+    if a % b == 0:
+        szam = a
+    if b % a == 0:
+        szam = b
+    if b % a and a % b != 0:
+        szam = a * b
+    return szam
+#print(legkisebbtobbszoros(3, 5))
+
+def legnagyobboszto(a: int, b:int) -> int:
+    szam = 0
+    for i in range(1, a + 1):
+        if a % 1 == 0 and b % i == 0:
+            if szam < i:
+                szam = i
+    return szam
+#print(legnagyobboszto(4, 12))
+
+#def szfenikus(a: int) -> int:
