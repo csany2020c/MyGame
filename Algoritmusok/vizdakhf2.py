@@ -14,11 +14,11 @@ def tökeletesszam(szam: int) -> bool:
 
 #print(tökeletesszam(28))
 
-def tökeletesszam_lista(min: int, max: int) -> List['int']:
+def tökeletesszam_lista(szam: int, szam1: int) -> List['int']:
     lista: List['int'] = []
-    for i in range(min, max):
-        if tökeletesszam(i):
-            lista.append(i)
+    for x in range(szam, szam1):
+        if tökeletesszam(x):
+            lista.append(x)
 
     return lista
 
@@ -27,41 +27,27 @@ def tökeletesszam_lista(min: int, max: int) -> List['int']:
 
 def szamfelbontas(szam: int) -> List['int']:
     lista: List['int'] = []
+    if szam == 0:
+        lista.append(0)
     while szam != 0:
         lista.append(szam % 10)
         szam = szam // 10
+        lista.reverse()
     return lista
 
-#print(szamfelbontas(123))
 
-def szamjegyosszeg(szam: int) -> int:
+#print(szamfelbontas(343))
+
+def szamjegyosszeg(x: int) -> int:
     osszeg = 0
-    for i in (szamfelbontas(szam)):
-        osszeg += i
+    for x in szamfelbontas(x):
+        osszeg += x
     return osszeg
-#print(szamjegyosszeg(122))
 
-def szamjegyszorzas(szam: int) -> bool:
-    szorzat = 1
-    for i in str(szam):
-        szorzat *= int(i)
-    if szorzat == szam:
-        return True
-    else:
-        return False
+print(szamjegyosszeg(553))
 
-#print(szamjegyszorzas(16))
+def szorzat(szam: int) -> bool:
+    szorzata = 0
+    for x in szamfelbontas(szam):
 
-
-
-def legkisebbtöbbszörös(a: int, b: int) -> int:
-    szam = 0
-    if a % b == 0:
-        szam = a
-    if b % a == 0:
-        szam = b
-    if b % a and a % b != 0:
-        szam = a * b
-    return szam
-#print(legkisebbtöbbszörös(3, 9))
 

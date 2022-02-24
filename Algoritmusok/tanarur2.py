@@ -178,7 +178,7 @@ def masodfoku(a: float, b: float, c: float) -> List['float']:
         kilista.append((-b - math.sqrt(D)) / (2 * a))
     return kilista
 
-print(masodfoku(3, 7, 4))
+# print(masodfoku(3, 7, 4))
 
 
 
