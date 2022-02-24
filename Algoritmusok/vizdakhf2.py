@@ -16,9 +16,9 @@ def tökeletesszam(szam: int) -> bool:
 
 def tökeletesszam_lista(szam: int, szam1: int) -> List['int']:
     lista: List['int'] = []
-    for i in range(szam, szam1):
-        if tökeletesszam(i):
-            lista.append(i)
+    for x in range(szam, szam1):
+        if tökeletesszam(x):
+            lista.append(x)
 
     return lista
 
@@ -27,18 +27,27 @@ def tökeletesszam_lista(szam: int, szam1: int) -> List['int']:
 
 def szamfelbontas(szam: int) -> List['int']:
     lista: List['int'] = []
+    if szam == 0:
+        lista.append(0)
     while szam != 0:
         lista.append(szam % 10)
         szam = szam // 10
+        lista.reverse()
     return lista
 
-#print(szamfelbontas(123))
+
+#print(szamfelbontas(343))
 
 def szamjegyosszeg(x: int) -> int:
     osszeg = 0
-    for x in range():
-       if osszeg == x:
+    for x in szamfelbontas(x):
+        osszeg += x
     return osszeg
 
-print(szamjegyosszeg(55))
+print(szamjegyosszeg(553))
+
+def szorzat(szam: int) -> bool:
+    szorzata = 0
+    for x in szamfelbontas(szam):
+
 

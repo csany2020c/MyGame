@@ -266,11 +266,13 @@ def tokeletesszame(szam: int) -> int:
 # hogy tökéletes-e, és a tökéletes számok listájával tér vissza.
 
 
-def tokeletesszame2() -> List['float']:
-    return
+def tokeletesszame2(a: int, b: int) -> List['float']:
+    list: List['float'] = []
+    # for i in range():
+    return list
 
 
-# print(tokeletesszame2())
+#print(tokeletesszame2(1, 50))
 
 
 # 3. Készítsen függvényt, amely egy bemeneti számot 10-es számrendszerben felbont helyiértékeire,
@@ -279,39 +281,56 @@ def tokeletesszame2() -> List['float']:
 
 
 def helyiertekrebontas(szam: int) -> List['float']:
-    megoldas: List['float'] = list()
+    megoldas: List['float'] = []
+    while szam > 0:
+        megoldas.append(szam % 10)
+        szam = szam // 10
+    megoldas.reverse()
+    #if szam == 0:
+    #    megoldas = 0
+    return megoldas
 
-    return
 
-
-# print(helyiertekrebontas(623))
+print(helyiertekrebontas(754))
 
 
 # 4. Készítsen függvényt, amely egy bemeneti számból kiszámolja a számjegyeinek az összegét.
 
 
 def szamjegyekosszege(szam: int) -> int:
-    return
+    osszeg: int = 0
+    for i in (helyiertekrebontas(szam)):
+        osszeg += i
+    return osszeg
 
-# print(szamjegyekosszege(856))
+
+#print(szamjegyekosszege(856))
 
 
 # 5. Keressen olyan számokat, amelyeknek a számjegyeinek a szorzata megegyezik a számmal.
 
 
-def szamjegyekszorzata():
-    return
+def szamjegyekszorzata(szam: int)-> int:
+    szorzat: int = 0
 
-# print(szamjegyekszorzata())
+    return szorzat
+
+
+# print(szamjegyekszorzata(55))
 
 
 # 6. Hány olyan háromjegyű szám van, melyben a számjegyek összege 15, és a szám osztható 15-tel?
 
 
-def haromjegyu15():
-    return
+def haromjegyu15(szam: int) -> int:
+    osszeg: int = 0
+    #for i in (szamjegyekosszege(osszeg)):
+    #    if osszeg == 15:
+            #print("asd")
+    return osszeg
 
-# print(haromjegyu15())
+
+#print(haromjegyu15())
 
 
 # 7. Armstrong-számok
@@ -349,7 +368,7 @@ def Mersenne(n: int) -> int:
         return False
 
 
-print(Mersenne(31))
+# print(Mersenne(31))
 
 
 # 1.b Keressen Mersenne prímeket. Az előző függvényt felhasználva keresse őket úgy, hogy a fenti függvény
@@ -381,11 +400,16 @@ def Fibonacci(n: int) -> List['float']:
 
 def legkisebbkozostobbszoros(a: int, b: int)-> int:
     eredmeny: int = 0
-
+    if a % b == 0:
+        eredmeny = a
+    if b % a == 0:
+        eredmeny = b
+    if a % b and b % a > 0:
+        eredmeny = a * b
     return eredmeny
 
 
-#print(legkisebbkozostobbszoros(9, 63))
+# print(legkisebbkozostobbszoros(9, 63))
 
 
 # https://hu.wikipedia.org/wiki/Legnagyobb_k%C3%B6z%C3%B6s_oszt%C3%B3
@@ -394,11 +418,14 @@ def legkisebbkozostobbszoros(a: int, b: int)-> int:
 
 def legnagyobbkozososzto(a: int, b: int)-> int:
     eredmeny: int = 0
-
+    for x in range(1, a + 1):
+        if a % x == 0 and b % x == 0:
+            if eredmeny < x:
+                eredmeny = x
     return eredmeny
 
 
-# print(legnagyobbkozososzto(74, 38))
+#print(legnagyobbkozososzto(5, 500))
 
 
 # https://hu.wikipedia.org/wiki/Szfenikus_sz%C3%A1mok
@@ -406,10 +433,10 @@ def legnagyobbkozososzto(a: int, b: int)-> int:
 # 5. Függvénnyel döntse el egy számról szfenikus szám-e.
 
 
-def szfenikusszame(szam: int):
+def szfenikusszame(a: int):
     szam: int = 0
 
-    if szam == szam:
+    if szam == a:
         return True
     else:
         return False
