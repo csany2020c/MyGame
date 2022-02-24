@@ -154,3 +154,13 @@ def mersenneszam(n: int):
 def mersenneprime(a: int):
     return prim0(a) and prim0(mersenneszam(a))
 
+#print(mersenneprime(10))
+
+def fibonacci(a: int) -> List['int']:
+    lista: List = []
+    x = 0
+    y = 1
+    for i in range(a):
+        y += x
+
+print(fibonacci(20))
