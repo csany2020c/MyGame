@@ -373,12 +373,17 @@ def szamjegyszorzat(a: int) -> bool:
 # print(szamjegyszorzat(8))
 # print(szamjegyszorzat(15))
 
-#6. feladat - még nincs kész
+#6. feladat
 def haromjegyu() -> int:
-    db = 0
+    lista: List['int'] = list()
+    lista2: List['int'] = list()
     for i in range(100, 999):
         if i % 15 == 0:
-            db = db + 1
-    return db
+            lista.append(i)
+    for i in lista:
+        if osszegfuggveny(i) == 15:
+            lista2.append(i)
+    return len(lista2)
+
 
 print(haromjegyu())
