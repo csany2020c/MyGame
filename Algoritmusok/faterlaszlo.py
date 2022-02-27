@@ -417,7 +417,7 @@ def armstrongszamok2() -> bool:
 #hazi feladat_hf3
 
 #1.a feladat
-def messeneprim(a: int) -> bool:
+def mersseneprim(a: int) -> bool:
     db = 0
     szam = 1
     szamolas: float = math.pow(2, a) - 1
@@ -425,12 +425,27 @@ def messeneprim(a: int) -> bool:
         if szamolas % szam == 0:
             db += 1
             # print("db=" + str(db))
+            if db > 3:
+                break
+            if szam == szamolas:
+                break
         szam += 1
-        if szam > szamolas:
-            break
     return db == 2
 
 
-# print(messeneprim(3)) #true
-# print(messeneprim(4)) #false
-# print(messeneprim(5)) #true
+# print(mersseneprim(3)) #true
+# print(mersseneprim(4)) #false
+# print(mersseneprim(5)) #true
+
+#1.b feladat
+def mersenneprimkereses(a: int) -> bool:
+    szam = 1
+    db = 0
+    for i in range(a):
+        if a % szam == 0:
+            db += 1
+        szam += 1
+    return db == 2, mersseneprim(a)
+
+# print(mersenneprimkereses(79))
+# print(mersenneprimkereses(7))
