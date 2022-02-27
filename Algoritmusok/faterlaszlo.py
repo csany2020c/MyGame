@@ -400,7 +400,7 @@ def armstongszamok() -> int:
         return lista
 
 
-print(armstongszamok())
+# print(armstongszamok())
 
 def armstrongszamok2() -> bool:
     szam = 0
