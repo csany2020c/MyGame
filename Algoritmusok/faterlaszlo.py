@@ -415,6 +415,8 @@ def armstrongszamok2() -> bool:
 # print(armstrongszamok2())
 
 #hazi feladat_hf3
+
+#1.a feladat
 def messeneprim(a: int) -> bool:
     db = 0
     szam = 1
