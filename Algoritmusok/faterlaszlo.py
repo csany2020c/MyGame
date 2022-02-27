@@ -386,4 +386,30 @@ def haromjegyu() -> int:
     return len(lista2)
 
 
-print(haromjegyu())
+# print(haromjegyu())
+
+def armstongszamok() -> int:
+    szam = 0
+    lista: List['int'] = list()
+    lista2: List['int'] = list()
+    for i in range(100, 999):
+        while i > 0:
+            lista.append(i % 10)
+            i = i // 10
+            lista.reverse()
+        return lista
+
+
+print(armstongszamok())
+
+def armstrongszamok2() -> bool:
+    szam = 0
+    for i in range(1000, 9999):
+        eredeti = i
+        for o in str(i):
+            szam = szam * math.pow(int(o), 3)
+            if szam == eredeti:
+                return False
+    return True
+
+print(armstrongszamok2())
