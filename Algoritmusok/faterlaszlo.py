@@ -412,4 +412,23 @@ def armstrongszamok2() -> bool:
                 return False
     return True
 
-print(armstrongszamok2())
+# print(armstrongszamok2())
+
+#hazi feladat_hf3
+def messeneprim(a: int) -> bool:
+    db = 0
+    szam = 1
+    szamolas: float = math.pow(2, a) - 1
+    while szamolas > 1:
+        if szamolas % szam == 0:
+            db += 1
+            # print("db=" + str(db))
+        szam += 1
+        if szam > szamolas:
+            break
+    return db == 2
+
+
+# print(messeneprim(3)) #true
+# print(messeneprim(4)) #false
+# print(messeneprim(5)) #true
