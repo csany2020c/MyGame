@@ -388,6 +388,7 @@ def haromjegyu() -> int:
 
 # print(haromjegyu())
 
+#7.a feladat - felig van meg
 def armstongszamok() -> int:
     szam = 0
     lista: List['int'] = list()
@@ -402,6 +403,7 @@ def armstongszamok() -> int:
 
 # print(armstongszamok())
 
+#7.b feladat - kesz
 def armstrongszamok2() -> bool:
     szam = 0
     for i in range(1000, 9999):
@@ -449,3 +451,31 @@ def mersenneprimkereses(a: int) -> bool:
 
 # print(mersenneprimkereses(79))
 # print(mersenneprimkereses(7))
+
+#2. feladat
+def fibonacciszamok(n: int) -> List['int']:
+    lista: List['int'] = list()
+    osszeg = 0
+    if n == 0:
+        lista.append(n)
+        return lista
+    if n == 1:
+        lista.append(n)
+        return lista
+    if n >= 2:
+        osszeg += (n - 1)
+        n -= 1
+        osszeg += (n - 2)
+        lista.append(osszeg)
+    return lista
+
+
+# print(fibonacciszamok(6))
+# print(fibonacciszamok(1))
+
+#3. feladat
+# def primtenyezos(a: int, b: int) -> int:
+#
+#
+# print(primtenyezos(10, 18))
+
