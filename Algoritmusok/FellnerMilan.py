@@ -39,7 +39,7 @@ class Algorythm:
         #print(self.tokeleteslista(1,7))
         #print(self.tizesszamrendszer(623))
         #print(self.szamjegyekosszege(-12))
-        print(self.szamjegyekszorzata(2))
+        ##print(self.szamjegyekszorzata(2))
         #print(self.masodfoku(2,20,2))
         #print(self.relativprim(12000000,2))
         #print(self.helyiertek(125))
@@ -47,7 +47,7 @@ class Algorythm:
         #print(self.helyiertekosszeg(123))
         #print(self.szamjegyeinekszorzata(10))
         #print(self.szamjegyekosszeesoszthato())
-
+        print(self.mersenneprim(5))
     def masikBinaris(self,szam:int) -> str:
         outP:str = ""
         for i in range(8):
@@ -109,6 +109,13 @@ class Algorythm:
             print("Nem valós gyök")
         return outLista
 
+    def prim(self,szam: int) -> bool:
+        if szam == 1: return False
+        gyokpluszegy = int(math.sqrt(szam)) + 1
+        for i in range(2, gyokpluszegy):
+            if szam % i == 0:
+                return False
+        return True
 
 
 
@@ -134,54 +141,6 @@ class Algorythm:
 
     def szamolasparos(self,szam:int) -> List['int']:
         return self.paros(self.szamoljelodaig(szam))
-    def tokeletes(self,szam:int) -> bool:
-        osztok:List['int'] = list()
-        count:int = 0
-        for i in range(1,szam):
-            if (szam%i == 0):
-                osztok.append(i)
-
-        for i in osztok:
-            count+=i
-        return count==szam
-
-    def tokeleteslista(self,szam1:int,szam2:int) -> List['int']:
-        tokeleteslista:List['int'] = list()
-        for i in range(szam1, szam2):
-            if self.tokeletes(i):
-                tokeleteslista.append(i)
-        return tokeleteslista
-
-    def tizesszamrendszer(self,szam:int) -> List['int']:
-        szamok:List['int'] = list()
-        szamStr = str(szam)
-        for i in range(len(szamStr)):
-            szamok.append(int(szamStr[i]))
-        return szamok
-
-    def szamjegyekosszege(self,szam:int) -> int:
-        count = 0
-        szamStr = str(szam)
-        for i in range(len(szamStr)):
-            count+=int(szamStr[i])
-        return count
-    def szamjegyekszorzata(self,szam:int) -> List['int']:
-        outLista:List['int'] = list()
-        count:int = 1
-        for i in range(szam+1):
-            szamStr = str(i)
-            for i in range(len(szamStr)):
-                count*=i
-            if count == i:
-                outLista.append(i)
-            count=1
-        return outLista
-
-
-
-
-
-
 
     def relativprim(self,szam1:int,szam2:int) -> bool:
         szam1oszthatok:List['int'] = list()
@@ -254,6 +213,14 @@ class Algorythm:
             if (i % 15 == 0 and self.helyiertekosszeg(i) == 15):
                 outLista.append(i)
         return outLista
+
+
+    def mersenneprim(self,kitevo:int) -> bool:
+        if self.prim(kitevo):
+            if self.prim((2**kitevo)-1):
+                return True
+            else:
+                return False
 
 
 
