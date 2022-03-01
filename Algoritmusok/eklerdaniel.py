@@ -1,6 +1,6 @@
 from typing import TextIO
 from typing import List
-import time
+from time import time
 #def fakt(n: int) -> int:
  #   szorzat = 1
   #  for i in range(2, n + 1):
@@ -125,8 +125,11 @@ def boldoge(szam: int) -> bool:
         print(szekvencia)
     return aktualisnegyzetosszeg == 1
 
+ts1 = time()
+print(boldoge(1000000000000001))
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
-print(boldoge(133))
 
 
 
