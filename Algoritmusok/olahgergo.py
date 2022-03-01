@@ -22,12 +22,12 @@ from typing import List
 #     lista = []
 #     asd = 1
 #     for i in range(inp):
-#         if inp % asd == 0:
-#             lista.append(asd)
-#         asd = asd + 1
-#     print(lista)
-# cucc()
-
+# #         if inp % asd == 0:
+# #             lista.append(asd)
+# #         asd = asd + 1
+# #     print(lista)
+# # cucc()
+#
 # def cucc2():
 #     inp = int(input())
 #     lista = []
@@ -41,36 +41,39 @@ from typing import List
 #         asd2 = True
 #     print(lista)
 # cucc2()
-
 #
-#
-# def szamitas(a, b):
-#     while b != 0:
-#         a, b = b, a % b
-#     return a
-#
-# def relativprim(a, b):
-#     return szamitas(a, b) == 1
-#
-# print(relativprim(8,9))
-# print(relativprim(1,2))
-# print(relativprim(45,67))
-# print(relativprim(583,596))
-# print(relativprim(696,798))
-# print(relativprim(182,458))
-# print(relativprim(559,5438))
-# print(relativprim(583,697))
-# print(relativprim(646,749))
-# print(relativprim(69,797))
-# print(relativprim(69420, 9))
 
 
-def relativprim(a: int, b: int) -> bool:
-    for i in range(2, min(a, b) + 1):
-        if a % i == 0 and b % i == 0:
-            return False
-    return True
 
-print(relativprim(45,67))
-print(relativprim(583,596))
-print(relativprim(696,798))
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
+
+# A lista elemeinek a négyzetének az összege [2,3] 2*2+3*3
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam+=i*i
+    return szam
+
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        # print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+
+# print(boldoge(-23))
+
+def zsuppanbuta(jani) -> bool:
+    sanyi: List['int'] = list()
+    for i in range(0, jani):
+        if boldoge(i) == True:
+            sanyi.append(i)
+    return sanyi
+print(zsuppanbuta(4859))
