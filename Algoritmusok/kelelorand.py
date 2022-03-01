@@ -1,4 +1,5 @@
 from typing import List
+from time import time
 
 
 def helyiertek2(be:int) -> List['int']:
@@ -21,7 +22,7 @@ def boldoge(szam: int) -> bool:
 
     f2 = open('kelelorandfile2', 'r+')
     f2open = f2.read().strip().split(';')
-    print(f2open)
+    #print(f2open)
 
     aktualisnegyzetosszeg: int = szam
     szekvencia: List['int'] = list()
@@ -47,9 +48,12 @@ def boldoge(szam: int) -> bool:
 
 
 
+ts1 = time()
 
-
-print(boldoge(7))
+for i in range(1, 20000):
+    boldoge(i)
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
 
 
