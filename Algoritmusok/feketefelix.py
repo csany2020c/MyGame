@@ -72,16 +72,12 @@ def listaz():
 
 #print(pls(10))
 
-def mersenne(o:int)-> int:
+def mersenne(o:int)-> bool:
     z = 2
     for i in range(0, 1000000):
         if o == z * i - 1:
             return True
-        else:
-            False
+    return False
 
 print(mersenne(int(input())))
-
-
-
 

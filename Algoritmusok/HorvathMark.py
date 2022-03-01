@@ -222,14 +222,31 @@ def HF2feladat7b_Armstrongszam() -> List['int']:
 
 #print(HF2feladat7b_Armstrongszam())
 
-def HF3feladat1_Mersenneprim(hatvany: int) -> bool:
-    szam = 2 ** hatvany - 1
-    for i in range (1, szam + 1):
+def prim(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+#print(prim(1))
+
+def Mersenszam(n: int):
+    return 2**n - 1
+
+def HF3feladat1a_Mersenneprim(hatvany: int) -> bool:
+    return prim(hatvany) and prim(Mersenszam(hatvany))
 
 
 
+#print(HF3feladat1a_Mersenneprim(6))
 
-print(HF3feladat1_Mersenneprim(4))
+def HF3feladat1b_Mersenneprimkeres():
+    for i in range(1, 1001):
+
+
+print(HF3feladat1b_Mersenneprimkeres())
 
 def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
     szam = 0
@@ -240,6 +257,7 @@ def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
     if b % a and a % b != 0:
         szam = a * b
     return szam
+
 #print(HF3feladat3_legkisebbtöbbszörös(5, 12))
 
 def HF3feladat4_legnagyobb_köz_oszto(a: int, b:int) -> int:

@@ -1,5 +1,5 @@
 from typing import List
-
+from time import time
 
 # 1,feladat:
 # szam = 1
@@ -55,19 +55,19 @@ from typing import List
 # osztas = osztas + 1
 
 # 8,feladat:
-# def primszam(input):
-# osztas = 1
-# eredmeny = 0
-# while osztas <= input:
-# if input % osztas == 0:
-# eredmeny = eredmeny + 1
-# osztas = osztas + 1
-# if eredmeny == 2:
-# print("A(z) " + str(input) + " primszám!")
-# else:
-# print("A(z) " + str(input) + " nem primszám!")
+#def primszam(input):
+    #osztas = 1
+    #eredmeny = 0
+    #while osztas <= input:
+        #if input % osztas == 0:
+            #eredmeny = eredmeny + 1
+            #osztas = osztas + 1
+        #if eredmeny == 2:
+            #print("A(z) " + str(input) + " primszám!")
+        #else:
+            #print("A(z) " + str(input) + " nem primszám!")
 
-# primszam(int(input()))
+#primszam(int(input()))
 
 # 9,feladat:
 # def binary(be: int) -> str:
@@ -223,19 +223,73 @@ from typing import List
 #print(helyiertek2(be = 623))
 
 #Hazi 2.4:
-def helyiertekosszeg(be:int) -> List['int']:
+#def helyiertekosszeg(be:int) -> List['int']:
+    #ki: List['int'] = list()
+    #osszeg = 0
+    #while be % 10 != 0:
+        #ki.append(be % 10)
+        #be = be // 10
+    #if len(ki) == 0:
+        #ki.append(0)
+    #ki.reverse()
+    #for i in range (len(ki)):
+        #osszeg += ki[i]
+    #print("Az összeg: {osszeg}".format(osszeg=osszeg))
+    #return ki
+
+
+#(helyiertekosszeg(be=623))
+
+
+#Hazi 3.1:
+#def marseneprim(hatvanykitevo:int):
+    #osszeg = 0
+    #a = 2
+    #for i in range(1):
+        #osszeg = 2 ** hatvanykitevo - 1
+    #for a in range(a, osszeg, hatvanykitevo):
+        #if a % osszeg == 0:
+            #if a % hatvanykitevo == 0:
+                #print('Nem marseprím')
+                #break
+        #else:
+            #print('Marseprím')
+            #break
+
+#marseneprim(hatvanykitevo=5)
+
+#Hazi 4.2:
+def helyiertek2(be:int) -> List['int']:
     ki: List['int'] = list()
-    osszeg = 0
-    while be % 10 != 0:
-        ki.append(be % 10)
-        be = be // 10
-    if len(ki) == 0:
-        ki.append(0)
-    ki.reverse()
-    for i in range (len(ki)):
-        osszeg += ki[i]
-    print("Az összeg: {osszeg}".format(osszeg=osszeg))
+    for c in str(abs(be)):
+        ki.append(int(c))
     return ki
 
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam+=i*i
+    return szam
 
-(helyiertekosszeg(be=623))
+boldoglista: List['int'] = list()
+boldogtalanlista: List['int'] = list()
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        # print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+ts1 = time()
+for i in range(20000):
+    if boldoge(i) == True:
+        boldoglista.append(i)
+print(boldoglista)
+for i in range(20000):
+    if boldoge(i) == False:
+        boldogtalanlista.append(i)
+print(boldogtalanlista)
+ts2 = time()
+print("A program {mp} mp-ig futott!".format(mp=(ts2-ts1)))

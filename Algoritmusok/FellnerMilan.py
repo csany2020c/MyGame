@@ -35,6 +35,11 @@ class Algorythm:
         #print(str(self.mertanisorozat(1,2,3)))
         #print(str(self.negyedik([5,6,9])))
         #print(self.otodik(1,2,3))
+        #print(self.tokeletes(28))
+        #print(self.tokeleteslista(1,7))
+        #print(self.tizesszamrendszer(623))
+        #print(self.szamjegyekosszege(-12))
+        ##print(self.szamjegyekszorzata(2))
         #print(self.masodfoku(2,20,2))
         #print(self.relativprim(12000000,2))
         #print(self.helyiertek(125))
@@ -42,7 +47,7 @@ class Algorythm:
         #print(self.helyiertekosszeg(123))
         #print(self.szamjegyeinekszorzata(10))
         #print(self.szamjegyekosszeesoszthato())
-
+        print(self.mersenneprim(5))
     def masikBinaris(self,szam:int) -> str:
         outP:str = ""
         for i in range(8):
@@ -104,6 +109,13 @@ class Algorythm:
             print("Nem valós gyök")
         return outLista
 
+    def prim(self,szam: int) -> bool:
+        if szam == 1: return False
+        gyokpluszegy = int(math.sqrt(szam)) + 1
+        for i in range(2, gyokpluszegy):
+            if szam % i == 0:
+                return False
+        return True
 
 
 
@@ -201,6 +213,14 @@ class Algorythm:
             if (i % 15 == 0 and self.helyiertekosszeg(i) == 15):
                 outLista.append(i)
         return outLista
+
+
+    def mersenneprim(self,kitevo:int) -> bool:
+        if self.prim(kitevo):
+            if self.prim((2**kitevo)-1):
+                return True
+            else:
+                return False
 
 
 
