@@ -224,3 +224,45 @@ def osszegzes(szam: int) -> bool:
 print(osszegzes(szam=23766373))
 
 
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
+
+# A lista elemeinek a négyzetének az összege [2,3] 2*2+3*3
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam += i*i
+    return szam
+
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        # print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+
+print(boldoge(-23))
+
+def happy(veg) -> list:
+    kilist: List ['int'] = list()
+    for i in range(0, veg):
+        if boldoge(i) == True:
+            kilist.append(i)
+    return kilist
+
+print(happy(23))
+
+def unhappy(end) -> list:
+    ki: List ['int'] = list()
+    for i in range(1, end):
+        if boldoge(i) == False:
+            ki.append(i)
+    return ki
+
+print(unhappy(23))
