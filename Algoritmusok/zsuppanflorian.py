@@ -222,3 +222,5 @@ def osszegzes(szam: int) -> bool:
         osszeg += int(ossz)
     return osszeg
 print(osszegzes(szam=23766373))
+
+
