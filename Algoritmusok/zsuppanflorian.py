@@ -256,5 +256,13 @@ def happy(veg) -> list:
             kilist.append(i)
     return kilist
 
-print(happy(2334))
+print(happy(23))
 
+def unhappy(end) -> list:
+    ki: List ['int'] = list()
+    for i in range(1, end):
+        if boldoge(i) == False:
+            ki.append(i)
+    return ki
+
+print(unhappy(23))
