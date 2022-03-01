@@ -345,4 +345,30 @@ def tokeletes2(be: int) -> bool:
     return osszeg == be
 
 
-print(tokeletes2(8128))
+# print(tokeletes2(8128))
+
+
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
+
+# A lista elemeinek a négyzetének az összege [2,3] 2*2+3*3
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam+=i*i
+    return szam
+
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        # print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+
+print(boldoge(-23))
