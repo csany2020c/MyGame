@@ -1,2 +1,2 @@
 PlayerLevel;MaxEnemyLevel;PlayerHP;PlayerDamage;Money;
-0.8;1;250;35;0;
+1.9999999999999998;3;250;35;0;
