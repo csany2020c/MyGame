@@ -1,6 +1,6 @@
 from typing import TextIO
 from typing import List
-
+from time import time
 #def fakt(n: int) -> int:
  #   szorzat = 1
   #  for i in range(2, n + 1):
@@ -84,7 +84,7 @@ def HF2(belist: List['int']) -> bool:
 
 
 L7 = [3, 6, 8, 2, 10, 3, 1, 4, 333]
-print(HF2(L7))
+#print(HF2(L7))
 
 
 def min(be: int, bebe: int) -> int:
@@ -100,7 +100,35 @@ L7 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,]
 
 L7.sort()
 
-print(L7[:1])
+#print(L7[:1])
+
+
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
+
+# A lista elemeinek a négyzetének az összege [2,3] 2*2+3*3
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam+=i*i
+    return szam
+Lszomi = [4, 16, 37, 58, 89, 145, 42, 20, ]
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in Lszomi and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+ts1 = time()
+print(boldoge(1000000000000001))
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
 
 
