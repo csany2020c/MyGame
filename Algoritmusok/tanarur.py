@@ -412,11 +412,11 @@ def keresboldogsmart(start: int, stop: int) -> List['int']:
 
 
 ts1 = time()
-print(keresboldogbruteforce(1, 9999))
+print(keresboldogbruteforce(1, 20000))
 ts2 = time()
 print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
 
 ts1 = time()
-print(keresboldogsmart(1, 9999))
+print(keresboldogsmart(1, 20000))
 ts2 = time()
 print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
