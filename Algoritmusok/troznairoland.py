@@ -1,5 +1,5 @@
 from typing import List
-
+from time import time
 
 # 1,feladat:
 # szam = 1
@@ -242,18 +242,54 @@ from typing import List
 
 
 #Hazi 3.1:
-def marseneprim(hatvanykitevo:int):
-    osszeg = 0
-    a = 2
-    for i in range(1):
-        osszeg = 2 ** hatvanykitevo - 1
-    for a in range(a, osszeg, hatvanykitevo):
-        if a % osszeg == 0:
-            if a % hatvanykitevo == 0:
-                print('Nem marseprím')
-                break
-        else:
-            print('Marseprím')
-            break
+#def marseneprim(hatvanykitevo:int):
+    #osszeg = 0
+    #a = 2
+    #for i in range(1):
+        #osszeg = 2 ** hatvanykitevo - 1
+    #for a in range(a, osszeg, hatvanykitevo):
+        #if a % osszeg == 0:
+            #if a % hatvanykitevo == 0:
+                #print('Nem marseprím')
+                #break
+        #else:
+            #print('Marseprím')
+            #break
 
-marseneprim(hatvanykitevo=5)
+#marseneprim(hatvanykitevo=5)
+
+#Hazi 4.2:
+def helyiertek2(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
+
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam+=i*i
+    return szam
+
+boldoglista: List['int'] = list()
+boldogtalanlista: List['int'] = list()
+def boldoge(szam: int) -> bool:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : List['int'] = list()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.append(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+        # print(szekvencia)
+    return aktualisnegyzetosszeg == 1
+
+ts1 = time()
+for i in range(20000):
+    if boldoge(i) == True:
+        boldoglista.append(i)
+print(boldoglista)
+for i in range(20000):
+    if boldoge(i) == False:
+        boldogtalanlista.append(i)
+print(boldogtalanlista)
+ts2 = time()
+print("A program {mp} mp-ig futott!".format(mp=(ts2-ts1)))
