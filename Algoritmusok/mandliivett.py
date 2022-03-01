@@ -267,10 +267,13 @@ def tokeletesszame(szam: int) -> int:
 # hogy tökéletes-e, és a tökéletes számok listájával tér vissza.
 
 
-def tokeletesszame2(a: int, b: int) -> List['float']:
-    list: List['float'] = []
-    # for i in range():
-    return list
+def tokeletesszame2(a: int, b: int) -> List['int']:
+    lista: List['int'] = list()
+    for i in range(a, b + 1):
+        szam = tokeletesszame(i)
+        if szam == True:
+            lista.append(i)
+    return lista
 
 
 #print(tokeletesszame2(1, 50))
@@ -298,7 +301,7 @@ def helyiertekrebontas(szam: int) -> List['float']:
 
 
 def szamjegyekosszege(szam: int) -> int:
-    osszeg: int = 0
+    osszeg = 0
     for i in (helyiertekrebontas(szam)):
         osszeg += i
     return osszeg
@@ -310,27 +313,31 @@ def szamjegyekosszege(szam: int) -> int:
 # 5. Keressen olyan számokat, amelyeknek a számjegyeinek a szorzata megegyezik a számmal.
 
 
-def szamjegyekszorzata(szam: int)-> int:
-    szorzat: int = 0
+def szamjegyekszorzata(a: int) -> bool:
+    szam = 1
+    for i in str(a):
+        szam = szam * int(i)
+        if szam == a:
+            return True
+        else:
+            return False
 
-    return szorzat
 
-
-# print(szamjegyekszorzata(55))
+# print(szamjegyekszorzata(1))
 
 
 # 6. Hány olyan háromjegyű szám van, melyben a számjegyek összege 15, és a szám osztható 15-tel?
 
 
-def haromjegyu15(szam: int) -> int:
-    osszeg: int = 0
-    #for i in (szamjegyekosszege(osszeg)):
-    #    if osszeg == 15:
-            #print("asd")
-    return osszeg
+def haromjegyu15() -> int:
+    darab = 0
+    for i in range(100, 1000):
+        if i % 15 == 0 and szamjegyekosszege(i) == 15:
+            darab += 1
+    return darab
 
 
-#print(haromjegyu15())
+print(haromjegyu15())
 
 
 # 7. Armstrong-számok
@@ -453,7 +460,7 @@ def legnagyobbkozososzto(a: int, b: int)-> int:
 # 5. Függvénnyel döntse el egy számról szfenikus szám-e.
 
 
-def szfenikusszame(a: int):
+def szfenikusszame(a: int) -> bool:
     szam: int = 0
 
     if szam == a:
@@ -463,3 +470,59 @@ def szfenikusszame(a: int):
 
 
 # print(szfenikusszame(30))
+
+
+
+# HF4-------------------------------------------------------------------------------------------------------
+
+# https://hu.wikipedia.org/wiki/Boldog_sz%C3%A1m
+# Boldog szám az a pozitív egész szám, amelyre igaz, hogy ha kiszámítjuk számjegyeinek négyzetösszegét,
+# majd ezt az így kapott számmal szükség szerint addig ismételjük, amíg egyjegyű számot nem kapunk,
+# akkor az eredmény 1 lesz.
+# Például boldog szám a 23, mert 2²+3²=4+9=13, 1²+3²=1+9=10, 1²+0²=1+0=1.
+# Azt a számot, amelynél a folyamat végeredménye nem 1, boldogtalan számnak nevezzük.
+
+# 1. Döntse el egy számról, hogy boldog-e. Bemenet a szám, kimenet pedig logikai érték.
+
+
+def boldoge(szam: int) -> bool:
+    szamm: int = 0
+
+    if szamm == szam:
+        return True
+    else:
+        return False
+
+
+# print(boldoge(30))
+
+
+# 2. Keresse boldog számokat egy paraméterként megadott tartományban.
+
+
+def kettoo():
+    return
+
+
+# print(kettoo(30))
+
+
+# 3. Minden boldog szám esetében a számítás eredményeként megkapott összes szám boldog, amíg el nem érjük az 1-et.
+#    Készítsen adatszerkezetet a boldog számok gráfjának a tárolására, és fűzze fel a keresett számokat.
+
+
+def haromm():
+    return
+
+
+# print(haromm(30))
+
+
+# 4. A boldog számok keresését gyorsítsa meg úgy, hogy a korábbi keresési eredményeket felhasználja.
+
+
+def negyy():
+    return
+
+
+# print(negyy(30))
