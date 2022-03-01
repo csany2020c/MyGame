@@ -256,5 +256,5 @@ def happy(veg) -> list:
             kilist.append(i)
     return kilist
 
-print(happy(234))
+print(happy(2334))
 
