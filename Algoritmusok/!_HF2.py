@@ -3,7 +3,8 @@
 
 # 2. Készítsen függvényt, amely a paraméterként megadott határokon belül megnézi az összes egész számra, hogy tökéletes-e, és a tökéletes számok listájával tér vissza.
 
-# 3. Készítsen függvényt, amely egy bemeneti számot 10-es számrendszerben felbont helyiértékeire, és egy listával tér vissza.
+# 3. Készítsen függvényt, amely egy bemeneti számot 10-es számrendszerben
+# felbont helyiértékeire, és egy listával tér vissza.
 # Pl: be: 623; ki: [6, 2, 3]
 
 # 4. Készítsen függvényt, amely egy bemeneti számból kiszámolj a számjegyeinek az összegét.
