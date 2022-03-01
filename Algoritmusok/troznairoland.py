@@ -55,19 +55,19 @@ from typing import List
 # osztas = osztas + 1
 
 # 8,feladat:
-# def primszam(input):
-# osztas = 1
-# eredmeny = 0
-# while osztas <= input:
-# if input % osztas == 0:
-# eredmeny = eredmeny + 1
-# osztas = osztas + 1
-# if eredmeny == 2:
-# print("A(z) " + str(input) + " primszám!")
-# else:
-# print("A(z) " + str(input) + " nem primszám!")
+#def primszam(input):
+    #osztas = 1
+    #eredmeny = 0
+    #while osztas <= input:
+        #if input % osztas == 0:
+            #eredmeny = eredmeny + 1
+            #osztas = osztas + 1
+        #if eredmeny == 2:
+            #print("A(z) " + str(input) + " primszám!")
+        #else:
+            #print("A(z) " + str(input) + " nem primszám!")
 
-# primszam(int(input()))
+#primszam(int(input()))
 
 # 9,feladat:
 # def binary(be: int) -> str:
@@ -223,19 +223,37 @@ from typing import List
 #print(helyiertek2(be = 623))
 
 #Hazi 2.4:
-def helyiertekosszeg(be:int) -> List['int']:
-    ki: List['int'] = list()
+#def helyiertekosszeg(be:int) -> List['int']:
+    #ki: List['int'] = list()
+    #osszeg = 0
+    #while be % 10 != 0:
+        #ki.append(be % 10)
+        #be = be // 10
+    #if len(ki) == 0:
+        #ki.append(0)
+    #ki.reverse()
+    #for i in range (len(ki)):
+        #osszeg += ki[i]
+    #print("Az összeg: {osszeg}".format(osszeg=osszeg))
+    #return ki
+
+
+#(helyiertekosszeg(be=623))
+
+
+#Hazi 3.1:
+def marseneprim(hatvanykitevo:int):
     osszeg = 0
-    while be % 10 != 0:
-        ki.append(be % 10)
-        be = be // 10
-    if len(ki) == 0:
-        ki.append(0)
-    ki.reverse()
-    for i in range (len(ki)):
-        osszeg += ki[i]
-    print("Az összeg: {osszeg}".format(osszeg=osszeg))
-    return ki
+    a = 2
+    for i in range(1):
+        osszeg = 2 ** hatvanykitevo - 1
+    for a in range(a, osszeg, hatvanykitevo):
+        if a % osszeg == 0:
+            if a % hatvanykitevo == 0:
+                print('Nem marseprím')
+                break
+        else:
+            print('Marseprím')
+            break
 
-
-(helyiertekosszeg(be=623))
+marseneprim(hatvanykitevo=5)

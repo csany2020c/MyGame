@@ -130,4 +130,142 @@ def feladat6_masodfokufugveny(a: float, b:float, c:float) -> List['float']:
 
     return lista
 
-print(feladat6_masodfokufugveny(1,3,-2))
+#print(feladat6_masodfokufugveny(1,3,-2))
+
+def HF2feladat1_tökeletesszam(szam: int) -> bool:
+    összeg: int = 0
+    oszto: int = szam // 2
+    for x in range(1, oszto + 1):
+        if szam % x == 0:
+            összeg += x
+    if összeg == szam:
+        return True
+    else:
+        return False
+
+#print(HF2feladat1_tökeletesszam(28))
+
+def HF2feladat2_tökeletesszam_lista(min: int, max: int) -> List['int']:
+    lista: List['int'] = []
+    for i in range(min, max):
+        if HF2feladat1_tökeletesszam(i):
+            lista.append(i)
+
+    return lista
+
+#print(HF2feladat2_tökeletesszam_lista(1, 10))
+
+
+def HF2feladat3_szamfelbontas(szam: int) -> List['int']:
+    lista: List['int'] = []
+    for i in str(szam):
+        lista.append(int(i))
+    return lista
+
+#print(HF2feladat3_szamfelbontas(123))
+
+def HF2feladat4_szamjegyosszeg(szam: int) -> int:
+    osszeg = 0
+    for i in (HF2feladat3_szamfelbontas(szam)):
+        osszeg += i
+    return osszeg
+#print(HF2feladat4_szamjegyosszeg(122))
+
+def HF2feladat5_szamjegyszorzas(szam: int) -> bool:
+    szorzat = 1
+    for i in str(szam):
+        szorzat *= int(i)
+    if szorzat == szam:
+        return True
+    else:
+        return False
+
+#print(HF2feladat5_szamjegyszorzas(16))
+
+def HF2feladat6_15szam() -> int:
+    db = 0
+    for i in range (100,1000):
+        if i % 15 == 0 and HF2feladat4_szamjegyosszeg(i) == 15:
+            db += 1
+    return db
+
+#print(HF2feladat6_15szam())
+
+def HF2feladat7a_Armstrongszam() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(100, 1000):
+        for i in (HF2feladat3_szamfelbontas(x)):
+            összeg += i ** 3
+        if összeg != x:
+            összeg = 0
+        else:
+            lista.append(összeg)
+            összeg = 0
+    return lista
+
+#print(HF2feladat7a_Armstrongszam())
+
+def HF2feladat7b_Armstrongszam() -> List['int']:
+    lista: List = []
+    összeg = 0
+    for x in range(1000, 10000):
+        for i in (HF2feladat3_szamfelbontas(x)):
+            összeg += i ** 4
+        if összeg != x:
+            összeg = 0
+        else:
+            lista.append(összeg)
+            összeg = 0
+    return lista
+
+
+#print(HF2feladat7b_Armstrongszam())
+
+def prim(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+#print(prim(1))
+
+def Mersenszam(n: int):
+    return 2**n - 1
+
+def HF3feladat1a_Mersenneprim(hatvany: int) -> bool:
+    return prim(hatvany) and prim(Mersenszam(hatvany))
+
+
+
+#print(HF3feladat1a_Mersenneprim(6))
+
+def HF3feladat1b_Mersenneprimkeres():
+    for i in range(1, 1001):
+
+
+print(HF3feladat1b_Mersenneprimkeres())
+
+def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
+    szam = 0
+    if a % b == 0:
+        szam = a
+    if b % a == 0:
+        szam = b
+    if b % a and a % b != 0:
+        szam = a * b
+    return szam
+
+#print(HF3feladat3_legkisebbtöbbszörös(5, 12))
+
+def HF3feladat4_legnagyobb_köz_oszto(a: int, b:int) -> int:
+    szam = 0
+    for i in range(1, a + 1):
+        if a % i == 0 and b % i == 0:
+            if szam < i:
+                szam = i
+    return szam
+
+#print(HF3feladat4_legnagyobb_köz_oszto(2,16))

@@ -1,3 +1,4 @@
+import math
 from typing import List
 
 
@@ -36,6 +37,14 @@ def woohoo():
     for i in list:
         szorzat *= i
     print(szorzat)
+
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
 
 
 def hazifeladat00(lista: List['int'], b: int) -> List['int']:
@@ -105,4 +114,53 @@ def feladat6(a: float, b: float, c: float) -> List['int']:
         lista.append(-b + math.sqrt(D) / (2 * a))
     return lista
 
-print(feladat6(2, 3, 4))
+#print(feladat6(2, 3, 4))
+
+def tokeletes(a = int):
+    if osztoosszeg(a) == a:
+        return True
+    else:
+        return False
+
+# print(tokeletes(6))
+
+def termeszettokeletes(a = int, b = int) -> List['int']:
+    lista: list = []
+    for i in range(a, b):
+        if tokeletes(i) == i:
+            lista.append(i)
+    return lista
+
+#print(termeszettokeletes(1, 30))
+
+def prim0(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+
+def prim1(szam: int):
+    if szam == 1: return False
+    return osztoosszeg(szam) == 1
+
+
+def mersenneszam(n: int):
+    return 2**n - 1
+
+
+def mersenneprime(a: int):
+    return prim0(a) and prim0(mersenneszam(a))
+
+#print(mersenneprime(10))
+
+def fibonacci(a: int) -> List['int']:
+    lista: List = []
+    x = 0
+    y = 1
+    for i in range(a):
+        y += x
+
+print(fibonacci(20))

@@ -1,5 +1,5 @@
 from typing import List
-
+import math
 
 def valami():
     while True:
@@ -134,4 +134,61 @@ def feladat8(a: float, b: float, c: float) -> List['float']:
     return kilista
 
 
-print(feladat8(3,7,4))
+#print(feladat8(3,7,4))
+
+def tokeletesszamok(sz: int,) -> bool:
+    oszt: int = sz // 2 + 1
+    osszeg: int = 0
+    for i in range(1, oszt):
+        if sz % i == 0:
+            osszeg = osszeg + i
+    if osszeg == sz:
+        return True
+    else:
+        return False
+
+#print(tokeletesszamok(2))
+
+def felbontas(sz: int) -> List['int']:
+    lista: List['int'] = []
+    if sz == 0:
+        lista.append(0)
+    while sz > 0:
+        lista.append(sz % 10)
+        sz = sz // 10
+    lista.reverse()
+    return lista
+
+#print(felbontas(254))
+
+def szamjegyekosszege(sz: int) -> int:
+    osszeg: int = 0
+    for i in felbontas(sz):
+        osszeg += i
+    return osszeg
+#print(szamjegyekosszege(523))
+
+def szamjegyekszorzata(sz: int) -> bool:
+    szorzas: int = 1
+    for i in felbontas(sz):
+        szorzas*=i
+    if szorzas == sz:
+        return True
+    else:
+        return False
+
+#print(szamjegyekszorzata())
+
+def primek(sz: int) -> int:
+    if sz == 1: return False
+    gyokpluszegy = int(math.sqrt(sz)) + 1
+    for i in range(2, gyokpluszegy):
+        if sz % i == 0:
+            return False
+    return True
+#print(primek(7))
+def Mersenneszam(a: int):
+    return 2 ** a -1
+
+def Mersenneprim(n: int) -> bool:
+    pass

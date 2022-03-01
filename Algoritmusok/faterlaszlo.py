@@ -373,12 +373,109 @@ def szamjegyszorzat(a: int) -> bool:
 # print(szamjegyszorzat(8))
 # print(szamjegyszorzat(15))
 
-#6. feladat - még nincs kész
+#6. feladat
 def haromjegyu() -> int:
-    db = 0
+    lista: List['int'] = list()
+    lista2: List['int'] = list()
     for i in range(100, 999):
         if i % 15 == 0:
-            db = db + 1
-    return db
+            lista.append(i)
+    for i in lista:
+        if osszegfuggveny(i) == 15:
+            lista2.append(i)
+    return len(lista2)
 
-print(haromjegyu())
+
+# print(haromjegyu())
+
+#7.a feladat - felig van meg
+def armstongszamok() -> int:
+    szam = 0
+    lista: List['int'] = list()
+    lista2: List['int'] = list()
+    for i in range(100, 999):
+        while i > 0:
+            lista.append(i % 10)
+            i = i // 10
+            lista.reverse()
+        return lista
+
+
+# print(armstongszamok())
+
+#7.b feladat - kesz
+def armstrongszamok2() -> bool:
+    szam = 0
+    for i in range(1000, 9999):
+        eredeti = i
+        for o in str(i):
+            szam = szam * math.pow(int(o), 3)
+            if szam == eredeti:
+                return False
+    return True
+
+# print(armstrongszamok2())
+
+#hazi feladat_hf3
+
+#1.a feladat
+def mersseneprim(a: int) -> bool:
+    db = 0
+    szam = 1
+    szamolas: float = math.pow(2, a) - 1
+    while szamolas > 1:
+        if szamolas % szam == 0:
+            db += 1
+            # print("db=" + str(db))
+            if db > 3:
+                break
+            if szam == szamolas:
+                break
+        szam += 1
+    return db == 2
+
+
+# print(mersseneprim(3)) #true
+# print(mersseneprim(4)) #false
+# print(mersseneprim(5)) #true
+
+#1.b feladat
+def mersenneprimkereses(a: int) -> bool:
+    szam = 1
+    db = 0
+    for i in range(a):
+        if a % szam == 0:
+            db += 1
+        szam += 1
+    return db == 2, mersseneprim(a)
+
+# print(mersenneprimkereses(79))
+# print(mersenneprimkereses(7))
+
+#2. feladat
+def fibonacciszamok(n: int) -> List['int']:
+    lista: List['int'] = list()
+    osszeg = 0
+    if n == 0:
+        lista.append(n)
+        return lista
+    if n == 1:
+        lista.append(n)
+        return lista
+    if n >= 2:
+        osszeg += (n - 1)
+        n -= 1
+        osszeg += (n - 2)
+        lista.append(osszeg)
+    return lista
+
+
+# print(fibonacciszamok(6))
+# print(fibonacciszamok(1))
+
+#3. feladat
+# def primtenyezos(a: int, b: int) -> int:
+#
+#
+# print(primtenyezos(10, 18))
+
