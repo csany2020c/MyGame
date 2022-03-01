@@ -44,10 +44,23 @@ def szamjegyosszeg(x: int) -> int:
         osszeg += x
     return osszeg
 
-print(szamjegyosszeg(553))
+#print(szamjegyosszeg(553))
 
-def szorzat(szam: int) -> bool:
-    szorzata = 0
-    for x in szamfelbontas(szam):
+def szorzat(x: int) -> bool:
+    szorzat = 0
+    for x in szamfelbontas(x):
+        szorzat *= x
+    if szorzat == x:
+        return True
+    else:
+        return False
+#print(szorzat(54))
 
+#def oszthato(a: int)-> int:
 
+#def armstrong(x: int)-> int:
+    #szam: int = 0
+    #for x in szamfelbontas(x):
+   #     szam %
+
+def prim(szam: int)-> bool:

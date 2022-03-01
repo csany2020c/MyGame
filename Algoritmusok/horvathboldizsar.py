@@ -360,22 +360,80 @@ asd = [1, 2, 5, 8, 9, 10, 50, 44, 60, 71]
 #     return eredmeny
 # print(harom15())
 #
-def armstrong() ->List['int']:
-    szamjegyek: List['int'] = list()
-    joszamok: List['int'] = list()
-    for i in range(100, 1000):
-        i2 = i
-        while i > 0:
-            szamjegyek.append(i % 10)
-            i //= 10
-            szamjegyek.reverse()
-        osszeg = pow(szamjegyek[0], 3) + pow(szamjegyek[1], 3) + pow(szamjegyek[2], 3)
+# def armstrong() ->List['int']:
+#     szamjegyek: List['int'] = list()
+#     joszamok: List['int'] = list()
+#     for i in range(100, 1000):
+#         i2 = i
+#         while i > 0:
+#             szamjegyek.append(i % 10)
+#             i //= 10
+#             szamjegyek.reverse()
+#         osszeg = pow(szamjegyek[0], 3) + pow(szamjegyek[1], 3) + pow(szamjegyek[2], 3)
+#
+#         if osszeg == i2:
+#             joszamok.append(i2)
+#
+#     print(szamjegyek)
+#     print(osszeg)
+#     return joszamok
+#
+# print(armstrong())
+#
+# def boldogszamok(szam: int):
+#     szamjegyek: List['int'] = list()
+#     eredetiszam = szam
+#     if eredetiszam > 10:
+#         while szam > 0:
+#             szamjegyek.append(szam % 10)
+#             szam //= 10
+#         szamjegyek.reverse()
+#         eredetiszam = pow(szamjegyek[0], 2) + pow(szamjegyek[1], 2)
+#         szamjegyek.clear()
+#         print(eredetiszam)
+#         print(szam)
+#     return szamjegyek
+#
+# print(boldogszamok(23))
+#
+def szfenikus(szam: int) -> bool:
+    osztok: List['int'] = list()
+    osztok2: List['int'] = list()
+    osztodarab = 0
+    szfenikus = False
+    vegeredmeny = 1
 
-        if osszeg == i2:
-            joszamok.append(i2)
+    for i in range(1, szam + 1):
+        if szam % i == 0:
+            osztok.append(i)
 
-    print(szamjegyek)
-    print(osszeg)
-    return joszamok
+    for x in range(len(osztok)):
+        for y in range(1, osztok[x]):
+            eredmeny = osztok[x] % y
+            if eredmeny == 0:
+                osztodarab += 1
 
-print(armstrong())
+            # if osztodarab > 2:
+            #     print("Ez nem prímszám {}".format(osztok[x]))
+
+        if osztodarab <= 2:
+            # print("Prímszám {}".format(osztok[x]))
+            osztok2.append(osztok[x])
+        # print("osztodarab: {} szam: {}".format(osztodarab, osztok[x]))
+        osztodarab = 0
+
+    for z in range(len(osztok2)):
+        vegeredmeny = vegeredmeny * osztok2[z]
+
+
+
+    print(osztok)
+    print(osztok2)
+    print(vegeredmeny)
+    if vegeredmeny == szam:
+        szfenikus = True
+
+    return szfenikus
+
+print(szfenikus(1308))
+# nyolcadik()

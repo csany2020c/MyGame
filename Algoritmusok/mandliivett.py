@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 
 #def egytizenot():
@@ -64,13 +65,13 @@ from typing import List
     #print("Osztók: {eredmeny}".format())
 
 
-#def osztoosszeg(szam: int) -> int:
-    #szamfele: int = szam // 2 + 1
-    #osszeg: int = 0
-    #for x in range(1, szamfele):
-        #if szam % x == 0:
-            #osszeg = osszeg + x
-    #return osszeg
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
 
 # print(osztoosszeg(int(input())))
 
@@ -286,12 +287,11 @@ def helyiertekrebontas(szam: int) -> List['float']:
         megoldas.append(szam % 10)
         szam = szam // 10
     megoldas.reverse()
-    #if szam == 0:
-    #    megoldas = 0
+    if szam == 0: return
     return megoldas
 
 
-print(helyiertekrebontas(754))
+#print(helyiertekrebontas(754))
 
 
 # 4. Készítsen függvényt, amely egy bemeneti számból kiszámolja a számjegyeinek az összegét.
@@ -341,6 +341,7 @@ def haromjegyu15(szam: int) -> int:
 
 
 def Armstrong():
+
     return
 
 # print(Armstrong())
@@ -359,16 +360,29 @@ def Armstrong():
 # tehát meg kell vizsgálni.
 
 
-def Mersenne(n: int) -> int:
-    osszeg: int = 0
 
-    if osszeg == n:
-        return True
-    else:
-        return False
+def prim0(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
 
 
-# print(Mersenne(31))
+def prim1(szam: int):
+    if szam == 1: return False
+    return osztoosszeg(szam) == 1
+
+
+def mersenneszam(n: int):
+    return 2**n - 1
+
+
+def mersenneprime(a: int):
+    return prim0(a) and prim0(mersenneszam(a))
+
+#print(mersenneprime())
 
 
 # 1.b Keressen Mersenne prímeket. Az előző függvényt felhasználva keresse őket úgy, hogy a fenti függvény
@@ -376,8 +390,14 @@ def Mersenne(n: int) -> int:
 # A 2^n-1 alakban felírt számokra, ahol n prím minden esetben írja ki, hogy prím-e vagy nem.
 
 
-def Mersenne2():
-    return
+# def Mersenne2(szam: int) -> bool:
+#    for i in (mersenneprime(a)):
+
+#    for i in (mersenneszam(n)):
+#        if szam ==
+#            return True
+#        else:
+#            return False
 
 
 # print(Mersenne2())
