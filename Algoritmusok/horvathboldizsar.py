@@ -1,4 +1,3 @@
-from builtins import list
 from typing import *
 from math import sqrt
 
@@ -396,44 +395,69 @@ asd = [1, 2, 5, 8, 9, 10, 50, 44, 60, 71]
 #
 # print(boldogszamok(23))
 #
-def szfenikus(szam: int) -> bool:
-    osztok: List['int'] = list()
-    osztok2: List['int'] = list()
-    osztodarab = 0
-    szfenikus = False
-    vegeredmeny = 1
+# def szfenikus(szam: int) -> bool:
+#     osztok: List['int'] = list()
+#     osztok2: List['int'] = list()
+#     osztodarab = 0
+#     szfenikus = False
+#     vegeredmeny = 1
+#
+#     for i in range(1, szam + 1):
+#         if szam % i == 0:
+#             osztok.append(i)
+#
+#     for x in range(len(osztok)):
+#         for y in range(1, osztok[x]):
+#             eredmeny = osztok[x] % y
+#             if eredmeny == 0:
+#                 osztodarab += 1
+#
+#             # if osztodarab > 2:
+#             #     print("Ez nem prímszám {}".format(osztok[x]))
+#
+#         if osztodarab <= 2:
+#             # print("Prímszám {}".format(osztok[x]))
+#             osztok2.append(osztok[x])
+#         # print("osztodarab: {} szam: {}".format(osztodarab, osztok[x]))
+#         osztodarab = 0
+#
+#     for z in range(len(osztok2)):
+#         vegeredmeny = vegeredmeny * osztok2[z]
+#
+#
+#
+#     print(osztok)
+#     print(osztok2)
+#     print(vegeredmeny)
+#     if vegeredmeny == szam:
+#         szfenikus = True
+#
+#     return szfenikus
+#
+# print(szfenikus(1308))
+#
 
-    for i in range(1, szam + 1):
-        if szam % i == 0:
-            osztok.append(i)
+def bemenet(be:int) -> List['int']:
+    ki: List['int'] = list()
+    for c in str(abs(be)):
+        ki.append(int(c))
+    return ki
 
-    for x in range(len(osztok)):
-        for y in range(1, osztok[x]):
-            eredmeny = osztok[x] % y
-            if eredmeny == 0:
-                osztodarab += 1
+def negyzetosszeg(be: List['int']) -> int:
+    szam: int = 0
+    for i in be:
+        szam += i * i
+    return szam
 
-            # if osztodarab > 2:
-            #     print("Ez nem prímszám {}".format(osztok[x]))
-
-        if osztodarab <= 2:
-            # print("Prímszám {}".format(osztok[x]))
-            osztok2.append(osztok[x])
-        # print("osztodarab: {} szam: {}".format(osztodarab, osztok[x]))
-        osztodarab = 0
-
-    for z in range(len(osztok2)):
-        vegeredmeny = vegeredmeny * osztok2[z]
+def boldog2(szam: int) -> bool:
+    aktualis: int = szam
+    lista : List['int'] = list()
+    while aktualis != 1 and aktualis not in lista:
+        lista.append(aktualis)
+        aktualis = negyzetosszeg(bemenet(aktualis))
+        print(lista)
+        print(aktualis)
+    return aktualis == 1
 
 
-
-    print(osztok)
-    print(osztok2)
-    print(vegeredmeny)
-    if vegeredmeny == szam:
-        szfenikus = True
-
-    return szfenikus
-
-print(szfenikus(1308))
-# nyolcadik()
+print(boldog2(2963))
