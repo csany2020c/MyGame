@@ -167,19 +167,37 @@ def tokeletesszam2(minszam: int, maxszam: int) -> bool:
 
 #print(tokeletesszam2(6, 20))
 
-def hf303(szam: int) -> List['int']:
+def szamfelbontas(szam: int) -> List['int']:
+    lista: List['int'] = []
+    if szam == 0:
+        lista.append(0)
+    while szam != 0:
+        lista.append(szam % 10)
+        szam = szam // 10
+        lista.reverse()
+    return lista
+
+def szamjegyosszeg(x: int) -> int:
+    osszeg = 0
+    for x in szamfelbontas(x):
+        osszeg += x
+    return osszeg
+
+def hf203(szam: int) -> List['int']:
     lista: List['int'] = []
     while szam != 0:
         lista.append(szam % 10)
         szam = szam // 10
     return lista
 
-#print(hf303(446))
+#print(hf203(446))
 
 def asddsa(szam: int) -> int:
     osszeg = 0
-    for i in (hf303(szam)):
+    for i in (hf203(szam)):
         osszeg += i
     return osszeg
 
 #print(asddsa(133))
+
+def oszthato15(minszam: int) -> int:
