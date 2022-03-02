@@ -175,7 +175,7 @@ def feladat6(a: float, b: float, c: float) -> List['float']:
 
 #print()
 
-#HF2________________________________________________________________________
+#HF2____________________________________________________________________________________________________________________
 
 def tokeletesszam(szam: int) -> bool:
     összeg: int = 0
@@ -248,8 +248,44 @@ def armstrongszamharom() -> List['int']:
             lista.append(osszeg)
     return lista
 
-print(armstrongszamharom())
+#print(armstrongszamharom())
 
 #^hibás!!!
 
+#HF3____________________________________________________________________________________________________________________
+
+def prim(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+def mersenneszam(n: int):
+    return 2**n -1
+
+def mersenneprim(hatvany: int) -> bool:
+    return prim(hatvany) and prim(mersenneszam(hatvany))
+
+#print(mersenneprim(5))
+
+def mersenneprimkeres(a: int) -> List['int']:
+    lista: List['int'] = []
+    for i in (a):
+        if mersenneprim(i) == True:
+            lista.append(i)
+    return lista
+
+print(mersenneprimkeres())
+
+def fibonacci(n: int) -> List['int']:
+    if n == 0: return []
+    if n == 1: return [0]
+    lista: List = [0, 1]
+    for i in range(2, n):
+        lista.append(lista[i - 1] + lista[i - 2])
+    return lista
+
+#print(fibonacci(20))
 
