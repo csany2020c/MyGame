@@ -156,11 +156,30 @@ def mersenneprime(a: int):
 
 #print(mersenneprime(10))
 
-def fibonacci(a: int) -> List['int']:
+def fibonacci(n: int) -> List['int']:
     lista: List = []
     x = 0
     y = 1
-    for i in range(a):
+    for i in range(n):
         y += x
 
-print(fibonacci(20))
+#print(fibonacci(20))
+
+def HF2harmadik(a: int) -> List['int']:
+    lista = List = []
+    for i in str(a):
+        lista.append(int(i))
+    return lista
+
+#print(HF2harmadik(637))
+
+def HF2negyedik(a: int) -> int:
+    osszeg: int = 0
+    for i in HF2harmadik(a):
+        osszeg += i
+    return osszeg
+
+#print(HF2negyedik(11))
+
+def HF2otodik(a: int) -> List['int']:
+    lista: List = []
