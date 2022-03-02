@@ -122,14 +122,18 @@ def boldoge(szam: int) -> bool:
     while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in Lszomi and aktualisnegyzetosszeg not in szekvencia:
         szekvencia.append(aktualisnegyzetosszeg)
         aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
-        print(szekvencia)
+        #print(szekvencia)
     return aktualisnegyzetosszeg == 1
 
 ts1 = time()
-print(boldoge(1000000000000001))
+#print(boldoge(2223))
+l : List['int'] = list()
+for i in range(1, 20000):
+    if boldoge(i):
+        l.append(i)
 ts2 = time()
 print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
-
+print(l)
 
 
 
