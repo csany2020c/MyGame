@@ -1,5 +1,6 @@
 import math
 from typing import List
+from typing import Set
 from time import time
 from math import *
 
@@ -361,6 +362,7 @@ def negyzetosszeg(be: List['int']) -> int:
         szam+=i*i
     return szam
 
+
 def boldoge(szam: int) -> bool:
     aktualisnegyzetosszeg: int = szam
     szekvencia : List['int'] = list()
@@ -371,4 +373,50 @@ def boldoge(szam: int) -> bool:
     return aktualisnegyzetosszeg == 1
 
 
-print(boldoge(-23))
+def boldogszekvencia(szam: int) -> Set['int']:
+    aktualisnegyzetosszeg: int = szam
+    szekvencia : Set['int'] = set()
+    while aktualisnegyzetosszeg != 1 and aktualisnegyzetosszeg not in szekvencia:
+        szekvencia.add(aktualisnegyzetosszeg)
+        aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
+    szekvencia.add(aktualisnegyzetosszeg)
+    return szekvencia
+
+
+def keresboldogbruteforce(start: int, stop: int) -> List['int']:
+    l: List['int'] = list()
+    for i in range(start, stop + 1):
+        if boldoge(i):
+            l.append(i)
+    return l
+
+
+def keresboldogsmart(start: int, stop: int) -> List['int']:
+    l: List['int'] = list()
+    boldog: Set['int'] = set()
+    boldogtalan: Set['int'] = set()
+    for i in range(start, stop + 1):
+        if i in boldog:
+            l.append(i)
+            continue
+        if i in boldogtalan:
+            continue
+        s = boldogszekvencia(i)
+        #print(str(i) + " " + str(s))
+        if 1 in s:
+            boldog = boldog.union(s)
+            l.append(i)
+        else:
+            boldogtalan = boldogtalan.union(s)
+    return l
+
+
+ts1 = time()
+print(keresboldogbruteforce(1, 20000))
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+
+ts1 = time()
+print(keresboldogsmart(1, 20000))
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))

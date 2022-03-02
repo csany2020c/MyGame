@@ -1,5 +1,6 @@
 import math
 from typing import List
+from time import time
 
 
 # szam = 69
@@ -256,5 +257,14 @@ def happy(veg) -> list:
             kilist.append(i)
     return kilist
 
-print(happy(2334))
+def unhappy(end) -> list:
+    ki: List ['int'] = list()
+    for i in range(1, end):
+        if boldoge(i) == False:
+            ki.append(i)
+    return ki
 
+ts1 = time()
+print(happy(20000))
+ts2 = time()
+print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))

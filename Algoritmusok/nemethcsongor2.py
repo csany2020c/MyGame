@@ -1,4 +1,5 @@
 from typing import List
+from time import time
 import math
 
 def perfect(num: int) ->bool:
@@ -35,7 +36,7 @@ def szamjegy(num: int) -> int:
 # print(szamjegy(521))
 
 
-def szorzat(num: int) ->bool:
+def szorzat(num: int) -> bool:
     num2 = 1
     for i in str(num):
         num2 *= int(i)
@@ -45,3 +46,31 @@ def szorzat(num: int) ->bool:
 
 
 # print(szorzat(6))
+
+
+def boldog(a: int) -> int:
+    num = 0
+    for i in str(a):
+        num += int(i) * int(i)
+    return num
+
+
+def boldoge(a: int) -> bool:
+    aktu: int = a
+    if a < 0:
+        print("nem pozitív")
+        return False
+    else:
+        while aktu != 1:
+            aktu = boldog(aktu)
+            print(aktu)
+            if aktu == 4 or aktu == 16 or aktu == 37 or aktu == 58 or aktu == 89 or aktu == 145 or aktu == 42 or aktu == 20:
+                return False
+            else:
+                return True
+
+
+ts1 = time()
+print(boldoge(133))
+ts2 = time()
+print("{mp}".format(mp=(ts2 - ts1)))

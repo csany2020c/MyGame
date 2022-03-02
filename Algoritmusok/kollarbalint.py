@@ -100,7 +100,7 @@ def hf2_6() -> int:
 
 #print(hf2_6())
 
-def hf2_7() -> List['int']:
+def hf2_7() ->  List['int']:
     listaki: List['int'] = list()
     szam: int = 1
 
@@ -109,10 +109,35 @@ def hf2_7() -> List['int']:
             if x ** 3 + x == szam:
                 listaki.append(szam)
     return listaki
-
+#Nincs kész
 print(hf2_7())
 
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
 
+def hf3_1prim(szam: int):
+    if szam == 1: return False
+    return osztoosszeg(szam) == 1
+
+def hf3_1a(hatvany: int):
+    return 2**hatvany - 1
+
+def hf3_1b(szam: int):
+    return hf3_1prim(szam) and hf3_1prim(hf3_1a(szam))
+
+#print(hf3_1b(1))
+
+def hf3_2(n: int) -> List['int']:
+    listaki: List['int'] = list()
+    for i in range(0, n):
+
+
+print(hf3_2(10))
 
 
 
