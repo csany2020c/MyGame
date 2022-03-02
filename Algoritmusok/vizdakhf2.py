@@ -64,3 +64,5 @@ def szorzat(x: int) -> bool:
    #     szam %
 
 def prim(szam: int)-> bool:
+    pass
+
