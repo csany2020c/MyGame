@@ -156,11 +156,16 @@ def mersenneprime(a: int):
 
 #print(mersenneprime(10))
 
-def fibonacci(a: int) -> List['int']:
-    lista: List = []
-    x = 0
-    y = 1
-    for i in range(a):
-        y += x
+def fibonacci(n: int) -> List['int']:
+    if n == 0: return []
+    if n == 1: return [0]
+    lista: List = [0, 1]
+    for i in range(2, n):
+        lista.append(lista[i - 1] + lista[i - 2])
+    return lista
 
-print(fibonacci(20))
+print(fibonacci(0))
+print(fibonacci(1))
+print(fibonacci(2))
+print(fibonacci(3))
+print(fibonacci(200))
