@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def Szamok1tol15ig():
     for i in range(1, 16):
@@ -138,7 +139,7 @@ def feladat2(lista : List['int']) -> int:
 #print(feladat2((4444,2345,224,22345,111,5663,44)))
 
 def feladat3(a1:int, q:int, n:int) -> List['int']:
-    lista: lista = []
+    lista: List['int'] = list()
     for i in range(1, n+1):
         x = a1 * q**(i-1)
         lista.append(x)
@@ -239,18 +240,15 @@ def haromjegyutizenot() -> int:
 
 def armstrongszamharom() -> List['int']:
     lista: List = []
-    osszeg = 0
-    for x in range(100,1000):
-        for i in range (tizesfelbontas(x)):
+    for x in range(100, 1000):
+        osszeg = 0
+        for i in tizesfelbontas(x):
             osszeg += i ** 3
-        if osszeg != x:
-            osszeg = 0
-        else:
+        if osszeg == x:
             lista.append(osszeg)
-            osszeg = 0
     return lista
 
-#print(armstrongszamharom())
+print(armstrongszamharom())
 
 #^hibás!!!
 
