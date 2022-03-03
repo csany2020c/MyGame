@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def Szamok1tol15ig():
     for i in range(1, 16):
@@ -138,7 +139,7 @@ def feladat2(lista : List['int']) -> int:
 #print(feladat2((4444,2345,224,22345,111,5663,44)))
 
 def feladat3(a1:int, q:int, n:int) -> List['int']:
-    lista: lista = []
+    lista: List['int'] = list()
     for i in range(1, n+1):
         x = a1 * q**(i-1)
         lista.append(x)
@@ -174,7 +175,7 @@ def feladat6(a: float, b: float, c: float) -> List['float']:
 
 #print()
 
-#HF2________________________________________________________________________
+#HF2____________________________________________________________________________________________________________________
 
 def tokeletesszam(szam: int) -> bool:
     összeg: int = 0
@@ -239,19 +240,52 @@ def haromjegyutizenot() -> int:
 
 def armstrongszamharom() -> List['int']:
     lista: List = []
-    osszeg = 0
-    for x in range(100,1000):
-        for i in range (tizesfelbontas(x)):
+    for x in range(100, 1000):
+        osszeg = 0
+        for i in tizesfelbontas(x):
             osszeg += i ** 3
-        if osszeg != x:
-            osszeg = 0
-        else:
+        if osszeg == x:
             lista.append(osszeg)
-            osszeg = 0
     return lista
 
 #print(armstrongszamharom())
 
 #^hibás!!!
 
+#HF3____________________________________________________________________________________________________________________
+
+def prim(szam: int) -> bool:
+    if szam == 1: return False
+    gyokpluszegy = int(math.sqrt(szam)) + 1
+    for i in range(2, gyokpluszegy):
+        if szam % i == 0:
+            return False
+    return True
+
+def mersenneszam(n: int):
+    return 2**n -1
+
+def mersenneprim(hatvany: int) -> bool:
+    return prim(hatvany) and prim(mersenneszam(hatvany))
+
+#print(mersenneprim(5))
+
+def mersenneprimkeres(a: int) -> List['int']:
+    lista: List['int'] = []
+    for i in (a):
+        if mersenneprim(i) == True:
+            lista.append(i)
+    return lista
+
+print(mersenneprimkeres())
+
+def fibonacci(n: int) -> List['int']:
+    if n == 0: return []
+    if n == 1: return [0]
+    lista: List = [0, 1]
+    for i in range(2, n):
+        lista.append(lista[i - 1] + lista[i - 2])
+    return lista
+
+#print(fibonacci(20))
 
