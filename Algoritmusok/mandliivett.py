@@ -102,11 +102,14 @@ def osztoosszeg(szam: int) -> int:
 
 
 def nullapontnulla(a: List['int'], b: int) -> List['int']:
-    return
+    kilista: list = []
+    for i in a:
+        if i % b == 0:
+            kilista.append(i)
+    return kilista
 
-nullapontnullalista = [3, 54, 32, 52, 11, 75]
 
-#print(nullapontnulla(nullapontnullalista))
+# print(nullapontnulla((1,4,3,6,8,5,17,34,67,56), 6))
 
 
 # 0.1
@@ -114,7 +117,6 @@ nullapontnullalista = [3, 54, 32, 52, 11, 75]
 # A visszaadott érték legyen igaz, ha a listában van 0. Ha nincs, akkor hamis.
 
 
-# ezmukodik
 def nullapontegy(list: List['int']) -> bool:
     ertek = 0
     for i in list:
@@ -136,7 +138,6 @@ nullapontegylista = [32, 53, 532, 213, 46, 3, 0]
 # A neve min legyen.
 
 
-# ezmukodik
 def egy(szam1: int, szam2: int) -> int:
     if szam1 > szam2:
         return szam2
@@ -193,7 +194,7 @@ def harom(a1: int, q: int, n: int):
 # 4.
 # Készítsen függvényt, amelynek bemenete egy lista, visszaadott értéke pedig a lista elemeinek az összege.
 
-# ezmukodik
+
 def negy(list: List['int']) -> int:
     szam = 0
     for i in list:
@@ -212,9 +213,7 @@ negylista = [5, 14, 35, 68, 358, 521, 671, 713, 999]
 
 
 def ot(a1: int, q: int, n: int) -> int:
-    szam = 0
-
-    return
+    return negy(harom(a1, q, n))
 
 #print(ot(4, 5, 9))
 
@@ -228,19 +227,19 @@ def ot(a1: int, q: int, n: int) -> int:
 
 def hat(a: float, b: float, c: float) -> List['float']:
     # ax^2 + bx + c
-    megoldas: List['float'] = list()
+    megoldas: list =[]
     # megoldas: ax^2 + bx + c
     diszkriminans: b**2-4*a*c
     if diszkriminans < 0:
         print("Nincs megoldás.")
-
+    if megoldas >= 0:
+        x: int = (-b + math.sqrt(diszkriminans))/2*a
+        megoldas.append(x)
+        y: int = (-b - math.sqrt(diszkriminans))/2*a
     return megoldas
 
 
-hatlista = [4, 21, 54]
-
-#print(hat(hatlista))
-
+# print(hat(4, 21, 54))
 
 
 # HF2-------------------------------------------------------------------------------------------------------
@@ -290,7 +289,6 @@ def helyiertekrebontas(szam: int) -> List['float']:
         megoldas.append(szam % 10)
         szam = szam // 10
     megoldas.reverse()
-    if szam == 0: return
     return megoldas
 
 
@@ -337,7 +335,7 @@ def haromjegyu15() -> int:
     return darab
 
 
-print(haromjegyu15())
+#print(haromjegyu15())
 
 
 # 7. Armstrong-számok
@@ -347,9 +345,18 @@ print(haromjegyu15())
 #     az eredeti számot?
 
 
-def Armstrong():
-
-    return
+def Armstrong() -> List['int']:
+    list: List = []
+    osszeg = 0
+    for x in range(100, 1000):
+        for i in (helyiertekrebontas(x)):
+            osszeg += i ** 3
+        if osszeg != x:
+            osszeg = 0
+        else:
+            list.append(osszeg)
+            osszeg = 0
+    return list
 
 # print(Armstrong())
 
@@ -365,7 +372,6 @@ def Armstrong():
 # hogy Mersenne pím-e.
 # A 2^n-1 alakban felírt számok nagy valószínűséggel prímek, főleg ha n is prím. De nem biztos,
 # tehát meg kell vizsgálni.
-
 
 
 def prim0(szam: int) -> bool:
@@ -397,17 +403,18 @@ def mersenneprime(a: int):
 # A 2^n-1 alakban felírt számokra, ahol n prím minden esetben írja ki, hogy prím-e vagy nem.
 
 
-# def Mersenne2(szam: int) -> bool:
-#    for i in (mersenneprime(a)):
+def Mersenne2(n: int) -> bool:
+    asd: int = 0
+    #for i in (mersenneprime(a)):
+        #return
+    for i in (mersenneszam(n)):
+        if n == asd:
+            return True
+        else:
+            return False
 
-#    for i in (mersenneszam(n)):
-#        if szam ==
-#            return True
-#        else:
-#            return False
 
-
-# print(Mersenne2())
+# print(Mersenne2(7))
 
 
 # https://hu.wikipedia.org/wiki/Fibonacci-sz%C3%A1mok
@@ -415,7 +422,10 @@ def mersenneprime(a: int):
 
 
 def Fibonacci(n: int) -> List['float']:
-    return
+    list: List['int'] = [0, 1]
+    for i in range(1, n):
+        list.append(list[i - 1] + list[i - 2])
+    return list
 
 
 # print(Fibonacci(50))
@@ -461,8 +471,13 @@ def legnagyobbkozososzto(a: int, b: int)-> int:
 
 
 def szfenikusszame(a: int) -> bool:
-    szam: int = 0
-
+    szam = 0
+    list: List['int'] = []
+    for i in range(1, a):
+        if prim0(i) and szam % i == 0:
+            list.append(i)
+            #
+            #
     if szam == a:
         return True
     else:
@@ -487,6 +502,7 @@ def szfenikusszame(a: int) -> bool:
 
 def boldoge(szam: int) -> bool:
     szamm: int = 0
+    #for i in range():
 
     if szamm == szam:
         return True
@@ -494,14 +510,19 @@ def boldoge(szam: int) -> bool:
         return False
 
 
-# print(boldoge(30))
+#print(boldoge(31))
 
 
 # 2. Keresse boldog számokat egy paraméterként megadott tartományban.
 
 
-def kettoo():
-    return
+def kettoo()-> List['int']:
+    list: List = []
+    osszeg = 0
+#    for x in range(1, 200):
+#        for i in (boldoge(x)):
+
+    return list
 
 
 # print(kettoo(30))
@@ -511,8 +532,9 @@ def kettoo():
 #    Készítsen adatszerkezetet a boldog számok gráfjának a tárolására, és fűzze fel a keresett számokat.
 
 
-def haromm():
-    return
+def haromm() -> List['int']:
+    eredmeny: int = 0
+    return eredmeny
 
 
 # print(haromm(30))
@@ -522,6 +544,7 @@ def haromm():
 
 
 def negyy():
+    #for i in range(1, 20000):
     return
 
 
