@@ -1,4 +1,5 @@
 from typing import List
+from time import time
 import math
 
 def hf1_0(lista: List['int'], szam: int) -> List['int']:
@@ -146,20 +147,73 @@ def hf3_2(n: int) -> List['int']:
 #print(hf3_2(15))
 
 def hf3_3(a: int, b: int) -> int:
+    return a * b
+#print(hf3_3(47311, 60401))
 
-print(hf3_3(5, 35))
+def hf4_0(a: int) -> int:
+    osszeg: int = 0
+    for i in (hf2_3(a)):
+        osszeg += i ** 2
+    return osszeg
 
+#print(hf4_0(52))
 
+def hf4_1(szambe: int) -> bool:
+    a: int = 0
+    b: int = 0
+    c: int = 0
+    d: int = 0
+    e: int = 0
+    f: int = 0
+    g: int = 0
+    if szambe == 1:
+        return True
+    else:
+        for i in (hf2_3(szambe)):
+            a += i ** 2
+    if a == 1:
+        return True
+    else:
+        for i in (hf2_3(a)):
+            b += i ** 2
+    if b == 1:
+        return True
+    else:
+        for i in (hf2_3(b)):
+            c += i ** 2
+    if c == 1:
+        return True
+    else:
+        for i in (hf2_3(c)):
+            d += i ** 2
+    if d == 1:
+        return True
+    else:
+        for i in (hf2_3(d)):
+            e += i ** 2
+    if e == 1:
+        return True
+    else:
+        for i in (hf2_3(e)):
+            f += i ** 2
+    if f == 1:
+        return True
+    else:
+        for i in (hf2_3(f)):
+            g += i ** 2
+    if g == 1:
+        return True
+    else:
+        return False
 
+print(hf4_1(881))
 
+def hf4_2() -> List['int']:
+    listaki: List = []
 
+    for i in range(0, 200000):
+        if hf4_1(i) == 1:
+            listaki.append(i)
+    return listaki
 
-
-
-
-
-
-
-
-
-
+#print(hf4_2())
