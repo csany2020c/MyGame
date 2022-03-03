@@ -164,8 +164,39 @@ def fibonacci(n: int) -> List['int']:
         lista.append(lista[i - 1] + lista[i - 2])
     return lista
 
-print(fibonacci(0))
-print(fibonacci(1))
-print(fibonacci(2))
-print(fibonacci(3))
-print(fibonacci(200))
+#print(fibonacci(0))
+#print(fibonacci(1))
+#print(fibonacci(2))
+#print(fibonacci(3))
+#print(fibonacci(200))
+
+def lkkt(a: int, b: int) -> int:
+    izecucc = 0
+    if a % b == 0:
+        izecucc = a
+    if b % a == 0:
+        izecucc = b
+    if a % b and b % a != 0:
+        izecucc = a * b
+    return izecucc
+
+#print(lkkt(20, 50))
+
+def lnko(a: int, b: int) -> int:
+    kisebb = 0
+    nagyobb = 0
+    szam = 0
+    if a > b:
+        kisebb = b
+    else:
+        nagyobb = b
+    if a < b:
+        kisebb = a
+    else:
+        nagyobb = a
+    for i in range(0, kisebb + 1):
+        if nagyobb % kisebb == 0:
+            szam = nagyobb % kisebb
+    return szam
+
+print(lnko(20, 10))
