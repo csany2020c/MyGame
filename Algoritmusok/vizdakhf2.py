@@ -72,7 +72,7 @@ def oszthato()-> int:
             osszeg += 1
             return i
 
-print(oszthato())
+#print(oszthato())
 #def armstrong(x: int)-> int:
     #szam: int = 0
     #for x in szamfelbontas(x):
@@ -80,12 +80,23 @@ print(oszthato())
 
 
 #HF3 1B FELADAT
-def primek(szam: int)-> bool:
+def primek(szam: int) -> bool:
+    if szam == 1: return False
+    gyok = int(math.sqrt(szam)) + 1
+    for i in range(1, gyok):
+        if szam % i == 0:
+            return False
+    return True
 
+#print(primek(1))
 
 def mersenszamok(n:int):
     return 2*n-1
 
+def fibonacci(n: int)->List['int']:
+    n = int
+    for i in range(2, n):
+        list.
 
 
 
