@@ -64,8 +64,6 @@ def osztoosszeg(szam: int) -> int:
 #print(osztoosszeg(int(input())))
 
 def baratszamok(a: int, b: int) -> bool:
-    a: int = 0
-    b: int = 0
     for x in range():
         if a % x == 0:
             a = a+x
@@ -75,26 +73,23 @@ def baratszamok(a: int, b: int) -> bool:
             return True
 #print(baratszamok(int(input())))
 
-def hatvany(c: int, d: int)-> List[int]:
-    hatvanylista = list()
+def hatvany(c: int)-> List[int]:
     for x in range():
         c *= c
+#print(hatvany())
 
 def feladat00(lista1: List['int'], oszto: int) -> List['int']:
     lista: list = []
     for i in lista1:
         if i % oszto == 0:
             lista.append(i)
-
     return lista
-
 #print(feladat00((1,2,3,4,5,6), 3))
 
 def feladat01(lista: List['int']) -> bool:
     for i in lista:
         if i == 0:
             return True
-
 #print(feladat01((0,1,2,3)))
 
 def feladat1(szam1:int, szam2:int) -> int:
@@ -112,10 +107,10 @@ def feladat2(lista: List['int']) -> int:
         return x
 #print(feladat2((600,20,1000,10340,1024, 1500)))
 
-def fealadat3(a: int, q: int, n:int) -> List['int']:
+def fealadat3(a: int, b: int, c:int) -> List['int']:
     lista: list = []
-    for i in range(1, n+1):
-        x= a * q ** (i-1)
+    for i in range(1, c+1):
+        x = a * b ** (i-1)
         lista.append(x)
     return lista
 #print(fealadat3(1,2,10))
@@ -145,7 +140,7 @@ def feladat6(a: float, b:float, c:float) -> List['int']:
 
 def tokeletes(a: int)->bool:
     ossz: int = 0
-    for i in range(1, ):
+    for i in range(1):
         if a % i == 0:
             ossz = ossz + i
     if ossz == a:
@@ -192,27 +187,24 @@ def szamjegyszorzat(y: int) -> int:
 
 #print(szamjegyszorzat(8))
 
-def tizenot() -> int:
-    db = 0
+def tizenot(a:int) -> int:
     for i in range(100, 1000):
         if i % 15 == 0 and szamjegyosszeg(i) == 15:
-            db += 1
-    return db
+            a += 1
+    return a
 #print(tizenot())
 
-def armstrong() -> List['int']:
+def armstrong(x:int) -> List['int']:
     lista: List = []
-    összeg = 0
     for x in range(100, 1000):
         for i in (bonto(x)):
-            összeg += i ** 3
-            if összeg != x:
-                összeg = 0
+            x += i ** 3
+            if x != x:
+                x = 0
             else:
-                lista.append(összeg)
-                összeg = 0
+                lista.append(x)
+                x = 0
         return lista
-
 #print(armstrong())
 
 def prim(y: int) -> bool:

@@ -329,3 +329,4 @@ def szfenikus(a: int) -> bool:
 
 print(szfenikus(30))
 
+#Szia Donát!
