@@ -122,13 +122,21 @@ def min(szam1: int, szam2: int) -> int:
 #print(min(5, 10))
 
 def minlist(lista: List['int']) -> int:
-    x: int = lista[0]
+    list: int = 0
     for i in lista:
         if x > i:
             x = i
     return x
 
 #print(minlist((21, 2, 23,43, 55, 43)))
+
+def feladataok(list: List['int']) -> int:
+    x = 0
+    for i in list:
+        x += i
+    return x
+
+#print(feladataok((2, 4, 3)))
 
 def tokeletesszam(szam: int) -> int:
     szamfele: int = szam // 2 + 1
@@ -141,19 +149,55 @@ def tokeletesszam(szam: int) -> int:
     else:
         print("Nem tökéletes szám")
     return osszeg
+    pass
 
-print(tokeletesszam(6))
-print(tokeletesszam(16))
-print(tokeletesszam(28))
+#print(tokeletesszam(6))
+#print(tokeletesszam(16))
+#print(tokeletesszam(28))
 
 def baratiszamoke(a: int, b: int) -> bool:
     return a != b and tokeletesszam(a) == b and tokeletesszam(b) == a
 
 def tokeletesszam2(minszam: int, maxszam: int) -> bool:
-    for x in range(minszam, maxszam + 1):
+    for x in range(minszam, maxszam):
         if baratiszamoke(x,tokeletesszam(x)):
             print("{x} {y}".format(x=x, y=tokeletesszam(x)))
-    return tokeletesszam2()
+    return tokeletesszam2
+    pass
 
-print(tokeletesszam2(3, 30))
-print(tokeletesszam2())
+#print(tokeletesszam2(6, 20))
+
+def szamfelbontas(szam: int) -> List['int']:
+    lista: List['int'] = []
+    if szam == 0:
+        lista.append(0)
+    while szam != 0:
+        lista.append(szam % 10)
+        szam = szam // 10
+        lista.reverse()
+    return lista
+
+def szamjegyosszeg(x: int) -> int:
+    osszeg = 0
+    for x in szamfelbontas(x):
+        osszeg += x
+    return osszeg
+
+def hf203(szam: int) -> List['int']:
+    lista: List['int'] = []
+    while szam != 0:
+        lista.append(szam % 10)
+        szam = szam // 10
+    return lista
+
+#print(hf203(446))
+
+def asddsa(szam: int) -> int:
+    osszeg = 0
+    for i in (hf203(szam)):
+        osszeg += i
+    return osszeg
+
+#print(asddsa(133))
+
+def oszthato15(minszam: int) -> int:

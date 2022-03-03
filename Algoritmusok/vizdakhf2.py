@@ -1,5 +1,13 @@
 from typing import List
 
+def osztoosszeg(szam: int) -> int:
+    szamfele: int = szam // 2 + 1
+    osszeg: int = 0
+    for x in range(1, szamfele):
+        if szam % x == 0:
+            osszeg = osszeg + x
+    return osszeg
+
 
 def tökeletesszam(szam: int) -> bool:
     összeg: int = 0
@@ -54,15 +62,32 @@ def szorzat(x: int) -> bool:
         return True
     else:
         return False
+    pass
 #print(szorzat(54))
 
-#def oszthato(a: int)-> int:
-
+def oszthato(a: int)-> int:
+    osszeg : 0
+    for a in szamjegyosszeg(a):
+    if osszeg == 15:
+        return True
+    if szam % 15:
+        return True
+        pass
+#print(oszthato(555))
 #def armstrong(x: int)-> int:
     #szam: int = 0
     #for x in szamfelbontas(x):
    #     szam %
 
-def prim(szam: int)-> bool:
+
+#HF3 1B FELADAT
+def primek(szam: int)-> bool:
     pass
+
+def mersenszamok(n:int):
+    return 2*n-1
+
+
+
+
 
