@@ -65,15 +65,15 @@ def szorzat(x: int) -> bool:
     pass
 #print(szorzat(54))
 
-def oszthato(a: int)-> int:
-    osszeg : 0
-    for a in szamjegyosszeg(a):
-    if osszeg == 15:
-        return True
-    if szam % 15:
-        return True
-        pass
-#print(oszthato(555))
+def oszthato(i: int)-> int:
+    osszeg = 0
+    for i in range(100,1000):
+        if i == 15:
+            return i
+        if i / 15:
+            return i
+
+print(oszthato())
 #def armstrong(x: int)-> int:
     #szam: int = 0
     #for x in szamfelbontas(x):
