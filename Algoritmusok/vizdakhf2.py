@@ -65,12 +65,11 @@ def szorzat(x: int) -> bool:
     pass
 #print(szorzat(54))
 
-def oszthato(i: int)-> int:
+def oszthato()-> int:
     osszeg = 0
     for i in range(100,1000):
-        if i == 15:
-            return i
-        if i / 15:
+        if i % 15 == 0 and szamfelbontas(i) == 15:
+            osszeg += 1
             return i
 
 print(oszthato())
