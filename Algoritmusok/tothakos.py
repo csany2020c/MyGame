@@ -217,13 +217,12 @@ def armstrong() -> List['int']:
 
 def prim(y: int) -> bool:
     if y == 1: return False
-    x = int(math.sqrt(y)) + 1
-    for i in range(2, x):
+    gyokpluszmegegy = int(math.sqrt(y)) + 1
+    for i in range(2, gyokpluszmegegy):
         if y % i == 0:
             return False
     return True
-
-#print(prim(1))
+#print(prim(2))
 
 def mersenne(x: int) -> bool:
     return 2 ** x -1
@@ -240,7 +239,6 @@ def primkereso(x: int) -> List[int]:
         return lista
 #print(primkereso)
 
-
 def legkisebbtobbszoros(a: int, b: int) -> int:
     szam = 0
     if a % b == 0:
@@ -255,16 +253,33 @@ def legkisebbtobbszoros(a: int, b: int) -> int:
 def legnagyobboszto(a: int, b:int) -> int:
     szam = 0
     for i in range(1, a + 1):
-        if a % 1 == 0 and b % i == 0:
+        if a % 2 == 0 and b % i == 0:
             if szam < i:
                 szam = i
     return szam
-#print(legnagyobboszto(4, 12))
+#print(legnagyobboszto(44, 88))
 
-def szfenikus(a: int) -> int:
+def fibonacci(y: int) -> List['int']:
+    lista: List['int'] = [0, 1]
+    for i in range(2, y):
+        lista.append(lista[i-1] + lista[i-2])
+    return lista
+#print(fibonacci(100))
+
+def szfenikus(a: int) -> bool:
     x = 0
-    for i in range(x * a -1):
-        if a == i:
-            return x
-print(szfenikus(30))
+    lista: List['int'] = []
+    for i in range(2, a + 2):
+        if prim(i) and a % i == 0:
+            lista.append(i)
+    if len(lista) == 3:
+        for y in lista:
+            x *= y
+    if x == a:
+        return True
+    else:
+        return False
+#print(szfenikus(10))
 
+#def boldogszam(x: int) -> bool:
+    #lista: List[]
