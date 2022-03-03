@@ -195,12 +195,10 @@ def Mersenneprim(n: int):
 
 #print(Mersenneprim())
 
-def tizenot(sz: int) -> bool:
-
+def tizenot(sz: int) -> int:
+    szam = 0
     for i in range(100, 1000):
-        if szamjegyekosszege(sz) == 15 and sz % 15:
-            return True
-        else:
-            return False
-
-print(tizenot(555))
+        if szamjegyekosszege(sz) == 15 and sz % 15 == 0:
+            szam += 1
+    return szam
+print(tizenot())
