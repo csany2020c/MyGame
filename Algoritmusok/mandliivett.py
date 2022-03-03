@@ -290,7 +290,6 @@ def helyiertekrebontas(szam: int) -> List['float']:
         megoldas.append(szam % 10)
         szam = szam // 10
     megoldas.reverse()
-    if szam == 0: return
     return megoldas
 
 
@@ -337,7 +336,7 @@ def haromjegyu15() -> int:
     return darab
 
 
-print(haromjegyu15())
+#print(haromjegyu15())
 
 
 # 7. Armstrong-számok
