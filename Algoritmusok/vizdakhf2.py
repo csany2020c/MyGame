@@ -65,15 +65,14 @@ def szorzat(x: int) -> bool:
     pass
 #print(szorzat(54))
 
-def oszthato(a: int)-> int:
-    osszeg : 0
-    for a in szamjegyosszeg(a):
-        if osszeg == 15:
-            return True
-        if szam % 15:
-            return True
-        pass
-#print(oszthato(555))
+def oszthato()-> int:
+    osszeg = 0
+    for i in range(100,1000):
+        if i % 15 == 0 and szamfelbontas(i) == 15:
+            osszeg += 1
+            return i
+
+#print(oszthato())
 #def armstrong(x: int)-> int:
     #szam: int = 0
     #for x in szamfelbontas(x):
@@ -81,12 +80,23 @@ def oszthato(a: int)-> int:
 
 
 #HF3 1B FELADAT
-def primek(szam: int)-> bool:
-    pass
+def primek(szam: int) -> bool:
+    if szam == 1: return False
+    gyok = int(math.sqrt(szam)) + 1
+    for i in range(1, gyok):
+        if szam % i == 0:
+            return False
+    return True
+
+#print(primek(1))
 
 def mersenszamok(n:int):
     return 2*n-1
 
+def fibonacci(n: int)->List['int']:
+    n = int
+    for i in range(2, n):
+        list.
 
 
 
