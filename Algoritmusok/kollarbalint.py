@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def hf1_0(lista: List['int'], szam: int) -> List['int']:
     lista0: list = []
@@ -133,11 +134,23 @@ def hf3_1b(szam: int):
 #print(hf3_1b(1))
 
 def hf3_2(n: int) -> List['int']:
-    listaki: List['int'] = list()
-    for i in range(0, n):
+    if n == 0: return []
+    if n == 1: return [0]
+    listaki: List = [0, 1]
+    for i in range(2, n):
+        listaki.append(listaki[i - 1]+listaki[i - 2])
+    return listaki
+
+#print(hf3_2(0))
+#print(hf3_2(1))
+#print(hf3_2(15))
+
+def hf3_3(a: int, b: int) -> int:
+
+print(hf3_3(5, 35))
 
 
-print(hf3_2(10))
+
 
 
 
