@@ -1,4 +1,5 @@
 from typing import List
+import math
 
 def Szamok1tol15ig():
     for i in range(1, 16):
@@ -212,12 +213,33 @@ def armstrong() -> List['int']:
                 összeg = 0
         return lista
 
-print(armstrong())
+#print(armstrong())
 
-#def mensenne(hatvany: int) -> bool:
-    #szam = 2 ** hatvany - 1
-    #for i in range (1, szam + 1):
-#print(mensenne())
+def prim(y: int) -> bool:
+    if y == 1: return False
+    x = int(math.sqrt(y)) + 1
+    for i in range(2, x):
+        if y % i == 0:
+            return False
+    return True
+
+#print(prim(1))
+
+def mersenne(x: int) -> bool:
+    return 2 ** x -1
+
+def mersenneprim(a: int) -> bool:
+    return prim(a)
+#print(mersenneprim(2))
+
+def primkereso(x: int) -> List[int]:
+    lista: List['int'] = [0]
+    for i in [x]:
+        if mersenneprim(i) == True:
+            lista.append()
+        return lista
+#print(primkereso)
+
 
 def legkisebbtobbszoros(a: int, b: int) -> int:
     szam = 0
@@ -239,4 +261,10 @@ def legnagyobboszto(a: int, b:int) -> int:
     return szam
 #print(legnagyobboszto(4, 12))
 
-#def szfenikus(a: int) -> int:
+def szfenikus(a: int) -> int:
+    x = 0
+    for i in range(x * a -1):
+        if a == i:
+            return x
+print(szfenikus(30))
+
