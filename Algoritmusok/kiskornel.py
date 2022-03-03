@@ -179,7 +179,7 @@ def szamjegyekszorzata(sz: int) -> bool:
 
 #print(szamjegyekszorzata())
 
-def primek(sz: int) -> int:
+def primek(sz: int):
     if sz == 1: return False
     gyokpluszegy = int(math.sqrt(sz)) + 1
     for i in range(2, gyokpluszegy):
@@ -190,5 +190,17 @@ def primek(sz: int) -> int:
 def Mersenneszam(a: int):
     return 2 ** a -1
 
-def Mersenneprim(n: int) -> bool:
-    pass
+def Mersenneprim(n: int):
+    return primek(n) and primek(Mersenneszam(n))
+
+#print(Mersenneprim())
+
+def tizenot(sz: int) -> bool:
+
+    for i in range(100, 1000):
+        if szamjegyekosszege(sz) == 15 and sz % 15:
+            return True
+        else:
+            return False
+
+print(tizenot(555))
