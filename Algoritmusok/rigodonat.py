@@ -313,4 +313,19 @@ def legnagyobbkozososzto(a: int, b: int) -> int:
 
 #print(legnagyobbkozososzto(433,866))
 
-def szfenikus()
+def szfenikus(a: int) -> bool:
+    x = 1
+    lista: List['int'] = []
+    for i in range(2,a + 2):
+        if prim(i) and a % i ==0:
+            lista.append(i)
+    if len(lista) == 3:
+        for j in lista:
+            x *=j
+    if x == a:
+        return True
+    else:
+        return False
+
+print(szfenikus(30))
+
