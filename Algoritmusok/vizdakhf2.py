@@ -81,7 +81,7 @@ print(oszthato())
 
 #HF3 1B FELADAT
 def primek(szam: int)-> bool:
-    pass
+
 
 def mersenszamok(n:int):
     return 2*n-1
