@@ -183,20 +183,13 @@ def lkkt(a: int, b: int) -> int:
 #print(lkkt(20, 50))
 
 def lnko(a: int, b: int) -> int:
-    kisebb = 0
-    nagyobb = 0
     szam = 0
-    if a > b:
-        kisebb = b
-    else:
-        nagyobb = b
-    if a < b:
-        kisebb = a
-    else:
-        nagyobb = a
-    for i in range(0, kisebb + 1):
-        if nagyobb % kisebb == 0:
-            szam = nagyobb % kisebb
+    for i in range(1, a + 1):
+        if a % i == 0 and b % i == 0:
+            if szam < i:
+                szam = i
     return szam
 
-print(lnko(20, 10))
+#print(lnko(20, 10))
+
+def szfenikus()
