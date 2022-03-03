@@ -1,4 +1,5 @@
 from typing import List
+from math import sqrt
 #def asd():
     #for i in range(1, 15):
         #print(i)
@@ -16,13 +17,13 @@ from typing import List
                 #ok += asd
                 #print("Eddigi összeg: {idk}".format(idk=ok))
         #print("Vég összeg: {idk}".format(idk=ok))
-def listaz():
-    lista:List['int'] =(4, 2, 3)
-    szorzat: int = 1
-    for i in lista:
+#def listaz():
+    #lista:List['int'] =(4, 2, 3)
+    #szorzat: int = 1
+    #for i in lista:
         #print(i)
-        szorzat *= i
-        print("Eredmény: {dsa}".format(dsa=szorzat))
+        #szorzat *= i
+        #print("Eredmény: {dsa}".format(dsa=szorzat))
 
 #def rtz():
     #while(True):
@@ -72,12 +73,54 @@ def listaz():
 
 #print(pls(10))
 
-def mersenne(o:int)-> bool:
-    z = 2
-    for i in range(0, 1000000):
-        if o == z * i - 1:
-            return True
-    return False
+#def mersenne(o:int)-> bool:
+    #z = 2
+    #for i in range(0, 1000000):
+        #if o == z * i - 1:
+            #return True
+    #return False
 
-print(mersenne(int(input())))
+#print(mersenne(int(input())))
+
+def boldog(n:int)-> bool:
+    lista: List['int'] = list()
+    szam= n
+
+    if szam > 10:
+        while n > 0:
+            lista.append(n % 10)
+            n = n // 10
+        szam = pow(lista[0], 2) + pow(lista[1], 2)
+        print(szam)
+        print(n)
+    return lista
+
+
+print(boldog(94))
+
+#def bemen(ki:int)-> List:
+    #be: List['int'] = list()
+    #for g in str(abs(ki)):
+        #be.append(int (g))
+        #return be
+
+#def szamolas(ki: List['int'])-> int:
+    #szam: int = 0
+    #for i in ki:
+        #szam += i*i
+    #return szam
+
+#def vege(szam:int)-> bool:
+    #mostani = szam
+    #megegylista: List['int'] = list()
+    #while mostani != 1 and mostani not in megegylista:
+        #megegylista.append(mostani)
+        #mostani = szamolas(bemen(mostani))
+        #print(mostani)
+        #print(megegylista)
+    #return mostani == 1
+#print(vege(2903))
+
+
+
 
