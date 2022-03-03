@@ -192,4 +192,18 @@ def lnko(a: int, b: int) -> int:
 
 #print(lnko(20, 10))
 
-def szfenikus()
+def szfenikus(a: int) -> bool:
+    x = 1
+    lista: List['int'] = []
+    for i in range(2, a + 2):
+        if prim0(i) and a % i == 0:
+            lista.append(i)
+    if len(lista) == 3:
+        for y in lista:
+            x *= y
+    if x == a:
+        return True
+    else:
+        return False
+
+print(szfenikus(69))
