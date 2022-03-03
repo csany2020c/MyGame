@@ -243,15 +243,13 @@ def HF3feladat1a_Mersenneprim(hatvany: int) -> bool:
 #print(HF3feladat1a_Mersenneprim(6))
 
 def HF3feladat1b_Mersenneprimkeres(a: int) -> List['int']:
-    #lista: List['int'] = []
-    #for i in (a):
-    #    if HF3feladat1a_Mersenneprim(i) == True:
-    #        lista.append(i)
-#
-    #return lista
-    pass
+    lista: List['int'] = []
+    for i in range (2, a + 2):
+        if HF3feladat1a_Mersenneprim(i):
+            lista.append(i)
+    return lista
 
-#print(HF3feladat1b_Mersenneprimkeres())
+print(HF3feladat1b_Mersenneprimkeres(50))
 
 def HF3feladat2_Fibanacci(n: int) -> List['int']:
     lista: List['int'] = [0,1]
@@ -271,7 +269,7 @@ def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
         szam = a * b
     return szam
 
-#print(HF3feladat3_legkisebbtöbbszörös(5, 12))
+#print(HF3feladat3_legkisebbtöbbszörös(2, ))
 
 def HF3feladat4_legnagyobb_köz_oszto(a: int, b:int) -> int:
     szam = 0
@@ -286,7 +284,7 @@ def HF3feladat4_legnagyobb_köz_oszto(a: int, b:int) -> int:
 def HF3feladat5_Szfenikus_szamok(szam:int) -> bool:
     x = 1
     lista: List['int'] = []
-    for i in range(0, szam):
+    for i in range(2, szam + 2):
         if prim(i) and szam % i == 0:
             lista.append(i)
     if len(lista) == 3:
@@ -297,6 +295,6 @@ def HF3feladat5_Szfenikus_szamok(szam:int) -> bool:
     else:
         return False
 
-print(HF3feladat5_Szfenikus_szamok(30))
+#print(HF3feladat5_Szfenikus_szamok(130))
 
 #def HF4feladat1_boldogszam(szam: int) -> bool:
