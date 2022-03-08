@@ -48,5 +48,44 @@ def listaosszeg(lista: List['int']) -> int:
 def mertaniszorzateslistaosszeg(a1:int, q:int, n:int) -> int:
     return listaosszeg(mertaniszorzat(a1, q, n))
 
-print(mertaniszorzateslistaosszeg(1,56,7))
+#print(mertaniszorzateslistaosszeg(1,56,7))
+
+#HF2-----------------------------------------------------------------------------------------
+
+def szamfelbont(x:int) -> List['int']:
+    lista: List['int'] = []
+    for i in str(x):
+        lista.append(int(i))
+    return lista
+
+#print(szamfelbont(352))
+
+def szamjegyösszeg(x:int) -> int:
+    osszeg = 0
+    for i in (szamfelbont(x)):
+        osszeg  += i
+    return osszeg
+
+#print(szamjegyösszeg(252))
+
+def szamjegyszorzat(x:int) -> bool:
+    szorzat = 1
+    for i in (szamfelbont(x)):
+        szorzat *= int(i)
+    if szorzat == x:
+        return True
+    else:
+        return False
+
+#print(szamjegyszorzat(2))
+
+def tizenot() -> int:
+    db = 0
+    for i in range(100,1000):
+        if i % 15 == 0 and szamjegyösszeg(i) == 15:
+            db += 1
+    return db
+
+print(tizenot())
+
 
