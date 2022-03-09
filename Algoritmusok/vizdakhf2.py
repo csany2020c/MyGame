@@ -96,7 +96,8 @@ def mersenszamok(n:int):
 def fibonacci(n: int)->List['int']:
     n = int
     for i in range(2, n):
-        list.
+        #list.
+    pass
 
 
 
