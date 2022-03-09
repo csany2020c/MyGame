@@ -273,5 +273,10 @@ def szfenikus(a: int) -> bool:
         return False
 #print(szfenikus(10))
 
-#def boldogszam(x: int) -> bool:
-    #lista: List[]
+def boldogszam(x: int) -> bool:
+    osszeg: int =  0
+    for i in range():
+        osszeg += i ** 2
+    return osszeg
+print(boldogszam(1, 2, 3, 4, 5))
+
