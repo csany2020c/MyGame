@@ -77,7 +77,7 @@ def szamjegyszorzat(x:int) -> bool:
     else:
         return False
 
-#print(szamjegyszorzat(2))
+#print(szamjegyszorzat(4))
 
 def tizenot() -> int:
     db = 0
@@ -86,6 +86,11 @@ def tizenot() -> int:
             db += 1
     return db
 
-print(tizenot())
+#print(tizenot())
+
+def armstrongszam () -> List['int']:
+    lista: List['int'] = []
+    for x in range(100,1000):
+        for i in (szamfelbont(x)):
 
 

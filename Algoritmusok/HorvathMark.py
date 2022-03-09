@@ -274,37 +274,25 @@ def primbontas(szam: int) -> List['int']:
 
 #print(primbontas(19250))
 
-def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> List['int']:
-    szam = 0
-    lista: List['int'] = []
-    y = 1
-    x = 0
-    if a % b == 0:
-        szam = a
-    if b % a == 0:
-        szam = b
-
-    if primbontas(a).i < primbontas(b).i:
-        lista.append(x)
-        for z in primbontas(b):
-            x = z
-
-    if y < x:
-        lista.append(y)
-        for i in primbontas(a):
-            y = i
-
-    if y == x:
-        lista.append(y)
-        for i in primbontas(a):
-            y = i
-        for z in primbontas(b):
-            x = z
-
-    return lista
-
-
-
+def HF3feladat3_legkisebbtöbbszörös(a: int, b: int) -> int:
+    szam = 1
+    x = primbontas(a)
+    y = primbontas(b)
+    c = 1
+    f = 1
+    while x[c] != None:
+        if x[c] > y[f]:
+            szam *= x[f]
+            f += 1
+        if x[c] < y[f]:
+            szam *= x[c]
+            c += 1
+        if x[c] == y[f]:
+            szam *= x[f]
+            szam *= y[c]
+            c += 1
+            f += 1
+    return szam
 
 print(HF3feladat3_legkisebbtöbbszörös(10, 9))
 
