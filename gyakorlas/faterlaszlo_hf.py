@@ -3,7 +3,7 @@ from typing import List
 class Adatok:
     def __init__(self, Parsestring: str) -> None:
         super().__init__()
-        fieldls: list['str'] = Parsestring.split(" ")
+        fieldls: List['str'] = Parsestring.split(" ")
         self.ev: int = int(fieldls[0])
         self.het: int = int(fieldls[1])
         self.fordulo: int = int(fieldls[2])
@@ -17,7 +17,7 @@ class Adatok:
 class Beolvasasa:
     def __init__(self):
         super().__init__()
-        read: list['str'] = open("toto.txt", "r", encoding="utf-8").read().strip().split(sep="\n")
+        read: List['str'] = open("toto.txt", "r", encoding="utf-8").read().strip().split(sep="\n")
         adatokuj: List[Adatok] = list()
         for i in range(1, len(read)):
             adatokuj.append(Adatok(read[i]))
@@ -60,7 +60,7 @@ class Beolvasasa:
 
         for i in range(0, len(adatokuj)):
             if b == adatokuj[i].Ny13p1:
-                print("Legkisebb:",adatokuj[i].ev, adatokuj[i].het)
+                print("Legkisebb:", adatokuj[i].ev, adatokuj[i].het)
 
         print("8. feladat:")
         asd = 0
