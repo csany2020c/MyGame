@@ -1,6 +1,4 @@
 from dataclasses import field
-import readline
-import string
 from typing import TextIO
 from typing import List
 
@@ -33,6 +31,7 @@ class Main:
             for count, line in enumerate(fp):
                 pass
         print('Eredmények száma', count + 1)
+        # sacc per kábé 1 és fél óra
         
        
     
