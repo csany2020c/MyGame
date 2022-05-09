@@ -3,7 +3,7 @@ import game
 
 from Kancsalmate27megilyenek.InGameScreen import *
 from Kancsalmate27megilyenek.MenuActor import *
-from MusicActor import MusicActor
+from Kancsalmate27megilyenek.MusicActor import MusicActor
 import Kancsalmate27megilyenek.InfoScreen
 
 
