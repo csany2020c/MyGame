@@ -25,19 +25,19 @@ class Beolvasasa:
         for i in adatokuj:
             print(i)
 
-        print("4. feladat:")
+        print("3. feladat:")
         a = 0
         for i in range(0, len(adatokuj)):
             a += adatokuj[i].fordulo
         print(a)
 
-        print("5.feladat:")
+        print("4.feladat:")
         aa = 0
         for i in range(0, len(adatokuj)):
             aa += adatokuj[i].T13p1
         print(aa)
 
-        print("6. feladat:")
+        print("5. feladat:")
         b = 0
         for i in range(0, len(adatokuj)):
             b += adatokuj[i].T13p1 * adatokuj[i].Ny13p1
