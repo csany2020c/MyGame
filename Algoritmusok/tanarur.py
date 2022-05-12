@@ -370,8 +370,10 @@ def boldoge(szam: int) -> bool:
         szekvencia.append(aktualisnegyzetosszeg)
         aktualisnegyzetosszeg = negyzetosszeg(helyiertek2(aktualisnegyzetosszeg))
         # print(szekvencia)
+    print(szekvencia)
     return aktualisnegyzetosszeg == 1
 
+print(boldoge(83))
 
 def boldogszekvencia(szam: int) -> Set['int']:
     aktualisnegyzetosszeg: int = szam
@@ -410,13 +412,13 @@ def keresboldogsmart(start: int, stop: int) -> List['int']:
             boldogtalan = boldogtalan.union(s)
     return l
 
-
-ts1 = time()
-print(keresboldogbruteforce(1, 20000))
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
-
-ts1 = time()
-print(keresboldogsmart(1, 20000))
-ts2 = time()
-print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+#
+# ts1 = time()
+# print(keresboldogbruteforce(1, 20000))
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
+#
+# ts1 = time()
+# print(keresboldogsmart(1, 20000))
+# ts2 = time()
+# print("Az algoritmus {mp} másodpercig futott.".format(mp=(ts2 - ts1)))
