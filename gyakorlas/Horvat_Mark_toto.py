@@ -35,11 +35,11 @@ class feladat:
             F += i
         print(F)
 
-        #print("Feladat 4")
-        #T = 0
-        #for i in (0, len(datalist)):
-        #    T += datalist[i].T13p1
-        #print(T)
+        print("Feladat 4")
+        T = 0
+        for i in (0, len(datalist) - 1):
+            T += datalist[i].T13p1
+        print(T)
 
         #print("Feladat 5")
 

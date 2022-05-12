@@ -1,4 +1,4 @@
-wA Totó játék Magyarországon
+A Totó játék Magyarországon
 
 A Totó játék Magyarországon aránylag korán, 1947. október 19-én indult el. A Totóban a fogadási fordulónként közzétett 13+1 labdarúgó mérkőzés kimenetelét kell megtippelni. Akkor nyer a játékos, ha a fogadási ajánlatban feltüntetett első 13 mérkőzés lehetséges kimeneteleiből legalább 10-et eltalál. 13+1 találatot (telitalálatot) akkor ér el, ha mind a 13 fő mérkőzés, és a 14., vagyis a +1 mérkőzés eredményét is helyesen tippeli meg.
 Lehetséges kimenetek: 1-hazai csapat nyer; 2-vendég csapat nyer; X-döntetlennel ér véget a találkozó. Ebben a feladatban 1998-tól rögzített eredményeket feldolgozva kell feladatokat megoldania!
