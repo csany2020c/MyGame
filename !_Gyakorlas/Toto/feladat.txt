@@ -1,0 +1,43 @@
+wA Totó játék Magyarországon
+
+A Totó játék Magyarországon aránylag korán, 1947. október 19-én indult el. A Totóban a fogadási fordulónként közzétett 13+1 labdarúgó mérkőzés kimenetelét kell megtippelni. Akkor nyer a játékos, ha a fogadási ajánlatban feltüntetett első 13 mérkőzés lehetséges kimeneteleiből legalább 10-et eltalál. 13+1 találatot (telitalálatot) akkor ér el, ha mind a 13 fő mérkőzés, és a 14., vagyis a +1 mérkőzés eredményét is helyesen tippeli meg.
+Lehetséges kimenetek: 1-hazai csapat nyer; 2-vendég csapat nyer; X-döntetlennel ér véget a találkozó. Ebben a feladatban 1998-tól rögzített eredményeket feldolgozva kell feladatokat megoldania!
+
+Megoldásában vegye figyelembe a következőket:
+• A képernyőre írást igénylő részfeladatok eredményének megjelenítése előtt írja a képernyőre a feladat sorszámát (például: 2. feladat)!
+• Az egyes feladatokban a kiírásokat a minta szerint készítse el!
+• Az ékezetmentes kiírások is elfogadottak.
+• Az azonosítókat kis- és nagybetűkkel is kezdheti.
+• A program megírásakor az állományban lévő adatok helyes szerkezetét nem kell ellenőriznie, feltételezheti, hogy a rendelkezésre álló adatok a leírtaknak megfelelnek.
+• A megoldását úgy készítse el, hogy az azonos szerkezetű, de tetszőleges bemeneti adatok mellett is helyes eredményt adjon.
+A toto.txt forrásállomány tartalmazza soronként a fogadási fordulók adatait, az adatokat szóközzel választottuk el:
+
+Év	Hét	Forduló	T13p1	Ny13p1	Eredmények
+2020 	18 	1 	0 	0 	2X22211X1X11X1
+2020 	17 	1 	0 	0 	2221XX12222121
+2020 	16 	2 	0 	0 	1111XX11X12X1X
+2020 	11 	2 	112 	13900 	2111X21XXX1122
+
+• Év: A fogadási forduló éve (1998-2020)
+• Hét: A fogadási forduló hete (1-53)
+• Forduló: Forduló sorszáma (1 vagy 2)
+• T13p1: 13+1 találatos (telitalálatos) szelvények darabszáma
+• Ny13p1: Egy darab 13+1 találatos szelvény után fizetett nyeremény [Ft]
+• Eredmények: A forduló 14 mérkőzésének kimenetelei
+
+1. Készítsen egy objektum osztályt, amelyben egy adatsort tud tárolni.
+
+2. Olvassa be a toto.txt állományban lévő adatokat. Az állományban legfeljebb 2000 sor lehet. Tárolja el őket a memóriában.
+
+3. Határozza meg és írja ki a képernyőre, hány forduló adatai találhatók a forrásállományban!
+
+4. Számolja meg és írja ki a képernyőre a telitalálatos szelvények számát!
+
+5. Készítsen az objektum osztályhoz metódust, amely megadja, hogy összesen a telitalálatos szelvények után mennyi pénzt fizettek ki. T13p1 * Ny13p1
+
+7. Írja ki annak a fordulónak az évszámát és hetét, ahol a legnagyobb és a legkisebb volt az egy telitalálatos szelvények után fizetett nyeremény!
+
+8. Készítsen metódust az osztályhoz, amely megszámolja, hogy hány döntetetlen volt a fordulóban. A döntetlenek számával térjen vissza.
+
+9. Döntse el, hogy volt-e olyan forduló, ahol a 13+1 mérkőzés eredménye nem tartalmazott döntetlent! A keresést ne folytassa, ha a választ meg tudja adni! A megállapítását írja a képernyőre!
+
