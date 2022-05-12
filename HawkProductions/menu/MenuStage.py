@@ -17,11 +17,13 @@ class MenuStage(game.scene2d.MyStage):
         self.h2 = Exit()
         self.b = Gabriola()
         self.b2 = Anything()
+        self.promo = Arial()
         self.add_actor(self.t)
         self.add_actor(self.h1)
         self.add_actor(self.h2)
         self.add_actor(self.b)
         self.add_actor(self.b2)
+        self.add_actor(self.promo)
 
         self.t.width = 1300
 
@@ -41,6 +43,8 @@ class MenuStage(game.scene2d.MyStage):
         self.b2.set_text("Flappy D")
         self.b2.x = 500
         self.b2.y = 100
+
+        self.promo.set_text("További információt keressen weboldalunkon!")
 
         self.i = Info()
         self.add_actor(self.i)
