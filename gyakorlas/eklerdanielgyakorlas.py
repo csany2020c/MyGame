@@ -1,4 +1,6 @@
 from dataclasses import field
+from tkinter import N
+
 from typing import TextIO
 from typing import List
 
@@ -23,16 +25,47 @@ class Main:
     def __init__(self) -> None:
         super().__init__()
         print("2. feladat")
-        f: TextIO = open("gyakorlas//toto.txt", "r", encoding="utf-8")
+        f: TextIO = open("toto.txt", "r", encoding="utf-8")
         content: str = f.read()
         print(content)
         print("3.feladat")
-        with open(r"gyakorlas//toto.txt", 'r') as fp:
-            for count, line in enumerate(fp):
-                pass
-        print('Eredmények száma', count + 1)
-        # sacc per kábé 1 és fél óra
+
+
+        fil = open("toto.txt","r")
+        Counter = 0
+        Content = fil.read()
+        Colist = Content.split("\n")
+
+        for i in Colist:
+            if i:
+                Counter += 1
+
+        print("Eredmények Száma:")
+        print(Counter)
+
+        
+
+        
+        # kb 2 és fél óra
         
        
     
 Main()
+
+class NAIN:
+    print("4.feladat")
+    content = open("toto.txt", "r", encoding="utf-8")
+    lines = content.splitlines()[4:]
+    part_data = {}
+    for line in lines:
+        columns = line.split()
+        if len(columns) != 3:
+            continue
+        part_data[columns[0]] = (columns[1], columns[2])
+
+
+
+
+NAIN()
+
+
