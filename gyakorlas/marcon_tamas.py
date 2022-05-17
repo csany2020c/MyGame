@@ -28,19 +28,6 @@ class Gyakorlas:
         for a in range(len(self.lines)-1):
             self.legnagyobb(self.lines[a],a)
 
-    def torottkez1(self,lines:str):
-        line = lines.split(" ")
-        self.ev = int(line[0])
-        self.het = int(line[1])
-        self.fordulo = int(line[2])
-        self.t13p1 = int(line[3])
-        self.ny13p1 = int(line[4])
-        self.eredmeny = str(line[5])
-
-        self.fordulomennyiseg+=self.fordulo
-        self.talalat+=self.t13p1
-        self.penz(self.t13p1 * self.ny13p1)
-
     def penz(self,penz:int):
         self.osszpenz+=penz
 
