@@ -52,20 +52,20 @@ class Main:
     
 Main()
 
-class NAIN:
-    print("4.feladat")
-    content = open("toto.txt", "r", encoding="utf-8")
-    lines = content.splitlines()[4:]
-    part_data = {}
-    for line in lines:
-        columns = line.split()
-        if len(columns) != 3:
-            continue
-        part_data[columns[0]] = (columns[1], columns[2])
-
-
-
-
-NAIN()
+# class NAIN:
+#     print("4.feladat")
+#     content = open("toto.txt", "r", encoding="utf-8")
+#     lines = content.splitlines()[4:]
+#     part_data = {}
+#     for line in lines:
+#         columns = line.split()
+#         if len(columns) != 3:
+#             continue
+#         part_data[columns[0]] = (columns[1], columns[2])
+#
+#
+#
+#
+# NAIN()
 
 
