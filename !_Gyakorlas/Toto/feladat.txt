@@ -39,5 +39,6 @@ A toto.txt forrásállomány tartalmazza soronként a fogadási fordulók adatai
 
 8. Készítsen metódust az osztályhoz, amely megszámolja, hogy hány döntetetlen volt a fordulóban. A döntetlenek számával térjen vissza.
 
-9. Döntse el, hogy volt-e olyan forduló, ahol a 13+1 mérkőzés eredménye nem tartalmazott döntetlent! A keresést ne folytassa, ha a választ meg tudja adni! A megállapítását írja a képernyőre!
+9. Döntse el, hogy volt-e olyan forduló, ahol a 13+1 mérkőzés eredménye nem tartalmazott döntetlent!
+A keresést ne folytassa, ha a választ meg tudja adni! A megállapítását írja a képernyőre!
 
