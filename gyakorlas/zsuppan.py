@@ -17,6 +17,13 @@ class Adatok:
     def osszfizetett(self) -> int:
         return self.T13p1 * self.Ny13p1
 
+    def dontetlenek(self) -> int:
+        d: int = 0
+        for i in self.eredmenyek:
+            if i == "X":
+                d += 1
+        return d
+
 class Program:
     def __init__(self, fajl: str) -> None:
         super().__init__()
@@ -30,5 +37,11 @@ class Program:
         for i in lista:
             s += i.T13p1
         print(s)
+        #9
+    def dontnelkuli(self, lista: List['Adatok']):
+        for i in lista:
+            if i.dontetlenek() == 0:
+                return True
+        return False
 
 Program("toto.txt")
