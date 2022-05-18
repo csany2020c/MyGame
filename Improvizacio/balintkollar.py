@@ -20,7 +20,6 @@ class Sajatroller:
 
 Sajatroller()
 
-
-
+#HF: még 2 osztály ugyan ide és pár példányt
 
 
