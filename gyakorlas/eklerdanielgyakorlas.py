@@ -6,19 +6,22 @@ from typing import List
 
 class Data:
 
-    def __init__(self, parseString: str) -> None:
+    def __init__(self, parseString: str):
         super().__init__()
-        fields: List['str'] = parseString.split(";")
-        self.év: str = str(fields[0])
-        self.hét: str = fields[1]
-        self.fordulo: str = fields[2]
-        self.t13p1: str = fields[3]
-        self.ny13p1: int = fields[4]
-        self.eredmények: int = fields[5]
+
+        lista: List['str'] = parseString.split("\n")
+
+        self.evv: int = int (lista[0])
+        self.het: int = int (lista[1])
+        self.fordulo: int = int (lista[2])
+        self.t13p1: int = int (lista[3])
+        self.ny13p1: int = int (lista[4])
+        self.eredmenyek: str = (lista[5])
         
         
     def __str__(self) -> str:
-        return "{x};   {y};   {txt};   {col};  {tavi}, {zamn}".format(x=self.év, y=self.hét, txt=self.fordulo, col=self.t13p1, tavi=self.ny13p1, zamn=self.eredmények)
+        return "{x};   {y};   {txt};   {col};  {tavi}, {zamn}".format(x=self.evv, y=self.het, txt=self.fordulo, col=self.t13p1, tavi=self.ny13p1, zamn=self.eredmenyek)
+
 
 class Main:
 
@@ -28,20 +31,18 @@ class Main:
         f: TextIO = open("toto.txt", "r", encoding="utf-8")
         content: str = f.read()
         print(content)
-        print("3.feladat")
+        print("4.feladat")
 
 
-        fil = open("toto.txt","r")
-        Counter = 0
-        Content = fil.read()
-        Colist = Content.split("\n")
 
-        for i in Colist:
-            if i:
-                Counter += 1
 
-        print("Eredmények Száma:")
-        print(Counter)
+
+
+
+
+
+
+
 
         
 
@@ -52,20 +53,20 @@ class Main:
     
 Main()
 
-class NAIN:
-    print("4.feladat")
-    content = open("toto.txt", "r", encoding="utf-8")
-    lines = content.splitlines()[4:]
-    part_data = {}
-    for line in lines:
-        columns = line.split()
-        if len(columns) != 3:
-            continue
-        part_data[columns[0]] = (columns[1], columns[2])
-
-
-
-
-NAIN()
+# class NAIN:
+#     print("4.feladat")
+#     content = open("toto.txt", "r", encoding="utf-8")
+#     lines = content.splitlines()[4:]
+#     part_data = {}
+#     for line in lines:
+#         columns = line.split()
+#         if len(columns) != 3:
+#             continue
+#         part_data[columns[0]] = (columns[1], columns[2])
+#
+#
+#
+#
+# NAIN()
 
 
