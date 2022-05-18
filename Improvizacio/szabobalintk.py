@@ -28,3 +28,5 @@ class Peldak:
         print(self.Partysator.ar,"Ft")
 
 Peldak()
+
+#Még 2 osztály ugyanebben a fájlba és azokra 1-2 példát.
