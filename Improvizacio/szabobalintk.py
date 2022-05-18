@@ -30,3 +30,4 @@ class Peldak:
 Peldak()
 
 #Még 2 osztály ugyanebben a fájlba és azokra 1-2 példát.
+#Token: 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
