@@ -18,6 +18,6 @@ myalma.szin = "piros"
 myalma.nagysaga = "5"
 myalma.erett = True or False
 myalma.finom = True or False
-
+#hf ket osztalyt leterhozni es peldanyolakat
 
 print(myalma.szin)
