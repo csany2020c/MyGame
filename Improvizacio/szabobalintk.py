@@ -27,7 +27,56 @@ class Peldak:
         print(self.Partysator.szin)
         print(self.Partysator.ar,"Ft")
 
-Peldak()
+#Peldak()
 
-#Még 2 osztály ugyanebben a fájlba és azokra 1-2 példát.
-#Token: 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
+class Focista:
+    def __init__(self):
+        super().__init__()
+        self.nev : str = "transparent"
+        self.magassag : int = 0
+        self.suly: int = 0
+        self.ballabas: bool = False
+
+class Peldak2:
+    def __init__(self):
+        self.peldafoci = Focista()
+
+        self.peldafoci.nev = "Ronaldo Siuuu"
+        self.peldafoci.magassag = 180
+        self.peldafoci.suly = 70
+        self.peldafoci.ballabas = True
+
+        print(self.peldafoci.nev)
+        print(self.peldafoci.ballabas)
+
+#Peldak2()
+
+class Majom:
+    def __init__(self):
+        super().__init__()
+        self.eletkor: int = 0
+        self.faj : str = "transparent"
+        self.farokhossz: int = 10 #cm
+        self.emberszabasu: bool = False
+
+
+
+class Peldak3:
+    def __init__(self):
+        self.maki1 = Majom()
+
+        self.maki1.faj = "Orángután"
+        self.maki1.eletkor = 12
+        self.maki1.farokhossz = 0
+        self.maki1.emberszabasu = True
+
+        print(self.maki1.faj)
+        print(self.maki1.eletkor)
+        print(self.maki1.emberszabasu)
+
+        if self.maki1.farokhossz <= 10 or self.maki1.emberszabasu == True:
+            print("Nincsen farka")
+
+
+Peldak3()
+
