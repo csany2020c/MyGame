@@ -46,11 +46,6 @@ class Feladatok:
         print("Eddig összesen {fizetet} Ft-ot fizettek ki.".format(fizetet=fizet))
 
         print("7,feladat:")
-        #legnagyobb = 0
-        #legkisebb = 0
-        #for i in range(0, len(datalist)):
-            #if legnagyobb < datalist[i].t13p1:
-                #legnagyobb = datalist[i].t13p1
 
         print("8,feladat:")
         dontetlen = 0
