@@ -18,3 +18,16 @@ motor.loero = 15
 motor.valto = True
 
 #hf: +2osztály létrehozása, kirása
+
+class Csuka:
+    def __init__(self):
+        self.gyarto: str = str()
+        self.tipus: str = str()
+        self.meret: int = int()
+        self.stopli: str = str()
+
+csuka = Csuka()
+csuka.gyarto = "Adidas"
+csuka.tipus = "Predator"
+csuka.meret = 42
+csuka.stopli = "Fém"
