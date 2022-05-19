@@ -110,8 +110,8 @@ print(teve3)
 teve4 = Teve()
 teve4.magassag = int(input("Kérem adja meg a magasságot: "))
 teve4.szin = str(input("Kérem adja meg a színét: "))
-teve4.nosteny = str(input("Kérem adja meg, hogy nöstény-e?(True or False): "))
-if teve4.nosteny == "True" or teve4.nosteny == "False":
+teve4.nosteny = str(input("Kérem adja meg, hogy nöstény-e?(Igen vagy Nem): "))
+if teve4.nosteny == "Igen" or teve4.nosteny == "Nem":
     pass
 else:
     quit()
