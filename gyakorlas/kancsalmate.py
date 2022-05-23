@@ -17,6 +17,8 @@ class Data:
         self.eredmeny: str = fields[5]
 
 
+
+
     def __str__(self) -> str:
         return "{x};   {y};   {txt};   {col}; {asd}; {igen};".format(x=self.ev, y=self.het, txt=self.fordulo, col=self.t13p1, asd=self.ny13p1, igen=self.eredmeny)
 
@@ -67,6 +69,9 @@ class Main:
             print(legkisebb)
             print(legkisebbsorszam)
             print(datalist[legkisebbsorszam].ev, datalist[legkisebbsorszam].het, datalist[legkisebbsorszam].fordulo)
+
+
+
 
 
 
