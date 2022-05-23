@@ -63,7 +63,7 @@ def szamfelbont(x:int) -> List['int']:
 def szamjegyösszeg(x:int) -> int:
     osszeg = 0
     for i in (szamfelbont(x)):
-        osszeg  += i
+        osszeg = osszeg + i
     return osszeg
 
 #print(szamjegyösszeg(252))

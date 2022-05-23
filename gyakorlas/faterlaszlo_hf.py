@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Adatok:
     def __init__(self, Parsestring: str) -> None:
         super().__init__()
@@ -14,30 +15,32 @@ class Adatok:
     def __str__(self):
         return "ev = {a}, het = {b}, fordulo = {c}, T13p1 = {d}, Ny13p1e = {e}, Eredmenyek = {f}".format(a=self.ev, b=self.het, c=self.fordulo, d=self.T13p1, e=self.Ny13p1, f=self.Eredmenyek)
 
+
 class Beolvasasa:
     def __init__(self):
         super().__init__()
         read: List['str'] = open("toto.txt", "r", encoding="utf-8").read().strip().split(sep="\n")
         adatokuj: List[Adatok] = list()
-        for i in range(1, len(read)):
+        for i in range(0, len(read)):
             adatokuj.append(Adatok(read[i]))
 
         for i in adatokuj:
             print(i)
 
-        print("4. feladat:")
-        a = 0
-        for i in range(0, len(adatokuj)):
-            a += adatokuj[i].fordulo
-        print(a)
+        print("3. feladat:")
+        # a = 0
+        # for i in range(0, len(adatokuj)):
+        #     a += adatokuj[i].fordulo
+        # print(a)
+        print(len(adatokuj))
 
-        print("5.feladat:")
+        print("4.feladat:")
         aa = 0
         for i in range(0, len(adatokuj)):
             aa += adatokuj[i].T13p1
         print(aa)
 
-        print("6. feladat:")
+        print("5. feladat:")
         b = 0
         for i in range(0, len(adatokuj)):
             b += adatokuj[i].T13p1 * adatokuj[i].Ny13p1
