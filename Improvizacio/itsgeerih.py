@@ -63,14 +63,9 @@ ruha.replika = input("Adja meg, hogy a ruha replika vagy sem (Igen/Nem): ")
 
 if ruha.replika == "Igen":
     ruha.replika = True
-else:
-    print("Hibás értéket adtál meg. Megadható választások: [Igen / Nem]")
-    exit()
 
 if ruha.replika == "Nem":
     ruha.replika = False
-else:
-    exit()
 
 print(ruha)
 print(ruha2)
