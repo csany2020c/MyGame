@@ -3,6 +3,7 @@ from typing import TextIO
 from typing import List
 
 
+
 class Data:
 
     def __init__(self, parseString: str) -> None:
@@ -17,8 +18,11 @@ class Data:
         self.eredmeny: str = fields[5]
 
 
+
+
     def __str__(self) -> str:
         return "{x};   {y};   {txt};   {col}; {asd}; {igen};".format(x=self.ev, y=self.het, txt=self.fordulo, col=self.t13p1, asd=self.ny13p1, igen=self.eredmeny)
+
 
 
 class Main:
@@ -55,6 +59,18 @@ class Main:
                 fizet = datalist[i].t13p1 * datalist[i].ny13p1
                 osszeg = fizet + osszeg
             print(osszeg)
+
+
+            legkisebb: int = 99999999999999999
+            for i in range(len(lines) - 1):
+                if datalist[i].ny13p1 > 0:
+                    if datalist[i].ny13p1 < legkisebb:
+                        legkisebb = datalist[i].ny13p1
+                        legkisebbsorszam = i
+            print(legkisebb)
+            print(legkisebbsorszam)
+            print(datalist[legkisebbsorszam].ev, datalist[legkisebbsorszam].het, datalist[legkisebbsorszam].fordulo)
+
 
 
 
