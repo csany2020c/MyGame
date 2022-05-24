@@ -39,7 +39,6 @@ class Feladat:
         print(b)
 
         print("5. feladat")
-        print(a*b)
 
         print("7. feladat")
         c = 0
