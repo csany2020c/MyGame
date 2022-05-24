@@ -15,22 +15,22 @@ csuka.gyarto = "Nike"
 csuka.meret = 41
 csuka.szin = "Fekete"
 csuka.stopli = False
-csuka.anyag = "Bor"
+csuka.anyag = "Bőr"
 print(csuka)
 
-csuka = cipo()
-csuka.gyarto = "Adidas"
-csuka.meret = 40
-csuka.szin = "Fehér"
-csuka.stopli = True
-csuka.anyag = "Műanyag"
+csuka2 = cipo()
+csuka2.gyarto = "Adidas"
+csuka2.meret = 40
+csuka2.szin = "Fehér"
+csuka2.stopli = True
+csuka2.anyag = "Műanyag"
 print(csuka)
 
-csuka = cipo()
-csuka.gyarto = "Puma"
-csuka.meret = 42
-csuka.szin = "Neonzöld, Neonsárga"
-csuka.stopli = False
-csuka.anyag = "Műbőr"
+csuka3 = cipo()
+csuka3.gyarto = "Puma"
+csuka3.meret = 42
+csuka3.szin = "Neonzöld, Neonsárga"
+csuka3.stopli = False
+csuka3.anyag = "Műbőr"
 print(csuka)
 cipo()
