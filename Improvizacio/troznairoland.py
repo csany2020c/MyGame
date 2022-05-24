@@ -36,6 +36,7 @@ kezilabda3.ar = 8000
 kezilabda3.hasznalat = "haladó"
 kezilabda3.megerimegvenni = True
 lista.append(kezilabda3)
+
 kezilabda4 = kezilabda()
 kezilabda4.szin = input("A labda színe:")
 kezilabda4.meret = input("A labda mérete:")

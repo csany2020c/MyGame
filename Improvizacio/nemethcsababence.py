@@ -19,7 +19,7 @@ while valt == True:
     bement4.ar = int(input("A játék ára: "))
     append4 = f"{bement4.nev} {bement4.kidatum} {bement4.kategoria} {bement4.ar}"
     fulloslist.append(append4)
-    new: str = str(input("Szeretne mégegy játékot felvinni?"))
+    new: str = str(input("Szeretne mégegy játékot felvinni?(Igen/Nem)"))
     if new == "Nem":
         valt = False
         break
