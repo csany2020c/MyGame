@@ -3,6 +3,7 @@ from typing import TextIO
 from typing import List
 
 
+
 class Data:
 
     def __init__(self, parseString: str) -> None:
@@ -15,6 +16,8 @@ class Data:
         self.t13p1: int = int(fields[3])
         self.ny13p1: int = int(fields[4])
         self.eredmeny: str = fields[5]
+
+
 
 
     def __str__(self) -> str:
@@ -67,6 +70,9 @@ class Main:
             print(legkisebb)
             print(legkisebbsorszam)
             print(datalist[legkisebbsorszam].ev, datalist[legkisebbsorszam].het, datalist[legkisebbsorszam].fordulo)
+
+
+
 
 
 

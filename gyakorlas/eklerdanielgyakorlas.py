@@ -1,72 +1,48 @@
-from dataclasses import field
+from dataclasses import fields
+from operator import contains
 from tkinter import N
-
 from typing import TextIO
+from re import I, X
 from typing import List
-
-class Data:
-
-    def __init__(self, parseString: str):
+class Adat:
+    def __init__(self, Parsestring: str) -> None:
         super().__init__()
+        fields: List['str'] = Parsestring.split("")
+        self.ev: int = int(fields[0])
+        self.het: int = int(fields[1])
+        self.ford: int = int(fields[2])
+        self.t: int = int(fields[3])
+        self.n: int = int(fields[4])
+        self.ered: str = str(fields[5])
 
-        lista: List['str'] = parseString.split("\n")
-
-        self.evv: int = int (lista[0])
-        self.het: int = int (lista[1])
-        self.fordulo: int = int (lista[2])
-        self.t13p1: int = int (lista[3])
-        self.ny13p1: int = int (lista[4])
-        self.eredmenyek: str = (lista[5])
-        
-        
-    def __str__(self) -> str:
-        return "{x};   {y};   {txt};   {col};  {tavi}, {zamn}".format(x=self.evv, y=self.het, txt=self.fordulo, col=self.t13p1, tavi=self.ny13p1, zamn=self.eredmenyek)
-
-
-class Main:
-
-    def __init__(self) -> None:
-        super().__init__()
-        print("2. feladat")
-        f: TextIO = open("toto.txt", "r", encoding="utf-8")
-        content: str = f.read()
-        print(content)
-        print("4.feladat")
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-        
-        # kb 2 és fél óra
-        
-       
     
-Main()
+    def __str__(self):
+        return " ev ={e}, het= {h}, ford= {f}, t= {t}, n= {n}, ered= {e}".format(e =self.ev, h=self.het, f=self.ford, t=self.t, n=self.n, ered=self.ered)
 
-# class NAIN:
-#     print("4.feladat")
-#     content = open("toto.txt", "r", encoding="utf-8")
-#     lines = content.splitlines()[4:]
-#     part_data = {}
-#     for line in lines:
-#         columns = line.split()
-#         if len(columns) != 3:
-#             continue
-#         part_data[columns[0]] = (columns[1], columns[2])
-#
-#
-#
-#
-# NAIN()
+class ZAMN:
+    
 
+    def __init__(self):
+        super().__init__()
 
+        f = open("gyakorlas/toto.txt", "r")
+        cucc = f.read()
+        print(cucc)
+        
+        f.close()
+
+        print("3. feladat")
+        harmas = len(cucc.split("\n")) - 1
+
+        print("Eredmények száma:")
+        print(harmas)
+        print("4.feladat")
+        
+        b = 0
+        for i in cucc:
+            if  i == "X":
+                b += 1
+        print(b)
+        
+                
+ZAMN()

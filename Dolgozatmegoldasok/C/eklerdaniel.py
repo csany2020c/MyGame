@@ -10,4 +10,4 @@ class Barlang:
         self.tel: str = darablás[1]
 
         def __str__(self) -> str:
-            return "{nev}\t{hossz}\t{kit}\t {mely}\t{mag}\t{tel}".format(nev=self.nev, hossz=self.hossz, kit=self.kit, mely = self.mely, mag = self.mag,tel = self.tel)
+            return "{nev}\t{hossz}\t{kit}\t {mely}\t{mag}\t{tel}".format(nev=self.het, hossz=self.hossz, kit=self.kit, mely = self.mely, mag = self.mag, tel = self.tel)
