@@ -1,5 +1,4 @@
 from typing import List
-from typing import TextIO
 
 # ruha, milyen marka, mekkora a ruha (S/M/L/XL), hany darab van a raktaron belole, stb
 # 4-5 szempont
@@ -17,12 +16,25 @@ class Ruhaa:
     def __str__(self) -> str:
         return "Márka = {a}; Szín = {b}; Nagysága = {c}; Darabszám = {d}; Replika = {e}".format(a=self.marka, b=self.szin, c=self.nagysaga, d=self.darabszam, e=self.replika)
 
+ruhalista: List['Ruhaa'] = list()
+
 ruha = Ruhaa()
-ruha.marka = ""
-ruha.szin = ""
-ruha.nagysaga = 0
-ruha.darabszam = 0
-ruha.replika = True
+ruha.marka = str(input("Adja meg a ruha márkáját: "))
+ruha.szin = str(input("Adja meg a ruha színét: "))
+ruha.nagysaga = int(input("Adja meg a ruha nagyságát [1: S; 2: M; 3: L]: "))
+while(ruha.nagysaga > 3):
+    if ruha.nagysaga > 3:
+        print("Túl nagy számot adtál meg! Elérhető választások: [1 / 2 / 3]")
+        exit()
+
+ruha.darabszam = int(input("Adja meg a ruha mennyiségét: "))
+ruha.replika = str(input("Adja meg, hogy a ruha replika vagy sem (Igen/Nem): "))
+
+if ruha.replika == "Igen":
+    ruha.replika = True
+
+if ruha.replika == "Nem":
+    ruha.replika = False
 
 ruha2 = Ruhaa()
 ruha2.marka = "nike"
@@ -51,31 +63,15 @@ ruha5.szin = "fekete"
 ruha5.nagysaga = 3
 ruha5.darabszam = 34
 ruha5.replika = True
-ruha.marka = input("Adja meg a ruha márkáját: ")
-ruha.szin = input("Adja meg a ruha színét: ")
-ruha.nagysaga = input("Adja meg a ruha nagyságát [1: S; 2: M; 3: L]: ")
-while(ruha.nagysaga > "3"):
-    if ruha.nagysaga > "3":
-        print("Túl nagy számot adtál meg! Elérhető választások: [1 / 2 / 3]")
-        exit()
-ruha.darabszam = input("Adja meg a ruha darabszámát: ")
-ruha.replika = input("Adja meg, hogy a ruha replika vagy sem (Igen/Nem): ")
 
-if ruha.replika == "Igen":
-    ruha.replika = True
-else:
-    print("Hibás értéket adtál meg. Megadható választások: [Igen / Nem]")
-    exit()
+ruhalista.append(ruha)
+ruhalista.append(ruha2)
+ruhalista.append(ruha3)
+ruhalista.append(ruha4)
+ruhalista.append(ruha5)
 
-if ruha.replika == "Nem":
-    ruha.replika = False
-else:
-    exit()
+for i in range(len(ruhalista)):
+    print(ruhalista[i])
 
-print(ruha)
-print(ruha2)
-print(ruha3)
-print(ruha4)
-print(ruha5)
 
 Ruhaa()
