@@ -33,4 +33,18 @@ csuka3.szin = "Neonzöld, Neonsárga"
 csuka3.stopli = False
 csuka3.anyag = "Műbőr"
 print(csuka)
+
+cipok = cipo()
+cipok.gyarto = str(input("gyarto:"))
+cipok.meret = int(input("meret:"))
+cipok.szin = str(input("szin:"))
+cipok.stopli = str(input("stopli:(igen/nem):"))
+if cipok.stopli == "Igen":
+    cipok.stopli = True
+else:
+    cipok.stopli = False
+cipok.anyag = str(input("anyag:"))
+print(cipok)
+
+
 cipo()
