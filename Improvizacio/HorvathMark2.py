@@ -1,12 +1,12 @@
 class earphone():
     def __int__(self):
         super().__init__()
-        self.ar: int = 0
-        self.szallitas: int = 0
-        self.hany_nap: int = 0
-        self.nev: str = ""
-        self.szin: str = ""
-        self.wireless: bool = True
+        self.ar: int
+        self.szallitas: int
+        self.hany_nap: int
+        self.nev: str
+        self.szin: str
+        self.wireless: bool
 
 F9 = earphone()
 F9.ar = 5098
