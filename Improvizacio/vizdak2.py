@@ -5,12 +5,12 @@ from typing import TextIO
 class Iphone:
     def __init__(self):
         super().__init__()
-        self.nev: str = str
-        self.szallitasiido: int = int
-        self.szallitasikoltseg: int = int
-        self.ar: int = int
-        self.szin: str = str
-        self.kapacitas: int = int
+        self.nev = str
+        self.szallitasiido = int
+        self.szallitasikoltseg = int
+        self.ar = int
+        self.szin = str
+        self.kapacitas = int
 
     def __str__(self) -> str:
         return "nev = {x}; szallitasiido = {y}; szallitasikoltseg = {z}; ar = {a}; szin = {b}; kapacitas = {k}".format(x=self.nev, y=self.szallitasiido, z=self.szallitasikoltseg, a=self.ar, b=self.szin, k=self.kapacitas)
