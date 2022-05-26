@@ -7,7 +7,7 @@ class Rendeles:
         self.kiszallitasiido: int = 0
 
     def __str__(self) -> str:
-        return "Alap adatok: Termék neve: {a}; Szín: {b}; Szalltási Költség: {c};  Kiszallítási idő: {d};".format(a=self.termeknev,b=self.ar,c=self.szallitasikoltseg,d=self.kiszallitasiido)
+        return "Alap adatok: Termék neve: {a}; Ár: {b}; Szalltási Költség: {c};  Kiszallítási idő: {d};".format(a=self.termeknev,b=self.ar,c=self.szallitasikoltseg,d=self.kiszallitasiido)
 
 
 Rendeles()
