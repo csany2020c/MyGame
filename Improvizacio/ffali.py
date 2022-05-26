@@ -1,7 +1,7 @@
 from typing import List
 
 class Ali:
-    def __init__(self):
+    def __init__(self) -> None:
         self.ar: int = 0
         self.kiszalitasiar: int = 0
         self.learazas: str

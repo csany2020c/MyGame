@@ -65,9 +65,9 @@ QKZ.wireless = False
 lista: List = list()
 lista.append(QKZ)
 lista.append(MSR)
-#lista.append(TWS)
-#lista.append(PCS)
-#lista.append(F9)
+lista.append(TWS)
+lista.append(PCS)
+lista.append(F9)
 
 for i in lista:
     print(i)

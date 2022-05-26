@@ -1,7 +1,7 @@
 #szállítási költség, ár, szállítási idő
 
 class markers:
-    def __init__(self):
+    def __init__(self) -> None:
         self.szallitas = 0
         self.ar = 3
         self.ido = 66

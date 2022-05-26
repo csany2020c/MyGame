@@ -2,7 +2,7 @@
 from typing import List
 
 class Hangszoro:
-    def __init__(self):
+    def __init__(self) -> None:
         self.ar: int = 5000
         self.szallitasikoltseg:int
         self.szallitasiido:str
