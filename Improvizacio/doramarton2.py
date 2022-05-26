@@ -12,9 +12,8 @@ class egercucc:
         self.garancia: bool = True
         self.gombokszama: int = 5
 
-
     def __str__(self) -> str:
-        return "Ár:{a} Márka:{s} Szállítási idő:{d} Szállítási ár{f} Értékelés:{g} Garancia:{h} Gombok száma:{j}".format(a=self.ar, s=self.marka, d=self.szallitasiido, f=self.szallitasiar, g=self.ertekeles, h=self.gombokszama)
+        return "Ár:{a} Márka:{s} Szállítási idő:{d} Szállítási ár{f} Értékelés:{g} Garancia:{h} Gombok száma:{j}".format(a=self.ar, s=self.marka, d=self.szallitasiido, f=self.szallitasiar, g=self.ertekeles, h=self.garancia, j=self.gombokszama)
 
 
 eger = egercucc()
