@@ -8,7 +8,7 @@ class Iphone:
         self.ar = int
         self.szin = str
         self.kapacitas = int
-
+        self.eredetiar = int
     def __str__(self) -> str:
         return "szallitasiido = {y}; szallitasikoltseg = {z}; ar = {a}; szin = {b}; kapacitas = {k}".format(y=self.szallitasiido, z=self.szallitasikoltseg, a=self.ar, b=self.szin, k=self.kapacitas)
 
@@ -36,9 +36,8 @@ myIphone3.ar = 118000
 myIphone3.szin = "szürke"
 myIphone3.kapacitas = 64
 
-
-
-
+def osszeg(self) -> int:
+    return self.ar
 #print(myIphone)
 #print(myIphone2)
 #print(myIphone3)

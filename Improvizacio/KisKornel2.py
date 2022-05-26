@@ -3,7 +3,7 @@ from typing import List
 
 class Hangszoro:
     def __init__(self) -> None:
-        self.ar: int = 5000
+        self.ar: int
         self.szallitasikoltseg:int
         self.szallitasiido:str
         self.tudnivalok:str
@@ -11,6 +11,9 @@ class Hangszoro:
 
     def __str__(self) -> str:
         return "Termék neve: {x}, Ára: {a}, Szállításiköltség: {b}, Szállításiidő: {c}, Tudnivalók: {d}".format(x=self.termeknev,a=self.ar, b=self.szallitasiido, c=self.szallitasikoltseg, d=self.tudnivalok)
+    def teljesar(self) -> int:
+        return self.ar + self.szallitasikoltseg
+
 
 JBL = Hangszoro()
 JBL.ar = 30000
@@ -39,7 +42,6 @@ lista.append(BoomBox)
 lista.append(MP3)
 for i in lista:
     print(i)
-
+    print(i.teljesar())
 print(lista)
-
 #print(JBL)
