@@ -11,6 +11,10 @@ class napszemuveg:
         self.szallitasikoltseg: int = int
         self.ar: int = int
 
+    def teljesar(self) -> int:
+        return self.ar + self.szallitasikoltseg
+
+
     def __str__(self) -> str:
         return "Név = {a}; Lencseszín = {b}; Napra sőtétedik e = {c}; Ár = {d}; Szállítási idő = {e}; Szállítási költség = {f}".format(a=self.nev, b=self.lencseszin, c=self.naprasotetedike, d=self.ar, e=self.szallitasiido, f=self.szallitasikoltseg)
 
@@ -37,6 +41,7 @@ MyNapszemuveg3.naprasotetedike = False
 MyNapszemuveg3.ar = 370
 MyNapszemuveg3.szallitasiido = 61
 MyNapszemuveg3.szallitasikoltseg = 203
+
 
 
 
