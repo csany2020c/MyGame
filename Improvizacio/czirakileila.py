@@ -9,6 +9,10 @@ class markers:
     def __str__(self) -> str:
         return "Szállítási költség = {a}; Ár = {s}; Szállítási idő = {d}".format(a=self.szallitas, s=self.ar, d=self.ido)
 
+    #def osszesen(self) ->int:
+        #return self.szallitas + self.ar
+
+
 
 #arany
 Z = markers()
