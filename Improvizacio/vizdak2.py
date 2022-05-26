@@ -3,7 +3,7 @@
 class Iphone:
     def __init__(self):
         super().__init__()
-        self.nev = str
+
         self.szallitasiido = int
         self.szallitasikoltseg = int
         self.ar = int
