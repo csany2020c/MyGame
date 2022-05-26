@@ -1,9 +1,8 @@
 from typing import List
 
 class Iphone:
-    def __init__(self):
-        super().__init__()
-
+    def __init__(self) -> None:
+        #super().__init__()
         self.szallitasiido = int
         self.szallitasikoltseg = int
         self.ar = int

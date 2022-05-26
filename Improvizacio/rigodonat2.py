@@ -1,4 +1,5 @@
 #{termek neve ,nehany tulajdonsaga ,ár, szalliutasi költség,szallitasi ido}
+from typing import List
 
 class napszemuveg:
     def __init__(self) -> None:
@@ -39,8 +40,17 @@ MyNapszemuveg3.szallitasikoltseg = 203
 
 
 
-print(MyNapszemuveg)
-print(MyNapszemuveg2)
-print(MyNapszemuveg3)
+#print(MyNapszemuveg)
+#print(MyNapszemuveg2)
+#print(MyNapszemuveg3)
+
+lista: List[napszemuveg] = list()
+lista.append(MyNapszemuveg)
+lista.append(MyNapszemuveg2)
+lista.append(MyNapszemuveg3)
+
+for i in lista:
+    print(i)
+
 
 
