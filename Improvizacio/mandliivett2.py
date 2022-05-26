@@ -1,17 +1,25 @@
 # 2het-2honap
 # ar szallitasikoltseg ido termek neve egykettulajdonsag
+from typing import List
+
 
 class laptop:
-    def __init__(self):
-        self.ar = 69186
-        self.szallitasikoltseg = 0
-        self.szallitasiido = 7
-        self.szin = "szürke"
-        self.ram = 4
-        self.rom = 128
+    def __init__(self) -> None:
+        self.ar: int = 0
+        self.szallitasikoltseg: int = 0
+        self.szallitasiido: int = 0
+        self.szin: str = str()
+        self.ram: int = 0
+        self.rom: int = 0
 
     def __str__(self) -> str:
         return "Ár = {a}; Szálltási költség = {s}; Szálltási idő = {d}; Szín = {f}; RAM = {g}; ROM = {h}".format(a=self.ar, s=self.szallitasikoltseg, d=self.szallitasiido, f=self.szin, g=self.ram, h=self.rom)
+
+#    def teljesar(self) -> int:
+#        teljes = 0
+#        for i in range():
+#            teljes = (self.ar + self.szallitasikoltseg)
+#        return teljes
 
 
 A = laptop()
@@ -53,7 +61,33 @@ D.szin = "fekete"
 D.ram = 16
 D.rom = 512
 
+
+E = laptop()
+
+E.ar = 177014
+E.szallitasikoltseg = 505
+E.szallitasiido = 30
+E.szin = "ezüst"
+E.ram = 4
+E.rom = 128
+
 print(A)
 print(B)
 print(C)
 print(D)
+print(E)
+
+laptoplista = laptop
+
+lista: List['laptoplista'] = list()
+
+lista.append(A)
+lista.append(B)
+lista.append(C)
+lista.append(D)
+lista.append(E)
+
+for i in range(len(lista)):
+    print(lista[i])
+
+laptoplista()
