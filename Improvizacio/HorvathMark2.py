@@ -3,7 +3,7 @@ from typing import List
 
 class earphone():
 
-    def __int__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.ar: int = 0
         self.szallitas: int = 0
@@ -13,7 +13,7 @@ class earphone():
         self.wireless: bool = True
 
     def __str__(self) -> str:
-        return "Ár = {a}; Szállítás = {b}; Hány nap = {c}; Név = {d}; Szín = {e}; Wireless = {f}".format(a = self.ar, b = self.szallitas, c = self.hany_nap, d = self.nev, e = self.szin, f = self.wireless)
+        return "Ár = {a}; Szállítás = {b}; Hány nap = {c}; Név = {d}; Szín = {e}; Wireless = {f}".format(a = self.ar, b = self.szallitas, c = self.hany_nap, d = self.nev, e = self.szin, f=self.wireless)
 
 
 F9 = earphone()
@@ -65,9 +65,10 @@ QKZ.wireless = False
 lista: List = list()
 lista.append(QKZ)
 lista.append(MSR)
-#lista.append(TWS)
-#lista.append(PCS)
-#lista.append(F9)
+lista.append(TWS)
+lista.append(PCS)
+lista.append(F9)
 
 for i in lista:
     print(i)
+
