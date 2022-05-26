@@ -2,12 +2,12 @@ from typing import TextIO
 from typing import List
 
 class egercucc:
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
-        self.ar: str
+        self.ar: int
         self.marka: str
         self.szallitasiido: str
-        self.szallitasiar: str
+        self.szallitasiar: int
         self.ertekeles: int
         self.garancia: bool
         self.gombokszama: int
@@ -17,10 +17,10 @@ class egercucc:
 
 
 eger = egercucc()
-eger.ar = "11383 Ft"
+eger.ar = 11383
 eger.marka = "razer"
 eger.szallitasiido = "Max 7 nap"
-eger.szallitasiar = "Ingyé"
+eger.szallitasiar = 2000
 eger.ertekeles = 4.8
 eger.garancia = True
 eger.gombokszama = 5
@@ -31,5 +31,8 @@ list: egercucc()
 lista: List = []
 lista.append(eger)
 
-for i in lista:
-    print(i)
+def arosszes():
+    osszes = eger.ar + eger.szallitasiar
+    return osszes
+
+print(arosszes())
