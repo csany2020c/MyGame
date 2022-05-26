@@ -56,6 +56,7 @@ lista.append(MyNapszemuveg3)
 
 for i in lista:
     print(i)
+    print(i.teljesar())
 
 
 
