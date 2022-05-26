@@ -12,8 +12,11 @@ class AliExpress:
         self.szallido: int = 0
         self.honnanjon: str = "transparent"
 
+    def teljesar(self) -> int:
+        return self.ar + self.szallkolts
+
     def __str__(self) -> str:
-        return "Tárgy : {a}, Van kiszállítási díj : {b}, Szállítási költség = {c}, Ár : {d} Ft, Kiszállítási idő : {e} hónap, Innen érkezik : {f}".format(a = self.hangszer, b = self.vankolts, c = self.szallkolts, d = self.ar, e = self. szallido, f = self.honnanjon)
+        return "Tárgy : {a}, Van kiszállítási díj : {b}, Szállítási költség = {c}, Ár : {d} Ft, Teljes ár: {x}, Kiszállítási idő : {e} hónap, Innen érkezik : {f}".format(x = self.teljesar, a = self.hangszer, b = self.vankolts, c = self.szallkolts, d = self.ar, e = self. szallido, f = self.honnanjon)
 
 #AliExpress()
 
@@ -40,9 +43,9 @@ hegedu.szallkolts = 17630
 hegedu.szallido = 3
 hegedu.honnanjon = "Ismeretlen"
 
-#print(dob)
-#print(klarinet)
-#print(hegedu)
+print(dob)
+print(klarinet)
+print(hegedu)
 
 list = AliExpress()
 lista: list = []
@@ -50,15 +53,17 @@ lista.append(dob)
 lista.append(klarinet)
 lista.append(hegedu)
 
-print(lista)
+#print(lista)
 
 #for i in lista:
     #print(i)
 
-print(len(lista),"tárgy van a bevásárlókocsiban.")
+#print(len(lista),"tárgy van a bevásárlókocsiban.")
 
-if len(lista) >= 2:
-    print("A kosárba csak 2 tárgy fér el.")
-    lista.remove(dob)
+#if len(lista) >= 2:
+    #print("A kosárba csak 2 tárgy fér el.")
+    #lista.remove(dob)
 
-print(len(lista),"tárgy van a bevásárlókocsiban. Egy tárgy ell lett távolítva.")
+#print(len(lista),"tárgy van a bevásárlókocsiban. Egy tárgy ell lett távolítva.")
+#print("")
+
