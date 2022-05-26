@@ -1,6 +1,9 @@
+from typing import List
+
+
 class AliExpress:
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.hangszer : str = "transparent"
         self.vankolts: bool = True
@@ -12,7 +15,7 @@ class AliExpress:
     def __str__(self) -> str:
         return "Tárgy : {a}, Van kiszállítási díj : {b}, Szállítási költség = {c}, Ár : {d} Ft, Kiszállítási idő : {e} hónap, Innen érkezik : {f}".format(a = self.hangszer, b = self.vankolts, c = self.szallkolts, d = self.ar, e = self. szallido, f = self.honnanjon)
 
-AliExpress()
+#AliExpress()
 
 dob = AliExpress()
 dob.hangszer = "Dobkészlet"
@@ -37,13 +40,25 @@ hegedu.szallkolts = 17630
 hegedu.szallido = 3
 hegedu.honnanjon = "Ismeretlen"
 
+#print(dob)
+#print(klarinet)
+#print(hegedu)
 
+list = AliExpress()
+lista: list = []
+lista.append(dob)
+lista.append(klarinet)
+lista.append(hegedu)
 
+print(lista)
 
-print(dob)
-print(klarinet)
-print(hegedu)
+#for i in lista:
+    #print(i)
 
+print(len(lista),"tárgy van a bevásárlókocsiban.")
 
+if len(lista) == 3:
+    print("A kosárba csak 2 tárgy fér el.")
+    lista.remove(dob)
 
-
+print(len(lista),"tárgy van a bevásárlókocsiban. Egy tárgy ell lett távolítva.")
