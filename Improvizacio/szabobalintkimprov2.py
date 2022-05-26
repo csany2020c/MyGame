@@ -3,7 +3,7 @@ from typing import List
 
 class AliExpress:
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.hangszer : str = "transparent"
         self.vankolts: bool = True
