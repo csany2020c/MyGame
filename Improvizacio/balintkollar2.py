@@ -1,7 +1,7 @@
 from typing import List
 
 class Rendeles:
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.termeknev: str="asd"
         self.ar: int
@@ -67,7 +67,9 @@ Termeklista.append(termek4)
 Termeklista.append(termek5)
 print(Termeklista)
 
-Termeklista.remove(termek1) #Listából kivenni egy elemet .remove()
+print(len(Termeklista))
+
+Termeklista.remove(termek1)
 print("Lista elemei:")
 for i in Termeklista:
     print(i)
