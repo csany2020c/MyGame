@@ -44,8 +44,7 @@ myIphone3.kapacitas = 64
 #print(myIphone2)
 #print(myIphone3)
 
-#def __str__(self) -> str:
- #   return "szallitasiido = {y}; szallitasikoltseg = {z}; ar = {a}; szin = {b}; kapacitas = {k}".format(y=self.szallitasiido, z=self.szallitasikoltseg, a=self.ar, b=self.szin, k=self.kapacitas)
+
 lista: List[Iphone] = list()
 lista.append(myIphone)
 lista.append(myIphone2)
