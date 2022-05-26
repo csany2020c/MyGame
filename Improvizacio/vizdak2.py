@@ -37,7 +37,7 @@ myIphone3.szin = "szürke"
 myIphone3.kapacitas = 64
 
 def osszeg(self) -> int:
-
+    return self.ar
 #print(myIphone)
 #print(myIphone2)
 #print(myIphone3)
