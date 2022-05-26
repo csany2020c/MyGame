@@ -9,8 +9,10 @@ class Ali:
         self.szarmazas: str = "transparent"
 
     def __str__(self) -> str:
-        return "Ára = {a} Kiszálítás ára = {b} Megérkezési időpontja = {c} Le van Árazva? = {d} Származás = {f}".format(a= self.ar, b= self.kiszalitasiar, c= self.kiszalitasido, d=self.learazas ,f=self.szarmazas)
+        return "Ára = {a} Kiszálítás ára = {b} Megérkezési időpontja = {c} Le van Árazva? = {d} Származás = {f} Összár = {g}".format(a= self.ar, b= self.kiszalitasiar, c= self.kiszalitasido, d=self.learazas ,f=self.szarmazas,g=self.osszar)
 
+    def osszar(self) -> int:
+        return self.ar + self.kiszalitasiar
 
 adat = Ali()
 adat.ar = 3.77 #HUF
@@ -19,6 +21,7 @@ adat.kiszalitasido = 'Június 29.-én várható'
 adat.szarmazas = 'Kína'
 adat.learazas = 'Igen'
 print(adat)
+
 
 adat2 = Ali()
 adat2.ar = 3.77 #HUF
