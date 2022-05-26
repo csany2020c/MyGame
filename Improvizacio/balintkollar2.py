@@ -1,10 +1,10 @@
 class Rendeles:
     def __init__(self):
         super().__init__()
-        self.termeknev: str = ""
-        self.ar: int = 0
-        self.szallitasikoltseg: int = 0
-        self.kiszallitasiido: int = 0
+        self.termeknev: str
+        self.ar: int
+        self.szallitasikoltseg: int
+        self.kiszallitasiido: int
 
     def __str__(self) -> str:
         return "Alap adatok: Termék neve: {a}; Ár: {b}; Szalltási Költség: {c};  Kiszallítási idő: {d};".format(a=self.termeknev,b=self.ar,c=self.szallitasikoltseg,d=self.kiszallitasiido)
