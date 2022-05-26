@@ -1,4 +1,4 @@
-
+from typing import List
 
 class Iphone:
     def __init__(self):
@@ -11,7 +11,7 @@ class Iphone:
         self.kapacitas = int
 
     def __str__(self) -> str:
-        return "nev = {x}; szallitasiido = {y}; szallitasikoltseg = {z}; ar = {a}; szin = {b}; kapacitas = {k}".format(x=self.nev, y=self.szallitasiido, z=self.szallitasikoltseg, a=self.ar, b=self.szin, k=self.kapacitas)
+        return "szallitasiido = {y}; szallitasikoltseg = {z}; ar = {a}; szin = {b}; kapacitas = {k}".format(y=self.szallitasiido, z=self.szallitasikoltseg, a=self.ar, b=self.szin, k=self.kapacitas)
 
 
 
@@ -37,6 +37,18 @@ myIphone3.ar = 118000
 myIphone3.szin = "szürke"
 myIphone3.kapacitas = 64
 
-print(myIphone)
-print(myIphone2)
-print(myIphone3)
+
+
+
+#print(myIphone)
+#print(myIphone2)
+#print(myIphone3)
+
+
+lista: List[Iphone] = list()
+lista.append(myIphone)
+lista.append(myIphone2)
+lista.append(myIphone3)
+
+for i in lista:
+    print(i)
