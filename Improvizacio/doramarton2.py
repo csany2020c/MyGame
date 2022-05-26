@@ -13,7 +13,7 @@ class egercucc:
         self.gombokszama: int
 
     def __str__(self) -> str:
-        return "Ár:{a} Márka:{s} Szállítási idő:{d} Szállítási ár{f} Értékelés:{g} Garancia:{h} Gombok száma:{j}".format(a=self.ar, s=self.marka, d=self.szallitasiido, f=self.szallitasiar, g=self.ertekeles, h=self.garancia, j=self.gombokszama)
+        return "Ár:{a} Márka:{s} Szállítási idő:{d} Szállítási ár:{f} Értékelés:{g} Garancia:{h} Gombok száma:{j}".format(a=self.ar, s=self.marka, d=self.szallitasiido, f=self.szallitasiar, g=self.ertekeles, h=self.garancia, j=self.gombokszama)
 
 
 eger = egercucc()
@@ -30,6 +30,9 @@ eger.gombokszama = 5
 list: egercucc()
 lista: List = []
 lista.append(eger)
+
+for i in lista:
+    print(i)
 
 def arosszes():
     osszes = eger.ar + eger.szallitasiar
