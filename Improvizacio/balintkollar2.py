@@ -75,9 +75,9 @@ Termeklista.append(termek4)
 Termeklista.append(termek5)
 print(Termeklista)
 
-print(len(Termeklista)) #Listában szereplő elemek száma len()
+print(len(Termeklista))
 
-Termeklista.remove(termek1) #Listából kivenni egy elemet .remove()
+Termeklista.remove(termek1)
 print("Lista elemei:")
 for i in Termeklista:
     print(i)
