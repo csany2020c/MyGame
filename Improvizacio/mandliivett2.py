@@ -15,6 +15,12 @@ class laptop:
     def __str__(self) -> str:
         return "Ár = {a}; Szálltási költség = {s}; Szálltási idő = {d}; Szín = {f}; RAM = {g}; ROM = {h}".format(a=self.ar, s=self.szallitasikoltseg, d=self.szallitasiido, f=self.szin, g=self.ram, h=self.rom)
 
+#    def teljesar(self) -> int:
+#        teljes = 0
+#        for i in range():
+#            teljes = (self.ar + self.szallitasikoltseg)
+#        return teljes
+
 
 A = laptop()
 
