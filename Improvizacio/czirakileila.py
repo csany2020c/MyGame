@@ -1,13 +1,17 @@
 #szállítási költség, ár, szállítási idő
 
 class markers:
-    def __init__(self):
+    def __init__(self) -> None:
         self.szallitas = 0
         self.ar = 3
         self.ido = 66
 
     def __str__(self) -> str:
         return "Szállítási költség = {a}; Ár = {s}; Szállítási idő = {d}".format(a=self.szallitas, s=self.ar, d=self.ido)
+
+    #def osszesen(self) ->int:
+        #return self.szallitas + self.ar
+
 
 
 #arany
