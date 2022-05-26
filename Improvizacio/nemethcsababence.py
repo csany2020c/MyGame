@@ -1,5 +1,5 @@
 from typing import TextIO, List
-
+'''
 class jatek:
     def __init__(self) -> None:
         super().__init__()
@@ -50,4 +50,36 @@ fulloslist.append(append3)
 
 print(fulloslist)
 
-jatek()
+jatek()'''
+
+class halak:
+
+    def __init__(self) -> None:
+        super().__init__()
+        self.haltipus:str = str(input("A hal típusa: "))
+        self.haltomege: float = int(input("A hal tömege: "))
+        self.horgaszneve:str = str(input("A horgász neve: "))
+        self.csali:str = str(input("A csali típusa: "))
+        self.to:str = str(input("A tó neve: "))
+        self.osszefoglalo = f"{self.haltipus, self.haltomege, self.horgaszneve, self.csali, self.to}"
+        self.save: str = str(input("Szeretnéd elmenteni az adatokat?(igen/nem)"))
+        if self.save == "igen" or self.save == "Igen" or self.save == "IGEN":
+            listam.append(self.osszefoglalo)
+            print(listam)
+        if self.save == "nem" or self.save == "Nem" or self.save == "NEM":
+            print("Az adatok nem lettek keltárolva!")
+        self.kerdes: str = str(input("Szeretne még egy adatok bekérni?(igen/nem)"))
+        if self.kerdes == "nem" or self.kerdes == "Nem" or self.kerdes == "NEM":
+            self.filebairas()
+            print("Nem szeretne több adatot bekérni.")
+        if self.kerdes == "igen" or self.kerdes == "Igen" or self.kerdes == "IGEN":
+            halak()
+
+    def filebairas(self):
+        with open('ncshalak.txt', 'w') as file:
+            file.write(str(listam))
+
+listam: List["halak"] = list()
+
+
+halak()

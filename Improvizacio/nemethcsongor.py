@@ -11,6 +11,9 @@ class Piano:
 
 
 lista: list = []
+lista2: list = []
+lista3: list = []
+lista4: list = []
 a = Piano()
 b = Piano()
 c = Piano()
@@ -32,8 +35,21 @@ b.wood = "Tölgy"
 c.wood = "Fenyő"
 d.wood = input()
 lista.append(a)
-lista.append(b)
-lista.append(c)
-lista.append(d)
-for i in range(len(lista)):
-    print(lista[i])
+lista2.append(b)
+lista3.append(c)
+lista4.append(d)
+if input() != '':
+    for i in range(len(lista)):
+        print(lista4[i])
+
+if input() == 'Kawai':
+    for i in range(len(lista)):
+        print(lista[i])
+
+if input() == 'Yamaha':
+    for i in range(len(lista2)):
+        print(lista2[i])
+
+if input() == 'Steinway':
+    for i in range(len(lista3)):
+        print(lista3[i])
