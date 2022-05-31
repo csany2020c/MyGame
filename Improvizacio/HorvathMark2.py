@@ -15,6 +15,8 @@ class earphone():
     def __str__(self) -> str:
         return "Ár = {a}; Szállítás = {b}; Hány nap = {c}; Név = {d}; Szín = {e}; Wireless = {f}".format(a = self.ar, b = self.szallitas, c = self.hany_nap, d = self.nev, e = self.szin, f=self.wireless)
 
+    def teljesar(self) -> int:
+        return self.ar + self.szallitas
 
 F9 = earphone()
 F9.ar = 5098
@@ -22,6 +24,7 @@ F9.szallitas = 253
 F9.hany_nap = 31
 F9.nev = "F9 TWS Headphones"
 F9.szin = "black"
+#print(F9.teljesar())
 
 #print(F9)
 
@@ -71,4 +74,5 @@ lista.append(F9)
 
 for i in lista:
     print(i)
+    print(i.teljesar())
 
