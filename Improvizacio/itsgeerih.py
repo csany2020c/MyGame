@@ -21,20 +21,29 @@ ruhalista: List['Ruhaa'] = list()
 ruha = Ruhaa()
 ruha.marka = str(input("Adja meg a ruha márkáját: "))
 ruha.szin = str(input("Adja meg a ruha színét: "))
-ruha.nagysaga = int(input("Adja meg a ruha nagyságát [1: S; 2: M; 3: L]: "))
-while(ruha.nagysaga > 3):
-    if ruha.nagysaga > 3:
-        print("Túl nagy számot adtál meg! Elérhető választások: [1 / 2 / 3]")
-        exit()
 
-ruha.darabszam = int(input("Adja meg a ruha mennyiségét: "))
-ruha.replika = str(input("Adja meg, hogy a ruha replika vagy sem (Igen/Nem): "))
+def intbeolvas(prompt: str, min: int = 1, max: int = 3) -> int:
+    while True:
+        be: str = input(prompt + " (" + str(min) + " - " + str(max) + "): ")
+        try:
+            i: int = int(be)
+            if i >= min and i<=max:
+                return i
+        except:
+            pass
 
-if ruha.replika == "Igen":
-    ruha.replika = True
+ruha.nagysaga = intbeolvas("Adja meg a ruha nagyságát [1: S; 2: M; 3: L]")
 
-if ruha.replika == "Nem":
-    ruha.replika = False
+def boolbeolvas(prompt: str) -> bool:
+    while True:
+        be: str = input(prompt + " (I/N): ")
+        if be.upper() == "I" or be.upper() == "Y":
+            return True
+        if be.upper() == "N":
+            return False
+
+ruha.darabszam = intbeolvas("Adja meg a ruha mennyiségét")
+ruha.replika = boolbeolvas("Adja meg, hogy a ruha replika vagy sem")
 
 ruha2 = Ruhaa()
 ruha2.marka = "nike"
@@ -44,6 +53,7 @@ ruha2.darabszam = 48
 ruha2.replika = False
 
 ruha3 = Ruhaa()
+
 ruha3.marka = "offwhite"
 ruha3.szin = "feketefeher"
 ruha3.nagysaga = 2
@@ -75,3 +85,34 @@ for i in range(len(ruhalista)):
 
 
 Ruhaa()
+
+# class telefon:
+#
+#
+#     def __init__(self) -> None:
+#         super().__init__()
+#         self.telomarka: str = str(input("Írja be a telefon márkáját: "))
+#         self.teloszin: str = str(input("Írja be a telefon színét: "))
+#         self.telotarhely: int = int(input("Írja be a telefon tárhely mennyiségét: "))
+#         self.telominoseg: str = str(input("Használt telefont szeretne? "))
+#         self.all = f"{self.telomarka, self.teloszin, self.telotarhely, self.telominoseg}"
+#         self.mentes: str = str("Szeretné elmenteni az adatokat? (Igen/Nem) ")
+#         if self.mentes == "Igen":
+#             lista.append(self.all)
+#             print(lista)
+#         if self.mentes == "Nem":
+#             print("Az adatok nem kerültek elmentésre!")
+#         self.ujra: str = str(input("Szeretne még egy adatok bekérni? (Igen/Nem) "))
+#         if self.ujra == "Igen":
+#             telefon()
+#         if self.ujra == "Nem":
+#             self.elment
+#             print("Nem.")
+#
+#     def elment(self):
+#         with open('telefonsave.txt', 'w') as file:
+#             file.write(str(lista))
+#
+# lista: List['telefon'] = list()
+#
+# telefon()
