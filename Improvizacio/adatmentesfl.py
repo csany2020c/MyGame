@@ -1,0 +1,1 @@
+Márka = asd, Színe = sad, Éves = 4, Működik = adsMárka = ad, Színe = asd, Éves = 5, Működik = asd[<__main__.telefon object at 0x000001B099670EE0>, <__main__.telefon object at 0x000001B099670310>, <__main__.telefon object at 0x000001B09966FCD0>]Márka = da, Színe = da, Éves = 7, Működik = faMárka = as, Színe = as, Éves = 5, Működik = as
