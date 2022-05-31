@@ -105,7 +105,7 @@ class telefon:
 
 
 alma = open("adatmentesfl.py", "r+", encoding="utf-8")
-print(alma.readline())
+print(alma.read())
 
 t1 = telefon()
 t1.marka = "Xiaomi"
@@ -133,8 +133,8 @@ telefonlista.append(t2)
 telefonlista.append(t3b)
 
 for i in range(len(telefonlista)):
-    alma.write(str(telefonlista[i]) + " ")
-
+    alma.write("["+str(telefonlista[i]) + "] ")
+# alma.write("asd")
 
 for i in telefonlista:
     print(i)
