@@ -13,6 +13,15 @@ class Auto:
         return self.szin + "\n" + self.marka + "\n" + str(self.automatavaltos) + "\n" + str(self.ar)
 
 
+def boolbeolvas(prompt: str) -> bool:
+    while True:
+        be: str = input(prompt + " (I/N): ")
+        if be.upper() == "I" or be.upper() == "Y":
+            return True
+        if be.upper() == "N":
+            return False
+
+
 s = Auto()
 s.szin = "Kék"
 s.marka = "Skoda"
@@ -48,11 +57,8 @@ a = Auto()
 a.szin = input("Kérem az autó színét: ")
 a.marka = input("Kérem az autó márkáját: ")
 a.ar = int(input("Kérem az autó árát: "))
-be: str = input("Automata váltós? (I/N): ")
-if be == "I":
-    a.automatavaltos = True
-else:
-    a.automatavaltos = False
+a.automatavaltos = boolbeolvas("Automataváltós")
+
 l.append(a)
 print("-------")
 for i in l:
