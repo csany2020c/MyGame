@@ -1,0 +1,4 @@
+Labda szine = kek; Labda mérete = 3; Labda felvan-e fújva False; Labda súlya = 3; 
+Labda szine = Blueberry; Labda mérete = 2; Labda felvan-e fújva True; Labda súlya = 2; 
+Labda szine = White; Labda mérete = 3; Labda felvan-e fújva True; Labda súlya = 3; 
+Labda szine = Black; Labda mérete = 4; Labda felvan-e fújva False; Labda súlya = 1; 
