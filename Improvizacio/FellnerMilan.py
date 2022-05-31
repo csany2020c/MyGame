@@ -11,7 +11,7 @@ class Gyakorlatok:
         self.set = set
 
     def __str__(self) -> str:
-        return f"Gyakorlat neve: {self.gyakorlat} Súly: {self.suly} Ismétlésszám: {self.ismetles} Elvégzett szettek: {self.set}"
+        return f"Gyakorlat neve: {self.gyakorlat} Súly: {self.suly}kg Ismétlésszám: {self.ismetles} Elvégzett szettek: {self.set}"
 
 class Program:
 
@@ -22,12 +22,9 @@ class Program:
 
         print("Gyakorlat amit rögzíteni szeretnél:")
         exercise:str = input()
-        print("Súly amivel elvégezted:")
-        weight:str = input()
-        print("Ismétlés:")
-        ismetles:str = input()
-        print("Szettek:")
-        set:str = input()
+        weight:int = self.intbeolvas("Súly amivel elvégezted:")
+        ismetles:int = self.intbeolvas("Ismétlés:")
+        set:int = self.intbeolvas("Szettek:")
         obj:Gyakorlatok = Gyakorlatok(exercise,weight,ismetles,set)
         gyakorlatok.append(obj)
         save:bool = self.boolbeolvas("Mented?")
@@ -55,6 +52,14 @@ class Program:
                 return True
             if be.upper() == "N":
                 return False
+
+    def intbeolvas(self,prompt: str) -> int:
+        while True:
+            be: str = input(prompt)
+            try:
+                return int(be)
+            except:
+                pass
 
 class FileHandle:
 
