@@ -73,6 +73,12 @@ from typing import List
 #             print(i)
 #
 # valtozos()
+def sajatbeolvasas(self, bejovoadat: str) -> bool:
+    while True:
+        if bejovoadat.upper() == "I" or bejovoadat.upper() == "Y" or bejovoadat == True:
+            return True
+        if bejovoadat.upper() == "F" or bejovoadat.upper() == "N" or bejovoadat == False:
+            return False
 
 
 class telefon:
@@ -85,6 +91,10 @@ class telefon:
 
     def __str__(self):
         return f"Márka = {self.marka}, Színe = {self.szine}, Éves = {self.eves}, Működik = {self.mukodik}"
+
+
+alma = open("adatmentesfl.py", "r+", encoding="utf-8")
+print(alma.read())
 
 t1 = telefon()
 t1.marka = "Xiaomi"
@@ -102,8 +112,8 @@ t3b = telefon()
 t3b.marka = str(input("Telefon márkája: "))
 t3b.szine = str(input("Telefon színe: "))
 t3b.eves = int(input("Hány éves a telefon: "))
-t3b.mukodik = bool(input("Működik? _True vagy False_: "))
-
+# t3b.mukodik = input("Működik? _True vagy False_: ") # bool az nem jol konvertal
+t3b.mukodik = sajatbeolvasas("(I/N):")
 
 telefonlista: List['telefon'] = list()
 telefonlista.append(t1)
