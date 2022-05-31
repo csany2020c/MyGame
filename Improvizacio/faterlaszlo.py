@@ -81,10 +81,16 @@ def sajatbeolvasas(bejovoadat: str) -> bool:
         if bejovoadat1.upper() == "F" or bejovoadat1.upper() == "N" or bejovoadat1 == False:
             return False
 
-def folyamatos(bejovoadat: str, minev: int = 0, maxev: int = 15):
-    while True:
-        asdasd = bejovoadat + str(minev) + str(maxev)
 
+def folyamatos(bejovoadat: str, minev: int = 1, maxev: int = 15):
+    while True:
+        asdasd = input(bejovoadat + "(" + str(minev) + "-" + str(maxev) + ")" + ":")
+        try:
+            szam = asdasd
+            if szam > minev and szam <= maxev:
+                return szam
+        except:
+            pass
 
 class telefon:
     def __init__(self):
@@ -99,7 +105,7 @@ class telefon:
 
 
 alma = open("adatmentesfl.py", "r+", encoding="utf-8")
-print(alma.read())
+print(alma.readline())
 
 t1 = telefon()
 t1.marka = "Xiaomi"
@@ -116,7 +122,8 @@ t2.mukodik = True
 t3b = telefon()
 t3b.marka = str(input("Telefon márkája: "))
 t3b.szine = str(input("Telefon színe: "))
-t3b.eves = int(input("Hány éves a telefon: "))
+# t3b.eves = int(input("Hány éves a telefon: "))
+t3b.eves = folyamatos("Hány éves a telefon?")
 # t3b.mukodik = input("Működik? _True vagy False_: ") # bool az nem jol konvertal
 t3b.mukodik = sajatbeolvasas("alma")
 
