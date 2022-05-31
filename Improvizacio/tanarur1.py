@@ -1,3 +1,4 @@
+import os
 from typing import List
 
 class Auto:
@@ -11,6 +12,14 @@ class Auto:
 
     def __str__(self) -> str:
         return self.szin + "\n" + self.marka + "\n" + str(self.automatavaltos) + "\n" + str(self.ar)
+
+
+def strtobool(value: str) -> bool:
+    if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
+        return True
+    if value.upper() == "N" or value.upper() == "FALSE":
+        return False
+    return None
 
 
 def boolbeolvas(prompt: str) -> bool:
@@ -33,36 +42,55 @@ def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
             pass
 
 
-s = Auto()
-s.szin = "Kék"
-s.marka = "Skoda"
-s.automatavaltos = False
-s.ar = 1000000
-
-b = Auto()
-b.szin = "Fekete"
-b.marka = "BMV"
-b.automatavaltos = True
-b.ar = 5000000
-
-z = Auto()
-z.szin = "Piros"
-z.ar = 150000
-z.marka = "Suzuki"
-z.automatavaltos = False
+# s = Auto()
+# s.szin = "Kék"
+# s.marka = "Skoda"
+# s.automatavaltos = False
+# s.ar = 1000000
+#
+# b = Auto()
+# b.szin = "Fekete"
+# b.marka = "BMV"
+# b.automatavaltos = True
+# b.ar = 5000000
+#
+# z = Auto()
+# z.szin = "Piros"
+# z.ar = 150000
+# z.marka = "Suzuki"
+# z.automatavaltos = False
 
 
 l: List['Auto'] = list()
 
-l.append(s)
-l.append(b)
-l.append(z)
+# l.append(s)
+# l.append(b)
+# l.append(z)
+#
+# b.ar = 49999999
 
-b.ar = 49999999
+
 
 # print(s)
 # print(b)
 # print(z)
+fn = "tanarur1.txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    a = Auto()
+    a.szin = sorok[i]
+    i += 1
+    a.marka = sorok[i]
+    i += 1
+    a.automatavaltos = strtobool(sorok[i])
+    i += 1
+    a.ar = int(sorok[i])
+    i += 1
+    l.append(a)
+fr.close()
 
 while boolbeolvas("Szeretne autót felvinni a billentyűzetről?"):
     a = Auto()
@@ -76,3 +104,10 @@ while boolbeolvas("Szeretne autót felvinni a billentyűzetről?"):
 print("-------")
 for i in l:
     print(i)
+
+
+os.remove(fn)
+f = open(fn, mode="w", encoding="utf-8")
+for i in l:
+    f.write(i.__str__() + "\n")
+f.close()
