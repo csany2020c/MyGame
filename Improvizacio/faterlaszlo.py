@@ -73,12 +73,17 @@ from typing import List
 #             print(i)
 #
 # valtozos()
-def sajatbeolvasas(self, bejovoadat: str) -> bool:
+def sajatbeolvasas(bejovoadat: str) -> bool:
     while True:
-        if bejovoadat.upper() == "I" or bejovoadat.upper() == "Y" or bejovoadat == True:
+        bejovoadat1 = input(bejovoadat + "  I/N:")
+        if bejovoadat1.upper() == "I" or bejovoadat1.upper() == "Y" or bejovoadat1 == True:
             return True
-        if bejovoadat.upper() == "F" or bejovoadat.upper() == "N" or bejovoadat == False:
+        if bejovoadat1.upper() == "F" or bejovoadat1.upper() == "N" or bejovoadat1 == False:
             return False
+
+def folyamatos(bejovoadat: str, minev: int = 0, maxev: int = 15):
+    while True:
+        asdasd = bejovoadat + str(minev) + str(maxev)
 
 
 class telefon:
@@ -113,7 +118,7 @@ t3b.marka = str(input("Telefon márkája: "))
 t3b.szine = str(input("Telefon színe: "))
 t3b.eves = int(input("Hány éves a telefon: "))
 # t3b.mukodik = input("Működik? _True vagy False_: ") # bool az nem jol konvertal
-t3b.mukodik = sajatbeolvasas("(I/N):")
+t3b.mukodik = sajatbeolvasas("alma")
 
 telefonlista: List['telefon'] = list()
 telefonlista.append(t1)
