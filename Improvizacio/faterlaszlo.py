@@ -75,7 +75,7 @@ from typing import List
 # valtozos()
 def sajatbeolvasas(bejovoadat: str) -> bool:
     while True:
-        bejovoadat1 = input(bejovoadat + "  I/N:")
+        bejovoadat1 = input(bejovoadat + " I/N")
         if bejovoadat1.upper() == "I" or bejovoadat1.upper() == "Y" or bejovoadat1 == True:
             return True
         if bejovoadat1.upper() == "F" or bejovoadat1.upper() == "N" or bejovoadat1 == False:
@@ -86,7 +86,7 @@ def folyamatos(bejovoadat: str, minev: int = 1, maxev: int = 15):
     while True:
         asdasd = input(bejovoadat + "(" + str(minev) + "-" + str(maxev) + ")" + ":")
         try:
-            szam = asdasd
+            szam: int = int(asdasd)
             if szam > minev and szam <= maxev:
                 return szam
         except:
@@ -125,12 +125,16 @@ t3b.szine = str(input("Telefon színe: "))
 # t3b.eves = int(input("Hány éves a telefon: "))
 t3b.eves = folyamatos("Hány éves a telefon?")
 # t3b.mukodik = input("Működik? _True vagy False_: ") # bool az nem jol konvertal
-t3b.mukodik = sajatbeolvasas("alma")
+t3b.mukodik = sajatbeolvasas("Működik?(True/ False):")
 
 telefonlista: List['telefon'] = list()
 telefonlista.append(t1)
 telefonlista.append(t2)
 telefonlista.append(t3b)
+
+for i in range(len(telefonlista)):
+    alma.write(str(telefonlista[i]) + " ")
+
 
 for i in telefonlista:
     print(i)
