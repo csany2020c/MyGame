@@ -1,0 +1,1 @@
+["('Ponty', 12, 'Kis Péter', 'Kukorica', 'Balaton')"] ["('Harcsa', 21, 'Fellner Sándor', 'Bojli', 'Balaton')"]

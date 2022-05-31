@@ -19,7 +19,7 @@ while valt == True:
     bement4.ar = int(input("A játék ára: "))
     append4 = f"{bement4.nev} {bement4.kidatum} {bement4.kategoria} {bement4.ar}"
     fulloslist.append(append4)
-    new: str = str(input("Szeretne mégegy játékot felvinni?(Igen/Nem)"))
+    new: str = str(input("Szeretne még egy játékot felvinni?(Igen/Nem)"))
     if new == "Nem":
         valt = False
         break
@@ -56,6 +56,13 @@ class halak:
 
     def __init__(self) -> None:
         super().__init__()
+        self.listam: List["halak"] = list()
+        with open('ncshalak.txt', 'r') as befile:
+            self.beolvasott = befile.read()
+        if self.beolvasott == '':
+            print("Nincs eltárolt adat.")
+        else:
+            print(self.beolvasott)
         self.haltipus:str = str(input("A hal típusa: "))
         self.haltomege: float = int(input("A hal tömege: "))
         self.horgaszneve:str = str(input("A horgász neve: "))
@@ -64,8 +71,8 @@ class halak:
         self.osszefoglalo = f"{self.haltipus, self.haltomege, self.horgaszneve, self.csali, self.to}"
         self.save: str = str(input("Szeretnéd elmenteni az adatokat?(igen/nem)"))
         if self.save == "igen" or self.save == "Igen" or self.save == "IGEN":
-            listam.append(self.osszefoglalo)
-            print(listam)
+            self.listam.append(self.osszefoglalo)
+            print(self.listam)
         if self.save == "nem" or self.save == "Nem" or self.save == "NEM":
             print("Az adatok nem lettek keltárolva!")
         self.kerdes: str = str(input("Szeretne még egy adatok bekérni?(igen/nem)"))
@@ -77,9 +84,7 @@ class halak:
 
     def filebairas(self):
         with open('ncshalak.txt', 'w') as file:
-            file.write(str(listam))
-
-listam: List["halak"] = list()
+            file.write(str(f"{self.beolvasott} {self.listam}"))
 
 
 halak()
