@@ -22,6 +22,17 @@ def boolbeolvas(prompt: str) -> bool:
             return False
 
 
+def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
+    while True:
+        be: str = input(prompt + " (" + str(min) + " - " + str(max) + "): ")
+        try:
+            i: int = int(be)
+            if i >= min and i<=max:
+                return i
+        except:
+            pass
+
+
 s = Auto()
 s.szin = "Kék"
 s.marka = "Skoda"
@@ -53,13 +64,15 @@ b.ar = 49999999
 # print(b)
 # print(z)
 
-a = Auto()
-a.szin = input("Kérem az autó színét: ")
-a.marka = input("Kérem az autó márkáját: ")
-a.ar = int(input("Kérem az autó árát: "))
-a.automatavaltos = boolbeolvas("Automataváltós")
+while boolbeolvas("Szeretne autót felvinni a billentyűzetről?"):
+    a = Auto()
+    a.szin = input("Kérem az autó színét: ")
+    a.marka = input("Kérem az autó márkáját: ")
+    a.ar = intbeolvas("Kérem az autó árát: ")
+    a.automatavaltos = boolbeolvas("Automataváltós")
+    l.append(a)
 
-l.append(a)
+
 print("-------")
 for i in l:
     print(i)
