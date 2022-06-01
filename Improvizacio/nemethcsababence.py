@@ -19,7 +19,7 @@ while valt == True:
     bement4.ar = int(input("A játék ára: "))
     append4 = f"{bement4.nev} {bement4.kidatum} {bement4.kategoria} {bement4.ar}"
     fulloslist.append(append4)
-    new: str = str(input("Szeretne mégegy játékot felvinni?(Igen/Nem)"))
+    new: str = str(input("Szeretne még egy játékot felvinni?(Igen/Nem)"))
     if new == "Nem":
         valt = False
         break
@@ -56,17 +56,27 @@ class halak:
 
     def __init__(self) -> None:
         super().__init__()
+        self.beirte: bool = False
+        with open('ncshalak.txt', 'r') as befile:
+            self.beolvasott = befile.read()
+        if self.beolvasott == '':
+            print("Nincs eltárolt adat.")
+        else:
+            print(self.beolvasott)
+        self.save: bool
         self.haltipus:str = str(input("A hal típusa: "))
         self.haltomege: float = int(input("A hal tömege: "))
         self.horgaszneve:str = str(input("A horgász neve: "))
         self.csali:str = str(input("A csali típusa: "))
         self.to:str = str(input("A tó neve: "))
-        self.osszefoglalo = f"{self.haltipus, self.haltomege, self.horgaszneve, self.csali, self.to}"
+        self.osszefoglalo = f"{self.haltipus},{self.haltomege},{self.horgaszneve},{self.csali},{self.to},"
         self.save: str = str(input("Szeretnéd elmenteni az adatokat?(igen/nem)"))
         if self.save == "igen" or self.save == "Igen" or self.save == "IGEN":
-            listam.append(self.osszefoglalo)
-            print(listam)
+            print(self.osszefoglalo)
+            self.filebairas()
+            self.save = True
         if self.save == "nem" or self.save == "Nem" or self.save == "NEM":
+            self.save = False
             print("Az adatok nem lettek keltárolva!")
         self.kerdes: str = str(input("Szeretne még egy adatok bekérni?(igen/nem)"))
         if self.kerdes == "nem" or self.kerdes == "Nem" or self.kerdes == "NEM":
@@ -77,9 +87,12 @@ class halak:
 
     def filebairas(self):
         with open('ncshalak.txt', 'w') as file:
-            file.write(str(listam))
-
-listam: List["halak"] = list()
-
+            if self.save == True and self.beolvasott == '' and self.beirte == False:
+                file.write(f"{self.osszefoglalo}")
+                self.beirte = True
+            if self.save == True and self.beirte != True:
+                file.write(f"{self.beolvasott}\n{self.osszefoglalo}")
+            if self.save == False:
+                file.write(str(f"\n{self.beolvasott}"))
 
 halak()
