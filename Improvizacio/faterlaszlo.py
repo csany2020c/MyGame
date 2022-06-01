@@ -73,7 +73,24 @@ from typing import List
 #             print(i)
 #
 # valtozos()
+def sajatbeolvasas(bejovoadat: str) -> bool:
+    while True:
+        bejovoadat1 = input(bejovoadat + " I/N")
+        if bejovoadat1.upper() == "I" or bejovoadat1.upper() == "Y" or bejovoadat1 == True:
+            return True
+        if bejovoadat1.upper() == "F" or bejovoadat1.upper() == "N" or bejovoadat1 == False:
+            return False
 
+
+def folyamatos(bejovoadat: str, minev: int = 1, maxev: int = 15):
+    while True:
+        asdasd = input(bejovoadat + "(" + str(minev) + "-" + str(maxev) + ")" + ":")
+        try:
+            szam: int = int(asdasd)
+            if szam > minev and szam <= maxev:
+                return szam
+        except:
+            pass
 
 class telefon:
     def __init__(self):
@@ -85,6 +102,10 @@ class telefon:
 
     def __str__(self):
         return f"Márka = {self.marka}, Színe = {self.szine}, Éves = {self.eves}, Működik = {self.mukodik}"
+
+
+alma = open("adatmentesfl.py", "r+", encoding="utf-8")
+print(alma.read())
 
 t1 = telefon()
 t1.marka = "Xiaomi"
@@ -101,14 +122,19 @@ t2.mukodik = True
 t3b = telefon()
 t3b.marka = str(input("Telefon márkája: "))
 t3b.szine = str(input("Telefon színe: "))
-t3b.eves = int(input("Hány éves a telefon: "))
-t3b.mukodik = bool(input("Működik? _True vagy False_: "))
-
+# t3b.eves = int(input("Hány éves a telefon: "))
+t3b.eves = folyamatos("Hány éves a telefon?")
+# t3b.mukodik = input("Működik? _True vagy False_: ") # bool az nem jol konvertal
+t3b.mukodik = sajatbeolvasas("Működik?(True/ False):")
 
 telefonlista: List['telefon'] = list()
 telefonlista.append(t1)
 telefonlista.append(t2)
 telefonlista.append(t3b)
+
+for i in range(len(telefonlista)):
+    alma.write("["+str(telefonlista[i]) + "] ")
+# alma.write("asd")
 
 for i in telefonlista:
     print(i)

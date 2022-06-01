@@ -74,5 +74,5 @@ lista.append(F9)
 
 for i in lista:
     print(i)
-    print(i.teljesar())
+    print(i.teljesar(), "Forint")
 
