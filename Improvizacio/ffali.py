@@ -3,7 +3,7 @@ from typing import List
 class Ali:
     def __init__(self) -> None:
         self.ar = 0
-        self.kiszalitasiar: int = 0
+        self.kiszalitasiar = 0
         self.learazas: bool = False
         self.kiszalitasido: str = ""
         self.szarmazas: str = ""
@@ -51,7 +51,7 @@ adat.kiszalitasiar = 3256.02 #HUF
 adat.kiszalitasido = 'Június 29.-én várható'
 adat.szarmazas = 'Kína'
 adat.learazas = True
-print(adat)
+#print(adat)
 
 
 adat2 = Ali()
@@ -60,7 +60,7 @@ adat2.kiszalitasiar = 0 #HUF
 adat2.kiszalitasido = 'Július 1.-én várható'
 adat2.szarmazas = 'Kína'
 adat2.learazas = True
-print(adat2)
+#print(adat2)
 
 adat3 = Ali()
 adat3.ar = 18712.41#HUF
@@ -68,7 +68,7 @@ adat3.kiszalitasiar = 0 #HUF
 adat3.kiszalitasido = 'Július 31.-én várható'
 adat3.szarmazas = 'Kína'
 adat3.learazas = True
-print(adat3)
+#print(adat3)
 
 adat4 = Ali()
 adat4.ar = 78690.63 #HUF
@@ -76,7 +76,7 @@ adat4.kiszalitasiar = 0 #HUF
 adat4.kiszalitasido = 'Június 25.-én várható'
 adat4.szarmazas = 'Törökország'
 adat4.learazas = False
-print(adat4)
+#print(adat4)
 
 adat5 = Ali()
 adat5.ar = 3.77 #HUF
@@ -84,22 +84,40 @@ adat5.kiszalitasiar = 0 #HUF
 adat5.kiszalitasido = 'Június 29.-én várható'
 adat5.szarmazas = 'Kína'
 adat5.learazas = True
-print(adat5)
+#print(adat5)
+
+
 
 list = Ali()
 lista:list = []
-lista.append(adat)
-lista.append(adat2)
-lista.append(adat3)
-lista.append(adat4)
-lista.append(adat5)
+#lista.append(adat)
+#lista.append(adat2)
+#lista.append(adat3)
+#lista.append(adat4)
+#lista.append(adat5)
+
+#while boololvas("Szeretne rendelés feladni?"):
+# a = Ali()
+# a.ar = intolvas("Kérem az árát:", 1, 9999999)
+# a.kiszalitasiar = intolvas("Kérem az kiszálítás árát:", 0, 999999)
+# a.learazas = boololvas("Le van árazva?")
+# a.szarmazas = input("Származási hely:")
+# lista.append(a)
+
+olvas = str = "ff.txt"
+
+olvasa = open(olvas, mode="r", encoding="utf-8")
+sor = olvasa.read().strip().split("\n")
+i: int = 0
+while i < len(sor):
+    a = Ali()
+    a.ar = sor[i]
+    i += 1
+    a.kiszalitasiar = sor[i]
+    i += 1
+    a.kiszalitasido = (sor[i])
+    lista.append(a)
+olvasa.close()
 
 for i in lista:
     print(i)
-
-a = Ali()
-a.ar = intolvas("Kérem az árát:", 1, 9999999)
-a.kiszalitasiar = intolvas("Kérem az kiszálítás árát:", 0, 9999999)
-a.learazas = boololvas("Le van árazva?")
-a.szarmazas = input("Származási hely:")
-lista.append(a)
