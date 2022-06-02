@@ -5,7 +5,7 @@ class Rendeles:
 
     def __init__(self) -> None:
         super().__init__()
-        self.termeknev: str="asd"
+        self.termeknev: str
         self.ar: int
         self.szallitasikoltseg: int
         self.kiszallitasiido: int
@@ -91,13 +91,14 @@ Termeklista.append(termek3)
 Termeklista.append(termek4)
 Termeklista.append(termek5)
 
-x = Rendeles()
-x.termeknev = input("Kérem a termék nevét: ")
-x.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
-x.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
-x.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
-x.elektromos = boolbeolvas("A termék elektromos-e?: ")
-Termeklista.append(x)
+#while boolbeolvas("Akar felvinni adatot?: "):
+#    x = Rendeles()
+#    x.termeknev = input("Kérem a termék nevét: ")
+#    x.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
+#    x.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
+#    x.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
+#    x.elektromos = boolbeolvas("A termék elektromos-e?: ")
+#    Termeklista.append(x)
 
 print(len(Termeklista))
 
@@ -106,14 +107,32 @@ print("Lista elemei:")
 for i in Termeklista:
     print(i)
 
+lista: List['lines'] = list()
 
 f = "kollarbalint.txt"
 fo = open(f, mode="r",encoding="utf8")
-lines = fo.read().strip().split(" ")
-for i in lines:
-    if i == "valami":
-        lines.append("egy")
+lines = fo.read().strip().split("\n")
+i: int = 0
+while i < len(lines):
+    b = Rendeles()
+    b.termeknev = lines[i]
+    i += 1
+    b.ar = int(lines[i])
+    i += 1
+    b.szallitasikoltseg = int(lines[i])
+    i += 1
+    b.kiszallitasiido = int(lines[i])
+    i += 1
+    b.elektromos = strtobool(lines[i])
+    i += 1
+    lista.append(b)
+fo.close()
+
+print("---------------------")
+for i in lista:
     print(i)
+
+
 
 
 

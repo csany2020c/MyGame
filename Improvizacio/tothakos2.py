@@ -26,25 +26,25 @@ class Motor:
             return False
         return None
 
-    def boolbeolvas(prompt: str) -> bool:
-        while True:
-            be: str = input(prompt + "(I/N):")
-            if be.upper() == "I" or be.upper() == "Y":
-                return True
-            if be.upper() == "N":
-                return False
+def boolbeolvas(prompt: str) -> bool:
+    while True:
+        be: str = input(prompt + "(I/N):")
+        if be.upper() == "I" or be.upper() == "Y":
+            return True
+        if be.upper() == "N":
+            return False
 
-    def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
-        while True:
-            be: str = input(prompt + "(" + str(min) + "-" + str(max) + "):")
-            try:
-                i: int = int(be)
-                if i >= min and i <= max:
-                    return i
-                else:
-                    print("Hibás érték! Nem az intervallumba tartozó szám!")
-            except:
-                print("Hibás érték! Számot kérek!")
+def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
+    while True:
+        be: str = input(prompt + "(" + str(min) + "-" + str(max) + "):")
+        try:
+            i: int = int(be)
+            if i >= min and i <= max:
+                return i
+            else:
+                print("Hibás érték! Nem az intervallumba tartozó szám!")
+        except:
+            print("Hibás érték! Számot kérek!")
 
 motor = Motor()
 motor.Gyarto = "KTM"
@@ -90,6 +90,49 @@ lista.append(motor3)
 
 motor2.Ar = 1500000
 
+while boolbeolvas("Akar felvinni adatot?"):
+    Vasarlo = Motor()
+    Vasarlo.Gyarto = input("Motor márkája:")
+    Vasarlo.Tipus = input("Motor típusa:")
+    Vasarlo.Kobcenti = input("Hány köbcenti?:")
+    Vasarlo.Szin = input("Motor színe:")
+    Vasarlo.Loero = input("Hány lóerő?:")
+    Vasarlo.Valto = input("Váltó típusa:")
+    Vasarlo.Szallitasiido = input("Hány nap a szállítás?:")
+    Vasarlo.Szallitasikoltseg = input("Szállítási költség:")
+    Vasarlo.Ar = input("Motor ára:")
+    lista.append(Vasarlo)
+
+
 for i in lista:
     print(i)
     print(i.teljesar())
+exit()
+
+fn = "tothakos"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    m = Motor
+    m.Gyarto = sorok[i]
+    i += 1
+    m.Tipus = sorok[i]
+    i += 1
+    m.Kobcenti = sorok[i]
+    i += 1
+    m.Szin = sorok[i]
+    i += 1
+    m.Loero = sorok[i]
+    i += 1
+    m.Valto = sorok[i]
+    i += 1
+    m.Szallitasiido = sorok[i]
+    i += 1
+    m.Szallitasikoltseg = sorok[i]
+    i += 1
+    m.Ar = sorok[i]
+    i += 1
+    lista.append(m)
+fr.close()
