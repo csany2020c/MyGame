@@ -87,15 +87,15 @@ lista.append(MyNapszemuveg3)
 MyNapszemuveg2.ar = 1500
 
 
-
-UserNapszemuveg = napszemuveg()
-UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
-UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
-UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
-UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
-UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
-UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
-lista.append(UserNapszemuveg)
+while boolbeolvas("Szeretne hírdetni szemüveget?"):
+    UserNapszemuveg = napszemuveg()
+    UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
+    UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
+    UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
+    UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
+    UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
+    UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
+    lista.append(UserNapszemuveg)
 
 
 for i in lista:
