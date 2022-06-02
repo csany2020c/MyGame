@@ -75,8 +75,8 @@ myIphone.hasznalhato = boolbeolvas("Használható a telefon?: ")
 #print(myIphone)
 lista: List[Iphone] = list()
 lista.append(myIphone)
-lista.append(myIphone2)
-lista.append(myIphone3)
+#lista.append(myIphone2)
+#lista.append(myIphone3)
 
 for i in lista:
     print(i)
