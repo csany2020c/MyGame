@@ -16,7 +16,7 @@ class napszemuveg:
 
 
     def __str__(self) -> str:
-        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar)
+        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar) + "\n"
         #return "Név = {a}; Lencseszín = {b}; Napra sőtétedik e = {c}; Ár = {d}; Szállítási idő = {e}; Szállítási költség = {f}".format(a=self.nev, b=self.lencseszin, c=self.naprasotetedike, d=self.ar, e=self.szallitasiido, f=self.szallitasikoltseg)
 
 
