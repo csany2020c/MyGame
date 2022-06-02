@@ -42,7 +42,7 @@ def boolbeolvasfuzonel(prompt: str) -> bool:
         be: str = input(prompt + " (Igen/Nem): ")
         if be.upper() == "IGEN" or be.upper() == "PERSZE":
             return True
-        if be.upper() == "Nem":
+        if be.upper() == "NEM":
             print("Jó béna vagy")
             return False
 
@@ -68,3 +68,8 @@ while boolbeolvas("Kell cipő testvérem?"):
     hi.fajta = input("Fajtája: ")
     hi.fuzos = boolbeolvasfuzonel("Tudsz kötni?")
     l.append(hi)
+
+exit()
+
+for i in l:
+    print(i)
