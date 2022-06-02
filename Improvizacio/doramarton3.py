@@ -1,3 +1,4 @@
+import os
 from typing import TextIO
 from typing import List
 
@@ -42,7 +43,7 @@ def boolbeolvasfuzonel(prompt: str) -> bool:
         be: str = input(prompt + " (Igen/Nem): ")
         if be.upper() == "IGEN" or be.upper() == "PERSZE":
             return True
-        if be.upper() == "Nem":
+        if be.upper() == "NEM":
             print("Jó béna vagy")
             return False
 
@@ -61,10 +62,36 @@ def intbeolvas(prompt: str, min: int = 30, max: int = 50) -> int:
 l: List['cipo'] = list()
 
 
-while boolbeolvas("Kell cipő testvérem?"):
-    hi = cipo()
-    hi.meret = intbeolvas("Csapasd a méretet: ")
-    hi.szin = input("Most jöhet a szín: ")
-    hi.fajta = input("Fajtája: ")
-    hi.fuzos = boolbeolvasfuzonel("Tudsz kötni?")
-    l.append(hi)
+# while boolbeolvas("Kell cipő testvérem?"):
+#     hi = cipo()
+#     hi.meret = intbeolvas("Csapasd a méretet: ")
+#     hi.szin = input("Most jöhet a szín: ")
+#     hi.fajta = input("Fajtája: ")
+#     hi.fuzos = boolbeolvasfuzonel("Tudsz kötni?")
+#     l.append(hi)
+#
+# for i in l:
+#     print(i)
+#
+# exit()
+
+cica = "doramarton.txt"
+
+cicu = open(cica, mode="r", encoding="utf-8")
+sorok = cicu.read().strip().split()
+i : int = 0
+while i < len(sorok):
+    z = cipo()
+    z.meret = sorok[i]
+    i+=1
+    z.szin = sorok[i]
+    i += 1
+    z.fajta = sorok[i]
+    i += 1
+    z.fuzos = sorok[i]
+    i += 1
+    l.append(z)
+cicu.close()
+
+for i in l:
+    print(i)

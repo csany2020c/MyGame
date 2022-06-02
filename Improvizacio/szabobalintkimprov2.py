@@ -54,16 +54,16 @@ def haigaz(prompt: str) -> bool:
 
 #AliExpress()
 
-while boolbeolvas("Szeretne rendelést felvinni?"):
-   a = AliExpress()
-   a.hangszer = input("A hangszer fajtája: ")
-   a.szallido = intbeolvas("Kérem a kiszállítási idejét ( napokban ): ")
-   a.honnanjon = input("Honnan szállítják?: ")
-   a.ar = intbeolvas("Kérem a termék árát ( Ft ): ")
-   a.vankolts = haigaz("Van kiszállítási költsége?: ")
+#while boolbeolvas("Szeretne rendelést felvinni?"):
+   #a = AliExpress()
+   #a.hangszer = input("A hangszer fajtája: ")
+   #a.szallido = intbeolvas("Kérem a kiszállítási idejét ( napokban ): ")
+   #a.honnanjon = input("Honnan szállítják?: ")
+   #a.ar = intbeolvas("Kérem a termék árát ( Ft ): ")
+   #a.vankolts = haigaz("Van kiszállítási költsége?: ")
 
-   if a.vankolts:
-    a.szallkolts = intbeolvas("A kiszállítási díj: ")
+   #if a.vankolts:
+   # a.szallkolts = intbeolvas("A kiszállítási díj: ")
 
 dob = AliExpress()
 dob.hangszer = "Dobkészlet"
@@ -95,15 +95,43 @@ hegedu.honnanjon = "Ismeretlen"
 
 list = AliExpress()
 lista: list = []
-lista.append(a)
+#lista.append(a)
 #lista.append(dob)
 #lista.append(klarinet)
-#lista.append(hegedu)
-
+#lista.append(hegedu)#
 #print(lista)
-print("")
-print("")
-print("")
+#print("")
+#print("")
+#print("")
+#for i in lista:
+    #print(i)
+    #print("Teljes ára:", i.teljesar())
+
+fn = "szbkamuzsikus.txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    a = AliExpress()
+    a.hangszer = sorok[i]
+    i += 1
+    a.szallkolts = int(sorok[i])
+    i += 1
+    a.szallido = sorok[i]
+    i += 1
+    a.vankolts = strtobool(sorok[i])
+    i += 1
+    a.ar = int(sorok[i])
+    i += 1
+    a.honnanjon = (sorok[i])
+    i += 1
+
+    lista.append(a)
+
+fr.close()
+
 for i in lista:
     print(i)
-    print("Teljes ára:", i.teljesar())
+    print("Teljes ára:", a.szallkolts + a.ar)
+
