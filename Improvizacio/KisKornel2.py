@@ -46,13 +46,45 @@ def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
             print("Hibás érték! Ebbe a mezőbe csak szám kerülhet!")
 
 
-JBL = Hangszoro()
-JBL.ar = intbeolvas("Hangszóró ára:", 5000, 100000)
-JBL.szallitasikoltseg = 1500
-JBL.szallitasiido = "15 munkanap"
-JBL.tudnivalok = "a termék kék színű 50 mA akkumlátorral"
-JBL.termeknev = "JBL XTREME"
-JBL.hibase = boolbeolvas("Van hibája?")
+lista: List[Hangszoro] = list()
+
+while boolbeolvas("Akar hangszórót felvinni a rendszerbe?"):
+    JBL = Hangszoro()
+    JBL.ar = intbeolvas("Hangszóró ára:", 5000, 100000)
+    JBL.szallitasikoltseg = input("Szállítási költség :")
+    JBL.szallitasiido = intbeolvas("Szállítási idő(nap):")
+    JBL.tudnivalok = input("tudnivalók")
+    JBL.termeknev = input("Termék neve:")
+    JBL.hibase = boolbeolvas("Van hibája?")
+    lista.append(JBL)
+
+for i in lista:
+    print(i)
+#exit()
+fn = "KisKornel.txt"
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i:int=0
+while i < len(sorok):
+    a = Hangszoro()
+    a.termeknev = sorok[i]
+    i += 1
+    a.ar = (sorok[i])
+    i += 1
+    a.szallitasikoltseg = (sorok[i])
+    i += 1
+    a.szallitasiido = (sorok[i])
+    i += 1
+    a.tudnivalok = sorok[i]
+    i += 1
+    a.hibase = (sorok[i])
+    lista.append(a)
+fr.close()
+for i in lista:
+    print(i)
+
+
+
 MP3 = Hangszoro()
 MP3.ar = 1300
 MP3.szallitasikoltseg = 0
@@ -78,4 +110,4 @@ lista: List[Hangszoro] = list()
 #    print(i)
 #    print(i.teljesar())
 #print(lista)
-print(JBL)
+#print(JBL)

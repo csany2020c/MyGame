@@ -1,14 +1,15 @@
 # szállítási költség, ár, szállítási idő
 
-class markers:
+class filcek:
     def __init__(self) -> None:
         super().__init__()
+        self.fajta: str = ""
         self.szallitasingyenes: bool = False
         self.ar = 0
         self.ido = 0
 
-    def __str__(self) -> bool:
-        return strtobool(self.szallitasingyenes) + "\n" + str(self.ar) + "\n" + str(self.ido)
+    def __str__(self) -> str:
+        return self.fajta + "\n" + str(self.szallitasingyenes) + "\n" + str(self.ar) + "\n" + str(self.ido)
 
 
 def strtobool(value: str) -> bool:
@@ -39,43 +40,47 @@ def intbeolvasas(prompt: str, min: int = 0, max: int = 100) -> int:
             pass
 
 
-# arany
-Z = markers()
+A = filcek()
 
-Z.szallitas = 0
-Z.ar = 3
-Z.ido = 66
+A.fajta = "Arany"
+A.szallitas = True
+A.ar = 3
+A.ido = 66
 
-# metal
-Y = markers()
 
-Y.szallitas = 301
-Y.ar = 3
-Y.ido = 66
+M = filcek()
 
-# feher
-S = markers()
+M.fajta = "Metálos"
+M.szallitas = False
+M.ar = 3
+M.ido = 66
 
-S.szallitas = 433
-S.ar = 3
-S.ido = 46
 
-# fekete
-V = markers()
+H = filcek()
 
-V.szallitas = 0
-V.ar = 3
-V.ido = 66
+H.fajta = "Fehér"
+H.szallitas = False
+H.ar = 3
+H.ido = 46
 
-# tukor
-T = markers()
 
-T.szallitas = 0
+K = filcek()
+
+K.fajta = "Fekete"
+K.szallitas = True
+K.ar = 3
+K.ido = 66
+
+
+T = filcek()
+
+T.fajta = "Tükröződő"
+T.szallitas = True
 T.ar = 3
 T.ido = 66
 
-#print(Z)
-#print(Y)
-#print(S)
-#print(V)
+#print(A)
+#print(M)
+#print(H)
+#print(K)
 #print(T)
