@@ -6,7 +6,7 @@ class Ali:
         self.kiszalitasiar: int = 0
         self.learazas: bool = False
         self.kiszalitasido: str = ""
-        self.szarmazas: str = "transparent"
+        self.szarmazas: str = ""
 
     def __str__(self) -> str:
         return "Ára = {a} Kiszálítás ára = {b} Megérkezési időpontja = {c} Le van Árazva? = {d} Származás = {f} Összár = {g}".format(a= self.ar, b= self.kiszalitasiar, c= self.kiszalitasido, d=self.learazas ,f=self.szarmazas,g=self.osszar)
@@ -15,22 +15,24 @@ class Ali:
         return self.ar + self.kiszalitasiar
 
 def boololvas(elem: str) -> bool:
-    be: str = input(elem + "i/n:")
-    if be == "i" or be == "y":
-        return True
-    if be == "n":
-        return False
+    while True:
+        be: str = input(elem + "i/n:")
+        if be == "i" or be == "y":
+            return True
+        if be == "n":
+            return False
 
 def intolvas(elem:str, min: int = 0, max: int = 100) -> int:
-    be: str = input(elem +" (" + str(min) + " - " + str(max) + "): ")
-    try:
-        j: int = int(be)
-        if j >= min and j <= max:
-            return j
-        else:
-            print("Nem jó értéket adtál meg! Nem tartozik az intervallumban a szám!")
-    except:
-        print("Nem jó értéket adtál meg! Próbáld újra!")
+    while True:
+        be: str = input(elem +" (" + str(min) + " - " + str(max) + "): ")
+        try:
+            j: int = int(be)
+            if j >= min and j <= max:
+                return j
+            else:
+                print("Nem jó értéket adtál meg! Nem tartozik az intervallumban a szám!")
+        except:
+            print("Nem jó értéket adtál meg! Próbáld újra!")
 
 
 def strbool(érték: str) -> bool:
@@ -99,4 +101,5 @@ a = Ali()
 a.ar = intolvas("Kérem az árát:", 1, 9999999)
 a.kiszalitasiar = intolvas("Kérem az kiszálítás árát:", 0, 9999999)
 a.learazas = boololvas("Le van árazva?")
+a.szarmazas = input("Származási hely:")
 lista.append(a)
