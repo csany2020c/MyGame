@@ -64,19 +64,19 @@ myIphone3.ar = 118000
 myIphone3.szin = "szürke"
 myIphone3.kapacitas = 64
 
-
-
-myIphone = Iphone()
-myIphone.szallitasiido = intbeolvas("Kérem a szállítási időt: ", 1, 44)
-myIphone.szalitasikoltseg= intbeolvas("Kérem a szállítási költséget: ",1000, 10000 )
-myIphone.ar = intbeolvas("Kérem a telefon árát: ", 20000, 999999999)
-myIphone.szin = input("Kérem a telefonszínét")
-myIphone.hasznalhato = boolbeolvas("Használható a telefon?: ")
-#print(myIphone)
 lista: List[Iphone] = list()
-lista.append(myIphone)
-lista.append(myIphone2)
-lista.append(myIphone3)
+while boolbeolvas("Akar felvinni adatot?"):
+    myIphone = Iphone()
+    myIphone.szallitasiido = intbeolvas("Kérem a szállítási időt: ", 1, 44)
+    myIphone.szalitasikoltseg= intbeolvas("Kérem a szállítási költséget: ",1000, 10000 )
+    myIphone.ar = intbeolvas("Kérem a telefon árát: ", 20000, 999999999)
+    myIphone.szin = input("Kérem a telefonszínét")
+    myIphone.hasznalhato = boolbeolvas("Használható a telefon?: ")
+    lista.append(myIphone)
+
 
 for i in lista:
     print(i)
+
+
+exit()
