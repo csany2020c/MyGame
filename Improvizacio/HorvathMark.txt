@@ -1,0 +1,14 @@
+1
+6
+zöld
+fekete
+mountainbike
+5
+True
+3
+8
+kék
+barna
+orszaguti
+2
+False
