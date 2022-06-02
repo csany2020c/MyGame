@@ -16,7 +16,7 @@ class napszemuveg:
 
 
     def __str__(self) -> str:
-        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar)
+        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar) + "\n"
         #return "Név = {a}; Lencseszín = {b}; Napra sőtétedik e = {c}; Ár = {d}; Szállítási idő = {e}; Szállítási költség = {f}".format(a=self.nev, b=self.lencseszin, c=self.naprasotetedike, d=self.ar, e=self.szallitasiido, f=self.szallitasikoltseg)
 
 
@@ -87,17 +87,46 @@ lista.append(MyNapszemuveg3)
 MyNapszemuveg2.ar = 1500
 
 
+while boolbeolvas("Szeretne hírdetni szemüveget?"):
+    UserNapszemuveg = napszemuveg()
+    UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
+    UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
+    UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
+    UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
+    UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
+    UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
+    lista.append(UserNapszemuveg)
 
-UserNapszemuveg = napszemuveg()
-UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
-UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
-UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
-UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
-UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
-UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
-lista.append(UserNapszemuveg)
 
+#for i in lista:
+    #print(i)
+    #print(i.teljesar())
+
+#exit()
+
+fn = "rigodonat2.txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    UserNapszemuveg = napszemuveg()
+    UserNapszemuveg.nev = sorok[i]
+    i += 1
+    UserNapszemuveg.lencseszin = sorok[i]
+    i += 1
+    UserNapszemuveg.naprasotetedike = strtobool(sorok[i])
+    i += 1
+    UserNapszemuveg.ar = int(sorok[i])
+    i += 1
+    UserNapszemuveg.szallitasiido = int(sorok[i])
+    i += 1
+    UserNapszemuveg.szallitasikoltseg = int(sorok[i])
+    i += 1
+    lista.append(UserNapszemuveg)
+fr.close()
 
 for i in lista:
     print(i)
-    print(i.teljesar())
+
+

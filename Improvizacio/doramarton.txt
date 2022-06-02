@@ -1,0 +1,16 @@
+32
+fekete
+futo
+True
+40
+barna
+bakancs
+True
+38
+kek
+szandal
+False
+40
+zold
+papucs
+False
