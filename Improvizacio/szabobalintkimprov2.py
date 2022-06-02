@@ -133,5 +133,5 @@ fr.close()
 
 for i in lista:
     print(i)
-    print("Teljes ára:", a.szallkolts + a.ar)
+    print("Teljes ára:", a.teljesar())
 
