@@ -98,6 +98,33 @@ while boolbeolvas("Szeretne hírdetni szemüveget?"):
     lista.append(UserNapszemuveg)
 
 
+#for i in lista:
+    #print(i)
+    #print(i.teljesar())
+
+#exit()
+
+fn = "rigodonat2.txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    UserNapszemuveg = napszemuveg()
+    UserNapszemuveg.nev = sorok[i]
+    i += 1
+    UserNapszemuveg.lencseszin = sorok[i]
+    i += 1
+    UserNapszemuveg.naprasotetedike = strtobool(sorok[i])
+    i += 1
+    UserNapszemuveg.ar = int(sorok[i])
+    i += 1
+    UserNapszemuveg.szallitasiido = int(sorok[i])
+    i += 1
+    UserNapszemuveg.szallitasikoltseg = int(sorok[i])
+    i += 1
+    lista.append(UserNapszemuveg)
+fr.close()
+
 for i in lista:
     print(i)
-    print(i.teljesar())
