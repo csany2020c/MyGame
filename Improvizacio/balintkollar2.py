@@ -9,13 +9,35 @@ class Rendeles:
         self.ar: int
         self.szallitasikoltseg: int
         self.kiszallitasiido: int
-        self.teljes: int
+        self.elektromos: bool
 
     def __str__(self) -> str:
-        return "Termék neve: {a}; Ár: {b}; Szalltási Költség: {c};  Kiszallítási idő: {d}; Teljes ár: {e};".format(a=self.termeknev,b=self.ar,c=self.szallitasikoltseg,d=self.kiszallitasiido,e=self.teljes)
+        return "Termék neve: {a}; Ár: {b}; Szalltási Költség: {c};  Kiszallítási idő: {d};  Elektromos: {e}".format(a=self.termeknev,b=self.ar,c=self.szallitasikoltseg,d=self.kiszallitasiido,e=self.elektromos)
+def strtobool(value: str) -> bool:
+    if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
+        return True
+    if value.upper() == "N" or value.upper() == "FALSE":
+        return False
+    return None
+def boolbeolvas(prompt: str) -> bool:
+    while True:
+        be: str = input(prompt + " (I/N): ")
+        if be.upper() == "I" or be.upper() == "Y":
+            return True
+        if be.upper() == "N":
+            return False
+def intbeolvas(prompt: str, min: int = 0, max: int = 100) -> int:
+    while True:
+        be: str = input(prompt + " (" + str(min) + " - " + str(max) + "): ")
+        try:
+            i: int = int(be)
+            if i >= min and i <= max:
+                return i
+            else:
+                print("Hibás érték! Nem az intervallumba tartozó szám!")
+        except:
+            print("Hibás érték! Számot kérek!")
 
-
-Rendeles()
 
 termek1 = Rendeles()
 termek1.termeknev = "Szemüveg"
@@ -24,8 +46,7 @@ termek1.szallitasikoltseg = 555
 termek1.kiszallitasiido = 30
 termek1.szin = "fekete"
 termek1.suly = 24
-termek1.teljes = termek1.ar + termek1.szallitasikoltseg
-#print(termek1, "Szín = {a}; Súly = {b}".format(a=termek1.szin,b=termek1.szin))
+termek1.elektromos = False
 
 termek2 = Rendeles()
 termek2.termeknev = "Telefon"
@@ -34,8 +55,7 @@ termek2.szallitasikoltseg = 0
 termek2.kiszallitasiido = 30
 termek2.akummlator = 5000
 termek2.screen = 6.43
-termek2.teljes = termek2.ar + termek2.szallitasikoltseg
-#print(termek2, "Akkumlátor = {a}; Screen = {b}".format(a=termek2.akummlator,b=termek2.screen))
+termek2.elektromos = False
 
 termek3 = Rendeles()
 termek3.termeknev = "Hangszoró"
@@ -44,8 +64,7 @@ termek3.szallitasikoltseg = 1638
 termek3.kiszallitasiido = 15
 termek3.vizallosag = True
 termek3.bluetoothversion = 5.0
-termek3.teljes = termek3.ar + termek3.szallitasikoltseg
-#print(termek3, "Vízállóság = {a}; Bluetooth Version = {b}".format(a=termek3.vizallosag,b=termek3.bluetoothversion))
+termek3.elektromos = True
 
 termek4 = Rendeles()
 termek4.termeknev = "Drón"
@@ -54,8 +73,7 @@ termek4.szallitasikoltseg = 0
 termek4.kiszallitasiido = 60
 termek4.zoom = "50x"
 termek4.remotecontroldistance = 1200
-termek4.teljes = termek4.ar + termek4.szallitasikoltseg
-#print(termek4, "Zoom méret = {a}; Remote control distance = {b}".format(a=termek4.zoom,b=termek4.remotecontroldistance))
+termek4.elektromos = True
 
 termek5 = Rendeles()
 termek5.termeknev = "Okos Óra"
@@ -64,16 +82,22 @@ termek5.szallitasikoltseg = 0
 termek5.kiszallitasiido = 85
 termek5.type = "Lithium polymer"
 termek5.chargingtime = 2
-termek5.teljes = termek5.ar + termek5.szallitasikoltseg
-#print(termek5, "Fajta = {a}; Töltési idő = {b}".format(a=termek5.type,b=termek5.chargingtime))
+termek5.elektromos = True
 
-Termeklista: List['termek1'] = list()
+Termeklista: List['Rendeles'] = list()
 Termeklista.append(termek1)
 Termeklista.append(termek2)
 Termeklista.append(termek3)
 Termeklista.append(termek4)
 Termeklista.append(termek5)
-print(Termeklista)
+
+#x = Rendeles()
+#x.termeknev = input("Kérem a termék nevét: ")
+#x.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
+#x.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
+#x.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
+#x.elektromos = boolbeolvas("A termék elektromos-e?: ")
+#Termeklista.append(x)
 
 print(len(Termeklista))
 
@@ -81,6 +105,16 @@ Termeklista.remove(termek1)
 print("Lista elemei:")
 for i in Termeklista:
     print(i)
+
+
+f = "kollarbalint.txt"
+fo = open(f, mode="r",encoding="utf8")
+lines = fo.read().strip().split(" ")
+for i in lines:
+    if i == "valami":
+        lines.append("egy")
+    print(i)
+
 
 
 
