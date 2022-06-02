@@ -16,8 +16,7 @@ class AliExpress:
         return self.ar + self.szallkolts
 
     def __str__(self) -> str:
-        return "Tárgy : {a}, Van kiszállítási díj : {b}, Szállítási költség = {c}, Ár : {d} Ft, Teljes ár: {x}, Kiszállítási idő : {e} hónap, Innen érkezik : {f}".format(x = self.teljesar, a = self.hangszer, b = self.vankolts, c = self.szallkolts, d = self.ar, e = self. szallido, f = self.honnanjon)
-
+        return "Tárgy : {a}, Van kiszállítási díj : {b}, Szállítási költség = {c}, Ár : {d} Ft, Kiszállítási idő : {e} hónap, Innen érkezik : {f}".format(a = self.hangszer, b = self.vankolts, c = self.szallkolts, d = self.ar, e = self. szallido, f = self.honnanjon)
 
 def strtobool(value: str) -> bool:
         if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
@@ -56,15 +55,15 @@ def haigaz(prompt: str) -> bool:
 #AliExpress()
 
 while boolbeolvas("Szeretne rendelést felvinni?"):
-    a = AliExpress()
-    a.hangszer = input("A hangszer fajtája: ")
-    a.szallido = intbeolvas("Kérem a kiszállítási idejét ( napokban ): ")
-    a.honnanjon = input("Honnan szállítják?: ")
-    a.ar = intbeolvas("Kérem a termék árát ( Ft ): ")
-    a.vankolts = haigaz("Van kiszállítási költsége?: ")
+   a = AliExpress()
+   a.hangszer = input("A hangszer fajtája: ")
+   a.szallido = intbeolvas("Kérem a kiszállítási idejét ( napokban ): ")
+   a.honnanjon = input("Honnan szállítják?: ")
+   a.ar = intbeolvas("Kérem a termék árát ( Ft ): ")
+   a.vankolts = haigaz("Van kiszállítási költsége?: ")
 
-    if a.vankolts:
-        a.szallkolts = intbeolvas("A kiszállítási díj: ")
+   if a.vankolts:
+    a.szallkolts = intbeolvas("A kiszállítási díj: ")
 
 dob = AliExpress()
 dob.hangszer = "Dobkészlet"
@@ -107,3 +106,4 @@ print("")
 print("")
 for i in lista:
     print(i)
+    print("Teljes ára:", i.teljesar())
