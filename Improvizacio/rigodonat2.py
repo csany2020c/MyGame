@@ -16,7 +16,7 @@ class napszemuveg:
 
 
     def __str__(self) -> str:
-        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar)
+        return self.nev + "\n" + self.lencseszin + "\n" + str(self.naprasotetedike) + "\n" + str(self.szallitasiido) + "\n" + str(self.szallitasikoltseg) + "\n" + str(self.ar) + "\n"
         #return "Név = {a}; Lencseszín = {b}; Napra sőtétedik e = {c}; Ár = {d}; Szállítási idő = {e}; Szállítási költség = {f}".format(a=self.nev, b=self.lencseszin, c=self.naprasotetedike, d=self.ar, e=self.szallitasiido, f=self.szallitasikoltseg)
 
 
@@ -87,15 +87,15 @@ lista.append(MyNapszemuveg3)
 MyNapszemuveg2.ar = 1500
 
 
-
-UserNapszemuveg = napszemuveg()
-UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
-UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
-UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
-UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
-UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
-UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
-lista.append(UserNapszemuveg)
+while boolbeolvas("Szeretne hírdetni szemüveget?"):
+    UserNapszemuveg = napszemuveg()
+    UserNapszemuveg.nev = input("Kérem irja be a szemüveg nevét:")
+    UserNapszemuveg.lencseszin = input("Kérem a lencse színét: ")
+    UserNapszemuveg.naprasotetedike = boolbeolvas("Napra sötétedik?:")
+    UserNapszemuveg.ar = intbeolvas("Mennyibe kerül a termék?:")
+    UserNapszemuveg.szallitasiido = intbeolvas("Mennyi idő a szállítás?(nap):", 1 , 100)
+    UserNapszemuveg.szallitasikoltseg = intbeolvas("Mennyi a szállítási költség?:")
+    lista.append(UserNapszemuveg)
 
 
 for i in lista:
