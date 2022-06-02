@@ -1,0 +1,12 @@
+Termék neve: JBL
+Ára: 50000
+Szállításiköltség: 30
+Szállításiidő: 1500
+Tudnivalók:  kék színű
+Van-e valami hibája a terméknek?: False
+Termék neve: BoomBox
+Ára: 35000
+Szállításiköltség: 24
+Szállításiidő: 2000
+Tudnivalók:  piros
+Van-e valami hibája a terméknek?: False
