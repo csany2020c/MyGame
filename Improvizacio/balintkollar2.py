@@ -91,13 +91,13 @@ Termeklista.append(termek3)
 Termeklista.append(termek4)
 Termeklista.append(termek5)
 
-x = Rendeles()
-x.termeknev = input("Kérem a termék nevét: ")
-x.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
-x.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
-x.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
-x.elektromos = boolbeolvas("A termék elektromos-e?: ")
-Termeklista.append(x)
+#x = Rendeles()
+#x.termeknev = input("Kérem a termék nevét: ")
+#x.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
+#x.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
+#x.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
+#x.elektromos = boolbeolvas("A termék elektromos-e?: ")
+#Termeklista.append(x)
 
 print(len(Termeklista))
 
@@ -106,6 +106,14 @@ print("Lista elemei:")
 for i in Termeklista:
     print(i)
 
+
+f = "kollarbalint.txt"
+fo = open(f, mode="r",encoding="utf8")
+lines = fo.read().strip().split(" ")
+for i in lines:
+    if i == "valami":
+        lines.append("egy")
+    print(i)
 
 
 
