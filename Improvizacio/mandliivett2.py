@@ -1,4 +1,5 @@
 from typing import List
+import os
 
 
 class laptop:
@@ -17,6 +18,13 @@ class laptop:
     def teljesar(self) -> int:
         return self.ar + self.szallitasikoltseg
 
+
+def strtobool(value: str) -> bool:
+    if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
+        return True
+    if value.upper() == "N" or value.upper() == "FALSE":
+        return False
+    return None
 
 
 def boolbeolvas(prompt: str) -> bool:
@@ -96,11 +104,11 @@ E.rom = 128
 E.vankamera = True
 
 
-print(A)
-print(B)
-print(C)
-print(D)
-print(E)
+#print(A)
+#print(B)
+#print(C)
+#print(D)
+#print(E)
 
 laptoplista = laptop
 
@@ -117,12 +125,56 @@ for i in lista:
     print(i)
     print("Teljes ár:", i.teljesar(), "Forint")
 
+while boolbeolvas("Akar felvinni adatot?"):
+    F = laptop()
+    F.ar = intbeolvas("Kérem a laptop árát: ", 73077, 177014)
+    F.szallitasikoltseg = intbeolvas("Kérem a szállítási költséget: ", 0, 5954)
+    F.szallitasiido = intbeolvas("Kérem a szállítási időt: ", 7, 30)
+    F.ram = intbeolvas("RAM: ", 4, 16)
+    F.rom = intbeolvas("ROM: ", 128, 1024)
+    F.szin = input("Kérem a laptop színét: ")
+    F.vankamera = boolbeolvas("Van kamera a laptopon?")
+    lista.append(F)
 
-F = laptop()
-F.ar = intbeolvas("Kérem a laptop árát: ", 73077, 177014)
-F.szallitasikoltseg = intbeolvas("Kérem a szállítási költséget: ", 0, 5954)
-F.szallitasiido = intbeolvas("Kérem a szállítási időt: ", 7, 30)
-F.szin = input("Kérem a laptop színét: ")
-F.vankamera = boolbeolvas("Van kamera a laptopon?")
-lista.append(F)
+for i in lista:
+    print(i)
 
+exit()
+
+
+fn = ".......txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    F = laptop()
+    F.ar = int(sorok[i])
+    i += 1
+    F.szallitasikoltseg = int(sorok[i])
+    i += 1
+    F.szallitasiido = int(sorok[i])
+    i += 1
+    F.ram = int(sorok[i])
+    i += 1
+    F.rom = int(sorok[i])
+    i += 1
+    F.szin = sorok[i]
+    i += 1
+    F.vankamera = strtobool(sorok[i])
+    i += 1
+    lista.append(F)
+
+fr.close()
+
+
+print("-------")
+for i in lista:
+    print(i)
+
+
+os.remove(fn)
+f = open(fn, mode="w", encoding="utf-8")
+for i in lista:
+    f.write(i.__str__() + ";")
+f.close()
