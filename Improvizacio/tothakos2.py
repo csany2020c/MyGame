@@ -90,6 +90,19 @@ lista.append(motor3)
 
 motor2.Ar = 1500000
 
+Vasarlo = Motor()
+Vasarlo.Gyarto = input("Motor márkája:")
+Vasarlo.Tipus = input("Motor típusa:")
+Vasarlo.Kobcenti = input("Hány köbcenti?:")
+Vasarlo.Szin = input("Motor színe:")
+Vasarlo.Loero = input("Hány lóerő?:")
+Vasarlo.Valto = input("Váltó típusa:")
+Vasarlo.Szallitasiido = input("Hány nap a szállítás?:")
+Vasarlo.Szallitasikoltseg = input("Szállítási költség:")
+Vasarlo.Ar = input("Motor ára:")
+lista.append(Vasarlo)
+
+
 for i in lista:
     print(i)
     print(i.teljesar())
