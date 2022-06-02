@@ -78,5 +78,25 @@ while boolbeolvas("Akar felvinni adatot?"):
 for i in lista:
     print(i)
 
-
 exit()
+fn = "vizdak.txt"
+
+fr = open(fn, mode="r", encoding="utf-8")
+sorok = fr.read().strip().split("\n")
+i: int = 0
+while i < len(sorok):
+    myIphone = Iphone()
+    myIphone.szallitasiido = int(sorok[i])
+    i += 1
+    myIphone.szalitasikoltseg = int(sorok[i])
+    i += 1
+    myIphone.ar = int(sorok[i])
+    i += 1
+    myIphone.szin = sorok[i]
+    i += 1
+    myIphone.kapacitas = int(sorok[i])
+    i += 1
+    myIphone.hasznalhato = strtobool(sorok[i])
+    i += 1
+    l.append(myIphone)
+fr.close()
