@@ -107,6 +107,14 @@ for i in Termeklista:
     print(i)
 
 
+f = "kollarbalint.txt"
+fo = open(f, mode="r",encoding="utf8")
+lines = fo.read().strip().split(" ")
+for i in lines:
+    if i == "valami":
+        lines.append("egy")
+    print(i)
+
 
 
 
