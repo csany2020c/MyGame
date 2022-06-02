@@ -1,3 +1,6 @@
+from typing import List
+import os
+
 class Kerekpar():
     def __init__(self):
         super().__init__()
@@ -11,6 +14,13 @@ class Kerekpar():
 
     def __str__(self) -> str:
         return "Elsőváltó = {a}; Hátsóváltó = {b}; Szín = {c}; Szín2 = {d}; Fajtája = {e}; Kulacstartó szám = {f}; Van-e csengő = {g}".format(a = self.elsovalto, b = self.hatsovalto, c = self.szin, d = self.szin2, e = self.fajta, f = self.kulacstarto, g = self.csengo)
+
+def strtobool(value: str) -> bool:
+    if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
+        return True
+    if value.upper() == "N" or value.upper() == "FALSE":
+        return False
+    return None
 
 def boololvasas(prompt: str) -> bool:
     while True:
@@ -44,20 +54,48 @@ randomkerekpar.szin = "zöld"
 randomkerekpar.szin2 = "narancs"
 randomkerekpar.fajta = "országúti"
 
-felhasznalokerekpar = Kerekpar()
-felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
-felhasznalokerekpar.hatsovalto = intbeolvasas("Hány fokozatú a hátsó váltó? ", 1, 8)
-felhasznalokerekpar.szin = input("Milyen színű?(1. szín) ")
-felhasznalokerekpar.szin2 = input("Milyen színű?(2. szín) ")
-felhasznalokerekpar.fajta = input("Milyen fajtájú a kerékpár? ")
-felhasznalokerekpar.kulacstarto = intbeolvasas("Mennyi kulacstartója van? ", 0, 5)
-felhasznalokerekpar.csengo = boololvasas("Van rajta csengő?")
+#while boololvasas("Akar felvinni adatot?"):
+#    felhasznalokerekpar = Kerekpar()
+#    felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
+#    felhasznalokerekpar.hatsovalto = intbeolvasas("Hány fokozatú a hátsó váltó? ", 1, 8)
+#    felhasznalokerekpar.szin = input("Milyen színű?(1. szín) ")
+#    felhasznalokerekpar.szin2 = input("Milyen színű?(2. szín) ")
+#    felhasznalokerekpar.fajta = input("Milyen fajtájú a kerékpár? ")
+#    felhasznalokerekpar.kulacstarto = intbeolvasas("Mennyi kulacstartója van? ", 0, 5)
+#    felhasznalokerekpar.csengo = boololvasas("Van rajta csengő?")
 
-print(felhasznalokerekpar)
+#print(felhasznalokerekpar)
 #print(Kerekpar())
 #print(enkerekpar)
 #print(randomkerekpar)
 #HF még 2 osztály, példányok belőlük
+
+feladat = "HorvathMark.txt"
+feladatr = open(feladat, mode="r", encoding="utf-8")
+lines = feladatr.read().strip().split("\n")
+l: List['Kerekpar()'] = list()
+i: int = 0
+while i < len(lines):
+    a = Kerekpar()
+    a.elsovalto = int(lines[i])
+    i += 1
+    a.hatsovalto = int(lines[i])
+    i += 1
+    a.szin = lines[i]
+    i += 1
+    a.szin2 = lines[i]
+    i += 1
+    a.fajta = lines[i]
+    i += 1
+    a.kulacstarto = int(lines[i])
+    i += 1
+    a.csengo = strtobool(lines[i])
+    i += 1
+    l.append(a)
+feladatr.close()
+
+for i in l:
+    print(i)
 
 class Telefon():
     def __init__(self):

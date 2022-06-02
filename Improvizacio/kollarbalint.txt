@@ -1,2 +1,5 @@
-valami random asd
-nemtudom szavak
+valami
+55555
+250
+6
+True
