@@ -7,9 +7,28 @@ class Kerekpar():
         self.szin2: str = "kék"
         self.fajta: str = "terep"
         self.kulacstarto: int = 1
+        self.csengo: bool = False
 
     def __str__(self) -> str:
-        return "Elsőváltó = {a}; Hátsóváltó = {b}; Szín = {c}; Szín2 = {d}; Fajtája = {e}; Kulacstartó szám = {f}".format(a = self.elsovalto, b = self.hatsovalto, c = self.szin, d = self.szin2, e = self.fajta, f = self.kulacstarto)
+        return "Elsőváltó = {a}; Hátsóváltó = {b}; Szín = {c}; Szín2 = {d}; Fajtája = {e}; Kulacstartó szám = {f}; Van-e csengő = {g}".format(a = self.elsovalto, b = self.hatsovalto, c = self.szin, d = self.szin2, e = self.fajta, f = self.kulacstarto, g = self.csengo)
+
+def boololvasas(prompt: str) -> bool:
+    while True:
+        be: str = input(prompt + "(I/N):")
+        if be.upper() == "I" or be.upper() == "Y":
+            return True
+        if be.upper() == "N":
+            return False
+
+def intbeolvasas(prompt = str, min:int = 0, max:int = 100) -> int:
+    while True:
+        be: str = input(prompt + " (" + str(min) + " - " + str(max) + "): ")
+        try:
+            i: int = int(be)
+            if i >= min and i <= max:
+                return i
+        except:
+            pass
 
 
 enkerekpar = Kerekpar()
@@ -26,19 +45,19 @@ randomkerekpar.szin2 = "narancs"
 randomkerekpar.fajta = "országúti"
 
 felhasznalokerekpar = Kerekpar()
-felhasznalokerekpar.elsovalto = int(input("Hány fokozatú az első váltó? "))
-felhasznalokerekpar.hatsovalto = int(input("Hány fokozatú a hátsó váltó? "))
+felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
+felhasznalokerekpar.hatsovalto = intbeolvasas("Hány fokozatú a hátsó váltó? ", 1, 8)
 felhasznalokerekpar.szin = input("Milyen színű?(1. szín) ")
 felhasznalokerekpar.szin2 = input("Milyen színű?(2. szín) ")
 felhasznalokerekpar.fajta = input("Milyen fajtájú a kerékpár? ")
-felhasznalokerekpar.kulacstarto = int(input("Mennyi kulacstartója van? "))
+felhasznalokerekpar.kulacstarto = intbeolvasas("Mennyi kulacstartója van? ", 0, 5)
+felhasznalokerekpar.csengo = boololvasas("Van rajta csengő?")
 
 print(felhasznalokerekpar)
 #print(Kerekpar())
 #print(enkerekpar)
 #print(randomkerekpar)
 #HF még 2 osztály, példányok belőlük
-
 
 class Telefon():
     def __init__(self):
