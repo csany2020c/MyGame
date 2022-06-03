@@ -109,7 +109,7 @@ for i in Termeklista:
 
 lista: List['lines'] = list()
 
-f = "kollarbalint.txt"
+f = "balintkollar.txt"
 fo = open(f, mode="r",encoding="utf8")
 lines = fo.read().strip().split("\n")
 i: int = 0
@@ -127,6 +127,16 @@ while i < len(lines):
     i += 1
     lista.append(b)
 fo.close()
+
+while boolbeolvas("Akar felvinni adatot?: "):
+    b = Rendeles()
+    b.termeknev = input("Kérem a termék nevét: ")
+    b.ar = intbeolvas("Kérem a termék árát: ", 5000, 999999)
+    b.szallitasikoltseg = intbeolvas("Kérem a termék szálltási költségét: ", 250, 10000)
+    b.kiszallitasiido = intbeolvas("Kérem a termék kiszálltási idejét: ",0, 250)
+    b.elektromos = boolbeolvas("A termék elektromos-e?: ")
+    lista.append(b)
+
 
 print("---------------------")
 for i in lista:
