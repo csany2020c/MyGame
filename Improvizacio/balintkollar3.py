@@ -3,31 +3,17 @@ class Dolgozat:
         super().__init__()
         self.max: int = 0
         self.sajat: int = 0
-        self.jegy: int = 0
 
     def szazalekokfuggveny(self):
         return (self.sajat / self.max) * 100
-
-#    def jegyek(self):
-#        if self.szazalekokfuggveny() <= 24:
-#            self.jegy = 1
-#        if self.szazalekokfuggveny() >= 25 and self.szazalekokfuggveny() <= 39:
-#            self.jegy = 2
-#        if self.szazalekokfuggveny() >= 40 and self.szazalekokfuggveny() <= 59:
-#            self.jegy = 3
-#        if self.szazalekokfuggveny() >= 60 and self.szazalekokfuggveny() <= 79:
-#            self.jegy = 4
-#        if self.szazalekokfuggveny() >= 80:
-#            self.jegy = 5
 
 x = Dolgozat()
 x.max = int(input("A maximum pontszám: "))
 x.sajat = int(input("Elér pontszám: "))
 x.szazalek = (x.sajat / x.max) * 100
-print("Elért százalék {a}%".format(a=x.szazalek))
-print("Elért százalék fügvénnyel {a}%".format(a=x.szazalekokfuggveny()))
+print("Elért százalék:" "\033[0;33;48m {a}% \033[0m".format(a=x.szazalek))
+print("Elért százalék fügvénnyel:""\033[0;33;48m {a}% \033[0m".format(a=x.szazalekokfuggveny()))
 
-x.jegy = 0
 if x.szazalek <= 24:
     x.jegy = 1
 if x.szazalek >= 25 and x.szazalek <= 39:
@@ -39,7 +25,8 @@ if x.szazalek >= 60 and x.szazalek <= 79:
 if x.szazalek >= 80:
     x.jegy = 5
 
-print(x.jegy)
+print("Jegyek a százalék alapján: ""\033[0;33;48m{a}".format(a=x.jegy))
+
 
 
 
