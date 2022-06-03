@@ -65,21 +65,21 @@ l.append(z)
 
 b.ar = 4999999
 print(b)
+#
+# while boolbeolvas("Akar felvinni adatot?"):
+#     a = Auto()
+#     a.szin = input("Kérem az autó színét: ")
+#     a.marka = input("Kérem az autó márkáját: ")
+#     a.ar = intbeolvas("Kérem az autó árát: ", 20000, 999999999)
+#     a.automatavaltos = boolbeolvas("Automataváltós")
+#     l.append(a)
+#
+# for i in l:
+#     print(i)
 
-for i in l:
-    print(i)
+# exit()
 
-
-a = Auto()
-a.szin = input("Kérem az autó színét: ")
-a.marka = input("Kérem az autó márkáját: ")
-a.ar = intbeolvas("Kérem az autó árát: ", 20000, 999999999)
-a.automatavaltos = boolbeolvas("Automataváltós")
-l.append(a)
-
-exit()
-
-fn = "tanarur1.txt"
+fn: str = "tanarur1.txt"
 
 fr = open(fn, mode="r", encoding="utf-8")
 sorok = fr.read().strip().split("\n")
@@ -96,14 +96,14 @@ while i < len(sorok):
     i += 1
     l.append(a)
 fr.close()
-
-while boolbeolvas("Szeretne autót felvinni a billentyűzetről?"):
-    a = Auto()
-    a.szin = input("Kérem az autó színét: ")
-    a.marka = input("Kérem az autó márkáját: ")
-    a.ar = intbeolvas("Kérem az autó árát: ")
-    a.automatavaltos = boolbeolvas("Automataváltós")
-    l.append(a)
+#
+# while boolbeolvas("Szeretne autót felvinni a billentyűzetről?"):
+#     a = Auto()
+#     a.szin = input("Kérem az autó színét: ")
+#     a.marka = input("Kérem az autó márkáját: ")
+#     a.ar = intbeolvas("Kérem az autó árát: ")
+#     a.automatavaltos = boolbeolvas("Automataváltós")
+#     l.append(a)
 
 
 print("-------")
