@@ -3,10 +3,22 @@ class Dolgozat:
         super().__init__()
         self.max: int = 0
         self.sajat: int = 0
+        self.jegy: int = 0
 
     def szazalekokfuggveny(self):
         return (self.sajat / self.max) * 100
 
+#    def jegyek(self):
+#        if self.szazalekokfuggveny() <= 24:
+#            self.jegy = 1
+#        if self.szazalekokfuggveny() >= 25 and self.szazalekokfuggveny() <= 39:
+#            self.jegy = 2
+#        if self.szazalekokfuggveny() >= 40 and self.szazalekokfuggveny() <= 59:
+#            self.jegy = 3
+#        if self.szazalekokfuggveny() >= 60 and self.szazalekokfuggveny() <= 79:
+#            self.jegy = 4
+#        if self.szazalekokfuggveny() >= 80:
+#            self.jegy = 5
 
 x = Dolgozat()
 x.max = int(input("A maximum pontszám: "))
