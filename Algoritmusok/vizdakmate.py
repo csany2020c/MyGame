@@ -48,7 +48,6 @@ def szorzat(lista: List['int']) -> int:
 
 
 
-
 #l: List['int'] = (4, 2, 3)
 #print(l)
 #print(szorzat(l))
