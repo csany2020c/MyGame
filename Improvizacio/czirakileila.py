@@ -1,4 +1,6 @@
 # szállítási költség, ár, szállítási idő
+from typing import List
+
 
 class filcek:
     def __init__(self) -> None:
@@ -78,6 +80,18 @@ T.fajta = "Tükröződő"
 T.szallitas = True
 T.ar = 3
 T.ido = 66
+
+l: List['Filcek'] = list()
+
+l.append(A)
+l.append(M)
+l.append(H)
+l.append(K)
+l.append(T)
+
+for i in l:
+    print(i)
+
 
 #print(A)
 #print(M)
