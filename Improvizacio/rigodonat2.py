@@ -128,3 +128,5 @@ fr.close()
 
 for i in lista:
     print(i)
+
+
