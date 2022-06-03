@@ -12,3 +12,10 @@ barna
 orszaguti
 2
 False
+2
+7
+fekete
+fehér
+országúti
+2
+True

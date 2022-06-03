@@ -85,12 +85,6 @@ while i < len(lines):
     l.append(a)
 feladatr.close()
 
-os.remove(feladat)
-f = open(feladat, mode="w", encoding="utf-8")
-for i in l:
-    f.write(i.__str__() + "\n")
-f.close()
-
 while boololvasas("Akar felvinni adatot?"):
     felhasznalokerekpar = Kerekpar()
     felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
@@ -104,6 +98,12 @@ while boololvasas("Akar felvinni adatot?"):
 
 for i in l:
     print(i)
+
+os.remove(feladat)
+f = open(feladat, mode="w", encoding="utf-8")
+for i in l:
+    f.write(i.__str__() + "\n")
+f.close()
 
 class Telefon():
     def __init__(self):
