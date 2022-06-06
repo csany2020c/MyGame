@@ -52,7 +52,7 @@ harmadikfeladat()
 # def negyedik():
 #     while True:
 #         a: int = int(input("Írjon be egy számot: "))
-#         if a // 21:
+#         if a % 21 == 0:
 #             return False
 #         else:
 #             pass
