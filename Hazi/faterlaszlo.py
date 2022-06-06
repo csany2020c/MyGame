@@ -27,21 +27,27 @@ from random import randint
 # masodikfeladat()
 
 
-# def harmadikfeladat() -> int:
-#     lista: List['int'] = list()
-#     for i in range(10):
-#         a = randint(1, 90)
-#         lista.append(a)
-#     print(lista)
-#     csere = randint(1, 10)
-#     csere2 = randint(1, 10)
-#     if csere == csere2:
-#         csere2 = randint(1, 10)
-#     for i in range(2):
-#         a = lista[csere]
-#
-#
-# harmadikfeladat()
+def harmadikfeladat() -> int:
+    lista: List['int'] = list()
+    for i in range(10):
+        a = randint(1, 90)
+        lista.append(a)
+    # print(lista)
+
+    for i in range(200):
+        csere = randint(0, 9)
+        csere2 = randint(0, 9)
+        if csere == csere2:
+            csere2 = randint(0, 9)
+        elso = lista[csere]
+        masodik = lista[csere2]
+        lista[csere] = masodik
+        lista[csere2] = elso
+    for i in range(0, 4):
+        print(lista[i])
+
+
+harmadikfeladat()
 
 # def negyedik():
 #     while True:
