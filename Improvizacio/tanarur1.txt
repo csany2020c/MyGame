@@ -1,0 +1,16 @@
+Kék
+Skoda
+False
+1000000
+Fekete
+BMV
+True
+49999999
+Piros
+Suzuki
+False
+150000
+Narancssárga
+Toyota
+False
+99

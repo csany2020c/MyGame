@@ -1,27 +1,41 @@
-from typing import TextIO, List
+from typing import List
+from typing import TextIO
 
-
-class Hazi:
-    def __init__(self, ) -> None:
+class Adatok:
+    def __init__(self, parse: str) -> None:
         super().__init__()
-        f:TextIO = open("toto.txt", "r")
-        file:str = f.read()
-        self.lines:List['str'] = file.split('\n')
-        for i in range(len(self.lines-1)):
-            self.loto(self.lines[i])
+        fields: List['str'] = parse.split(" ")
+        self.ev: int = int(fields[0])
+        self.het: int = int(fields[1])
+        self.fordulo: int = int(fields[2])
+        self.t13p1: int = int(fields[3])
+        self.ny13p1: int = int(fields[4])
+        self.eredmenyek: str = fields[5]
 
 
 
-    def loto(self, str):
-        sor = lines.split(' ')
-        self.ev = str(sor[0])
-        self.het = str(sor[1])
-        self.fordulo = str(sor[2])
-        self.T13p1 = str(sor[3])
-        self.Ny13p1 = int(sor[4])
-        self.eredmenyek = int(sor[5])
+    def __str__(self) -> str:
+        return "Év = {x}; Hét = {y}; Forduló = {txt}; T13p1 = {col}; Ny13p1 = {z}; Eredmények = {v}".format(x=self.ev, y=self.het, txt=self.fordulo, col=self.t13p1, z=self.ny13p1, v=self.eredmenyek)
+
+class beolvasas:
+    def __init__(self, filename: str) -> None:
+        super().__init__()
+        self.hetek: List['Het'] = list()
+        f = open(filename, encoding="utf-8", mode="r")
+        content: List['str'] = f.read().strip().split(sep="\n")
+        
+
+    def fordulokszama(self):
+        print("3. Feladat:")
 
 
 
 
-Hazi()
+
+
+
+
+
+
+f: beolvasas = beolvasas("toto.txt")
+f.fordulokszama()
