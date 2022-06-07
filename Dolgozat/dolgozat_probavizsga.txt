@@ -1,0 +1,19 @@
+1. Készítsen programot, amelyben a felhasználótól beolvas 2 számot és kiírja a beolvasott számok alapján a következő sorozatot:
+Pl:
+	be: 2, 3
+	ki: 2, 4, 6
+	(2*1, 2*2, 2*3)
+
+	be: 5, 4
+	ki: 5, 10, 15, 20
+	(5*1, 5*2, 5*3, 5*4)
+
+2. Készítsen programot, amely beolvas a beillentyűzetről neveket amíg üres sort nem viszünk fel. A nevek közül véletlenszerűen írjon ki egyet.
+
+3. Készítsen egy objektum osztály számítógép egerekről. A következő típusokat tárolja el, a használt típusokat Ön határozza meg.
+	gombok száma
+	vízszintes görgő
+	függőleges görgő
+	gyártó neve
+Vigyen fel 3 pédányt egy listába majd a listából írja ki a tárolt adatokat.
+
