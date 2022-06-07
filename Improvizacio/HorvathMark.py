@@ -13,7 +13,7 @@ class Kerekpar():
         self.csengo: bool = False
 
     def __str__(self) -> str:
-        return "Elsőváltó = {a}; Hátsóváltó = {b}; Szín = {c}; Szín2 = {d}; Fajtája = {e}; Kulacstartó szám = {f}; Van-e csengő = {g}".format(a = self.elsovalto, b = self.hatsovalto, c = self.szin, d = self.szin2, e = self.fajta, f = self.kulacstarto, g = self.csengo)
+        return str(self.elsovalto) + "\n" + str(self.hatsovalto) + "\n" + self.szin + "\n" + self.szin2 + "\n" + self.fajta + "\n" + str(self.kulacstarto) + "\n" + str(self.csengo)
 
 def strtobool(value: str) -> bool:
     if value.upper() == "I" or value.upper() == "Y" or value.upper() == "TRUE":
@@ -54,15 +54,6 @@ randomkerekpar.szin = "zöld"
 randomkerekpar.szin2 = "narancs"
 randomkerekpar.fajta = "országúti"
 
-#while boololvasas("Akar felvinni adatot?"):
-#    felhasznalokerekpar = Kerekpar()
-#    felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
-#    felhasznalokerekpar.hatsovalto = intbeolvasas("Hány fokozatú a hátsó váltó? ", 1, 8)
-#    felhasznalokerekpar.szin = input("Milyen színű?(1. szín) ")
-#    felhasznalokerekpar.szin2 = input("Milyen színű?(2. szín) ")
-#    felhasznalokerekpar.fajta = input("Milyen fajtájú a kerékpár? ")
-#    felhasznalokerekpar.kulacstarto = intbeolvasas("Mennyi kulacstartója van? ", 0, 5)
-#    felhasznalokerekpar.csengo = boololvasas("Van rajta csengő?")
 
 #print(felhasznalokerekpar)
 #print(Kerekpar())
@@ -94,8 +85,25 @@ while i < len(lines):
     l.append(a)
 feladatr.close()
 
+while boololvasas("Akar felvinni adatot?"):
+    felhasznalokerekpar = Kerekpar()
+    felhasznalokerekpar.elsovalto = intbeolvasas("Hány fokozatú az első váltó? ", 1, 3)
+    felhasznalokerekpar.hatsovalto = intbeolvasas("Hány fokozatú a hátsó váltó? ", 1, 8)
+    felhasznalokerekpar.szin = input("Milyen színű?(1. szín) ")
+    felhasznalokerekpar.szin2 = input("Milyen színű?(2. szín) ")
+    felhasznalokerekpar.fajta = input("Milyen fajtájú a kerékpár? ")
+    felhasznalokerekpar.kulacstarto = intbeolvasas("Mennyi kulacstartója van? ", 0, 5)
+    felhasznalokerekpar.csengo = boololvasas("Van rajta csengő?")
+    l.append(felhasznalokerekpar)
+
 for i in l:
     print(i)
+
+os.remove(feladat)
+f = open(feladat, mode="w", encoding="utf-8")
+for i in l:
+    f.write(i.__str__() + "\n")
+f.close()
 
 class Telefon():
     def __init__(self):
