@@ -12,11 +12,11 @@ szam3: int = int(input("Harmadik szám:"))
 print("Feladat1: ", max(szam1, szam2, szam3))
 
 print("")
-print("Feladat2 (Kizárólag 1-8 -al működik):")
+print("Feladat2:")
 print("")
 
 listx = list()
-listx = [1, 2, 3, 4, 5, 6, 7, 8]
+listx = [1, 2, 3, 4, 5, 6, 7, 19]
 
 n : int = 0
 x : int = 0
@@ -30,12 +30,14 @@ for y in listx:
 
 atlag = x / n
 
-for j in range(2, 8):
-    if listx.index(j) < atlag:
-        print(listx.index(j))
+print(atlag)
+
+for j in listx:
+    if j < atlag:
+        print(j)
 
 print("")
-print("Feladat3 (Nem tudtam megoldani hogy több szám is helyet cseréljen):")
+print("Feladat3:")
 print("")
 
 listy = list()
@@ -44,10 +46,11 @@ listy = []
 for a in range(1, 91):
     listy.append(a)
 
-index1 = listy.index(randint(1, 90))
-index2 = listy.index(randint(1, 90))
+for b in range(200):
+    index1 = listy.index(randint(1, 90))
+    index2 = listy.index(randint(1, 90))
 
-listy[index1], listy[index2] = listy[index2], listy[index1]
+    listy[index1], listy[index2] = listy[index2], listy[index1]
 
 print(listy)
 
