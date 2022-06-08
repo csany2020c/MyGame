@@ -12,7 +12,7 @@ szam3: int = int(input("Harmadik szám:"))
 print("Feladat1: ", max(szam1, szam2, szam3))
 
 print("")
-print("Feladat2 (Kizárólag 1-8 -al működik):")
+print("Feladat2:")
 print("")
 
 listx = list()
@@ -37,7 +37,7 @@ for j in listx:
         print(j)
 
 print("")
-print("Feladat3 (Nem tudtam megoldani hogy több szám is helyet cseréljen):")
+print("Feladat3:")
 print("")
 
 listy = list()
