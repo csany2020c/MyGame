@@ -52,7 +52,7 @@ for b in range(200):
 
     listy[index1], listy[index2] = listy[index2], listy[index1]
 
-print(listy)
+print(listy.index(1),listy.index(2),listy.index(3),listy.index(4),listy.index(5))
 
 print("")
 print("Feladat4:")

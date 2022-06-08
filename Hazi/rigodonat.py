@@ -15,8 +15,19 @@ for i in range(3):
    a = int(input())
    lista.append(a)
 
-print(legnagyobb(lista))
+#print(legnagyobb(lista))
 
 #masodikfeladat
 
 list8num :List['int'] = [ 2,5,6,7,32,23,1,3]
+osszeg = 0
+db: int = 0
+for i in list8num:
+    osszeg += i
+    db = i
+    atlag = osszeg / db
+
+    print("A számok átlagánál kisebb számok({a})".format(a=atlag))
+    for a in list8num:
+        if a < atlag:
+            print (a)
