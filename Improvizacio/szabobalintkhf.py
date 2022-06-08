@@ -16,7 +16,7 @@ print("Feladat2 (Kizárólag 1-8 -al működik):")
 print("")
 
 listx = list()
-listx = [1, 2, 3, 4, 5, 6, 7, 8]
+listx = [1, 2, 3, 4, 5, 6, 7, 19]
 
 n : int = 0
 x : int = 0
@@ -30,9 +30,11 @@ for y in listx:
 
 atlag = x / n
 
-for j in range(2, 8):
-    if listx.index(j) < atlag:
-        print(listx.index(j))
+print(atlag)
+
+for j in listx:
+    if j < atlag:
+        print(j)
 
 print("")
 print("Feladat3 (Nem tudtam megoldani hogy több szám is helyet cseréljen):")
