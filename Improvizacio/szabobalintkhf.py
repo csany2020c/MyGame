@@ -44,10 +44,11 @@ listy = []
 for a in range(1, 91):
     listy.append(a)
 
-index1 = listy.index(randint(1, 90))
-index2 = listy.index(randint(1, 90))
+for b in range(200):
+    index1 = listy.index(randint(1, 90))
+    index2 = listy.index(randint(1, 90))
 
-listy[index1], listy[index2] = listy[index2], listy[index1]
+    listy[index1], listy[index2] = listy[index2], listy[index1]
 
 print(listy)
 
