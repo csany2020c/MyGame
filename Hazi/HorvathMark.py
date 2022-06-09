@@ -66,13 +66,25 @@ def atlag(asd: list) -> int:
 #        g = int(input())
 
 print("Dolgozat feladat 1:")
+lista: List['int'] = list()
 a: int = int(input("Kérek egy számot? "))
 b: int = int(input("Hánnyal szorozzam? "))
 for i in range(1, b + 1):
     c = a * i
-    print(c)
+    lista.append(c)
+print(lista)
 
 print("Dolgozat feladat 2:")
-d: str = input()
+lista2: List['str'] = list()
+d: str = "asd"
+e:int = 0
 while d != "":
+    d = input("Kérek egy szavat:")
+    lista2.append(d)
+else:
+    f = random.randint(0, len(lista2) - 1)
+    print(lista2[f])
+
+
+
 
