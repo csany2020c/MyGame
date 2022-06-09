@@ -1,0 +1,20 @@
+1. Olvasson be a felhasználótól 2 számot. Állapítse meg, hogy melyik a kisebb, majd a kisebbig számoljon el 0-tól egyesével a beírt számig. Figyeljen arra, hogy negatív szám is lehet a bemeneten, és ekkor a számolás megfordul.
+Pl:
+	be: 4, 8
+	ki: 0,1,2,3,4
+
+	be: 8,4
+	ki: 0,1,2,3,4
+
+	be: -4, 3
+	ki: 0,-1,-2,-3,-4
+
+
+2. Készítsen programot, amely beolvas a billentyűzetről számokat addig, amíg negatívot nem írunk be. A számok közül a legelsőt és a legutolsót írja ki a képernyőre. (Az utolsó negatív szám nem számít bele, azzal nem kell foglalkozni.)
+
+3. A feladatban egy bevásárló listát kell eltárolnia.
+A megoldáshoz készítsen egy objektum osztályt, amelyben egyetlen termék adatai találhatók:
+	- Név
+	- Ár
+	- Tömeg
+Vigyen fel 3 terméket, mindegy milyen módszert választ a megoldáshoz. Ezeket a termékeket egy listában tárolja el, majd a listából számolja ki a termékek árának összegét.
