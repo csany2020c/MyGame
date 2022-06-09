@@ -2,15 +2,15 @@ from typing import List
 from random import randint
 #1.feladat
 #class szamok:
-    #def __init__(self) -> None:
-       #self.egy: int = input("Kérek egy számot:")
-#        self.ketto: int = input("Kérek egy számot:")
-#        self.harom: int = input("Kérek egy számot:")
-#        self.g: int = 0
-#        self.h: int = 0
-#        self.atlag: int = 0
-
-
+#    def __init__(self) -> None:
+#       self.egy: int = input("Kérek egy számot:")
+#       self.ketto: int = input("Kérek egy számot:")
+#       self.harom: int = input("Kérek egy számot:")
+#       self.g: int = 0
+#       self.h: int = 0
+#       self.atlag: int = 0
+#
+#
 #a = szamok()
 #f = a.egy
 #if f < a.ketto:
@@ -29,9 +29,10 @@ from random import randint
 #    a.h = a.h + q
 #
 #a.atlag = a.h / a.g
+#print(a.atlag)
 #for l in range(5, 12):
-#    if lista.index(l) < a.atlag:
-#        print(lista.index(l))
+#    if l < a.atlag:
+#        print(l)
 
 #3.feladat
 
