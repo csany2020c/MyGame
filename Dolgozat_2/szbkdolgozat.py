@@ -79,26 +79,3 @@ for i in listy:
     teljesosszeg = teljesosszeg + i.ar
 
 print(teljesosszeg)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
