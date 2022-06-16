@@ -52,4 +52,4 @@ def kitalal():
         print("5. feladat: A megoldás valóban a " + str(a))
 
 
-kitalal()
+# kitalal()
