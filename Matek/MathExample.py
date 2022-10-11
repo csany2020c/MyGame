@@ -45,12 +45,44 @@ class masodfoku(game.scene2d.MyMathFunction):
         return 3*x*x + 7*x + 4
 
 
+class rugo(game.scene2d.MyMathFunction):
+
+    def f(self, t: float) -> float:
+
+        x0 = 1 # A kitérés kezdeti értéke (m)
+        v0 = 10 # Kezdeti sebesség (m/s)
+
+
+        c = 0.82 # Csillapítási tényező, Damping ratio (konstans érték)
+        k = 20 # Rugómerevség (N/m) Stiffness
+        m = 5  # Tömeg (N) mass
+        f = 1  # Frekvancia (Hz)
+
+        zeta = c / (2 * math.sqrt(k * m)) # Csillapítási faktor
+        # \zeta < 1(Underdamped),
+        # \zeta = 1(Critically Damped),
+        # \zeta > 1(Overdamped).
+
+        sqrt1ms2 = math.sqrt(1 - math.pow(zeta, 2))
+
+        p = sqrt1ms2 * f # Csillapított sajátfrekvencia (Hz)
+        omegak = 2 * math.pi * p;
+
+        # https://engcourses-uofa.ca/books/vibrations-and-sound/damped-free-vibrations-of-single-degree-of-freedom-systems/free-vibrations-of-a-damped-spring-mass-system/
+
+        return 0 if t < 0 else \
+            math.pow(math.e, -zeta * omegak * t) * \
+            (((v0 + zeta * omegak * x0) / (sqrt1ms2 * omegak)) * math.sin(sqrt1ms2 * omegak * t) +
+             x0 * math.cos(sqrt1ms2 * omegak * t))
+
+
 class Screen(game.scene2d.MyScreen):
 
     def __init__(self):
         super().__init__()
         m = game.scene2d.MyMathGraphStage()
-        m.add_math_function(masodfoku())
+        m.add_math_function(rugo())
+        # m.add_math_function(masodfoku())
         # m.add_math_function(Fuzetbol(color=(200, 100, 50)))
         # m.add_math_function(X2(color=(200, 100, 250)))
         # m.add_math_function(X3(color=(200, 200, 250)))
@@ -65,4 +97,4 @@ class Game(game.scene2d.MyGame):
         super().__init__(width, height, autorun, autosize, debug)
         self.screen=Screen()
 
-Game().run()
+# Game().run()
