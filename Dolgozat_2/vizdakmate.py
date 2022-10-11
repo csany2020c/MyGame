@@ -14,15 +14,11 @@ print("2.feladat")
 szamok: List['int'] = list()
 while True:
       valami: int = int(input("Kérek egy számot:"))
-      if valami == "-":
-        print(szamok)
-      break
-
-
-
+      if valami < 0:
+        #print(szamok)
+         break
 
 print("3.feladat")
-
 class Termekek:
     def __init__(self):
         super().__init__()
@@ -30,9 +26,9 @@ class Termekek:
         self.ar: int = 0
         self.tomeg: int = 0
 
-
     def __str__(self):
         return "nev = {n}, ar = {a}, tomeg = {t}".format(n=self.nev, a=self.ar, t=self.tomeg)
+
 
 termek: List['int'] = list()
 t = Termekek()
@@ -54,10 +50,10 @@ termek.append(t)
 termek.append(t2)
 termek.append(t3)
 for i in termek:
-
     print(i)
 
 osszeg = 0
 osszeg += t.ar + t2.ar + t3.ar
 print(osszeg)
 Termekek()
+
